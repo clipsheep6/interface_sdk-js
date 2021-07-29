@@ -80,6 +80,11 @@
     {
       "name": "loop",
       "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
       "required": false,
       "description": [
         {
@@ -118,6 +123,40 @@
       ]
     },
     {
+      "name": "starttime",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Where the video starts playing.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ],
+      "type": "string"
+    },
+    {
+      "name": "speed",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Controls the video playback speed. A larger value indicates a faster video playback speed.The value ranges from 0.1 to 20.0. The precision is float.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ],
+      "type": "number"
+    },
+    {
       "name": "id",
       "supportedDevices": ["phone", "tablet", "tv"],
       "required": false,
@@ -141,18 +180,7 @@
       ],
       "type": "string"
     },
-    {
-      "name": "starttime",
-      "supportedDevices": ["phone", "tablet", "tv"],
-      "required": false,
-      "description": [
-        {
-          "name": "Where the video starts playing.",
-          "supportedDevices": ["phone", "tablet", "tv"]
-        }
-      ],
-      "type": "string"
-    },
+
     {
       "name": "class",
       "supportedDevices": ["phone", "tablet", "tv"],
@@ -218,7 +246,7 @@
       ]
     },
     {
-      "name": "data",
+      "name": "data-*",
       "supportedDevices": ["phone", "tablet", "tv"],
       "required": false,
       "description": [
@@ -635,6 +663,56 @@
       "description": [
         {
           "name": "Triggered when a component is long pressed.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "doubleclick",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when a component is double clicked.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchstart",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch starts.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchupdate",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch updates.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchend",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch ends.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchcancel",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch is interrupted.",
           "supportedDevices": ["phone", "tablet", "tv"]
         }
       ]

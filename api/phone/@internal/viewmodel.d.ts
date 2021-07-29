@@ -19,6 +19,20 @@ export interface FocusParamObj {
   focus: boolean;
 }
 
+export interface RectObj {
+  width: number;
+
+  height: number;
+
+  left: number;
+
+  top: number;
+}
+
+export interface ContextAttrOptions {
+  antialias: boolean;
+}
+
 export interface AnimateStyle {
   /**
    * Width value applied to the component after the animation is executed.
@@ -28,6 +42,22 @@ export interface AnimateStyle {
    * Height value applied to the component after the animation is executed.
    */
   height: number;
+  /**
+   * left offset applied to the component after the animation is executed.
+   */
+  left: number;
+  /**
+   * top offset applied to the component after the animation is executed.
+   */
+  top: number;
+  /**
+   * right offset applied to the component after the animation is executed.
+   */
+  right: number;
+  /**
+   * bottom offset applied to the component after the animation is executed.
+   */
+  bottom: number;
   /**
    * Background color applied to the component after the animation is executed.
    * The default value is none.
@@ -53,13 +83,161 @@ export interface AnimateStyle {
   /**
    * Transformation type applied to an element.
    */
-  transform: object;
+  transform: "none" | TransformObject;
   /**
    * The value of offset must be within (0.0,1.0] and sorted in ascending order if it is provided.
    * If there are only two frames, offset can be left empty.
    * If there are more than two frames, offset is mandatory.
    */
   offset?: number;
+}
+
+export interface TransformObject {
+  /**
+   * Defines a 2D transformation, using a matrix of six values..
+   * @param scaleX the scale value for x-axis
+   * @param skewX the skew value for y-axis
+   * @param skewY the skew value for x-axis
+   * @param scaleY the scale value for y-axis
+   * @param translateX the translate value for x-axis
+   * @param translateY the translate value for y-axis
+   */
+  matrix(
+    scaleX: number,
+    skewX: number,
+    skewY: number,
+    scaleY: number,
+    translateX: number,
+    translateY: number): void;
+  /**
+   * Defines a 3D transformation using a 4x4 matrix of 16 values.
+   * @param n00 the value of the 0 row and 0 column of the 4x4 matrix
+   * @param n01 the value of the 0 row and 1 column of the 4x4 matrix
+   * @param n02 the value of the 0 row and 2 column of the 4x4 matrix
+   * @param n03 the value of the 0 row and 3 column of the 4x4 matrix
+   * @param n10 the value of the 1 row and 0 column of the 4x4 matrix
+   * @param n11 the value of the 1 row and 1 column of the 4x4 matrix
+   * @param n12 the value of the 1 row and 2 column of the 4x4 matrix
+   * @param n13 the value of the 1 row and 3 column of the 4x4 matrix
+   * @param n20 the value of the 2 row and 0 column of the 4x4 matrix
+   * @param n21 the value of the 2 row and 1 column of the 4x4 matrix
+   * @param n22 the value of the 2 row and 2 column of the 4x4 matrix
+   * @param n23 the value of the 2 row and 3 column of the 4x4 matrix
+   * @param n30 the value of the 3 row and 0 column of the 4x4 matrix
+   * @param n31 the value of the 3 row and 1 column of the 4x4 matrix
+   * @param n32 the value of the 3 row and 2 column of the 4x4 matrix
+   * @param n33 the value of the 3 row and 3 column of the 4x4 matrix
+   * @devices tv, phone, tablet, wearable
+   */
+  matrix3d(n00: number, n01: number, n02: number, n03: number,
+    n10: number, n11: number, n12: number, n13: number,
+    n20: number, n21: number, n22: number, n23: number,
+    n30: number, n31: number, n32: number, n33: number): void;
+  /**
+   * Defines 2D transformations for translation of the X and Y axes
+   * @param x the translate value for x-axis
+   * @param y the translate value for y-axis
+   */
+  translate(x: number, y: number): void;
+  /**
+   * Defines 3D transformations for translation of the X / Y / Z axes
+   * @param x the translate value for x-axis
+   * @param y the translate value for y-axis
+   * @param z the translate value for z-axis
+   */
+  translate3d(x: number, y: number, z: number): void;
+  /**
+   * Defines 2D transformations for translation of the X axes
+   * @param x the translate value for x-axis
+   */
+  translateX(x: number): void;
+  /**
+   * Defines 2D transformations for translation of the Y axes
+   * @param y the translate value for y-axis
+   */
+  translateY(y: number): void;
+  /**
+   * Defines 3D transformations for translation of the Z axes
+   * @param z the translate value for z-axis
+   */
+  translateZ(z: number): void;
+  /**
+   * Defines 2D transformations for scaling of the X and Y axes
+   * @param x the scale value for x-axis
+   * @param y the scale value for y-axis
+   */
+  scale(x: number, y: number): void;
+  /**
+   * Defines 3D transformations for scaling of the X / Y / Z axes
+   * @param x the scale value for x-axis
+   * @param y the scale value for y-axis
+   * @param z the scale value for z-axis
+   */
+  scale3d(x: number, y: number, z: number): void;
+  /**
+   * Defines 2D transformations for scaling of the X axes
+   * @param x the scale value for x-axis
+   */
+  scaleX(x: number): void;
+  /**
+   * Defines 2D transformations for scaling of the Y axes
+   * @param y the scale value for y-axis
+   */
+  scaleY(y: number): void;
+  /**
+   * Defines 3D transformations for scaling of the Z axes
+   * @param z the scale value for z-axis
+   */
+  scaleZ(z: number): void;
+  /**
+   * Define the 2D rotation and specify the angle in the parameters.
+   * @param angle the rotate value for z-axis
+   */
+  rotate(angle: number): void;
+  /**
+   * Defines a 3D transformation for rotating the X / Y / Z axes.
+   * @param x the vector value of the x-axis
+   * @param y the vector value of the y-axis
+   * @param z the vector value of the z-axis
+   * @param angle the rotate value for x&y&z vector.
+   */
+  rotate3d(x: number, y: number, z: number, angle: number): void;
+  /**
+   * Defines 3D transformations for rotating of the X axes.
+   * @param x the scale value for x-axis
+   */
+  rotateX(angle: number): void;
+  /**
+   * Defines 3D transformations for rotating of the Y axes.
+   * @param y the scale value for y-axis
+   */
+  rotateY(angle: number): void;
+  /**
+   * Defines 3D transformations for rotating of the Z axes.
+   * @param z the scale value for z-axis
+   */
+  rotateZ(angle: number): void;
+  /**
+   * Defines the 2D skew transition along the X and Y axes.
+   * @param xAngle the angle of inclination along the x axis.
+   * @param yAngle the angle of inclination along the y axis.
+   */
+  skew(xAngle: number, yAngle: number): void;
+  /**
+   * Defines the 2D skew transition along the X axes.
+   * @param angle the angle of inclination along the x axis.
+   */
+  skewX(angle: number): void;
+  /**
+   * Defines the 2D skew transition along the Y axes.
+   * @param angle the angle of inclination along the y axis.
+   */
+  skewY(angle: number): void;
+  /**
+   * Defines a perspective view for the 3D transformation element.
+   * @param n the vertical distance from the observation point to the component plane.
+   */
+  perspective(verticalDistance: number): void;
 }
 
 export interface AnimateOptions {
@@ -72,6 +250,7 @@ export interface AnimateOptions {
   /**
    * Time curve of the animation. For details about the supported types.
    * linear The animation speed keeps unchanged.
+   * ease The animation starts and ends at a low speed, cubic-bezier(0.25, 0.1, 0.25, 1.0).
    * ease-in The animation starts at a low speed, cubic-bezier(0.42, 0.0, 1.0, 1.0).
    * ease-out The animation ends at a low speed, cubic-bezier(0.0, 0.0, 0.58, 1.0).
    * ease-in-out The animation starts and ends at a low speed, cubic-bezier(0.42, 0.0, 0.58, 1.0).
@@ -85,9 +264,10 @@ export interface AnimateOptions {
    * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
-   * The default value is linear.
+   * The default value is ease.
    */
   easing: string;
+
   /**
    * Delay for the animation start. The default value indicates no delay.
    * The default value is 0.
@@ -101,11 +281,17 @@ export interface AnimateOptions {
   iterations: number | string;
 
   /**
+   * The animation playback mode.
+   * The default value is "normal".
+   */
+  direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
+
+  /**
    * Whether to resume to the initial state after the animation is executed.
    * none: The initial state is restored after the animation is executed.
    * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
    */
-  fill: "none" | "forwards";
+  fill: "none" | "forwards" | "backwards" | "both";
 }
 
 export interface AnimationResult {
@@ -150,6 +336,10 @@ export interface AnimationResult {
    */
   reverse(): void;
   /**
+   * The animation is started.
+   */
+  onstart: () => void;
+  /**
    * The animation is finished.
    */
   onfinish: () => void;
@@ -157,6 +347,10 @@ export interface AnimationResult {
    * The animation is canceled.
    */
   oncancel: () => void;
+  /**
+   * The animation is repeated.
+   */
+  onrepeat: () => void;
 }
 
 export interface Element {
@@ -188,6 +382,12 @@ export interface Element {
     keyframes: Array<AnimateStyle>,
     options: AnimateOptions
   ): AnimationResult;
+
+  /**
+   * Obtains the size and position of the element.
+   * @returns RectObj the size position of the element.
+   */
+  getBoundingClientRect(): RectObj;
 }
 
 /**
@@ -329,6 +529,52 @@ export interface SwiperElement extends Element {
   showPrevious(): void;
 }
 
+export interface CameraTakePhotoOptions {
+  /**
+   * Picture quality.
+   */
+  quality: "high" | "normal" | "low";
+
+  /**
+   * Callback function for successful interface invocation.
+   * @param result the request execution result.
+   */
+  success?: (result: Object) => void;
+
+  /**
+   * Callback function for interface invocation failure.
+   * @param result the request execution result.
+   */
+  fail?: (result: Object) => void;
+
+  /**
+   * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
+   * @param result the request execution result.
+   */
+  complete?: (result: Object) => void;
+}
+
+/**
+ * The <camera> component provides preview and photographing functions..
+ */
+export interface CameraElement extends Element {
+  /**
+   * Take photos with specified parameters.
+   * @param options the parameters of camera.
+   */
+  takePhoto(options: CameraTakePhotoOptions): void;
+}
+
+/**
+ * The <web> component is a container for displaying web page content.
+ */
+export interface WebElement extends Element {
+  /**
+   * Reload the web page content
+   */
+  reload(): void;
+}
+
 /**
  * The <dialog> component is a custom pop-up container.
  */
@@ -444,6 +690,11 @@ export interface InputElement extends Element {
    * @param param
    */
   showError(param: { error: string }): void;
+
+  /**
+   * Deletes the previous character at the cursor position.
+   */
+  delete(): void;
 }
 
 /**
@@ -512,6 +763,11 @@ export interface VideoElement extends Element {
    * Requests to exit the full screen mode.
    */
   exitFullscreen(): void;
+
+  /**
+   * Requests to stop playing a video.
+   */
+  stop(): void;
 }
 
 export interface TextMetrics {
@@ -600,6 +856,12 @@ export interface CanvasRenderingContext2D {
   stroke(): void;
 
   /**
+   * Draws a path stroke.
+   * @param path The object of Path2D.
+   */
+  stroke(path: Path2D): void;
+
+  /**
    * Creates a drawing path.
    */
   beginPath(): void;
@@ -668,6 +930,13 @@ export interface CanvasRenderingContext2D {
   textAlign: string;
 
   /**
+   * Sets whether an image is smooth.
+   * default value is true.
+   * @devices tv, phone, tablet, wearable, smartVision
+   */
+  imageSmoothingEnabled: boolean;
+
+  /**
    * Sets a text baseline in the horizontal direction for text alignment.
    * Text baseline. Available values include:
    * alphabetic (default): The text baseline is the normal alphabetic baseline.
@@ -695,12 +964,45 @@ export interface CanvasRenderingContext2D {
   ): CanvasGradient;
 
   /**
+   * Creates a radial gradient color.
+   * @param x0 X-coordinate of the start point.
+   * @param y0 Y-coordinate of the start point.
+   * @param r0 The radius of the starting circle.
+   * @param x1 X-coordinate of the end point.
+   * @param y1 Y-coordinate of the end point.
+   * @param r1 The radius of End Circle.
+   * @returns RadialGradient object.
+   */
+  createRadialGradient(
+    x0: number,
+    y0: number,
+    r0: number,
+    x1: number,
+    y1: number,
+    r1: number
+  ): CanvasGradient;
+
+  /**
    * Creates a pattern for image filling based on a specified source image and repetition mode.
    * @param image Source image.
    * @param repetition Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
    * @returns Pattern of image filling.
    */
   createPattern(image: Image, repetition: string): object;
+
+  /**
+   * Creates a path that is later used by the CanvasRenderingContext2D object.
+   * @param path another created Path2D object.
+   * @returns the object of Path2D.
+   */
+  createPath2D(path?: Path2D): Path2D;
+
+  /**
+   * Creates a path that is later used by the CanvasRenderingContext2D object.
+   * @param cmds a string defined using the SVG path command.
+   * @returns the object of Path2D.
+   */
+  createPath2D(cmds?: string): Path2D;
 
   /**
    * Draws a cubic bezier curve on the canvas.
@@ -756,6 +1058,29 @@ export interface CanvasRenderingContext2D {
    * @param radius Radius of the arc.
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
+
+  /**
+   * Draws an ellipse based on the coordinate and radius.
+   * @param x X-coordinate of the center point on the ellipse.
+   * @param y Y-coordinate of the center point on the ellipse.
+   * @param radiusX X-coordinate of the radius Length on the ellipse.
+   * @param radiusY Y-coordinate of the radius Length on the ellipse.
+   * @param rotation The rotation angle of the ellipse, in radians.
+   * @param startAngle Angle of the start point for ellipse drawing.
+   * @param endAngle End Point Angle for Ellipse Drawing.
+   * @param anticlockwise Indicates whether to draw an ellipse counterclockwise.
+   * 0: clockwise; 1: counterclockwise. The default value is 0.
+   */
+  ellipse(
+    x: number,
+    y: number,
+    radiusX: number,
+    radiusY: number,
+    rotation: number,
+    startAngle: number,
+    endAngle: number,
+    anticlockwise?: number
+  ): void;
 
   /**
    * Creates a rectangular.
@@ -849,21 +1174,37 @@ export interface CanvasRenderingContext2D {
    * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
-   * @param sx X-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param sy Y-coordinate of the upper left corner of the rectangle used to crop the source image.
-   * @param sWidth Target width of the image to crop.
-   * @param sHeight Target height of the image to crop.
    */
   drawImage(
     image: Image,
     dx: number,
     dy: number,
     dWidth: number,
-    dHeight: number,
+    dHeight: number
+  ): void;
+
+  /**
+   * Draws an image.
+   * @param image Image resource.
+   * @param sx X-coordinate of the upper left corner of the rectangle used to crop the source image.
+   * @param sy Y-coordinate of the upper left corner of the rectangle used to crop the source image.
+   * @param sWidth Target width of the image to crop.
+   * @param sHeight Target height of the image to crop.
+   * @param dx X-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
+   * @param dWidth Width of the drawing area.
+   * @param dHeight Height of the drawing area.
+   */
+  drawImage(
+    image: Image,
     sx: number,
     sy: number,
     sWidth: number,
-    sHeight: number
+    sHeight: number,
+    dx: number,
+    dy: number,
+    dWidth: number,
+    dHeight: number
   ): void;
 
   /**
@@ -999,6 +1340,139 @@ export interface CanvasGradient {
   addColorStop(offset: number, color: string): void;
 }
 
+export interface Path2D {
+  /**
+   * Add another path to current path.
+   * @param path another created Path2D object.
+   */
+  addPath(path: Path2D): void;
+
+  /**
+   * Uses same parameters as the transform() function to reset the existing transformation matrix and create a new transformation matrix.
+   * @param scaleX X-axis scale.
+   * @param skewX X-axis skew.
+   * @param skewY Y-axis skew.
+   * @param scaleY Y-axis scale.
+   * @param translateX X-axis translation.
+   * @param translateY Y-axis translation.
+   */
+  setTransform(
+    scaleX: number,
+    skewX: number,
+    skewY: number,
+    scaleY: number,
+    translateX: number,
+    translateY: number
+  ): void;
+
+  /**
+   * Draws a closed path.
+   * @devices tv, phone, tablet, wearable
+   */
+  closePath(): void;
+
+  /**
+   * Moves a drawing path to a target position on the canvas.
+   * @param x X-coordinate of the target position.
+   * @param y Y-coordinate of the target position.
+   */
+  moveTo(x: number, y: number): void;
+
+  /**
+   * Connects the current point to a target position using a straight line.
+   * @param x X-coordinate of the target position.
+   * @param y Y-coordinate of the target position.
+   */
+  lineTo(x: number, y: number): void;
+
+  /**
+   * Draws a cubic bezier curve on the canvas.
+   * @param cp1x X-coordinate of the first parameter of the bezier curve.
+   * @param cp1y Y-coordinate of the first parameter of the bezier curve.
+   * @param cp2x X-coordinate of the second parameter of the bezier curve.
+   * @param cp2y Y-coordinate of the second parameter of the bezier curve.
+   * @param x End point x-coordinate of the bezier curve.
+   * @param y End point y-coordinate of the bezier curve.
+   */
+  bezierCurveTo(
+    cp1x: number,
+    cp1y: number,
+    cp2x: number,
+    cp2y: number,
+    x: number,
+    y: number
+  ): void;
+
+  /**
+   * Draws a quadratic curve on the canvas.
+   * @param cpx X-coordinate of the bezier curve parameter.
+   * @param cpy Y-coordinate of the bezier curve parameter.
+   * @param x End point x-coordinate of the bezier curve.
+   * @param y End point y-coordinate of the bezier curve.
+   */
+  quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
+
+  /**
+   * Draws an arc on the canvas.
+   * @param x X-coordinate of the center point of the arc.
+   * @param y Y-coordinate of the center point of the arc.
+   * @param radius Radius of the arc.
+   * @param startAngle Start radian of the arc.
+   * @param endAngel End radian of the arc.
+   * @param anticlockwise Whether to draw the arc counterclockwise.
+   */
+  arc(
+    x: number,
+    y: number,
+    radius: number,
+    startAngle: number,
+    endAngel: number,
+    anticlockwise?: boolean
+  ): void;
+
+  /**
+   * Draws an arc based on the radius and points on the arc.
+   * @param x1 X-coordinate of the first point on the arc.
+   * @param y1 Y-coordinate of the first point on the arc.
+   * @param x2 X-coordinate of the second point on the arc.
+   * @param y2 Y-coordinate of the second point on the arc.
+   * @param radius Radius of the arc.
+   */
+  arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
+
+  /**
+   * Draws an ellipse based on the coordinate and radius.
+   * @param x X-coordinate of the center point on the ellipse.
+   * @param y Y-coordinate of the center point on the ellipse.
+   * @param radiusX X-coordinate of the radius Length on the ellipse.
+   * @param radiusY Y-coordinate of the radius Length on the ellipse.
+   * @param rotation The rotation angle of the ellipse, in radians.
+   * @param startAngle Angle of the start point for ellipse drawing.
+   * @param endAngle End Point Angle for Ellipse Drawing.
+   * @param anticlockwise Indicates whether to draw an ellipse counterclockwise.
+   * 0: clockwise; 1: counterclockwise. The default value is 0.
+   */
+  ellipse(
+    x: number,
+    y: number,
+    radiusX: number,
+    radiusY: number,
+    rotation: number,
+    startAngle: number,
+    endAngle: number,
+    anticlockwise?: number
+  ): void;
+
+  /**
+   * Creates a rectangular.
+   * @param x X-coordinate of the upper left corner of the rectangle.
+   * @param y Y-coordinate of the upper left corner of the rectangle.
+   * @param width Width of the rectangle.
+   * @param height Height of the rectangle.
+   */
+  rect(x: number, y: number, width: number, height: number): void;
+}
+
 /**
  * <canvas> provides a rectangular canvas component for drawing graphics on the screen.
  * You can control each pixel to draw on the canvas.
@@ -1009,10 +1483,104 @@ export interface CanvasElement extends Element {
    * Obtains the context of 2D canvas drawing.
    * Only parameters related to 2D canvas drawing are supported.
    * The return value is a 2D drawing object that provides specific 2D drawing operations.
-   * This API cannot be called in OnInit or onReady.
+   * @param type identifier defining the drawing context associated to the canvas.
+   * @param options use this context attributes to creating rendering context.
    * @param param
    */
-  getContext(param: string): CanvasRenderingContext2D;
+  getContext(type: string, options?: ContextAttrOptions): CanvasRenderingContext2D;
+
+  /**
+   * Creates a data URI that contains the image display.
+   * @param type A DOMString indicating the image format. The default type is image/png.
+   * @param quality A Number between 0 and 1 indicating image quality if the type option
+   * is image/jpeg or image/webp. If this argument is anything else,
+   * the default value for image quality is used. Other arguments are ignored.
+   */
+  toDataURL(type?: string, quality?: number): string;
+}
+
+export interface ScrollOptions {
+  /**
+   * Scroll to the target position of the page. Unit: px
+   */
+  position: number;
+
+  /**
+   * Duration of the scrolling animation, in ms.
+   */
+  duration: number;
+
+  /**
+   * The selector for current scroll.
+   */
+  id?: string;
+
+  /**
+   * The timing function for current scroll animation.
+   */
+  timingFunction?: string;
+
+  /**
+   * Callback function for successful interface invocation.
+   * @param result the request execution result.
+   */
+  success?: (result: Object) => void;
+
+  /**
+   * Callback function for interface invocation failure.
+   * @param result the request execution result.
+   */
+  fail?: (result: Object) => void;
+
+  /**
+   * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
+   * @param result the request execution result.
+   */
+  complete?: (result: Object) => void;
+}
+
+export interface ScrollParam {
+  /**
+   * Offset for scrolling in the horizontal direction, in px.
+   */
+  dx?: number;
+
+  /**
+   * Offset for scrolling in the vertical direction, in px.
+   */
+  dy?: number;
+
+  /**
+   * Whether a sliding animation is displayed when scroll position is changed.
+   */
+  smooth?: boolean;
+}
+
+export interface ScrollOffset {
+  /**
+   * Scrolling offset in the x-axis, in px.
+   */
+  x: number;
+
+  /**
+   * Scrolling offset in the y-axis, in px.
+   */
+  y: number;
+}
+
+/**
+ * The <div> component provides a div container.
+ */
+export interface DivElement extends Element {
+  /**
+   * Scrolls the div for a certain distance.
+   */
+  scrollBy(data: ScrollParam): void;
+
+  /**
+   * Returns the offset of the current scrolling. The return value type is Object.
+   */
+  getScrollOffset(): ScrollOffset;
 }
 
 export interface Application {
@@ -1080,6 +1648,8 @@ export interface ViewModel {
   ): AnimationElement &
     CanvasElement &
     object &
+    WebElement &
+    CameraElement &
     ListElement &
     SwiperElement &
     DialogElement &
@@ -1091,7 +1661,8 @@ export interface ViewModel {
     ButtonElement &
     TextAreaElement &
     PickerElement &
-    VideoElement;
+    VideoElement &
+    DivElement;
 
   /**
    * Obtains the root ViewModel instance.
@@ -1128,12 +1699,20 @@ export interface ViewModel {
    * @param params The params of event.
    */
   $emit(event: string, params?: object): void;
+
+  /**
+   * Scroll the page to the destination.
+   * @param options The properties of event.
+   */
+  scrollTo(options: ScrollOptions) : void
 }
 
 export interface ElementReferences {
   [k: string]: AnimationElement &
     CanvasElement &
     object &
+    WebElement &
+    CameraElement &
     ListElement &
     SwiperElement &
     DialogElement &
@@ -1145,7 +1724,43 @@ export interface ElementReferences {
     ButtonElement &
     TextAreaElement &
     PickerElement &
-    VideoElement;
+    VideoElement &
+    DivElement;
+}
+
+export declare class Locate {
+  /**
+   * language, such as 'zh'.
+   */
+  language: string;
+
+  /**
+   * country or regin, such ass 'CN'.
+   */
+  countryOrRegion: string;
+
+  /**
+   * text layout direction, ltr or rtl.
+   */
+  dir: "ltr" | "rtl";
+
+  /**
+   * The Unicode locale key set defined by the locale. If this locale does not have a specific key set, an empty set is
+   * returned. For example: {"nu": "arab"}, which means that the numbers in the current environment use Arabic numbers.
+   */
+  unicodeSetting: object;
+}
+
+export declare class Configuration {
+  /**
+   * Internationalization related information, such as language, country, text layout direction, etc.
+   */
+  locate: Locate;
+
+  /**
+   * The magnification of the current system font.
+   */
+  fontScale: number;
 }
 
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
@@ -1201,6 +1816,53 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Called when the application is created.
    */
   onCreate?(): void;
+
+  /**
+   * Listens for page active.
+   * Called when the page is activing.
+   */
+  onActive?(): void;
+
+  /**
+   * Listens for page inactive.
+   * Called when the page is paused.
+   */
+  onInactive?(): void;
+
+  /**
+   * This callback is triggered when a new request is received when the FA has started.
+   */
+  onNewRequest?(): void;
+
+  /**
+   * Callback when FA initiates a migration, in this callback, the application can decide whether
+   * to migrate according to the current state.
+   */
+  onStartContinuation?(): boolean;
+
+  /**
+   * For the callback of saving state data, the developer needs to fill in the parameter object
+   * the data to be migrated to the target device.
+   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   */
+  onSaveData?(value: object): void;
+
+  /**
+   * The callback to restore the data saved by the onSaveData method when the migration was initiated.
+   */
+  onRestoreData?(value: object): void;
+
+  /**
+   * The callback for the completion of the migration, which is triggered on the calling side, indicates
+   * the result of the application migration to the target device.
+   */
+  onCompleteContinuation?(code: number): void;
+
+  /**
+   * This callback is triggered when the corresponding system configuration changes, such as system font size,
+   * language region, etc.
+   */
+  onConfigurationUpdated?(configuration: Configuration): void;
 }
 
 type DefaultData<T> = object;

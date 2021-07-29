@@ -18,29 +18,29 @@ export declare class console {
    * Prints "debug" logs.
    * @param message Text to print.
    */
-  static debug(message: string): void;
+  static debug(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "log" logs.
    * @param message Text to print.
    */
-  static log(message: string): void;
+  static log(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "info" logs.
    * @param message Text to print.
    */
-  static info(message: string): void;
+  static info(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "warn" logs.
    * @param message Text to print.
    */
-  static warn(message: string): void;
+  static warn(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "error" logs.
    * @param message Text to print.
    */
-  static error(message: string): void;
+  static error(message: string, ...arguments: any[]): void;
 }
