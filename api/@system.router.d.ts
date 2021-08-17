@@ -25,6 +25,17 @@ export interface RouterState {
   name: string;
   path: string;
 }
+export interface EnableAlertOptions {
+  message: string;
+  success?: (data: string) => void;
+  fail?: (data: string) => void;
+  complete?: (data: string) => void;
+}
+export interface DisableAlertOptions {
+  success?: (data: string) => void;
+  fail?: (data: string) => void;
+  complete?: (data: string) => void;
+}
 export default class Router {
   static push(options: RouterOptions): void;
   static replace(options: RouterOptions): void;
@@ -32,4 +43,6 @@ export default class Router {
   static clear(): void;
   static getLength(): string;
   static getState(): RouterState;
+  static enableAlertBeforeBackPage(options: EnableAlertOptions): void;
+  static disableAlertBeforeBackPage(options: DisableAlertOptions): void;
 }

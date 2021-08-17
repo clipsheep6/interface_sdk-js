@@ -44,6 +44,24 @@ export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
 
 /**
+ * Sets a vsync after which a function will be executed.
+ * @param handler Indicates the function to be called when the vsync trigger.
+ */
+export declare function requestAnimationFrame(handler: Function): number;
+
+/**
+ * Cancels the vsync callback set by "requestAnimationFrame()".
+ * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
+ */
+export declare function cancelAnimationFrame(requestId: number): void;
+
+/**
+ * Obtain the objects exposed in app.js
+ * @since 6
+ */
+export declare function getApp(): object;
+
+/**
  * You can create an Image object by calling new Image().
  */
 export declare class Image {
