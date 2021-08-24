@@ -16,6 +16,7 @@
 export interface ShowToastOptions {
   message: string;
   duration?: number;
+  bottom?: string | number;
 }
 export interface Button {
   text: string;
@@ -32,7 +33,18 @@ export interface ShowDialogOptions {
   cancel?: (data: string, code: string) => void;
   complete?: (data: string) => void;
 }
+export interface ActionMenuSuccessResponse {
+  index: number;
+}
+export interface ActionMenuOptions {
+  title?: string;
+  buttons: [Button, Button?, Button?, Button?, Button?, Button?];
+  success?: (data: ActionMenuSuccessResponse) => void;
+  fail?: (data: string) => void;
+  complete?: (data: string) => void;
+}
 export default class Prompt {
   static showToast(options: ShowToastOptions): void;
   static showDialog(options: ShowDialogOptions): void;
+  static showActionMenu(options: ActionMenuOptions): void;
 }
