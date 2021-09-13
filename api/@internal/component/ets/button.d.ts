@@ -28,7 +28,7 @@ interface Button extends CommonMethod<Button> {
 
   (options: { type?: ButtonType, stateEffect?: boolean }): Button;
 
-  (label: string, options?: { type?: ButtonType, stateEffect?: boolean }): Button;
+  (label: string | Resource, options?: { type?: ButtonType, stateEffect?: boolean }): Button;
 
   type(value: ButtonType): Button;
 
