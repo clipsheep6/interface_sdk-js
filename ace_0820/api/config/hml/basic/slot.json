@@ -1,0 +1,36 @@
+{
+  "name": "slot",
+  "version": [
+    {
+      "name": "v1.0"
+    }
+  ],
+  "supportedDevices": [
+    "phone",
+    "tablet",
+    "tv",
+    "wearable"
+  ],
+  "description": [
+    {
+      "name": "slot component allow developer to distribute the content of custom component",
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+    }
+  ],
+  "attributes": [
+    {
+      "name": "name",
+      "supportedDevices": [],
+      "required": false,
+      "description": [
+        {
+          "name": "Specify insert name",
+          "supportedDevices": []
+        }
+      ],
+      "type": "string"
+    }
+  ],
+  "supportedSubComponents": false,
+  "parentComponentsRestriction": []
+}
