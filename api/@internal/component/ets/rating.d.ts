@@ -15,12 +15,18 @@
 
 import {CommonMethod} from "./common";
 
-interface Rating extends CommonMethod<Rating> {
+export declare class RatingExtend<T> extends RatingAttribute<T> {
+}
+
+interface Rating extends RatingAttribute<Rating> {
   (options?: {rating: number, indicator?: boolean}): Rating;
-  stars(value: number): Rating;
-  stepSize(value: number): Rating;
-  starStyle(value: {backgroundUri: string, foregroundUri: string, secondaryUri?: string}): Rating;
-  onChange(callback:(value: number) => void): Rating;
+}
+
+declare class RatingAttribute<T> extends CommonMethod<T> {
+  stars(value: number): T;
+  stepSize(value: number): T;
+  starStyle(value: {backgroundUri: string, foregroundUri: string, secondaryUri?: string}): T;
+  onChange(callback:(value: number) => void): T;
 }
 
 export declare const RatingInterface: Rating;

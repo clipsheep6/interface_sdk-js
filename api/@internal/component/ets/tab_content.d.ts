@@ -15,10 +15,15 @@
 
 import {CommonMethod} from "./common";
 
-interface TabContent extends CommonMethod<TabContent> {
-  (): TabContent;
+export declare class TabContentExtend<T> extends TabContentAttribute<T> {
+}
 
-  tabBar(value: string | { icon?: string, text?: string }): TabContent;
+interface TabContent extends TabContentAttribute<TabContent> {
+  (): TabContent;
+}
+
+declare class TabContentAttribute<T> extends CommonMethod<T> {
+  tabBar(value: string | { icon?: string, text?: string }): T;
 }
 
 export declare const TabContentInterface: TabContent;

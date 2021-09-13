@@ -15,30 +15,41 @@
 
 import {CommonMethod, Resource} from "./common"
 
-interface AlertDialog extends CommonMethod<AlertDialog> {
-    show(value: {
-        title?: string | Resource;
-        message: string | Resource;
-        autoCancel?: boolean;
-        confirm?: {
-            value: string | Resource;
-            action: () => void;
-        };
-        cancel?: () => void;
-    } | {
-        title?: string | Resource;
-        message: string | Resource;
-        autoCancel?: boolean;
-        primaryButton: {
-            value: string | Resource;
-            action: () => void;
-        };
-        secondaryButton: {
-            value: string | Resource;
-            action: () => void;
-        };
-        cancel?: () => void;
-    });
+export declare enum DialogAlignment {
+  Top,
+  Center,
+  Bottom,
+  Default
+}
+
+interface AlertDialog {
+  show(value: {
+    title?: string | Resource;
+    message: string | Resource;
+    autoCancel?: boolean;
+    confirm?: {
+      value: string | Resource;
+      action: () => void;
+    };
+    cancel?: () => void;
+    alignment?: DialogAlignment;
+    offset?: { dx: number | string | Resource, dy: number | string | Resource };
+  } | {
+    title?: string | Resource;
+    message: string | Resource;
+    autoCancel?: boolean;
+    primaryButton: {
+      value: string | Resource;
+      action: () => void;
+    };
+    secondaryButton: {
+      value: string | Resource;
+      action: () => void;
+    };
+    cancel?: () => void;
+    alignment?: DialogAlignment;
+    offset?: { dx: number | string | Resource, dy: number | string | Resource };
+  });
 }
 
 export declare const AlertDialogInterface: AlertDialog;

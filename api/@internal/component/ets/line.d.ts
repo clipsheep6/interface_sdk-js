@@ -13,33 +13,19 @@
  * limitations under the License.
  */
 
-/**
- * @name ModuleInfo
- * @since 6
- * @SysCap appexecfwk
- * @import NA
- * @permission NA
- * @devices phone
- * @testapi
- */
-export interface ModuleInfo {
-    /**
-     * The module name.
-     *
-     * @default -
-     * @devices phone, tablet
-     * @since 6
-     * @SysCap BMS
-     */
-     moduleName: string;
+import {CommonShapeMethod} from "./common";
 
-    /**
-     * The module source path.
-     *
-     * @default -
-     * @devices phone, tablet
-     * @since 6
-     * @SysCap BMS
-     */
-     moduleSourceDir: string;
+export declare class LineExtend<T> extends LineAttribute<T> {
 }
+
+interface Line extends LineAttribute<Line> {
+  (): Line;
+  (value?: { width?: string | number, height?: string | number }) :Line;
+}
+
+declare class LineAttribute<T> extends CommonShapeMethod<T> {
+  startPoint(value: Array<any>): T;
+  endPoint(value: Array<any>): T;
+}
+
+export declare const LineInterface: Line;

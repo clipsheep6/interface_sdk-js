@@ -15,10 +15,16 @@
 
 import {CommonShapeMethod} from "./common";
 
-interface Polygon extends CommonShapeMethod<Polygon> {
+export declare class PolygonExtend<T> extends PolygonAttribute<T> {
+}
+
+interface Polygon extends PolygonAttribute<Polygon> {
     (): Polygon;
     (value?: { width?: string | number, height?: string | number }): Polygon;
-    points(value: Array<any>): Polygon;
+}
+
+declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
+    points(value: Array<any>): T;
 }
 
 export declare const PolygonInterface: Polygon;

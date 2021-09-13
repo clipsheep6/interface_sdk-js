@@ -13,15 +13,23 @@
  * limitations under the License.
  */
 
-/**
- * @name The ability callback.
- * @since 6
- * @SysCap aafwk
- * @permission N/A
- * @devices phone
- * @testapi
- */
-export interface AsyncCallback<T> {
-    (data: T): void;
-    (err: number): void;
+import { CommonMethod, Resource } from "./common";
+
+export declare enum MenuType {
+  Click,
+  LongPress
 }
+
+export declare class MenuExtend<T> extends MenuAttribute<T> {
+}
+
+interface Menu extends MenuAttribute<Menu> {
+  (options?: {type?: MenuType, title?: string | Resource}): Menu;
+}
+
+declare class MenuAttribute<T> extends CommonMethod<T> {
+  show(value: boolean): T;
+  showPosition(options: {x: number, y: number}): T;
+}
+
+export declare const MenuInterface: Menu;
