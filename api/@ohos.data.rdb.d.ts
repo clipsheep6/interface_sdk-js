@@ -14,6 +14,7 @@
  */
 import { AsyncCallback } from './basic';
 import { ResultSet } from './data/rdb/resultSet';
+import { Context } from './app/context';
 
 /**
  * Provides methods for rdbStore create and delete.
@@ -35,13 +36,13 @@ declare namespace rdb {
      * @since 7
      * @sysCap SystemCapability.Data.DATA_APPDATAMGR
      * @devices phone, tablet, tv, wearable, car
-     * @param config Indicates the configuration of the database related to this RDB store. The configurations include
-     * the database path, storage mode, and whether the database is read-only.
+     * @param context Indicates the context
+     * @param config Indicates the configuration of the database related to this RDB store.
      * @param version Indicates the database version for upgrade or downgrade.
      * @return Returns an RDB store {@link ohos.data.rdb.RdbStore}.
      */
-    function getRdbStore(config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
-    function getRdbStore(config: StoreConfig, version: number): Promise<RdbStore>;
+    function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
+    function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
 
     /**
      * Deletes the database with a specified name.
@@ -50,11 +51,12 @@ declare namespace rdb {
      * @since 7
      * @sysCap SystemCapability.Data.DATA_APPDATAMGR
      * @devices phone, tablet, tv, wearable, car
+     * @param context Indicates the context
      * @param name Indicates the database name.
      * @return Returns true if the database is deleted; returns false otherwise.
      */
-    function deleteRdbStore(name: string, callback: AsyncCallback<void>): void;
-    function deleteRdbStore(name: string): Promise<void>;
+    function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
+    function deleteRdbStore(context: Context, name: string): Promise<void>;
 
     /**
      * Provides methods for managing the relational database (RDB).
