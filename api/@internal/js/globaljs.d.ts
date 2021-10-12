@@ -550,3 +550,11 @@ type CombinedOptions<T extends ViewModel, Data> = object &
 export declare function extendViewModel<T extends ViewModel, Data>(
   options: CombinedOptions<T, Data>
 ): ViewModel & Data;
+export class element {
+  setAttr(attr: object): void;
+  setStyle(style: object): void;
+}
+export class document {
+  createElement(tagName: string): element;
+  appendChild(parent: element, child: element): void;
+}
