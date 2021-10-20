@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
-import {Want} from "../api/common/ability/want";
+import { CommonMethod } from "./common";
+import { Want } from "../api/common/ability/want";
 
 /**
  * controller of ability.
@@ -22,34 +22,34 @@ import {Want} from "../api/common/ability/want";
  * @since 7
  */
 export declare class AbilityController {
-    /**
-     * constructor.
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    constructor();
+  /**
+   * constructor.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  constructor();
 
-    /**
-     * load the ability in the AbilityComponent.
-     * Want: Capability description to be loaded
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    startAbility(value: Want);
+  /**
+   * load the ability in the AbilityComponent.
+   * Want: Capability description to be loaded
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  startAbility(value: Want);
 
-    /**
-     * Perform a return operation inside the AbilityComponent.
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    performBackPress();
+  /**
+   * Perform a return operation inside the AbilityComponent.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  performBackPress();
 
-    /**
-     * Obtains the number of tasks in the internal task stack of the AbilityComponent.
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    getStackCount();
+  /**
+   * Obtains the number of tasks in the internal task stack of the AbilityComponent.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  getStackCount();
 }
 
 /**
