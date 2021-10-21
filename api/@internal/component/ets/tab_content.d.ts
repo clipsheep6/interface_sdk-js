@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Resource} from "./common";
+import { CommonMethod, Resource } from "./common";
 
 /**
  * Declaration extension.
@@ -48,6 +48,12 @@ declare class TabContentAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   tabBar(value: string | Resource | { icon?: string | Resource, text?: string | Resource }): T;
+
+  /**
+   * 通过builder方式自定义tabbar内容。
+   * @since 8
+   */
+  tabbar(value: { builder: any }): T;
 }
 
 /**

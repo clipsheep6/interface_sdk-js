@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Resource} from "./common"
+import { CommonMethod, Resource } from "./common"
 
 /**
  * The alignment of dialog,
@@ -126,11 +126,11 @@ interface AlertDialog {
     offset?: { dx: number | string | Resource, dy: number | string | Resource };
   } | {
 
-  /**
-   * Title Properties
-   * @devices phone, tablet, car.
-   * @since 7
-   */
+    /**
+     * Title Properties
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     title?: string | Resource;
 
     /**
@@ -158,14 +158,14 @@ interface AlertDialog {
        * @devices phone, tablet, car.
        * @since 7
        */
-       value: string | Resource;
+      value: string | Resource;
 
-       /**
-        * Method executed by the callback.
-        * @devices phone, tablet, car.
-        * @since 7
-        */
-       action: () => void;
+      /**
+       * Method executed by the callback.
+       * @devices phone, tablet, car.
+       * @since 7
+       */
+      action: () => void;
     };
 
     /**

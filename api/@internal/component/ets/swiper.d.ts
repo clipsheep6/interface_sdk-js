@@ -155,6 +155,13 @@ declare class SwiperAttribute<T> extends CommonMethod<T> {
   displayMode(value: SwiperDisplayMode): T;
 
   /**
+   * 是否开启通过手势进行切换。
+   * @default true
+   * @since 8
+   */
+  gestureSwipe(value: boolean): T;
+
+  /**
    * Called when the index value changes.
    * @devices phone, tablet, car.
    * @since 7
