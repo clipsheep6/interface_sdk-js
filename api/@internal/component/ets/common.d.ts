@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import {GestureType, GestureMask} from "./gesture"
-import {Circle} from "./circle";
-import {Ellipse} from "./ellipse";
-import {Path} from "./path";
-import {Rect} from "./rect";
+import { GestureType, GestureMask } from "./gesture"
+import { Circle } from "./circle";
+import { Ellipse } from "./ellipse";
+import { Path } from "./path";
+import { Rect } from "./rect";
 
 /**
  * Defining Component ClassDecorator
@@ -1983,7 +1983,7 @@ export declare class CommonMethod<T> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  size(value: { width?: number | string | Resource, height?: number | string | Resource}): T;
+  size(value: { width?: number | string | Resource, height?: number | string | Resource }): T;
 
   /**
    * constraint Size：
@@ -1991,7 +1991,7 @@ export declare class CommonMethod<T> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  constraintSize(value: { minWidth?: number | string | Resource, maxWidth?: number | string | Resource, minHeight?: number | string | Resource, maxHeight?: number | string | Resource}): T;
+  constraintSize(value: { minWidth?: number | string | Resource, maxWidth?: number | string | Resource, minHeight?: number | string | Resource, maxHeight?: number | string | Resource }): T;
 
   /**
    * layout Priority
@@ -2012,14 +2012,14 @@ export declare class CommonMethod<T> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  padding(value: { top?: number | string | Resource, right?: number | string | Resource, bottom?: number | string | Resource, left?: number | string  | Resource} | number | string | Resource): T;
+  padding(value: { top?: number | string | Resource, right?: number | string | Resource, bottom?: number | string | Resource, left?: number | string | Resource } | number | string | Resource): T;
 
   /**
    * Outer Margin
    * @devices phone, tablet, car.
    * @since 7
    */
-  margin(value: { top?: number | string | Resource, right?: number | string | Resource, bottom?: number | string | Resource, left?: number | string  | Resource} | number | string | Resource): T;
+  margin(value: { top?: number | string | Resource, right?: number | string | Resource, bottom?: number | string | Resource, left?: number | string | Resource } | number | string | Resource): T;
 
   /**
    * Background color
@@ -2123,11 +2123,11 @@ export declare class CommonMethod<T> {
   hideNavigationBackButton(value: boolean): T;
 
   /**
-   * Tool bar
+   * 通过自定义builder方式创建toolbar。
    * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
-  toolBar(value: object): T;
+  toolBar(value: { builder: any }): T;
 
   /**
    * Hide tool bar
@@ -2757,7 +2757,7 @@ export declare class CommonMethod<T> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  bindMenu(content: {value: string, action: () => void}[]): T;
+  bindMenu(content: { value: string, action: () => void }[]): T;
 }
 
 /**

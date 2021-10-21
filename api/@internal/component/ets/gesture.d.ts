@@ -173,6 +173,7 @@ export declare type GestureType =
   | PinchGesture
   | RotationGesture
   | GestureGroup
+  | SwipeGesture
 
 /**
  * long press gesture event used in the longpress scenario.
@@ -304,6 +305,41 @@ export interface FingerInfo {
    * @since 8
    */
   localY: number;
+}
+
+/**
+ * swipe事件参数。
+ * @since 8
+ */
+export interface SwipeGestureEvent extends GestureEvent {
+  /**
+   * Swipe滑动方向。
+   * @since 8
+   */
+  direction: SwipeDirection;
+
+  /**
+   * Swipe滑动速度。
+   * @since 8
+   */
+  velocity: number;
+
+  /**
+   * Swipe滑动距离。
+   * @since 8
+   */
+  distance: number;
+}
+
+/**
+ * Swipe滑动方向。
+ * @since 8
+ */
+export enum SwipeDirection {
+  Up,
+  Down,
+  Left,
+  Right
 }
 
 /**
@@ -560,6 +596,23 @@ interface GestureGroup {
 }
 
 /**
+ * 提供Swipe手势识别器，用于swipe手势场景识别。
+ */
+interface SwipeGesture {
+  /**
+   * 构造SwipeGesture手势处理器。
+   * @since 8
+   */
+  (options?: { fingers?: number }): SwipeGesture;
+
+  /**
+   * SwipeGesture手势触发时触发的事件。
+   * @since 8
+   */
+  onAction(event: SwipeGestureEvent): void;
+}
+
+/**
  * @devices phone, tablet, car.
  * @since 7
  */
@@ -594,3 +647,8 @@ export declare const RotationGestureInterface: RotationGesture;
  * @since 7
  */
 export declare const GestureGroupInterface: GestureGroup;
+
+/**
+ * @since 8
+ */
+export declare const SwipeGestureInterface: SwipeGesture;
