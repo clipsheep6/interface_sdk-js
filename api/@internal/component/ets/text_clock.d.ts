@@ -67,6 +67,14 @@ declare class TextClockAttribute<T> extends CommonMethod<T> {
    * @since 8
    */
   hourswest(value: number): T;
+
+  /**
+   * 提供日期变化回调，回调参数为Unix Time Stamp，即自1970年1月1日（UTC）起经过的毫秒数。该事件最小回调间隔为秒。
+   * 用户可以监听该回调，在该回调中通过format属性方法自定义数据展示。
+   * @param event 监听日期事件回调。
+   * @since 8
+   */
+  onDateChange(event: (value: number) => void)
 }
 
 export declare class TextExtend<T> extends TextClockAttribute<T> {
