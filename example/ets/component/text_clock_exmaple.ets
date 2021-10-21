@@ -16,7 +16,12 @@
 @Entry
 @Component
 struct TextClockExmaple {
+  private format: string = 'ddd mm dd yyyy HH:MM:SS'
 
-
-    
+  build() {
+    Column() {
+      TextClock({is24hour: true, hourswest: -8})
+        .format(this.format)
+    }
+  }
 }
