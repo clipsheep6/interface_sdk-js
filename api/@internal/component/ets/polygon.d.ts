@@ -17,7 +17,6 @@ import {CommonShapeMethod} from "./common";
 
 /**
  * Polygon drawing.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class PolygonExtend<T> extends PolygonAttribute<T> {
@@ -25,7 +24,6 @@ export declare class PolygonExtend<T> extends PolygonAttribute<T> {
 
 /**
  * Provides the polygon drawing interface.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Polygon extends PolygonAttribute<Polygon> {
@@ -54,7 +52,6 @@ declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const PolygonInterface: Polygon;

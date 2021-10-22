@@ -17,27 +17,23 @@ import {CommonMethod} from "./common";
 
 /**
  * Route jump.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum NavigationType {
   /**
    * Jump to the next page.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Push,
 
   /**
    * Return to the previous page.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Back,
 
   /**
    * Replace page.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Replace
@@ -45,7 +41,6 @@ export declare enum NavigationType {
 
 /**
  * Declare navigator extensions.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {
@@ -53,13 +48,11 @@ export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {
 
 /**
  * Create route
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Navigator extends NavigatorAttribute<Navigator> {
   /**
    * Called when the route jumps.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: {
@@ -68,7 +61,6 @@ interface Navigator extends NavigatorAttribute<Navigator> {
 
   /**
    * Called when using the navigator.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (): Navigator;
@@ -76,41 +68,35 @@ interface Navigator extends NavigatorAttribute<Navigator> {
 
 /**
  * Declare navigator properties.
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class NavigatorAttribute<T> extends CommonMethod<T> {
   /**
    * Called when determining whether the routing component is active.
-   * @devices phone, tablet, car.
    * @since 7
    */
   active(value: boolean): T;
 
   /**
    * Called when determining whether the routing component is active.
-   * @devices phone, tablet, car.
    * @since 7
    */
   type(value: NavigationType): T;
 
   /**
    * Called when the path to the specified jump target page is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   target(value: string): T;
 
   /**
    * Called when data is passed to the target page at the same time during jump.
-   * @devices phone, tablet, car.
    * @since 7
    */
   params(value: object): T;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const NavigatorInterface: Navigator;

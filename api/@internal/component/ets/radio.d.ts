@@ -17,7 +17,6 @@ import {CommonMethod} from "./common";
 
 /**
  * radio
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class RadioExtend<T> extends RadioAttribute<T> {
@@ -25,13 +24,11 @@ export declare class RadioExtend<T> extends RadioAttribute<T> {
 
 /**
  * Provides an interface for creating a radio box.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Radio extends RadioAttribute<Radio> {
   /**
    * Called when a radio box is created.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (options: {
@@ -39,27 +36,23 @@ interface Radio extends RadioAttribute<Radio> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class RadioAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the radio box is selected.
-   * @devices phone, tablet, car.
    * @since 7
    */
   checked(value: boolean): T;
 
   /**
    * Called when the radio box selection status changes.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onChange(callback: (isChecked: boolean) => void): T;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const RadioInterface: Radio;

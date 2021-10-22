@@ -17,7 +17,6 @@ import {CommonMethod, Color, Resource} from "./common";
 import {TextAlign, FontWeight, FontStyle} from "./text";
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class TextAreaExtend<T> extends TextAreaAttribute<T> {
@@ -25,47 +24,40 @@ export declare class TextAreaExtend<T> extends TextAreaAttribute<T> {
 
 /**
  * Provides an interface for the multi-line text input component.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface TextArea extends TextAreaAttribute<TextArea> {
   /**
    * Called when writing multiple lines of text.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (options?: {placeholder: string | Resource, text: string | Resource}): TextArea;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class TextAreaAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the color of the placeholder is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   placeholderColor(value: Color | number | string | Resource): T;
 
   /**
    * Called when the font property of the placeholder is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   placeholderFont(value?:{ size?: number | string | Resource, weight?: number | FontWeight | string, family?: string | Resource, style?: FontStyle }): T;
 
   /**
    * Called when the alignment of the contents of a multiline text box is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   textAlign(value: TextAlign): T;
 
   /**
    * Called when the insertion cursor color is set.
-   * @devices phone, tablet, car.
    * @since 6
    */
   caretColor(value: Color | number | string | Resource): T;
@@ -79,7 +71,6 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const TextAreaInterface: TextArea;

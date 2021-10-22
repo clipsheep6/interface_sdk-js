@@ -15,27 +15,23 @@
 
 /**
  * Creating an Object
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum GestureDirection {
   /**
    * Sliding in all directions.
-   * @devices phone, tablet, car.
    * @since 7
    */
   All,
 
   /**
    * Sliding horizontally.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Horizontal,
 
   /**
    * Sliding Vertical
-   * @devices phone, tablet, car.
    * @since 7
    */
   Vertical
@@ -43,62 +39,53 @@ export declare enum GestureDirection {
 
 /**
  * Creating an Object
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum PanDirection {
   /**
    * Default.
-   * @devices phone, tablet, car.
    * @since 7
    */
   None,
 
   /**
    * Sliding horizontally.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Horizontal,
 
   /**
    * Sliding left.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Left,
 
   /**
    * Sliding right.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Right,
 
   /**
    * Sliding Vertical
-   * @devices phone, tablet, car.
    * @since 7
    */
   Vertical,
 
   /**
    * Sliding up.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Up,
 
   /**
    * Sliding Down.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Down,
 
   /**
    * Sliding in all directions.
-   * @devices phone, tablet, car.
    * @since 7
    */
   All
@@ -107,28 +94,24 @@ export declare enum PanDirection {
 
 /**
  * Creating an Object
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum GestureMode {
 
   /**
    * Sequential gesture recognition is performed in sequence according to the gesture registration sequence.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Sequence,
 
   /**
    * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Parallel,
 
   /**
    * Mutually exclusive recognition. Only one gesture is successfully recognized.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Exclusive
@@ -136,21 +119,18 @@ export declare enum GestureMode {
 
 /**
  * Creating an Object
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum GestureMask {
 
   /**
    * High-priority response to the current gesture.When the current gesture fails to be recognized, other gesture responses are triggered.For gestures with the same priority, responses are performed based on the recognition sequence.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Normal,
 
   /**
    * Ignore internal gestures and recognize the current gesture first.
-   * @devices phone, tablet, car.
    * @since 7
    */
   IgnoreInternal
@@ -158,13 +138,11 @@ export declare enum GestureMask {
 
 /**
  * Creating an Object
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare type GestureType =
   /**
    * Set a type value.
-   * @devices phone, tablet, car.
    * @since 7
    */
   TapGesture
@@ -177,13 +155,11 @@ export declare type GestureType =
 
 /**
  * long press gesture event used in the longpress scenario.
- * @devices phone, tablet, car.
  * @since 7
  */
 export interface LongPressGestureEvent extends GestureEvent {
   /**
    * Indicates whether an event is triggered repeatedly.
-   * @devices phone, tablet, car.
    * @since 7
    */
   repeat: boolean;
@@ -201,14 +177,12 @@ export interface LongPressGestureEvent extends GestureEvent {
 export interface PanGestureEvent extends GestureEvent {
   /**
    * Gesture event offset X.
-   * @devices phone, tablet, car.
    * @since 7
    */
   offsetX: number;
 
   /**
    * Gesture event offset Y.
-   * @devices phone, tablet, car.
    * @since 7
    */
   offsetY: number;
@@ -221,21 +195,18 @@ export interface PanGestureEvent extends GestureEvent {
 export interface PinchGestureEvent extends GestureEvent {
   /**
    * Scaling ratio.
-   * @devices phone, tablet, car.
    * @since 7
    */
   scale: number;
 
   /**
    * X-axis coordinate of the kneading center point, in pixels.
-   * @devices phone, tablet, car.
    * @since 7
    */
   pinchCenterX: number;
 
   /**
    * Y-axis coordinate of the kneading center point, in pixels.
-   * @devices phone, tablet, car.
    * @since 7
    */
   pinchCenterY: number;
@@ -248,7 +219,6 @@ export interface PinchGestureEvent extends GestureEvent {
 export interface RotationGestureEvent extends GestureEvent {
   /**
    * Rotation angle.
-   * @devices phone, tablet, car.
    * @since 7
    */
   angle: number;
@@ -273,35 +243,30 @@ export interface TapGestureEvent extends GestureEvent {
 export interface FingerInfo {
   /**
    * finger id.
-   * @devices phone, tablet, car.
    * @since 8
    */
   fingerId: number;
 
   /**
    * Indicates whether an event is triggered repeatedly. This parameter is used in the longpress scenario.
-   * @devices phone, tablet, car.
    * @since 8
    */
   globalX: number;
 
   /**
    * Indicates whether an event is triggered repeatedly. This parameter is used in the longpress scenario.
-   * @devices phone, tablet, car.
    * @since 8
    */
   globalY: number;
 
   /**
    * Horizontal distance from the upper left corner of the touched component. The upper left corner of the component is the origin.
-   * @devices phone, tablet, car.
    * @since 8
    */
   localX: number;
 
   /**
    * Longitudinal distance from the upper left corner of the touched component. The upper left corner of the component is the origin.
-   * @devices phone, tablet, car.
    * @since 8
    */
   localY: number;
@@ -344,13 +309,11 @@ export enum SwipeDirection {
 
 /**
  * base event for gesture.
- * @devices phone, tablet, car.
  * @since 7
  */
 export interface GestureEvent {
   /**
    * Event timestamp.
-   * @devices phone, tablet, car.
    * @since 7
    */
   timestamp: number;
@@ -359,7 +322,6 @@ export interface GestureEvent {
 
 /**
  * Creating an interface
- * @devices phone, tablet, car.
  * @since 7
  */
 interface TapGesture {
@@ -367,14 +329,12 @@ interface TapGesture {
    * Set the value.
    * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { count?: number, fingers?: number }): TapGesture;
 
   /**
    * Tap gesture recognition success callback.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onAction(event: (event?: TapGestureEvent) => void): TapGesture;
@@ -382,7 +342,6 @@ interface TapGesture {
 
 /**
  * Creating an interface
- * @devices phone, tablet, car.
  * @since 7
  */
 interface LongPressGesture {
@@ -391,205 +350,175 @@ interface LongPressGesture {
    * fingers: Indicates the hand index that triggers the long press.
    * repeat: Indicates whether to trigger event callback continuously.
    * duration: Minimum press and hold time, in milliseconds.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { fingers?: number, repeat?: boolean, duration?: number }): LongPressGesture;
 
   /**
    * LongPress gesture recognition success callback.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onAction(event: (event?: LongPressGestureEvent) => void): LongPressGesture;
 
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionEnd(event: (event?: LongPressGestureEvent) => void): LongPressGesture;
 
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionCancel(event: () => void): LongPressGesture;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class PanGestureOption {
   /**
    * Constructor parameters.
-   * @devices phone, tablet, car.
    * @since 7
    */
   constructor(value?: { fingers?: number, direction?: PanDirection, distance?: number });
 
   /**
    * Sets the direction attribute.
-   * @devices phone, tablet, car.
    * @since 7
    */
   setDirection(value: PanDirection);
 
   /**
    * Sets the setDistance attribute.
-   * @devices phone, tablet, car.
    * @since 7
    */
   setDistance(value: number);
 
   /**
    * Sets the setFingers attribute.
-   * @devices phone, tablet, car.
    * @since 7
    */
   setFingers(value: number);
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface PanGesture {
   /**
    * Set the value.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { fingers?: number, direction?: PanDirection, distance?: number } | PanGestureOption): PanGesture;
 
   /**
    * Pan gesture recognition success callback.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionStart(event: (event?: PanGestureEvent) => void): PanGesture;
 
   /**
    * Callback when the Pan gesture is moving.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionUpdate(event: (event?: PanGestureEvent) => void): PanGesture;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionEnd(event: (event?: PanGestureEvent) => void): PanGesture;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionCancel(event: () => void): PanGesture;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface PinchGesture {
   /**
    * Set the value.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { fingers?: number, distance?: number }): PinchGesture;
 
   /**
    * Pan gesture recognition success callback.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionStart(event: (event?: PinchGestureEvent) => void): PinchGesture;
 
   /**
    * Callback when the Pan gesture is moving.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionUpdate(event: (event?: PinchGestureEvent) => void): PinchGesture;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionEnd(event: (event?: PinchGestureEvent) => void): PinchGesture;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionCancel(event: () => void): PinchGesture;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface RotationGesture {
   /**
    * Set the value.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { fingers?: number, angle?: number }): RotationGesture;
 
   /**
    * Pan gesture recognition success callback.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionStart(event: (event?: RotationGestureEvent) => void): RotationGesture;
 
   /**
    * Callback when the Pan gesture is moving.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionUpdate(event: (event?: RotationGestureEvent) => void): RotationGesture;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionEnd(event: (event?: RotationGestureEvent) => void): RotationGesture;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onActionCancel(event: () => void): RotationGesture;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface GestureGroup {
   /**
    * Return to Obtain GestureGroup.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (mode: GestureMode, ...gesture: GestureType[]): GestureGroup;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onCancel(event: () => void): GestureGroup;
@@ -613,37 +542,31 @@ interface SwipeGesture {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const TapGestureInterface: TapGesture;
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const LongPressGestureInterface: LongPressGesture;
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const PanGestureInterface: PanGesture;
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const PinchGestureInterface: PinchGesture;
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const RotationGestureInterface: RotationGesture;
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const GestureGroupInterface: GestureGroup;

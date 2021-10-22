@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import {CommonShapeMethod} from "./common";
+import { CommonShapeMethod } from "./common";
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class CircleExtend<T> extends CircleAttribute<T> {
@@ -24,21 +23,11 @@ export declare class CircleExtend<T> extends CircleAttribute<T> {
 
 /**
  * new Circle component.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Circle extends CircleAttribute<Circle> {
-
-  /**
-   * Set new value..
-   * @devices phone, tablet, car.
-   * @since 7
-   */
-  new (value?: { width?: string | number, height?: string | number }): Circle;
-
   /**
    * Set the value..
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { width?: string | number, height?: string | number }): Circle;
@@ -46,14 +35,12 @@ interface Circle extends CircleAttribute<Circle> {
 
 /**
  * Circle drawing component.
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class CircleAttribute<T> extends CommonShapeMethod<T> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const CircleInterface: Circle;

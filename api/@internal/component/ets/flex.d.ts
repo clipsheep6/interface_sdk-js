@@ -16,7 +16,6 @@
 import {CommonMethod, FlexDirection, FlexWrap, FlexAlign, ItemAlign} from "./common";
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class FlexExtend<T> extends FlexAttribute<T> {
@@ -24,7 +23,6 @@ export declare class FlexExtend<T> extends FlexAttribute<T> {
 
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Flex extends FlexAttribute<Flex> {
@@ -35,7 +33,6 @@ interface Flex extends FlexAttribute<Flex> {
    * justifyContent: The alignment format of the subassembly on the Flex container spindle.
    * alignItems: Alignment Format for Subassembly on Flex Container Cross Axis
    * alignContent:The alignment of multiple lines of content when there is extra space in the cross axis.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: {
@@ -46,7 +43,6 @@ interface Flex extends FlexAttribute<Flex> {
 
 /**
  * Common Setting
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class FlexAttribute<T> extends CommonMethod<T> {

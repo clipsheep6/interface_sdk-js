@@ -17,20 +17,17 @@ import {CommonMethod} from "./common";
 
 /**
  * Creating a Geometry View
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface GeometryView extends GeometryViewAttribute<GeometryView> {
   /**
    * Callback function.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (callback: (geometry?: any) => void): GeometryView;
@@ -38,7 +35,6 @@ interface GeometryView extends GeometryViewAttribute<GeometryView> {
 
 /**
  * Inherit Public
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class GeometryViewAttribute<T> extends CommonMethod<T> {

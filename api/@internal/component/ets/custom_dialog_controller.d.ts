@@ -14,17 +14,15 @@
  */
 
 import { DialogAlignment } from "./alert_dialog";
-import {CommonMethod, Resource} from "./common";
+import { Resource } from "./common";
 
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class CustomDialogController {
   /**
    * The constructor transfers parameter settings.
-   * @devices phone, tablet, car.
    * @since 7
    */
   constructor(value: {
@@ -37,14 +35,12 @@ export declare class CustomDialogController {
 
   /**
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
-   * @devices phone, tablet, car.
    * @since 7
    */
   open();
 
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
-   * @devices phone, tablet, car.
    * @since 7
    */
   close();

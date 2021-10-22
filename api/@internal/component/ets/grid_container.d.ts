@@ -16,42 +16,36 @@
 import {ColumnAttribute} from "./column";
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum SizeType {
 
   /**
    * Select a value based on the device type.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Auto,
 
   /**
    * Select a value based on the device type.
-   * @devices phone, tablet, car.
    * @since 7
    */
   XS,
 
   /**
    * Small width type device.
-   * @devices phone, tablet, car.
    * @since 7
    */
   SM,
 
   /**
    * Medium width type device.
-   * @devices phone, tablet, car.
    * @since 7
    */
   MD,
 
   /**
    * Large width type device.
-   * @devices phone, tablet, car.
    * @since 7
    */
   LG
@@ -59,14 +53,12 @@ export declare enum SizeType {
 
 /**
  * Vertical layout grid layout container, used only in grid layout scenarios.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface GridContainer extends GridContainerAttribute<GridContainer> {
@@ -75,7 +67,6 @@ interface GridContainer extends GridContainerAttribute<GridContainer> {
    * sizeType: Select the device width type.
    * gutter: Grid layout column spacing.
    * margin: Spacing on both sides of the grid layout.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (
@@ -90,7 +81,6 @@ interface GridContainer extends GridContainerAttribute<GridContainer> {
 
 /**
  * inheritance  Column
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class GridContainerAttribute<T> extends ColumnAttribute<T> {

@@ -17,7 +17,6 @@ import {CommonMethod} from "./common";
 
 /**
  * Scoring bar
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class RatingExtend<T> extends RatingAttribute<T> {
@@ -25,40 +24,34 @@ export declare class RatingExtend<T> extends RatingAttribute<T> {
 
 /**
  * Provides the interface for scoring bars.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Rating extends RatingAttribute<Rating> {
   /**
    * Called when a score bar is created.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (options?: { rating: number, indicator?: boolean }): Rating;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class RatingAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the total number of stars is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   stars(value: number): T;
 
   /**
    * Called when the step size of the operation rating.
-   * @devices phone, tablet, car.
    * @since 7
    */
   stepSize(value: number): T;
 
   /**
    * Called when a picture is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   starStyle(value: {
@@ -68,14 +61,12 @@ declare class RatingAttribute<T> extends CommonMethod<T> {
 
   /**
    * Called when the star rating of the operation scoring bar changes.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onChange(callback:(value: number) => void): T;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const RatingInterface: Rating;

@@ -17,7 +17,6 @@ import {CommonShapeMethod} from "./common";
 
 /**
  * Rectangle drawing.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class RectExtend<T> extends RectAttribute<T> {
@@ -25,13 +24,11 @@ export declare class RectExtend<T> extends RectAttribute<T> {
 
 /**
  * Provides an interface for drawing rectangles.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Rect extends RectAttribute<Rect> {
   /**
    * Called when a new rectangle is created.
-   * @devices phone, tablet, car.
    * @since 7
    */
   new (
@@ -43,7 +40,6 @@ interface Rect extends RectAttribute<Rect> {
 
   /**
    * Called when a rectangle is created.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: {width?: number | string,height?: number | string,radius?: number | string | Array<any> } |
@@ -52,34 +48,29 @@ interface Rect extends RectAttribute<Rect> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class RectAttribute<T> extends CommonShapeMethod<T> {
   /**
    * Called when the fillet width is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   radiusWidth(value: number | string): T;
 
   /**
    * Called when the fillet height is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   radiusHeight(value: number | string): T;
 
   /**
    * Called when the fillet size is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   radius(value: number | string | Array<any>): T;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const RectInterface: Rect;

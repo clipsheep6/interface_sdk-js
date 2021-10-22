@@ -13,31 +13,27 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Date and time slide selector component.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class DatePickerExtend<T> extends DatePickerAttribute<T> {
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum DatePickerType {
   /**
    * Application hour and second
-   * @devices phone, tablet, car.
    * @since 7
    */
   Time,
 
   /**
    * Application data
-   * @devices phone, tablet, car.
    * @since 7
    */
   Date
@@ -46,49 +42,42 @@ export declare enum DatePickerType {
 export interface DatePickerResult {
   /**
    * Application year
-   * @devices phone, tablet, car.
    * @since 7
    */
   year?: number;
 
   /**
    * Application month
-   * @devices phone, tablet, car.
    * @since 7
    */
   month?: number;
 
   /**
    * Application day
-   * @devices phone, tablet, car.
    * @since 7
    */
   day?: number;
 
   /**
    * Application hour
-   * @devices phone, tablet, car.
    * @since 7
    */
   hour?: number;
 
   /**
    * Application minute
-   * @devices phone, tablet, car.
    * @since 7
    */
   minute?: number;
 
   /**
    * Application second
-   * @devices phone, tablet, car.
    * @since 7
    */
   second?: number;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface DatePicker extends DatePickerAttribute<DatePicker> {
@@ -97,41 +86,35 @@ interface DatePicker extends DatePickerAttribute<DatePicker> {
    * end: Specifies the end date for the date selector.
    * selected: Specifies the date selector check date or time selector check time.
    * type: Selector type, including date selector and time selector. By default, the date selector is used.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  (options?: {start?: Date, end?: Date, selected?: Date, type?: DatePickerType}): DatePicker;
+  (options?: { start?: Date, end?: Date, selected?: Date, type?: DatePickerType }): DatePicker;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class DatePickerAttribute<T> extends CommonMethod<T> {
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
-   * @devices phone, tablet, car.
    * @since 7
    */
   lunar(value: boolean): T;
 
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
-   * @devices phone, tablet, car.
    * @since 7
    */
   useMilitaryTime(value: boolean): T;
 
   /**
    * This event is triggered when a DatePicker date or time is selected.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onChange(callback: (value: DatePickerResult) => void): T;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const DatePickerInterface: DatePicker;

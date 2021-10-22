@@ -15,13 +15,11 @@
 
 /**
  * looping
- * @devices phone, tablet, car.
  * @since 7
  */
 interface ForEach {
   /**
    * Set the value, array, and key.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (arr: Array<any>, itemGenerator: (item: any, index?: number) => void,
