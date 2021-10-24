@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import { CommonMethod, Color, LineCapStyle, Resource } from "./common";
+import { CommonMethod } from "./common";
+import { LineCapStyle } from "./enums";
+import { ResourceColor } from "./units";
 
 /**
  * @since 7
  */
-export declare class DividerExtend<T> extends DividerAttribute<T> {
-}
+export declare class DividerExtend<T> extends DividerAttribute<T> {}
 
 /**
  * Provides a divider component to separate different content blocks/content elements.
@@ -48,7 +49,7 @@ declare class DividerAttribute<T> extends CommonMethod<T> {
    * Sets the color of the divider line.
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 
   /**
    * Sets the width of the dividing line.

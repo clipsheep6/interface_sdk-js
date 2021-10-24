@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import {ColumnAttribute} from "./column";
+import { ColumnAttribute } from "./column";
 
 /**
  * @since 7
  */
 export declare enum SizeType {
-
   /**
    * Select a value based on the device type.
    * @since 7
@@ -48,15 +47,14 @@ export declare enum SizeType {
    * Large width type device.
    * @since 7
    */
-  LG
+  LG,
 }
 
 /**
  * Vertical layout grid layout container, used only in grid layout scenarios.
  * @since 7
  */
-export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {
-}
+export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {}
 
 /**
  * @since 7
@@ -69,22 +67,19 @@ interface GridContainer extends GridContainerAttribute<GridContainer> {
    * margin: Spacing on both sides of the grid layout.
    * @since 7
    */
-  (
-    value?: {
-      columns?: number | 'auto',
-      sizeType?: SizeType,
-      gutter?: number | string,
-      margin?: number | string
-    }
-  ): GridContainer;
+  (value?: {
+    columns?: number | "auto";
+    sizeType?: SizeType;
+    gutter?: number | string;
+    margin?: number | string;
+  }): GridContainer;
 }
 
 /**
  * inheritance  Column
  * @since 7
  */
-declare class GridContainerAttribute<T> extends ColumnAttribute<T> {
-}
+declare class GridContainerAttribute<T> extends ColumnAttribute<T> {}
 
 /**
  * @devices phone, tablet, car

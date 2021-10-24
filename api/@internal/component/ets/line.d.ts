@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonShapeMethod} from "./common";
+import { CommonShapeMethod } from "./common";
 
 /**
  * Line drawing component.
  * @since 7
  */
-export declare class LineExtend<T> extends LineAttribute<T> {
-}
+export declare class LineExtend<T> extends LineAttribute<T> {}
 
 /**
  * Line drawing component.
@@ -39,7 +38,7 @@ interface Line extends LineAttribute<Line> {
    * height: Height of the rectangle where the line resides.
    * @since 7
    */
-  (value?: { width?: string | number, height?: string | number }) :Line;
+  (value?: { width?: string | number; height?: string | number }): Line;
 }
 
 /**

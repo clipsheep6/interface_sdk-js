@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
-import {FontStyle, FontWeight, TextDecorationType, TextCase} from "./text";
+import { CommonMethod } from "./common";
+import { FontStyle, FontWeight, TextDecorationType, TextCase } from "./enums";
+import { Resource, ResourceColor } from "./units";
 
 /**
  * Declaration extension.
  * @since 7
  */
-export declare class SpanExtend<T> extends SpanAttribute<T> {
-}
+export declare class SpanExtend<T> extends SpanAttribute<T> {}
 
 /**
  * Provide text decoration.
@@ -43,7 +43,7 @@ declare class SpanAttribute<T> extends CommonMethod<T> {
    * Called when the font color is set.
    * @since 7
    */
-  fontColor(value: Color | number | string | Resource): T;
+  fontColor(value: ResourceColor): T;
 
   /**
    * Called when the font size is set.
@@ -73,7 +73,7 @@ declare class SpanAttribute<T> extends CommonMethod<T> {
    * Called when the text decoration of the text is set.
    * @since 7
    */
-  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource}): T;
+  decoration(value: { type: TextDecorationType; color?: ResourceColor }): T;
 
   /**
    * Called when the distance between text fonts is set.

@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
  * QR code information
  * @since 7
  */
-export declare class QRCodeExtend<T> extends QRCodeAttribute<T> {
-}
+export declare class QRCodeExtend<T> extends QRCodeAttribute<T> {}
 
 /**
  * Provides an interface for generating QR codes.
@@ -31,8 +31,7 @@ interface QRCode extends QRCodeAttribute<QRCode> {
    * Called when a QR code is set.
    * @since 7
    */
-  (
-    value: string): QRCode;
+  (value: string): QRCode;
 }
 
 /**
@@ -43,13 +42,13 @@ declare class QRCodeAttribute<T> extends CommonMethod<T> {
    * Called when the QR code color is set.
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 
   /**
    * Called when setting the QR code background color.
    * @since 7
    */
-  backgroundColor(value: Color | number | string | Resource): T;
+  backgroundColor(value: ResourceColor): T;
 }
 
 /**

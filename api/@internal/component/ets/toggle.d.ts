@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color} from "./common";
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
  * Declare the type of status button
@@ -36,14 +37,13 @@ export declare enum ToggleType {
    * Button
    * @since 7
    */
-  Button
+  Button,
 }
 
 /**
  * @since 7
  */
-export declare class ToggleExtend<T> extends ToggleAttribute<T> {
-}
+export declare class ToggleExtend<T> extends ToggleAttribute<T> {}
 
 /**
  * @since 7
@@ -53,7 +53,7 @@ interface Toggle extends ToggleAttribute<Toggle> {
    * Set parameters to obtain the toggle.
    * @since 7
    */
-  (options?: {type: ToggleType, isOn?: boolean}): Toggle;
+  (options?: { type: ToggleType; isOn?: boolean }): Toggle;
 }
 
 /**
@@ -70,13 +70,13 @@ declare class ToggleAttribute<T> extends CommonMethod<T> {
    * Called when the color of the selected button is set.
    * @since 7
    */
-  selectedColor(value: Color): T;
+  selectedColor(value: ResourceColor): T;
 
   /**
    * Called when the color of the selected button is set.
    * @since 7
    */
-  swithPointStyle(color: Color): T;
+  swithPointStyle(color: ResourceColor): T;
 }
 
 /**

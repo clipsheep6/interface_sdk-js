@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Visibility} from "./common";
+import { CommonMethod } from "./common";
+import { Visibility } from "./enums";
 
 /**
  * @since 7
@@ -41,15 +42,14 @@ export declare enum FormDimension {
    * 4 x 4 cards
    * @since 7
    */
-  Dimension_4_4
+  Dimension_4_4,
 }
 
 /**
  * The card component is provided to display cards.
  * @since 7
  */
-export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {
-}
+export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {}
 
 /**
  * @since 7
@@ -59,7 +59,14 @@ interface FormComponent extends FormComponentAttribute<FormComponent> {
    * Set a new value.
    * @since 7
    */
-  (value: {id: number, name: string, bundle: string, ability: string, module: string, dimension?: FormDimension}): FormComponent;
+  (value: {
+    id: number;
+    name: string;
+    bundle: string;
+    ability: string;
+    module: string;
+    dimension?: FormDimension;
+  }): FormComponent;
 }
 
 /**
@@ -70,7 +77,7 @@ declare class FormComponentAttribute<T> extends CommonMethod<T> {
    * Sets the display area size of the card.
    * @since 7
    */
-  size(value: {width: number, height: number}): T;
+  size(value: { width: number; height: number }): T;
 
   /**
    * Card module name.
@@ -100,13 +107,13 @@ declare class FormComponentAttribute<T> extends CommonMethod<T> {
    * This function is triggered after card information is obtained. For details about the form information, see the definition of the original capability subsystem.
    * @since 7
    */
-  onAcquired(callback: (info: {id: number}) => void): T;
+  onAcquired(callback: (info: { id: number }) => void): T;
 
   /**
    * Card loading error.
    * @since 7
    */
-  onError(callback: (info: {errcode: number, msg: string}) => void): T;
+  onError(callback: (info: { errcode: number; msg: string }) => void): T;
 
   /**
    * Card to be redirected.

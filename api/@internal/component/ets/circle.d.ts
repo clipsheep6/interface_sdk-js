@@ -18,8 +18,7 @@ import { CommonShapeMethod } from "./common";
 /**
  * @since 7
  */
-export declare class CircleExtend<T> extends CircleAttribute<T> {
-}
+export declare class CircleExtend<T> extends CircleAttribute<T> {}
 
 /**
  * new Circle component.
@@ -30,15 +29,14 @@ interface Circle extends CircleAttribute<Circle> {
    * Set the value..
    * @since 7
    */
-  (value?: { width?: string | number, height?: string | number }): Circle;
+  (value?: { width?: string | number; height?: string | number }): Circle;
 }
 
 /**
  * Circle drawing component.
  * @since 7
  */
-declare class CircleAttribute<T> extends CommonShapeMethod<T> {
-}
+declare class CircleAttribute<T> extends CommonShapeMethod<T> {}
 
 /**
  * @since 7

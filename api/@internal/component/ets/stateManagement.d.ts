@@ -68,12 +68,13 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @since 7
    */
   constructor(
-
-  /**
-   * Subscriber Information.
-   * @since 7
-   */
-    subscribeMe?: IPropertySubscriber, info?: string);
+    /**
+     * Subscriber Information.
+     * @since 7
+     */
+    subscribeMe?: IPropertySubscriber,
+    info?: string,
+  );
 
   /**
    * Called when the subscriber ID is entered.
@@ -139,7 +140,10 @@ declare abstract class SubscribedAbstractProperty<T> {
 /**
  * @since 7
  */
-declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T> implements ISinglePropertyChangeSubscriber<T> {
+declare class SyncedPropertyTwoWay<T>
+  extends SubscribedAbstractProperty<T>
+  implements ISinglePropertyChangeSubscriber<T>
+{
   /**
    * Sources of synchronization attributes bidirectionally.
    * @since 7
@@ -180,7 +184,10 @@ declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T> impl
 /**
  * @since 7
  */
-declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T> implements ISinglePropertyChangeSubscriber<T> {
+declare class SyncedPropertyOneWay<T>
+  extends SubscribedAbstractProperty<T>
+  implements ISinglePropertyChangeSubscriber<T>
+{
   /**
    * Pack value for single-item binding.
    * @since 7
@@ -327,10 +334,12 @@ export declare class Environment {
    * Called when multiple property values are checked.
    * @since 7
    */
-  static EnvProps(props: {
-    key: string;
-    defaultValue: any;
-  }[]): void;
+  static EnvProps(
+    props: {
+      key: string;
+      defaultValue: any;
+    }[],
+  ): void;
 
   /**
    * Set the key value.
@@ -399,10 +408,12 @@ export declare class PersistentStorage {
    * Called when multiple persistence properties are stored.
    * @since 7
    */
-  static PersistProps(properties: {
+  static PersistProps(
+    properties: {
       key: string;
       defaultValue: any;
-  }[]): void;
+    }[],
+  ): void;
 
   /**
    * Set the key value.
@@ -419,8 +430,7 @@ export declare class Storage {
    * Constructor parameters.
    * @since 7
    */
-  constructor(
-    needCrossThread?: boolean, file?: string);
+  constructor(needCrossThread?: boolean, file?: string);
 
   /**
    * Called when data is obtained.

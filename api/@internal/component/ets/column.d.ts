@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { CommonMethod, HorizontalAlignDeclaration, HorizontalAlign } from "./common";
+import { CommonMethod } from "./common";
+import { HorizontalAlign } from "./enums";
 
 /**
  * Containers laid out vertically.
  * @since 7
  */
-export declare class ColumnExtend<T> extends ColumnAttribute<T> {
-}
+export declare class ColumnExtend<T> extends ColumnAttribute<T> {}
 
 /**
  * @since 7
@@ -32,7 +32,7 @@ interface Column extends ColumnAttribute<Column> {
    * space: Vertical layout element spacing.
    * @since 7
    */
-  (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
+  (value?: { space?: string | number }): Column;
 }
 
 /**

@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { FontStyle, FontWeight, TextAlign, TextCase, TextDecorationType, TextOverflow } from "./enums";
+import { Resource, ResourceColor } from "./units";
 
 /**
  * @since 7
  */
-export declare class TextExtend<T> extends TextAttribute<T> {
-}
+export declare class TextExtend<T> extends TextAttribute<T> {}
 
 /**
  * Provides an interface for writing texts.
@@ -41,7 +42,7 @@ declare class TextAttribute<T> extends CommonMethod<T> {
    * Called when the font color is set.
    * @since 7
    */
-  fontColor(value: Color | number | string | Resource): T;
+  fontColor(value: ResourceColor): T;
 
   /**
    * Called when the font size is set.
@@ -107,7 +108,7 @@ declare class TextAttribute<T> extends CommonMethod<T> {
    * Called when the text decoration of the text is set.
    * @since 7
    */
-  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource }): T;
+  decoration(value: { type: TextDecorationType; color?: ResourceColor }): T;
 
   /**
    * Called when the distance between text fonts is set.

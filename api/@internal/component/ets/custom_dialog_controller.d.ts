@@ -14,7 +14,7 @@
  */
 
 import { DialogAlignment } from "./alert_dialog";
-import { Resource } from "./common";
+import { Length, Offset } from "./units";
 
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
@@ -26,11 +26,12 @@ export declare class CustomDialogController {
    * @since 7
    */
   constructor(value: {
-    builder: any, cancel?: () => void,
-    autoCancel?: boolean,
-    alignment?: DialogAlignment,
-    offset?: { dx: number | string | Resource, dy: number | string | Resource },
-    customStyle?: boolean
+    builder: any;
+    cancel?: () => void;
+    autoCancel?: boolean;
+    alignment?: DialogAlignment;
+    offset?: Offset;
+    customStyle?: boolean;
   });
 
   /**

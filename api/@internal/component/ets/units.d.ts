@@ -141,9 +141,28 @@ export declare type Offset = {
  */
 export declare type ResourceColor = Color | number | string | Resource;
 
+/**
+ * Defines the font used for text.
+ * @since 7
+ */
 export declare interface Font {
+  /**
+   * font size.
+   */
   size?: number;
+
+  /**
+   * font weight.
+   */
   weight?: FontWeight;
+
+  /**
+   * font family.
+   */
   family?: string;
+
+  /**
+   * font style.
+   */
   style?: FontStyle;
 }

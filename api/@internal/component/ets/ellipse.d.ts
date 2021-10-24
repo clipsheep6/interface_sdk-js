@@ -18,8 +18,7 @@ import { CommonShapeMethod } from "./common";
 /**
  * @since 7
  */
-export declare class EllipseExtend<T> extends EllipseAttribute<T> {
-}
+export declare class EllipseExtend<T> extends EllipseAttribute<T> {}
 
 /**
  * Ellipse drawing.
@@ -30,14 +29,13 @@ interface Ellipse extends EllipseAttribute<Ellipse> {
    * Set the value.
    * @since 7
    */
-  (value?: { width?: string | number, height?: string | number }): Ellipse;
+  (value?: { width?: string | number; height?: string | number }): Ellipse;
 }
 
 /**
  * @since 7
  */
-declare class EllipseAttribute<T> extends CommonShapeMethod<T> {
-}
+declare class EllipseAttribute<T> extends CommonShapeMethod<T> {}
 
 /**
  * @since 7

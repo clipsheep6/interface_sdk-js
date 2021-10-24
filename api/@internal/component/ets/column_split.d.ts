@@ -18,8 +18,7 @@ import { CommonMethod } from "./common";
 /**
  * @since 7
  */
-export declare class ColumnSplitExtend<T> extends ColumnSplitAttribute<T> {
-}
+export declare class ColumnSplitExtend<T> extends ColumnSplitAttribute<T> {}
 
 /**
  * @since 7

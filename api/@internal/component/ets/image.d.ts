@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, ImageRepeat, ImageFit, Resource, PixelMap} from "./common";
+import { CommonMethod, PixelMap } from "./common";
+import { ImageFit, ImageRepeat } from "./enums";
+import { Resource, ResourceColor } from "./units";
 
 /**
  * @since 7
@@ -29,7 +31,7 @@ export declare enum ImageRenderMode {
    * Render the image as a template image, ignoring the color information of the image.
    * @since 7
    */
-  Template
+  Template,
 }
 
 /**
@@ -58,14 +60,13 @@ export declare enum ImageInterpolation {
    * High usage of interpolated image data may affect the speed of image rendering.
    * @since 7
    */
-  High
+  High,
 }
 
 /**
  * @since 7
  */
-export declare class ImageExtend<T> extends ImageAttribute<T> {
-}
+export declare class ImageExtend<T> extends ImageAttribute<T> {}
 
 /**
  * @since 7
@@ -103,7 +104,7 @@ declare class ImageAttribute<T> extends CommonMethod<T> {
    * fill Color
    * @since 7
    */
-  fillColor(value: Color | number | string | Resource): T;
+  fillColor(value: ResourceColor): T;
 
   /**
    * Sets the zoom type of an image.
@@ -140,20 +141,28 @@ declare class ImageAttribute<T> extends CommonMethod<T> {
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    * @since 7
    */
-  sourceSize(value: { width: number, height: number }): T;
+  sourceSize(value: { width: number; height: number }): T;
 
   /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    * @since 7
    */
-  onComplete(callback: (event?: { width: number, height: number, componentWidth: number, componentHeight: number, loadingStatus: number }) => void): T;
+  onComplete(
+    callback: (event?: {
+      width: number;
+      height: number;
+      componentWidth: number;
+      componentHeight: number;
+      loadingStatus: number;
+    }) => void,
+  ): T;
 
   /**
    * This callback is triggered when an exception occurs during image loading.
    * @since 7
    */
-  onError(callback: (event?: { componentWidth: number, componentHeight: number }) => void): T;
+  onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): T;
 
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.

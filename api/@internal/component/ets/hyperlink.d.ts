@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { Resource, ResourceColor } from "./units";
 
 /**
  * Hyperlink component, which gives the scope of subcomponents.
  * @since 7
  */
-export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {
-}
+export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {}
 
 /**
  * @since 7
@@ -44,7 +44,7 @@ declare class HyperlinkAttribute<T> extends CommonMethod<T> {
    * Set Color
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 }
 
 /**

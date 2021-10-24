@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
  * Declare sliderstyle
@@ -61,8 +62,7 @@ export declare enum SliderChangeMode {
  * Declare SliderChangeMode.
  * @since 7
  */
-export declare class SliderExtend<T> extends SliderAttribute<T> {
-}
+export declare class SliderExtend<T> extends SliderAttribute<T> {}
 
 /**
  * Provides an interface for the slide bar component.
@@ -73,7 +73,7 @@ interface Slider extends SliderAttribute<Slider> {
    * Called when the slider bar component is used.
    * @since 7
    */
-  (options?: {value?: number,min?: number,max?: number,step?: number,style?: SliderStyle}): Slider;
+  (options?: { value?: number; min?: number; max?: number; step?: number; style?: SliderStyle }): Slider;
 }
 
 /**
@@ -84,19 +84,19 @@ declare class SliderAttribute<T> extends CommonMethod<T> {
    * Called when the slider color of the slider bar is set.
    * @since 7
    */
-  blockColor(value: Color | number | string | Resource): T;
+  blockColor(value: ResourceColor): T;
 
   /**
    * Called when the track color of the slider is set.
    * @since 7
    */
-  trackColor(value: Color | number | string | Resource): T;
+  trackColor(value: ResourceColor): T;
 
   /**
    * Called when the slider of the slider bar is set to slide over the area color.
    * @since 7
    */
-  selectedColor(value: Color | number | string | Resource): T;
+  selectedColor(value: ResourceColor): T;
 
   /**
    * Called when the minimum label is set.
@@ -129,7 +129,7 @@ declare class SliderAttribute<T> extends CommonMethod<T> {
    * @devices phone, tablet, car
    * @since 7
    */
-  onChange(callback:(value: number, mode: SliderChangeMode) => void): T;
+  onChange(callback: (value: number, mode: SliderChangeMode) => void): T;
 }
 
 /**

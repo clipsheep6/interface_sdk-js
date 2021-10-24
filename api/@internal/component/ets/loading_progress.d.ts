@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
  * Load style of progress bar.
  * @since 7
  */
-export declare enum LoadingProgressStyle{
+export declare enum LoadingProgressStyle {
   /**
    * Default style.
    * @since 7
@@ -43,8 +44,7 @@ export declare enum LoadingProgressStyle{
  * Loading Progress Extensions on Declarative Classes
  * @since 7
  */
-export declare class LoadingProgressExtend<T> extends LoadingProgressAttribute<T> {
-}
+export declare class LoadingProgressExtend<T> extends LoadingProgressAttribute<T> {}
 
 /**
  * Provides an interface for extending the loading progress.
@@ -67,7 +67,7 @@ declare class LoadingProgressAttribute<T> extends CommonMethod<T> {
    * Load the color of the progress bar.
    * @since 7
    */
-  color(value: Color | Resource): T;
+  color(value: ResourceColor): T;
 }
 
 /**

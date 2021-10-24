@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Axis, Color, Resource, BarState, EdgeEffect} from "./common";
-import {Scroller} from "./scroll";
+import { CommonMethod } from "./common";
+import { Axis, BarState, EdgeEffect } from "./enums";
+import { Scroller } from "./scroll";
+import { Length, ResourceColor } from "./units";
 
 /**
  * Declare scroll status
@@ -37,15 +39,14 @@ export declare enum ScrollState {
    * Drag status.
    * @since 7
    */
-  Fling
+  Fling,
 }
 
 /**
  * ListExtend extension declaration.
  * @since 7
  */
-export declare class ListExtend<T> extends ListAttribute<T> {
-}
+export declare class ListExtend<T> extends ListAttribute<T> {}
 
 /**
  * The list interface is extended.
@@ -56,7 +57,7 @@ interface List extends ListAttribute<List> {
    * Called when interface data is called.
    * @since 7
    */
-  (value?: { initialIndex?: number, space?: number | string, scroller?: Scroller }): List;
+  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): List;
 }
 
 /**
@@ -85,10 +86,14 @@ declare class ListAttribute<T> extends CommonMethod<T> {
    * Called when the ListItem split line style is set.
    * @since 7
    */
-  divider(value: {
-    strokeWidth: number | string | Resource, color?: Color | number | string | Resource,
-    startMargin?: number | string | Resource, endMargin?: number | string | Resource
-  } | null): T;
+  divider(
+    value: {
+      strokeWidth: Length;
+      color?: ResourceColor;
+      startMargin?: Length;
+      endMargin?: Length;
+    } | null,
+  ): T;
 
   /**
    * Called when judging whether it is in editable mode.

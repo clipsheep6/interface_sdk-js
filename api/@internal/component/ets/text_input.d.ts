@@ -1,20 +1,21 @@
 /*
-  * Copyright (c) 2021 Huawei Device Co., Ltd.
-  * Licensed under the Apache License, Version 2.0 (the "License");
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *     http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  */
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import {CommonMethod, Color, Resource} from "./common";
-import {FontWeight, FontStyle} from "./text";
+import { CommonMethod } from "./common";
+import { FontWeight, FontStyle } from "./enums";
+import { Resource, ResourceColor } from "./units";
 
 /**
  * Declare the type of input box
@@ -85,8 +86,7 @@ export declare enum EnterKeyType {
 /**
  * @since 7
  */
-export declare class TextInputExtend<T> extends TextInputAttribute<T> {
-}
+export declare class TextInputExtend<T> extends TextInputAttribute<T> {}
 
 /**
  * Provides a single-line text input component interface.
@@ -97,10 +97,7 @@ interface TextInput extends TextInputAttribute<TextInput> {
    * Called when writing a single line of text.
    * @since 7
    */
-  (options?: {
-      placeholder: string | Resource,
-      text: string | Resource,
-  }): TextInput;
+  (options?: { placeholder: string | Resource; text: string | Resource }): TextInput;
 }
 
 /**
@@ -117,13 +114,18 @@ declare class TextInputAttribute<T> extends CommonMethod<T> {
    * Called when the color of the placeholder is set.
    * @since 7
    */
-  placeholderColor(value: Color | number | string | Resource): T;
+  placeholderColor(value: ResourceColor): T;
 
   /**
    * Called when the font property of the placeholder is set.
    * @since 7
    */
-  placeholderFont(value?: { size?: number | string | Resource, weight?: number | FontWeight | string, family?: string | Resource, style?: FontStyle }): T;
+  placeholderFont(value?: {
+    size?: number | string | Resource;
+    weight?: number | FontWeight | string;
+    family?: string | Resource;
+    style?: FontStyle;
+  }): T;
 
   /**
    * Called when the type of soft keyboard input button is set.
@@ -135,7 +137,7 @@ declare class TextInputAttribute<T> extends CommonMethod<T> {
    * Called when the color of the insertion cursor is set.
    * @since 7
    */
-  caretColor(value: Color | number | string | Resource): T;
+  caretColor(value: ResourceColor): T;
 
   /**
    * Called when judging whether the text editing has changed.

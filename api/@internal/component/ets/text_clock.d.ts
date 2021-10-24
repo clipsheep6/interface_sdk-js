@@ -74,10 +74,9 @@ declare class TextClockAttribute<T> extends CommonMethod<T> {
    * @param event 监听日期事件回调。
    * @since 8
    */
-  onDateChange(event: (value: number) => void)
+  onDateChange(event: (value: number) => void);
 }
 
-export declare class TextExtend<T> extends TextClockAttribute<T> {
-}
+export declare class TextExtend<T> extends TextClockAttribute<T> {}
 
 export const TextClockInterface: TextClock;

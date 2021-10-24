@@ -19,8 +19,7 @@ import { CommonMethod } from "./common";
  * Date and time slide selector component.
  * @since 7
  */
-export declare class DatePickerExtend<T> extends DatePickerAttribute<T> {
-}
+export declare class DatePickerExtend<T> extends DatePickerAttribute<T> {}
 
 /**
  * @since 7
@@ -36,7 +35,7 @@ export declare enum DatePickerType {
    * Application data
    * @since 7
    */
-  Date
+  Date,
 }
 
 export interface DatePickerResult {
@@ -88,7 +87,7 @@ interface DatePicker extends DatePickerAttribute<DatePicker> {
    * type: Selector type, including date selector and time selector. By default, the date selector is used.
    * @since 7
    */
-  (options?: { start?: Date, end?: Date, selected?: Date, type?: DatePickerType }): DatePicker;
+  (options?: { start?: Date; end?: Date; selected?: Date; type?: DatePickerType }): DatePicker;
 }
 
 /**

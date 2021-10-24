@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import {CommonMethod, AnimationStatus} from "./common";
+import { CommonMethod } from "./common";
+import { AnimationStatus } from "./enums";
 
 /**
  * The frame animation component is provided to play pictures frame by frame.
  * You can configure the list of pictures to be played and configure the duration for each picture.
  * @since 7
  */
-export declare class ImageAnimatorExtend<T> extends ImageAnimatorAttribute<T> {
-}
+export declare class ImageAnimatorExtend<T> extends ImageAnimatorAttribute<T> {}
 
 /**
  * @since 7
@@ -43,10 +43,16 @@ declare class ImageAnimatorAttribute<T> extends CommonMethod<T> {
    * list images
    * @since 7
    */
-  images(value: Array<{
-    src: string, width?: number | string, height?: number | string, top?: number | string, left?:
-      number | string, duration?: number
-  }>): T;
+  images(
+    value: Array<{
+      src: string;
+      width?: number | string;
+      height?: number | string;
+      top?: number | string;
+      left?: number | string;
+      duration?: number;
+    }>,
+  ): T;
 
   /**
    * The default value is the initial state, which is used to control the playback status.

@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonMethod, VerticalAlign, VerticalAlignDeclaration} from "./common";
+import { CommonMethod } from "./common";
+import { VerticalAlign } from "./enums";
 
 /**
  * @since 7
  */
-export declare class RowExtend<T> extends RowAttribute<T> {
-}
+export declare class RowExtend<T> extends RowAttribute<T> {}
 
 /**
  * The components are laid out horizontally
@@ -30,7 +30,7 @@ interface Row extends RowAttribute<Row> {
    * Called when the layout is set in the horizontal direction.
    * @since 7
    */
-  (value?: { space?: string | number, useAlign?: VerticalAlignDeclaration }): Row;
+  (value?: { space?: string | number }): Row;
 }
 
 /**

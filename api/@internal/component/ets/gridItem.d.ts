@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
  */
-export declare class GridItemExtend<T> extends GridItemAttribute<T> {
-}
+export declare class GridItemExtend<T> extends GridItemAttribute<T> {}
 
 /**
  * Mesh container for static fixed-size layout scenarios.

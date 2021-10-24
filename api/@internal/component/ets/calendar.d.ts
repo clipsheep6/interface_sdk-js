@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import { Axis, Color, Resource } from "./common";
+import { Axis, Color } from "./enums";
+import { Resource } from "./units";
 
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
@@ -436,15 +437,14 @@ declare class CalendarController {
    * To the specified element.
    * @since 7
    */
-  goTo(value: { year: number, month: number, day: number });
+  goTo(value: { year: number; month: number; day: number });
 }
 
 /**
  * Create calendar.
  * @since 7
  */
-export declare class CalendarExtend<T> extends CalendarAttribute<T> {
-}
+export declare class CalendarExtend<T> extends CalendarAttribute<T> {}
 
 /**
  * @since 7
@@ -454,7 +454,13 @@ interface Calendar extends CalendarAttribute<Calendar> {
    * Set value.
    * @since 7
    */
-  (value: { date: { year: number, month: number, day: number }, currentData: MonthData, preData: MonthData, nextData: MonthData, controller?: CalendarController }): Calendar;
+  (value: {
+    date: { year: number; month: number; day: number };
+    currentData: MonthData;
+    preData: MonthData;
+    nextData: MonthData;
+    controller?: CalendarController;
+  }): Calendar;
 }
 
 /**
@@ -531,13 +537,21 @@ declare class CalendarAttribute<T> {
    * Click a date to return the information about the date you clicked.
    * @since 7
    */
-  onSelectChange(event: (event: { year: number, month: number, day: number }) => void): T;
+  onSelectChange(event: (event: { year: number; month: number; day: number }) => void): T;
 
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
    * @since 7
    */
-  onRequestData(event: (event: { year: number, month: number, currentYear: number, currentMonth: number, monthState: number }) => void): T;
+  onRequestData(
+    event: (event: {
+      year: number;
+      month: number;
+      currentYear: number;
+      currentMonth: number;
+      monthState: number;
+    }) => void,
+  ): T;
 }
 
 /**

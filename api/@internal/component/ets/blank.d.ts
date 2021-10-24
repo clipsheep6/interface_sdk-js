@@ -13,16 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod, Color, Resource } from "./common";
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
- * @since 7
- */
-export declare class BlankExtend<T> extends BlankAttribute<T> {
-}
-
-/**
- * Create Blank
+ * Create Blank.
  * @since 7
  */
 interface Blank extends BlankAttribute<Blank> {
@@ -42,10 +37,9 @@ declare class BlankAttribute<T> extends CommonMethod<T> {
    * color: set color.
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 }
 
-/**
- * @since 7
- */
-export declare const BlankInterface: Blank
+export declare class BlankExtend<T> extends BlankAttribute<T> {}
+
+export declare const BlankInterface: Blank;

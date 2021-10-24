@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { Resource } from "./units";
 
 /**
  * Declare the type of selector
@@ -42,8 +43,7 @@ export declare enum PickerStyle {
 /**
  * @since 7
  */
-export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {
-}
+export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {}
 
 /**
  * @since 7
@@ -53,7 +53,13 @@ interface TextPicker extends TextPickerAttribute<TextPicker> {
    * Add the property of the selector value range.
    * @since 7
    */
-  (options?: {range: string[] | Resource, value?: string, selected?: number, loop?: boolean , style?: PickerStyle}): TextPicker;
+  (options?: {
+    range: string[] | Resource;
+    value?: string;
+    selected?: number;
+    loop?: boolean;
+    style?: PickerStyle;
+  }): TextPicker;
 }
 
 /**

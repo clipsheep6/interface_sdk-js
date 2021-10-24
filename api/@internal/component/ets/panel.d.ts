@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Sets the initial state of the slidable panel.
@@ -36,7 +36,7 @@ export declare enum PanelMode {
    * Class Full Screen Status.
    * @since 7
    */
-  Full
+  Full,
 }
 
 /**
@@ -62,14 +62,13 @@ export declare enum PanelType {
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
    * @since 7
    */
-  Temporary
+  Temporary,
 }
 
 /**
  * @since 7
  */
-export declare class PanelExtend<T> extends PanelAttribute<T> {
-}
+export declare class PanelExtend<T> extends PanelAttribute<T> {}
 
 /**
  * Provides a sliding panel interface.
@@ -133,25 +132,27 @@ declare class PanelAttribute<T> extends CommonMethod<T> {
    * Called when the state of the slidable panel changes.
    * @since 7
    */
-  onChange(event: (
+  onChange(
+    event: (
+      /**
+       * Width of content area.
+       * @since 7
+       */
+      width: number,
 
-  /**
-   * Width of content area.
-   * @since 7
-   */
-    width: number,
+      /**
+       * Height of content area.
+       * @since 7
+       */
+      height: number,
 
-  /**
-   * Height of content area.
-   * @since 7
-   */
-    height: number,
-
-  /**
-   * Initial state.
-   * @since 7
-   */
-    mode: PanelMode) => void): T;
+      /**
+       * Initial state.
+       * @since 7
+       */
+      mode: PanelMode,
+    ) => void,
+  ): T;
 }
 
 /**

@@ -30,15 +30,14 @@ export declare enum DevicePosition {
    * Back camera
    * @since 7
    */
-  Back
+  Back,
 }
 
 /**
  * Camera component, which provides the preview and photographing functions.
  * @since 7
  */
-export declare class CameraExtend<T> extends CameraAttribute<T> {
-}
+export declare class CameraExtend<T> extends CameraAttribute<T> {}
 
 /**
  * resolution Width, resolution Height
@@ -49,7 +48,7 @@ interface Camera extends CameraAttribute<Camera> {
    * Set the value.
    * @since 7
    */
-  (value: { id: string, resolutionWidth: number, resolutionHeight: number }): Camera;
+  (value: { id: string; resolutionWidth: number; resolutionHeight: number }): Camera;
 }
 
 /**

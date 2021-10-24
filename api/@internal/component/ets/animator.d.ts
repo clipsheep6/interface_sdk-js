@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import { CommonMethod, AnimationStatus, Curve, FillMode, PlayMode } from "./common";
+import { CommonMethod } from "./common";
+import { AnimationStatus, Curve, FillMode, PlayMode } from "./enums";
 
 /**
  * Customize spring properties.
  * @since 7
+ * @systemapi
  */
 export declare class SpringProp {
   /**
    * Constructor parameters
-   * @devices object, tablet.
-   * @since 7
    */
   constructor(mass: number, stiffness: number, damping: number);
 }
@@ -31,11 +31,11 @@ export declare class SpringProp {
 /**
  * Spring animation model. You can build a spring animation based on the start point, end point, initial speed, and spring attributes.
  * @since 7
+ * @systemapi
  */
 export declare class SpringMotion {
   /**
    * Constructor parameters
-   * @since 7
    */
   constructor(start: number, end: number, velocity: number, prop: SpringProp);
 }
@@ -43,11 +43,11 @@ export declare class SpringMotion {
 /**
  * Friction animation model. You can build friction animation by friction force, initial position, and initial velocity.
  * @since 7
+ * @systemapi
  */
 export declare class FrictionMotion {
   /**
    * Constructor parameters
-   * @since 7
    */
   constructor(friction: number, position: number, velocity: number);
 }
@@ -55,30 +55,28 @@ export declare class FrictionMotion {
 /**
  * Rolling animation model: You can build rolling animation based on the initial position, initial speed, boundary position, and spring attributes.
  * @since 7
+ * @systemapi
  */
 export declare class ScrollMotion {
   /**
    * Constructor parameters
-   * @since 7
    */
   constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
 }
 
 /**
+ * Defines Animtor.
  * @since 7
- */
-export declare class AnimatorExtend<T> extends AnimatorAttribute<T> {
-}
-
-/**
- * @since 7
+ * @systemapi
  */
 interface Animator extends AnimatorAttribute<Animator> {
   (value: string): Animator;
 }
 
 /**
+ * Defines AnimatorAttribute.
  * @since 7
+ * @systemapi
  */
 declare class AnimatorAttribute<T> extends CommonMethod<T> {
   /**
@@ -166,7 +164,6 @@ declare class AnimatorAttribute<T> extends CommonMethod<T> {
   onFrame(event: (value: number) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class AnimatorExtend<T> extends AnimatorAttribute<T> {}
+
 export declare const AnimatorInterface: Animator;

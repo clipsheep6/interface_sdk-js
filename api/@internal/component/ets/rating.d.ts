@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Scoring bar
  * @since 7
  */
-export declare class RatingExtend<T> extends RatingAttribute<T> {
-}
+export declare class RatingExtend<T> extends RatingAttribute<T> {}
 
 /**
  * Provides the interface for scoring bars.
@@ -31,7 +30,7 @@ interface Rating extends RatingAttribute<Rating> {
    * Called when a score bar is created.
    * @since 7
    */
-  (options?: { rating: number, indicator?: boolean }): Rating;
+  (options?: { rating: number; indicator?: boolean }): Rating;
 }
 
 /**
@@ -54,16 +53,13 @@ declare class RatingAttribute<T> extends CommonMethod<T> {
    * Called when a picture is set.
    * @since 7
    */
-  starStyle(value: {
-    backgroundUri: string,
-    foregroundUri: string,
-    secondaryUri?: string}): T;
+  starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): T;
 
   /**
    * Called when the star rating of the operation scoring bar changes.
    * @since 7
    */
-  onChange(callback:(value: number) => void): T;
+  onChange(callback: (value: number) => void): T;
 }
 
 /**

@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import { CommonMethod, Resource } from "./common";
+import { CommonMethod } from "./common";
+import { Resource } from "./units";
 
 /**
  * Declaration extension.
  * @devices tv, phone, tablet
  * @since 7
  */
-export declare class TabContentExtend<T> extends TabContentAttribute<T> {
-}
+export declare class TabContentExtend<T> extends TabContentAttribute<T> {}
 
 /**
  * Provides an interface for switching the content view on a tab page.
@@ -43,7 +43,7 @@ declare class TabContentAttribute<T> extends CommonMethod<T> {
    * Called when tabbar is entered.
    * @since 7
    */
-  tabBar(value: string | Resource | { icon?: string | Resource, text?: string | Resource }): T;
+  tabBar(value: string | Resource | { icon?: string | Resource; text?: string | Resource }): T;
 
   /**
    * 通过builder方式自定义tabbar内容。

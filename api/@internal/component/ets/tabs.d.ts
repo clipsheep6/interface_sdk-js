@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Declare the graphic format of the bar chart.
@@ -30,7 +30,7 @@ export declare enum BarMode {
    * The width of all TabBars is evenly allocated.
    * @since 7
    */
-  Fixed
+  Fixed,
 }
 
 /**
@@ -48,7 +48,7 @@ export declare enum BarPosition {
    * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
    * @since 7
    */
-  End
+  End,
 }
 
 /**
@@ -71,8 +71,7 @@ export declare class TabsController {
 /**
  * @since 7
  */
-export declare class TabsExtend<T> extends TabsAttribute<T> {
-}
+export declare class TabsExtend<T> extends TabsAttribute<T> {}
 
 /**
  * Provides an interface for switching views.
@@ -83,7 +82,7 @@ interface Tabs extends TabsAttribute<Tabs> {
    * Called when the view is switched.
    * @since 7
    */
-  (value?: { barPosition?: BarPosition, index?: number, controller?: TabsController }): Tabs;
+  (value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): Tabs;
 }
 
 /**

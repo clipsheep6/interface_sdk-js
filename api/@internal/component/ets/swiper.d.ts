@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Provides methods for switching components.
@@ -54,15 +54,14 @@ export declare enum SwiperDisplayMode {
    * The rotation chart is self linear.
    * @since 7
    */
-  AutoLinear
+  AutoLinear,
 }
 
 /**
  * Declaration extension.
  * @since 7
  */
-export declare class SwiperExtend<T> extends SwiperAttribute<T> {
-}
+export declare class SwiperExtend<T> extends SwiperAttribute<T> {}
 
 /**
  * Provides an interface for sliding containers.

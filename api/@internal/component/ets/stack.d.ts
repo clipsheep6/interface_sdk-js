@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Alignment} from "./common";
+import { CommonMethod } from "./common";
+import { Alignment } from "./enums";
 
 /**
  * Declaration extension.
  * @since 7
  */
-export declare class StackExtend<T> extends StackAttribute<T> {
-}
+export declare class StackExtend<T> extends StackAttribute<T> {}
 
 /**
  * Provides ports for stacking containers.

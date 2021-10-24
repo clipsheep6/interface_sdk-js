@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * The refresh status of the drop-down refresh.
@@ -54,8 +54,7 @@ export declare enum RefreshStatus {
 /**
  * @since 7
  */
-export declare class RefreshExtend<T> extends RefreshAttribute<T> {
-}
+export declare class RefreshExtend<T> extends RefreshAttribute<T> {}
 
 /**
  * Provides a pull-down refresh interface.
@@ -66,7 +65,7 @@ interface Refresh extends RefreshAttribute<Refresh> {
    * Called when the drop-down refresh is set.
    * @since 7
    */
-  (value: {refreshing: boolean,offset?: number | string,friction?: number | string }): Refresh;
+  (value: { refreshing: boolean; offset?: number | string; friction?: number | string }): Refresh;
 }
 
 /**

@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Edge, Axis, Curve, BarState, EdgeEffect, Color} from "./common";
+import { CommonMethod } from "./common";
+import { Axis, BarState, Color, Curve, Edge, EdgeEffect } from "./enums";
 
 /**
  * Content scroll direction.
@@ -42,7 +43,7 @@ export declare enum ScrollDirection {
    * Non-scrollable.
    * @since 7
    */
-  None
+  None,
 }
 
 /**
@@ -60,7 +61,10 @@ export declare class Scroller {
    * @since 7
    */
   scrollTo(value: {
-    xOffset: number | string,yOffset: number | string,animation?: {duration: number,curve: Curve } });
+    xOffset: number | string;
+    yOffset: number | string;
+    animation?: { duration: number; curve: Curve };
+  });
 
   /**
    * Called when scrolling to the edge of the container.
@@ -72,7 +76,7 @@ export declare class Scroller {
    * Called when page turning mode is set.
    * @since 7
    */
-  scrollPage(value: {next: boolean,direction?: Axis });
+  scrollPage(value: { next: boolean; direction?: Axis });
 
   /**
    * Called when viewing the scroll offset.
@@ -90,8 +94,7 @@ export declare class Scroller {
 /**
  * @since 7
  */
-export declare class ScrollExtend<T> extends ScrollAttribute<T> {
-}
+export declare class ScrollExtend<T> extends ScrollAttribute<T> {}
 
 /**
  * Provides interfaces for scrollable containers.
@@ -119,7 +122,7 @@ declare class ScrollAttribute<T> extends CommonMethod<T> {
    * Called when the setting slides to the specified position.
    * @since 7
    */
-  onScroll(event: (xOffset: number,yOffset: number) => void): T;
+  onScroll(event: (xOffset: number, yOffset: number) => void): T;
 
   /**
    * Called when scrolling to the edge of the container.

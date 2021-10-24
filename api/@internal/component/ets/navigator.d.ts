@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Route jump.
@@ -36,15 +36,14 @@ export declare enum NavigationType {
    * Replace page.
    * @since 7
    */
-  Replace
+  Replace,
 }
 
 /**
  * Declare navigator extensions.
  * @since 7
  */
-export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {
-}
+export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {}
 
 /**
  * Create route
@@ -55,9 +54,7 @@ interface Navigator extends NavigatorAttribute<Navigator> {
    * Called when the route jumps.
    * @since 7
    */
-  (value?: {
-    target: string,
-    type?: NavigationType }): Navigator;
+  (value?: { target: string; type?: NavigationType }): Navigator;
 
   /**
    * Called when using the navigator.

@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Creating a Geometry View
  * @since 7
  */
-export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {
-}
+export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {}
 
 /**
  * @since 7
@@ -37,8 +36,7 @@ interface GeometryView extends GeometryViewAttribute<GeometryView> {
  * Inherit Public
  * @since 7
  */
-declare class GeometryViewAttribute<T> extends CommonMethod<T> {
-}
+declare class GeometryViewAttribute<T> extends CommonMethod<T> {}
 
 /**
  * @devices phone, tablet, car

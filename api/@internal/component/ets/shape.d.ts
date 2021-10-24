@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, LineCapStyle, LineJoinStyle, Resource, PixelMap} from "./common";
+import { CommonMethod, PixelMap } from "./common";
+import { LineCapStyle, LineJoinStyle } from "./enums";
+import { Resource, ResourceColor } from "./units";
 
 /**
  * @since 7
  */
-export declare class ShapeExtend<T> extends ShapeAttribute<T> {
-}
+export declare class ShapeExtend<T> extends ShapeAttribute<T> {}
 
 /**
  * Provides interfaces for drawing components.
@@ -41,19 +42,19 @@ declare class ShapeAttribute<T> extends CommonMethod<T> {
    * Viewport of shape
    * @since 7
    */
-  viewPort(value: { x?: number | string, y?: number | string, width?: number | string, height?: number | string }): T;
+  viewPort(value: { x?: number | string; y?: number | string; width?: number | string; height?: number | string }): T;
 
   /**
    * Called when the border color is set.
    * @since 7
    */
-  stroke(value: Color | number | string | Resource): T;
+  stroke(value: ResourceColor): T;
 
   /**
    * Called when the fill color is set.
    * @since 7
    */
-  fill(value: Color | number | string | Resource): T;
+  fill(value: ResourceColor): T;
 
   /**
    * Called when the offset of the starting point of border drawing is set.

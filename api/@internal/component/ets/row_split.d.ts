@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Component horizontal layout.
  * @since 7
  */
-export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {
-}
+export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {}
 
 /**
  * Provides interfaces for layout in the vertical direction.

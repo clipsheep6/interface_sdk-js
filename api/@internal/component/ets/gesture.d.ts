@@ -34,7 +34,7 @@ export declare enum GestureDirection {
    * Sliding Vertical
    * @since 7
    */
-  Vertical
+  Vertical,
 }
 
 /**
@@ -88,16 +88,14 @@ export declare enum PanDirection {
    * Sliding in all directions.
    * @since 7
    */
-  All
+  All,
 }
-
 
 /**
  * Creating an Object
  * @since 7
  */
 export declare enum GestureMode {
-
   /**
    * Sequential gesture recognition is performed in sequence according to the gesture registration sequence.
    * @since 7
@@ -114,7 +112,7 @@ export declare enum GestureMode {
    * Mutually exclusive recognition. Only one gesture is successfully recognized.
    * @since 7
    */
-  Exclusive
+  Exclusive,
 }
 
 /**
@@ -122,7 +120,6 @@ export declare enum GestureMode {
  * @since 7
  */
 export declare enum GestureMask {
-
   /**
    * High-priority response to the current gesture.When the current gesture fails to be recognized, other gesture responses are triggered.For gestures with the same priority, responses are performed based on the recognition sequence.
    * @since 7
@@ -133,7 +130,7 @@ export declare enum GestureMask {
    * Ignore internal gestures and recognize the current gesture first.
    * @since 7
    */
-  IgnoreInternal
+  IgnoreInternal,
 }
 
 /**
@@ -145,13 +142,7 @@ export declare type GestureType =
    * Set a type value.
    * @since 7
    */
-  TapGesture
-  | LongPressGesture
-  | PanGesture
-  | PinchGesture
-  | RotationGesture
-  | GestureGroup
-  | SwipeGesture
+  TapGesture | LongPressGesture | PanGesture | PinchGesture | RotationGesture | GestureGroup | SwipeGesture;
 
 /**
  * long press gesture event used in the longpress scenario.
@@ -228,7 +219,6 @@ export interface RotationGestureEvent extends GestureEvent {
  * tap gesture event used in tap gesture triggering scenario.
  */
 export interface TapGestureEvent extends GestureEvent {
-
   /**
    * 手指信息。
    * @since 8
@@ -304,7 +294,7 @@ export enum SwipeDirection {
   Up,
   Down,
   Left,
-  Right
+  Right,
 }
 
 /**
@@ -319,7 +309,6 @@ export interface GestureEvent {
   timestamp: number;
 }
 
-
 /**
  * Creating an interface
  * @since 7
@@ -331,7 +320,7 @@ interface TapGesture {
    * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
    * @since 7
    */
-  (value?: { count?: number, fingers?: number }): TapGesture;
+  (value?: { count?: number; fingers?: number }): TapGesture;
 
   /**
    * Tap gesture recognition success callback.
@@ -352,7 +341,7 @@ interface LongPressGesture {
    * duration: Minimum press and hold time, in milliseconds.
    * @since 7
    */
-  (value?: { fingers?: number, repeat?: boolean, duration?: number }): LongPressGesture;
+  (value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGesture;
 
   /**
    * LongPress gesture recognition success callback.
@@ -381,7 +370,7 @@ export declare class PanGestureOption {
    * Constructor parameters.
    * @since 7
    */
-  constructor(value?: { fingers?: number, direction?: PanDirection, distance?: number });
+  constructor(value?: { fingers?: number; direction?: PanDirection; distance?: number });
 
   /**
    * Sets the direction attribute.
@@ -410,7 +399,7 @@ interface PanGesture {
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number, direction?: PanDirection, distance?: number } | PanGestureOption): PanGesture;
+  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption): PanGesture;
 
   /**
    * Pan gesture recognition success callback.
@@ -445,7 +434,7 @@ interface PinchGesture {
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number, distance?: number }): PinchGesture;
+  (value?: { fingers?: number; distance?: number }): PinchGesture;
 
   /**
    * Pan gesture recognition success callback.
@@ -480,7 +469,7 @@ interface RotationGesture {
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number, angle?: number }): RotationGesture;
+  (value?: { fingers?: number; angle?: number }): RotationGesture;
 
   /**
    * Pan gesture recognition success callback.

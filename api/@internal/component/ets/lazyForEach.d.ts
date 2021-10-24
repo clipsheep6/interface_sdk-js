@@ -40,15 +40,14 @@ export declare interface DataChangeListener {
    * Data deleted.
    * @since 7
    */
-  onDataDeleted(index:number): void;
+  onDataDeleted(index: number): void;
 
   /**
    * Data changed.
    * @since 7
    */
-  onDataChanged(index:number): void;
+  onDataChanged(index: number): void;
 }
-
 
 /**
  * Data  changed.
@@ -89,8 +88,11 @@ interface LazyForEach {
    * Enter the value to obtain the LazyForEach.
    * @since 7
    */
-  (dataSource: IDataSource, itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string): LazyForEach;
+  (
+    dataSource: IDataSource,
+    itemGenerator: (item: any, index?: number) => void,
+    keyGenerator?: (item: any, index?: number) => string,
+  ): LazyForEach;
 }
 
 /**

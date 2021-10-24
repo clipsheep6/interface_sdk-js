@@ -13,35 +13,33 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Show routing content.
  * @since 7
  */
-export declare class NavigationViewExtend<T> extends NavigationViewAttribute<T> {
-}
+export declare class NavigationViewExtend<T> extends NavigationViewAttribute<T> {}
 
 /**
  * Provide navigator view interface
  * @since 7
  */
-interface NavigationView extends NavigationViewAttribute<NavigationView> {
+interface Navigation extends NavigationViewAttribute<Navigation> {
   /**
    * Called when the navigator view interface is used.
    * @since 7
    */
-  (): NavigationView;
+  (): Navigation;
 }
 
 /**
  * Declare Navigation view properties.
  * @since 7
  */
-declare class NavigationViewAttribute<T> extends CommonMethod<T> {
-}
+declare class NavigationViewAttribute<T> extends CommonMethod<T> {}
 
 /**
  * @since 7
  */
-export declare const NavigationViewInterface: NavigationView;
+export declare const NavigationViewInterface: Navigation;

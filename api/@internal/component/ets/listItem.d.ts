@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
  * Declare item ceiling attribute.
@@ -67,8 +67,7 @@ export declare enum EditMode {
 /**
  * @since 7
  */
-export declare class ListItemExtend<T> extends ListItemAttribute<T> {
-}
+export declare class ListItemExtend<T> extends ListItemAttribute<T> {}
 
 /**
  * Values in the list

@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-import {CommonMethod, BarState, Color, Resource} from "./common";
-import {Scroller} from "./scroll";
+import { CommonMethod } from "./common";
+import { BarState, Color } from "./enums";
+import { Scroller } from "./scroll";
+import { Length } from "./units";
 
 /**
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
  */
-export declare class GridExtend<T> extends GridAttribute<T> {
-}
+export declare class GridExtend<T> extends GridAttribute<T> {}
 
 /**
  * @since 7
@@ -54,13 +55,13 @@ declare class GridAttribute<T> extends CommonMethod<T> {
    * Allows you to set the spacing between columns.
    * @since 7
    */
-  columnsGap(value: number | string | Resource): T;
+  columnsGap(value: Length): T;
 
   /**
    * Lets you set the spacing between rows.
    * @since 7
    */
-  rowsGap(value: number | string | Resource): T;
+  rowsGap(value: Length): T;
 
   /**
    * This parameter specifies the width of the scroll bar.

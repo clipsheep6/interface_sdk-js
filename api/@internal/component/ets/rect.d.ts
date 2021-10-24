@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import {CommonShapeMethod} from "./common";
+import { CommonShapeMethod } from "./common";
 
 /**
  * Rectangle drawing.
  * @since 7
  */
-export declare class RectExtend<T> extends RectAttribute<T> {
-}
+export declare class RectExtend<T> extends RectAttribute<T> {}
 
 /**
  * Provides an interface for drawing rectangles.
@@ -28,23 +27,19 @@ export declare class RectExtend<T> extends RectAttribute<T> {
  */
 interface Rect extends RectAttribute<Rect> {
   /**
-   * Called when a new rectangle is created.
-   * @since 7
-   */
-  new (
-    value?: { width?: number | string, height?: number | string, radius?: number | string | Array<any> } |
-    {
-      width?: number | string, height?: number | string, radiusWidth?: number | string,
-      radiusHeight?: number | string
-    }): Rect;
-
-  /**
    * Called when a rectangle is created.
    * @since 7
    */
-  (value?: {width?: number | string,height?: number | string,radius?: number | string | Array<any> } |
-  {
-    width?: number | string,height?: number | string,radiusWidth?: number | string,radiusHeight?: number | string}): Rect;
+  (
+    value?:
+      | { width?: number | string; height?: number | string; radius?: number | string | Array<any> }
+      | {
+          width?: number | string;
+          height?: number | string;
+          radiusWidth?: number | string;
+          radiusHeight?: number | string;
+        },
+  ): Rect;
 }
 
 /**

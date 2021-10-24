@@ -14,8 +14,8 @@
  */
 
 import { CommonMethod } from "./common";
-import { FontWeight, FontStyle } from "./text";
-import { ResourceColor } from "./units";
+import { FontWeight, FontStyle } from "./enums";
+import { ResourceColor, Font } from "./units";
 
 /**
  * indexer align property.
@@ -98,13 +98,13 @@ declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
    * Select the text text style,
    * @since 7
    */
-  selectedFont(value: { size?: number; weight?: FontWeight; family?: string; style?: FontStyle }): T;
+  selectedFont(value: Font): T;
 
   /**
    * Select the text background color.
    * @since 7
    */
-  popupFont(value: { size?: number; weight?: FontWeight; family?: string; style?: FontStyle }): T;
+  popupFont(value: Font): T;
 
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
@@ -116,7 +116,7 @@ declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
    * Definitions fonts.
    * @since 7
    */
-  font(value: { size?: number; weight?: FontWeight; family?: string; style?: FontStyle }): T;
+  font(value: Font): T;
 
   /**
    * Alphabet index bar alignment style. The left and right alignment styles are supported, which affects the pop-up position of the pop-up window.

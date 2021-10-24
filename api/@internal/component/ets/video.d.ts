@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import {CommonMethod, ImageFit, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { ImageFit } from "./enums";
+import { Resource } from "./units";
 
 /**
  * @since 7
@@ -65,8 +67,7 @@ declare class VideoController {
 /**
  * @since 7
  */
-export declare class VideoExtend<T> extends VideoAttribute<T> {
-}
+export declare class VideoExtend<T> extends VideoAttribute<T> {}
 
 /**
  * @since 7
@@ -77,10 +78,10 @@ interface Video extends VideoAttribute<Video> {
    * @since 7
    */
   (value: {
-    src?: string | Resource,
-    currentProgressRate?: number | string,
-    previewUri?: string,
-    controller?: VideoController
+    src?: string | Resource;
+    currentProgressRate?: number | string;
+    previewUri?: string;
+    controller?: VideoController;
   }): Video;
 }
 
