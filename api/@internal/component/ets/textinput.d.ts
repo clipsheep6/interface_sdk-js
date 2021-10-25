@@ -111,10 +111,7 @@ interface TextInput extends TextInputAttribute<TextInput> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  (options?: {
-      placeholder: string | Resource,
-      text: string | Resource,
-  }): TextInput;
+  (value: { placeholder?: string | Resource, text?: string | Resource }): TextInput;
 }
 
 /**
@@ -141,7 +138,7 @@ declare class TextInputAttribute<T> extends CommonMethod<T> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  placeholderFont(value?: { size?: number | string | Resource, weight?: number | FontWeight | string, family?: string | Resource, style?: FontStyle }): T;
+  placeholderFont(value: { size?: number | string | Resource, weight?: number | FontWeight | string, family?: string | Resource, style?: FontStyle }): T;
 
   /**
    * Called when the type of soft keyboard input button is set.

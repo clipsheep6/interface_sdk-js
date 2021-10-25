@@ -34,7 +34,7 @@ interface TextArea extends TextAreaAttribute<TextArea> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  (options?: {placeholder: string | Resource, text: string | Resource}): TextArea;
+  (value: { placeholder?: string | Resource, text?: string | Resource }): TextArea;
 }
 
 /**
@@ -54,7 +54,7 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
    * @devices phone, tablet, car.
    * @since 7
    */
-  placeholderFont(value?:{ size?: number | string | Resource, weight?: number | FontWeight | string, family?: string | Resource, style?: FontStyle }): T;
+  placeholderFont(value: { size?: number | string | Resource, weight?: number | FontWeight | string, family?: string | Resource, style?: FontStyle }): T;
 
   /**
    * Called when the alignment of the contents of a multiline text box is set.
