@@ -52,7 +52,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/forEach.d.ts",
     "api/@internal/component/ets/form_component.d.ts",
     "api/@internal/component/ets/gauge.d.ts",
-    "api/@internal/component/ets/geometryView.d.ts",
     "api/@internal/component/ets/gesture.d.ts",
     "api/@internal/component/ets/grid.d.ts",
     "api/@internal/component/ets/gridItem.d.ts",

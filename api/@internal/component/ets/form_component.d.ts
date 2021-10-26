@@ -18,6 +18,7 @@ import {CommonMethod, Visibility} from "./common";
 /**
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export declare enum FormDimension {
   /**
@@ -53,6 +54,7 @@ export declare enum FormDimension {
  * The card component is provided to display cards.
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {
 }
@@ -60,6 +62,7 @@ export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {
 /**
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 interface FormComponent extends FormComponentAttribute<FormComponent> {
   /**
@@ -73,6 +76,7 @@ interface FormComponent extends FormComponentAttribute<FormComponent> {
 /**
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 declare class FormComponentAttribute<T> extends CommonMethod<T> {
   /**
@@ -135,5 +139,6 @@ declare class FormComponentAttribute<T> extends CommonMethod<T> {
 /**
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export declare const FormComponentInterface: FormComponent;

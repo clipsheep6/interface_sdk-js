@@ -36,7 +36,6 @@ export * from './flex';
 export * from './forEach';
 export * from './form_component';
 export * from './gauge';
-export * from './geometryView';
 export * from './gesture';
 export * from './grid';
 export * from './gridItem';
