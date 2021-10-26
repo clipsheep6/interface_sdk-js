@@ -13,40 +13,33 @@
  * limitations under the License.
  */
 
-import { CommonMethod, Resource } from "./common";
+import { CommonMethod } from "./common";
 
 /**
- * Display items.
- * @devices phone, tablet, car.
+ * Creating a Geometry View
  * @since 7
  */
-export declare class OptionExtend<T> extends OptionAttribute<T> {
-}
+export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {}
 
 /**
- * Provides the interface for displaying the content.
- * @devices phone, tablet, car.
  * @since 7
  */
-interface Option extends OptionAttribute<Option> {
+interface GeometryView extends GeometryViewAttribute<GeometryView> {
   /**
-   * Called when the content needs to be displayed.
-   * @devices phone, tablet, car.
+   * Callback function.
    * @since 7
    */
-  (content?: string | Resource): Option;
+  (callback: (geometry?: any) => void): GeometryView;
 }
 
 /**
- * Declare option properties.
- * @devices phone, tablet, car.
+ * Inherit Public
  * @since 7
  */
-declare class OptionAttribute<T> extends CommonMethod<T> {
-}
+declare class GeometryViewAttribute<T> extends CommonMethod<T> {}
 
 /**
- * @devices phone, tablet, car.
+ * @devices phone, tablet, car
  * @since 7
  */
-export declare const OptionInterface: Option;
+export declare const GeometryViewInterface: GeometryView;

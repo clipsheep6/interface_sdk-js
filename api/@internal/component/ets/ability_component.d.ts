@@ -13,107 +13,101 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
-import {Want} from "../api/common/ability/want";
+import { CommonMethod } from "./common";
+import { Want } from "../api/common/ability/want";
 
 /**
  * controller of ability.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class AbilityController {
-    /**
-     * constructor.
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    constructor();
+  /**
+   * constructor.
+   * @since 7
+   */
+  constructor();
 
-    /**
-     * load the ability in the AbilityComponent.
-     * Want: Capability description to be loaded
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    startAbility(value: Want);
+  /**
+   * load the ability in the AbilityComponent.
+   * Want: Capability description to be loaded
+   * @since 7
+   */
+  startAbility(value: Want);
 
-    /**
-     * Perform a return operation inside the AbilityComponent.
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    performBackPress();
+  /**
+   * Perform a return operation inside the AbilityComponent.
+   * @since 7
+   */
+  performBackPress();
 
-    /**
-     * Obtains the number of tasks in the internal task stack of the AbilityComponent.
-     * @devices phone, tablet, car.
-     * @since 7
-     */
-    getStackCount();
+  /**
+   * Obtains the number of tasks in the internal task stack of the AbilityComponent.
+   * @since 7
+   */
+  getStackCount();
 }
 
 /**
- * @devices phone, tablet, car.
+ * AbilityComponent constructor params.
  * @since 7
  */
-export declare class AbilityComponentExtend<T> extends AbilityComponentAttribute<T> {
+export declare interface AbilityComponentOptions {
+  /**
+   * Capability description to be loaded.
+   * @since 7
+   */
+  want: Want;
+
+  /**
+   * controller: Ability Controller.
+   * @since 7
+   */
+  controller?: AbilityController;
 }
 
 /**
  * AbilityComponent inheritance abilitycomponentattribute.
- * Want: Capability description to be loaded.
- * controller: Ability Controller.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface AbilityComponent extends AbilityComponentAttribute<AbilityComponent> {
-  (value: { want: Want, controller?: AbilityController }): AbilityComponent;
+  (value: AbilityComponentOptions): AbilityComponent;
 }
 
 /**
  * The attribute of ability.
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class AbilityComponentAttribute<T> extends CommonMethod<T> {
   /**
    * Callback when the abilityComponent environment starts up, after which the abilityController methods can be used.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onReady(event: () => void): T;
 
   /**
    * Callback when the abilityComponent environment is destroyed.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onDestroy(event: () => void): T;
 
   /**
    * This event is triggered when the abilityComponent loads the mobility. Name indicates the Ability name.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onAbilityCreated(event: (name: string) => void): T;
 
   /**
    * Internal to the AbilityComponent, which is triggered when the Ability moves to the foreground.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onAbilityMoveToFront(event: () => void): T;
 
   /**
    * Internal to the AbilityComponent, which is triggered before the Mobility is removed.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onAbilityWillRemove(event: () => void): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class AbilityComponentExtend<T> extends AbilityComponentAttribute<T> {}
 export declare const AbilityComponentInterface: AbilityComponent;

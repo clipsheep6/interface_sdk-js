@@ -13,85 +13,73 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color} from "./common";
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
  * Declare the type of status button
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum ToggleType {
   /**
    * Checkbox
-   * @devices phone, tablet, car.
    * @since 7
    */
   Checkbox,
 
   /**
    * Switch
-   * @devices phone, tablet, car.
    * @since 7
    */
   Switch,
 
   /**
    * Button
-   * @devices phone, tablet, car.
    * @since 7
    */
-  Button
+  Button,
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
-export declare class ToggleExtend<T> extends ToggleAttribute<T> {
-}
+export declare class ToggleExtend<T> extends ToggleAttribute<T> {}
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Toggle extends ToggleAttribute<Toggle> {
   /**
    * Set parameters to obtain the toggle.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  (options?: {type: ToggleType, isOn?: boolean}): Toggle;
+  (options?: { type: ToggleType; isOn?: boolean }): Toggle;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class ToggleAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the selected state of the component changes.
    * @since 7
-   * @devices phone, tablet, car.
    */
   onChange(callback: (isOn: boolean) => void): T;
 
   /**
    * Called when the color of the selected button is set.
    * @since 7
-   * @devices phone, tablet, car.
    */
-  selectedColor(value: Color): T;
+  selectedColor(value: ResourceColor): T;
 
   /**
    * Called when the color of the selected button is set.
    * @since 7
-   * @devices phone, tablet, car.
    */
-  swithPointStyle(color: Color): T;
+  swithPointStyle(color: ResourceColor): T;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const ToggleInterface: Toggle;

@@ -13,39 +13,40 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
- * Creating a Geometry View
- * @devices phone, tablet, car.
+ * The data panel component is used to display multiple data proportions in a circular proportion chart.
  * @since 7
  */
-export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {
-}
+export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {}
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
-interface GeometryView extends GeometryViewAttribute<GeometryView> {
+interface DataPanel extends DataPanelAttribute<DataPanel> {
   /**
-   * Callback function.
-   * @devices phone, tablet, car.
+   * Return a DataPanel.
+   * values: Current data value. A maximum of nine data records are supported.
+   * max: Maximum value of the current data.
    * @since 7
    */
-  (callback: (geometry?: any) => void): GeometryView;
+  (options: { values: number[]; max?: number }): DataPanel;
 }
 
 /**
- * Inherit Public
- * @devices phone, tablet, car.
  * @since 7
  */
-declare class GeometryViewAttribute<T> extends CommonMethod<T> {
+declare class DataPanelAttribute<T> extends CommonMethod<T> {
+  /**
+   * Disable the special effect of the data ratio chart.
+   * @since 7
+   */
+  closeEffect(value: boolean): T;
 }
 
 /**
  * @devices phone, tablet, car
  * @since 7
  */
-export declare const GeometryViewInterface: GeometryView;
+export declare const DataPanelInterface: DataPanel;
