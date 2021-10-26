@@ -58,12 +58,6 @@ export declare enum SwiperDisplayMode {
 }
 
 /**
- * Declaration extension.
- * @since 7
- */
-export declare class SwiperExtend<T> extends SwiperAttribute<T> {}
-
-/**
  * Provides an interface for sliding containers.
  * @since 7
  */
@@ -134,20 +128,11 @@ declare class SwiperAttribute<T> extends CommonMethod<T> {
   displayMode(value: SwiperDisplayMode): T;
 
   /**
-   * 是否开启通过手势进行切换。
-   * @default true
-   * @since 8
-   */
-  gestureSwipe(value: boolean): T;
-
-  /**
    * Called when the index value changes.
    * @since 7
    */
   onChange(event: (index: number) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class SwiperExtend<T> extends SwiperAttribute<T> {}
 export declare const SwiperInterface: Swiper;

@@ -59,12 +59,6 @@ export declare enum SliderChangeMode {
 }
 
 /**
- * Declare SliderChangeMode.
- * @since 7
- */
-export declare class SliderExtend<T> extends SliderAttribute<T> {}
-
-/**
  * Provides an interface for the slide bar component.
  * @since 7
  */
@@ -132,7 +126,5 @@ declare class SliderAttribute<T> extends CommonMethod<T> {
   onChange(callback: (value: number, mode: SliderChangeMode) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class SliderExtend<T> extends SliderAttribute<T> {}
 export declare const SliderInterface: Slider;

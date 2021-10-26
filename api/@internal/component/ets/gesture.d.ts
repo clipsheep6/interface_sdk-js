@@ -142,7 +142,7 @@ export declare type GestureType =
    * Set a type value.
    * @since 7
    */
-  TapGesture | LongPressGesture | PanGesture | PinchGesture | RotationGesture | GestureGroup | SwipeGesture;
+  TapGesture | LongPressGesture | PanGesture | PinchGesture | RotationGesture | GestureGroup;
 
 /**
  * long press gesture event used in the longpress scenario.
@@ -154,12 +154,6 @@ export interface LongPressGestureEvent extends GestureEvent {
    * @since 7
    */
   repeat: boolean;
-
-  /**
-   * 手指信息。
-   * @since 8
-   */
-  fingerInfos: Array<FingerInfo>;
 }
 
 /**
@@ -216,88 +210,6 @@ export interface RotationGestureEvent extends GestureEvent {
 }
 
 /**
- * tap gesture event used in tap gesture triggering scenario.
- */
-export interface TapGestureEvent extends GestureEvent {
-  /**
-   * 手指信息。
-   * @since 8
-   */
-  fingerInfos: Array<FingerInfo>;
-}
-
-/**
- * 手指信息，在点击和长按场景下触发。
- * @since 8
- */
-export interface FingerInfo {
-  /**
-   * finger id.
-   * @since 8
-   */
-  fingerId: number;
-
-  /**
-   * Indicates whether an event is triggered repeatedly. This parameter is used in the longpress scenario.
-   * @since 8
-   */
-  globalX: number;
-
-  /**
-   * Indicates whether an event is triggered repeatedly. This parameter is used in the longpress scenario.
-   * @since 8
-   */
-  globalY: number;
-
-  /**
-   * Horizontal distance from the upper left corner of the touched component. The upper left corner of the component is the origin.
-   * @since 8
-   */
-  localX: number;
-
-  /**
-   * Longitudinal distance from the upper left corner of the touched component. The upper left corner of the component is the origin.
-   * @since 8
-   */
-  localY: number;
-}
-
-/**
- * swipe事件参数。
- * @since 8
- */
-export interface SwipeGestureEvent extends GestureEvent {
-  /**
-   * Swipe滑动方向。
-   * @since 8
-   */
-  direction: SwipeDirection;
-
-  /**
-   * Swipe滑动速度。
-   * @since 8
-   */
-  velocity: number;
-
-  /**
-   * Swipe滑动距离。
-   * @since 8
-   */
-  distance: number;
-}
-
-/**
- * Swipe滑动方向。
- * @since 8
- */
-export enum SwipeDirection {
-  Up,
-  Down,
-  Left,
-  Right,
-}
-
-/**
  * base event for gesture.
  * @since 7
  */
@@ -326,7 +238,7 @@ interface TapGesture {
    * Tap gesture recognition success callback.
    * @since 7
    */
-  onAction(event: (event?: TapGestureEvent) => void): TapGesture;
+  onAction(event: (event?: GestureEvent) => void): TapGesture;
 }
 
 /**
@@ -513,54 +425,9 @@ interface GestureGroup {
   onCancel(event: () => void): GestureGroup;
 }
 
-/**
- * 提供Swipe手势识别器，用于swipe手势场景识别。
- */
-interface SwipeGesture {
-  /**
-   * 构造SwipeGesture手势处理器。
-   * @since 8
-   */
-  (options?: { fingers?: number }): SwipeGesture;
-
-  /**
-   * SwipeGesture手势触发时触发的事件。
-   * @since 8
-   */
-  onAction(event: SwipeGestureEvent): void;
-}
-
-/**
- * @since 7
- */
 export declare const TapGestureInterface: TapGesture;
-
-/**
- * @since 7
- */
 export declare const LongPressGestureInterface: LongPressGesture;
-
-/**
- * @since 7
- */
 export declare const PanGestureInterface: PanGesture;
-
-/**
- * @since 7
- */
 export declare const PinchGestureInterface: PinchGesture;
-
-/**
- * @since 7
- */
 export declare const RotationGestureInterface: RotationGesture;
-
-/**
- * @since 7
- */
 export declare const GestureGroupInterface: GestureGroup;
-
-/**
- * @since 8
- */
-export declare const SwipeGestureInterface: SwipeGesture;

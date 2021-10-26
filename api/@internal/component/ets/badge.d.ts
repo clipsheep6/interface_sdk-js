@@ -17,6 +17,7 @@ import { CommonMethod } from "./common";
 import { ResourceColor } from "./units";
 
 /**
+ * Defines the badge position property.
  * @since 7
  */
 export declare enum BadgePosition {
@@ -60,13 +61,13 @@ export declare interface BadgeStyle {
    * Size of a badge.
    * @since 7
    */
-  badgeSize: number | string;
+  badgeSize?: number | string;
 
   /**
    * Color of the badge.
    * @since 7
    */
-  badgeColor: ResourceColor;
+  badgeColor?: ResourceColor;
 }
 
 /**
@@ -76,11 +77,13 @@ export declare interface BadgeStyle {
 export declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
+   * @since 7
    */
   position?: BadgePosition;
 
   /**
    * Defines the style of the Badge component, including the text color, size, dot color, and size.
+   * @since 7
    */
   style: BadgeStyle;
 }
@@ -92,11 +95,13 @@ export declare interface BadgeParam {
 export declare interface BadgeParamWithNumber extends BadgeParam {
   /**
    * Set the number of reminder messages.
+   * @since 7
    */
   count: number;
 
   /**
    * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * @since 7
    */
   maxCount?: number;
 }
@@ -108,6 +113,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
 export declare interface BadgeParamWithString extends BadgeParam {
   /**
    * Text string of the prompt content.
+   * @since 7
    */
   value: string;
 }
@@ -143,5 +149,4 @@ interface Badge extends BadgeAttribute<Badge> {
 declare class BadgeAttribute<T> extends CommonMethod<T> {}
 
 export declare class BadgeExtend<T> extends BadgeAttribute<T> {}
-
 export declare const BadgeInterface: Badge;

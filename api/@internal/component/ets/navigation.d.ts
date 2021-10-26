@@ -16,30 +16,22 @@
 import { CommonMethod } from "./common";
 
 /**
- * Show routing content.
- * @since 7
- */
-export declare class NavigationViewExtend<T> extends NavigationViewAttribute<T> {}
-
-/**
  * Provide navigator view interface
- * @since 7
+ * @since 8
  */
-interface Navigation extends NavigationViewAttribute<Navigation> {
+interface Navigation extends NavigationAttribute<Navigation> {
   /**
    * Called when the navigator view interface is used.
-   * @since 7
+   * @since 8
    */
   (): Navigation;
 }
 
 /**
  * Declare Navigation view properties.
- * @since 7
+ * @since 8
  */
-declare class NavigationViewAttribute<T> extends CommonMethod<T> {}
+declare class NavigationAttribute<T> extends CommonMethod<T> {}
 
-/**
- * @since 7
- */
-export declare const NavigationViewInterface: Navigation;
+export declare class NavigationExtend<T> extends NavigationAttribute<T> {}
+export declare const NavigationInterface: Navigation;

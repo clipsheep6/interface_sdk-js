@@ -16,12 +16,6 @@
 import { CommonShapeMethod } from "./common";
 
 /**
- * Polygon drawing.
- * @since 7
- */
-export declare class PolygonExtend<T> extends PolygonAttribute<T> {}
-
-/**
  * Provides the polygon drawing interface.
  * @since 7
  */
@@ -50,7 +44,5 @@ declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
   points(value: Array<any>): T;
 }
 
-/**
- * @since 7
- */
+export declare class PolygonExtend<T> extends PolygonAttribute<T> {}
 export declare const PolygonInterface: Polygon;

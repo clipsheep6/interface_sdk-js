@@ -16,12 +16,6 @@
 import { CommonShapeMethod } from "./common";
 
 /**
- * Rectangle drawing.
- * @since 7
- */
-export declare class RectExtend<T> extends RectAttribute<T> {}
-
-/**
  * Provides an interface for drawing rectangles.
  * @since 7
  */
@@ -65,7 +59,5 @@ declare class RectAttribute<T> extends CommonShapeMethod<T> {
   radius(value: number | string | Array<any>): T;
 }
 
-/**
- * @since 7
- */
+export declare class RectExtend<T> extends RectAttribute<T> {}
 export declare const RectInterface: Rect;

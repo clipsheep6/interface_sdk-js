@@ -14,7 +14,49 @@
  */
 
 import { DialogAlignment } from "./alert_dialog";
-import { Length, Offset } from "./units";
+import { Offset } from "./units";
+
+/**
+ * Defines the option of CustomDialogController.
+ * @since 7
+ */
+export declare interface CustomDialogControllerOption {
+  /**
+   * Custom builder function.
+   * @since 7
+   */
+  builder: any;
+
+  /**
+   * Defines the cancel function.
+   * @since 7
+   */
+  cancel?: () => void;
+
+  /**
+   * Defines if use auto cancel when click on the outside of the dialog.
+   * @since 7
+   */
+  autoCancel?: boolean;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   * @since 7
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   * @since 7
+   */
+  offset?: Offset;
+
+  /**
+   * Defines if use costom style.
+   * @since 7
+   */
+  customStyle?: boolean;
+}
 
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
@@ -25,14 +67,7 @@ export declare class CustomDialogController {
    * The constructor transfers parameter settings.
    * @since 7
    */
-  constructor(value: {
-    builder: any;
-    cancel?: () => void;
-    autoCancel?: boolean;
-    alignment?: DialogAlignment;
-    offset?: Offset;
-    customStyle?: boolean;
-  });
+  constructor(value: CustomDialogControllerOption);
 
   /**
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.

@@ -29,7 +29,7 @@ interface Blank extends BlankAttribute<Blank> {
 }
 
 /**
- * inheritance CommonMethod Set Styles
+ * Inheritance CommonMethod Set Styles
  * @since 7
  */
 declare class BlankAttribute<T> extends CommonMethod<T> {
@@ -41,5 +41,4 @@ declare class BlankAttribute<T> extends CommonMethod<T> {
 }
 
 export declare class BlankExtend<T> extends BlankAttribute<T> {}
-
 export declare const BlankInterface: Blank;

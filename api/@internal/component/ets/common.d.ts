@@ -18,7 +18,7 @@ import { Circle } from "./circle";
 import { Ellipse } from "./ellipse";
 import { Path } from "./path";
 import { Rect } from "./rect";
-import { Resource, Length, Padding, Margin, Size } from "./units";
+import { Resource, Length, Padding, Margin } from "./units";
 import {
   Alignment,
   BorderStyle,
@@ -482,21 +482,13 @@ export declare class CommonMethod<T> {
   /**
    * The size of the current component.
    * @since 7
-   * @deprecated since 8
    */
   size(value: { width?: Length; height?: Length }): T;
-
-  /**
-   * The size of the current component, use min and max to constraint component size.
-   * @since 8
-   */
-  size(value: Size): T;
 
   /**
    * constraint Size：
    * minWidth：minimum Width，maxWidth：maximum Width，minHeight：minimum Height ，maxHeight：maximum Height，
    * @since 7
-   * @deprecated since 8
    */
   constraintSize(value: {
     minWidth?: number | string | Resource;
@@ -608,13 +600,6 @@ export declare class CommonMethod<T> {
    * @since 7
    */
   hideNavigationBackButton(value: boolean): T;
-
-  /**
-   * 通过自定义builder方式创建toolbar。
-  .
-   * @since 8
-   */
-  toolBar(value: { builder: any }): T;
 
   /**
    * Hide tool bar

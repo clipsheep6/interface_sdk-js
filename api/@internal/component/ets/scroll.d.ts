@@ -92,11 +92,6 @@ export declare class Scroller {
 }
 
 /**
- * @since 7
- */
-export declare class ScrollExtend<T> extends ScrollAttribute<T> {}
-
-/**
  * Provides interfaces for scrollable containers.
  * @since 7
  */
@@ -161,7 +156,5 @@ declare class ScrollAttribute<T> extends CommonMethod<T> {
   edgeEffect(edgeEffect: EdgeEffect): T;
 }
 
-/**
- * @since 7
- */
+export declare class ScrollExtend<T> extends ScrollAttribute<T> {}
 export declare const ScrollInterface: Scroll;

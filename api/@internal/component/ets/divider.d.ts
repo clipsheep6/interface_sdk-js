@@ -18,11 +18,6 @@ import { LineCapStyle } from "./enums";
 import { ResourceColor } from "./units";
 
 /**
- * @since 7
- */
-export declare class DividerExtend<T> extends DividerAttribute<T> {}
-
-/**
  * Provides a divider component to separate different content blocks/content elements.
  * @since 7
  */
@@ -35,6 +30,7 @@ interface Divider extends DividerAttribute<Divider> {
 }
 
 /**
+ * Defines the Divider attribute functions.
  * @since 7
  */
 declare class DividerAttribute<T> extends CommonMethod<T> {
@@ -64,7 +60,5 @@ declare class DividerAttribute<T> extends CommonMethod<T> {
   lineCap(value: LineCapStyle): T;
 }
 
-/**
- * @since 7
- */
+export declare class DividerExtend<T> extends DividerAttribute<T> {}
 export declare const DividerInterface: Divider;

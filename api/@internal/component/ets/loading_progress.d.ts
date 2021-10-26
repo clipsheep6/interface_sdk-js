@@ -18,59 +18,59 @@ import { ResourceColor } from "./units";
 
 /**
  * Load style of progress bar.
- * @since 7
+ * @since 8
  */
 export declare enum LoadingProgressStyle {
   /**
    * Default style.
-   * @since 7
+   * @since 8
    */
   Default,
 
   /**
    * Announcement style.
-   * @since 7
+   * @since 8
    */
   Circular,
 
   /**
    * The style of the track.
-   * @since 7
+   * @since 8
    */
   Orbital,
 }
 
 /**
  * Loading Progress Extensions on Declarative Classes
- * @since 7
+ * @since 8
  */
 export declare class LoadingProgressExtend<T> extends LoadingProgressAttribute<T> {}
 
 /**
  * Provides an interface for extending the loading progress.
- * @since 7
+ * @since 8
  */
 interface LoadingProgress extends LoadingProgressAttribute<LoadingProgress> {
   /**
    * Called when the progress bar progress is viewed.
-   * @since 7
+   * @since 8
    */
   (): LoadingProgress;
 }
 
 /**
  * Declare the progress bar being loaded
- * @since 7
+ * @since 8
  */
 declare class LoadingProgressAttribute<T> extends CommonMethod<T> {
   /**
    * Load the color of the progress bar.
-   * @since 7
+   * @since 8
    */
   color(value: ResourceColor): T;
 }
 
 /**
- * @since 7
+ * @since 8
  */
 export declare const LoadingProgressInterface: LoadingProgress;

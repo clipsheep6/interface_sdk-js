@@ -16,11 +16,6 @@
 import { CommonShapeMethod } from "./common";
 
 /**
- * @since 7
- */
-export declare class EllipseExtend<T> extends EllipseAttribute<T> {}
-
-/**
  * Ellipse drawing.
  * @since 7
  */
@@ -37,7 +32,5 @@ interface Ellipse extends EllipseAttribute<Ellipse> {
  */
 declare class EllipseAttribute<T> extends CommonShapeMethod<T> {}
 
-/**
- * @since 7
- */
+export declare class EllipseExtend<T> extends EllipseAttribute<T> {}
 export declare const EllipseInterface: Ellipse;

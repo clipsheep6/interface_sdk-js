@@ -17,11 +17,6 @@ import { CommonMethod } from "./common";
 import { VerticalAlign } from "./enums";
 
 /**
- * @since 7
- */
-export declare class RowExtend<T> extends RowAttribute<T> {}
-
-/**
  * The components are laid out horizontally
  * @since 7
  */
@@ -44,7 +39,5 @@ declare class RowAttribute<T> extends CommonMethod<T> {
   alignItems(value: VerticalAlign): T;
 }
 
-/**
- * @since 7
- */
+export declare class RowExtend<T> extends RowAttribute<T> {}
 export declare const RowInterface: Row;

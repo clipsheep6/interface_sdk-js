@@ -67,11 +67,6 @@ declare class VideoController {
 /**
  * @since 7
  */
-export declare class VideoExtend<T> extends VideoAttribute<T> {}
-
-/**
- * @since 7
- */
 interface Video extends VideoAttribute<Video> {
   /**
    * Set the value.
@@ -174,7 +169,5 @@ declare class VideoAttribute<T> extends CommonMethod<T> {
   onError(event: () => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class VideoExtend<T> extends VideoAttribute<T> {}
 export declare const VideoInterface: Video;

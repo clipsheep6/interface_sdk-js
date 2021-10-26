@@ -16,11 +16,7 @@
 import { CommonMethod } from "./common";
 
 /**
- * @since 7
- */
-export declare class ColumnSplitExtend<T> extends ColumnSplitAttribute<T> {}
-
-/**
+ * Defines the ColumnSplit component.
  * @since 7
  */
 interface ColumnSplit extends ColumnSplitAttribute<ColumnSplit> {
@@ -32,6 +28,7 @@ interface ColumnSplit extends ColumnSplitAttribute<ColumnSplit> {
 }
 
 /**
+ * Defines the ColumnSplit component attribute functions.
  * @since 7
  */
 declare class ColumnSplitAttribute<T> extends CommonMethod<T> {
@@ -42,7 +39,5 @@ declare class ColumnSplitAttribute<T> extends CommonMethod<T> {
   resizeable(value: boolean): T;
 }
 
-/**
- * @since 7
- */
 export declare const ColumnSplitInterface: ColumnSplit;
+export declare class ColumnSplitExtend<T> extends ColumnSplitAttribute<T> {}

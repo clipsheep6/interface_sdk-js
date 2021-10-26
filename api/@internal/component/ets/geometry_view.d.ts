@@ -16,30 +16,22 @@
 import { CommonMethod } from "./common";
 
 /**
- * Creating a Geometry View
- * @since 7
- */
-export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {}
-
-/**
- * @since 7
+ * Defines the GeometryView Component.
+ * @since 8
  */
 interface GeometryView extends GeometryViewAttribute<GeometryView> {
   /**
    * Callback function.
-   * @since 7
+   * @since 8
    */
   (callback: (geometry?: any) => void): GeometryView;
 }
 
 /**
  * Inherit Public
- * @since 7
+ * @since 8
  */
 declare class GeometryViewAttribute<T> extends CommonMethod<T> {}
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {}
 export declare const GeometryViewInterface: GeometryView;

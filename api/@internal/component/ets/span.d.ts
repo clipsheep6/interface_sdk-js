@@ -18,12 +18,6 @@ import { FontStyle, FontWeight, TextDecorationType, TextCase } from "./enums";
 import { Resource, ResourceColor } from "./units";
 
 /**
- * Declaration extension.
- * @since 7
- */
-export declare class SpanExtend<T> extends SpanAttribute<T> {}
-
-/**
  * Provide text decoration.
  * @since 7
  */
@@ -87,7 +81,5 @@ declare class SpanAttribute<T> extends CommonMethod<T> {
   textCase(value: TextCase): T;
 }
 
-/**
- * @since 7
- */
+export declare class SpanExtend<T> extends SpanAttribute<T> {}
 export declare const SpanInterface: Span;

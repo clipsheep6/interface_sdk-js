@@ -21,7 +21,6 @@ export * from "./badge";
 export * from "./blank";
 export * from "./button";
 export * from "./calendar";
-export * from "./camera";
 export * from "./circle";
 export * from "./column";
 export * from "./column_split";

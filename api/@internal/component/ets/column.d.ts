@@ -17,12 +17,7 @@ import { CommonMethod } from "./common";
 import { HorizontalAlign } from "./enums";
 
 /**
- * Containers laid out vertically.
- * @since 7
- */
-export declare class ColumnExtend<T> extends ColumnAttribute<T> {}
-
-/**
+ * Defines the Column Component.
  * @since 7
  */
 interface Column extends ColumnAttribute<Column> {
@@ -36,6 +31,7 @@ interface Column extends ColumnAttribute<Column> {
 }
 
 /**
+ * Defines the Column component attribute functions.
  * @since 7
  */
 export declare class ColumnAttribute<T> extends CommonMethod<T> {
@@ -46,7 +42,5 @@ export declare class ColumnAttribute<T> extends CommonMethod<T> {
   alignItems(value: HorizontalAlign): T;
 }
 
-/**
- * @since 7
- */
+export declare class ColumnExtend<T> extends ColumnAttribute<T> {}
 export declare const ColumnInterface: Column;

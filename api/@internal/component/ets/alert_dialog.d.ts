@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { ResourceColor } from ".";
 import { Offset, ResourceStr } from "./units";
 
 /**
@@ -85,6 +86,12 @@ export declare interface AlertDialogParam {
    * @since 7
    */
   offset?: Offset;
+
+  /**
+   * Grid count of dialog.
+   * @since 7
+   */
+  gridCount?: number;
 }
 
 /**
@@ -94,20 +101,29 @@ export declare interface AlertDialogParam {
 export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
    * Invoke the commit function.
-   * @devices phone, tablet, car.
    * @since 7
    */
   confirm?: {
     /**
      * Text content of the confirmation button.
-     * @devices phone, tablet, car.
      * @since 7
      */
     value: ResourceStr;
 
     /**
+     * Text color of the confirmation button.
+     * @since 7
+     */
+    fontColor?: ResourceColor;
+
+    /**
+     * Backgound color of the confirmation button.
+     * @since 7
+     */
+    backgroundColor?: ResourceColor;
+
+    /**
      * Method executed by the callback.
-     * @devices phone, tablet, car.
      * @since 7
      */
     action: () => void;
@@ -117,20 +133,29 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
-   * @devices phone, tablet, car.
    * @since 7
    */
   primaryButton: {
     /**
      * Text content of the confirmation button.
-     * @devices phone, tablet, car.
      * @since 7
      */
     value: ResourceStr;
 
     /**
+     * Text color of the confirmation button.
+     * @since 7
+     */
+    fontColor?: ResourceColor;
+
+    /**
+     * Backgound color of the confirmation button.
+     * @since 7
+     */
+    backgroundColor?: ResourceColor;
+
+    /**
      * Method executed by the callback.
-     * @devices phone, tablet, car.
      * @since 7
      */
     action: () => void;
@@ -138,20 +163,29 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
   /**
    * Second button.
-   * @devices phone, tablet, car.
    * @since 7
    */
   secondaryButton: {
     /**
      * Text content of the confirmation button.
-     * @devices phone, tablet, car.
      * @since 7
      */
     value: ResourceStr;
 
     /**
+     * Text color of the confirmation button.
+     * @since 7
+     */
+    fontColor?: ResourceColor;
+
+    /**
+     * Backgound color of the confirmation button.
+     * @since 7
+     */
+    backgroundColor?: ResourceColor;
+
+    /**
      * Method executed by the callback.
-     * @devices phone, tablet, car.
      * @since 7
      */
     action: () => void;

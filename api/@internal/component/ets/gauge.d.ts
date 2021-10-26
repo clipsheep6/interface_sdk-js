@@ -17,73 +17,65 @@ import { CommonMethod } from "./common";
 import { Color } from "./enums";
 
 /**
- * Data gauge chart component, used to display data as a ring chart.
- * @since 7
- */
-export declare class GaugeExtend<T> extends GaugeAttribute<T> {}
-
-/**
- * @since 7
+ * Defines the Guage component.
+ * @since 8
  */
 interface Gauge extends GaugeAttribute<Gauge> {
   /**
    * value:Current data value.
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
-   * @since 7
+   * @since 8
    */
   (options: { value: number; min?: number; max?: number }): Gauge;
 }
 
 /**
- * @since 7
+ * @since 8
  */
 declare class GaugeAttribute<T> extends CommonMethod<T> {
   /**
    * Sets the value for the current profile.
-   * @since 7
+   * @since 8
    */
   value(value: number): T;
 
   /**
    * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
-   * @since 7
+   * @since 8
    */
   startAngle(angle: number): T;
 
   /**
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
-   * @since 7
+   * @since 8
    */
   endAngle(angle: number): T;
 
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
-   * @since 7
+   * @since 8
    */
   colors(colors: Array<any>): T;
 
   /**
    * Sets the thickness of the ring chart.
-   * @since 7
+   * @since 8
    */
   strokeWidth(length: number): T;
 
   /**
    * Mark points describe the content of the text.
-   * @since 7
+   * @since 8
    */
   labelTextConfig(markedLabelText: string): T;
 
   /**
    * Color of the marker point description text.
-   * @since 7
+   * @since 8
    */
   labelColorConfig(markedLabelColor: Color): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GaugeExtend<T> extends GaugeAttribute<T> {}
 export declare const GaugeInterface: Gauge;

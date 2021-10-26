@@ -19,12 +19,6 @@ import { Scroller } from "./scroll";
 import { Length } from "./units";
 
 /**
- * Mesh container for static fixed-size layout scenarios.
- * @since 7
- */
-export declare class GridExtend<T> extends GridAttribute<T> {}
-
-/**
  * @since 7
  */
 interface Grid extends GridAttribute<Grid> {
@@ -94,8 +88,5 @@ declare class GridAttribute<T> extends CommonMethod<T> {
   cachedCount(value: number): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GridExtend<T> extends GridAttribute<T> {}
 export declare const GridInterface: Grid;

@@ -16,104 +16,121 @@
 import { CommonMethod } from "./common";
 
 /**
- * Date and time slide selector component.
- * @since 7
- */
-export declare class DatePickerExtend<T> extends DatePickerAttribute<T> {}
-
-/**
- * @since 7
+ * Defines the type of DatePicker.
+ * @since 8
  */
 export declare enum DatePickerType {
   /**
    * Application hour and second
-   * @since 7
+   * @since 8
    */
   Time,
 
   /**
    * Application data
-   * @since 7
+   * @since 8
    */
   Date,
 }
 
-export interface DatePickerResult {
+export declare interface DatePickerResult {
   /**
    * Application year
-   * @since 7
+   * @since 8
    */
   year?: number;
 
   /**
    * Application month
-   * @since 7
+   * @since 8
    */
   month?: number;
 
   /**
    * Application day
-   * @since 7
+   * @since 8
    */
   day?: number;
 
   /**
    * Application hour
-   * @since 7
+   * @since 8
    */
   hour?: number;
 
   /**
    * Application minute
-   * @since 7
+   * @since 8
    */
   minute?: number;
 
   /**
    * Application second
-   * @since 7
+   * @since 8
    */
   second?: number;
 }
 
 /**
- * @since 7
+ * Defines the option of DatePicker.
+ * @since 8
  */
-interface DatePicker extends DatePickerAttribute<DatePicker> {
+export declare interface DatePickerOption {
   /**
-   * start: Specifies the start date of the date selector.
-   * end: Specifies the end date for the date selector.
-   * selected: Specifies the date selector check date or time selector check time.
-   * type: Selector type, including date selector and time selector. By default, the date selector is used.
-   * @since 7
+   * Specifies the start date of the date selector.
    */
-  (options?: { start?: Date; end?: Date; selected?: Date; type?: DatePickerType }): DatePicker;
+  start?: Date;
+  /**
+   * Specifies the end date for the date selector.
+   */
+  end?: Date;
+
+  /**
+   * Specifies the date selector check date or time selector check time.
+   */
+  selected?: Date;
+
+  /**
+   * Selector type, including date selector and time selector. By default, the date selector is used.
+   */
+  type?: DatePickerType;
 }
 
 /**
- * @since 7
+ * Defines the DatePicker Component.
+ * @since 8
+ */
+interface DatePicker extends DatePickerAttribute<DatePicker> {
+  /**
+   * Defines the DatePicker constructor.
+   * @since 8
+   */
+  (options?: DatePickerOption): DatePicker;
+}
+
+/**
+ * Defines the DatePicker attribute functions.
+ * @since 8
  */
 declare class DatePickerAttribute<T> extends CommonMethod<T> {
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
-   * @since 7
+   * @since 8
    */
   lunar(value: boolean): T;
 
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
-   * @since 7
+   * @since 8
    */
   useMilitaryTime(value: boolean): T;
 
   /**
    * This event is triggered when a DatePicker date or time is selected.
-   * @since 7
+   * @since 8
    */
   onChange(callback: (value: DatePickerResult) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class DatePickerExtend<T> extends DatePickerAttribute<T> {}
 export declare const DatePickerInterface: DatePicker;

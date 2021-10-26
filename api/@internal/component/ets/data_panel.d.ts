@@ -16,25 +16,37 @@
 import { CommonMethod } from "./common";
 
 /**
- * The data panel component is used to display multiple data proportions in a circular proportion chart.
+ * Defines the option of DataPanel.
  * @since 7
  */
-export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {}
+export declare interface DataPanelOption {
+  /**
+   * Current data value. the max length is 9.
+   * @since 7
+   */
+  values: number[];
+
+  /**
+   * Maximum value of the current data.
+   * @since 7
+   */
+  max?: number;
+}
 
 /**
+ * Defines the DataPanel component.
  * @since 7
  */
 interface DataPanel extends DataPanelAttribute<DataPanel> {
   /**
    * Return a DataPanel.
-   * values: Current data value. A maximum of nine data records are supported.
-   * max: Maximum value of the current data.
    * @since 7
    */
-  (options: { values: number[]; max?: number }): DataPanel;
+  (options: DataPanelOption): DataPanel;
 }
 
 /**
+ * Defines the DataPanel attribute functions.
  * @since 7
  */
 declare class DataPanelAttribute<T> extends CommonMethod<T> {
@@ -45,8 +57,5 @@ declare class DataPanelAttribute<T> extends CommonMethod<T> {
   closeEffect(value: boolean): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {}
 export declare const DataPanelInterface: DataPanel;

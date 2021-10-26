@@ -52,42 +52,6 @@ export declare type Length = string | number | Resource;
 export declare type ResourceStr = string | Resource;
 
 /**
- * Size params with max and min property.
- * @since 8
- */
-export declare interface Size {
-  /**
-   * width property.
-   */
-  width?: Length;
-
-  /**
-   * height property.
-   */
-  height?: Length;
-
-  /**
-   * minWidth property.
-   */
-  minWidth?: Length;
-
-  /**
-   * maxWidth property.
-   */
-  maxWidth?: Length;
-
-  /**
-   * minHeight property.
-   */
-  minHeight?: Length;
-
-  /**
-   * maxHeight property.
-   */
-  maxHeight?: Length;
-}
-
-/**
  * Defines the padding property.
  * @since 7
  */

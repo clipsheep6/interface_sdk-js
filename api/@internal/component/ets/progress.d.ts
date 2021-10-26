@@ -29,32 +29,12 @@ export declare enum ProgressStyle {
   Linear,
 
   /**
-   * Capsule progress bar style.
-   * @devices phone, tablet, car.
-   * @since 7
-   */
-  Capsule,
-
-  /**
    * Circular progress bar.
    * @devices phone, tablet, car.
    * @since 7
    */
   Eclipse,
-
-  /**
-   * Ring progress bar.
-   * @devices phone, tablet, car.
-   * @since 7
-   */
-  Circular,
 }
-
-/**
- * Make a statement on the progress bar.
- * @since 7
- */
-export declare class ProgressExtend<T> extends ProgressAttribute<T> {}
 
 /**
  * Provides the progress bar interface.
@@ -87,6 +67,7 @@ declare class ProgressAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the style of the circular progress bar is set.
    * @since 7
+   * @deprecated since 7
    */
   circularStyle(value: { strokeWidth?: number; scaleCount?: number; scaleWidth?: number }): T;
 
@@ -97,7 +78,5 @@ declare class ProgressAttribute<T> extends CommonMethod<T> {
   cricularStyle(value: { strokeWidth?: number; scaleCount?: number; scaleWidth?: number }): T;
 }
 
-/**
- * @since 7
- */
+export declare class ProgressExtend<T> extends ProgressAttribute<T> {}
 export declare const ProgressInterface: Progress;

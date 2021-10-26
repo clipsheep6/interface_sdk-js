@@ -16,12 +16,6 @@
 import { CommonShapeMethod } from "./common";
 
 /**
- * Path drawing.
- * @since 7
- */
-export declare class PathExtend<T> extends PathAttribute<T> {}
-
-/**
  * Provides the path drawing interface.
  * @since 7
  */
@@ -44,7 +38,5 @@ declare class PathAttribute<T> extends CommonShapeMethod<T> {
   commands(value: string): T;
 }
 
-/**
- * @since 7
- */
+export declare class PathExtend<T> extends PathAttribute<T> {}
 export declare const PathInterface: Path;

@@ -18,11 +18,6 @@ import { LineCapStyle, LineJoinStyle } from "./enums";
 import { Resource, ResourceColor } from "./units";
 
 /**
- * @since 7
- */
-export declare class ShapeExtend<T> extends ShapeAttribute<T> {}
-
-/**
  * Provides interfaces for drawing components.
  * @since 7
  */
@@ -111,7 +106,5 @@ declare class ShapeAttribute<T> extends CommonMethod<T> {
   antiAlias(value: boolean): T;
 }
 
-/**
- * @since 7
- */
+export declare class ShapeExtend<T> extends ShapeAttribute<T> {}
 export declare const ShapeInterface: Shape;

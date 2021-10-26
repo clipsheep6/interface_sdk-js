@@ -16,12 +16,6 @@
 import { CommonShapeMethod } from "./common";
 
 /**
- * Discounted drawing.
- * @since 7
- */
-export declare class PolylineExtend<T> extends PolylineAttribute<T> {}
-
-/**
  * Provides an interface for drawing polylines.
  * @since 7
  */
@@ -50,7 +44,5 @@ declare class PolylineAttribute<T> extends CommonShapeMethod<T> {
   points(value: Array<any>): T;
 }
 
-/**
- * @since 7
- */
+export declare class PolylineExtend<T> extends PolylineAttribute<T> {}
 export declare const PolylineInterface: Polyline;

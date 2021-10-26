@@ -19,12 +19,6 @@ import { CommonMethod } from "./common";
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
  */
-export declare class GridItemExtend<T> extends GridItemAttribute<T> {}
-
-/**
- * Mesh container for static fixed-size layout scenarios.
- * @since 7
- */
 interface GridItem extends GridItemAttribute<GridItem> {
   /**
    * Return to get GridItem.
@@ -68,8 +62,5 @@ declare class GridItemAttribute<T> extends CommonMethod<T> {
   forceRebuild(value: boolean): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GridItemExtend<T> extends GridItemAttribute<T> {}
 export declare const GridItemInterface: GridItem;

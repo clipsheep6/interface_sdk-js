@@ -48,16 +48,19 @@ export declare enum ButtonType {
 export declare interface ButtonOption {
   /**
    * Describes the button style.
+   * @since 7
    */
   type?: ButtonType;
 
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @since 7
    */
   stateEffect?: boolean;
 }
 
 /**
+ * Defines the Button Component.
  * @since 7
  */
 interface Button extends ButtonAttribute<Button> {
@@ -81,6 +84,7 @@ interface Button extends ButtonAttribute<Button> {
 }
 
 /**
+ * Defines the button attibute functions.
  * @since 7
  */
 declare class ButtonAttribute<T> extends CommonMethod<T> {
@@ -116,5 +120,4 @@ declare class ButtonAttribute<T> extends CommonMethod<T> {
 }
 
 export declare class ButtonExtend<T> extends ButtonAttribute<T> {}
-
 export declare const ButtonInterface: Button;

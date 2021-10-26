@@ -16,41 +16,33 @@
 import { CommonMethod } from "./common";
 
 /**
- * radio
- * @since 7
- */
-export declare class RadioExtend<T> extends RadioAttribute<T> {}
-
-/**
  * Provides an interface for creating a radio box.
- * @since 7
+ * @since 8
  */
 interface Radio extends RadioAttribute<Radio> {
   /**
    * Called when a radio box is created.
-   * @since 7
+   * @since 8
    */
   (options: { value: string }): Radio;
 }
 
 /**
- * @since 7
+ * @since 8
  */
 declare class RadioAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the radio box is selected.
-   * @since 7
+   * @since 8
    */
   checked(value: boolean): T;
 
   /**
    * Called when the radio box selection status changes.
-   * @since 7
+   * @since 8
    */
   onChange(callback: (isChecked: boolean) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class RadioExtend<T> extends RadioAttribute<T> {}
 export declare const RadioInterface: Radio;

@@ -17,9 +17,40 @@ import { CommonMethod } from "./common";
 import { FlexAlign, FlexDirection, FlexWrap, ItemAlign } from "./enums";
 
 /**
+ * Defines the option of Flex.
  * @since 7
  */
-export declare class FlexExtend<T> extends FlexAttribute<T> {}
+export declare interface FlexOption {
+  /**
+   * Sets the horizontal layout of elements.
+   * @since 7
+   */
+  direction?: FlexDirection;
+
+  /**
+   * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   * @since 7
+   */
+  wrap?: FlexWrap;
+
+  /**
+   * The alignment format of the subassembly on the Flex container spindle.
+   * @since 7
+   */
+  justifyContent?: FlexAlign;
+
+  /**
+   * Alignment Format for Subassembly on Flex Container Cross Axis.
+   * @since 7
+   */
+  alignItems?: ItemAlign;
+
+  /**
+   * The alignment of multiple lines of content when there is extra space in the cross axis.
+   * @since 7
+   */
+  alignContent?: FlexAlign;
+}
 
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
@@ -27,31 +58,17 @@ export declare class FlexExtend<T> extends FlexAttribute<T> {}
  */
 interface Flex extends FlexAttribute<Flex> {
   /**
-   * Set the value.
-   * direction: Sets the horizontal layout of elements.
-   * wrap: Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
-   * justifyContent: The alignment format of the subassembly on the Flex container spindle.
-   * alignItems: Alignment Format for Subassembly on Flex Container Cross Axis
-   * alignContent:The alignment of multiple lines of content when there is extra space in the cross axis.
+   * Defines the constructor of Flex.
    * @since 7
    */
-  (value?: {
-    direction?: FlexDirection;
-    wrap?: FlexWrap;
-    justifyContent?: FlexAlign;
-    alignItems?: ItemAlign;
-    alignContent?: FlexAlign;
-  }): Flex;
+  (value?: FlexOption): Flex;
 }
 
 /**
- * Common Setting
+ * Defines the Flex attribute functions.
  * @since 7
  */
 declare class FlexAttribute<T> extends CommonMethod<T> {}
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class FlexExtend<T> extends FlexAttribute<T> {}
 export declare const FlexInterface: Flex;

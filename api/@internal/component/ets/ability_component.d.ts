@@ -19,30 +19,27 @@ import { Want } from "../api/common/ability/want";
 /**
  * controller of ability.
  * @since 7
+ * @systemapi
  */
 export declare class AbilityController {
   /**
    * constructor.
-   * @since 7
    */
   constructor();
 
   /**
    * load the ability in the AbilityComponent.
    * Want: Capability description to be loaded
-   * @since 7
    */
   startAbility(value: Want);
 
   /**
    * Perform a return operation inside the AbilityComponent.
-   * @since 7
    */
   performBackPress();
 
   /**
    * Obtains the number of tasks in the internal task stack of the AbilityComponent.
-   * @since 7
    */
   getStackCount();
 }
@@ -50,17 +47,16 @@ export declare class AbilityController {
 /**
  * AbilityComponent constructor params.
  * @since 7
+ * @systemapi
  */
 export declare interface AbilityComponentOptions {
   /**
    * Capability description to be loaded.
-   * @since 7
    */
   want: Want;
 
   /**
    * controller: Ability Controller.
-   * @since 7
    */
   controller?: AbilityController;
 }
@@ -68,6 +64,7 @@ export declare interface AbilityComponentOptions {
 /**
  * AbilityComponent inheritance abilitycomponentattribute.
  * @since 7
+ * @systemapi
  */
 interface AbilityComponent extends AbilityComponentAttribute<AbilityComponent> {
   (value: AbilityComponentOptions): AbilityComponent;
@@ -76,38 +73,35 @@ interface AbilityComponent extends AbilityComponentAttribute<AbilityComponent> {
 /**
  * The attribute of ability.
  * @since 7
+ * @systemapi
  */
 declare class AbilityComponentAttribute<T> extends CommonMethod<T> {
   /**
    * Callback when the abilityComponent environment starts up, after which the abilityController methods can be used.
-   * @since 7
    */
   onReady(event: () => void): T;
 
   /**
    * Callback when the abilityComponent environment is destroyed.
-   * @since 7
    */
   onDestroy(event: () => void): T;
 
   /**
    * This event is triggered when the abilityComponent loads the mobility. Name indicates the Ability name.
-   * @since 7
    */
   onAbilityCreated(event: (name: string) => void): T;
 
   /**
    * Internal to the AbilityComponent, which is triggered when the Ability moves to the foreground.
-   * @since 7
    */
   onAbilityMoveToFront(event: () => void): T;
 
   /**
    * Internal to the AbilityComponent, which is triggered before the Mobility is removed.
-   * @since 7
    */
   onAbilityWillRemove(event: () => void): T;
 }
 
+// Used for IDE.
 export declare class AbilityComponentExtend<T> extends AbilityComponentAttribute<T> {}
 export declare const AbilityComponentInterface: AbilityComponent;

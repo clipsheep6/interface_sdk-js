@@ -14,7 +14,6 @@
  */
 
 import { CommonMethod } from "./common";
-import { FontWeight, FontStyle } from "./enums";
 import { ResourceColor, Font } from "./units";
 
 /**
@@ -45,10 +44,11 @@ interface AlphabetIndexer extends AlphabetIndexerAttribute<AlphabetIndexer> {
    * selected: ID of the selected item.
    * @since 7
    */
-  (value: { ArrayValue: Array<string>; selected: number }): AlphabetIndexer;
+  (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexer;
 }
 
 /**
+ * Defines the alphabet index bar attribute functions.
  * @since 7
  */
 declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
@@ -126,5 +126,4 @@ declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
 }
 
 export declare const AlphabetIndexerInterface: AlphabetIndexer;
-
 export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {}

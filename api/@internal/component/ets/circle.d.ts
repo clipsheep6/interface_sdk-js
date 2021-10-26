@@ -16,12 +16,25 @@
 import { CommonShapeMethod } from "./common";
 
 /**
+ * Defines circle option for Circle component.
  * @since 7
  */
-export declare class CircleExtend<T> extends CircleAttribute<T> {}
+export declare interface CircleOption {
+  /**
+   * Defines the width property.
+   * @since 7
+   */
+  width?: string | number;
+
+  /**
+   * Defines the height property.
+   * @since 7
+   */
+  height?: string | number;
+}
 
 /**
- * new Circle component.
+ * Defines circle component.
  * @since 7
  */
 interface Circle extends CircleAttribute<Circle> {
@@ -29,16 +42,14 @@ interface Circle extends CircleAttribute<Circle> {
    * Set the value..
    * @since 7
    */
-  (value?: { width?: string | number; height?: string | number }): Circle;
+  (value?: CircleOption): Circle;
 }
 
 /**
- * Circle drawing component.
+ * Circle drawing component attribute functions.
  * @since 7
  */
 declare class CircleAttribute<T> extends CommonShapeMethod<T> {}
 
-/**
- * @since 7
- */
+export declare class CircleExtend<T> extends CircleAttribute<T> {}
 export declare const CircleInterface: Circle;

@@ -66,11 +66,6 @@ export declare enum PanelType {
 }
 
 /**
- * @since 7
- */
-export declare class PanelExtend<T> extends PanelAttribute<T> {}
-
-/**
  * Provides a sliding panel interface.
  * @since 7
  */
@@ -155,7 +150,5 @@ declare class PanelAttribute<T> extends CommonMethod<T> {
   ): T;
 }
 
-/**
- * @since 7
- */
+export declare class PanelExtend<T> extends PanelAttribute<T> {}
 export declare const PanelInterface: Panel;

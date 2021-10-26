@@ -40,12 +40,6 @@ export declare enum NavigationType {
 }
 
 /**
- * Declare navigator extensions.
- * @since 7
- */
-export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {}
-
-/**
  * Create route
  * @since 7
  */
@@ -93,7 +87,5 @@ declare class NavigatorAttribute<T> extends CommonMethod<T> {
   params(value: object): T;
 }
 
-/**
- * @since 7
- */
+export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {}
 export declare const NavigatorInterface: Navigator;

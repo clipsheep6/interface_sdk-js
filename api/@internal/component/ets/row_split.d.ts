@@ -16,12 +16,6 @@
 import { CommonMethod } from "./common";
 
 /**
- * Component horizontal layout.
- * @since 7
- */
-export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {}
-
-/**
  * Provides interfaces for layout in the vertical direction.
  * @since 7
  */
@@ -44,7 +38,5 @@ declare class RowSplitAttribute<T> extends CommonMethod<T> {
   resizeable(value: boolean): T;
 }
 
-/**
- * @since 7
- */
+export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {}
 export declare const RowSplitInterface: RowSplit;

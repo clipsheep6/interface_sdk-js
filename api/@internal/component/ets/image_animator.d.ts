@@ -17,13 +17,6 @@ import { CommonMethod } from "./common";
 import { AnimationStatus } from "./enums";
 
 /**
- * The frame animation component is provided to play pictures frame by frame.
- * You can configure the list of pictures to be played and configure the duration for each picture.
- * @since 7
- */
-export declare class ImageAnimatorExtend<T> extends ImageAnimatorAttribute<T> {}
-
-/**
  * @since 7
  */
 interface ImageAnimator extends ImageAnimatorAttribute<ImageAnimator> {
@@ -127,8 +120,5 @@ declare class ImageAnimatorAttribute<T> extends CommonMethod<T> {
   onFinish(event: () => void): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class ImageAnimatorExtend<T> extends ImageAnimatorAttribute<T> {}
 export declare const ImageAnimatorInterface: ImageAnimator;

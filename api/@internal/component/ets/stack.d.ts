@@ -17,12 +17,6 @@ import { CommonMethod } from "./common";
 import { Alignment } from "./enums";
 
 /**
- * Declaration extension.
- * @since 7
- */
-export declare class StackExtend<T> extends StackAttribute<T> {}
-
-/**
  * Provides ports for stacking containers.
  * @since 7
  */
@@ -45,7 +39,5 @@ declare class StackAttribute<T> extends CommonMethod<T> {
   alignContent(value: Alignment): T;
 }
 
-/**
- * @since 7
- */
+export declare class StackExtend<T> extends StackAttribute<T> {}
 export declare const StackInterface: Stack;

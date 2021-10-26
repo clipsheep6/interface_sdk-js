@@ -18,40 +18,35 @@ import { Resource } from "./units";
 
 /**
  * Declare the type of selector
- * @since 7
+ * @since 8
  */
 export declare enum PickerStyle {
   /**
    * Inside the line.
-   * @since 7
+   * @since 8
    */
   INLINE = 0,
 
   /**
    * Block-level elements.
-   * @since 7
+   * @since 8
    */
   BLOCK,
 
   /**
    * fade.
-   * @since 7
+   * @since 8
    */
   FADE,
 }
 
 /**
- * @since 7
- */
-export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {}
-
-/**
- * @since 7
+ * @since 8
  */
 interface TextPicker extends TextPickerAttribute<TextPicker> {
   /**
    * Add the property of the selector value range.
-   * @since 7
+   * @since 8
    */
   (options?: {
     range: string[] | Resource;
@@ -64,35 +59,33 @@ interface TextPicker extends TextPickerAttribute<TextPicker> {
 
 /**
  * Style the text selector.
- * @since 7
+ * @since 8
  */
 declare class TextPickerAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the default height of the selected element is set.
-   * @since 7
+   * @since 8
    */
   defaultPickerItemHeight(value: number): T;
 
   /**
    * Called when the pop-up value is returned.
-   * @since 7
+   * @since 8
    */
   onAccept(callback: (value: string, index: number) => void): T;
 
   /**
    * Called when the Cancel button in the pop-up window is clicked.
-   * @since 7
+   * @since 8
    */
   onCancel(callback: () => void): T;
 
   /**
    * Called when the OK button in the pop-up window is clicked.
-   * @since 7
+   * @since 8
    */
   onChange(callback: (value: string, index: number) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {}
 export declare const TextPickerInterface: TextPicker;

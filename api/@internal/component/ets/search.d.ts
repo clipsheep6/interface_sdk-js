@@ -17,12 +17,16 @@ import { CommonMethod } from "./common";
 import { FontStyle, FontWeight } from "./enums";
 import { ResourceColor } from "./units";
 
-export declare class SearchExtend<T> extends SearchAttribute<T> {}
-
+/**
+ * @since 8
+ */
 interface Search extends SearchAttribute<Search> {
   (options?: { value?: string; placeholder?: string; icon?: string }): Search;
 }
 
+/**
+ * @since 8
+ */
 declare class SearchAttribute<T> extends CommonMethod<T> {
   searchButton(value: string): T;
   placeholderColor(value: ResourceColor): T;
@@ -31,4 +35,5 @@ declare class SearchAttribute<T> extends CommonMethod<T> {
   onChange(callback: (value: string) => void): T;
 }
 
+export declare class SearchExtend<T> extends SearchAttribute<T> {}
 export declare const SearchInterface: Search;

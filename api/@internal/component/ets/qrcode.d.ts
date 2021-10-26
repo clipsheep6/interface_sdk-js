@@ -17,12 +17,6 @@ import { CommonMethod } from "./common";
 import { ResourceColor } from "./units";
 
 /**
- * QR code information
- * @since 7
- */
-export declare class QRCodeExtend<T> extends QRCodeAttribute<T> {}
-
-/**
  * Provides an interface for generating QR codes.
  * @since 7
  */
@@ -51,7 +45,5 @@ declare class QRCodeAttribute<T> extends CommonMethod<T> {
   backgroundColor(value: ResourceColor): T;
 }
 
-/**
- * @since 7
- */
+export declare class QRCodeExtend<T> extends QRCodeAttribute<T> {}
 export declare const QRCodeInterface: QRCode;

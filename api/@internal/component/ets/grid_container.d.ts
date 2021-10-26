@@ -16,6 +16,7 @@
 import { ColumnAttribute } from "./column";
 
 /**
+ * Defines the size type.
  * @since 7
  */
 export declare enum SizeType {
@@ -51,38 +52,52 @@ export declare enum SizeType {
 }
 
 /**
- * Vertical layout grid layout container, used only in grid layout scenarios.
+ * Defines the option of GridContainer.
  * @since 7
  */
-export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {}
+export declare interface GridContainerOption {
+  /**
+   * Sets the total number of columns in the current layout.
+   * @since 7
+   */
+  columns?: number | "auto";
+
+  /**
+   * Select the device width type.
+   * @since 7
+   */
+  sizeType?: SizeType;
+
+  /**
+   * Grid layout column spacing.
+   * @since 7
+   */
+  gutter?: number | string;
+
+  /**
+   * Spacing on both sides of the grid layout.
+   * @since 7
+   */
+  margin?: number | string;
+}
 
 /**
+ * Defines the GridContainer component.
  * @since 7
  */
 interface GridContainer extends GridContainerAttribute<GridContainer> {
   /**
-   * columns: Sets the total number of columns in the current layout.
-   * sizeType: Select the device width type.
-   * gutter: Grid layout column spacing.
-   * margin: Spacing on both sides of the grid layout.
+   * Defines the constructor of GridContainer.
    * @since 7
    */
-  (value?: {
-    columns?: number | "auto";
-    sizeType?: SizeType;
-    gutter?: number | string;
-    margin?: number | string;
-  }): GridContainer;
+  (value?: GridContainerOption): GridContainer;
 }
 
 /**
- * inheritance  Column
+ * Defines the grid container attribute from inheritance Column
  * @since 7
  */
 declare class GridContainerAttribute<T> extends ColumnAttribute<T> {}
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {}
 export declare const GridContainerInterface: GridContainer;

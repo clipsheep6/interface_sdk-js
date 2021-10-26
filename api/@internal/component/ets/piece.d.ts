@@ -16,38 +16,33 @@
 import { CommonMethod } from "./common";
 
 /**
- *Sets the relative position of icons and text.
- * @since 7
+ * Sets the relative position of icons and text.
+ * @since 8
  */
 export declare enum IconPosition {
   /**
    * The icon is at the beginning of the text.
    * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   Start,
 
   /**
    * The icon is at the end of the text.
    * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   End,
 }
 
 /**
- * @since 7
- */
-export declare class PieceExtend<T> extends PieceAttribute<T> {}
-
-/**
  * Provides text and icons for setting block entries.
- * @since 7
+ * @since 8
  */
 interface Piece extends PieceAttribute<Piece> {
   /**
    * Called when setting the position of a block entry.
-   * @since 7
+   * @since 8
    */
   (options?: { content: string; icon?: string }): Piece;
 }
@@ -55,12 +50,10 @@ interface Piece extends PieceAttribute<Piece> {
 declare class PieceAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the relative position of the icon and the text is set.
-   * @since 7
+   * @since 8
    */
   iconPosition(value: IconPosition): T;
 }
 
-/**
- * @since 7
- */
+export declare class PieceExtend<T> extends PieceAttribute<T> {}
 export declare const PieceInterface: Piece;

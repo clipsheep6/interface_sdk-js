@@ -18,90 +18,70 @@ import { FontWeight } from "./enums";
 import { Length, Resource, ResourceColor } from "./units";
 
 /**
- * @devices phone, tablet
- * @since 5
- */
-export declare class MarqueeExtend<T> extends MarqueeAttribute<T> {}
-
-/**
  * Provides the interface for the marquee attributes.
- * @devices phone, tablet
- * @since 5
+ * @since 8
  */
 interface Marquee extends MarqueeAttribute<Marquee> {
   /**
    * Create marquee.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   (value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): Marquee;
 }
 
 /**
  * Declares marquee properties.
- * @devices phone, tablet
- * @since 5
+ * @since 8
  */
 declare class MarqueeAttribute<T> extends CommonMethod<T> {
   /**
    * Set marquee font Color.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   fontColor(value: ResourceColor): T;
 
   /**
    * Set marquee font size.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   fontSize(value: Length): T;
 
   /**
    * Set marquee allow scale.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   allowScale(value: boolean): T;
 
   /**
    * Set marquee font weight.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   fontWeight(value: number | FontWeight | string): T;
 
   /**
    * Set marquee font family.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   fontFamily(value: string | Resource): T;
 
   /**
    * Called when scrolling starts.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   onStart(event: () => void): T;
 
   /**
    * Called when scrolling to the bottom.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   onBounce(event: () => void): T;
 
   /**
    * Called when scrolling is complete.
-   * @devices phone, tablet
-   * @since 5
+   * @since 8
    */
   onFinish(event: () => void): T;
 }
 
-/**
- * @devices phone, tablet
- * @since 5
- */
+export declare class MarqueeExtend<T> extends MarqueeAttribute<T> {}
 export declare const MarqueeInterface: Marquee;

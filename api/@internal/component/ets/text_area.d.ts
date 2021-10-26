@@ -18,35 +18,30 @@ import { TextAlign, FontWeight, FontStyle } from "./enums";
 import { Resource, ResourceColor } from "./units";
 
 /**
- * @since 7
- */
-export declare class TextAreaExtend<T> extends TextAreaAttribute<T> {}
-
-/**
  * Provides an interface for the multi-line text input component.
- * @since 7
+ * @since 8
  */
 interface TextArea extends TextAreaAttribute<TextArea> {
   /**
    * Called when writing multiple lines of text.
-   * @since 7
+   * @since 8
    */
   (options?: { placeholder: string | Resource; text: string | Resource }): TextArea;
 }
 
 /**
- * @since 7
+ * @since 8
  */
 declare class TextAreaAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the color of the placeholder is set.
-   * @since 7
+   * @since 8
    */
   placeholderColor(value: ResourceColor): T;
 
   /**
    * Called when the font property of the placeholder is set.
-   * @since 7
+   * @since 8
    */
   placeholderFont(value?: {
     size?: number | string | Resource;
@@ -57,7 +52,7 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
 
   /**
    * Called when the alignment of the contents of a multiline text box is set.
-   * @since 7
+   * @since 8
    */
   textAlign(value: TextAlign): T;
 
@@ -70,12 +65,10 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the input changes.
    * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onChange(callback: (value: string) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class TextAreaExtend<T> extends TextAreaAttribute<T> {}
 export declare const TextAreaInterface: TextArea;

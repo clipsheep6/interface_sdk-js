@@ -17,12 +17,6 @@ import { CommonMethod } from "./common";
 import { Resource, ResourceColor } from "./units";
 
 /**
- * Hyperlink component, which gives the scope of subcomponents.
- * @since 7
- */
-export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {}
-
-/**
  * @since 7
  */
 interface Hyperlink extends HyperlinkAttribute<Hyperlink> {
@@ -47,8 +41,5 @@ declare class HyperlinkAttribute<T> extends CommonMethod<T> {
   color(value: ResourceColor): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {}
 export declare const HyperlinkInterface: Hyperlink;

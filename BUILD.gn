@@ -36,7 +36,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/blank.d.ts",
     "api/@internal/component/ets/button.d.ts",
     "api/@internal/component/ets/calendar.d.ts",
-    "api/@internal/component/ets/camera.d.ts",
     "api/@internal/component/ets/circle.d.ts",
     "api/@internal/component/ets/column.d.ts",
     "api/@internal/component/ets/column_split.d.ts",

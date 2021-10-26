@@ -16,12 +16,6 @@
 import { CommonMethod } from "./common";
 
 /**
- * Scoring bar
- * @since 7
- */
-export declare class RatingExtend<T> extends RatingAttribute<T> {}
-
-/**
  * Provides the interface for scoring bars.
  * @since 7
  */
@@ -62,7 +56,5 @@ declare class RatingAttribute<T> extends CommonMethod<T> {
   onChange(callback: (value: number) => void): T;
 }
 
-/**
- * @since 7
- */
+export declare class RatingExtend<T> extends RatingAttribute<T> {}
 export declare const RatingInterface: Rating;
