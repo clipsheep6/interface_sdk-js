@@ -33,6 +33,7 @@ export declare class CustomDialogController {
     alignment?: DialogAlignment,
     offset?: { dx: number | string | Resource, dy: number | string | Resource },
     customStyle?: boolean
+    gridCount?: number;
   });
 
   /**

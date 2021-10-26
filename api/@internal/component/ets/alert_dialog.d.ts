@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Resource} from "./common"
+import {CommonMethod, Resource, Color} from "./common"
 
 /**
  * The alignment of dialog,
@@ -97,6 +97,20 @@ interface AlertDialog {
       value: string | Resource;
 
       /**
+       * Text color of the confirmation button.
+       * @devices phone, tablet, car.
+       * @since 7
+       */
+      fontColor?: Color | number | string | Resource;
+
+      /**
+       * Background color of the confirmation button.
+       * @devices phone, tablet, car.
+       * @since 7
+       */
+      backgroundColor?: Color | number | string | Resource;
+
+      /**
        * Method executed by the callback.
        * @devices phone, tablet, car.
        * @since 7
@@ -124,6 +138,13 @@ interface AlertDialog {
      * @since 7
      */
     offset?: { dx: number | string | Resource, dy: number | string | Resource };
+
+    /**
+     * Grid count of dialog.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
+    gridCount?: number;
   } | {
 
   /**
@@ -160,6 +181,20 @@ interface AlertDialog {
        */
        value: string | Resource;
 
+      /**
+       * Text color of the confirmation button.
+       * @devices phone, tablet, car.
+       * @since 7
+       */
+       fontColor?: Color | number | string | Resource;
+
+       /**
+        * Background color of the confirmation button.
+        * @devices phone, tablet, car.
+        * @since 7
+        */
+       backgroundColor?: Color | number | string | Resource;
+
        /**
         * Method executed by the callback.
         * @devices phone, tablet, car.
@@ -180,6 +215,20 @@ interface AlertDialog {
        * @since 7
        */
       value: string | Resource;
+
+      /**
+       * Text color of the confirmation button.
+       * @devices phone, tablet, car.
+       * @since 7
+       */
+       fontColor?: Color | number | string | Resource;
+
+       /**
+        * Background color of the confirmation button.
+        * @devices phone, tablet, car.
+        * @since 7
+        */
+       backgroundColor?: Color | number | string | Resource;
 
       /**
        * Method executed by the callback.
@@ -209,6 +258,13 @@ interface AlertDialog {
       * @since 7
       */
     offset?: { dx: number | string | Resource, dy: number | string | Resource };
+
+    /**
+     * Grid count of dialog.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
+    gridCount?: number;
   });
 }
 

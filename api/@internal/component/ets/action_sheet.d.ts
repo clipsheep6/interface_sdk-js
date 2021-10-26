@@ -82,6 +82,7 @@ declare class ActionSheetAttribute<T> extends CommonMethod<T> {
     autoCancel?: boolean;
     alignment?: DialogAlignment;
     offset?: { dx: number | string | Resource, dy: number | string | Resource };
+    gridCount?: number;
   });
 }
 

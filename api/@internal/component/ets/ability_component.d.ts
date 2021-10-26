@@ -20,6 +20,7 @@ import {Want} from "../api/common/ability/want";
  * controller of ability.
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export declare class AbilityController {
     /**
@@ -55,6 +56,7 @@ export declare class AbilityController {
 /**
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export declare class AbilityComponentExtend<T> extends AbilityComponentAttribute<T> {
 }
@@ -65,6 +67,7 @@ export declare class AbilityComponentExtend<T> extends AbilityComponentAttribute
  * controller: Ability Controller.
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 interface AbilityComponent extends AbilityComponentAttribute<AbilityComponent> {
   (value: { want: Want, controller?: AbilityController }): AbilityComponent;
@@ -74,6 +77,7 @@ interface AbilityComponent extends AbilityComponentAttribute<AbilityComponent> {
  * The attribute of ability.
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 declare class AbilityComponentAttribute<T> extends CommonMethod<T> {
   /**
@@ -115,5 +119,6 @@ declare class AbilityComponentAttribute<T> extends CommonMethod<T> {
 /**
  * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export declare const AbilityComponentInterface: AbilityComponent;
