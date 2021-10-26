@@ -13,24 +13,15 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
+@Entry
+@Component
+struct TextClockExmaple {
+  private format: string = 'ddd mm dd yyyy HH:MM:SS'
 
-/**
- * Ellipse drawing.
- * @since 7
- */
-interface Ellipse extends EllipseAttribute<Ellipse> {
-  /**
-   * Set the value.
-   * @since 7
-   */
-  (value?: { width?: string | number; height?: string | number }): Ellipse;
+  build() {
+    Column() {
+      TextClock({is24hour: true, hourswest: -8})
+        .format(this.format)
+    }
+  }
 }
-
-/**
- * @since 7
- */
-declare class EllipseAttribute<T> extends CommonShapeMethod<T> {}
-
-export declare class EllipseExtend<T> extends EllipseAttribute<T> {}
-export declare const EllipseInterface: Ellipse;
