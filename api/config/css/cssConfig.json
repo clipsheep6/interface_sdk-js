@@ -7016,16 +7016,21 @@
     },
     {
       "name": "line-height",
-      "syntax": [
-        {
-          "name": "<length>"
-        }
-      ],
       "supportedDevices": [
         "tv",
         "phone",
         "tablet",
         "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "[ normal | <length> | <percentage> ]"
+        }
+      ],
+	  "values": [        
+        {
+          "name": "normal"
+        }        
       ],
       "version": [
         {
@@ -7034,13 +7039,15 @@
       ],
       "description": [
         {
-          "name": "Text line height. When this parameter is set to 0px, the text line height is not limited and the font size is adaptive"
+          "name": "Mask image size. The string values are as follows: − contain: Expands the image to the maximum size so that the height and width of the image are applicable to the content area. − cover: Extends the mask image to a large enough size so that the mask image completely covers the mask area. Some parts of the image may not be displayed in the background localization area. − auto: The original image width-height ratio is retained. The two <length> values are as follows: Height and width of the mask image. The first value indicates the width, and the second value indicates the height. If you only set one value, the second value is set to auto by default. 2. The two <percentage> values are as follows: Width and height of the mask image in percentage of the parent element. The first value indicates the width, and the second value indicates the height. If you only set one value, the other value is set to auto by default"
         }
       ],
       "restrictions": [
         {
           "name": [
-            "length"
+            "enum",
+            "length",
+            "percentage"
           ]
         }
       ]
@@ -8578,6 +8585,38 @@
         {
           "name": [
             "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "word-spacing",
+      "syntax": [
+        {
+          "name": "[normal | <length> | <percentage>]"
+        }
+      ],
+      "values":[
+        {
+          "name":"normal"
+        }
+      ],
+      "version": [
+        {
+          "name": "v3.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Text spacing(px)"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum",
+            "length",
+            "percentage"
           ]
         }
       ]
