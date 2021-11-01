@@ -1106,8 +1106,7 @@ export interface ViewModel {
     ButtonElement &
     TextAreaElement &
     PickerElement &
-    VideoElement &
-    DivElement;
+    VideoElement;
 
   /**
    * Obtains the root ViewModel instance.
@@ -1161,8 +1160,7 @@ export interface ElementReferences {
     ButtonElement &
     TextAreaElement &
     PickerElement &
-    VideoElement &
-    DivElement;
+    VideoElement;
 }
 
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
