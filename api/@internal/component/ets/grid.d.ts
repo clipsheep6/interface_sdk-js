@@ -13,34 +13,80 @@
  * limitations under the License.
  */
 
-import {CommonMethod, BarState, Color, Resource} from "./common";
-import {Scroller} from "./scroll";
+import { CommonMethod } from "./common";
+import { BarState, Color } from "./enums";
+import { Scroller } from "./scroll";
+import { Length } from "./units";
 
-export declare class GridExtend<T> extends GridAttribute<T> {
-}
-
+/**
+ * @since 7
+ */
 interface Grid extends GridAttribute<Grid> {
+  /**
+   * Grid is returned when the parameter is transferred.
+   * @since 7
+   */
   (scroller?: Scroller): Grid;
 }
 
+/**
+ * @since 7
+ */
 declare class GridAttribute<T> extends CommonMethod<T> {
+  /**
+   * This parameter specifies the number of columns in the current grid layout.
+   * @since 7
+   */
   columnsTemplate(value: string): T;
 
+  /**
+   * Lets you set the number of rows in the current grid layout,
+   * @since 7
+   */
   rowsTemplate(value: string): T;
 
-  columnsGap(value: number | string | Resource): T;
+  /**
+   * Allows you to set the spacing between columns.
+   * @since 7
+   */
+  columnsGap(value: Length): T;
 
-  rowsGap(value: number | string | Resource): T;
+  /**
+   * Lets you set the spacing between rows.
+   * @since 7
+   */
+  rowsGap(value: Length): T;
 
+  /**
+   * This parameter specifies the width of the scroll bar.
+   * @since 7
+   */
   scrollBarWidth(value: number | string): T;
 
+  /**
+   * Sets the color of the scroll bar.
+   * @since 7
+   */
   scrollBarColor(value: Color | number | string): T;
 
+  /**
+   * Lets you set the spacing between rows.
+   * @since 7
+   */
   scrollBar(value: BarState): T;
 
+  /**
+   * Sets the status of the scroll bar.
+   * @since 7
+   */
   onScrollIndex(event: (first: number) => void): T;
 
+  /**
+   * cached Count
+   * @since 7
+   */
   cachedCount(value: number): T;
 }
 
+export declare class GridExtend<T> extends GridAttribute<T> {}
 export declare const GridInterface: Grid;

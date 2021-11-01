@@ -13,21 +13,43 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
-export declare class CounterExtend<T> extends CounterAttribute<T> {
-}
-
+/**
+ * Counter component, which provides corresponding increment or decrement counting operations.
+ * @since 8
+ */
 interface Counter extends CounterAttribute<Counter> {
+  /**
+   * Return Counter.
+   * @since 8
+   */
   (): Counter;
 }
 
+/**
+ * Defines the Counter attibute functions.
+ * @since 8
+ */
 declare class CounterAttribute<T> extends CommonMethod<T> {
+  /**
+   * Listens to the value change event.
+   * @since 8
+   */
   onStateChange(event: () => void): T;
 
+  /**
+   * Listen to the event that the value increases.
+   * @since 8
+   */
   onInc(event: () => void): T;
 
+  /**
+   * Listens to the number decrease event.
+   * @since 8
+   */
   onDec(event: () => void): T;
 }
 
 export declare const CounterInterface: Counter;
+export declare class CounterExtend<T> extends CounterAttribute<T> {}

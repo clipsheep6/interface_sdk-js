@@ -13,17 +13,30 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
-export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {
-}
-
+/**
+ * Provides interfaces for layout in the vertical direction.
+ * @since 7
+ */
 interface RowSplit extends RowSplitAttribute<RowSplit> {
+  /**
+   * Called when the layout along the vertical direction is set.
+   * @since 7
+   */
   (): RowSplit;
 }
 
+/**
+ * @since 7
+ */
 declare class RowSplitAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when judging whether the split line can be dragged.
+   * @since 7
+   */
   resizeable(value: boolean): T;
 }
 
+export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {}
 export declare const RowSplitInterface: RowSplit;

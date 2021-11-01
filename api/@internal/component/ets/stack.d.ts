@@ -13,17 +13,31 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Alignment} from "./common";
+import { CommonMethod } from "./common";
+import { Alignment } from "./enums";
 
-export declare class StackExtend<T> extends StackAttribute<T> {
-}
-
+/**
+ * Provides ports for stacking containers.
+ * @since 7
+ */
 interface Stack extends StackAttribute<Stack> {
+  /**
+   * Set the value.
+   * @since 7
+   */
   (value?: { alignContent?: Alignment }): Stack;
 }
 
+/**
+ * @since 7
+ */
 declare class StackAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when the occupancy of items in the container is set.
+   * @since 7
+   */
   alignContent(value: Alignment): T;
 }
 
+export declare class StackExtend<T> extends StackAttribute<T> {}
 export declare const StackInterface: Stack;

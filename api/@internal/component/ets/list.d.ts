@@ -13,53 +13,149 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Axis, Color, Resource, BarState, EdgeEffect} from "./common";
-import {Scroller} from "./scroll";
+import { CommonMethod } from "./common";
+import { Axis, BarState, EdgeEffect } from "./enums";
+import { Scroller } from "./scroll";
+import { Length, ResourceColor } from "./units";
 
+/**
+ * Declare scroll status
+ * @since 7
+ */
 export declare enum ScrollState {
+  /**
+   * Not activated.
+   * @since 7
+   */
   Idle,
+
+  /**
+   * Scrolling status.
+   * @since 7
+   */
   Scroll,
-  Fling
+
+  /**
+   * Drag status.
+   * @since 7
+   */
+  Fling,
 }
 
-export declare class ListExtend<T> extends ListAttribute<T> {
-}
+/**
+ * ListExtend extension declaration.
+ * @since 7
+ */
+export declare class ListExtend<T> extends ListAttribute<T> {}
 
+/**
+ * The list interface is extended.
+ * @since 7
+ */
 interface List extends ListAttribute<List> {
-  (value?: { initialIndex?: number, space?: number | string, scroller?: Scroller }): List;
+  /**
+   * Called when interface data is called.
+   * @since 7
+   */
+  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): List;
 }
 
+/**
+ * @since 7
+ */
 declare class ListAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when the arrangement direction of the list component is set.
+   * @since 7
+   */
   listDirection(value: Axis): T;
 
+  /**
+   * Called when the display mode of the side slider is set.
+   * @since 7
+   */
   scrollBar(value: BarState): T;
 
+  /**
+   * Called when the sliding effect is set.
+   * @since 7
+   */
   edgeEffect(value: EdgeEffect): T;
 
-  divider(value: {
-    strokeWidth: number | string | Resource, color?: Color | number | string | Resource,
-    startMargin?: number | string | Resource, endMargin?: number | string | Resource
-  } | null): T;
+  /**
+   * Called when the ListItem split line style is set.
+   * @since 7
+   */
+  divider(
+    value: {
+      strokeWidth: Length;
+      color?: ResourceColor;
+      startMargin?: Length;
+      endMargin?: Length;
+    } | null,
+  ): T;
 
+  /**
+   * Called when judging whether it is in editable mode.
+   * @since 7
+   */
   editMode(value: boolean): T;
 
+  /**
+   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * @since 7
+   */
   cachedCount(value: number): T;
 
+  /**
+   * Called when setting whether to enable chain linkage dynamic effect.
+   */
   chainAnimation(value: boolean): T;
 
+  /**
+   * Called when the offset and status callback of the slide are set.
+   * @since 7
+   */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
+  /**
+   * Called when the start and end positions of the display change.
+   * @since 7
+   */
   onScrollIndex(event: (start: number, end: number) => void): T;
 
+  /**
+   * Called when the list begins to arrive.
+   * @since 7
+   */
   onReachStart(event: () => void): T;
 
+  /**
+   * Called when the list reaches the end.
+   * @since 7
+   */
   onReachEnd(event: () => void): T;
 
+  /**
+   * Called when the slider stops.
+   * @since 7
+   */
   onScrollStop(event: () => void): T;
 
+  /**
+   * Called when a list item is deleted.
+   * @since 7
+   */
   onItemDelete(event: (index: number) => boolean): T;
 
+  /**
+   * Called when a list item is moved.
+   * @since 7
+   */
   onItemMove(event: (from: number, to: number) => boolean): T;
 }
 
+/**
+ * @since 7
+ */
 export declare const ListInterface: List;

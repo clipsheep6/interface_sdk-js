@@ -13,17 +13,24 @@
  * limitations under the License.
  */
 
-import {CommonShapeMethod} from "./common";
+import { CommonShapeMethod } from "./common";
 
-export declare class EllipseExtend<T> extends EllipseAttribute<T> {
-}
-
+/**
+ * Ellipse drawing.
+ * @since 7
+ */
 interface Ellipse extends EllipseAttribute<Ellipse> {
-  new (value?: { width?: string | number, height?: string | number }): Ellipse;
-  (value?: { width?: string | number, height?: string | number }): Ellipse;
+  /**
+   * Set the value.
+   * @since 7
+   */
+  (value?: { width?: string | number; height?: string | number }): Ellipse;
 }
 
-declare class EllipseAttribute<T> extends CommonShapeMethod<T> {
-}
+/**
+ * @since 7
+ */
+declare class EllipseAttribute<T> extends CommonShapeMethod<T> {}
 
+export declare class EllipseExtend<T> extends EllipseAttribute<T> {}
 export declare const EllipseInterface: Ellipse;

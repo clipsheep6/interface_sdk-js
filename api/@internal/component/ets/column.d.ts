@@ -13,17 +13,34 @@
  * limitations under the License.
  */
 
-import {CommonMethod, HorizontalAlignDeclaration, HorizontalAlign} from "./common";
+import { CommonMethod } from "./common";
+import { HorizontalAlign } from "./enums";
 
-export declare class ColumnExtend<T> extends ColumnAttribute<T> {
-}
-
+/**
+ * Defines the Column Component.
+ * @since 7
+ */
 interface Column extends ColumnAttribute<Column> {
-  (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Vertical layout element spacing.
+   * @since 7
+   */
+  (value?: { space?: string | number }): Column;
 }
 
+/**
+ * Defines the Column component attribute functions.
+ * @since 7
+ */
 export declare class ColumnAttribute<T> extends CommonMethod<T> {
+  /**
+   * Sets the alignment format of the subassembly in the horizontal direction.
+   * @since 7
+   */
   alignItems(value: HorizontalAlign): T;
 }
 
+export declare class ColumnExtend<T> extends ColumnAttribute<T> {}
 export declare const ColumnInterface: Column;

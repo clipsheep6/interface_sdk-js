@@ -13,45 +13,119 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
+/**
+ * Declare the graphic format of the bar chart.
+ * @since 7
+ */
 export declare enum BarMode {
+  /**
+   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   * @since 7
+   */
   Scrollable,
-  Fixed
+
+  /**
+   * The width of all TabBars is evenly allocated.
+   * @since 7
+   */
+  Fixed,
 }
 
+/**
+ * Declare the location of the bar chart.
+ * @since 7
+ */
 export declare enum BarPosition {
+  /**
+   * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+   * @since 7
+   */
   Start,
-  End
+
+  /**
+   * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+   * @since 7
+   */
+  End,
 }
 
+/**
+ * @since 7
+ */
 export declare class TabsController {
+  /**
+   * constructor.
+   * @since 7
+   */
   constructor();
 
+  /**
+   * Called when the tab is switched.
+   * @since 7
+   */
   changeIndex(value: number): void;
 }
 
-export declare class TabsExtend<T> extends TabsAttribute<T> {
-}
-
+/**
+ * Provides an interface for switching views.
+ * @since 7
+ */
 interface Tabs extends TabsAttribute<Tabs> {
-  (value?: { barPosition?: BarPosition, index?: number, controller?: TabsController }): Tabs;
+  /**
+   * Called when the view is switched.
+   * @since 7
+   */
+  (value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): Tabs;
 }
 
+/**
+ * @since 7
+ */
 declare class TabsAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when determining whether the tab is vertical.
+   * @since 7
+   */
   vertical(value: boolean): T;
 
+  /**
+   * Called when judging whether page switching can be performed by sliding left and right.
+   * @since 7
+   */
   scrollable(value: boolean): T;
 
+  /**
+   * Called when the graphic format of the bar chart is selected.
+   * @since 7
+   */
   barMode(value: BarMode): T;
 
+  /**
+   * Called when the width of the bar graph is set.
+   * @since 7
+   */
   barWidth(value: number): T;
 
+  /**
+   * Called when the height of the bar graph is set.
+   * @since 7
+   */
   barHeight(value: number): T;
 
+  /**
+   * Called when the animation duration of the bar graph is set.
+   * @since 7
+   */
   animationDuration(value: number): T;
 
+  /**
+   * Called when the tab is switched.
+   * @since 7
+   */
   onChange(event: (index: number) => void): T;
 }
 
+export declare class TabsExtend<T> extends TabsAttribute<T> {}
 export declare const TabsInterface: Tabs;

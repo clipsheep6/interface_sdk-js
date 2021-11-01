@@ -13,37 +13,111 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common"
-import {FontWeight} from "./text"
+import { CommonMethod } from "./common";
+import { FontWeight } from "./enums";
+import { Length, ResourceColor, ResourceStr } from "./units";
 
+/**
+ * Provides a button component.
+ * @since 7
+ */
 export declare enum ButtonType {
+  /**
+   * Capsule button (rounded corners default to half the height).
+   * @since 7
+   */
   Capsule,
+
+  /**
+   * Round buttons.
+   * @since 7
+   */
   Circle,
-  Arc,
-  Normal
+
+  /**
+   * Common button (no rounded corners by default).
+   * @since 7
+   */
+  Normal,
 }
 
-export declare class ButtonExtend<T> extends ButtonAttribute<T> {
+/**
+ * Defines the button options.
+ * @since 7
+ */
+export declare interface ButtonOption {
+  /**
+   * Describes the button style.
+   * @since 7
+   */
+  type?: ButtonType;
+
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @since 7
+   */
+  stateEffect?: boolean;
 }
 
+/**
+ * Defines the Button Component.
+ * @since 7
+ */
 interface Button extends ButtonAttribute<Button> {
+  /**
+   * Button object
+   * @since 7
+   */
   (): Button;
 
-  (options: { type?: ButtonType, stateEffect?: boolean }): Button;
+  /**
+   * Create Button with Text child.
+   * @since 7
+   */
+  (options: ButtonOption): Button;
 
-  (label: string, options?: { type?: ButtonType, stateEffect?: boolean }): Button;
+  /**
+   * Create Button with inner text label.
+   * @since 7
+   */
+  (label: ResourceStr, options?: ButtonOption): Button;
 }
 
+/**
+ * Defines the button attibute functions.
+ * @since 7
+ */
 declare class ButtonAttribute<T> extends CommonMethod<T> {
+  /**
+   * Describes the button style.
+   * @since 7
+   */
   type(value: ButtonType): T;
 
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @since 7
+   */
   stateEffect(value: boolean): T;
 
-  fontColor(value: Color | number | string | Resource): T;
+  /**
+   * Text color.
+   * @since 7
+   */
+  fontColor(value: ResourceColor): T;
 
-  fontSize(value: number | string | Resource): T;
+  /**
+   * Text size.
+   * @since 7
+   */
+  fontSize(value: Length): T;
 
+  /**
+   * fonse weight
+   * @since 7
+   */
   fontWeight(value: number | FontWeight | string): T;
 }
 
-export declare const ButtonInterface: Button
+export declare class ButtonExtend<T> extends ButtonAttribute<T> {}
+export declare const ButtonInterface: Button;

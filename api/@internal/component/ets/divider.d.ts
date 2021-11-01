@@ -13,23 +13,52 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, LineCapStyle, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { LineCapStyle } from "./enums";
+import { ResourceColor } from "./units";
 
-export declare class DividerExtend<T> extends DividerAttribute<T> {
-}
-
+/**
+ * Provides a divider component to separate different content blocks/content elements.
+ * @since 7
+ */
 interface Divider extends DividerAttribute<Divider> {
+  /**
+   * Return Divider.
+   * @since 7
+   */
   (): Divider;
 }
 
+/**
+ * Defines the Divider attribute functions.
+ * @since 7
+ */
 declare class DividerAttribute<T> extends CommonMethod<T> {
+  /**
+   * Indicates whether to use a horizontal splitter or a vertical splitter.
+   * The options are as follows: false: horizontal splitter; true: vertical splitter.
+   * @since 7
+   */
   vertical(value: boolean): T;
 
-  color(value: Color | number | string | Resource): T;
+  /**
+   * Sets the color of the divider line.
+   * @since 7
+   */
+  color(value: ResourceColor): T;
 
+  /**
+   * Sets the width of the dividing line.
+   * @since 7
+   */
   strokeWidth(value: number | string): T;
 
+  /**
+   * Sets the end style of the split line. The default value is Butt.
+   * @since 7
+   */
   lineCap(value: LineCapStyle): T;
 }
 
+export declare class DividerExtend<T> extends DividerAttribute<T> {}
 export declare const DividerInterface: Divider;

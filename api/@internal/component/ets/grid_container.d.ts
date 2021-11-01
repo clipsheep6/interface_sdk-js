@@ -13,31 +13,91 @@
  * limitations under the License.
  */
 
-import {ColumnAttribute} from "./column";
+import { ColumnAttribute } from "./column";
 
+/**
+ * Defines the size type.
+ * @since 7
+ */
 export declare enum SizeType {
+  /**
+   * Select a value based on the device type.
+   * @since 7
+   */
   Auto,
+
+  /**
+   * Select a value based on the device type.
+   * @since 7
+   */
   XS,
+
+  /**
+   * Small width type device.
+   * @since 7
+   */
   SM,
+
+  /**
+   * Medium width type device.
+   * @since 7
+   */
   MD,
-  LG
+
+  /**
+   * Large width type device.
+   * @since 7
+   */
+  LG,
 }
 
-export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {
+/**
+ * Defines the option of GridContainer.
+ * @since 7
+ */
+export declare interface GridContainerOption {
+  /**
+   * Sets the total number of columns in the current layout.
+   * @since 7
+   */
+  columns?: number | "auto";
+
+  /**
+   * Select the device width type.
+   * @since 7
+   */
+  sizeType?: SizeType;
+
+  /**
+   * Grid layout column spacing.
+   * @since 7
+   */
+  gutter?: number | string;
+
+  /**
+   * Spacing on both sides of the grid layout.
+   * @since 7
+   */
+  margin?: number | string;
 }
 
+/**
+ * Defines the GridContainer component.
+ * @since 7
+ */
 interface GridContainer extends GridContainerAttribute<GridContainer> {
-  (
-    value?: {
-      columns?: number | 'auto',
-      sizeType?: SizeType,
-      gutter?: number | string,
-      margin?: number | string
-    }
-  ): GridContainer;
+  /**
+   * Defines the constructor of GridContainer.
+   * @since 7
+   */
+  (value?: GridContainerOption): GridContainer;
 }
 
-declare class GridContainerAttribute<T> extends ColumnAttribute<T> {
-}
+/**
+ * Defines the grid container attribute from inheritance Column
+ * @since 7
+ */
+declare class GridContainerAttribute<T> extends ColumnAttribute<T> {}
 
+export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {}
 export declare const GridContainerInterface: GridContainer;

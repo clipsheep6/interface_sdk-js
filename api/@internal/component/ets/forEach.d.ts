@@ -13,9 +13,24 @@
  * limitations under the License.
  */
 
+/**
+ * looping
+ * @since 7
+ */
 interface ForEach {
-  (arr: Array<any>, itemGenerator: (item: any, index?: number) => void,
-   keyGenerator?: (item: any, index?: number) => string): ForEach;
+  /**
+   * Set the value, array, and key.
+   * @since 7
+   */
+  (
+    arr: Array<any>,
+    itemGenerator: (item: any, index?: number) => void,
+    keyGenerator?: (item: any, index?: number) => string,
+  ): ForEach;
 }
 
+/**
+ * @devices phone, tablet, car
+ * @since 7
+ */
 export declare const ForEachInterface: ForEach;
