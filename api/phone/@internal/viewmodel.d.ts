@@ -462,6 +462,21 @@ export interface ButtonElement extends Element {
 }
 
 /**
+ * The <button> component includes capsule, circle, text, arc, and download buttons.
+ */
+export interface DivElement extends Element {
+  /**
+   * Progress bar of the download button.
+   * The value ranges from 0 to 100. The progress bar is displayed if the value is greater than 0.
+   * If the value is greater than or equal to 100, the progress bar is not displayed.
+   * NOTE
+   * The text displayed on the progress bar is changed based on the value.
+   * @param param
+   */
+  appendChildren(param: { child: object }): void;
+}
+
+/**
  * The <textarea> component provides an interactive interface to receive user input, which is displayed in multiple lines by default.
  */
 export interface TextAreaElement extends Element {
@@ -1091,7 +1106,8 @@ export interface ViewModel {
     ButtonElement &
     TextAreaElement &
     PickerElement &
-    VideoElement;
+    VideoElement &
+    DivElement;
 
   /**
    * Obtains the root ViewModel instance.
@@ -1145,7 +1161,8 @@ export interface ElementReferences {
     ButtonElement &
     TextAreaElement &
     PickerElement &
-    VideoElement;
+    VideoElement &
+    DivElement;
 }
 
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
