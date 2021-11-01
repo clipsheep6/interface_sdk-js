@@ -13,17 +13,32 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
+import { Resource } from "./units";
 
-export declare class TabContentExtend<T> extends TabContentAttribute<T> {
-}
-
+/**
+ * Provides an interface for switching the content view on a tab page.
+ * @since 7
+ */
 interface TabContent extends TabContentAttribute<TabContent> {
+  /**
+   * Called when the content view of the switch tab is set.
+   * @since 7
+   */
   (): TabContent;
 }
 
+/**
+ * Defines the attribute functions of TabContent.
+ * @since 7
+ */
 declare class TabContentAttribute<T> extends CommonMethod<T> {
-  tabBar(value: string | { icon?: string, text?: string }): T;
+  /**
+   * Called when tabbar is entered.
+   * @since 7
+   */
+  tabBar(value: string | Resource | { icon?: string | Resource; text?: string | Resource }): T;
 }
 
+export declare class TabContentExtend<T> extends TabContentAttribute<T> {}
 export declare const TabContentInterface: TabContent;

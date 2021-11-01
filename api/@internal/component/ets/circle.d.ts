@@ -13,17 +13,43 @@
  * limitations under the License.
  */
 
-import {CommonShapeMethod} from "./common";
+import { CommonShapeMethod } from "./common";
 
-export declare class CircleExtend<T> extends CircleAttribute<T> {
+/**
+ * Defines circle option for Circle component.
+ * @since 7
+ */
+export declare interface CircleOption {
+  /**
+   * Defines the width property.
+   * @since 7
+   */
+  width?: string | number;
+
+  /**
+   * Defines the height property.
+   * @since 7
+   */
+  height?: string | number;
 }
 
+/**
+ * Defines circle component.
+ * @since 7
+ */
 interface Circle extends CircleAttribute<Circle> {
-  new (value?: { width?: string | number, height?: string | number }): Circle;
-  (value?: { width?: string | number, height?: string | number }): Circle;
+  /**
+   * Set the value..
+   * @since 7
+   */
+  (value?: CircleOption): Circle;
 }
 
-declare class CircleAttribute<T> extends CommonShapeMethod<T> {
-}
+/**
+ * Circle drawing component attribute functions.
+ * @since 7
+ */
+declare class CircleAttribute<T> extends CommonShapeMethod<T> {}
 
+export declare class CircleExtend<T> extends CircleAttribute<T> {}
 export declare const CircleInterface: Circle;

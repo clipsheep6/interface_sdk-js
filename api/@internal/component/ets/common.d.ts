@@ -13,650 +13,1277 @@
  * limitations under the License.
  */
 
-import {GestureType, GestureMask} from "./gesture"
-import {Circle} from "./circle";
-import {Ellipse} from "./ellipse";
-import {Path} from "./path";
-import {Rect} from "./rect";
+import { GestureType, GestureMask } from "./gesture";
+import { Circle } from "./circle";
+import { Ellipse } from "./ellipse";
+import { Path } from "./path";
+import { Rect } from "./rect";
+import { Resource, Length, Padding, Margin } from "./units";
+import {
+  Alignment,
+  BorderStyle,
+  Color,
+  Curve,
+  Direction,
+  GradientDirection,
+  ImageRepeat,
+  ImageSize,
+  ItemAlign,
+  KeySource,
+  LineCapStyle,
+  LineJoinStyle,
+  PlayMode,
+  SharedTransitionEffectType,
+  TransitionType,
+  Visibility,
+} from "./enums";
 
+/**
+ * Defining Component ClassDecorator * @since 7
+ */
 export declare const Component: ClassDecorator;
+
+/**
+ * Defining Entry ClassDecorator.
+ * @since 7
+ */
 export declare const Entry: ClassDecorator;
+
+/**
+ * Defining Observed ClassDecorator.
+ * @since 7
+ */
 export declare const Observed: ClassDecorator;
+
+/**
+ * Defining Preview ClassDecorator.
+ * @since 7
+ */
 export declare const Preview: ClassDecorator;
+
+/**
+ * Defining State PropertyDecorator.
+ * @since 7
+ */
 export declare const State: PropertyDecorator;
+
+/**
+ * Defining Prop PropertyDecorator.
+ * @since 7
+ */
 export declare const Prop: PropertyDecorator;
+
+/**
+ * Defining Link PropertyDecorator.
+ * @since 7
+ */
 export declare const Link: PropertyDecorator;
+
+/**
+ * Defining ObjectLink PropertyDecorator.
+ * @since 7
+ */
 export declare const ObjectLink: PropertyDecorator;
+
+/**
+ * Defining Provide PropertyDecorator.
+ * @since 7
+ */
 export declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining Consume PropertyDecorator.
+ * @since 7
+ */
 export declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining StorageProp PropertyDecorator.
+ * @since 7
+ */
 export declare const StorageProp: (value: string) => PropertyDecorator;
+
+/**
+ * Defining StorageLink PropertyDecorator.
+ * @since 7
+ */
 export declare const StorageLink: (value: string) => PropertyDecorator;
+
+/**
+ * Defining Watch PropertyDecorator.
+ * @since 7
+ */
 export declare const Watch: (value: string) => PropertyDecorator;
+
+/**
+ * Defining Builder MethodDecorator
+ * @since 7
+ */
 export declare const Builder: MethodDecorator;
+
+/**
+ * Defining  CustomDialog ClassDecorator
+ * @since 7
+ */
 export declare const CustomDialog: ClassDecorator;
-declare interface NormalResource {
-  readonly id: number;
-  readonly type: number;
-  readonly params?: any[];
-}
 
-declare interface RawfileResource {
-  readonly fileName: string;
-}
-
-export declare type Resource = RawfileResource | NormalResource;
-
+/**
+ * Defines the data type of the interface restriction.
+ * @since 7
+ */
 export declare interface Configuration {
+  /**
+   * Set colorMode.
+   * @since 7
+   */
   readonly colorMode: string;
+
+  /**
+   * Set fontScale.
+   * @since 7
+   */
   readonly fontScale: number;
 }
 
+/**
+ * Defining isSystemplugin Constants.
+ * @since 7
+ */
 declare const isSystemplugin: Function;
 
-// global function
-export declare function $s(value: string, params?: object | Array<any> | number): string;
-
-export declare function $m(value: string): string;
-
+/**
+ * global $r function
+ * @since 7
+ */
 export declare function $r(value: string, ...params: any[]): Resource;
 
+/**
+ * global $rawfile function
+ * @since 7
+ */
 export declare function $rawfile(value: string): Resource;
 
-export declare function animateTo(value: {
-  duration?: number, tempo?: number, curve?: Curve | string,
-  delay?: number, iterations?: number, playMode?: PlayMode, onFinish?: () => void
-}, event: () => void): void;
+export interface AnimateToParam {
+  duration?: number;
+  tempo?: number;
+  curve?: Curve | string;
+  delay?: number;
+  iterations?: number;
+  playMode?: PlayMode;
+  onFinish?: () => void;
+}
 
+/**
+ * Defining animation function.
+ * @since 7
+ */
+export declare function animateTo(value: AnimateToParam, event: () => void): void;
+
+/**
+ * Converts a value in vp units to a value in px.
+ * @since 7
+ */
 export declare function vp2px(value: number): number;
 
+/**
+ * Converts a number in units of px to a number in units of vp.
+ * @since 7
+ */
 export declare function px2vp(value: number): number;
 
+/**
+ * Converts a number in fp units to a number in px.
+ * @since 7
+ */
 export declare function fp2px(value: number): number;
 
+/**
+ * Converts a number in units of px to a number in units of fp.
+ * @since 7
+ */
 export declare function px2fp(value: number): number;
 
+/**
+ * Converts a number in units of lpx to a number in units of px.
+ * @since 7
+ */
 export declare function lpx2px(value: number): number;
 
+/**
+ * Converts a number in units of px to a number in units of lpx.
+ * @since 7
+ */
 export declare function px2lpx(value: number): number;
 
-export declare function setAppBgColor(params: string): void;
-
-// common enum
-export declare enum Color {
-  White,
-  Black,
-  Blue,
-  Brown,
-  Gray,
-  Green,
-  Grey,
-  Orange,
-  Pink,
-  Red,
-  Yellow
-}
-
-export declare enum ImageFit {
-  Contain,
-  Cover,
-  Auto,
-  Fill,
-  ScaleDown,
-  None
-}
-
-export declare enum BorderStyle {
-  Dotted,
-  Dashed,
-  Solid
-}
-
-export declare enum LineJoinStyle {
-  Miter,
-  Round,
-  Bevel
-}
-
-export declare enum TouchType {
-  Down,
-  Up,
-  Move,
-  Cancel
-}
-
-export declare enum AnimationStatus {
-  Initial,
-  Running,
-  Paused,
-  Stopped
-}
-
-export declare enum Curve {
-  Linear,
-  Ease,
-  EaseIn,
-  EaseOut,
-  EaseInOut,
-  FastOutSlowIn,
-  LinearOutSlowIn,
-  FastOutLinearIn,
-  ExtremeDeceleration,
-  Sharp,
-  Rhythm,
-  Smooth,
-  Friction
-}
-
-export declare enum FillMode {
-  None,
-  Forwards,
-  Backwards,
-  Both
-}
-
-export declare enum PlayMode {
-  Normal,
-  Reverse,
-  Alternate,
-  AlternateReverse
-}
-
-export declare enum BlurStyle {
-  SmallLight,
-  MediumLight,
-  LargeLight,
-  XlargeLight,
-  SmallDark,
-  MediumDark,
-  LargeDark,
-  XlargeDark
-}
-
-export declare enum KeyType {
-  Down,
-  Up,
-  LongPress
-}
-
-export declare enum KeySource {
-  Unknown,
-  Keyboard,
-  Mouse,
-  Dpad,
-  Gamepad,
-  Joystick,
-  TouchScreen,
-  TouchPad,
-  Stylus,
-  Trackball,
-  Knob,
-  Any
-}
-
-export declare enum Edge {
-  Top,
-  Center,
-  Bottom,
-  Baseline,
-  Start,
-  Middle,
-  End
-}
-
-export declare enum Week {
-  Mon,
-  Tue,
-  Wed,
-  Thur,
-  Fri,
-  Sat,
-  Sun,
-}
-
-export declare enum Direction {
-  Ltr,
-  Rtl,
-  Auto
-}
-
-export declare enum BarState {
-  Off,
-  Auto,
-  On
-}
-
-export declare enum EdgeEffect {
-  Spring,
-  Fade,
-  None
-}
-
+/**
+ * The tap action triggers this method invocation.
+ * @since 7
+ */
 export interface ClickEvent {
+  /**
+   * X coordinate of the click point relative to the left edge of the device screen.
+   * @since 7
+   */
   screenX: number;
+
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @since 7
+   */
   screenY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the clicked element.
+   * @since 7
+   */
   x: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * @since 7
+   */
   y: number;
+
+  /**
+   * Event timestamp.
+   * @since 7
+   */
   timestamp: number;
 }
 
+/**
+ * Type of the touch event.
+ * @since 7
+ */
 export interface TouchObject {
+  /**
+   * Type of the touch event.
+   * @since 7
+   */
   type: TouchType;
+
+  /**
+   * Finger unique identifier.
+   * @since 7
+   */
   id: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @since 7
+   */
   screenX: number;
+
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @since 7
+   */
   screenY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   * @since 7
+   */
   x: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @since 7
+   */
   y: number;
 }
 
+/**
+ * Touch Action Function Parameters
+ * @since 7
+ */
 export interface TouchEvent {
+  /**
+   * Type of the touch event.
+   * @since 7
+   */
   type: TouchType;
+
+  /**
+   * All finger information.
+   * @since 7
+   */
   touches: TouchObject[];
+
+  /**
+   * Indicates the current changed finger information.
+   * @since 7
+   */
   changedTouches: TouchObject[];
+
+  /**
+   * Event timestamp.
+   * @since 7
+   */
   timestamp: number;
+
+  /**
+   * The blocking event pops up.
+   * @since 7
+   */
   stopPropagation?: () => void;
 }
 
-interface PasteData {
+/**
+ * Description of the PasteData object
+ * @since 7
+ */
+export interface PasteData {
+  /**
+   * Gets the clipboard text data.
+   * @since 7
+   */
   getPlainText(): string;
+
+  /**
+   * Sets the clipboard text data.
+   * @since 7
+   */
   setPlainText(value: string);
 }
 
+/**
+ * pixelmap object with release function.
+ * @since 7
+ */
 export declare class PixelMap {
+  /**
+   * release function.
+   * @since 7
+   */
   release(): void;
 }
 
-interface DragEvent {
+/**
+ * DragEvent object description
+ * @since 7
+ */
+export interface DragEvent {
+  /**
+   * Gets the current clipboard data object.
+   * @since 7
+   */
   getPasteData(): PasteData;
+
+  /**
+   * Obtains the X coordinate of the drag window, in vp.
+   * @since 7
+   */
   getX(): number;
+
+  /**
+   * Obtains the Y coordinate of the drag window, in vp.
+   * @since 7
+   */
   getY(): number;
+
+  /**
+   * Obtains the drag description.
+   * @since 7
+   */
   getDescription(): string;
+
+  /**
+   * Set the drag description.
+   * @since 7
+   */
   setDescription(value: string);
+
+  /**
+   * Set the floating window object. Value: floating window object.
+   * @since 7
+   */
   setPixmap(value: PixelMap);
 }
 
+/**
+ * KeyEvent object description:
+ * @since 7
+ */
 export interface KeyEvent {
+  /**
+   * Type of a key.
+   * @since 7
+   */
   type: KeyType;
+
+  /**
+   * Key code of a key
+   * @since 7
+   */
   keyCode: number;
+
+  /**
+   * Key value of a key.
+   * @since 7
+   */
   keyText: string;
+
+  /**
+   * Type of the input device that triggers the current key, such as the keyboard or handle.
+   * @since 7
+   */
   keySource: KeySource;
+
+  /**
+   * Indicates the ID of the input device that triggers the current key.
+   * @since 7
+   */
   deviceId: number;
+
+  /**
+   * Indicates the status of the key when the key is pressed.
+   * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
+   * @since 7
+   */
   metaKey: number;
+
+  /**
+   * Timestamp when the key was pressed.
+   * @since 7
+   */
   timestamp: number;
+
+  /**
+   * Block event bubbling.
+   * @since 7
+   */
   stopPropagation?: () => void;
 }
 
-export declare enum Alignment {
-  TopStart,
-  Top,
-  TopEnd,
-  Start,
-  Center,
-  End,
-  BottomStart,
-  Bottom,
-  BottomEnd
-}
-
-export declare enum TransitionType {
-  All,
-  Insert,
-  Delete
-}
-
-export declare enum RelateType {
-  FILL,
-  FIT
-}
-
-export declare enum Visibility {
-  Visible,
-  Hidden,
-  None
-}
-
-export declare enum LineCapStyle {
-  Butt,
-  Round,
-  Square
-}
-
-export declare enum Axis {
-  Vertical,
-  Horizontal
-}
-
-export declare enum HorizontalAlign {
-  Start,
-  Center,
-  End
-}
-
-export declare enum FlexAlign {
-  Start,
-  Center,
-  End,
-  SpaceBetween,
-  SpaceAround,
-  SpaceEvenly
-}
-
-export declare enum ItemAlign {
-  Auto,
-  Start,
-  Center,
-  End,
-  Baseline,
-  Stretch
-}
-
-export declare enum FlexDirection {
-  Row,
-  Column,
-  RowReverse,
-  ColumnReverse
-}
-
-export declare enum FlexWrap {
-  NoWrap,
-  Wrap,
-  WrapReverse
-}
-
-export declare enum VerticalAlign {
-  Top,
-  Center,
-  Bottom
-}
-
-export declare class VerticalAlignDeclaration {
-  constructor(value?: VerticalAlign)
-}
-
-export declare class HorizontalAlignDeclaration {
-  constructor(value?: HorizontalAlign)
-}
-
-export declare enum ImageRepeat {
-  NoRepeat,
-  X,
-  Y,
-  XY
-}
-
-export declare enum ImageSize {
-  Auto,
-  Cover,
-  Contain
-}
-
-export declare enum GradientDirection {
-  Left,
-  Top,
-  Right,
-  Bottom,
-  LeftTop,
-  LeftBottom,
-  RightTop,
-  RightBottom,
-  None
-}
-
-export declare enum SharedTransitionEffectType {
-  Static,
-  Exchange
-}
-
+/**
+ * CommonMethod
+ * @since 7
+ */
 export declare class CommonMethod<T> {
+  /**
+   * constructor.
+   * @since 7
+   */
   constructor();
 
-  width(value: number | string | Resource): T;
+  /**
+   * Sets the width of the current component.
+   * @since 7
+   */
+  width(value: Length): T;
 
-  height(value: number | string | Resource): T;
+  /**
+   * Sets the width of the current component.
+   * @since 7
+   */
+  height(value: Length): T;
 
-  size(value: { width?: number | string | Resource, height?: number | string | Resource}): T;
+  /**
+   * The size of the current component.
+   * @since 7
+   */
+  size(value: { width?: Length; height?: Length }): T;
 
-  constraintSize(value: { minWidth?: number | string | Resource, maxWidth?: number | string | Resource, minHeight?: number | string | Resource, maxHeight?: number | string | Resource}): T;
+  /**
+   * constraint Size：
+   * minWidth：minimum Width，maxWidth：maximum Width，minHeight：minimum Height ，maxHeight：maximum Height，
+   * @since 7
+   */
+  constraintSize(value: {
+    minWidth?: number | string | Resource;
+    maxWidth?: number | string | Resource;
+    minHeight?: number | string | Resource;
+    maxHeight?: number | string | Resource;
+  }): T;
 
-  layoutPriority(value: number | string): T;
+  /**
+   * Inner margin
+   * @since 7
+   */
+  padding(value: Padding | Length): T;
 
-  layoutWeight(value: number | string): T;
+  /**
+   * Outer Margin
+   * @since 7
+   */
+  margin(value: Margin | Length): T;
 
-  padding(value: { top?: number | string | Resource, right?: number | string | Resource, bottom?: number | string | Resource, left?: number | string  | Resource} | number | string | Resource): T;
-
-  margin(value: { top?: number | string | Resource, right?: number | string | Resource, bottom?: number | string | Resource, left?: number | string  | Resource} | number | string | Resource): T;
-
+  /**
+   * Background color
+   * @since 7
+   */
   backgroundColor(value: Color | number | string | Resource): T;
 
+  /**
+   * Background image
+   * src: Image address url
+   * @since 7
+   */
   backgroundImage(src: string, repeat?: ImageRepeat): T;
 
-  backgroundImageSize(value: { width?: number | string, height?: number | string } | ImageSize): T;
+  /**
+   * Background image size
+   * @since 7
+   */
+  backgroundImageSize(value: { width?: number | string; height?: number | string } | ImageSize): T;
 
-  backgroundImagePosition(value: { x?: number | string, y?: number | string } | Alignment): T;
+  /**
+   * Background image position
+   * x:Horizontal coordinate;y:Vertical axis coordinate.
+   * @since 7
+   */
+  backgroundImagePosition(value: { x?: number | string; y?: number | string } | Alignment): T;
 
-  opacity(value: number | Resource): T
+  /**
+   * Opacity
+   * @since 7
+   */
+  opacity(value: number | Resource): T;
 
-  border(value: { width?: number | string | Resource, color?: Color | number | string | Resource, radius?: number | string | Resource, style?: BorderStyle }): T;
+  /**
+   * Opacity
+   * width:Border width;color:Border color;radius:Border radius;
+   * @since 7
+   */
+  border(value: {
+    width?: number | string | Resource;
+    color?: Color | number | string | Resource;
+    radius?: number | string | Resource;
+    style?: BorderStyle;
+  }): T;
 
+  /**
+   * Border style
+   * @since 7
+   */
   borderStyle(value: BorderStyle): T;
 
+  /**
+   * Border width
+   * @since 7
+   */
   borderWidth(value: number | string | Resource): T;
 
+  /**
+   * Border color
+   * @since 7
+   */
   borderColor(value: Color | number | string | Resource): T;
 
+  /**
+   * Border radius
+   * @since 7
+   */
   borderRadius(value: number | string | Resource): T;
 
+  /**
+   * Navigation title
+   * @since 7
+   */
   navigationTitle(value: string): T;
 
+  /**
+   * Navigation subtitle
+   * @since 7
+   */
   navigationSubTitle(value: string): T;
 
+  /**
+   * Hide navigation bar
+   * @since 7
+   */
   hideNavigationBar(value: boolean): T;
 
+  /**
+   * Hide navigation back button
+   * @since 7
+   */
   hideNavigationBackButton(value: boolean): T;
 
-  toolBar(value: object): T;
-
+  /**
+   * Hide tool bar
+   * @since 7
+   */
   hideToolBar(value: boolean): T;
 
+  /**
+   * Trigger a click event when a click is clicked.
+   * @since 7
+   */
   onClick(event: (event?: ClickEvent) => void): T;
 
+  /**
+   * Trigger a touch event when touched.
+   * @since 7
+   */
   onTouch(event: (event?: TouchEvent) => void): T;
 
+  /**
+   * Mouse hover event
+   * @since 7
+   */
   onHover(event: (isHover?: boolean) => void): T;
 
+  /**
+   * Keyboard input
+   * @since 7
+   */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
 
+  /**
+   * Pan event
+   * @since 7
+   */
   onPan(event: (event?: any) => void): T;
 
+  /**
+   * animation
+   * @since 7
+   */
   animation(value: {
-    duration?: number, tempo?: number, curve?: Curve | string, delay?: number, iterations?: number,
-    playMode?: PlayMode, onFinish?: () => void
+    duration?: number;
+    tempo?: number;
+    curve?: Curve | string;
+    delay?: number;
+    iterations?: number;
+    playMode?: PlayMode;
+    onFinish?: () => void;
   }): T;
 
+  /**
+   * Transition parameter
+   * @since 7
+   */
   transition(value: {
-    type?: TransitionType, opacity?: number,
-    translate?: { x?: number | string, y?: number | string, z?: number | string },
-    scale?: { x?: number, y?: number, z?: number, centerX?: number | string, centerY?: number | string },
-    rotate?: { x?: number, y?: number, z?: number, centerX?: number | string, centerY?: number | string, angle: number | string }
+    type?: TransitionType;
+    opacity?: number;
+    translate?: { x?: number | string; y?: number | string; z?: number | string };
+    scale?: { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string };
+    rotate?: {
+      x?: number;
+      y?: number;
+      z?: number;
+      centerX?: number | string;
+      centerY?: number | string;
+      angle: number | string;
+    };
   }): T;
 
+  /**
+   * Bind gesture recognition.
+   * gesture:Bound Gesture Type,mask:GestureMask;
+   * @since 7
+   */
   gesture(gesture: GestureType, mask?: GestureMask): T;
 
+  /**
+   * Binding Preferential Recognition Gestures
+   * gesture:Bound Gesture Type,mask:GestureMask;
+   * @since 7
+   */
   priorityGesture(gesture: GestureType, mask?: GestureMask): T;
 
+  /**
+   * Binding gestures that can be triggered simultaneously with internal component gestures
+   * gesture:Bound Gesture Type,mask:GestureMask;
+   * @since 7
+   */
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
+  /**
+   * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
+   * The larger the blurring radius, the more blurring the content.
+   * If the value is 0, the content blurring effect is not blurring.
+   * @since 7
+   */
   blur(value: number): T;
 
+  /**
+   * Adds a highlight effect to the current component.
+   * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
+   * The component is displayed as all white (percentage).
+   * @since 7
+   */
   brightness(value: number): T;
 
+  /**
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * @since 7
+   */
   contrast(value: number): T;
 
+  /**
+   * Adds a grayscale effect to the current component.
+   * The value is the gray scale conversion ratio. If the input parameter is 1.0, the gray scale image is completely converted to the gray scale image. If the input parameter is 0.0, the image does not change.
+   * If the input parameter is between 0.0 and 1.0, the effect changes. (Percentage)
+   * @since 7
+   */
   grayscale(value: number): T;
 
+  /**
+   * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
+   * @since 7
+   */
   colorBlend(value: Color | string | Resource): T;
 
+  /**
+   * Adds a saturation effect to the current component.
+   * The saturation is the ratio of the color-containing component to the achromatic component (gray).
+   * The larger the color-containing component, the greater the saturation.
+   * The larger the achromatic component, the smaller the saturation. (Percentage)
+   * @since 7
+   */
   saturate(value: number): T;
 
+  /**
+   * Converts the image to sepia. Value defines the scale of the conversion.
+   * A value of 1 is completely sepia, and a value of 0 does not change the image. (Percentage)
+   * @since 7
+   */
   sepia(value: number): T;
 
+  /**
+   * Inverts the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
+   * A value of 0% does not change the image. (Percentage)
+   * @since 7
+   */
   invert(value: number): T;
 
-  hueRotate(value:{deg: string | number}): T;
+  /**
+   * Adds the hue rotation effect to the current component.
+   * The input parameter is the rotation angle. When the input parameter is 0deg, the image does not change (the default value is 0deg), and the input parameter does not have a maximum value.
+   * If the value exceeds 360deg, the image is circled again.
+   * @since 7
+   */
+  hueRotate(value: number | string): T;
 
+  /**
+   * Adds the background blur effect for the current component. The input parameter is the blur radius.
+   * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
+   * @since 7
+   */
   backdropBlur(value: number): T;
 
-  windowBlur(value: { percent: number, style?: BlurStyle }): T;
+  /**
+   * Sets the translation effect during page transition.
+   * The value is the start point of entry and end point of exit.
+   * When this parameter is set together with slide, slide takes effect by default.
+   * @since 7
+   */
+  translate(value: { x?: number | string; y?: number | string; z?: number | string }): T;
 
-  translate(value: { x?: number | string, y?: number | string, z?: number | string }): T;
+  /**
+   * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
+   * @since 7
+   */
+  scale(value: { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string }): T;
 
-  scale(value: { x?: number, y?: number, z?: number, centerX?: number | string, centerY?: number | string }): T;
+  /**
+   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
+   * @since 7
+   */
+  gridSpan(value: number): T;
 
-  gridSpan(value: number): T
+  /**
+   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
+   * the current component is located in the nth column.
+   * @since 7
+   */
+  gridOffset(value: number): T;
 
-  gridOffset(value: number): T
+  /**
+   * Sets the rotation effect during assembly transition.
+   * The values are the start point during insertion and the end point during deletion.
+   * @since 7
+   */
+  rotate(value: {
+    x?: number;
+    y?: number;
+    z?: number;
+    centerX?: number | string;
+    centerY?: number | string;
+    angle: number | string;
+  }): T;
 
-  rotate(value: { x?: number, y?: number, z?: number, centerX?: number | string, centerY?: number | string, angle: number | string }): T;
-
+  /**
+   * Sets the transformation matrix for the current component.
+   * @since 7
+   */
   transform(value: object): T;
 
+  /**
+   * This callback is triggered when a component mounts a display.
+   * @since 7
+   */
   onAppear(event: () => void): T;
 
+  /**
+   * This callback is triggered when component uninstallation disappears.
+   * @since 7
+   */
   onDisAppear(event: () => void): T;
 
+  /**
+   * Controls the display or hide of the current component.
+   * @since 7
+   */
   visibility(value: Visibility): T;
 
+  /**
+   * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
+   * @since 7
+   */
   flexGrow(value: number): T;
 
+  /**
+   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
+   * @since 7
+   */
   flexShrink(value: number): T;
 
+  /**
+   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
+   * @since 7
+   */
   flexBasis(value: number | string): T;
 
+  /**
+   * Overrides the default configuration of alignItems in the Flex Layout container.
+   * @since 7
+   */
   alignSelf(value: ItemAlign): T;
 
+  /**
+   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
+   * @since 7
+   */
   displayPriority(value: number): T;
 
-  useAlign(align: HorizontalAlignDeclaration | VerticalAlignDeclaration, value: { side: Edge, offset?: number | string }): T;
-
+  /**
+   * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
+   * @since 7
+   */
   zIndex(value: number): T;
 
-  sharedTransition(id: string, options?: {
-    duration?: number,
-    curve?: Curve | string,
-    delay?: number,
-    motionPath?: {
-      path: string,
-      from?: number,
-      to?: number,
-      rotatable?: boolean
+  /**
+   * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
+   * @since 7
+   */
+  sharedTransition(
+    id: string,
+    options?: {
+      duration?: number;
+      curve?: Curve | string;
+      delay?: number;
+      motionPath?: {
+        path: string;
+        from?: number;
+        to?: number;
+        rotatable?: boolean;
+      };
+      zIndex?: number;
+      type?: SharedTransitionEffectType;
     },
-    zIndex?: number,
-    type?: SharedTransitionEffectType,
-  }): T;
+  ): T;
 
+  /**
+   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
+   * @since 7
+   */
   direction(value: Direction): T;
 
+  /**
+   * align
+   * @since 7
+   */
   align(value: Alignment): T;
 
-  position(value: { x?: number | string | Resource, y?: number | string | Resource }): T;
+  /**
+   * position
+   * @since 7
+   */
+  position(value: { x?: number | string | Resource; y?: number | string | Resource }): T;
 
-  markAnchor(value: { x?: number | string | Resource, y?: number | string | Resource }): T;
+  /**
+   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   * @since 7
+   */
+  markAnchor(value: { x?: number | string | Resource; y?: number | string | Resource }): T;
 
-  offset(value: { x?: number | string | Resource, y?: number | string | Resource }): T;
+  /**
+   * Coordinate offset relative to the layout completion position.
+   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   * @since 7
+   */
+  offset(value: { x?: number | string | Resource; y?: number | string | Resource }): T;
 
+  /**
+   * If the value is true, the component is available and can respond to operations such as clicking.
+   *  If it is set to false, click operations are not responded.
+   * @since 7
+   */
   enabled(value: boolean): T;
 
+  /**
+   * Sets the number of occupied columns and offset columns for a specific device width type.
+   * @since 7
+   */
   useSizeType(value: {
-    xs?: number | { span: number, offset: number },
-    sm?: number | { span: number, offset: number },
-    md?: number | { span: number, offset: number },
-    lg?: number | { span: number, offset: number }
+    xs?: number | { span: number; offset: number };
+    sm?: number | { span: number; offset: number };
+    md?: number | { span: number; offset: number };
+    lg?: number | { span: number; offset: number };
   }): T;
 
+  /**
+   * Specifies the aspect ratio of the current component.
+   * @since 7
+   */
   aspectRatio(value: number): T;
 
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * @since 7
+   */
   onDrag(event: (event?: DragEvent) => void): T;
 
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * @since 7
+   */
   onDragEnter(event: (event?: DragEvent) => void): T;
 
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * @since 7
+   */
   onDragMove(event: (event?: DragEvent) => void): T;
 
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * @since 7
+   */
   onDragLeave(event: (event?: DragEvent) => void): T;
 
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * @since 7
+   */
   onDrop(event: (event?: DragEvent) => void): T;
 
-  overlay(value: string, options?: { align?: Alignment, offset?: { x?: number, y?: number } }): T;
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   * @since 7
+   */
+  overlay(value: string, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
 
-  linearGradient(value: { angle?: number | string, direction?: GradientDirection, colors: Array<any>, repeating?: boolean }): T;
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   * @since 7
+   */
+  linearGradient(value: {
+    angle?: number | string;
+    direction?: GradientDirection;
+    colors: Array<any>;
+    repeating?: boolean;
+  }): T;
 
-  sweepGradient(value: { center: Array<any>, start?: number | string, end?: number | string, rotation?: number | string, colors: Array<any>, repeating?: boolean }): T;
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
+   * number:number
+   * rotating:rotating
+   * colors:Color description for gradients
+   * repeating:repeating
+   * @since 7
+   */
+  sweepGradient(value: {
+    center: Array<any>;
+    start?: number | string;
+    end?: number | string;
+    rotation?: number | string;
+    colors: Array<any>;
+    repeating?: boolean;
+  }): T;
 
-  radialGradient(value: { center: Array<any>, radius: number | string, colors: Array<any>, repeating?: boolean }): T;
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient
+   * colors:Color description for gradients
+   * repeating: Refill
+   * @since 7
+   */
+  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
 
-  motionPath(value: { path: string, from?: number, to?: number, rotatable?: boolean }): T;
+  /**
+   * Set the motion path of the component
+   * path:Motion path for displacement animation, using the svg path string.
+   * from:Start point of the motion path. The default value is 0.0.
+   * to:End point of the motion path. The default value is 1.0.
+   * rotatble:Whether to follow the path for rotation.
+   * @since 7
+   */
+  motionPath(value: { path: string; from?: number; to?: number; rotatable?: boolean }): T;
 
-  shadow(value: { radius: number | Resource, color?: Color | string | Resource, offsetX?: number | Resource, offsetY?: number | Resource }): T;
+  /**
+   * Add a shadow effect to the current component
+   * @since 7
+   */
+  shadow(value: {
+    radius: number | Resource;
+    color?: Color | string | Resource;
+    offsetX?: number | Resource;
+    offsetY?: number | Resource;
+  }): T;
 
+  /**
+   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
+   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   * @since 7
+   */
   clip(value: boolean | Circle | Ellipse | Path | Rect): T;
 
+  /**
+   * Applies a mask of the specified shape to the current assembly.
+   * @since 7
+   */
   mask(value: Circle | Ellipse | Path | Rect): T;
 
+  /**
+   * Accessibility group. If this parameter is set to true, the component and all its subcomponents can be selected, and the accessibility service does not focus on the content of its subcomponents.
+   * @since 7
+   */
   accessibilityGroup(value: boolean): T;
 
+  /**
+   * Accessible text. When a component does not contain text attributes,
+   * the screen reads aloud when the component is selected, and the user cannot clearly know what component is currently selected.
+   * To solve this problem, developers can set an accessible text for a component that does not contain text information.
+   * When the component is selected for screen reading, the content of the accessible text is broadcast, helping the user of screen reading clearly know which component is selected.
+   * If the component has both text attributes and accessible text attributes,
+   * only accessible text content is broadcast when the component is selected.
+   * @since 7
+   */
   accessibilityText(value: string): T;
 
+  /**
+   * Accessibility instructions are used to further explain the current component to the user, for example,
+   * to help the user understand the possible consequences of the operation to be performed,
+   * especially when these consequences cannot be learned from the attributes of the component itself and the accessibility text.
+   * Developers can set relatively detailed explanatory text for this property of a component to help users understand what will be done.
+   * If the component has both the text attribute and the accessibility attribute, when the component is selected,
+   * the text attribute of the component is first broadcast, and then the content of the accessibility attribute is broadcast.
+   * @since 7
+   */
   accessibilityDescription(value: string): T;
 
+  /**
+   * Accessibility importance, which controls whether a component is identifiable by an accessible auxiliary service.
+   * The value can be auto, yes, no, or no-hide-descendants.
+   * (The last value causes screen reading to ignore the current component and all its subcomponents).
+   * If this parameter is set to yes, the current component can be selected for accessibility auxiliary services.
+   * If this parameter is set to no, the current component cannot be selected for accessibility auxiliary services.
+   * @since 7
+   */
   accessibilityImportance(value: string): T;
 
+  /**
+   * onAccessibility
+   * @since 7
+   */
   onAccessibility(callback: (event?: { eventType: number }) => void): T;
 
+  /**
+   * geometryTransition
+   * @since 7
+   */
   geometryTransition(id: string): T;
 
-  bindPopup(show: boolean, popup: {
-    message: string,
-    placementOnTop: boolean,
-    primaryButton: {
-      value: string;
-      action: () => void;
-    };
-    secondaryButton: {
-      value: string;
-      action: () => void;
-    };
-    onStateChange?: (callback: (event?: { isVisible: boolean }) => void) => void;
-  }): T;
+  /**
+   * Popup control
+   * @since 7
+   */
+  bindPopup(
+    show: boolean,
+    popup: {
+      /**
+       * Information in the pop-up window.
+      .
+       * @since 7
+       */
+      message: string;
+
+      /**
+       * placement On Top
+      .
+       * @since 7
+       */
+      placementOnTop?: boolean;
+
+      /**
+       * The first button.
+      .
+       * @since 7
+       */
+      primaryButton?: {
+        /**
+         * Button text value
+        .
+         * @since 7
+         */
+        value: string;
+
+        /**
+         * action
+        .
+         * @since 7
+         */
+        action: () => void;
+      };
+
+      /**
+       * The second button.
+      .
+       * @since 7
+       */
+      secondaryButton?: {
+        /**
+         * Button text value
+        .
+         * @since 7
+         */
+        value: string;
+
+        /**
+         * action
+        .
+         * @since 7
+         */
+        action: () => void;
+      };
+
+      /**
+       * on State Change
+      .
+       * @since 7
+       */
+      onStateChange?: (event: { isVisible: boolean }) => void;
+    },
+  ): T;
+
+  /**
+   * Menu control
+   * @since 7
+   */
+  bindMenu(content: { value: string; action: () => void }[]): T;
 }
 
+/**
+ * CommonShapeMethod
+ * @since 7
+ */
 export declare class CommonShapeMethod<T> extends CommonMethod<T> {
+  /**
+   * constructor.
+   * @since 7
+   */
   constructor();
 
+  /**
+   * border Color
+   * @since 7
+   */
   stroke(value: Color | number | string | Resource): T;
 
+  /**
+   * Fill color.
+   * @since 7
+   */
   fill(value: Color | number | string | Resource): T;
 
+  /**
+   * Offset from the start point of the border drawing.
+   * @since 7
+   */
   strokeDashOffset(value: number | string): T;
 
+  /**
+   * Path endpoint drawing style.
+   * @since 7
+   */
   strokeLineCap(value: LineCapStyle): T;
 
+  /**
+   * Border corner drawing style.
+   * @since 7
+   */
   strokeLineJoin(value: LineJoinStyle): T;
 
+  /**
+   * Limits for drawing acute angles as bevels
+   * @since 7
+   */
   strokeMiterLimit(value: number | string): T;
 
+  /**
+   * Sets the opacity of the border.
+   * @since 7
+   */
   strokeOpacity(value: number | string | Resource): T;
 
+  /**
+   * fill Opacity
+   * @since 7
+   */
   fillOpacity(value: number | string | Resource): T;
 
+  /**
+   * Sets the width of the dividing line.
+   * @since 7
+   */
   strokeWidth(value: number | string | Resource): T;
 
+  /**
+   * Indicates whether to enable anti-aliasing
+   * @since 7
+   */
   antiAlias(value: boolean): T;
 
-  strokeDashArray(value: Array<any>): T
+  /**
+   * Sets the gap for the border.
+   * @since 7
+   */
+  strokeDashArray(value: Array<any>): T;
 }
 
+/**
+ * Custom Component
+ * @since 7
+ */
 export declare class CustomComponent<T> {
+  /**
+   * Customize the pop-up content constructor.
+   * @since 7
+   */
   build(): void;
 
+  /**
+   * Private  aboutToAppear Method
+   * @since 7
+   */
   private aboutToAppear?(): void;
 
+  /**
+   * Private  aboutToDisappear Method
+   * @since 7
+   */
   private aboutToDisappear?(): void;
 }

@@ -13,31 +13,92 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
+/**
+ * Declare item ceiling attribute.
+ * @since 7
+ */
 export declare enum Sticky {
+  /**
+   * No sticky.
+   * @since 7
+   */
   None,
+
+  /**
+   * Normal mode
+   * @since 7
+   */
   Normal,
+
+  /**
+   * Set opacity.
+   * @since 7
+   */
   Opacity,
 }
 
+/**
+ * Declare whether the ListItem element is editable.
+ * @devices phone, tablet
+ * @since 7
+ */
 export declare enum EditMode {
+  /**
+   * Unrestricted operations.
+   * @since 7
+   */
   None,
+
+  /**
+   * Deleteable.
+   * @since 7
+   */
   Deletable,
+
+  /**
+   * Movable.
+   * @since 7
+   */
   Movable,
 }
 
-export declare class ListItemExtend<T> extends ListItemAttribute<T> {
-}
+/**
+ * @since 7
+ */
+export declare class ListItemExtend<T> extends ListItemAttribute<T> {}
 
+/**
+ * Values in the list
+ * @since 7
+ */
 interface ListItem extends ListItemAttribute<ListItem> {
+  /**
+   * Called when an interface is used.
+   * @since 7
+   */
   (value?: string): ListItem;
 }
 
+/**
+ * @since 7
+ */
 declare class ListItemAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when setting whether item is ceiling effect.
+   * @since 7
+   */
   sticky(value: Sticky): T;
 
+  /**
+   * Called when judging whether it is editable.
+   * @since 7
+   */
   editable(value: boolean | EditMode): T;
 }
 
+/**
+ * @since 7
+ */
 export declare const ListItemInterface: ListItem;

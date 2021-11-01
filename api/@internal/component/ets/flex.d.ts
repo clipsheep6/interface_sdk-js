@@ -13,19 +13,62 @@
  * limitations under the License.
  */
 
-import {CommonMethod, FlexDirection, FlexWrap, FlexAlign, ItemAlign} from "./common";
+import { CommonMethod } from "./common";
+import { FlexAlign, FlexDirection, FlexWrap, ItemAlign } from "./enums";
 
-export declare class FlexExtend<T> extends FlexAttribute<T> {
+/**
+ * Defines the option of Flex.
+ * @since 7
+ */
+export declare interface FlexOption {
+  /**
+   * Sets the horizontal layout of elements.
+   * @since 7
+   */
+  direction?: FlexDirection;
+
+  /**
+   * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   * @since 7
+   */
+  wrap?: FlexWrap;
+
+  /**
+   * The alignment format of the subassembly on the Flex container spindle.
+   * @since 7
+   */
+  justifyContent?: FlexAlign;
+
+  /**
+   * Alignment Format for Subassembly on Flex Container Cross Axis.
+   * @since 7
+   */
+  alignItems?: ItemAlign;
+
+  /**
+   * The alignment of multiple lines of content when there is extra space in the cross axis.
+   * @since 7
+   */
+  alignContent?: FlexAlign;
 }
 
+/**
+ * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * @since 7
+ */
 interface Flex extends FlexAttribute<Flex> {
-  (value?: {
-    direction?: FlexDirection, wrap?: FlexWrap, justifyContent?: FlexAlign,
-    alignItems?: ItemAlign, alignContent?: FlexAlign
-  }): Flex;
+  /**
+   * Defines the constructor of Flex.
+   * @since 7
+   */
+  (value?: FlexOption): Flex;
 }
 
-declare class FlexAttribute<T> extends CommonMethod<T> {
-}
+/**
+ * Defines the Flex attribute functions.
+ * @since 7
+ */
+declare class FlexAttribute<T> extends CommonMethod<T> {}
 
+export declare class FlexExtend<T> extends FlexAttribute<T> {}
 export declare const FlexInterface: Flex;

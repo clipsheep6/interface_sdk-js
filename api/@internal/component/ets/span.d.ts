@@ -13,32 +13,73 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
-import {FontStyle, FontWeight, TextDecorationType, TextCase} from "./text";
+import { CommonMethod } from "./common";
+import { FontStyle, FontWeight, TextDecorationType, TextCase } from "./enums";
+import { Resource, ResourceColor } from "./units";
 
-export declare class SpanExtend<T> extends SpanAttribute<T> {
-}
-
+/**
+ * Provide text decoration.
+ * @since 7
+ */
 interface Span extends SpanAttribute<Span> {
+  /**
+   * Called when text is entered in span.
+   * @since 7
+   */
   (value: string | Resource): Span;
 }
 
+/**
+ * @since 7
+ */
 declare class SpanAttribute<T> extends CommonMethod<T> {
-  fontColor(value: Color | number | string | Resource): T;
+  /**
+   * Called when the font color is set.
+   * @since 7
+   */
+  fontColor(value: ResourceColor): T;
 
+  /**
+   * Called when the font size is set.
+   * @since 7
+   */
   fontSize(value: number | string | Resource): T;
 
+  /**
+   * Called when the font style of a font is set.
+   * @since 7
+   */
   fontStyle(value: FontStyle): T;
 
+  /**
+   * Called when the font weight is set.
+   * @since 7
+   */
   fontWeight(value: number | FontWeight | string): T;
 
+  /**
+   * Called when the font list of text is set.
+   * @since 7
+   */
   fontFamily(value: string | Resource): T;
 
-  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource}): T;
+  /**
+   * Called when the text decoration of the text is set.
+   * @since 7
+   */
+  decoration(value: { type: TextDecorationType; color?: ResourceColor }): T;
 
+  /**
+   * Called when the distance between text fonts is set.
+   * @since 7
+   */
   letterSpacing(value: number | string): T;
 
+  /**
+   * Called when the type of letter in the text font is set.
+   */
   textCase(value: TextCase): T;
 }
 
+export declare class SpanExtend<T> extends SpanAttribute<T> {}
 export declare const SpanInterface: Span;

@@ -13,45 +13,117 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
-import {FontWeight, FontStyle} from "./text";
+import { CommonMethod } from "./common";
+import { ResourceColor, Font } from "./units";
 
+/**
+ * indexer align property.
+ * @since 7
+ */
 export declare enum IndexerAlign {
+  /**
+   * A dialog box is displayed on the right of the index bar.
+   * @since 7
+   */
   Left,
-  Right
+
+  /**
+   * A dialog box is displayed on the left of the index bar.
+   * @since 7
+   */
+  Right,
 }
 
-export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {
-}
-
+/**
+ * Alphabet index bar.
+ * @since 7
+ */
 interface AlphabetIndexer extends AlphabetIndexerAttribute<AlphabetIndexer> {
-  (value: {ArrayValue : Array<string>, selected : number}): AlphabetIndexer;
+  /**
+   * ArrayValue: Alphabetical index string array.
+   * selected: ID of the selected item.
+   * @since 7
+   */
+  (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexer;
 }
 
+/**
+ * Defines the alphabet index bar attribute functions.
+ * @since 7
+ */
 declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
+  /**
+   * Index bar selection callback.
+   * @since 7
+   */
   onSelected(event: (index: number) => void): T;
 
-  color(value: Color | number | string | Resource): T;
+  /**
+   * Definitions color.
+   * @since 7
+   */
+  color(value: ResourceColor): T;
 
-  selectedColor(value: Color | number | string | Resource): T;
+  /**
+   * Select the text color.
+   * @since 7
+   */
+  selectedColor(value: ResourceColor): T;
 
-  popupColor(value: Color | number | string | Resource): T;
+  /**
+   * Font color of the pop-up prompt text.
+   * @since 7
+   */
+  popupColor(value: ResourceColor): T;
 
-  selectedBackgroundColor(value: Color | number | string | Resource): T;
+  /**
+   * Select the text background color.
+   * @since 7
+   */
+  selectedBackgroundColor(value: ResourceColor): T;
 
-  popupBackground(value: Color | number | string | Resource): T;
+  /**
+   * Background color of the pop-up window index.
+   * @since 7
+   */
+  popupBackground(value: ResourceColor): T;
 
+  /**
+   * Whether to use pop-up index hints.
+   * @since 7
+   */
   usingPopup(value: boolean): T;
 
-  selectedFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
+  /**
+   * Select the text text style,
+   * @since 7
+   */
+  selectedFont(value: Font): T;
 
-  popupFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
+  /**
+   * Select the text background color.
+   * @since 7
+   */
+  popupFont(value: Font): T;
 
+  /**
+   * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
+   * @since 7
+   */
   itemSize(value: string | number): T;
 
-  font(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
+  /**
+   * Definitions fonts.
+   * @since 7
+   */
+  font(value: Font): T;
 
+  /**
+   * Alphabet index bar alignment style. The left and right alignment styles are supported, which affects the pop-up position of the pop-up window.
+   * @since 7
+   */
   alignStyle(value: IndexerAlign): T;
 }
 
 export declare const AlphabetIndexerInterface: AlphabetIndexer;
+export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {}

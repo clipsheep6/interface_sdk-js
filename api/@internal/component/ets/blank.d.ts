@@ -13,17 +13,32 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common"
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
-export declare class BlankExtend<T> extends BlankAttribute<T> {
-}
-
+/**
+ * Create Blank.
+ * @since 7
+ */
 interface Blank extends BlankAttribute<Blank> {
+  /**
+   * The minimum size of the blank fill assembly on the container spindle.
+   * @since 7
+   */
   (min?: number | string): Blank;
 }
 
+/**
+ * Inheritance CommonMethod Set Styles
+ * @since 7
+ */
 declare class BlankAttribute<T> extends CommonMethod<T> {
-  color(value: Color | number | string | Resource): T;
+  /**
+   * color: set color.
+   * @since 7
+   */
+  color(value: ResourceColor): T;
 }
 
-export declare const BlankInterface: Blank
+export declare class BlankExtend<T> extends BlankAttribute<T> {}
+export declare const BlankInterface: Blank;

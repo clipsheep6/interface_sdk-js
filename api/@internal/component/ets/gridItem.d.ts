@@ -13,25 +13,54 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
-export declare class GridItemExtend<T> extends GridItemAttribute<T> {
-}
-
+/**
+ * Mesh container for static fixed-size layout scenarios.
+ * @since 7
+ */
 interface GridItem extends GridItemAttribute<GridItem> {
+  /**
+   * Return to get GridItem.
+   * @since 7
+   */
   (): GridItem;
 }
 
+/**
+ * @since 7
+ */
 declare class GridItemAttribute<T> extends CommonMethod<T> {
+  /**
+   * This parameter specifies the start line number of the current element.
+   * @since 7
+   */
   rowStart(value: number): T;
 
+  /**
+   * Specifies the end line number of the current element.
+   * @since 7
+   */
   rowEnd(value: number): T;
 
+  /**
+   * This parameter specifies the start column number of the current element.
+   * @since 7
+   */
   columnStart(value: number): T;
 
+  /**
+   * This parameter specifies the end column number of the current element.
+   * @since 7
+   */
   columnEnd(value: number): T;
 
+  /**
+   * This parameter specifies whether to recreate the node when the component build is triggered.
+   * @since 7
+   */
   forceRebuild(value: boolean): T;
 }
 
+export declare class GridItemExtend<T> extends GridItemAttribute<T> {}
 export declare const GridItemInterface: GridItem;
