@@ -13,20 +13,22 @@
 * limitations under the License.
 */
 
-import {AsyncCallback} from "./basic";
+import { AsyncCallback } from "./basic";
 
 /**
  * Provides interfaces for applications to obtain the network state, cell information, signal information,
  * and device ID of the wireless cellular network (WCN), and provides a callback registration mechanism to
  * listen for changes of the network, cell, and signal status of the WCN.
  *
- * @since 6
+ * @since 7
  * @sysCap SystemCapability.Telephony.Telephony
+ * @devices phone, tablet, wearable
  */
 declare namespace radio {
   /**
-   * Obtains radio access technology (RAT) of the registered network. The system
-   * returns RAT of the packet service (PS) and circuit service (CS) domain.
+   * Obtains radio access technology (RAT) of the registered network. The system preferentially
+   * returns RAT of the packet service (PS) domain. If the device has not registered with the
+   * PS domain, the system returns RAT of the circuit service (CS) domain.
    *
    * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
    *
@@ -51,8 +53,8 @@ declare namespace radio {
    * @permission ohos.permission.GET_NETWORK_INFO
    */
   function getRadioTech(slotId: number,
-    callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
-  function getRadioTech(slotId: number): Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>;
+    callback: AsyncCallback<{ psRadioTech: RadioTechnology, csRadioTech: RadioTechnology }>): void;
+  function getRadioTech(slotId: number): Promise<{ psRadioTech: RadioTechnology, csRadioTech: RadioTechnology }>;
 
   /**
    * Obtains the network state of the registered network.
@@ -103,25 +105,23 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the country code defined in ISO 3166-2;
    * returns an empty string if the device is not registered with any network.
-   * @since 7
    */
   function getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void;
   function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
 
   /**
-   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
-   *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
-   * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
-   * @since 7
-   */
+  * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+  *
+  * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+  * supported by the device.
+  * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
+  */
   function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
   function getSignalInformation(slotId: number): Promise<Array<SignalInformation>>;
 
   /**
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @since 7
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    */
   function isRadioOn(callback: AsyncCallback<boolean>): void;
   function isRadioOn(): Promise<boolean>;
@@ -129,7 +129,6 @@ declare namespace radio {
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
-   * @since 7
    */
   function turnOnRadio(callback: AsyncCallback<void>): void;
   function turnOnRadio(): Promise<void>;
@@ -137,10 +136,16 @@ declare namespace radio {
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
-   * @since 7
    */
   function turnOffRadio(callback: AsyncCallback<void>): void;
   function turnOffRadio(): Promise<void>;
+
+  /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   */
+  function getIMEI(callback: AsyncCallback<string>): void;
+  function getIMEI(slotId: number, callback: AsyncCallback<string>): void;
+  function getIMEI(slotId?: number): Promise<string>;
 
   /**
    * Describes the radio access technology.
@@ -393,17 +398,11 @@ declare namespace radio {
     NSA_STATE_SA_ATTACHED = 6
   }
 
-  /**
-   * @systemapi Hide this for inner system use.
-   */
   export interface NetworkSearchResult {
     isNetworkSearchSuccess: boolean;
     networkSearchResult: Array<NetworkInformation>;
   }
 
-  /**
-   * @systemapi Hide this for inner system use.
-   */
   export interface NetworkInformation {
     operatorName: string;
     operatorNumeric: string;
@@ -411,9 +410,6 @@ declare namespace radio {
     radioTech: string;
   }
 
-  /**
-   * @systemapi Hide this for inner system use.
-   */
   export enum NetworkInformationState {
     /** Indicates that the network state is unknown. */
     NETWORK_UNKNOWN,
@@ -428,9 +424,6 @@ declare namespace radio {
     NETWORK_FORBIDDEN
   }
 
-  /**
-   * @systemapi Hide this for inner system use.
-   */
   export interface NetworkSelectionModeOptions {
     slotId: number;
     selectMode: NetworkSelectionMode;
