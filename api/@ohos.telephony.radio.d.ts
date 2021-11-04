@@ -144,6 +144,7 @@ declare namespace radio {
 
   /**
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @since 8
    */
   function getIMEI(callback: AsyncCallback<string>): void;
   function getIMEI(slotId: number, callback: AsyncCallback<string>): void;
