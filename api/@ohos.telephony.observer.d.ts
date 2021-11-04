@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
+import {Callback} from "./basic";
 import radio from "./@ohos.telephony.radio";
 import call from "./@ohos.telephony.call";
+import {SimState} from "./@ohos.telephony.sim";
 
 /**
  * Monitors telephony state updates of a device, including updates of the network state,
@@ -24,9 +25,9 @@ import call from "./@ohos.telephony.call";
  * @since 6
  */
 declare namespace observer {
-  type NetworkState = radio.NetworkState;
-  type SignalInformation = radio.SignalInformation;
-  type CallState = call.CallState;
+  export import NetworkState = radio.NetworkState;
+  export import SignalInformation = radio.SignalInformation;
+  export import CallState = call.CallState;
 
   /**
    * Called when the network state corresponding to a monitored {@code slotId} updates.
@@ -39,13 +40,13 @@ declare namespace observer {
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including an instance of the {@code NetworkState} class.
    */
-  function on(type: 'networkStateChange', callback: AsyncCallback<NetworkState>): void;
-  function on(type: 'networkStateChange', options: { slotId: number }, callback: AsyncCallback<NetworkState>): void;
+  function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
+  function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
 
-  function once(type: 'networkStateChange', callback: AsyncCallback<NetworkState>): void;
-  function once(type: 'networkStateChange', options: { slotId: number }, callback: AsyncCallback<NetworkState>): void;
+  function once(type: 'networkStateChange', callback: Callback<NetworkState>): void;
+  function once(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
 
-  function off(type: 'networkStateChange', callback?: AsyncCallback<NetworkState>): void;
+  function off(type: 'networkStateChange', callback?: Callback<NetworkState>): void;
 
   /**
    * Called when the signal strength corresponding to a monitored {@code slotId} updates.
@@ -55,15 +56,15 @@ declare namespace observer {
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including an array of instances of the classes derived from {@link SignalInformation}.
    */
-  function on(type: 'signalInfoChange', callback: AsyncCallback<Array<SignalInformation>>): void;
+  function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
   function on(type: 'signalInfoChange', options: { slotId: number },
-    callback: AsyncCallback<Array<SignalInformation>>): void;
+    callback: Callback<Array<SignalInformation>>): void;
 
-  function once(type: 'signalInfoChange', callback: AsyncCallback<Array<SignalInformation>>): void;
+  function once(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
   function once(type: 'signalInfoChange', options: { slotId: number },
-    callback: AsyncCallback<Array<SignalInformation>>): void;
+    callback: Callback<Array<SignalInformation>>): void;
 
-  function off(type: 'signalInfoChange', callback?: AsyncCallback<Array<SignalInformation>>): void;
+  function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
   /**
    * Receives a call state change. This callback is invoked when the call state of a specified card updates
@@ -76,15 +77,45 @@ declare namespace observer {
    *   The value of number is an empty string if the application does not have
    *     the {@code ohos.permission#READ_CALL_LOG READ_CALL_LOG} permission.
    */
-  function on(type: 'callStateChange', callback: AsyncCallback<{ state: CallState, number: String }>): void;
+  function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: String }>): void;
   function on(type: 'callStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: CallState, number: String }>): void;
+    callback: Callback<{ state: CallState, number: String }>): void;
 
-  function once(type: 'callStateChange', callback: AsyncCallback<{ state: CallState, number: String }>): void;
+  function once(type: 'callStateChange', callback: Callback<{ state: CallState, number: String }>): void;
   function once(type: 'callStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: CallState, number: String }>): void;
+    callback: Callback<{ state: CallState, number: String }>): void;
 
-  function off(type: 'callStateChange', callback?: AsyncCallback<{ state: CallState, number: String }>): void;
+  function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: String }>): void;
+
+  /**
+   * Receives a sim state change. This callback is invoked when the sim state of a specified card updates
+   * and the observer is added to monitor the updates.
+   *
+   * @param type simStateChange
+   * @param options including slotId Indicates the ID of the target card slot.
+   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param callback including state Indicates the sim state, and reason Indicates the cause of the change.
+   *   The value of reason is an empty string if the application does not have
+   * @since 8
+   */
+  function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
+  function on(type: 'simStateChange', options: { slotId: number },
+    callback: Callback<SimStateData>): void;
+  function once(type: 'simStateChange', callback: Callback<SimStateData>): void;
+  function once(type: 'simStateChange', options: { slotId: number },
+    callback: Callback<SimStateData>): void;
+  function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
+
+  export interface SimStateData {
+    state: SimState,
+    reason: LockReason
+  }
+  
+  export enum LockReason {
+    SIM_NONE,
+    SIM_PIN,
+    SIM_PUK,
+  }
 }
 
 export default observer;
