@@ -96,6 +96,7 @@ declare namespace observer {
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including state Indicates the sim state, and reason Indicates the cause of the change.
    *   The value of reason is an empty string if the application does not have
+   * @since 8
    */
   function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
   function on(type: 'simStateChange', options: { slotId: number },
