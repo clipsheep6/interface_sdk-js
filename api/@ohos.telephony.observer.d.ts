@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { Callback } from "./basic";
+import {Callback} from "./basic";
 import radio from "./@ohos.telephony.radio";
-import data from "./@ohos.telephony.data";
 import call from "./@ohos.telephony.call";
-import { SimState } from "./@ohos.telephony.sim";
+import {SimState} from "./@ohos.telephony.sim";
 
 /**
  * Monitors telephony state updates of a device, including updates of the network state,
@@ -28,10 +27,6 @@ import { SimState } from "./@ohos.telephony.sim";
 declare namespace observer {
   export import NetworkState = radio.NetworkState;
   export import SignalInformation = radio.SignalInformation;
-  export import CellInformation = radio.CellInformation;
-  export import DataConnectState = data.DataConnectState;
-  export import RatType = radio.RatType;
-  export import DataFlowType = data.DataFlowType;
   export import CallState = call.CallState;
 
   /**
@@ -91,7 +86,6 @@ declare namespace observer {
     callback: Callback<{ state: CallState, number: String }>): void;
 
   function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: String }>): void;
-}
 
   /**
    * Receives a sim state change. This callback is invoked when the sim state of a specified card updates
@@ -115,9 +109,12 @@ declare namespace observer {
     state: SimState,
     reason: LockReason
   }
+  
   export enum LockReason {
     SIM_NONE,
     SIM_PIN,
     SIM_PUK,
   }
+}
+
 export default observer;
