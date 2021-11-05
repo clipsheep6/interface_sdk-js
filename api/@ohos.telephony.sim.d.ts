@@ -254,6 +254,7 @@ declare namespace sim {
   }
 
   /**
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   export enum ContactType {
