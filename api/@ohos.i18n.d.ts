@@ -165,4 +165,13 @@ export class PhoneNumberFormat {
      */
     format(number: string): string;
 }
+
+/**
+ * check whether the locale is an RTL locale.
+ *
+ * @param locale Indicates the locale to use.
+ * @return Returns true if the locale is an RTL locale and vice versa.
+ * @since 8
+ */
+export function isRTL(locale: string): boolean;
 }
