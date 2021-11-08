@@ -135,7 +135,84 @@ declare namespace rdb {
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
         executeSql(sql: string, bindArgs: Array<ValueType>): Promise<void>;
+
+        /**
+         * Begin a transaction.
+         *
+         * @note N/A
+         * @since 7
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param transactionObserver while the transaction excutes, observer will be called
+         */
+         beginTransaction(): void;
+         beginTransaction(transactionObserver: TransactionObserver): void;
+ 
+         /**
+          * Begin a transaction.
+          *
+          * @note N/A
+          * @since 7
+          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          */
+         markAsCommit(): void;
+ 
+         /**
+          * end a transaction.
+          *
+          * @note N/A
+          * @since 7
+          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          */
+         endTransaction(): void;
+ 
+         /**
+          * return whether a connection is in a transaction
+          *
+          * @note N/A
+          * @since 7
+          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          */
+         isInTransaction(): void;
     }
+
+    interface TransactionObserver {
+        /**
+         * when the transcation bengin
+         *
+         * @note when transaction begin, this function will be called.
+         * @since 7
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @return null.
+         */
+            OnBegin(): void;
+    
+        /**
+         * when rdb commit the sql
+         *
+         * @note when rdb commit the sql
+         * @since 7
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @return null.
+         */
+            OnCommit(field: string, value: ValueType): void;
+    
+        /**
+         * when rdb comes exception, this will be called.
+         *
+         * @note when exception happened, all the commit will be roll back.
+         * @since 7
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @return null.
+         */
+            OnRollback(): void;
+        }
 
     /**
      * Indicates possible value types
