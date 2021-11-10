@@ -167,6 +167,15 @@ export class PhoneNumberFormat {
 }
 
 /**
+ * check whether the locale is an RTL locale.
+ *
+ * @param locale Indicates the locale to use.
+ * @return Returns true if the locale is an RTL locale and vice versa.
+ * @since 8
+ */
+export function isRTL(locale: string): boolean;
+
+/**
  * Get a Calendar instance specified by locale and type.
  *
  * @param locale The locale used to get calendar.
@@ -175,7 +184,7 @@ export class PhoneNumberFormat {
  *  japanese, persion.
  * @since 8
  */
- export function getCalendar(locale: string, type?: string): Calendar;
+export function getCalendar(locale: string, type?: string): Calendar;
 
 export class Calendar {
     /**
