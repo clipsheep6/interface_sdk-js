@@ -106,6 +106,21 @@ declare namespace sim {
   function getSimIccId(slotId: number): Promise<string>;
 
   /**
+   * Obtains the MSISDN of the SIM card in a specified slot.
+   * The MSISDN is recorded in the EFMSISDN file of the SIM card.
+   *
+   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the MSISDN; returns an empty string if no SIM card is inserted or
+   * no MSISDN is recorded in the EFMSISDN file.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   */
+  function getSimTelephoneNumber(slotId: number, callback: AsyncCallback<string>): void;
+  function getSimTelephoneNumber(slotId: number): Promise<string>;
+
+  /**
    * Obtains the Group Identifier Level 1 (GID1) of the SIM card in a specified slot.
    * The GID1 is recorded in the EFGID1 file of the SIM card.
    *
@@ -134,6 +149,16 @@ declare namespace sim {
    */
   function getSimAccountInfo(slotId: number, callback: AsyncCallback<IccAccountInfo>): void;
   function getSimAccountInfo(slotId: number): Promise<IccAccountInfo>;
+
+    /**
+   * Checks whether a SIM card is inserted in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns true if a SIM card is inserted; return false otherwise.
+   */
+  function hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void;
+  function hasSimCard(slotId: number): Promise<boolean>;
 
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
@@ -177,6 +202,31 @@ declare namespace sim {
 
   /**
    * @systemapi Hide this for inner system use.
+   */
+  function queryIccDiallingNumbers(slotId: number, type: ContactType, callback: AsyncCallback<Array<DiallingNumbersInfo>>): void
+  function queryIccDiallingNumbers(slotId: number, type: ContactType): Promise<Array<DiallingNumbersInfo>>;
+
+
+   /**
+    * @systemapi Hide this for inner system use.
+    */
+  function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
+  function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
+
+   /**
+    * @systemapi Hide this for inner system use.
+    */
+  function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
+  function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
+
+   /**
+    * @systemapi Hide this for inner system use.
+    */
+  function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
+  function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
    * @since 7
    */
   export interface IccAccountInfo {
@@ -192,6 +242,24 @@ declare namespace sim {
   export interface LockStatusResponse {
     result: number,                 /* Current operation result */
     remain?: number,                /* Operations remaining */
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   */
+   export interface DiallingNumbersInfo {
+    recordNumber: number,
+    alphaTag: string,
+    number: string,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum ContactType {
+    GENERAL_CONTACT = 1,
+    FIXED_DIALING = 2,
   }
 
   export enum SimState {
