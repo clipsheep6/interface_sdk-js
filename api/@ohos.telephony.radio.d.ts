@@ -143,6 +143,21 @@ declare namespace radio {
   function turnOffRadio(): Promise<void>;
 
   /**
+   * Obtains the IMEI of a specified card slot of the device.
+   *
+   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param callback Returns the IMEI; returns an empty string if the IMEI does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @since 8
+   */
+  function getIMEI(callback: AsyncCallback<string>): void;
+  function getIMEI(slotId: number, callback: AsyncCallback<string>): void;
+  function getIMEI(slotId?: number): Promise<string>;
+
+  /**
    * Describes the radio access technology.
    */
   export enum RadioTechnology {
