@@ -210,24 +210,24 @@ declare namespace sim {
   function queryIccDiallingNumbers(slotId: number, type: ContactType): Promise<Array<DiallingNumbersInfo>>;
 
 
-   /**
-    * @systemapi Hide this for inner system use.
-    * @since 8
-    */
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
   function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
-   /**
-    * @systemapi Hide this for inner system use.
-    * @since 8
-    */
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback :AsyncCallback<void>): void;
   function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
-   /**
-    * @systemapi Hide this for inner system use.
-    * @since 8
-    */
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo, callback: AsyncCallback<void>): void;
   function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
