@@ -24,12 +24,69 @@ import { AsyncCallback } from "./basic";
  */
 declare namespace wifi {
     /**
+     * Queries the HOTSPOT status
+     *
+     * @return Returns {@code true} if the HOTSPOT is active; returns {@code false} otherwise.
+     *
+     * @since 6
+     */
+     function isHotspotActive(): boolean;
+    /**
+     * Enables HOTSPOT.
+     *
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+     *
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    function enableHotspot(): boolean;
+
+    /**
+     * Disables HOTSPOT.
+     *
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+     *
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    function disableHotspot(): boolean;
+
+    /**
+     * Set HOTSPOT Config.
+     *
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+     *
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    function setHotspotConfig(conf: HotSpotConfig): boolean;
+	
+	/**
+     * Get HOTSPOT Station.
+     *
+     * @return Returns hotspot station info if any.
+     *
+     * @since 6
+     */
+	function getStations(): Array<StationInfo>
+	
+	/**
+     * Get HOTSPOT Config.
+     *
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+     *
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    function getHotspotConfig(conf: HotSpotConfig): boolean;
+
+    /**
      * Enables Wi-Fi.
      *
      * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      *
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     function enableWifi(): boolean;
 
@@ -39,7 +96,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      *
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     function disableWifi(): boolean;
 
@@ -82,7 +139,7 @@ declare namespace wifi {
      *
      * @devices phone, tablet
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
     function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
@@ -94,7 +151,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the network connection is successful; returns {@code false} otherwise.
      *
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     function connectToNetwork(networkId: number): boolean;
 
@@ -106,7 +163,7 @@ declare namespace wifi {
      *
      * @devices phone, tablet
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     function connectToDevice(config: WifiDeviceConfig): boolean;
 
@@ -116,7 +173,7 @@ declare namespace wifi {
      * @return Returns {@code true} for disconnecting network success, returns {@code false} otherwise.
      *
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     function disconnect(): boolean;
 
@@ -132,11 +189,54 @@ declare namespace wifi {
     function getSignalLevel(rssi: number, band: number): number;
 
     /**
+     * Hotspot configuration information.
+     *
+     * @devices phone, tablet
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    interface HotSpotConfig {
+        /* Hotspot name, The string length range is 1~32 */
+        ssid: string;
+
+        /* Hotspot Encryption type, Optional NONE/WPA_PSK/WPA2_PSK */
+        securityType: number;
+
+        /* Hotspot password ,The string length range is 8~63 */
+        preSharedKey: string;
+
+        /* Hotspot band */
+        band: number;
+
+        /* Hotspot maxConn */
+        maxConn: number;
+    }
+
+    /**
+     * Hotspot station information.
+     *
+     * @devices phone, tablet
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    interface StationInfo {
+		/* Device name */
+		deviceName: string;
+		
+		/* Device Mac */
+		bssid: string;
+		
+		/* Device IP address */
+		ipAddr: string;
+    }
+
+	
+    /**
      * Wi-Fi device configuration information.
      *
      * @devices phone, tablet
      * @since 6
-     * @hide SystemApi
+     * @systemapi Hide this for inner system use.
      */
     interface WifiDeviceConfig {
         /** Wi-Fi SSID: the maximum length is 32 */
@@ -174,7 +274,7 @@ declare namespace wifi {
         /** Received signal strength indicator (RSSI) */
         rssi: number;
 
-        /** Frequency band */
+        /** Frequency band, 1: 2.4G, 2: 5G */
         band: number;
 
         /** Frequency */
