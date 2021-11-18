@@ -62,6 +62,15 @@ declare namespace wifi {
     function setHotspotConfig(conf: HotSpotConfig): boolean;
 	
 	/**
+     * Get HOTSPOT Station.
+     *
+     * @return Returns hotspot station info if any.
+     *
+     * @since 6
+     */
+	function getStations(): Array<StationInfo>
+	
+	/**
      * Get HOTSPOT Config.
      *
      * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
@@ -203,6 +212,25 @@ declare namespace wifi {
         maxConn: number;
     }
 
+    /**
+     * Hotspot station information.
+     *
+     * @devices phone, tablet
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    interface StationInfo {
+		/* Device name */
+		deviceName: string;
+		
+		/* Device Mac */
+		bssid: string;
+		
+		/* Device IP address */
+		ipAddr: string;
+    }
+
+	
     /**
      * Wi-Fi device configuration information.
      *
