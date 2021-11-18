@@ -60,6 +60,16 @@ declare namespace wifi {
      * @systemapi Hide this for inner system use.
      */
     function setHotspotConfig(conf: HotSpotConfig): boolean;
+	
+	/**
+     * Get HOTSPOT Config.
+     *
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+     *
+     * @since 6
+     * @systemapi Hide this for inner system use.
+     */
+    function getHotspotConfig(conf: HotSpotConfig): boolean;
 
     /**
      * Enables Wi-Fi.
