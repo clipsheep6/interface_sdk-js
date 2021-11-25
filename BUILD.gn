@@ -125,9 +125,7 @@ ohos_copy("common_api") {
     "api/common/@system.prompt.d.ts",
     "api/common/@system.request.d.ts",
     "api/common/@system.router.d.ts",
-    "api/common/@system.sensor.d.ts",
     "api/common/@system.storage.d.ts",
-    "api/common/@system.vibrator.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
