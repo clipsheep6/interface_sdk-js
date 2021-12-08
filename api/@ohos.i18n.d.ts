@@ -330,4 +330,124 @@ export class Calendar {
  * @since 8
  */
 export function isRTL(locale: string): boolean;
+
+/**
+ * supports the creation of a UI index appropriate for a given language.
+ *
+ * @since 8
+ */
+export class IndexUtil {
+    /**
+     * Get IndexUtil object.
+     *
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the NumberFormat object.
+     * @return Returns IndexUtil object.
+     * @since 8
+     */
+    getInstance(locale?:string): IndexUtil;
+
+    /**
+     * Get a list of labels for use as a UI index
+     *
+     * @return Returns a list of labels
+     * @since 8
+     */
+    getIndexList(): Array<string>;
+
+    /**
+     * Add the index characters from a Locale to the index.
+     *
+     * @param locale The locale whose index characters are to be added.
+     * @since 8
+     */
+    addLocale(locale: string);
+
+    /**
+     * Get corresponding index of the input text.
+     *
+     * @param text input text
+     * @since 8
+     */
+    getIndex(text: string): string;
+}
+
+/**
+ * Get Unicode Character Database properties
+ *
+ * @since 8
+ */
+export class Character {
+    /**
+     * Determines whether the specified code point is a digit character
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a digit character
+     */
+    isDigit(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a space character or not.
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a space character
+     */
+    isSpaceChar(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a whitespace character
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a whitespace character
+     */
+    isWhitespace(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a RTL character or not.
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a RTL character
+     */
+    isRTL(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Ideographic character or not.
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a Ideographic character
+     */
+    isIdeograph(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Letter or not.
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a Letter
+     */
+    isLetter(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a LowerCase character or not.
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a LowerCase character
+     */
+    isLowerCase(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a UpperCase character or not.
+     *
+     * @param char the character to be tested
+     * @return Returns true if the character is a UpperCase character
+     */
+    isUpperCase(char: string): boolean;
+
+    /**
+     * Get the general category value of the specified character.
+     *
+     * @param char the character to be tested
+     * @return Returns the general category of the specified character.
+     */
+    getType(char: string): string;
+}
 }
