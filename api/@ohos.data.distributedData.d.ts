@@ -1146,15 +1146,6 @@ declare namespace distributedData {
          * @throws Throws this exception if input is invalid. 
          */
         setSuggestIndex(index: string)
-        /**
-         * 
-         * @param deviceId Identifies the device whose data is to be queried.
-         */
-        deviceId(deviceId: string): Query;
-        /**
-         * 
-         */
-        getSqlLike(): string;
     }
 
     /**
@@ -1445,8 +1436,8 @@ declare namespace distributedData {
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
-        closeResultSet(resultSet: resultSet, callback: AsyncCallback<void>): void;
-        closeResultSet(resultSet: resultSet): Promise<void>;
+        closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
+        closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
 
         /**
          * Obtains the number of results matching the specified {@code Query} object.
@@ -1491,34 +1482,6 @@ declare namespace distributedData {
          */
          sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
 
-         /**
-          * Register Synchronizes  SingleKvStore databases callback.
-          * 
-          * <p>Sync result is returned through asynchronous callback.
-          * 
-          * @note N/A
-          * @since 7
-          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-          * @devices phone, tablet, tv, wearable, car 
-          * @param event 
-          * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
-          * @throws Throws this exception if no {@code SingleKvStore} database is available.
-          */
-         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
- 
-         /**
-          * UnRegister Synchronizes  {@code SingleKvStore} databases callback.
-          * 
-          * @note N/A
-          * @since 7
-          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-          * @devices phone, tablet, tv, wearable, car  
-          * @param event 
-          * @param syncCallback 
-          * @throws Throws this exception if no {@code SingleKvStore} database is available.
-          */
-         off(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
- 
          /**
           * Sets the default delay allowed for database synchronization
           * 
@@ -1622,7 +1585,6 @@ declare namespace distributedData {
           * @param deviceId Indicates the ID of the device to which the key-value pairs belong.
           * @param query Indicates the {@code Query} object.
           * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
-          * @throws 
           */
          getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
          getEntries(deviceId: string, query: Query): Promise<Entry[]>;
@@ -1673,7 +1635,6 @@ declare namespace distributedData {
           * @param deviceId Indicates the ID of the device to which the {@code KvStoreResultSet} object belongs.
           * @param query Indicates the {@code Query} object.
           * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
-          * @throws
           */
          getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
          getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
@@ -1717,7 +1678,6 @@ declare namespace distributedData {
           * @param deviceId Indicates the ID of the device to which the results belong.
           * @param query Indicates the {@code Query} object.
           * @returns Returns the number of results matching the specified {@code Query} object.
-          * @throws
           */
          getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
          getResultSize(deviceId: string, query: Query): Promise<number>;
@@ -1753,31 +1713,6 @@ declare namespace distributedData {
          * @throws Throws this exception if no DeviceKvStore database is available.
          */
         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
-
-        /**
-         * Register Synchronizes DeviceKvStore databases callback.
-         * 
-         * <p>Sync result is returned through asynchronous callback.
-         * 
-         * @note N/A
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
-         * @throws Throws this exception if no {@code DeviceKvStore} database is available.
-         */
-        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
-
-        /**
-         * UnRegister Synchronizes DeviceKvStore databases callback.
-         * 
-         * @note N/A
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         * @throws Throws this exception if no {@code DeviceKvStore} database is available.
-         */
-        off(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
     }
     
     /**
