@@ -305,7 +305,7 @@ export class Calendar {
      * Get calendar's name localized for display in the given locale.
      *
      * @param locale Locale used to get the localized name for this calendar.
-     * @return Retuns the localized name of this calendar.
+     * @return Returns the localized name of this calendar.
      * @since 8
      */
     getDisplayName(locale: string): string;
@@ -315,7 +315,7 @@ export class Calendar {
      *  the date object of this calendar is used.
      *
      * @param date Date object whose attribute is desired.
-     * @return Retuns whether the date is a weekend day.
+     * @return Returns whether the date is a weekend day.
      * @since 8
      */
     isWeekend(date?: Date): boolean;
@@ -330,4 +330,125 @@ export class Calendar {
  * @since 8
  */
 export function isRTL(locale: string): boolean;
+
+/**
+ * Sequence text can be grouped under the specified area,
+ * and grouping index with different lengths can be specified.
+ * @sysCap null
+ * @since 8
+ */
+export class IndexUtil {
+    /**
+     * Get IndexUtil object.
+     * @sysCap null
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the NumberFormat object.
+     * @return Returns IndexUtil object.
+     * @since 8
+     */
+    getInstance(locale?:string): IndexUtil;
+
+    /**
+     * Get a list of labels for use as a UI index
+     * @sysCap null
+     * @return Returns a list of labels
+     * @since 8
+     */
+    getIndexList(): Array<string>;
+
+    /**
+     * Add the index characters from a Locale to the index.
+     * @sysCap null
+     * @param locale The locale whose index characters are to be added.
+     * @since 8
+     */
+    addLocale(locale: string);
+
+    /**
+     * Get corresponding index of the input text.
+     * @sysCap null
+     * @param text input text
+     * @since 8
+     */
+    getIndex(text: string): string;
+}
+
+/**
+ * Provides the API for accessing unicode character properties, sunch as whether a character is a digit.
+ * @sysCap null
+ * @since 8
+ */
+export class Character {
+    /**
+     * Determines whether the specified code point is a digit character
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a digit character
+     */
+    isDigit(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a space character or not.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a space character
+     */
+    isSpaceChar(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a whitespace character
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a whitespace character
+     */
+    isWhitespace(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a RTL character or not.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a RTL character
+     */
+    isRTL(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Ideographic character or not.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a Ideographic character
+     */
+    isIdeograph(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Letter or not.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a Letter
+     */
+    isLetter(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a LowerCase character or not.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a LowerCase character
+     */
+    isLowerCase(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a UpperCase character or not.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns true if the character is a UpperCase character
+     */
+    isUpperCase(char: string): boolean;
+
+    /**
+     * Get the general category value of the specified character.
+     * @sysCap null
+     * @param char the character to be tested
+     * @return Returns the general category of the specified character.
+     */
+    getType(char: string): string;
+}
 }
