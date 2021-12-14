@@ -330,4 +330,109 @@ export class Calendar {
  * @since 8
  */
 export function isRTL(locale: string): boolean;
+
+/**
+ * Obtains a BreakIterator object for finding the location of break point in text.
+ *
+ * @sysCap null
+ * @param locale the returned BreakIterator will adapt the rule, specified by the locale, to break text.
+ * @return Returns a newly constructed BreakIterator object.
+ * @since 8
+ */
+export function getLineInstance(locale: string): BreakIterator;
+
+/**
+ * The BreakIterator class is used for finding the location of break point in text.
+ *
+ * @sysCap null
+ * @since 8
+ */
+export class BreakIterator {
+    /**
+     * Obtains the current position of the BreakIterator instance.
+     * 
+     * @sysCap null
+     * @return Returns the current position of the BreakIterator instance.
+     * @since 8
+     */
+    current(): number;
+
+    /**
+     * Set the BreakIterator's position to the first break point, the first break point is always the beginning of the
+     * processed text.
+     *
+     * @sysCap null
+     * @return Returns the index of the first break point.
+     * @since 8
+     */
+    first(): number;
+
+    /**
+     * Set the BreakIterator's position to the last break point. the last break point is always the index beyond the
+     * last character of the processed text.
+     *
+     * @sysCap null
+     * @return Returns the index of the last break point.
+     * @since 8
+     */
+    last(): number;
+
+    /**
+     * Set the BreakItertor's position to the nth break point from the current break point.
+     *
+     * @sysCap null
+     * @param index indicates the number of break points to advance. If index is not given, n is treated as 1.
+     * @return Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
+     * @since 8
+     */
+    next(index?: number): number;
+
+    /**
+     * Set the BreakItertor's position to the break point preceding the current break point.
+     *
+     * @sysCap null
+     * @return Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
+     * @since 8
+     */
+    previous(): number;
+
+    /**
+     * Set the text to be processed.
+     *
+     * @sysCap null
+     * @param text Indicates the text to be processed by the BreakIterator.
+     * @since 8
+     */
+    setLineBreakText(text: string): void;
+
+    /**
+     * Set the BreakIterator's position to the first break point following the specified offset.
+     *
+     * @sysCap null
+     * @return Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
+     * @since 8
+     */
+    following(offset: number): number;
+
+    /**
+     * Obtains the text being processed.
+     *
+     * @sysCap null
+     * @return Returns the text that is processed by the BreakIterator.
+     * @since 8
+     */
+    getLineBreakText(): string;
+
+    /**
+     * Returns true if the position indicated by the offset is a break point, otherwise false. The BreakIterator's
+     * position will be set to the position indicated by the offset if it returns true, otherwise the BreakIterator
+     * will be moved to the break point following the offset.
+     *
+     * @sysCap null
+     * @param offset The offset to be checked.
+     * @return Returns true if the offset is a break point.
+     * @since 8
+     */
+    isBoundary(offset: number): boolean;
+}
 }
