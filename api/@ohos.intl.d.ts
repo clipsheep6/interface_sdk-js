@@ -581,5 +581,116 @@ export class PluralRules {
      */
     select(n: number): string;
 }
+
+/**
+ * Provides the input options of RelativeTimeFormat.
+ * @sysCap null
+ * @since 8
+ */
+ export interface RelativeTimeFormatInputOptions {
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are: lookup, best fit
+     */
+    localeMatcher: string;
+
+    /**
+     * The format of output message.
+     * Possible values are: always, auto
+     */
+    numeric: string;
+
+    /**
+     * The length of the internationalized message.
+     * Possible values are: long, short, narrow
+     */
+    style: string;
+}
+
+/**
+ * Provides the resolved options of RelativeTimeFormat.
+ * @sysCap null
+ * @since 8
+ */
+export interface RelativeTimeFormatResolvedOptions {
+    /**
+     * The BCP 47 language tag for the locale actually used.
+     */
+    locale: string;
+
+    /**
+     * The length of the internationalized message.
+     * Possible values are: long, short, narrow
+     */
+    style: string;
+
+    /**
+     * The format of output message.
+     * Possible values are: always, auto
+     */
+    numeric: string;
+
+    /**
+     * The value requested using the Unicode extension key "nu" or filled in as a default.
+     */
+    numberingSystem: string;
+}
+
+/**
+ * Given a Time period length value and a unit, RelativeTimeFormat object enables
+ * language-sensitive relative time formatting.
+ * @sysCap null
+ * @since 8
+ */
+export class RelativeTimeFormat {
+    /**
+     * A constructor used to create RelativeTimeFormat object.
+     * @sysCap null
+     * @since 8
+     */
+    constructor();
+
+    /**
+     * A constructor used to create RelativeTimeFormat object.
+     * @sysCap null
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the RelativeTimeFormat object.
+     * @param options Indicates the options used to initialize RelativeTimeFormat object.
+     * @since 8
+     */
+    constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
+
+    /**
+     * formats a value and unit according to the locale and formatting options of this object.
+     * @sysCap null
+     * @param value Numeric value to use in the internationalized relative time message.
+     * @param unit Unit to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns formatted language-sensitive relative time.
+     * @since 8
+     */
+    format(value: number, unit: string): string;
+
+    /**
+     * returns an Array of objects representing the relative time format in parts that can be used for
+     * custom locale-aware formatting
+     * @sysCap null
+     * @param value Numeric value to use in the internationalized relative time message.
+     * @param unit to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns an Array of objects representing the relative time format in parts
+     * @since 8
+     */
+    formatToParts(value: number, unit: string): Array<object>;
+
+    /**
+     * Returns a new object with properties reflecting the locale and formatting options computed during
+     * initialization of the object.
+     * @sysCap null
+     * @returns RelativeTimeFormatOptions which reflecting the locale and formatting options of the object.
+     * @since 8
+     */
+    resolvedOptions(): RelativeTimeFormatResolvedOptions;
+}
 }
 export default intl;
