@@ -1145,7 +1145,7 @@ declare namespace distributedData {
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid. 
          */
-        setSuggestIndex(index: string)
+        setSuggestIndex(index: string): Query;
     }
 
     /**
@@ -1351,7 +1351,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A
          * @param key Indicates the key of the boolean value to be queried.
-         * @param callback 
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
          */
@@ -1366,7 +1365,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A
          * @param keyPrefix Indicates the key prefix to match.
-         * @param callback 
          * @returns Returns the list of all key-value pairs that match the specified key prefix.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
@@ -1382,7 +1380,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A
          * @param query Indicates the {@code Query} object.
-         * @param callback 
          * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
@@ -1402,7 +1399,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A 
          * @param keyPrefix Indicates the key prefix to match.
-         * @param callback 
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
@@ -1417,7 +1413,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A  
          * @param query Indicates the {@code Query} object.
-         * @param callback 
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
@@ -1432,7 +1427,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A 
          * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
-         * @param callback 
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
@@ -1447,7 +1441,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @import N/A 
          * @param query Indicates the {@code Query} object.
-         * @param callback 
          * @returns Returns the number of results matching the specified {@code Query} object.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
@@ -1483,6 +1476,30 @@ declare namespace distributedData {
          sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
 
          /**
+          * Register Synchronizes SingleKvStore databases callback.
+          * 
+          * <p> Sync result is returned through asynchronous callback.
+          * @note N/A
+          * @since 7
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
+          * @throws Throws this exception if no {@code SingleKvStore} database is available.
+          */
+         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+         /**
+          * UnRegister Synchronizes SingleKvStore databases callback.
+          * @note N/A
+          * @since 7
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @throws Throws this exception if no {@code SingleKvStore} database is available.
+          */
+         off(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+	 
+	 
+         /**
           * Sets the default delay allowed for database synchronization
           * 
           * @note N/A
@@ -1490,11 +1507,10 @@ declare namespace distributedData {
           * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
           * @devices phone, tablet, tv, wearable, car
           * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
-          * @param callback 
           * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
           * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
           */
-         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<number>): void;
+         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
          setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
 
          /**
@@ -1504,7 +1520,6 @@ declare namespace distributedData {
           * @since 7
           * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
           * @devices phone, tablet, tv, wearable, car
-          * @param callback 
           * @returns SecurityLevel {@code SecurityLevel} the security level of the database.
           * @throws Throws this exception if any of the following errors occurs:{@code SERVER_UNAVAILABLE},
           * {@code IPC_ERROR}, and {@code DB_ERROR}.
@@ -1713,6 +1728,29 @@ declare namespace distributedData {
          * @throws Throws this exception if no DeviceKvStore database is available.
          */
         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+
+        /**
+         * Register Synchronizes DeviceKvStore databases callback.
+         * 
+         * <p>Sync result is returned through asynchronous callback.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
+         * @throws Throws this exception if no DeviceKvStore database is available.
+         */
+        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+        /**
+         * UnRegister Synchronizes DeviceKvStore databases callback.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @throws Throws this exception if no DeviceKvStore database is available.
+         */
+        off(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
     }
     
     /**
@@ -1828,7 +1866,7 @@ declare namespace distributedData {
          * @since 7
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
          * @devices phone, tablet, tv, wearable, car 
-         * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
+         * @param deathCallback device change callback {@code DeviceChangeCallback}
          * @throws 	exception maybe occurs.
          */
         on(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
