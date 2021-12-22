@@ -114,7 +114,7 @@ declare class ButtonAttribute<T> extends CommonMethod<T> {
   fontSize(value: Length): T;
 
   /**
-   * fonse weight
+   * font weight
    * @since 7
    */
   fontWeight(value: number | FontWeight | string): T;
