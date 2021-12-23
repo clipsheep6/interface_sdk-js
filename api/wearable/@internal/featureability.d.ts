@@ -174,6 +174,15 @@ export declare class FeatureAbility {
   static finishWithResult(param: FinishWithResultParams): Promise<Result>;
 
   /**
+   * Get device information list.
+   * @param flag Default 0, get the information list of all devices in the network.
+   * @returns A Promise object is returned, which contains the result whether the device information list is obtained successfully.
+   * @since 7
+   * @devices tv, phone, tablet, wearable
+   */
+  static getDeviceList(flag: number): Promise<Result>;
+
+  /**
    * Calls an AA.
    * @param param Indicates the request param.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
