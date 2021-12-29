@@ -19,7 +19,7 @@
 * @since 7
 * @sysCap SystemCapability.CCRuntime
 * @devices phone, tablet, tv, wearable, car
-* @import import url from '@ohos.process';
+* @import import process from '@ohos.process';
 */
 
 declare namespace process {
