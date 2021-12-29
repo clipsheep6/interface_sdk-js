@@ -114,7 +114,6 @@ ohos_copy("common_api") {
     "api/@ohos.wifi.d.ts",
     "api/common/@system.app.d.ts",
     "api/common/@system.battery.d.ts",
-    "api/common/@system.bluetooth.d.ts",
     "api/common/@system.brightness.d.ts",
     "api/common/@system.cipher.d.ts",
     "api/common/@system.configuration.d.ts",
