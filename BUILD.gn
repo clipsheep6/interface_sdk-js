@@ -115,7 +115,6 @@ ohos_copy("common_api") {
     "api/common/@system.geolocation.d.ts",
     "api/common/@system.mediaquery.d.ts",
     "api/common/@system.network.d.ts",
-    "api/common/@system.notification.d.ts",
     "api/common/@system.package.d.ts",
     "api/common/@system.prompt.d.ts",
     "api/common/@system.request.d.ts",
