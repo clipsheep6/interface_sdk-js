@@ -544,15 +544,6 @@ declare namespace notification {
   function supportDoNotDisturbMode(): Promise<boolean>;
 
   /**
-   * Obtains whether the template is supported by the system.
-   *
-   * @since 8
-   * @param plateName Name of template to be Obtained
-   */
-  function isSupportTemplate(plateName: string, callback: AsyncCallback<boolean>): void;
-  function isSupportTemplate(plateName: string): Promise<boolean>;
-
-  /**
    * Describes a BundleOption.
    */
   export interface BundleOption {
