@@ -154,38 +154,5 @@ declare namespace featureAbility {
    function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
    function continueAbility(options: ContinueAbilityOptions): Promise<void>;
 
-  export enum AbilityWindowConfiguration {
-    WINDOW_MODE_UNDEFINED = 0,
-    WINDOW_MODE_FULLSCREEN = 1,
-    WINDOW_MODE_SPLIT_PRIMARY = 100,
-    WINDOW_MODE_SPLIT_SECONDARY = 101,
-    WINDOW_MODE_FLOATING = 102
-  }
-
-  export enum AbilityStartSetting {
-    BOUNDS_KEY = "abilityBounds",
-    WINDOW_MODE_KEY = "windowMode",
-    DISPLAY_ID_KEY = "displayId"
-  }
-
-  export enum ErrorCode {
-    NO_ERROR = 0,
-    INVALID_PARAMETER = -1,
-    ABILITY_NOT_FOUND = -2,
-    PERMISSION_DENY = -3
-  }
-
-  export enum ContinuationState {
-    LOCAL_RUNNING = 0,
-    REMOTE_RUNNING = 1,
-    REPLICA_RUNNING = 2
-  }
-
-  export enum DataAbilityOperationType {
-    TYPE_INSERT = 1,
-    TYPE_UPDATE = 2,
-    TYPE_DELETE = 3,
-    TYPE_ASSERT = 4,
-  }
 }
 export default featureAbility;
