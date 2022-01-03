@@ -589,6 +589,89 @@ declare namespace rdb {
          * @return Returns RdbPredicates that matches the specified field.
          */
         notIn(field: string, value: Array<ValueType>): RdbPredicates;
+
+
+        /**
+         * Adds a {@code cross join} condition to a SQL statement.
+         *
+         * <p>In SQLite, you can use cross joins to associate two unrelated tables. The cross join joins every row from
+         * the first table with every row from the second table, and the result set is the product of rows in both tables.
+         * Exercise caution when using cross joins during application development because they will exert heavy load on
+         * memory and subsequent data processing.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param tableName Indicates the names of the tables to join.
+         * @return Returns the predicate with the {@code cross join} condition.
+         */
+        crossJoin(tableName: string): RdbPredicates;
+
+        /**
+         * Adds an {@code inner join} condition to a SQL statement.
+         *
+         * <p>In SQLite, you can use inner joins to query data from two related tables. The inner join selects all the rows
+         * to display in the result set from the related tables only if both tables meet the conditions specified in
+         * the ON clause. The inner joins are syntactically equivalent to the cross joins. Note that inner joins must be
+         * used together with {@link RdbPredicates#on(string...)}. Otherwise, use {@link RdbPredicates#crossJoin(string)}
+         * instead.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param tableName Indicates the names of the tables to join.
+         * @return Returns the predicate with the {@code inner join} condition.
+         */
+        innerJoin(tableName: string): RdbPredicates;
+
+        /**
+         * Adds a {@code left outer join} condition to a SQL statement.
+         *
+         * <p>The left join or left outer join allows you to query data from tables A and B and returns the inner joins
+         * between A and B and the unmatched rows of A. A is the first join defined in the clause, and is
+         * therefore left join.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param tableName Indicates the names of the tables to join.
+         * @return Returns the predicate with the {@code left outer join} condition.
+         */
+        leftOuterJoin(tableName: string): RdbPredicates;
+
+        /**
+         * Adds a {@code using} condition to the predicate. This method is similar to {@code using} of the SQL statement.
+         *
+         * <p>{@code using} is the abbreviation of the specified join condition in the left join
+         * {@link RdbPredicates#leftOuterJoin} or inner join {@link RdbPredicates#innerJoin}.
+         * When adding the {@code using} condition, ensure that the specified columns exist in both tables.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param fields Indicates the column names in the database table.
+         * @return Returns the predicate with the {@code using} condition.
+         */
+        using(...fields: Array<string>): RdbPredicates;
+
+        /**
+         * Adds an {@code on} condition to the predicate.
+         *
+         * <p>{@code on} is used to set the join conditions of multiple tables when obtaining the join type. It is used
+         * with the left join {@link RdbPredicates#leftOuterJoin} or inner join {@link RdbPredicates#innerJoin}.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param clauses Indicates the conditions of the join clauses.
+         * @return Returns the predicate with the {@code on} condition.
+         */
+        on(...clauses: Array<string>): RdbPredicates;
     }
 }
 
