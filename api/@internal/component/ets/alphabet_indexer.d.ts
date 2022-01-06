@@ -54,7 +54,7 @@ interface AlphabetIndexer extends AlphabetIndexerAttribute<AlphabetIndexer> {
 declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
   /**
    * Index bar selection callback.
-   * @since 7
+   * @since 8
    */
   onSelected(event: (index: number) => void): T;
 
@@ -123,6 +123,18 @@ declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   alignStyle(value: IndexerAlign): T;
+
+  /**
+   * Index bar selection callback and return the strings which display on pop-up.
+   * @since 8
+   */
+   onRequestPopupData(event: (index: number) => Array<string>): T;
+
+  /**
+   * Pop-up selection callback.
+   * @since 8
+   */
+   onPopupSelected(event: (index: number) => void): T;
 }
 
 export declare const AlphabetIndexerInterface: AlphabetIndexer;

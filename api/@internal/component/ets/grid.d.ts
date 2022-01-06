@@ -30,6 +30,36 @@ interface Grid extends GridAttribute<Grid> {
 }
 
 /**
+ * The item drag pos.(x y)
+ * @since 7
+ */
+interface ItemDragInfo {
+  x: number;
+  y: number;
+}
+
+/**
+ * The enum of property layoutDirection
+ * @since 7
+ */
+declare enum LayoutDirection {
+  Row,
+  Column,
+  RowReverse,
+  ColumnReverse
+}
+
+/**
+ * The enum of property direction
+ * @since 7
+ */
+declare enum GridDirection {
+  LTR,
+  RTL,
+  Auto
+}
+
+/**
  * @since 7
  */
 declare class GridAttribute<T> extends CommonMethod<T> {
@@ -86,6 +116,78 @@ declare class GridAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   cachedCount(value: number): T;
+
+  /**
+   * control if the item could be draged.
+   * @since 7
+   */
+  editMode(value: boolean): T;
+
+  /**
+   * control the max row or colum of the dynamicGrid.
+   * @since 7
+   */
+  maxCount(value: number): T;
+
+  /**
+   * control the min row or colum of the dynamicGrid.
+   * @since 7
+   */
+  minCount(value: number): T;
+
+  /**
+   * control the height or width of the grid cell.
+   * @since 7
+   */
+  cellLength(value: number): T;
+
+  /**
+   * control layoutDirection of the grid.
+   * @since 7
+   */
+  layoutDirection(value: LayoutDirection): T;
+
+  /**
+   * control grid is left to right or right to left.
+   * @since 7
+   */
+  direction(value: GridDirection): T;
+
+  /**
+   * control if the grid supports animation.
+   * @since 7
+   */
+  supportAnimation(value: boolean): T;
+
+  /**
+   * the event called when drag enter a grid.
+   * @since 7
+   */
+  onItemDragEnter(event: (event: ItemDragInfo) => void): T;
+
+  /**
+   * the event called when drag the item moving.
+   * @since 7
+   */
+  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): T;
+
+  /**
+   * the event called when drag leave a grid.
+   * @since 7
+   */
+  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): T;
+
+  /**
+   * the event called when drag start.
+   * @since 7
+   */
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): T;
+
+  /**
+   * the event called when drop a item.
+   * @since 7
+   */
+  onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): T;
 }
 
 export declare class GridExtend<T> extends GridAttribute<T> {}
