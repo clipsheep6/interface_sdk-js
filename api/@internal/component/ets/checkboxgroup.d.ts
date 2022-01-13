@@ -84,5 +84,5 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   onChange(callback: (name: Array<any>, status: SelectStatus) => void): CheckboxGroupAttribute;
 }
 
-declare const Checkbox: CheckboxGroupInterface;
+declare const CheckboxGroup: CheckboxGroupInterface;
 declare const CheckboxGroupInstance: CheckboxGroupAttribute;
