@@ -88,7 +88,7 @@ interface AnimatorInterface {
  * @since 7
  * @systemapi
  */
-declare class AnimatorAttribute<AnimatorAttribute> extends CommonMethod<AnimatorAttribute> {
+declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Controls the playback status. The default value is the initial state.
    * @since 7

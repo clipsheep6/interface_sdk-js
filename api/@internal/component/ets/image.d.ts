@@ -179,4 +179,4 @@ declare const Image: ImageInterface;
 /**
  * @since 7
  */
- declare const ImageInstance: ImageAttribute;
+declare const ImageInstance: ImageAttribute;

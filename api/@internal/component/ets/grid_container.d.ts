@@ -95,7 +95,7 @@ interface GridContainerInterface {
  * Defines the grid container attribute from inheritance Column
  * @since 7
  */
-declare class GridContainerAttribute extends ColumnAttribute<GridContainerAttribute> {}
+declare class GridContainerAttribute extends ColumnAttribute {}
 
 declare const GridContainer: GridContainerInterface
 declare const GridContainerInstance: GridContainerAttribute;
