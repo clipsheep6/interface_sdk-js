@@ -13,129 +13,100 @@
  * limitations under the License.
  */
 
-import { GestureType, GestureMask } from "./gesture";
-import { Circle } from "./circle";
-import { Ellipse } from "./ellipse";
-import { Path } from "./path";
-import { Rect } from "./rect";
-import { Resource, Length, Padding, Margin, Area } from "./units";
-import {
-  Alignment,
-  BorderStyle,
-  Color,
-  Curve,
-  Direction,
-  GradientDirection,
-  ImageRepeat,
-  ImageSize,
-  ItemAlign,
-  KeySource,
-  LineCapStyle,
-  LineJoinStyle,
-  PlayMode,
-  SharedTransitionEffectType,
-  TransitionType,
-  Visibility,
-  MouseButton,
-  MouseAction,
-  Placement,
-  HoverEffect,
-} from "./enums";
-
 /**
  * Defining Component ClassDecorator * @since 7
  */
-export declare const Component: ClassDecorator;
+declare const Component: ClassDecorator;
 
 /**
  * Defining Entry ClassDecorator.
  * @since 7
  */
-export declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator;
 
 /**
  * Defining Observed ClassDecorator.
  * @since 7
  */
-export declare const Observed: ClassDecorator;
+declare const Observed: ClassDecorator;
 
 /**
  * Defining Preview ClassDecorator.
  * @since 7
  */
-export declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
+declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
  * Defining State PropertyDecorator.
  * @since 7
  */
-export declare const State: PropertyDecorator;
+declare const State: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
  * @since 7
  */
-export declare const Prop: PropertyDecorator;
+declare const Prop: PropertyDecorator;
 
 /**
  * Defining Link PropertyDecorator.
  * @since 7
  */
-export declare const Link: PropertyDecorator;
+declare const Link: PropertyDecorator;
 
 /**
  * Defining ObjectLink PropertyDecorator.
  * @since 7
  */
-export declare const ObjectLink: PropertyDecorator;
+declare const ObjectLink: PropertyDecorator;
 
 /**
  * Defining Provide PropertyDecorator.
  * @since 7
  */
-export declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
  * Defining Consume PropertyDecorator.
  * @since 7
  */
-export declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
  * Defining StorageProp PropertyDecorator.
  * @since 7
  */
-export declare const StorageProp: (value: string) => PropertyDecorator;
+declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
  * Defining StorageLink PropertyDecorator.
  * @since 7
  */
-export declare const StorageLink: (value: string) => PropertyDecorator;
+declare const StorageLink: (value: string) => PropertyDecorator;
 
 /**
  * Defining Watch PropertyDecorator.
  * @since 7
  */
-export declare const Watch: (value: string) => PropertyDecorator;
+declare const Watch: (value: string) => PropertyDecorator;
 
 /**
  * Defining Builder MethodDecorator
  * @since 7
  */
-export declare const Builder: MethodDecorator;
+declare const Builder: MethodDecorator;
 
 /**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
-export declare const CustomDialog: ClassDecorator;
+declare const CustomDialog: ClassDecorator;
 
 /**
  * Defines the data type of the interface restriction.
  * @since 7
  */
-export declare interface Configuration {
+declare interface Configuration {
   /**
    * Set colorMode.
    * @since 7
@@ -154,7 +125,7 @@ export declare interface Configuration {
  * @devices phone, tablet, car
  * @since 8
  */
-export declare interface Rectangle {
+declare interface Rectangle {
   /**
    * x:Horizontal coordinate
    * @devices phone, tablet, car
@@ -194,15 +165,15 @@ declare const isSystemplugin: (...args: string[]) => any;
  * global $r function
  * @since 7
  */
-export declare function $r(value: string, ...params: any[]): Resource;
+declare function $r(value: string, ...params: any[]): Resource;
 
 /**
  * global $rawfile function
  * @since 7
  */
-export declare function $rawfile(value: string): Resource;
+declare function $rawfile(value: string): Resource;
 
-export interface AnimateToParam {
+interface AnimateToParam {
   duration?: number;
   tempo?: number;
   curve?: Curve | string;
@@ -230,7 +201,7 @@ interface PreviewParams {
  * ItemDragInfo object description
  * @since 8
  */
-export interface ItemDragInfo {
+interface ItemDragInfo {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 8
@@ -248,49 +219,49 @@ export interface ItemDragInfo {
  * Defining animation function.
  * @since 7
  */
-export declare function animateTo(value: AnimateToParam, event: () => void): void;
+declare function animateTo(value: AnimateToParam, event: () => void): void;
 
 /**
  * Converts a value in vp units to a value in px.
  * @since 7
  */
-export declare function vp2px(value: number): number;
+declare function vp2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of vp.
  * @since 7
  */
-export declare function px2vp(value: number): number;
+declare function px2vp(value: number): number;
 
 /**
  * Converts a number in fp units to a number in px.
  * @since 7
  */
-export declare function fp2px(value: number): number;
+declare function fp2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of fp.
  * @since 7
  */
-export declare function px2fp(value: number): number;
+declare function px2fp(value: number): number;
 
 /**
  * Converts a number in units of lpx to a number in units of px.
  * @since 7
  */
-export declare function lpx2px(value: number): number;
+declare function lpx2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of lpx.
  * @since 7
  */
-export declare function px2lpx(value: number): number;
+declare function px2lpx(value: number): number;
 
 /**
  * Defines the event target.
  * @since 8
  */
-export interface EventTarget {
+interface EventTarget {
   /**
    * Area of current target.
    * @since 8
@@ -302,7 +273,7 @@ export interface EventTarget {
  * Defines the base event.
  * @since 8
  */
-export interface BaseEvent {
+interface BaseEvent {
   /**
    * Defines the current target which fires this event.
    * @since 8
@@ -320,7 +291,7 @@ export interface BaseEvent {
  * The tap action triggers this method invocation.
  * @since 7
  */
-export interface ClickEvent extends BaseEvent {
+interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
    * @since 7
@@ -350,7 +321,7 @@ export interface ClickEvent extends BaseEvent {
  * The mouse click action triggers this method invocation.
  * @since 8
  */
-export interface MouseEvent extends BaseEvent {
+interface MouseEvent extends BaseEvent {
   /**
    * Mouse button of the click event.
    * @since 8
@@ -392,7 +363,7 @@ export interface MouseEvent extends BaseEvent {
  * Type of the touch event.
  * @since 7
  */
-export interface TouchObject {
+interface TouchObject {
   /**
    * Type of the touch event.
    * @since 7
@@ -434,7 +405,7 @@ export interface TouchObject {
  * Touch Action Function Parameters
  * @since 7
  */
-export interface TouchEvent extends BaseEvent {
+interface TouchEvent extends BaseEvent {
   /**
    * Type of the touch event.
    * @since 7
@@ -464,7 +435,7 @@ export interface TouchEvent extends BaseEvent {
  * pixelmap object with release function.
  * @since 7
  */
-export declare class PixelMap {
+declare class PixelMap {
   /**
    * release function.
    * @since 7
@@ -476,7 +447,7 @@ export declare class PixelMap {
  * DragEvent object description
  * @since 7
  */
-export interface DragEvent {
+interface DragEvent {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
@@ -494,7 +465,7 @@ export interface DragEvent {
  * KeyEvent object description:
  * @since 7
  */
-export interface KeyEvent {
+interface KeyEvent {
   /**
    * Type of a key.
    * @since 7
@@ -581,7 +552,7 @@ interface StateStyels {
   clicked?: any;
 }
 
-export interface PopupOption {
+interface PopupOption {
   /**
    * Information in the pop-up window.
    * @since 7
@@ -637,7 +608,7 @@ export interface PopupOption {
   onStateChange?: (event: { isVisible: boolean }) => void;
 }
 
-export interface CustomPopupOption {
+interface CustomPopupOption {
   /**
    * builder of popup
    * @since 8
@@ -685,7 +656,7 @@ export interface CustomPopupOption {
  * CommonMethod
  * @since 7
  */
-export declare class CommonMethod<T> {
+declare class CommonMethod<T> {
   /**
    * constructor.
    * @since 7
@@ -1288,13 +1259,13 @@ export declare class CommonMethod<T> {
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    * @since 7
    */
-  clip(value: boolean | Circle | Ellipse | Path | Rect): T;
+  clip(value: boolean | CircleInterface | EllipseInterface | PathInterface | RectInterface): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
    * @since 7
    */
-  mask(value: Circle | Ellipse | Path | Rect): T;
+  mask(value: CircleInterface | EllipseInterface | PathInterface | RectInterface): T;
 
   /**
    * Key. User can set an key to the component to identify it.
@@ -1337,13 +1308,13 @@ export declare class CommonMethod<T> {
  * Defines the CustomBuilder Type.
  * @since 7
  */
-export declare type CustomBuilder = () => any;
+declare type CustomBuilder = () => any;
 
 /**
  * CommonShapeMethod
  * @since 7
  */
-export declare class CommonShapeMethod<T> extends CommonMethod<T> {
+declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
@@ -1421,7 +1392,7 @@ export declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Custom Component
  * @since 7
  */
-export declare class CustomComponent<T> {
+declare class CustomComponent {
   /**
    * Customize the pop-up content constructor.
    * @since 7

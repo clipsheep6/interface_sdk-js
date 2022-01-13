@@ -13,15 +13,13 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Visibility } from "./enums";
 
 /**
  * Defines the FormDimension enum.
  * @since 7
  * @systemapi
  */
-export declare enum FormDimension {
+declare enum FormDimension {
   /**
    * 1 x 2 cards
    * @since 7
@@ -134,5 +132,5 @@ declare class FormComponentAttribute<T> extends CommonMethod<T> {
   onRouter(callback: (info: any) => void): T;
 }
 
-export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {}
-export declare const FormComponentInterface: FormComponent;
+declare class FormComponentExtend<T> extends FormComponentAttribute<T> {}
+declare const FormComponentInterface: FormComponent;
