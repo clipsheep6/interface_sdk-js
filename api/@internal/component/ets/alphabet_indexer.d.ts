@@ -146,5 +146,5 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   popupPosition(value: {offsetX: number, offsetY: number}): AlphabetIndexerAttribute;
 }
 
-declare const AlphabetIndexerInterface: AlphabetIndexerInterface;
-declare const AlphabetIndexerIntance: AlphabetIndexerAttribute;
+declare const AlphabetIndexer: AlphabetIndexerInterface;
+declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;
