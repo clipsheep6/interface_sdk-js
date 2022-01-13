@@ -273,7 +273,7 @@ interface EventTarget {
  * Defines the event source type.
  * @since 8
  */
-export declare enum SourceType {
+declare enum SourceType {
   /**
    * Unknown type.
    * @since 8
