@@ -50,7 +50,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * Called when judging whether the xcomponent surface is created.
    * @since 8
    */
-   onLoad(callback: (event?: {}) => void): XComponentAttribute;
+   onLoad(callback: (event?: object) => void): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
