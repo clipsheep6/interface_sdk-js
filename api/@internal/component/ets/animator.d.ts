@@ -189,4 +189,4 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
 }
 
 declare const Animator: AnimatorInterface;
-declare const AnimatorIntance: AnimatorAttribute;
+declare const AnimatorInstance: AnimatorAttribute;
