@@ -38,4 +38,4 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
 }
 
 declare const Blank: BlankInterface;
-declare const BlankIntancee: BlankAttribute;
+declare const BlankInstance: BlankAttribute;
