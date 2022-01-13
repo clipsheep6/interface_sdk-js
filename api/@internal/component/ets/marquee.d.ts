@@ -79,5 +79,5 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   onFinish(event: () => void): MarqueeAttribute;
 }
 
-declare const MarqueeExtend: MarqueeInterface;
+declare const Marquee: MarqueeInterface;
 declare const MarqueeInstance: MarqueeAttribute;

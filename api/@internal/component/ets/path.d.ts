@@ -42,5 +42,5 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   commands(value: string): PathAttribute;
 }
 
-export declare const Path: PathInterface;
-export declare const PathInstance: PathAttribute;
+declare const Path: PathInterface;
+declare const PathInstance: PathAttribute;

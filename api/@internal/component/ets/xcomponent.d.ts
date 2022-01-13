@@ -64,7 +64,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 8
    * @systemapi
    */
-   onLoad(callback: (event?: {}) => void): XComponentAttribute;
+   onLoad(callback: (event?: object) => void): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.

@@ -93,9 +93,10 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * @devices phone, tablet, car
  * @since 8
  */
-declare const StepperItemInstance: StepperItemInterface;
+declare const StepperItemInstance: StepperItemAttribute;
+
 /**
  * @devices phone, tablet, car
  * @since 8
  */
-declare const StepperItem: StepperItemAttribute;
+declare const StepperItem: StepperItemInterface;

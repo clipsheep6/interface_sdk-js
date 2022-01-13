@@ -48,7 +48,7 @@ interface AlphabetIndexerInterface {
  * Defines the alphabet index bar attribute functions.
  * @since 7
  */
-declare class AlphabetIndexerAttribute<T> extends CommonMethod<AlphabetIndexerAttribute> {
+declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
    * Index bar selection callback.
    * @since 7
@@ -146,5 +146,5 @@ declare class AlphabetIndexerAttribute<T> extends CommonMethod<AlphabetIndexerAt
   popupPosition(value: {offsetX: number, offsetY: number}): AlphabetIndexerAttribute;
 }
 
-declare const AlphabetIndexerInterface: AlphabetIndexerInterface;
-declare const AlphabetIndexerIntance: AlphabetIndexerAttribute;
+declare const AlphabetIndexer: AlphabetIndexerInterface;
+declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;
