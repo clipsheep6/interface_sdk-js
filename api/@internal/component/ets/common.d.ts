@@ -1331,6 +1331,11 @@ export declare class CommonMethod<T> {
    * @since 8
    */
   stateStyles(value: StateStyels): T;
+
+  create(value: any): T;
+  pop(): T;
+  createWithChild(value: any): T;
+  createWithLabel(value: any): T;
 }
 
 /**
