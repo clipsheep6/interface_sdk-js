@@ -1334,6 +1334,12 @@ declare class CommonMethod<T> {
   bindMenu(content: { value: string; action: () => void }[] | CustomBuilder): T;
 
   /**
+   * ContextMenu control
+   * @since 8
+   */
+  bindContextMenu(content: CustomBuilder, responseType : ResponseType): T;
+
+  /**
    * Sets styles for component state.
    * @since 8
    */
