@@ -13,39 +13,6 @@
  * limitations under the License.
  */
 
-<<<<<<< HEAD
-import { GestureType, GestureMask } from "./gesture";
-import { Circle } from "./circle";
-import { Ellipse } from "./ellipse";
-import { Path } from "./path";
-import { Rect } from "./rect";
-import { Resource, Length, Padding, Margin, Area } from "./units";
-import {
-  Alignment,
-  BorderStyle,
-  Color,
-  Curve,
-  Direction,
-  GradientDirection,
-  ImageRepeat,
-  ImageSize,
-  ItemAlign,
-  KeySource,
-  LineCapStyle,
-  LineJoinStyle,
-  PlayMode,
-  ResponseType,
-  SharedTransitionEffectType,
-  TransitionType,
-  Visibility,
-  MouseButton,
-  MouseAction,
-  Placement,
-  HoverEffect,
-} from "./enums";
-
-=======
->>>>>>> lihong67@huawei.com
 /**
  * Defining Component ClassDecorator * @since 7
  */
