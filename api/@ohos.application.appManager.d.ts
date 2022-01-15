@@ -59,8 +59,22 @@ declare namespace appManager {
      * @SysCap appexecfwk
      * @return Returns the list of AppStateData.
      */
-     function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
-     function getForegroundApplications(): Promise<Array<AppStateData>>;
+    function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
+    function getForegroundApplications(): Promise<Array<AppStateData>>;
+    
+    /**
+     * Kill process with account.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @SysCap appexecfwk
+     * @param bundleName The process bundle name.
+     * @param accountId The account id.
+     * @systemapi hide this for inner system use
+     * @return -
+     */
+    function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
+    function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 }
 
 export default appManager;
