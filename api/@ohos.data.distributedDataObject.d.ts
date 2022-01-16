@@ -18,22 +18,58 @@ import { AsyncCallback, Callback } from './basic';
  * Provides interfaces to sync distributed object
  *
  * @name distributedDataObject
- * @since
+ * @since 8
  * @sysCap
- * @devices phone, tablet
+ * @devices phone
  */
 declare namespace distributedDataObject {
+    /**
+     * create distributed data
+     *
+     * @param obj init data of distributed data
+     * @return Returns the distributed object
+     * @since 8
+     */
     function distributed(obj: object): DistributedObject;
-    function genSessionId(): String;
 
+    /**
+     * generate a random sessionId
+     *
+     * @return Returns the random sessionId
+     * @since 8
+     */
+    function genSessionId(): string;
+
+    /**
+     * object create by {@link distributed}.
+     *
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone
+     * @since 8
+     */
     interface DistributedObject {
-        setSession(sessionId?: String): void;
-        on(type: 'change', callback: Callback<ChangedDataObserver>): void;
-        off(type: 'change', callback?: Callback<ChangedDataObserver>): void;
-    }
-    interface ChangedDataObserver {
-        sessionId: string;
-        changeData: Array<string>;
+        /**
+        * change object session
+        *
+        * @param sessionId the sessionId to be joined, if empty, leave all session
+        * @return operation result, true is success
+        * @since 8
+        */
+        setSession(sessionId?: string): boolean;
+        /**
+        * on watch of change
+        *
+        * @param callback the callback of change
+        * @since 8
+        */
+        on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+        /**
+        * off watch of change
+        *
+        * @param callback if not null, off the callback, if undefined, off all callbacks
+        * @since 8
+        */
+        off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
     }
 }
 
