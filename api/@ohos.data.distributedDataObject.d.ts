@@ -1,0 +1,76 @@
+/*
+* Copyright (c) 2022 Huawei Device Co., Ltd.
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+import { AsyncCallback, Callback } from './basic';
+
+/**
+ * Provides interfaces to sync distributed object
+ *
+ * @name distributedDataObject
+ * @since 8
+ * @sysCap
+ * @devices phone
+ */
+declare namespace distributedDataObject {
+    /**
+     * create distributed data
+     *
+     * @param obj init data of distributed data
+     * @return Returns the distributed object
+     * @since 8
+     */
+    function distributed(obj: object): DistributedObject;
+
+    /**
+     * generate a random sessionId
+     *
+     * @return Returns the random sessionId
+     * @since 8
+     */
+    function genSessionId(): string;
+
+    /**
+     * object create by {@link distributed}.
+     *
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone
+     * @since 8
+     */
+    interface DistributedObject {
+        /**
+        * change object session
+        *
+        * @param sessionId the sessionId to be joined, if empty, leave all session
+        * @return operation result, true is success
+        * @since 8
+        */
+        setSession(sessionId?: string): boolean;
+        /**
+        * on watch of change
+        *
+        * @param callback the callback of change
+        * @since 8
+        */
+        on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+        /**
+        * off watch of change
+        *
+        * @param callback if not null, off the callback, if undefined, off all callbacks
+        * @since 8
+        */
+        off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    }
+}
+
+export default distributedDataObject;
