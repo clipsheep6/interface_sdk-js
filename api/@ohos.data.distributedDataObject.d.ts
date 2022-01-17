@@ -12,7 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import { AsyncCallback, Callback } from './basic';
+import {AsyncCallback, Callback} from './basic';
 
 /**
  * Provides interfaces to sync distributed object
@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './basic';
  */
 declare namespace distributedDataObject {
     /**
-     * create distributed data
+     * Create distributed data
      *
      * @param obj init data of distributed data
      * @return Returns the distributed object
@@ -33,7 +33,7 @@ declare namespace distributedDataObject {
     function distributed(obj: object): DistributedObject;
 
     /**
-     * generate a random sessionId
+     * Generate a random sessionId
      *
      * @return Returns the random sessionId
      * @since 8
@@ -41,7 +41,7 @@ declare namespace distributedDataObject {
     function genSessionId(): string;
 
     /**
-     * object create by {@link distributed}.
+     * Object create by {@link distributed}.
      *
      * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @devices phone
@@ -49,26 +49,28 @@ declare namespace distributedDataObject {
      */
     interface DistributedObject {
         /**
-        * change object session
-        *
-        * @param sessionId the sessionId to be joined, if empty, leave all session
-        * @return operation result, true is success
-        * @since 8
-        */
+         * Change object session
+         *
+         * @param sessionId the sessionId to be joined, if empty, leave all session
+         * @return operation result, true is success
+         * @since 8
+         */
         setSession(sessionId?: string): boolean;
+
         /**
-        * on watch of change
-        *
-        * @param callback the callback of change
-        * @since 8
-        */
+         * On watch of change
+         *
+         * @param callback the callback of change
+         * @since 8
+         */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+
         /**
-        * off watch of change
-        *
-        * @param callback if not null, off the callback, if undefined, off all callbacks
-        * @since 8
-        */
+         * Off watch of change
+         *
+         * @param callback if not null, off the callback, if undefined, off all callbacks
+         * @since 8
+         */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
     }
 }
