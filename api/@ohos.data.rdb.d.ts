@@ -204,8 +204,8 @@ declare namespace rdb {
          * @param tables the tables name you want to set
          * @devices phone, tablet, tv, wearable, car
          */
-        setDistributedTables(tables: string[], callback: AsyncCallback<void>): void;
-        setDistributedTables(tables: string[]): Promise<void>
+        setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
+        setDistributedTables(tables: Array<string>): Promise<void>
     }
 
     /**
