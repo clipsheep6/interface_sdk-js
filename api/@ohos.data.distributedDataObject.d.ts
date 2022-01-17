@@ -26,7 +26,7 @@ declare namespace distributedDataObject {
     /**
      * Create distributed data
      *
-     * @param obj init data of distributed data
+     * @param obj Init data of distributed data
      * @return Returns the distributed object
      * @since 8
      */
@@ -51,8 +51,8 @@ declare namespace distributedDataObject {
         /**
          * Change object session
          *
-         * @param sessionId the sessionId to be joined, if empty, leave all session
-         * @return operation result, true is success
+         * @param sessionId The sessionId to be joined, if empty, leave all session
+         * @return Operation result, true is success
          * @since 8
          */
         setSession(sessionId?: string): boolean;
@@ -60,7 +60,7 @@ declare namespace distributedDataObject {
         /**
          * On watch of change
          *
-         * @param callback the callback of change
+         * @param callback The callback of change
          * @since 8
          */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
@@ -68,7 +68,7 @@ declare namespace distributedDataObject {
         /**
          * Off watch of change
          *
-         * @param callback if not null, off the callback, if undefined, off all callbacks
+         * @param callback If not null, off the callback, if undefined, off all callbacks
          * @since 8
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
