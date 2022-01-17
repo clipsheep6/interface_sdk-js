@@ -52,7 +52,7 @@ declare namespace distributedDataObject {
          * Change object session
          *
          * @param sessionId The sessionId to be joined, if empty, leave all session
-         * @return Operation result, true is success
+         * @return Operation result, true is success, false is failed
          * @since 8
          */
         setSession(sessionId?: string): boolean;
