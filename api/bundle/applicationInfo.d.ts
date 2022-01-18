@@ -148,12 +148,19 @@ export interface ApplicationInfo {
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-   readonly metaData: Map<string, Array<CustomizeData>>;
+  readonly metaData: Map<string, Array<CustomizeData>>;
 
   /**
     * @default Indicates whether or not this application may be removable
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-   readonly removable: boolean;
+  readonly removable: boolean;
+
+  /**
+    * @default Indicates the accessToken id of the application
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+   readonly accessTokenId: number;
 }

@@ -234,4 +234,11 @@ export interface BundleInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   readonly entryInstallationFree: boolean;
+
+  /**
+    * @default Indicates the grant status of required permissions
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+   readonly reqPermissionStates: Array<number>;
 }
