@@ -21,6 +21,7 @@ import { AsyncCallback, Callback } from './basic';
  * @since 5
  * @sysCap SystemCapability.Data#DATA_APPDATAMGR
  * @devices phone, tablet
+ * @deprecated
  */
 declare namespace storage {
     /**
@@ -33,6 +34,7 @@ declare namespace storage {
      * @return Returns the {@link Storage} instance matching the specified storage file name.
      * @throws BusinessError if invoked failed
      * @since 5
+     * @deprecated
      */
     function getStorageSync(path: string): Storage;
     function getStorage(path: string, callback: AsyncCallback<Storage>): void;
@@ -50,6 +52,7 @@ declare namespace storage {
      * @param path Indicates the path of storage file
      * @throws BusinessError if invoked failed
      * @since 5
+     * @deprecated
      */
     function deleteStorageSync(path: string): void;
     function deleteStorage(path: string, callback: AsyncCallback<void>): void;
@@ -66,6 +69,7 @@ declare namespace storage {
      * @param path Indicates the path of storage file.
      * @throws BusinessError if invoked failed
      * @since 5
+     * @deprecated
      */
     function removeStorageFromCacheSync(path: string): void;
     function removeStorageFromCache(path: string, callback: AsyncCallback<void>): void;
@@ -82,6 +86,7 @@ declare namespace storage {
      * @sysCap SystemCapability.Data#DATA_APPDATAMGR
      * @devices phone, tablet
      * @since 5
+     * @deprecated
      */
     interface Storage {
         /**
@@ -94,19 +99,21 @@ declare namespace storage {
         * @return Returns the value matching the specified key if it is found; returns the default value otherwise.
         * @throws BusinessError if invoked failed
         * @since 5
+        * @deprecated
         */
         getSync(key: string, defValue: ValueType): ValueType;
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
         get(key: string, defValue: ValueType): Promise<ValueType>;
 
         /**
-         * Checks whether the {@link Storage} object contains a storage matching a specified key.
+         * Checks whether the {@link Storage} object has a storage matching a specified key.
          *
          * @param key Indicates the key of the storage to check for.
-         * @return Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+         * @return Returns {@code true} if the {@link Storage} object has a storage with the specified key;
          * returns {@code false} otherwise.
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         hasSync(key: string): boolean;
         has(key: string, callback: AsyncCallback<boolean>): boolean;
@@ -123,6 +130,7 @@ declare namespace storage {
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         putSync(key: string, value: ValueType): void;
         put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
@@ -138,6 +146,7 @@ declare namespace storage {
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         deleteSync(key: string): void;
         delete(key: string, callback: AsyncCallback<void>): void;
@@ -151,16 +160,18 @@ declare namespace storage {
          *
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         clearSync(): void;
         clear(callback: AsyncCallback<void>): void;
         clear(): Promise<void>;
 
         /**
-         * Asynchronously saves the {@link Storage} object to the file.
+         * Saves the {@link Storage} object to the file.
          *
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         flushSync(): void;
         flush(callback: AsyncCallback<void>): void;
@@ -172,6 +183,7 @@ declare namespace storage {
          * @param callback Indicates the callback when storage changes.
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         on(type: 'change', callback: Callback<StorageObserver>): void;
 
@@ -181,6 +193,7 @@ declare namespace storage {
          * @param callback Indicates the registered callback.
          * @throws BusinessError if invoked failed
          * @since 5
+         * @deprecated
          */
         off(type: 'change', callback: Callback<StorageObserver>): void;
     }
@@ -196,6 +209,7 @@ declare namespace storage {
      * @sysCap SystemCapability.Data#DATA_APPDATAMGR
      * @devices phone, tablet
      * @since 5
+     * @deprecated
      */
     interface StorageObserver {
         /**
