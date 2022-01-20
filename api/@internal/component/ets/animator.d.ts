@@ -16,12 +16,14 @@
 /**
  * Customize spring properties.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class SpringProp {
   /**
    * Constructor parameters
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   constructor(mass: number, stiffness: number, damping: number);
@@ -30,12 +32,14 @@ declare class SpringProp {
 /**
  * Spring animation model. You can build a spring animation based on the start point, end point, initial speed, and spring attributes.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class SpringMotion {
   /**
    * Constructor parameters
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   constructor(start: number, end: number, velocity: number, prop: SpringProp);
@@ -44,12 +48,14 @@ declare class SpringMotion {
 /**
  * Friction animation model. You can build friction animation by friction force, initial position, and initial velocity.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class FrictionMotion {
   /**
    * Constructor parameters
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   constructor(friction: number, position: number, velocity: number);
@@ -58,12 +64,14 @@ declare class FrictionMotion {
 /**
  * Rolling animation model: You can build rolling animation based on the initial position, initial speed, boundary position, and spring attributes.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class ScrollMotion {
   /**
    * Constructor parameters
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
@@ -72,12 +80,14 @@ declare class ScrollMotion {
 /**
  * Defines Animtor.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface AnimatorInterface {
   /**
    * Constructor parameters
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   (value: string): AnimatorAttribute;
@@ -86,12 +96,14 @@ interface AnimatorInterface {
 /**
  * Defines AnimatorAttribute.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Controls the playback status. The default value is the initial state.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   state(value: AnimationStatus): AnimatorAttribute;
@@ -99,6 +111,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Animation duration, in milliseconds.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   duration(value: number): AnimatorAttribute;
@@ -106,6 +119,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Animation curve, default to linear curve
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   curve(value: Curve): AnimatorAttribute;
@@ -113,6 +127,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Delayed animation playback duration, in milliseconds. By default, the animation is not delayed.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   delay(value: number): AnimatorAttribute;
@@ -120,6 +135,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Sets the state before and after the animation starts.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   fillMode(value: FillMode): AnimatorAttribute;
@@ -127,6 +143,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * The default playback is once. If the value is -1, the playback is unlimited.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   iterations(value: number): AnimatorAttribute;
@@ -134,6 +151,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   playMode(value: PlayMode): AnimatorAttribute;
@@ -141,6 +159,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Configure the physical animation algorithm.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   motion(value: SpringMotion | FrictionMotion | ScrollMotion): AnimatorAttribute;
@@ -148,6 +167,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, which is triggered when the animation starts to play.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onStart(event: () => void): AnimatorAttribute;
@@ -155,6 +175,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, triggered when the animation pauses.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onPause(event: () => void): AnimatorAttribute;
@@ -162,6 +183,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, triggered when the animation is replayed.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onRepeat(event: () => void): AnimatorAttribute;
@@ -169,6 +191,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, which is triggered when the animation is canceled.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onCancel(event: () => void): AnimatorAttribute;
@@ -176,6 +199,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Status callback, which is triggered when the animation playback is complete.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onFinish(event: () => void): AnimatorAttribute;
@@ -183,6 +207,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * The callback input parameter is the interpolation during animation playback.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onFrame(event: (value: number) => void): AnimatorAttribute;

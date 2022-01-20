@@ -16,58 +16,68 @@
 /**
  * Provide text decoration.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface SpanInterface {
   /**
    * Called when text is entered in span.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: string | Resource): SpanAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
    * Called when the font color is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontColor(value: ResourceColor): SpanAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontSize(value: number | string | Resource): SpanAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontStyle(value: FontStyle): SpanAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontWeight(value: number | FontWeight | string): SpanAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontFamily(value: string | Resource): SpanAttribute;
 
   /**
    * Called when the text decoration of the text is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   decoration(value: { type: TextDecorationType; color?: ResourceColor }): SpanAttribute;
 
   /**
    * Called when the distance between text fonts is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   letterSpacing(value: number | string): SpanAttribute;
 

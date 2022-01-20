@@ -16,23 +16,27 @@
 /**
  * Sets the initial state of the slidable panel.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum PanelMode {
   /**
    * Minimum state.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Mini,
 
   /**
    * SHalf-screen-like status
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Half,
 
   /**
    * Class Full Screen Status.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Full,
 }
@@ -40,11 +44,13 @@ declare enum PanelMode {
 /**
  * Sets the type of sliding panel.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum PanelType {
   /**
    * The switch between the minibar and full-screen display is provided.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Minibar,
 
@@ -52,6 +58,7 @@ declare enum PanelType {
    * Permanent content display class.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Foldable,
 
@@ -59,6 +66,7 @@ declare enum PanelType {
    * Temporary content display area.
    * The switchover effect is provided in three sizes: large (full-screen), medium (half-screen), and small.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Temporary,
 }
@@ -66,82 +74,96 @@ declare enum PanelType {
 /**
  * Provides a sliding panel interface.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PanelInterface {
   /**
    * Called when the panel slidable panel pops up.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (show: boolean): PanelAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when the initial state of the slidable panel is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   mode(value: PanelMode): PanelAttribute;
 
   /**
    * Called when the slidable panel type is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   type(value: PanelType): PanelAttribute;
 
   /**
    * Called when determining whether dragbar exists.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   dragBar(value: boolean): PanelAttribute;
 
   /**
    * Called when the height in the full state is specified.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fullHeight(value: number | string): PanelAttribute;
 
   /**
    * Called when the height in the half state is specified.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   halfHeight(value: number | string): PanelAttribute;
 
   /**
    * Called when the height in the mini state is specified.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   miniHeight(value: number | string): PanelAttribute;
 
   /**
    * Called when the panel slidable panel pops up.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   show(value: boolean): PanelAttribute;
 
   /**
    * Called when the state of the slidable panel changes.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(
     event: (
       /**
        * Width of content area.
        * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
        */
       width: number,
 
       /**
        * Height of content area.
        * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
        */
       height: number,
 
       /**
        * Initial state.
        * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
        */
       mode: PanelMode,
     ) => void,

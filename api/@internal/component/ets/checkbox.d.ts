@@ -16,17 +16,20 @@
 /**
  * Defines the option of Checkbox.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface CheckboxOption {
   /**
    * Current name of Checkbox.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    name?: string;
 
   /**
    * Sets the group of Checkbox.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    group?: string;
 }
@@ -34,12 +37,14 @@ declare interface CheckboxOption {
 /**
  * Provides an interface for the Checkbox component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface CheckboxInterface {
   /**
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options?: CheckboxOption): CheckboxAttribute;
 }
@@ -47,24 +52,28 @@ interface CheckboxInterface {
 /**
  * Defines the attribute functions of Checkbox.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
 
   /**
    * setting whether checkbox is selected.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    select(value: boolean): CheckboxAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
    * Called when the selection status changes.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (value: boolean) => void): CheckboxAttribute;
 }

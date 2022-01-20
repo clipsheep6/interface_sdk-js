@@ -16,23 +16,27 @@
 /**
  * Route jump.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum NavigationType {
   /**
    * Jump to the next page.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Push,
 
   /**
    * Return to the previous page.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Back,
 
   /**
    * Replace page.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Replace,
 }
@@ -40,17 +44,20 @@ declare enum NavigationType {
 /**
  * Create route
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface NavigatorInterface {
   /**
    * Called when the route jumps.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { target: string; type?: NavigationType }): NavigatorAttribute;
 
   /**
    * Called when using the navigator.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): NavigatorAttribute;
 }
@@ -58,29 +65,34 @@ interface NavigatorInterface {
 /**
  * Declare navigator properties.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
    * Called when determining whether the routing component is active.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   active(value: boolean): NavigatorAttribute;
 
   /**
    * Called when determining whether the routing component is active.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   type(value: NavigationType): NavigatorAttribute;
 
   /**
    * Called when the path to the specified jump target page is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   target(value: string): NavigatorAttribute;
 
   /**
    * Called when data is passed to the target page at the same time during jump.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   params(value: object): NavigatorAttribute;
 }

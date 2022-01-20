@@ -15,46 +15,54 @@
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum ImageRenderMode {
   /**
    * Render according to the original image, including colors.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Original,
 
   /**
    * Render the image as a template image, ignoring the color information of the image.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Template,
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum ImageInterpolation {
   /**
    * Do not use interpolated image data.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   None,
 
   /**
    * Low usage of interpolated image data.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Low,
 
   /**
    * Interpolated image data is used moderately.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Medium,
 
   /**
    * High usage of interpolated image data may affect the speed of image rendering.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   High,
 }
@@ -62,69 +70,81 @@ declare enum ImageInterpolation {
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ImageInterface {
   /**
    * Set src to obtain images.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (src: string | PixelMap | Resource): ImageAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Placeholder displayed on load
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alt(value: string | Resource): ImageAttribute;
 
   /**match Text Direction
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   matchTextDirection(value: boolean): ImageAttribute;
 
   /**
    * Indicates whether the image follows the text direction.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fitOriginalSize(value: boolean): ImageAttribute;
 
   /**
    * fill Color
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillColor(value: ResourceColor): ImageAttribute;
 
   /**
    * Sets the zoom type of an image.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   objectFit(value: ImageFit): ImageAttribute;
 
   /**
    * Set the repeat style of the picture
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   objectRepeat(value: ImageRepeat): ImageAttribute;
 
   /**
    * Set the auto style of the picture
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   autoResize(value: boolean): ImageAttribute;
 
   /**
    * Sets the image rendering mode.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   renderMode(value: ImageRenderMode): ImageAttribute;
 
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   interpolation(value: ImageInterpolation): ImageAttribute;
 
@@ -132,6 +152,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   sourceSize(value: { width: number; height: number }): ImageAttribute;
 
@@ -139,6 +160,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Sets the synchronous or asynchronous mode for image loading.
    * The default parameter type is bool, and the default value is false.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   syncLoad(value: boolean): ImageAttribute;
 
@@ -146,6 +168,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onComplete(
     callback: (event?: {
@@ -160,6 +183,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * This callback is triggered when an exception occurs during image loading.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
 
@@ -167,6 +191,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onFinish(event: () => void): ImageAttribute;
 }
@@ -174,9 +199,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 /**
  * @devices phone, tablet, car
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const Image: ImageInterface;
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const ImageInstance: ImageAttribute;

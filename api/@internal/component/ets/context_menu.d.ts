@@ -16,11 +16,13 @@
 /**
  * Defines Close contextMenu.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ContextMenu {
   /**
    * Invoking method close.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static close();
 }

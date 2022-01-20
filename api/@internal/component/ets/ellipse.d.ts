@@ -17,23 +17,27 @@
 /**
  * Ellipse drawing.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface EllipseInterface {
   /**
    * use new function to set the value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 
   /**
    * Set the value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 

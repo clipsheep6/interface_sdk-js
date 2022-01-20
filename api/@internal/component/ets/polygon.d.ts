@@ -16,17 +16,20 @@
 /**
  * Provides the polygon drawing interface.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PolygonInterface{
   /**
    * Uses new to create Polygon.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   new (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 
   /**
    * Called when drawing a polygon.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 }
@@ -35,6 +38,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   points(value: Array<any>): PolygonAttribute;
 }

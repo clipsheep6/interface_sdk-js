@@ -22,6 +22,7 @@ export interface RouterOptions {
    *      b. pages/detail/detail
    * 2. Particular path. If the URI is a slash (/), the home page is displayed.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   uri: string;
 
@@ -30,6 +31,7 @@ export interface RouterOptions {
    * After the destination page is displayed, the parameter can be directly used for the page.
    * For example, this.data1 (data1 is the key value of the params used for page navigation.)
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   params?: object;
 }

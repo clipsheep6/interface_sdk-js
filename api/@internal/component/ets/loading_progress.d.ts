@@ -16,23 +16,27 @@
 /**
  * Load style of progress bar.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum LoadingProgressStyle {
   /**
    * Default style.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Default,
 
   /**
    * Announcement style.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Circular,
 
   /**
    * The style of the track.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Orbital,
 }
@@ -42,11 +46,13 @@ declare enum LoadingProgressStyle {
 /**
  * Provides an interface for extending the loading progress.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface LoadingProgressInterface {
   /**
    * Called when the progress bar progress is viewed.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): LoadingProgressAttribute;
 }
@@ -54,21 +60,25 @@ interface LoadingProgressInterface {
 /**
  * Declare the progress bar being loaded
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
    * Load the color of the progress bar.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const LoadingProgress: LoadingProgressInterface;
 /**
  * Loading Progress Extensions on Declarative Classes
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
  declare const LoadingProgressInstance: LoadingProgressAttribute

@@ -17,17 +17,20 @@
 /**
  * DataPanelType enum
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum DataPanelType {
   /**
    * Line Type
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Line,
 
   /**
    * Line Rainbow
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Circle,
 }
@@ -35,23 +38,27 @@ declare enum DataPanelType {
 /**
  * Defines the option of DataPanel.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface DataPanelOption {
   /**
    * Current data value. the max length is 9.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   values: number[];
 
   /**
    * Maximum value of the current data.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   max?: number;
 
   /**
    * DataPanel Type
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   type?: DataPanelType;
 }
@@ -59,11 +66,13 @@ declare interface DataPanelOption {
 /**
  * Defines the DataPanel component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface DataPanelInterface {
   /**
    * Return a DataPanel.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options: DataPanelOption): DataPanelAttribute;
 }
@@ -71,11 +80,13 @@ interface DataPanelInterface {
 /**
  * Defines the DataPanel attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
    * Disable the special effect of the data ratio chart.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   closeEffect(value: boolean): DataPanelAttribute;
 }

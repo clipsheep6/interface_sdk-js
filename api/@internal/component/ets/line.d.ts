@@ -16,6 +16,7 @@
 /**
  * Line drawing component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface LineInterface {
   /**
@@ -23,6 +24,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   new (value?: { width?: string | number; height?: string | number }): LineAttribute;
 
@@ -31,6 +33,7 @@ interface LineInterface {
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { width?: string | number; height?: string | number }): LineAttribute;
 }
@@ -38,17 +41,20 @@ interface LineInterface {
 /**
  * inheritance CommonShapeMethod.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   startPoint(value: Array<any>): LineAttribute;
 
   /**
    * Line end coordinates (relative coordinates).
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   endPoint(value: Array<any>): LineAttribute;
 }

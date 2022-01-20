@@ -16,6 +16,7 @@
 /**
  * PluginComponentTemplate
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PluginComponentTemplate {
   source: string;
@@ -25,34 +26,40 @@ interface PluginComponentTemplate {
 /**
  * Provides plugin component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
    * Set pluginComponent size,
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   size(value: { width: number; height: number }): PluginComponentAttribute;
 
   /**
    * pluginComponent onComplete callback,
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }

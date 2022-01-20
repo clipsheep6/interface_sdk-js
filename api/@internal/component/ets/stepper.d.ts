@@ -17,12 +17,14 @@
  * Declare the stepper.
 
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface StepperInterface {
   /**
    * Called when the stepper component is used.
 
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { index?: number }): StepperAttribute;
 }
@@ -30,12 +32,14 @@ interface StepperInterface {
 /**
  * Defines the stepper attribute functions
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
 
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -43,6 +47,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * Callback when the skip label is clicked.
 
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onSkip(callback: () => void): StepperAttribute;
 
@@ -50,6 +55,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * Callback when the change label is clicked.
 
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (prevIndex?: number, index?: number) => void): StepperAttribute;
 
@@ -57,6 +63,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * Callback when the next label is clicked.
 
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onNext(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 
@@ -64,6 +71,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * Callback when the previous label is clicked.
 
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onPrevious(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 }

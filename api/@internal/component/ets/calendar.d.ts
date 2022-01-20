@@ -16,6 +16,7 @@
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface CalendarDay {
@@ -23,6 +24,7 @@ interface CalendarDay {
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   index: number;
@@ -31,6 +33,7 @@ interface CalendarDay {
    * Lunar moon.
    * The week sequence is one, two, three, four, five, six.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   lunarMonth: string;
@@ -38,6 +41,7 @@ interface CalendarDay {
   /**
    * Lunar day.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   lunarDay: string;
@@ -45,6 +49,7 @@ interface CalendarDay {
   /**
    * Day.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayMark: string;
@@ -52,6 +57,7 @@ interface CalendarDay {
   /**
    * Indicates the off-duty flag information. The options are work and off.By default, the off-duty flag information is not required.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayMarkValue: string;
@@ -59,6 +65,7 @@ interface CalendarDay {
   /**
    * Gregorian calendar year.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   year: number;
@@ -66,6 +73,7 @@ interface CalendarDay {
   /**
    * Gregorian calendar month.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   month: number;
@@ -73,6 +81,7 @@ interface CalendarDay {
   /**
    * Gregorian calendar day.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   day: number;
@@ -81,6 +90,7 @@ interface CalendarDay {
    *
    * Indicates whether the default value is Lunar calendar.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   isFirstOfLunar: boolean;
@@ -89,6 +99,7 @@ interface CalendarDay {
    * Indicates whether to display has Schedule.
    * The week sequence is one, two, three, four, five, six.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   hasSchedule: boolean;
@@ -96,6 +107,7 @@ interface CalendarDay {
   /**
    * Display Lunar Date.The week sequence is one, two, three, four, five, six.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   markLunarDay: boolean;
@@ -104,12 +116,14 @@ interface CalendarDay {
 /**
  *  Date object.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface MonthData {
   /**
    * Gregorian calendar year.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   year: number;
@@ -117,6 +131,7 @@ interface MonthData {
   /**
    * Gregorian calendar month.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   month: number;
@@ -124,6 +139,7 @@ interface MonthData {
   /**
    * CalendarDay.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   data: CalendarDay[];
@@ -132,12 +148,14 @@ interface MonthData {
 /**
  * CurrentDayStyle object.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface CurrentDayStyle {
   /**
    * Text color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayColor?: ResourceColor;
@@ -145,6 +163,7 @@ interface CurrentDayStyle {
   /**
    * lunar Text color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   lunarColor?: ResourceColor;
@@ -152,6 +171,7 @@ interface CurrentDayStyle {
   /**
    * lunar  Work and rest  text color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   markLunarColor?: ResourceColor;
@@ -159,6 +179,7 @@ interface CurrentDayStyle {
   /**
    * Text fontSize.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayFontSize?: number;
@@ -166,6 +187,7 @@ interface CurrentDayStyle {
   /**
    * lunar text fontSize.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   lunarDayFontSize?: number;
@@ -173,6 +195,7 @@ interface CurrentDayStyle {
   /**
    * Single date height.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayHeight?: number;
@@ -180,6 +203,7 @@ interface CurrentDayStyle {
   /**
    * Single date width.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayWidth?: number;
@@ -187,6 +211,7 @@ interface CurrentDayStyle {
   /**
    * Gregorian calendar height.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   gregorianCalendarHeight?: number;
@@ -194,6 +219,7 @@ interface CurrentDayStyle {
   /**
    * Data y axis Off set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dayYAxisOffset?: number;
@@ -201,6 +227,7 @@ interface CurrentDayStyle {
   /**
    * Lunar data y axis Off set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   lunarDayYAxisOffset?: number;
@@ -208,6 +235,7 @@ interface CurrentDayStyle {
   /**
    * Under score X Axis Off set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   underscoreXAxisOffset?: number;
@@ -215,6 +243,7 @@ interface CurrentDayStyle {
   /**
    * Under score Y Axis Off set
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   underscoreYAxisOffset?: number;
@@ -222,6 +251,7 @@ interface CurrentDayStyle {
   /**
    * Schedule marker X axis Off set
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   scheduleMarkerXAxisOffset?: number;
@@ -229,6 +259,7 @@ interface CurrentDayStyle {
   /**
    * schedule Marker Y Axis Off set
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   scheduleMarkerYAxisOffset?: number;
@@ -236,6 +267,7 @@ interface CurrentDayStyle {
   /**
    * Number of columns.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   colSpace?: number;
@@ -243,6 +275,7 @@ interface CurrentDayStyle {
   /**
    * Daily five row space.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dailyFiveRowSpace?: number;
@@ -250,6 +283,7 @@ interface CurrentDayStyle {
   /**
    * Daily six row space.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dailySixRowSpace?: number;
@@ -257,6 +291,7 @@ interface CurrentDayStyle {
   /**
    * Single lunar height.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   lunarHeight?: number;
@@ -264,6 +299,7 @@ interface CurrentDayStyle {
   /**
    * Under score width.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   underscoreWidth?: number;
@@ -271,6 +307,7 @@ interface CurrentDayStyle {
   /**
    * Under score length.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   underscoreLength?: number;
@@ -278,6 +315,7 @@ interface CurrentDayStyle {
   /**
    * Schedule marker radius.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   scheduleMarkerRadius?: number;
@@ -285,6 +323,7 @@ interface CurrentDayStyle {
   /**
    * Bound dary row offset.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   boundaryRowOffset?: number;
@@ -292,6 +331,7 @@ interface CurrentDayStyle {
   /**
    * Boundary col offset.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   boundaryColOffset?: number;
@@ -300,12 +340,14 @@ interface CurrentDayStyle {
 /**
  * Non current day style.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface NonCurrentDayStyle {
   /**
    * Non-current month day color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   nonCurrentMonthDayColor?: ResourceColor;
@@ -313,6 +355,7 @@ interface NonCurrentDayStyle {
   /**
    * Lunar style of non-current month.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   nonCurrentMonthLunarColor?: ResourceColor;
@@ -320,6 +363,7 @@ interface NonCurrentDayStyle {
   /**
    * Non-Current Month Workday Marker Color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   nonCurrentMonthWorkDayMarkColor?: ResourceColor;
@@ -327,6 +371,7 @@ interface NonCurrentDayStyle {
   /**
    * Non-Current Month Off Day Marker Color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   nonCurrentMonthOffDayMarkColor?: ResourceColor;
@@ -335,12 +380,14 @@ interface NonCurrentDayStyle {
 /**
  * Non current day style.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface TodayStyle {
   /**
    * Style of focus color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   focusedDayColor?: ResourceColor;
@@ -348,6 +395,7 @@ interface TodayStyle {
   /**
    * Focus on Lunar Colors.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   focusedLunarColor?: ResourceColor;
@@ -355,6 +403,7 @@ interface TodayStyle {
   /**
    * Background color of the focus area.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   focusedAreaBackgroundColor?: ResourceColor;
@@ -362,6 +411,7 @@ interface TodayStyle {
   /**
    * Focus area radius.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   focusedAreaRadius?: number;
@@ -370,12 +420,14 @@ interface TodayStyle {
 /**
  * Week Style.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface WeekStyle {
   /**
    * Style of week color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekColor?: ResourceColor;
@@ -383,6 +435,7 @@ interface WeekStyle {
   /**
    * Style of week day color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekendDayColor?: ResourceColor;
@@ -390,6 +443,7 @@ interface WeekStyle {
   /**
    * Style of lunar color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekendLunarColor?: ResourceColor;
@@ -397,6 +451,7 @@ interface WeekStyle {
   /**
    * Style of week font size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekFontSize?: number;
@@ -404,6 +459,7 @@ interface WeekStyle {
   /**
    * Style of week height.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekHeight?: number;
@@ -411,6 +467,7 @@ interface WeekStyle {
   /**
    * Style of week width.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekWidth?: number;
@@ -418,6 +475,7 @@ interface WeekStyle {
   /**
    * Style of week space.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekAndDayRowSpace?: number;
@@ -426,12 +484,14 @@ interface WeekStyle {
 /**
  * Work state style.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface WorkStateStyle {
   /**
    * Style of day color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   workDayMarkColor?: ResourceColor;
@@ -439,6 +499,7 @@ interface WorkStateStyle {
   /**
    * Style of day color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   offDayMarkColor?: ResourceColor;
@@ -446,6 +507,7 @@ interface WorkStateStyle {
   /**
    * Style of day size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   workDayMarkSize?: number;
@@ -453,6 +515,7 @@ interface WorkStateStyle {
   /**
    * Style of day size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   offDayMarkSize?: number;
@@ -460,6 +523,7 @@ interface WorkStateStyle {
   /**
    * Style of width.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   workStateWidth?: number;
@@ -467,6 +531,7 @@ interface WorkStateStyle {
   /**
    * Style of distance.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   workStateHorizontalMovingDistance?: number;
@@ -474,6 +539,7 @@ interface WorkStateStyle {
   /**
    * Style of distance.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   workStateVerticalMovingDistance?: number;
@@ -482,12 +548,14 @@ interface WorkStateStyle {
 /**
  * Calendar controller.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class CalendarController {
   /**
    * Constructor.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   constructor();
@@ -495,6 +563,7 @@ declare class CalendarController {
   /**
    * Back to day.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   backToToday();
@@ -502,6 +571,7 @@ declare class CalendarController {
   /**
    * To the specified element.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   goTo(value: { year: number; month: number; day: number });
@@ -509,12 +579,14 @@ declare class CalendarController {
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface CalendarInterface {
   /**
    * Set value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   (value: {
@@ -528,12 +600,14 @@ interface CalendarInterface {
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class CalendarAttribute {
   /**
    * Specifies whether the component displays the lunar calendar information.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   showLunar(value: boolean): CalendarAttribute;
@@ -541,6 +615,7 @@ declare class CalendarAttribute {
   /**
    * Setting whether to display holiday information
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   showHoliday(value: boolean): CalendarAttribute;
@@ -548,6 +623,7 @@ declare class CalendarAttribute {
   /**
    * Indicates whether the page can be scrolled.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   needSlide(value: boolean): CalendarAttribute;
@@ -555,6 +631,7 @@ declare class CalendarAttribute {
   /**
    * Set the start day of the week for the calendar.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   startOfWeek(value: number): CalendarAttribute;
@@ -562,6 +639,7 @@ declare class CalendarAttribute {
   /**
    * Set weekend. The default value is Sunday and Saturday.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   offDays(value: number): CalendarAttribute;
@@ -569,6 +647,7 @@ declare class CalendarAttribute {
   /**
    * Sets the sliding direction.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   direction(value: Axis): CalendarAttribute;
@@ -576,6 +655,7 @@ declare class CalendarAttribute {
   /**
    * Sets the date style in the current month.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   currentDayStyle(value: CurrentDayStyle): CalendarAttribute;
@@ -583,6 +663,7 @@ declare class CalendarAttribute {
   /**
    * Sets the non-monthly date style.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   nonCurrentDayStyle(value: NonCurrentDayStyle): CalendarAttribute;
@@ -590,6 +671,7 @@ declare class CalendarAttribute {
   /**
    * Set the date style for today.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   todayStyle(value: TodayStyle): CalendarAttribute;
@@ -597,6 +679,7 @@ declare class CalendarAttribute {
   /**
    * Sets the date style for the weekend.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   weekStyle(value: WeekStyle): CalendarAttribute;
@@ -604,6 +687,7 @@ declare class CalendarAttribute {
   /**
    * Sets the style of the working state.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   workStateStyle(value: WorkStateStyle): CalendarAttribute;
@@ -611,6 +695,7 @@ declare class CalendarAttribute {
   /**
    * Click a date to return the information about the date you clicked.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onSelectChange(event: (event: { year: number; month: number; day: number }) => void): CalendarAttribute;
@@ -618,6 +703,7 @@ declare class CalendarAttribute {
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onRequestData(

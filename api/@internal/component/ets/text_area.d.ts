@@ -17,16 +17,19 @@
 /**
  * Provides the method of switching the cursor position.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TextAreaController {
   /**
    * constructor.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor();
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   caretPosition(value: number): void;
 }
@@ -34,23 +37,27 @@ declare class TextAreaController {
 /**
  * Defines the option of TextArea.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface TextAreaOption {
   /**
    * The place holder text string.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholder?: ResourceStr;
 
   /**
    * Sets the current value of TextArea.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   text?: ResourceStr;
 
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   controller?: TextAreaController;
 }
@@ -58,11 +65,13 @@ declare interface TextAreaOption {
 /**
  * Provides an interface for the multi-line text input component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface TextAreaInterface {
   /**
    * Called when writing multiple lines of text.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: TextAreaOption): TextAreaAttribute;
 }
@@ -70,65 +79,76 @@ interface TextAreaInterface {
 /**
  * Defines the attribute functions of TextArea.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the color of the placeholder is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholderColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholderFont(value: Font): TextAreaAttribute;
 
   /**
    * Called when the alignment of the contents of a multiline text box is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   textAlign(value: TextAlign): TextAreaAttribute;
 
   /**
    * Called when the insertion cursor color is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   caretColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font color is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontSize(value: Length): TextAreaAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontStyle(value: FontStyle): TextAreaAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontWeight(value: number | FontWeight | string): TextAreaAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontFamily(value: ResourceStr): TextAreaAttribute;
 
   /**
    * Called when the inputFilter of text is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
@@ -136,24 +156,28 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the input changes.
    * @devices phone, tablet, car.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCopy(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCut(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onPaste(callback: (value: string) => void): TextAreaAttribute;
 }
