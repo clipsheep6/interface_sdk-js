@@ -16,6 +16,7 @@
 /**
  * Defines the Column Component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ColumnInterface {
   /**
@@ -23,6 +24,7 @@ interface ColumnInterface {
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { space?: string | number }): ColumnAttribute;
 }
@@ -30,17 +32,20 @@ interface ColumnInterface {
 /**
  * Defines the Column component attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
   /**
    * Sets the alignment format of the subassembly in the vertical direction.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
 }

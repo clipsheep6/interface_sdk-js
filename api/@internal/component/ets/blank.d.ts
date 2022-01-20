@@ -16,11 +16,13 @@
 /**
  * Create Blank.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (min?: number | string): BlankAttribute;
 }
@@ -28,11 +30,13 @@ interface BlankInterface {
 /**
  * Inheritance CommonMethod Set Styles
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
    * color: set color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): BlankAttribute;
 }

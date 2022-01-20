@@ -17,29 +17,34 @@
 /**
  * Declare the type of input box
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum InputType {
   /**
    * Basic input mode.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Normal,
 
   /**
    * Password entry mode.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Number,
 
   /**
    * E-mail address input mode.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Email,
 
   /**
    * Pure digital input mode.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Password,
 }
@@ -47,35 +52,41 @@ declare enum InputType {
 /**
  * Declare the type of soft keyboard.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum EnterKeyType {
   /**
    * Go.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Go,
 
   /**
    * Search.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Search,
 
   /**
    * Send.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Send,
 
   /**
    * Next.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Next,
 
   /**
    * Done.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Done,
 }
@@ -83,16 +94,19 @@ declare enum EnterKeyType {
 /**
  * Provides the method of switching the cursor position.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TextInputController {
   /**
    * constructor.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor();
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   caretPosition(value: number): void;
 }
@@ -100,23 +114,27 @@ declare class TextInputController {
 /**
  * Defines the option of TextInput.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface TextInputOption {
   /**
    * The place holder text string.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholder?: ResourceStr;
 
   /**
    * Sets the current value of TextArea.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   text?: ResourceStr;
 
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   controller?: TextInputController;
 }
@@ -124,124 +142,145 @@ declare interface TextInputOption {
 /**
  * Provides a single-line text input component interface.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface TextInputInterface {
   /**
    * Called when writing a single line of text.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: TextInputOption): TextInputAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the input type is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   type(value: InputType): TextInputAttribute;
 
   /**
    * Called when the color of the placeholder is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholderFont(value?: Font): TextInputAttribute;
 
   /**
    * Called when the type of soft keyboard input button is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   enterKeyType(value: EnterKeyType): TextInputAttribute;
 
   /**
    * Called when the color of the insertion cursor is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when judging whether the text editing has changed.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when submitted.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when the input of maximum text length is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   maxLength(value: number): TextInputAttribute;
 
   /**
    * Called when the font color is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontSize(value: Length): TextInputAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontStyle(value: FontStyle): TextInputAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontWeight(value: number | FontWeight | string): TextInputAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
    * Called when the inputFilter of text is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCopy(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCut(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onPaste(callback: (value: string) => void): TextInputAttribute;
 }

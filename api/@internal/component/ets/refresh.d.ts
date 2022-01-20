@@ -16,35 +16,41 @@
 /**
  * The refresh status of the drop-down refresh.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum RefreshStatus {
   /**
    * The refresh status of the drop-down refresh.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Inactive,
 
   /**
    * Drop down, but the drop-down distance is less than the refresh distance.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Drag,
 
   /**
    * The pull-down exceeds the refresh distance.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   OverDrag,
 
   /**
    * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Refresh,
 
   /**
    * After refresh, return to the initial state.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Done,
 }
@@ -52,28 +58,33 @@ declare enum RefreshStatus {
 /**
  * Provides a pull-down refresh interface.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface RefreshInterface {
   /**
    * Called when the drop-down refresh is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: { refreshing: boolean; offset?: number | string; friction?: number | string }): RefreshAttribute;
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state changes.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
 
   /**
    * Called when the refresh state is entered.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onRefreshing(callback: () => void): RefreshAttribute;
 }

@@ -16,28 +16,33 @@
 /**
  * Provides an interface for generating QR codes.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface QRCodeInterface {
   /**
    * Called when a QR code is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: string): QRCodeAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
    * Called when the QR code color is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): QRCodeAttribute;
 
   /**
    * Called when setting the QR code background color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 }

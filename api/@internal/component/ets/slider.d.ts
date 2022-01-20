@@ -17,17 +17,20 @@
 /**
  * Declare sliderstyle
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum SliderStyle {
   /**
    * The slider is on the slide rail.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   OutSet = 0,
 
   /**
    * The slider is in the slide rail.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   InSet,
 }
@@ -35,23 +38,27 @@ declare enum SliderStyle {
 /**
  * Declare SliderChangeMode
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum SliderChangeMode {
   /**
    * Start dragging the slider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Begin = 0,
 
   /**
    * Drag the slider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Moving,
 
   /**
    * End dragging the slider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   End,
 }
@@ -59,47 +66,55 @@ declare enum SliderChangeMode {
 /**
  * Defines the option of Slider.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface SliderOption {
   /**
    * Current value of Slider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   value?: number;
 
   /**
    * Sets the min value of Slider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   min?: number;
 
   /**
    * Sets the max value of Slider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   max?: number;
 
   /**
    * Sets the step of each slide value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   step?: number;
 
   /**
    * Sets the slider style.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   style?: SliderStyle;
 
   /**
    * Sets the slider direction style.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   direction?: Axis;
 
   /**
    * Set whether the direction of the slider needs to be reversed.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   reverse?: boolean;
 }
@@ -107,11 +122,13 @@ declare interface SliderOption {
 /**
  * Provides an interface for the slide bar component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface SliderInterface {
   /**
    * Called when the slider bar component is used.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options?: SliderOption): SliderAttribute;
 }
@@ -119,35 +136,41 @@ interface SliderInterface {
 /**
  * Defines the attribute functions of Slider.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the slider color of the slider bar is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   blockColor(value: ResourceColor): SliderAttribute;
 
   /**
    * Called when the track color of the slider is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   trackColor(value: ResourceColor): SliderAttribute;
 
   /**
    * Called when the slider of the slider bar is set to slide over the area color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedColor(value: ResourceColor): SliderAttribute;
 
   /**
    * Called when the minimum label is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   minLabel(value: string): SliderAttribute;
 
   /**
    * Called when the maximum label is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   maxLabel(value: string): SliderAttribute;
 
@@ -155,6 +178,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when setting whether to display step size.
    * @devices phone, tablet, car
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   showSteps(value: boolean): SliderAttribute;
 
@@ -162,6 +186,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the percentage of bubble prompt is set when sliding.
    * @devices phone, tablet, car
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   showTips(value: boolean): SliderAttribute;
 
@@ -169,6 +194,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the selection value changes.
    * @devices phone, tablet, car
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 }

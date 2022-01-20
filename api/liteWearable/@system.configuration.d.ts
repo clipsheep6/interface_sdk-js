@@ -17,12 +17,14 @@ export interface LocaleResponse {
   /**
    * Current language of the application. Example: zh.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   language: string;
 
   /**
    * Country or region. Example: CN
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   countryOrRegion: string;
 
@@ -31,6 +33,7 @@ export interface LocaleResponse {
    * 1. ltr: The text direction is from left to right.
    * 2. rtl: The text direction is from right to left.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   dir: "ltr" | "rtl";
 }

@@ -15,11 +15,13 @@
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ShowToastOptions {
   /**
    * Text to display.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   message: string;
@@ -29,6 +31,7 @@ export interface ShowToastOptions {
    * The recommended value ranges from 1500 ms to 10000ms.
    * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   duration?: number;
@@ -36,6 +39,7 @@ export interface ShowToastOptions {
   /**
    * The distance between toast dialog box and the bottom of screen.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 5
    */
   bottom?: string | number;
@@ -43,16 +47,19 @@ export interface ShowToastOptions {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface Button {
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   text: string;
 
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   color: string;
@@ -60,10 +67,12 @@ export interface Button {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ShowDialogSuccessResponse {
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   index: number;
@@ -71,11 +80,13 @@ export interface ShowDialogSuccessResponse {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ShowDialogOptions {
   /**
    * Title of the text to display.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   title?: string;
@@ -83,6 +94,7 @@ export interface ShowDialogOptions {
   /**
    * Text body.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   message?: string;
@@ -92,6 +104,7 @@ export interface ShowDialogOptions {
    * The array structure is {text:'button', color: '#666666'}.
    * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   buttons?: [Button, Button?, Button?];
@@ -99,6 +112,7 @@ export interface ShowDialogOptions {
   /**
    * Called when the dialog box is displayed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (data: ShowDialogSuccessResponse) => void;
@@ -106,6 +120,7 @@ export interface ShowDialogOptions {
   /**
    * Called when the operation is cancelled.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   cancel?: (data: string, code: string) => void;
@@ -113,6 +128,7 @@ export interface ShowDialogOptions {
   /**
    * Called when the dialog box is closed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: (data: string) => void;
@@ -120,11 +136,13 @@ export interface ShowDialogOptions {
 
 /**
  * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ShowActionMenuOptions {
   /**
    * Title of the text to display.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   title?: string;
@@ -134,6 +152,7 @@ export interface ShowActionMenuOptions {
    * The array structure is {text:'button', color: '#666666'}.
    * One to six buttons are supported.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
@@ -141,6 +160,7 @@ export interface ShowActionMenuOptions {
   /**
    * Called when the dialog box is displayed.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   success?: (tapIndex: number, errMsg: string) => void;
@@ -148,6 +168,7 @@ export interface ShowActionMenuOptions {
   /**
    * Called when the operation is cancelled.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   fail?: (errMsg: string) => void;
@@ -155,6 +176,7 @@ export interface ShowActionMenuOptions {
   /**
    * Called when the dialog box is closed.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   complete?: () => void;
@@ -162,12 +184,14 @@ export interface ShowActionMenuOptions {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export default class Prompt {
   /**
    * Displays the notification text.
    * @param options Options.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static showToast(options: ShowToastOptions): void;
 
@@ -175,6 +199,7 @@ export default class Prompt {
    * Displays the dialog box.
    * @param options Options.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static showDialog(options: ShowDialogOptions): void;
 
@@ -182,6 +207,7 @@ export default class Prompt {
    * Displays the menu.
    * @param options Options.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }

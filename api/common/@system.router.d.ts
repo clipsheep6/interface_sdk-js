@@ -15,6 +15,7 @@
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface RouterOptions {
   /**
@@ -25,6 +26,7 @@ export interface RouterOptions {
    *      pages/detail/detail
    * 2. Particular path. If the URI is a slash (/), the home page is displayed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -34,6 +36,7 @@ export interface RouterOptions {
    * After the destination page is displayed, the parameter can be directly used for the page.
    * For example, this.data1 (data1 is the key value of the params used for page navigation.)
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   params?: Object;
@@ -41,12 +44,14 @@ export interface RouterOptions {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface BackRouterOptions {
   /**
    * Returns to the page of the specified path.
    * If the page with the specified path does not exist in the page stack, router.back() is called by default.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 7
    */
   uri?: string;
@@ -54,6 +59,7 @@ export interface BackRouterOptions {
   /**
    * Data that needs to be passed to the destination page during navigation.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 7
    */
   params?: Object;
@@ -61,12 +67,14 @@ export interface BackRouterOptions {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface RouterState {
   /**
    * Index of the current page in the stack.
    * NOTE: The index starts from 1 from the bottom to the top of the stack.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   index: number;
@@ -74,6 +82,7 @@ export interface RouterState {
   /**
    * Name of the current page, that is, the file name.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   name: string;
@@ -81,6 +90,7 @@ export interface RouterState {
   /**
    * Path of the current page.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   path: string;
@@ -88,11 +98,13 @@ export interface RouterState {
 
 /**
  * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface EnableAlertBeforeBackPageOptions {
   /**
    * dialog context.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   message: string;
@@ -100,6 +112,7 @@ export interface EnableAlertBeforeBackPageOptions {
   /**
    * Called when the dialog box is displayed.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   success?: (errMsg: string) => void;
@@ -107,6 +120,7 @@ export interface EnableAlertBeforeBackPageOptions {
   /**
    * Called when the operation is cancelled.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   cancel?: (errMsg: string) => void;
@@ -114,6 +128,7 @@ export interface EnableAlertBeforeBackPageOptions {
   /**
    * Called when the dialog box is closed.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   complete?: () => void;
@@ -121,11 +136,13 @@ export interface EnableAlertBeforeBackPageOptions {
 
 /**
  * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface DisableAlertBeforeBackPageOptions {
   /**
    * Called when the dialog box is displayed.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   success?: (errMsg: string) => void;
@@ -133,6 +150,7 @@ export interface DisableAlertBeforeBackPageOptions {
   /**
    * Called when the operation is cancelled.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   cancel?: (errMsg: string) => void;
@@ -140,6 +158,7 @@ export interface DisableAlertBeforeBackPageOptions {
   /**
    * Called when the dialog box is closed.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   complete?: () => void;
@@ -147,12 +166,14 @@ export interface DisableAlertBeforeBackPageOptions {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export default class Router {
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param options Options.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static push(options: RouterOptions): void;
 
@@ -160,6 +181,7 @@ export default class Router {
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static replace(options: RouterOptions): void;
 
@@ -167,6 +189,7 @@ export default class Router {
    * Returns to the previous page or a specified page.
    * @param options Options.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 7
    */
   static back(options?: BackRouterOptions): void;
@@ -175,6 +198,7 @@ export default class Router {
    * Obtains information about the current page params.
    * @returns Page params.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 7
    */
   static getParams(): Object;
@@ -182,6 +206,7 @@ export default class Router {
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static clear(): void;
 
@@ -189,6 +214,7 @@ export default class Router {
    * Obtains the number of pages in the current stack.
    * @returns Number of pages in the stack. The maximum value is 32.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static getLength(): string;
 
@@ -196,6 +222,7 @@ export default class Router {
    * Obtains information about the current page state.
    * @returns Page state.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static getState(): RouterState;
 
@@ -203,6 +230,7 @@ export default class Router {
    * Pop up dialog to ask whether to back
    * @param options Options.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void;
 
@@ -210,6 +238,7 @@ export default class Router {
    * cancel enableAlertBeforeBackPage
    * @param options Options.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static disableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void;
 }

@@ -16,17 +16,20 @@
 /**
  * Defines circle option for Circle component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface CircleOption {
   /**
    * Defines the width property.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   width?: string | number;
 
   /**
    * Defines the height property.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   height?: string | number;
 }
@@ -34,17 +37,20 @@ declare interface CircleOption {
 /**
  * Defines circle component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface CircleInterface {
   /**
    * use new function to set the value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   new (value?: CircleOption): CircleAttribute;
 
   /**
    * Set the value..
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: CircleOption): CircleAttribute;
 }
@@ -52,6 +58,7 @@ interface CircleInterface {
 /**
  * Circle drawing component attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 

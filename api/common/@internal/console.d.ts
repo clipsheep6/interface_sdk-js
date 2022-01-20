@@ -15,6 +15,7 @@
 
  /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  * @since 3
  */
 export declare class console {
@@ -22,6 +23,7 @@ export declare class console {
    * Prints "debug" logs.
    * @param message Text to print.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -29,6 +31,7 @@ export declare class console {
    * Prints "log" logs.
    * @param message Text to print.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static log(message: string, ...arguments: any[]): void;
 
@@ -36,6 +39,7 @@ export declare class console {
    * Prints "info" logs.
    * @param message Text to print.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -43,6 +47,7 @@ export declare class console {
    * Prints "warn" logs.
    * @param message Text to print.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static warn(message: string, ...arguments: any[]): void;
 
@@ -50,6 +55,7 @@ export declare class console {
    * Prints "error" logs.
    * @param message Text to print.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static error(message: string, ...arguments: any[]): void;
 }

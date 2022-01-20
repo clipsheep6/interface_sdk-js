@@ -16,35 +16,41 @@
 /**
  * Defines the size type.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum SizeType {
   /**
    * Select a value based on the device type.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Auto,
 
   /**
    * Select a value based on the device type.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   XS,
 
   /**
    * Small width type device.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   SM,
 
   /**
    * Medium width type device.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   MD,
 
   /**
    * Large width type device.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   LG,
 }
@@ -52,29 +58,34 @@ declare enum SizeType {
 /**
  * Defines the option of GridContainer.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface GridContainerOption {
   /**
    * Sets the total number of columns in the current layout.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   columns?: number | "auto";
 
   /**
    * Select the device width type.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   sizeType?: SizeType;
 
   /**
    * Grid layout column spacing.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   gutter?: number | string;
 
   /**
    * Spacing on both sides of the grid layout.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   margin?: number | string;
 }
@@ -82,11 +93,13 @@ declare interface GridContainerOption {
 /**
  * Defines the GridContainer component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface GridContainerInterface {
   /**
    * Defines the constructor of GridContainer.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: GridContainerOption): GridContainerAttribute;
 }
@@ -94,6 +107,7 @@ interface GridContainerInterface {
 /**
  * Defines the grid container attribute from inheritance Column
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class GridContainerAttribute extends ColumnAttribute {}
 

@@ -17,23 +17,27 @@
 /**
  * Declare item ceiling attribute.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum Sticky {
   /**
    * No sticky.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   None,
 
   /**
    * Normal mode
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Normal,
 
   /**
    * Set opacity.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Opacity,
 }
@@ -42,62 +46,73 @@ declare enum Sticky {
  * Declare whether the ListItem element is editable.
  * @devices phone, tablet
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum EditMode {
   /**
    * Unrestricted operations.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   None,
 
   /**
    * Deleteable.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Deletable,
 
   /**
    * Movable.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Movable,
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 
 /**
  * Values in the list
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ListItemInterface {
   /**
    * Called when an interface is used.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: string): ListItemAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when setting whether item is ceiling effect.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   sticky(value: Sticky): ListItemAttribute;
 
   /**
    * Called when judging whether it is editable.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   editable(value: boolean | EditMode): ListItemAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const ListItemInstance: ListItemAttribute;
 declare const ListItem: ListItemInterface;

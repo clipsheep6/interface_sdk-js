@@ -17,22 +17,26 @@
 /**
  * Provides interfaces for layout in the vertical direction.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface RowSplitInterface {
   /**
    * Called when the layout along the vertical direction is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): RowSplitAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
    * Called when judging whether the split line can be dragged.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   resizeable(value: boolean): RowSplitAttribute;
 }

@@ -17,12 +17,14 @@
 /**
  * Defines the FormDimension enum.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare enum FormDimension {
   /**
    * 1 x 2 cards
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   Dimension_1_2,
@@ -30,6 +32,7 @@ declare enum FormDimension {
   /**
    * 2 x 2 cards
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   Dimension_2_2,
@@ -37,6 +40,7 @@ declare enum FormDimension {
   /**
    * 2 x 4 cards
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   Dimension_2_4,
@@ -44,6 +48,7 @@ declare enum FormDimension {
   /**
    * 4 x 4 cards
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   Dimension_4_4,
@@ -52,12 +57,14 @@ declare enum FormDimension {
 /**
  * Defines the FormComponent.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface FormComponentInterface {
   /**
    * Set a new value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   (value: {
@@ -73,12 +80,14 @@ interface FormComponentInterface {
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
   /**
    * Sets the display area size of the card.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   size(value: { width: number; height: number }): FormComponentAttribute;
@@ -86,6 +95,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card module name.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   moduleName(value: string): FormComponentAttribute;
@@ -93,6 +103,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Set the card size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   dimension(value: FormDimension): FormComponentAttribute;
@@ -100,6 +111,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Indicates whether to allow card update.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   allowUpdate(value: boolean): FormComponentAttribute;
@@ -107,6 +119,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Whether the card is visible.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   visibility(value: Visibility): FormComponentAttribute;
@@ -115,6 +128,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * This function is triggered after card information is obtained.
    * For details about the form information, see the definition of the original capability subsystem.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onAcquired(callback: (info: { id: number }) => void): FormComponentAttribute;
@@ -122,6 +136,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card loading error.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): FormComponentAttribute;
@@ -129,6 +144,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card to be redirected.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   onRouter(callback: (info: any) => void): FormComponentAttribute;

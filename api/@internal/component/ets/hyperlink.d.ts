@@ -15,6 +15,7 @@
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface HyperlinkInterface {
   /**
@@ -22,6 +23,7 @@ interface HyperlinkInterface {
    * address: Web page redirected by the hyperlink component.
    * content: Hyperlinks in the hyperlink component display text.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -29,11 +31,13 @@ interface HyperlinkInterface {
 /**
  * inheritance CommonMethod
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
    * Set Color
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): HyperlinkAttribute;
 }

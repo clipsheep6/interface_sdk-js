@@ -17,11 +17,13 @@
 /**
  * Provides an interface for drawing rectangles.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface RectInterface {
   /**
    * Use new function to create Rect.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   new (
     value?:
@@ -41,6 +43,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (
     value?:
@@ -60,23 +63,27 @@ interface RectInterface {
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet width is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   radiusWidth(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet height is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   radiusHeight(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet size is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   radius(value: number | string | Array<any>): RectAttribute;
 }

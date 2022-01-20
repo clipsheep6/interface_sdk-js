@@ -17,12 +17,14 @@
  * ItemState
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum ItemState {
   /**
    * Default State
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Normal,
 
@@ -30,6 +32,7 @@ declare enum ItemState {
    * Disabled State
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Disabled,
 
@@ -37,6 +40,7 @@ declare enum ItemState {
    * Waiting State
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Waiting,
 
@@ -44,6 +48,7 @@ declare enum ItemState {
    * Skip State
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Skip,
 }
@@ -52,12 +57,14 @@ declare enum ItemState {
  * Provides an interface for switching the stepperItem view on stepper container.
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface StepperItemInterface {
   /**
    * Called when the stepperItem component is used.
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): StepperItemAttribute;
 }
@@ -65,12 +72,14 @@ interface StepperItemInterface {
 /**
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
    * Called when the value of stepperItem prevLabel is set
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   prevLabel(value: string): StepperItemAttribute;
 
@@ -78,6 +87,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * Called when the value of stepperItem nextLabel is set
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   nextLabel(value: string): StepperItemAttribute;
 
@@ -85,6 +95,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
    * Called when the value of stepperItem status is set
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   status(value?: ItemState): StepperItemAttribute;
 }
@@ -92,11 +103,13 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
 /**
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const StepperItemInstance: StepperItemAttribute;
 
 /**
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const StepperItem: StepperItemInterface;

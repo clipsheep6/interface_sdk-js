@@ -16,23 +16,27 @@
 /**
  * Defines the badge position property.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum BadgePosition {
   /**
    * The dot is displayed vertically centered on the right.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   RightTop,
 
   /**
    * Dots are displayed in the upper right corner.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Right,
 
   /**
    * The dot is displayed in the left vertical center.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Left,
 }
@@ -40,29 +44,34 @@ declare enum BadgePosition {
 /**
  * BadgeStyle object
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface BadgeStyle {
   /**
    * Text Color
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color?: ResourceColor;
 
   /**
    * Text size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontSize?: number | string;
 
   /**
    * Size of a badge.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   badgeSize?: number | string;
 
   /**
    * Color of the badge.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   badgeColor?: ResourceColor;
 }
@@ -70,17 +79,20 @@ declare interface BadgeStyle {
 /**
  * Defines the base param of badge.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface BadgeParam {
   /**
    * Set the display position of the prompt point.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   position?: BadgePosition;
 
   /**
    * Defines the style of the Badge component, including the text color, size, dot color, and size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   style: BadgeStyle;
 }
@@ -88,17 +100,20 @@ declare interface BadgeParam {
 /**
  * Defines the badge param with count and maxCount.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
   /**
    * Set the number of reminder messages.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   count: number;
 
   /**
    * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   maxCount?: number;
 }
@@ -106,11 +121,13 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 /**
  * Defines the badge param with string value.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface BadgeParamWithString extends BadgeParam {
   /**
    * Text string of the prompt content.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   value: string;
 }
@@ -118,6 +135,7 @@ declare interface BadgeParamWithString extends BadgeParam {
 /**
  * Defines Badge Componrnt.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface BadgeInterface {
   /**
@@ -126,6 +144,7 @@ interface BadgeInterface {
    * count: Set the number of reminder messages.
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
 
@@ -135,6 +154,7 @@ interface BadgeInterface {
    * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: BadgeParamWithString): BadgeAttribute;
 }
@@ -142,6 +162,7 @@ interface BadgeInterface {
 /**
  * Defines Badge Componrnt attribute.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 

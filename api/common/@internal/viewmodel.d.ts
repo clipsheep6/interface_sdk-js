@@ -19,38 +19,46 @@ import { WebGL2RenderingContext } from "../webgl/webgl2";
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FocusParamObj {
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   focus: boolean;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface RectObj {
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   width: number;
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   height: number;
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   left: number;
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   top: number;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ContextAttrOptions {
   antialias: boolean;
@@ -58,48 +66,57 @@ export interface ContextAttrOptions {
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface AnimateStyle {
   /**
    * Width value applied to the component after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   width: number;
   /**
    * Height value applied to the component after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   height: number;
   /**
    * left offset applied to the component after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   left: number;
   /**
    * top offset applied to the component after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   top: number;
   /**
    * right offset applied to the component after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   right: number;
   /**
    * bottom offset applied to the component after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   bottom: number;
   /**
    * Background color applied to the component after the animation is executed.
    * The default value is none.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   backgroundColor: string;
   /**
    * Opacity applied to the component. The value ranges from 0 to 1.
    * The default value is 1.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   opacity: number;
   /**
@@ -107,6 +124,7 @@ export interface AnimateStyle {
    * The first value indicates the horizontal position, and the second value indicates the vertical position.
    * If only one value is specified, the other value is 50% by default.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   backgroundPosition: string;
   /**
@@ -114,11 +132,13 @@ export interface AnimateStyle {
    * The first value indicates the x-axis position. The value can be left, center, right, a length, or percentage.
    * The second value indicates the y-axis position. The value can be top, center, bottom, a length, or a percentage.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transformOrigin: string;
   /**
    * Transformation type applied to an element.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transform: "none" | TransformObject;
   /**
@@ -126,12 +146,14 @@ export interface AnimateStyle {
    * If there are only two frames, offset can be left empty.
    * If there are more than two frames, offset is mandatory.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   offset?: number;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface TransformObject {
   /**
@@ -143,6 +165,7 @@ export interface TransformObject {
    * @param translateX the translate value for x-axis
    * @param translateY the translate value for y-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   matrix(
     scaleX: number,
@@ -170,6 +193,7 @@ export interface TransformObject {
    * @param n32 the value of the 3 row and 2 column of the 4x4 matrix
    * @param n33 the value of the 3 row and 3 column of the 4x4 matrix
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   matrix3d(n00: number, n01: number, n02: number, n03: number,
            n10: number, n11: number, n12: number, n13: number,
@@ -180,6 +204,7 @@ export interface TransformObject {
    * @param x the translate value for x-axis
    * @param y the translate value for y-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translate(x: number, y: number): void;
   /**
@@ -188,24 +213,28 @@ export interface TransformObject {
    * @param y the translate value for y-axis
    * @param z the translate value for z-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translate3d(x: number, y: number, z: number): void;
   /**
    * Defines 2D transformations for translation of the X axes
    * @param x the translate value for x-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translateX(x: number): void;
   /**
    * Defines 2D transformations for translation of the Y axes
    * @param y the translate value for y-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translateY(y: number): void;
   /**
    * Defines 3D transformations for translation of the Z axes
    * @param z the translate value for z-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translateZ(z: number): void;
   /**
@@ -213,6 +242,7 @@ export interface TransformObject {
    * @param x the scale value for x-axis
    * @param y the scale value for y-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scale(x: number, y: number): void;
   /**
@@ -221,30 +251,35 @@ export interface TransformObject {
    * @param y the scale value for y-axis
    * @param z the scale value for z-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scale3d(x: number, y: number, z: number): void;
   /**
    * Defines 2D transformations for scaling of the X axes
    * @param x the scale value for x-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scaleX(x: number): void;
   /**
    * Defines 2D transformations for scaling of the Y axes
    * @param y the scale value for y-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scaleY(y: number): void;
   /**
    * Defines 3D transformations for scaling of the Z axes
    * @param z the scale value for z-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scaleZ(z: number): void;
   /**
    * Define the 2D rotation and specify the angle in the parameters.
    * @param angle the rotate value for z-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotate(angle: number): void;
   /**
@@ -254,24 +289,28 @@ export interface TransformObject {
    * @param z the vector value of the z-axis
    * @param angle the rotate value for x&y&z vector.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotate3d(x: number, y: number, z: number, angle: number): void;
   /**
    * Defines 3D transformations for rotating of the X axes.
    * @param x the scale value for x-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotateX(angle: number): void;
   /**
    * Defines 3D transformations for rotating of the Y axes.
    * @param y the scale value for y-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotateY(angle: number): void;
   /**
    * Defines 3D transformations for rotating of the Z axes.
    * @param z the scale value for z-axis
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotateZ(angle: number): void;
   /**
@@ -279,36 +318,42 @@ export interface TransformObject {
    * @param xAngle the angle of inclination along the x axis.
    * @param yAngle the angle of inclination along the y axis.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   skew(xAngle: number, yAngle: number): void;
   /**
    * Defines the 2D skew transition along the X axes.
    * @param angle the angle of inclination along the x axis.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   skewX(angle: number): void;
   /**
    * Defines the 2D skew transition along the Y axes.
    * @param angle the angle of inclination along the y axis.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   skewY(angle: number): void;
   /**
    * Defines a perspective view for the 3D transformation element.
    * @param n the vertical distance from the observation point to the component plane.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   perspective(verticalDistance: number): void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface AnimateOptions {
   /**
    * Duration of the animation, in milliseconds.
    * The default value is 0.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   duration: number;
 
@@ -331,6 +376,7 @@ export interface AnimateOptions {
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
    * The default value is ease.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   easing: string;
 
@@ -338,6 +384,7 @@ export interface AnimateOptions {
    * Delay for the animation start. The default value indicates no delay.
    * The default value is 0.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   delay: number;
 
@@ -345,6 +392,7 @@ export interface AnimateOptions {
    * Number of times the animation will be played. number indicates a fixed number of playback operations, and Infinity indicates an unlimited number of playback operations.
    * The default value is 1.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   iterations: number | string;
 
@@ -352,6 +400,7 @@ export interface AnimateOptions {
    * The animation playback mode.
    * The default value is "normal".
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
 
@@ -360,22 +409,26 @@ export interface AnimateOptions {
    * none: The initial state is restored after the animation is executed.
    * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fill: "none" | "forwards" | "backwards" | "both";
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface AnimationResult {
   /**
    * Read-only attribute, which indicates whether the animation playback is complete.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   finished: boolean;
   /**
    * Read-only attribute, which indicates whether an animation is waiting for the completion of other asynchronous operations (for example, start an animation with a delay).
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pending: boolean;
   /**
@@ -385,62 +438,74 @@ export interface AnimationResult {
    * paused: The animation is paused.
    * finished: Animation playback ends.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   playstate: string;
   /**
    * Animation start time. This attribute is similar to that of delay in the options parameters.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   startTime: number;
   /**
    * Starts the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   play(): void;
   /**
    * Ends the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   finish(): void;
   /**
    * Pauses the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pause(): void;
   /**
    * Cancels the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   reverse(): void;
   /**
    * The animation is started.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onstart: () => void;
   /**
    * The animation is finished.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onfinish: () => void;
   /**
    * The animation is canceled.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   oncancel: () => void;
   /**
    * The animation is repeated.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onrepeat: () => void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface Element {
   /**
@@ -450,6 +515,7 @@ export interface Element {
    * This attribute can be defaulted to true.
    * @param obj { focus: true | false }
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   focus(obj?: FocusParamObj): void;
 
@@ -460,6 +526,7 @@ export interface Element {
    * This attribute can be defaulted to true.
    * @param obj { focus: true | false }
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotation(obj?: FocusParamObj): void;
 
@@ -469,6 +536,7 @@ export interface Element {
    * @param options Options. is used to describe animation parameters.
    * @returns This method returns the animation object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   animate(
     keyframes: Array<AnimateStyle>,
@@ -479,6 +547,7 @@ export interface Element {
    * Obtains the size and position of the element.
    * @returns RectObj the size position of the element.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getBoundingClientRect(): RectObj;
 
@@ -504,77 +573,91 @@ export interface observer {
 /**
  * animation element
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface AnimationElement extends Element {
   /**
    * Starts the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   play(): void;
   /**
    * Ends the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   finish(): void;
   /**
    * Pauses the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pause(): void;
   /**
    * Cancels the animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   reverse(): void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ScrollParam {
   /**
    * Offset for scrolling in the horizontal direction, in px.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   dx?: number;
 
   /**
    * Offset for scrolling in the vertical direction, in px.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   dy?: number;
 
   /**
    * Whether a sliding animation is displayed when scroll position is changed.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   smooth?: boolean;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CurrentOffsetResultValue {
   /**
    * Scrolling offset in the x-axis, in px.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   x: number;
 
   /**
    * Scrolling offset in the y-axis, in px.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   y: number;
 }
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ListScrollToOptions {
   /**
@@ -586,11 +669,13 @@ export interface ListScrollToOptions {
 /**
  * The <list> component provides a list container.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ListElement extends Element {
   /**
    * Scrolls the list to the position of the item at the specified index.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollTo(position: ListScrollToOptions): void;
 
@@ -606,6 +691,7 @@ export interface ListElement extends Element {
    * If smooth is set to true, the list is smoothly scrolled to the top.
    * @param param
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollTop(param: { smooth: boolean }): void;
 
@@ -614,6 +700,7 @@ export interface ListElement extends Element {
    * If smooth is set to true, the list is smoothly scrolled to the bottom.
    * @param param
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollBottom(param: { smooth: boolean }): void;
 
@@ -624,6 +711,7 @@ export interface ListElement extends Element {
    * If smooth is set to true, the list is smoothly scrolled to another page.
    * @param params
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollPage(params: { reverse: boolean; smooth: boolean }): void;
 
@@ -634,6 +722,7 @@ export interface ListElement extends Element {
    * If smooth is set to true, the list is smoothly scrolled.
    * @param params
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollArrow(params: { reverse: boolean; smooth: boolean }): void;
 
@@ -641,6 +730,7 @@ export interface ListElement extends Element {
    * Collapses a group.
    * @param param
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   collapseGroup(param: {
     /**
@@ -654,6 +744,7 @@ export interface ListElement extends Element {
    * Expands a group.
    * @param param
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   expandGroup(param: {
     /**
@@ -666,6 +757,7 @@ export interface ListElement extends Element {
   /**
    * Returns the offset of the current scrolling. The return value type is Object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   currentOffset(): CurrentOffsetResultValue;
 }
@@ -673,11 +765,13 @@ export interface ListElement extends Element {
 /**
  * The <swiper> component provides a swiper container.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface SwiperElement extends Element {
   /**
    * Scrolls the child component to the position at the specified index.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   swipeTo(position: {
     /**
@@ -689,18 +783,21 @@ export interface SwiperElement extends Element {
   /**
    * Shows the next child component.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   showNext(): void;
 
   /**
    * Shows the previous child component.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   showPrevious(): void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CameraTakePhotoOptions {
   /**
@@ -712,6 +809,7 @@ export interface CameraTakePhotoOptions {
    * Callback function for successful interface invocation.
    * @param result the request execution result.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   success?: (result: Object) => void;
 
@@ -719,6 +817,7 @@ export interface CameraTakePhotoOptions {
    * Callback function for interface invocation failure.
    * @param result the request execution result.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fail?: (result: Object) => void;
 
@@ -726,6 +825,7 @@ export interface CameraTakePhotoOptions {
    * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
    * @param result the request execution result.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   complete?: (result: Object) => void;
 }
@@ -733,12 +833,14 @@ export interface CameraTakePhotoOptions {
 /**
  * The <camera> component provides preview and photographing functions..
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CameraElement extends Element {
   /**
    * Take photos with specified parameters.
    * @param options the parameters of camera.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   takePhoto(options: CameraTakePhotoOptions): void;
 }
@@ -746,11 +848,13 @@ export interface CameraElement extends Element {
 /**
  * The <web> component is a container for displaying web page content.
  * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface WebElement extends Element {
   /**
    * Reload the web page content
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   reload(): void;
 }
@@ -758,16 +862,19 @@ export interface WebElement extends Element {
 /**
  * The <dialog> component is a custom pop-up container.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface DialogElement extends Element {
   /**
    * Shows a dialog box.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   show(): void;
   /**
    * Closes a dialog box.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   close(): void;
 }
@@ -775,26 +882,31 @@ export interface DialogElement extends Element {
 /**
  * The <image-animator> component is used to provide an image frame animator.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ImageAnimatorElement extends Element {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   start(): void;
   /**
    * Pauses the frame animation playback of an image.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   resume(): void;
   /**
@@ -803,6 +915,7 @@ export interface ImageAnimatorElement extends Element {
    * Paused
    * Stopped
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getState(): "Playing" | "Paused" | "Stopped";
 }
@@ -811,17 +924,20 @@ export interface ImageAnimatorElement extends Element {
  * The <marquee> component inserts scrolling text, which is displayed in a single line by default.
  * When the text length exceeds the display area of the component, the marquee effect is displayed.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface MarqueeElement extends Element {
   /**
    * Starts scrolling.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   start(): void;
 
   /**
    * Stops scrolling.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stop(): void;
 }
@@ -829,6 +945,7 @@ export interface MarqueeElement extends Element {
 /**
  * The <menu> component provides menus as temporary pop-up windows to display operations that can be performed by users.
  * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface MenuElement extends Element {
   /**
@@ -841,6 +958,7 @@ export interface MenuElement extends Element {
    * When the visible space in the lower part is insufficient, the menu is moved upward.
    * @param position
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   show(position: { x: number; y: number }): void;
 }
@@ -848,6 +966,7 @@ export interface MenuElement extends Element {
 /**
  * The <chart> component displays line charts, gauge charts, and bar charts.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ChartElement extends Element {
   /**
@@ -856,6 +975,7 @@ export interface ChartElement extends Element {
    * datasets[index].data is not updated. Only line charts support this attribute.
    * The value is incremented by 1 based on the horizontal coordinate and is related to the xAxis min/max setting.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   append(params: {
     /**
@@ -872,6 +992,7 @@ export interface ChartElement extends Element {
 /**
  * The <input> component provides an interactive interface to receive user input, which is displayed in a single line by default.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface InputElement extends Element {
   /**
@@ -879,6 +1000,7 @@ export interface InputElement extends Element {
    * When the component type is set to text, email, date, time, number, or password, the input method can be displayed or collapsed.
    * @param param If focus is not passed, the default value true is used.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   focus(param: { focus: boolean }): void;
 
@@ -887,12 +1009,14 @@ export interface InputElement extends Element {
    * This attribute is available when the component type is set to text, email, date, time, number, or password.
    * @param param
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   showError(param: { error: string }): void;
 
   /**
    * Deletes the previous character at the cursor position.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   delete(): void;
 }
@@ -900,6 +1024,7 @@ export interface InputElement extends Element {
 /**
  * The <button> component includes capsule, circle, text, arc, and download buttons.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ButtonElement extends Element {
   /**
@@ -910,6 +1035,7 @@ export interface ButtonElement extends Element {
    * The text displayed on the progress bar is changed based on the value.
    * @param param
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setProgress(param: { progress: number }): void;
 }
@@ -917,12 +1043,14 @@ export interface ButtonElement extends Element {
 /**
  * The <textarea> component provides an interactive interface to receive user input, which is displayed in multiple lines by default.
  * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface TextAreaElement extends Element {
   /**
    * Obtains or loses the focus of a component, which can display or collapse the input method.
    * @param param If focus is not passed, the default value true is used.
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   focus(param: { focus: boolean }): void;
 }
@@ -930,11 +1058,13 @@ export interface TextAreaElement extends Element {
 /**
  * The <picker> component supports common, date, time, and multi-column text selectors.
  * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface PickerElement extends Element {
   /**
    * Displays the picker.
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   show(): void;
 }
@@ -942,17 +1072,20 @@ export interface PickerElement extends Element {
 /**
  * The <video> component provides a video player.
  * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface VideoElement extends Element {
   /**
    * Requests to start playing a video.
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   start(): void;
 
   /**
    * Requests to pause a video.
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pause(): void;
 
@@ -960,6 +1093,7 @@ export interface VideoElement extends Element {
    * Specifies the video playing position.
    * @param param
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setCurrentTime(param: { currenttime: number }): void;
 
@@ -967,28 +1101,33 @@ export interface VideoElement extends Element {
    * Requests to enter the full screen mode.
    * @param param
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   requestFullscreen(param: { screenOrientation: "default" }): void;
 
   /**
    * Requests to exit the full screen mode.
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   exitFullscreen(): void;
 
   /**
    * Requests to stop playing a video.
    * @devices tv, phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stop(): void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface TextMetrics {
   /**
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   width: number;
 }
@@ -1404,6 +1543,7 @@ export interface CanvasRenderingContext2D {
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillRect(x: number, y: number, width: number, height: number): void;
 
@@ -1413,6 +1553,7 @@ export interface CanvasRenderingContext2D {
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillStyle?: string | CanvasGradient | CanvasPattern;
 
@@ -1423,6 +1564,7 @@ export interface CanvasRenderingContext2D {
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   clearRect(x: number, y: number, width: number, height: number): void;
 
@@ -1433,6 +1575,7 @@ export interface CanvasRenderingContext2D {
    * @param width Width of the rectangle stroke.
    * @param height Height of the rectangle stroke.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeRect(x: number, y: number, width: number, height: number): void;
 
@@ -1442,6 +1585,7 @@ export interface CanvasRenderingContext2D {
    * @param x X-coordinate of the lower left corner of the text.
    * @param y Y-coordinate of the lower left corner of the text.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillText(text: string, x: number, y: number): void;
 
@@ -1451,6 +1595,7 @@ export interface CanvasRenderingContext2D {
    * @param x X-coordinate of the lower left corner of the text stroke.
    * @param y Y-coordinate of the lower left corner of the text stroke.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeText(text: string, x: number, y: number): void;
 
@@ -1459,12 +1604,14 @@ export interface CanvasRenderingContext2D {
    * @param text Text to be measured.
    * @returns Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   measureText(text: string): TextMetrics;
 
   /**
    * Sets the width of a line.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineWidth?: number;
 
@@ -1474,12 +1621,14 @@ export interface CanvasRenderingContext2D {
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
    * Draws a border stroke.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stroke(): void;
 
@@ -1487,12 +1636,14 @@ export interface CanvasRenderingContext2D {
    * Draws a path stroke.
    * @param path The object of Path2D.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stroke(path: Path2D): void;
 
   /**
    * Creates a drawing path.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   beginPath(): void;
 
@@ -1501,6 +1652,7 @@ export interface CanvasRenderingContext2D {
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   moveTo(x: number, y: number): void;
 
@@ -1509,12 +1661,14 @@ export interface CanvasRenderingContext2D {
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineTo(x: number, y: number): void;
 
   /**
    * Draws a closed path.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   closePath(): void;
 
@@ -1526,6 +1680,7 @@ export interface CanvasRenderingContext2D {
    * square: The endpoints of the line are in square,
    * and each end of the line is added with a rectangle whose length is the same as the line thickness and whose width is half of the line thickness.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineCap: string;
 
@@ -1536,6 +1691,7 @@ export interface CanvasRenderingContext2D {
    * bevel: The intersection part is a triangle. The rectangular corner of each line is independent.
    * miter (default): The intersection part has a miter corner by extending the outside edges of the lines until they meet. You can view the effect of this attribute in miterLimit.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineJoin: string;
 
@@ -1543,6 +1699,7 @@ export interface CanvasRenderingContext2D {
    * Sets the maximum miter length. The miter length is the distance between the inner corner and the outer corner where two lines meet.
    * Maximum miter length. The default value is 10.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   miterLimit: number;
 
@@ -1552,6 +1709,7 @@ export interface CanvasRenderingContext2D {
    * The default value is 10px sans-serif in tv, phone, tablet, wearable.
    * The default value is 30px SourceHanSansSC-Regular in smartVision.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   font: string;
 
@@ -1566,6 +1724,7 @@ export interface CanvasRenderingContext2D {
    * NOTE
    * In the ltr layout mode, the value start equals to left. In the rtl layout mode, the value start equals to right.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   textAlign: "left" | "right" | "center" | "start" | "end";
 
@@ -1573,6 +1732,7 @@ export interface CanvasRenderingContext2D {
    * Sets whether an image is smooth.
    * default value is true.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   imageSmoothingEnabled: boolean;
 
@@ -1586,6 +1746,7 @@ export interface CanvasRenderingContext2D {
    * ideographic: The text baseline is the ideographic baseline. If a character exceeds the alphabetic baseline, the ideographic baseline is located at the bottom of the excessive character.
    * bottom: The text baseline is at the bottom of the text bounding box. Its difference from the ideographic baseline is that the ideographic baseline does not consider letters in the next line.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   textBaseline: string;
 
@@ -1597,6 +1758,7 @@ export interface CanvasRenderingContext2D {
    * @param y1 Y-coordinate of the end point.
    * @returns LinearGradient object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createLinearGradient(
     x0: number,
@@ -1615,6 +1777,7 @@ export interface CanvasRenderingContext2D {
    * @param r1 The radius of End Circle.
    * @returns RadialGradient object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createRadialGradient(
     x0: number,
@@ -1631,6 +1794,7 @@ export interface CanvasRenderingContext2D {
    * @param repetition Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
    * @returns Pattern of image filling.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createPattern(image: Image, repetition: string): object;
 
@@ -1639,6 +1803,7 @@ export interface CanvasRenderingContext2D {
    * @param path another created Path2D object.
    * @returns the object of Path2D.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createPath2D(path?: Path2D): Path2D;
 
@@ -1647,6 +1812,7 @@ export interface CanvasRenderingContext2D {
    * @param cmds a string defined using the SVG path command.
    * @returns the object of Path2D.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createPath2D(cmds?: string): Path2D;
 
@@ -1659,6 +1825,7 @@ export interface CanvasRenderingContext2D {
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   bezierCurveTo(
     cp1x: number,
@@ -1676,6 +1843,7 @@ export interface CanvasRenderingContext2D {
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -1688,6 +1856,7 @@ export interface CanvasRenderingContext2D {
    * @param endAngel End radian of the arc.
    * @param anticlockwise Whether to draw the arc counterclockwise.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   arc(
     x: number,
@@ -1706,6 +1875,7 @@ export interface CanvasRenderingContext2D {
    * @param y2 Y-coordinate of the second point on the arc.
    * @param radius Radius of the arc.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -1721,6 +1891,7 @@ export interface CanvasRenderingContext2D {
    * @param anticlockwise Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   ellipse(
     x: number,
@@ -1740,18 +1911,21 @@ export interface CanvasRenderingContext2D {
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rect(x: number, y: number, width: number, height: number): void;
 
   /**
    * Fills the area inside a closed path.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fill(): void;
 
   /**
    * Sets a path as the clipping path.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   clip(): void;
 
@@ -1759,6 +1933,7 @@ export interface CanvasRenderingContext2D {
    * Rotates a canvas clockwise around its coordinate axes.
    * @param rotate Clockwise rotation angle. You can use Math.PI / 180 to convert the angle to radian.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotate(rotate: number): void;
 
@@ -1767,6 +1942,7 @@ export interface CanvasRenderingContext2D {
    * @param x Horizontal scale factor.
    * @param y Vertical scale factor.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scale(x: number, y: number): void;
 
@@ -1782,6 +1958,7 @@ export interface CanvasRenderingContext2D {
    * @param translateX X-axis translation.
    * @param translateY Y-axis translation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transform(
     scaleX: number,
@@ -1801,6 +1978,7 @@ export interface CanvasRenderingContext2D {
    * @param translateX X-axis translation.
    * @param translateY Y-axis translation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setTransform(
     scaleX: number,
@@ -1816,6 +1994,7 @@ export interface CanvasRenderingContext2D {
    * @param x X-axis translation.
    * @param y Y-axis translation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translate(x: number, y: number): void;
 
@@ -1824,6 +2003,7 @@ export interface CanvasRenderingContext2D {
    * Global alpha value to set.
    * The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   globalAlpha: number;
 
@@ -1835,6 +2015,7 @@ export interface CanvasRenderingContext2D {
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   drawImage(
     image: Image,
@@ -1856,6 +2037,7 @@ export interface CanvasRenderingContext2D {
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   drawImage(
     image: Image,
@@ -1872,12 +2054,14 @@ export interface CanvasRenderingContext2D {
   /**
    * Restores the saved drawing context.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   restore: () => void;
 
   /**
    * Saves the current drawing context.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   save: () => void;
 
@@ -1887,6 +2071,7 @@ export interface CanvasRenderingContext2D {
    * @param height Height of the ImageData object.
    * @returns Returns the newly created FunctionCallable object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createImageData(width: number, height: number): ImageData;
   /**
@@ -1894,6 +2079,7 @@ export interface CanvasRenderingContext2D {
    * @param imagedata ImageData object with the same width and height copied from the original ImageData object.
    * @returns Returns the newly created FunctionCallable object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -1905,6 +2091,7 @@ export interface CanvasRenderingContext2D {
    * @param sh Height of the output area.
    * @returns ImageData object that contains pixels in the specified area on the canvas.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -1914,6 +2101,7 @@ export interface CanvasRenderingContext2D {
    * @param dx X-axis offset of the rectangle area on the canvas.
    * @param dy Y-axis offset of the rectangle area on the canvas.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   putImageData(imageData: ImageData, dx: number, dy: number): void;
 
@@ -1927,6 +2115,7 @@ export interface CanvasRenderingContext2D {
    * @param dirtyWidth Width of the rectangle area to cop the source image.
    * @param dirtyHeight Height of the rectangle area to cop the source image.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   putImageData(
     imageData: ImageData,
@@ -1942,6 +2131,7 @@ export interface CanvasRenderingContext2D {
    * Sets the dash line style.
    * @param segments Interval of alternate line segments and the length of spacing.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setLineDash(segments: Array<number>): void;
 
@@ -1949,6 +2139,7 @@ export interface CanvasRenderingContext2D {
    * Obtains the dash line style.
    * @returns Interval of alternate line segments and the length of spacing.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getLineDash(): Array<number>;
 
@@ -1956,6 +2147,7 @@ export interface CanvasRenderingContext2D {
    * Sets the dash line offset.
    * Dash line offset. The value is a float number starting from 0.0.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineDashOffset: number;
 
@@ -1973,6 +2165,7 @@ export interface CanvasRenderingContext2D {
    * copy Displays the new drawing and neglects the existing drawing.
    * xor Combines the new drawing and existing drawing using the XOR operation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   globalCompositeOperation: string;
 
@@ -1980,12 +2173,14 @@ export interface CanvasRenderingContext2D {
    * Sets the shadow blur degree.
    * Shadow blur degree. A larger value indicates a more blurred shadow. The value is of the float type, and the default value is 0.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowBlur: number;
 
   /**
    * Sets the shadow color.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowColor: string;
 
@@ -1993,6 +2188,7 @@ export interface CanvasRenderingContext2D {
    * Sets the x-axis shadow offset relative to the original object.
    * X-axis shadow offset relative to the original object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowOffsetX: number;
 
@@ -2000,12 +2196,14 @@ export interface CanvasRenderingContext2D {
    * Sets the y-axis shadow offset relative to the original object.
    * Y-axis shadow offset relative to the original object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowOffsetY: number;
 
   /**
    * Draws the Bitmap to the current canvas.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 }
@@ -2013,6 +2211,7 @@ export interface CanvasRenderingContext2D {
 /**
  * You can create a gradient object on the canvas by calling CanvasRenderingContext2D.createLinearGradient().
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CanvasGradient {
   /**
@@ -2021,18 +2220,21 @@ export interface CanvasGradient {
    * The value ranges from 0 to 1.
    * @param color Sets the gradient color.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   addColorStop(offset: number, color: string): void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface Path2D {
   /**
    * Add another path to current path.
    * @param path another created Path2D object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   addPath(path: Path2D): void;
 
@@ -2045,6 +2247,7 @@ export interface Path2D {
    * @param translateX X-axis translation.
    * @param translateY Y-axis translation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setTransform(
     scaleX: number,
@@ -2058,6 +2261,7 @@ export interface Path2D {
   /**
    * Draws a closed path.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   closePath(): void;
 
@@ -2066,6 +2270,7 @@ export interface Path2D {
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   moveTo(x: number, y: number): void;
 
@@ -2074,6 +2279,7 @@ export interface Path2D {
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineTo(x: number, y: number): void;
 
@@ -2086,6 +2292,7 @@ export interface Path2D {
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   bezierCurveTo(
     cp1x: number,
@@ -2103,6 +2310,7 @@ export interface Path2D {
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -2115,6 +2323,7 @@ export interface Path2D {
    * @param endAngel End radian of the arc.
    * @param anticlockwise Whether to draw the arc counterclockwise.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   arc(
     x: number,
@@ -2133,6 +2342,7 @@ export interface Path2D {
    * @param y2 Y-coordinate of the second point on the arc.
    * @param radius Radius of the arc.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -2148,6 +2358,7 @@ export interface Path2D {
    * @param anticlockwise Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   ellipse(
     x: number,
@@ -2167,6 +2378,7 @@ export interface Path2D {
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rect(x: number, y: number, width: number, height: number): void;
 }
@@ -2184,6 +2396,7 @@ export interface CanvasElement extends Element {
    * @param type identifier defining the drawing context associated to the canvas.
    * @param options use this context attributes to creating rendering context.
    * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D;
 
@@ -2194,6 +2407,7 @@ export interface CanvasElement extends Element {
    * @param type identifier defining the drawing context associated to the canvas.
    * @param options use this context attributes to creating rendering context.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getContext(type: "webgl", options?: WebGLContextAttributes): WebGLRenderingContext;
 
@@ -2204,6 +2418,7 @@ export interface CanvasElement extends Element {
    * @param type identifier defining the drawing context associated to the canvas.
    * @param options use this context attributes to creating rendering context.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getContext(type: "webgl2", options?: WebGLContextAttributes): WebGL2RenderingContext;
 
@@ -2214,35 +2429,41 @@ export interface CanvasElement extends Element {
    * is image/jpeg or image/webp. If this argument is anything else,
    * the default value for image quality is used. Other arguments are ignored.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   toDataURL(type?: string, quality?: number): string;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ScrollOptions {
   /**
    * Scroll to the target position of the page. Unit: px
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   position: number;
 
   /**
    * Duration of the scrolling animation, in ms.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   duration: number;
 
   /**
    * The selector for current scroll.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   id?: string;
 
   /**
    * The timing function for current scroll animation.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   timingFunction?: string;
 
@@ -2250,6 +2471,7 @@ export interface ScrollOptions {
    * Callback function for successful interface invocation.
    * @param result the request execution result.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   success?: (result: Object) => void;
 
@@ -2257,6 +2479,7 @@ export interface ScrollOptions {
    * Callback function for interface invocation failure.
    * @param result the request execution result.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fail?: (result: Object) => void;
 
@@ -2264,23 +2487,27 @@ export interface ScrollOptions {
    * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
    * @param result the request execution result.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   complete?: (result: Object) => void;
 }
 
 /**
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ScrollOffset {
   /**
    * Scrolling offset in the x-axis, in px.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   x: number;
 
   /**
    * Scrolling offset in the y-axis, in px.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   y: number;
 }
@@ -2288,17 +2515,20 @@ export interface ScrollOffset {
 /**
  * The <div> component provides a div container.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface DivElement extends Element {
   /**
    * Scrolls the div for a certain distance.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollBy(data: ScrollParam): void;
 
   /**
    * Returns the offset of the current scrolling. The return value type is Object.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getScrollOffset(): ScrollOffset;
 }
@@ -2307,6 +2537,7 @@ export interface Application {
   /**
    * Object that is exposed in the app.js file and obtained by this.$app.$def.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $def: any;
 }
@@ -2322,6 +2553,7 @@ export interface ViewModel {
    * There are two types of placeholders available:Named placeholder, for example, {name}. The actual content must be of the object type, for example, $t('strings.object', { name: 'Hello world' }).
    * Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world'].
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $t(path: string, params?: object | Array<any>): string;
 
@@ -2333,6 +2565,7 @@ export interface ViewModel {
    * @param count Value.
    * @returns Content.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $tc(path: string, count: number): string;
 
@@ -2341,6 +2574,7 @@ export interface ViewModel {
    * @param path Resource file path.
    * @returns Content.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $r(path: string): string;
 
@@ -2350,6 +2584,7 @@ export interface ViewModel {
    * @param key
    * @param value
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $set(key: string, value: any): void;
 
@@ -2358,6 +2593,7 @@ export interface ViewModel {
    * Usage:this.$delete('key'): Delete an attribute.
    * @param key
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $delete(key: string): void;
 
@@ -2369,6 +2605,7 @@ export interface ViewModel {
    * this.$element(): Obtain the root component.
    * @param id Component ID.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $element(
     id?: string
@@ -2394,12 +2631,14 @@ export interface ViewModel {
   /**
    * Obtains the root ViewModel instance.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $root(): ViewModel & object;
 
   /**
    * Obtains the parent ViewModel instance.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $parent(): ViewModel & object;
 
@@ -2408,6 +2647,7 @@ export interface ViewModel {
    * Usage:this.$child('xxx'): Obtain the ViewModel instance of a custom child component whose ID is xxx.
    * @param id Component ID.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $child(id: string): ViewModel & object;
 
@@ -2416,12 +2656,14 @@ export interface ViewModel {
    * @param data Attribute.
    * @param callback Function name.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $watch(data: string, callback: string): void;
 
   /**
    * An object that holds all DOM elements and component instances that have been registered with the refs attribute.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $refs: ElementReferences;
 
@@ -2430,6 +2672,7 @@ export interface ViewModel {
    * @param event The name of event.
    * @param params The params of event.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   $emit(event: string, params?: object): void;
 
@@ -2437,6 +2680,7 @@ export interface ViewModel {
    * Scroll the page to the destination.
    * @param options The properties of event.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollTo(options: ScrollOptions): void;
 }
@@ -2504,6 +2748,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * For a function, the return value must be an object.
    * Set the value of data to the return value of the function during page initialization.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   data?: Data;
 
@@ -2511,6 +2756,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page initialization.
    * Called when page initialization is complete. This function is called only once in a lifecycle.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onInit?(): void;
 
@@ -2518,6 +2764,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page creation.
    * Called when a page is created. This function is called only once in a lifecycle.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onReady?(): void;
 
@@ -2525,6 +2772,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page display.
    * Called when the page is displayed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onShow?(): void;
 
@@ -2532,6 +2780,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page hiding.
    * Called when the page disappears.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onHide?(): void;
 
@@ -2539,6 +2788,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page destruction.
    * Called when the page is destroyed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDestroy?(): void;
 
@@ -2549,6 +2799,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onBackPress?(): boolean;
 
@@ -2556,6 +2807,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page active.
    * Called when the page is activing.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onActive?(): void;
 
@@ -2563,12 +2815,14 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for page inactive.
    * Called when the page is paused.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onInactive?(): void;
 
   /**
    * This callback is triggered when a new request is received when the FA has started.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onNewRequest?(): void;
 
@@ -2576,6 +2830,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Callback when FA initiates a migration, in this callback, the application can decide whether
    * to migrate according to the current state.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onStartContinuation?(): boolean;
 
@@ -2583,12 +2838,14 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * For the callback of saving state data, the developer needs to fill in the parameter object
    * the data to be migrated to the target device.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onSaveData?(value: object): void;
 
   /**
    * The callback to restore the data saved by the onSaveData method when the migration was initiated.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onRestoreData?(value: object): void;
 
@@ -2596,6 +2853,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * The callback for the completion of the migration, which is triggered on the calling side, indicates
    * the result of the application migration to the target device.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCompleteContinuation?(code: number): void;
 
@@ -2603,6 +2861,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * This callback is triggered when the corresponding system configuration changes, such as system font size,
    * language region, etc.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onConfigurationUpdated?(configuration: Configuration): void;
 
@@ -2610,6 +2869,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * Listens for application creation.
    * Called when the application is created.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCreate?(): void;
 }

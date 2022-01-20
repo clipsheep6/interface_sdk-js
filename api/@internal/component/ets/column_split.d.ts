@@ -16,11 +16,13 @@
 /**
  * Defines the ColumnSplit component.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ColumnSplitInterface {
   /**
    * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): ColumnSplitAttribute;
 }
@@ -28,11 +30,13 @@ interface ColumnSplitInterface {
 /**
  * Defines the ColumnSplit component attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
    * Indicates whether the split line can be dragged. The default value is false.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   resizeable(value: boolean): ColumnSplitAttribute;
 }

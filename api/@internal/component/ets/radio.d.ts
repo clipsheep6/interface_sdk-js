@@ -17,12 +17,14 @@
  * Input parameter for creating a radio box.
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface RadioOption {
   /**
    * Radio group name.
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   group: string;
 
@@ -30,6 +32,7 @@ declare interface RadioOption {
    * Radio name.
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   value: string;
 }
@@ -38,12 +41,14 @@ declare interface RadioOption {
  * Provides an interface for creating a radio box.
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface RadioInterface {
   /**
    * Called when a radio box is created.
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options: RadioOption): RadioAttribute;
 }
@@ -51,12 +56,14 @@ interface RadioInterface {
 /**
  * @devices phone, tablet, car
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box is selected.
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   checked(value: boolean): RadioAttribute;
 
@@ -64,6 +71,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * Called when the radio box selection status changes.
    * @devices phone, tablet, car
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 }

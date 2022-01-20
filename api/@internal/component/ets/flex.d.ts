@@ -16,35 +16,41 @@
 /**
  * Defines the option of Flex.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface FlexOption {
   /**
    * Sets the horizontal layout of elements.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   direction?: FlexDirection;
 
   /**
    * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   wrap?: FlexWrap;
 
   /**
    * The alignment format of the subassembly on the Flex container spindle.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   justifyContent?: FlexAlign;
 
   /**
    * Alignment Format for Subassembly on Flex Container Cross Axis.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignItems?: ItemAlign;
 
   /**
    * The alignment of multiple lines of content when there is extra space in the cross axis.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignContent?: FlexAlign;
 }
@@ -52,11 +58,13 @@ declare interface FlexOption {
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface FlexInterface {
   /**
    * Defines the constructor of Flex.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: FlexOption): FlexAttribute;
 }
@@ -64,6 +72,7 @@ interface FlexInterface {
 /**
  * Defines the Flex attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
 

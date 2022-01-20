@@ -16,46 +16,54 @@
 /**
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface GridItemInterface {
   /**
    * Return to get GridItem.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): GridItemAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * This parameter specifies the start line number of the current element.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rowStart(value: number): GridItemAttribute;
 
   /**
    * Specifies the end line number of the current element.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rowEnd(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies the start column number of the current element.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   columnStart(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies the end column number of the current element.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   columnEnd(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies whether to recreate the node when the component build is triggered.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   forceRebuild(value: boolean): GridItemAttribute;
 }
