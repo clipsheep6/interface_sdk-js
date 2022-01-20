@@ -16,17 +16,20 @@
 /**
  * Declare the graphic format of the bar chart.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum BarMode {
   /**
    * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Scrollable,
 
   /**
    * The width of all TabBars is evenly allocated.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Fixed,
 }
@@ -34,34 +37,40 @@ declare enum BarMode {
 /**
  * Declare the location of the bar chart.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum BarPosition {
   /**
    * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Start,
 
   /**
    * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   End,
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TabsController {
   /**
    * constructor.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor();
 
   /**
    * Called when the tab is switched.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   changeIndex(value: number): void;
 }
@@ -69,58 +78,68 @@ declare class TabsController {
 /**
  * Provides an interface for switching views.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface TabsInterface {
   /**
    * Called when the view is switched.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): TabsAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when determining whether the tab is vertical.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   vertical(value: boolean): TabsAttribute;
 
   /**
    * Called when judging whether page switching can be performed by sliding left and right.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scrollable(value: boolean): TabsAttribute;
 
   /**
    * Called when the graphic format of the bar chart is selected.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   barMode(value: BarMode): TabsAttribute;
 
   /**
    * Called when the width of the bar graph is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   barWidth(value: number): TabsAttribute;
 
   /**
    * Called when the height of the bar graph is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   barHeight(value: number): TabsAttribute;
 
   /**
    * Called when the animation duration of the bar graph is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   animationDuration(value: number): TabsAttribute;
 
   /**
    * Called when the tab is switched.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(event: (index: number) => void): TabsAttribute;
 }

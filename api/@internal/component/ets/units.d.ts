@@ -16,23 +16,27 @@
 /**
  * Defines the data type of the interface restriction.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface Resource {
   /**
    * Set id.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly id: number;
 
   /**
    * Set type.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly type: number;
 
   /**
    * Set params.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly params?: any[];
 }
@@ -40,18 +44,21 @@ declare interface Resource {
 /**
  * Defines the length property with string, number and resource unit.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type Length = string | number | Resource;
 
 /**
  * Defines the string which can use resource.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type ResourceStr = string | Resource;
 
 /**
  * Defines the padding property.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type Padding = {
   /**
@@ -78,12 +85,14 @@ declare type Padding = {
 /**
  * Defines the margin property.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type Margin = Padding;
 
 /**
  * Defines the offset property.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type Offset = {
   /**
@@ -100,12 +109,14 @@ declare type Offset = {
 /**
  * Defines the color which can use resource.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type ResourceColor = Color | number | string | Resource;
 
 /**
  * Defines the font used for text.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface Font {
   /**
@@ -132,29 +143,34 @@ declare interface Font {
 /**
  * Defines the area property.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface Area {
   /**
    * Defines the width property.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   width: Length;
 
   /**
    * Defines the height property.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   height: Length;
 
   /**
    * Defines the local position.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pos: Position;
 
   /**
    * Defines the global position.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   globalPos: Position;
 }
@@ -162,16 +178,19 @@ declare interface Area {
 /**
  * Defines the position.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface Position {
   /**
    * Coordinate x of the Position.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   x: Length;
   /**
    * Coordinate y of the Position.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   y: Length;
 }

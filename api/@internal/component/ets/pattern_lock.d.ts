@@ -16,6 +16,7 @@
 /**
  * Provides methods for control pattern lock component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class PatternLockController {
   /**
@@ -32,6 +33,7 @@ declare class PatternLockController {
 /**
  * Provides an interface for generating PatternLock.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PatternLockInterface {
   (controller?: PatternLockController): PatternLockAttribute;
@@ -39,65 +41,76 @@ interface PatternLockInterface {
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * The square side length of pattern lock component.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   sideLength(value: Length): PatternLockAttribute;
 
   /**
    * Circle radius.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   circleRadius(value: Length): PatternLockAttribute;
 
   /**
    * The background color.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * Regular color.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   regularColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is selected.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is active state.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   activeColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line color.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pathColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line stroke width.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   pathStrokeWidth(value: number | string): PatternLockAttribute;
 
   /**
    * Called when the pattern input completed.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   autoReset(value: boolean): PatternLockAttribute;
 }

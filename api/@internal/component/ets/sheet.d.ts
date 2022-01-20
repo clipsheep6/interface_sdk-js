@@ -16,11 +16,13 @@
 /**
  * Provides the interface for the sheet attributes.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface SheetInterface {
   /**
    * Create sheet.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): SheetAttribute;
 }
@@ -28,6 +30,7 @@ interface SheetInterface {
 /**
  * Declares sheet properties.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class SheetAttribute extends CommonMethod<SheetAttribute> {}
 

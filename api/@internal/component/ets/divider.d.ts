@@ -17,11 +17,13 @@
 /**
  * Provides a divider component to separate different content blocks/content elements.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface DividerInterface {
   /**
    * Return Divider.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): DividerAttribute;
 }
@@ -29,30 +31,35 @@ interface DividerInterface {
 /**
  * Defines the Divider attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
    * Indicates whether to use a horizontal splitter or a vertical splitter.
    * The options are as follows: false: horizontal splitter; true: vertical splitter.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   vertical(value: boolean): DividerAttribute;
 
   /**
    * Sets the color of the divider line.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): DividerAttribute;
 
   /**
    * Sets the width of the dividing line.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeWidth(value: number | string): DividerAttribute;
 
   /**
    * Sets the end style of the split line. The default value is Butt.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }

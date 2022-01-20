@@ -16,11 +16,13 @@
 /**
  * Provides an interface for switching the content view on a tab page.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface TabContentInterface {
   /**
    * Called when the content view of the switch tab is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): TabContentAttribute;
 }
@@ -28,11 +30,13 @@ interface TabContentInterface {
 /**
  * Defines the attribute functions of TabContent.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * Called when tabbar is entered.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   tabBar(value: string | Resource | CustomBuilder |
     { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;

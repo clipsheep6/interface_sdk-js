@@ -16,21 +16,25 @@
 /**
  * Declare the jump method.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum RouteType {
   /**
    * The page is not redirected.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   None,
   /**
    * Go to the next page.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Push,
   /**
    * Redirect to a specified page.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Pop,
 }
@@ -38,29 +42,34 @@ declare enum RouteType {
 /**
  * Declare the sliding effect of transition.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum SlideEffect {
   /**
    * Swipe left.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Left,
 
   /**
    * Swipe right.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Right,
 
   /**
    * Swipe top.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Top,
 
   /**
    * Swipe bottom.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Bottom,
 }
@@ -68,34 +77,40 @@ declare enum SlideEffect {
 /**
  * Provides interfaces for common transitions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CommonTransition<T> {
   /**
    * Called when a transition method is required.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor();
   /**
    * Called when the slide in effect of the transition is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   slide(value: SlideEffect): T;
 
   /**
    * Called when the translation effect of page transition is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translate(value: { x?: number | string; y?: number | string; z?: number | string }): T;
 
   /**
    * Called when setting the zoom effect of page transition.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scale(value: { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string }): T;
 
   /**
    * Called when the transparency value of the starting point of entry or the ending point of exit is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   opacity(value: number): T;
 }
@@ -103,17 +118,20 @@ declare class CommonTransition<T> {
 /**
  * Provides an interface for page rotation mode.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEnterInterface> {
   /**
    * Called when page Jump animation is used.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionEnterInterface;
 
   /**
    * Called when the incoming parameter is the normalized progress of the current incoming animation.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnterInterface;
 }
@@ -121,17 +139,20 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to exit the transition.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PageTransitionExitInterface extends CommonTransition<PageTransitionExitInterface> {
   /**
    * Called when the transition is delayed.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionExitInterface;
 
   /**
    * Called when the input parameter is the normalized progress of the current exit animation.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExitInterface;
 }

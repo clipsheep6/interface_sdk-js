@@ -16,35 +16,41 @@
 /**
  * Data Change Listener.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface DataChangeListener {
   /**
    * Data ready.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDataReloaded(): void;
 
   /**
    * Data added.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDataAdded(index: number): void;
 
   /**
    * Data moved.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDataMoved(from: number, to: number): void;
 
   /**
    * Data deleted.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDataDeleted(index: number): void;
 
   /**
    * Data changed.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDataChanged(index: number): void;
 }
@@ -52,29 +58,34 @@ declare interface DataChangeListener {
 /**
  * Data  changed.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface IDataSource {
   /**
    * Total count.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   totalCount(): number;
 
   /**
    * get  data.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getData(index: number): any;
 
   /**
    * register Data Change Listener
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
    * unregister Data Change Listener
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
 }
@@ -82,11 +93,13 @@ declare interface IDataSource {
 /**
  * Lazy loading.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface LazyForEachInterface {
   /**
    * Enter the value to obtain the LazyForEach.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (
     dataSource: IDataSource,
@@ -97,5 +110,6 @@ interface LazyForEachInterface {
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const LazyForEach: LazyForEachInterface;

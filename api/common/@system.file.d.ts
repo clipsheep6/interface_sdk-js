@@ -17,6 +17,7 @@ export interface FileResponse {
   /**
    * File URI.
    * @since 3
+   * @Syscap SystemCapability.ArkUI.Standard
    */
   uri: string;
 
@@ -24,6 +25,7 @@ export interface FileResponse {
    * File size, in bytes.
    * If type is dir, the length value is fixed to 0.
    * @since 3
+   * @Syscap SystemCapability.ArkUI.Standard
    */
   length: number;
 
@@ -31,6 +33,7 @@ export interface FileResponse {
    * Timestamp when the file is stored, which is the number of milliseconds elapsed since 1970/01/01 00:00:00.
    * For lite wearables, the value is fixed to 0, because this parameter is restricted by the underlying file system.
    * @since 3
+   * @Syscap SystemCapability.ArkUI.Standard
    */
   lastModifiedTime: number;
 
@@ -39,6 +42,7 @@ export interface FileResponse {
    * dir: directory
    * file: file
    * @since 3
+   * @Syscap SystemCapability.ArkUI.Standard
    */
   type: "dir" | "file";
 
@@ -46,12 +50,14 @@ export interface FileResponse {
    * File list. When the recursive value is true and the type is dir, the file information under the subdirectory will be returned.
    * Otherwise, no value will be returned.
    * @since 3
+   * @Syscap SystemCapability.ArkUI.Standard
    */
   subFiles?: Array<FileResponse>;
 }
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileMoveOption {
   /**
@@ -60,6 +66,7 @@ export interface FileMoveOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   srcUri: string;
@@ -70,6 +77,7 @@ export interface FileMoveOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   dstUri: string;
@@ -78,6 +86,7 @@ export interface FileMoveOption {
    * Called when the source file is moved to the specified location successfully.
    * This function returns the URI of the file moved to the target location.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (uri: string) => void;
@@ -85,6 +94,7 @@ export interface FileMoveOption {
   /**
    * Called when moving fails.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -92,6 +102,7 @@ export interface FileMoveOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -99,10 +110,12 @@ export interface FileMoveOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileListResponse {
   /**
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fileList: Array<FileResponse>;
@@ -110,6 +123,7 @@ export interface FileListResponse {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileListOption {
   /**
@@ -118,6 +132,7 @@ export interface FileListOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -125,6 +140,7 @@ export interface FileListOption {
   /**
    * Called when the list is obtained successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (data: FileListResponse) => void;
@@ -132,6 +148,7 @@ export interface FileListOption {
   /**
    * Called when the list fails to be obtained.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -139,6 +156,7 @@ export interface FileListOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -151,6 +169,7 @@ export interface FileCopyOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   srcUri: string;
@@ -161,6 +180,7 @@ export interface FileCopyOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   dstUri: string;
@@ -169,6 +189,7 @@ export interface FileCopyOption {
    * Called when the copy file is saved successful.
    * This function returns the URI of the file saved to the target location.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (uri: string) => void;
@@ -176,6 +197,7 @@ export interface FileCopyOption {
   /**
    * Called when the copy or save operation fails.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -183,6 +205,7 @@ export interface FileCopyOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -195,6 +218,7 @@ export interface FileGetOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -203,6 +227,7 @@ export interface FileGetOption {
    * Whether to recursively obtain the file list under a subdirectory.
    * The default value is false.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   recursive?: boolean;
@@ -210,6 +235,7 @@ export interface FileGetOption {
   /**
    * Called when file information is obtained successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (file: FileResponse) => void;
@@ -217,6 +243,7 @@ export interface FileGetOption {
   /**
    * Called when file information fails to be obtained.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -224,6 +251,7 @@ export interface FileGetOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -236,6 +264,7 @@ export interface FileDeleteOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -243,6 +272,7 @@ export interface FileDeleteOption {
   /**
    * Called when local files are deleted successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -250,6 +280,7 @@ export interface FileDeleteOption {
   /**
    * Called when the deletion fails.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -257,6 +288,7 @@ export interface FileDeleteOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -264,6 +296,7 @@ export interface FileDeleteOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileWriteTextOption {
   /**
@@ -272,6 +305,7 @@ export interface FileWriteTextOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -279,6 +313,7 @@ export interface FileWriteTextOption {
   /**
    * Character string to write into the local file.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   text: string;
@@ -286,6 +321,7 @@ export interface FileWriteTextOption {
   /**
    * Encoding format. The default format is UTF-8.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   encoding?: string;
@@ -293,6 +329,7 @@ export interface FileWriteTextOption {
   /**
    * Whether to enable the append mode. The default value is false.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   append?: boolean;
@@ -300,6 +337,7 @@ export interface FileWriteTextOption {
   /**
    * Called when texts are written into a file successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -307,6 +345,7 @@ export interface FileWriteTextOption {
   /**
    * Called when texts fail to be written into a file.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -314,6 +353,7 @@ export interface FileWriteTextOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -321,10 +361,12 @@ export interface FileWriteTextOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileReadTextResponse {
   /**
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   text: string;
@@ -337,6 +379,7 @@ export interface FileReadTextOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -345,6 +388,7 @@ export interface FileReadTextOption {
    * Encoding format. The default format is UTF-8.
    * Currently, only UTF-8 is supported.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   encoding?: string;
@@ -368,6 +412,7 @@ export interface FileReadTextOption {
   /**
    * Called when texts are read successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (data: FileReadTextResponse) => void;
@@ -375,6 +420,7 @@ export interface FileReadTextOption {
   /**
    * Called when texts fail to be read.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -382,6 +428,7 @@ export interface FileReadTextOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -389,6 +436,7 @@ export interface FileReadTextOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileWriteArrayBufferOption {
   /**
@@ -397,6 +445,7 @@ export interface FileWriteArrayBufferOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -404,6 +453,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Buffer from which the data is derived.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   buffer: Uint8Array;
@@ -411,6 +461,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Offset to the position where the writing starts. The default value is 0.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   position?: number;
@@ -419,6 +470,7 @@ export interface FileWriteArrayBufferOption {
    * Whether to enable the append mode.
    * The default value is false. If the value is true, the position parameter will become invalid.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   append?: boolean;
@@ -426,6 +478,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Called when data from a buffer is written into a file successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -433,6 +486,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Called when data from a buffer fails to be written into a file.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -440,6 +494,7 @@ export interface FileWriteArrayBufferOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -447,10 +502,12 @@ export interface FileWriteArrayBufferOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileReadArrayBufferResponse {
   /**
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   buffer: Uint8Array;
@@ -458,6 +515,7 @@ export interface FileReadArrayBufferResponse {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileReadArrayBufferOption {
   /**
@@ -466,6 +524,7 @@ export interface FileReadArrayBufferOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -474,6 +533,7 @@ export interface FileReadArrayBufferOption {
    * Position where the reading starts.
    * The default value is the start position of the file.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   position?: number;
@@ -482,6 +542,7 @@ export interface FileReadArrayBufferOption {
    * Length of the content to read.
    * If this parameter is not set, all content of the file will be read.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   length?: number;
@@ -489,6 +550,7 @@ export interface FileReadArrayBufferOption {
   /**
    * Called when the buffer data is read successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: (data: FileReadArrayBufferResponse) => void;
@@ -496,6 +558,7 @@ export interface FileReadArrayBufferOption {
   /**
    * Called when the buffer data fails to be read.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -503,6 +566,7 @@ export interface FileReadArrayBufferOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -510,6 +574,7 @@ export interface FileReadArrayBufferOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileAccessOption {
   /**
@@ -518,6 +583,7 @@ export interface FileAccessOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -525,6 +591,7 @@ export interface FileAccessOption {
   /**
    * Called when the check result is obtained successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -532,6 +599,7 @@ export interface FileAccessOption {
   /**
    * Called when the check fails.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -539,6 +607,7 @@ export interface FileAccessOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -546,6 +615,7 @@ export interface FileAccessOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileMkdirOption {
   /**
@@ -555,6 +625,7 @@ export interface FileMkdirOption {
    * 2. The maximum number of characters allowed is 128.
    * 3. A maximum of five recursions are allowed for creating the directory.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -563,6 +634,7 @@ export interface FileMkdirOption {
    * Whether to create the directory after creating its upper-level directory recursively.
    * The default value is false.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   recursive?: boolean;
@@ -570,6 +642,7 @@ export interface FileMkdirOption {
   /**
    * Called when the directory is created successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -577,6 +650,7 @@ export interface FileMkdirOption {
   /**
    * Called when the creation fails.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -584,6 +658,7 @@ export interface FileMkdirOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -591,6 +666,7 @@ export interface FileMkdirOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface FileRmdirOption {
   /**
@@ -599,6 +675,7 @@ export interface FileRmdirOption {
    * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * 2. The maximum number of characters allowed is 128.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   uri: string;
@@ -607,6 +684,7 @@ export interface FileRmdirOption {
    * Whether to delete files and subdirectories recursively.
    * The default value is false.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   recursive?: boolean;
@@ -614,6 +692,7 @@ export interface FileRmdirOption {
   /**
    * Called when the directory is deleted successfully.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -621,6 +700,7 @@ export interface FileRmdirOption {
   /**
    * Called when the deletion fails.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -628,6 +708,7 @@ export interface FileRmdirOption {
   /**
    * Called when the execution is completed.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -635,12 +716,14 @@ export interface FileRmdirOption {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export default class File {
   /**
    * Moves the source file to a specified location.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static move(options: FileMoveOption): void;
 
@@ -648,6 +731,7 @@ export default class File {
    * Copies a source file and save the copy to a specified location.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static copy(options: FileCopyOption): void;
 
@@ -655,6 +739,7 @@ export default class File {
    * Obtains the list of files in a specified directory.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static list(options: FileListOption): void;
 
@@ -662,6 +747,7 @@ export default class File {
    * Obtains information about a local file.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static get(options: FileGetOption): void;
 
@@ -669,6 +755,7 @@ export default class File {
    * Deletes local files.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static delete(options: FileDeleteOption): void;
 
@@ -676,6 +763,7 @@ export default class File {
    * Writes texts into a file.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static writeText(options: FileWriteTextOption): void;
 
@@ -683,6 +771,7 @@ export default class File {
    * Reads texts from a file.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static readText(options: FileReadTextOption): void;
 
@@ -690,6 +779,7 @@ export default class File {
    * Writes data from a buffer into a file.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static writeArrayBuffer(options: FileWriteArrayBufferOption): void;
 
@@ -697,6 +787,7 @@ export default class File {
    * Reads buffer data from a file.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static readArrayBuffer(options: FileReadArrayBufferOption): void;
 
@@ -704,6 +795,7 @@ export default class File {
    * Checks whether a file or directory exists.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static access(options: FileAccessOption): void;
 
@@ -711,6 +803,7 @@ export default class File {
    * Creates a directory.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static mkdir(options: FileMkdirOption): void;
 
@@ -718,6 +811,7 @@ export default class File {
    * Deletes a directory.
    * @param options Options.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static rmdir(options: FileRmdirOption): void;
 }

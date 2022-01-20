@@ -16,11 +16,13 @@
 /**
  * looping
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ForEachInterface {
   /**
    * Set the value, array, and key.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (
     arr: Array<any>,
@@ -32,5 +34,6 @@ interface ForEachInterface {
 /**
  * @devices phone, tablet, car
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare const ForEach: ForEachInterface;

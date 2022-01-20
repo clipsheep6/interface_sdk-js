@@ -16,40 +16,47 @@
 /**
  * Provides the interface for scoring bars.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface RatingInterface {
   /**
    * Called when a score bar is created.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options?: { rating: number; indicator?: boolean }): RatingAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when the total number of stars is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stars(value: number): RatingAttribute;
 
   /**
    * Called when the step size of the operation rating.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stepSize(value: number): RatingAttribute;
 
   /**
    * Called when a picture is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): RatingAttribute;
 
   /**
    * Called when the star rating of the operation scoring bar changes.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (value: number) => void): RatingAttribute;
 }

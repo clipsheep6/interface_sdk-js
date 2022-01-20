@@ -16,11 +16,13 @@
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface CounterInterface {
   /**
    * Return Counter.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (): CounterAttribute;
 }
@@ -28,17 +30,20 @@ interface CounterInterface {
 /**
  * Defines the Counter attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listen to the event that the value increases.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onInc(event: () => void): CounterAttribute;
 
   /**
    * Listens to the number decrease event.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onDec(event: () => void): CounterAttribute;
 }

@@ -17,18 +17,21 @@ export interface AppResponse {
   /**
    * Application name
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   appName: string;
 
   /**
    * Application version name
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   versionName: string;
 
   /**
    * Application version
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   versionCode: number;
 }
@@ -37,24 +40,28 @@ export interface ScreenOnVisibleOptions {
   /**
    * Whether to keep the application visible. The default value is false.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   visible?: boolean;
 
   /**
    * Called when the application always keeps visible.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   success?: () => void;
 
   /**
    * Called when the application fails to keep visible.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   complete?: () => void;
 }

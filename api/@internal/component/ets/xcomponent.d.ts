@@ -16,12 +16,14 @@
 /**
  * Defines XComponentController
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class XComponentController {
   /**
    * constructor.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   constructor();
@@ -29,6 +31,7 @@ declare class XComponentController {
   /**
    * get the id of surface created by XComponent.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   getXComponentSurfaceId();
@@ -37,12 +40,14 @@ declare class XComponentController {
 /**
  * Defines XComponent.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 interface XComponentInterface {
   /**
    * Constructor parameters
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
   (value: {
@@ -56,12 +61,14 @@ interface XComponentInterface {
 /**
  * Defines XComponentAttribute.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent surface is created.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
    onLoad(callback: (event?: object) => void): XComponentAttribute;
@@ -69,6 +76,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent is destroyed.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    */
    onDestroy(event: () => void): XComponentAttribute;

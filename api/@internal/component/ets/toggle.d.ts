@@ -16,57 +16,67 @@
 /**
  * Declare the type of status button
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum ToggleType {
   /**
    * Checkbox
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Checkbox,
 
   /**
    * Switch
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Switch,
 
   /**
    * Button
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Button,
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ToggleInterface {
   /**
    * Set parameters to obtain the toggle.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
    * Called when the selected state of the component changes.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 }
