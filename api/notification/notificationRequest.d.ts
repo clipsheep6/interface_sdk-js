@@ -21,6 +21,27 @@ import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
 
 /**
+ * Describes a NotificationTemplate instance.
+ *
+ * @name NotificationTemplate
+ * @since 8
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @sysCap SystemCapability.Notification.ANS
+ */
+export interface NotificationFlags {
+  /**
+   * Whether to enable sound reminder.
+   */
+  readonly soundEnabled?: boolean;
+
+  /**
+   * Whether to enable vibration reminder.
+   */
+  readonly vibrationEnabled?: boolean;
+}
+
+/**
  * Defines a NotificationRequest instance.
  *
  * @name NotificationRequest
@@ -163,6 +184,11 @@ export interface NotificationRequest {
   readonly creatorPid?: number;
 
   /**
+   * Read-only UserId of the notification creator.
+   */
+  readonly creatorUserId?: number;
+
+  /**
    * Obtains the classification of this notification.
    *
    * @systemapi Hide this for inner system use.
@@ -197,4 +223,11 @@ export interface NotificationRequest {
    * @since 8
    */
   template?: NotificationTemplate;
+
+  /**
+   * Obtains the set of identifiers for the notification.
+   *
+   * @since 8
+   */
+   readonly notificationFlags?: NotificationFlags;
 }
