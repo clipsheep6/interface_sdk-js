@@ -16,6 +16,8 @@
 import { AsyncCallback } from './basic';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
+import { NotificationRequest } from './notification/notificationRequest';
+import { WantAgent } from "./@ohos.wantAgent";
 
 /**
  * A Particle Ability represents an ability with service.
@@ -59,5 +61,45 @@ declare namespace particleAbility {
    * @return Returns the dataAbilityHelper.
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
+
+  /**
+   * Service ability uses this method to request keep running in background.
+   * note this is old api. will be deprecated in furture api version
+   *
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @param id Indicates the declared background mode
+   * @param request the notification related to the this service.
+   * @return -
+   * @deprecated
+   */
+   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
+   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
+
+   /**
+   * Service ability uses this method to request keep running in background.
+   * system will publish a notification related to the this service when condition is met.
+   * each ability will only allowed to declare one type background mode.
+   *
+   * @devices phone, tablet
+   * @since 8
+   * @sysCap AAFwk
+   * @param wantAgent Indicates which ability to start when user click the notification.
+   * @return -
+   */
+  function startBackgroundRunning(wantAgent: WantAgent, callback: AsyncCallback<void>): void;
+  function startBackgroundRunning(wantAgent: WantAgent): Promise<void>;
+
+  /**
+   * Service ability uses this method to request cancel running in background.
+   *
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @return -
+   */
+   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
+   function cancelBackgroundRunning(): Promise<void>;
 }
 export default particleAbility;
