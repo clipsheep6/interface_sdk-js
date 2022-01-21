@@ -16,22 +16,26 @@
 /**
  * Provides ports for stacking containers.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface StackInterface {
   /**
    * Set the value.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { alignContent?: Alignment }): StackAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
    * Called when the occupancy of items in the container is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignContent(value: Alignment): StackAttribute;
 }

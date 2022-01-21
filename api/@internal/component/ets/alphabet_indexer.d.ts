@@ -16,17 +16,20 @@
 /**
  * indexer align property.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum IndexerAlign {
   /**
    * A dialog box is displayed on the right of the index bar.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Left,
 
   /**
    * A dialog box is displayed on the left of the index bar.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Right,
 }
@@ -34,12 +37,14 @@ declare enum IndexerAlign {
 /**
  * Alphabet index bar.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface AlphabetIndexerInterface {
   /**
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexerAttribute;
 }
@@ -47,101 +52,118 @@ interface AlphabetIndexerInterface {
 /**
  * Defines the alphabet index bar attribute functions.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
    * Index bar selection callback.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onSelected(event: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
    * Definitions color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Select the text color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Font color of the pop-up prompt text.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   popupColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Background color of the pop-up window index.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   popupBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Whether to use pop-up index hints.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   usingPopup(value: boolean): AlphabetIndexerAttribute;
 
   /**
    * Select the text text style,
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedFont(value: Font): AlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   popupFont(value: Font): AlphabetIndexerAttribute;
 
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   itemSize(value: string | number): AlphabetIndexerAttribute;
 
   /**
    * Definitions fonts.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   font(value: Font): AlphabetIndexerAttribute;
 
   /**
    * Alphabet index bar alignment style. The left and right alignment styles are supported, which affects the pop-up position of the pop-up window.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignStyle(value: IndexerAlign): AlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onRequestPopupData(event: (index: number) => Array<string>): AlphabetIndexerAttribute;
 
   /**
    * Pop-up selection callback.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onPopupSelected(event: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
    * Select the index.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   selectedIndex(index: number): AlphabetIndexerAttribute;
 
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   popupPosition(value: {offsetX: number, offsetY: number}): AlphabetIndexerAttribute;
 }

@@ -16,6 +16,7 @@
 /**
  * Defines the Gauge component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface GaugeInterface {
   /**
@@ -23,41 +24,48 @@ interface GaugeInterface {
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options: { value: number; min?: number; max?: number }): GaugeAttribute;
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets the value for the current profile.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   value(value: number): GaugeAttribute;
 
   /**
    * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   startAngle(angle: number): GaugeAttribute;
 
   /**
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   endAngle(angle: number): GaugeAttribute;
 
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   colors(colors: Array<any>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeWidth(length: number): GaugeAttribute;
 }

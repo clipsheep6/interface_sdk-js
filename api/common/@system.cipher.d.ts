@@ -15,17 +15,20 @@
 
 /**
  * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CipherResponse {
   /**
    * response text
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   text: string;
 }
 
 /**
  * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CipherRsaOptions {
   /**
@@ -34,6 +37,7 @@ export interface CipherRsaOptions {
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   action: string;
@@ -46,6 +50,7 @@ export interface CipherRsaOptions {
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   text: string;
@@ -55,6 +60,7 @@ export interface CipherRsaOptions {
    * During encryption, this parameter is a public key.
    * During decryption, it is a private key.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   key: string;
@@ -63,6 +69,7 @@ export interface CipherRsaOptions {
    * RSA algorithm padding.
    * The default value is RSA/None/OAEPWithSHA256AndMGF1Padding.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   transformation?: string;
@@ -70,6 +77,7 @@ export interface CipherRsaOptions {
   /**
    * Called when data is encrypted or decrypted successfully.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success: (data: CipherResponse) => void;
@@ -77,6 +85,7 @@ export interface CipherRsaOptions {
   /**
    * Called when data fails to be encrypted or decrypted.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail: (data: string, code: number) => void;
@@ -84,6 +93,7 @@ export interface CipherRsaOptions {
   /**
    * Called when the execution is completed.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete: () => void;
@@ -91,6 +101,7 @@ export interface CipherRsaOptions {
 
 /**
  * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface CipherAesOptions {
   /**
@@ -99,6 +110,7 @@ export interface CipherAesOptions {
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   action: string;
@@ -109,6 +121,7 @@ export interface CipherAesOptions {
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   text: string;
@@ -116,6 +129,7 @@ export interface CipherAesOptions {
   /**
    * Key used for encryption or decryption, which is a character string encrypted using Base64.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   key: string;
@@ -124,6 +138,7 @@ export interface CipherAesOptions {
    * Encryption mode and padding of the AES algorithm.
    * The default value is AES/CBC/PKCS5Padding.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   transformation?: string;
@@ -133,6 +148,7 @@ export interface CipherAesOptions {
    * The value is a character string encoded using Base64.
    * The default value is the key value.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   iv?: string;
@@ -141,6 +157,7 @@ export interface CipherAesOptions {
    * Offset of the initial vector for AES-based encryption and decryption.
    * The default value is 0.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   ivOffset?: string;
@@ -149,6 +166,7 @@ export interface CipherAesOptions {
    * Length of the initial vector for AES-based encryption and decryption.
    * The default value is 16.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   ivLen?: string;
@@ -156,6 +174,7 @@ export interface CipherAesOptions {
   /**
    * Called when data is encrypted or decrypted successfully.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success: (data: CipherResponse) => void;
@@ -163,6 +182,7 @@ export interface CipherAesOptions {
   /**
    * Called when data fails to be encrypted or decrypted.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail: (data: string, code: number) => void;
@@ -170,6 +190,7 @@ export interface CipherAesOptions {
   /**
    * Called when the execution is completed.
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete: () => void;
@@ -177,12 +198,14 @@ export interface CipherAesOptions {
 
 /**
  * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
    * @param options RSA options
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static rsa(options: CipherRsaOptions): void;
 
@@ -190,6 +213,7 @@ export default class Cipher {
    * Encrypts or decrypts data using AES.
    * @param options AES options
    * @devices smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static aes(options: CipherAesOptions): void;
 }

@@ -16,28 +16,33 @@
 /**
  * The components are laid out horizontally
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { space?: string | number }): RowAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
    * Called when the vertical alignment is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
   /**
    * Called when the horizontal alignment is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    justifyContent(value: FlexAlign): RowAttribute;
 }

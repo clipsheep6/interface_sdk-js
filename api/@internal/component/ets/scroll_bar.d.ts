@@ -16,17 +16,20 @@
 /**
  * Content scroll direction.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum ScrollBarDirection {
   /**
    * Vertical scrolling is supported.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Vertical,
 
   /**
    * Horizontal scrolling is supported.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Horizontal,
 }
@@ -34,23 +37,27 @@ declare enum ScrollBarDirection {
 /**
  * Defines the option of ScrollBar.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface ScrollBarOption {
   /**
    * Sets the scroller of scroll bar.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scroller: Scroller;
 
   /**
    * Sets the direction of scroll bar.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   direction?: ScrollBarDirection;
 
   /**
    * Sets the state of scroll bar.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   state?: BarState;
 }
@@ -58,17 +65,20 @@ declare interface ScrollBarOption {
 /**
  * Provides interfaces for scroll bar.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ScrollBarInterface {
   /**
    * Called when a ScrollBar container is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: ScrollBarOption): ScrollBarAttribute;
 }
 
 /**
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
 declare const ScrollBar: ScrollBarInterface;

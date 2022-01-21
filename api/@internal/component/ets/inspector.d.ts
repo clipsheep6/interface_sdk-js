@@ -16,6 +16,7 @@
 /**
  * Get inspector node infos.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @deprecated
  */
@@ -24,6 +25,7 @@ declare function getInspectorNodes(): object;
 /**
  * Get inspector node info by node id.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @deprecated
  */
@@ -32,6 +34,7 @@ declare function getInspectorNodeById(id: number): object;
 /**
  * Get inspector info by key.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -40,6 +43,7 @@ declare function getInspectorByKey(id: string): string;
 /**
  * Get inspector tree.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -48,6 +52,7 @@ declare function getInspectorTree(): string;
 /**
  * Send event to inspector by key. Return false if no inspector with key is found.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -56,6 +61,7 @@ declare function sendEventByKey(id: string, action: number, params: string): boo
 /**
  * Send touch event.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -64,6 +70,7 @@ declare function sendTouchEvent(event: TouchObject): boolean;
 /**
  * Send key event.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -72,6 +79,7 @@ declare function sendKeyEvent(event: KeyEvent): boolean;
 /**
  * Send mouse event.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -80,6 +88,7 @@ declare function sendMouseEvent(event: MouseEvent): boolean;
 /**
  * Profiler tools for inspectors.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  * @systemapi
  * @test
  */
@@ -88,6 +97,7 @@ declare namespace Profiler {
    * Registers vsync callback for profiler.
    * @param callback the callback info is json string with ui update info.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    * @test
    */
@@ -96,6 +106,7 @@ declare namespace Profiler {
   /**
    * Unregisters vsync callback.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    * @systemapi
    * @test
    */

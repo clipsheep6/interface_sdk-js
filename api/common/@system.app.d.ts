@@ -15,11 +15,13 @@
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface AppResponse {
   /**
    * Application bundleName.
    * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 6
    */
   appID: string;
@@ -27,6 +29,7 @@ export interface AppResponse {
   /**
    * Application name.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   appName: string;
@@ -34,6 +37,7 @@ export interface AppResponse {
   /**
    * Application version name.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   versionName: string;
@@ -41,6 +45,7 @@ export interface AppResponse {
   /**
    * Application version.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   versionCode: number;
@@ -48,11 +53,13 @@ export interface AppResponse {
 
 /**
  * @devices wearable, liteWearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export interface ScreenOnVisibleOptions {
   /**
    * Whether to keep the application visible. The default value is false.
    * @devices wearable, liteWearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   visible?: boolean;
@@ -60,6 +67,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Called when the application always keeps visible.
    * @devices wearable, liteWearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   success?: () => void;
@@ -67,6 +75,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Called when the application fails to keep visible.
    * @devices wearable, liteWearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   fail?: (data: string, code: number) => void;
@@ -74,6 +83,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Called when the execution is completed.
    * @devices wearable, liteWearable
+* @Syscap SystemCapability.ArkUI.Standard
    * @since 3
    */
   complete?: () => void;
@@ -81,17 +91,20 @@ export interface ScreenOnVisibleOptions {
 
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export default class App {
   /**
    * Obtains the declared information in the config.json file of an application.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static getInfo(): AppResponse;
 
   /**
    * Destroys the current ability.
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static terminate(): void;
 
@@ -103,6 +116,7 @@ export default class App {
    * @param options Transition time from non-full window to full window, in milliseconds.
    * By default, the value is in direct proportion to the distance between the non-full window and the full window.
    * @devices phone, tablet
+* @Syscap SystemCapability.ArkUI.Standard
    */
   static requestFullWindow(options?: RequestFullWindowOptions): void;
 }

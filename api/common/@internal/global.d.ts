@@ -20,6 +20,7 @@
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  * @since 3
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
@@ -31,6 +32,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  * @since 3
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
@@ -39,6 +41,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * Cancels the interval set by " setInterval()".
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  * @since 3
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -47,6 +50,7 @@ export declare function clearInterval(intervalID?: number): void;
  * Cancels the timer set by "setTimeout()".
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  * @since 3
  */
 export declare function clearTimeout(timeoutID?: number): void;
@@ -54,6 +58,7 @@ export declare function clearTimeout(timeoutID?: number): void;
 /**
  * Obtain the objects exposed in app.js
  * @devices tv, phone, tablet, wearable, smartVision
+* @Syscap SystemCapability.ArkUI.Standard
  * @since 6
  */
 export declare function getApp(): object;
@@ -61,31 +66,37 @@ export declare function getApp(): object;
 /**
  * You can create an Image object by calling new Image().
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export declare class Image {
     /**
      * Network address or local resource. The internal URI is supported.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     src: string;
     /**
      * Image width.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     width?: number;
     /**
      * Image height.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     height?: number;
     /**
      * Called when an image is successfully loaded. This function has no parameter.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     onload?: () => void;
     /**
      * Called when an image fails to be loaded. This function has no parameter.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     onerror?: () => void;
 }
@@ -93,21 +104,25 @@ export declare class Image {
 /**
  * An ImageData object is a common object that stores the actual pixel data of a Canvas object.
  * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
  */
 export declare class ImageData {
     /**
      * Actual width of the ImageData object, in pixels.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     width: number;
     /**
      * Actual height of the ImageData object, in pixels.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     height: number;
     /**
      * A one-dimensional array of color values. The color values are sorted in the RGBA order and represented by integers from 0 to 255.
      * @devices tv, phone, tablet, wearable
+* @Syscap SystemCapability.ArkUI.Standard
      */
     data: Uint8ClampedArray;
 }

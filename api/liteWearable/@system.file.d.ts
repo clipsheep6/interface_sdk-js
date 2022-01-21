@@ -17,6 +17,7 @@ export interface FileResponse {
   /**
    * File URI.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   uri: string;
 
@@ -24,6 +25,7 @@ export interface FileResponse {
    * File size, in bytes.
    * If type is dir, the length value is fixed to 0.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   length: number;
 
@@ -31,6 +33,7 @@ export interface FileResponse {
    * Timestamp when the file is stored, which is the number of milliseconds elapsed since 1970/01/01 00:00:00 GMT.
    * For lite wearables, the value is fixed to 0, because this parameter is restricted by the underlying file system.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   lastModifiedTime: number;
 
@@ -39,6 +42,7 @@ export interface FileResponse {
    * dir: directory
    * file: file
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   type: "dir" | "file";
 
@@ -47,6 +51,7 @@ export interface FileResponse {
    * When the recursive value is true and the type is dir, the file information under the subdirectory will be returned.
    * Otherwise, no value will be returned.
    * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
    */
   subFiles?: Array<FileResponse>;
 }
@@ -66,6 +71,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     srcUri: string;
 
@@ -75,6 +81,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     dstUri: string;
 
@@ -82,18 +89,21 @@ export default class File {
      * Called when the source file is moved to the specified location successfully.
      * This function returns the URI of the file moved to the target location.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: (uri: string) => void;
 
     /**
      * Called when moving fails.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -109,6 +119,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     srcUri: string;
 
@@ -118,6 +129,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     dstUri: string;
 
@@ -125,18 +137,21 @@ export default class File {
      * Called when the source file is copied and saved to the specified location successfully.
      * This function returns the URI of the file saved to the target location.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: (uri: string) => void;
 
     /**
      * Called when the copy or save operation fails.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -152,24 +167,28 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
     /**
      * Called when the list is obtained successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: (data: { fileList: Array<FileResponse> }) => void;
 
     /**
      * Called when the list fails to be obtained.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -185,6 +204,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
@@ -192,24 +212,28 @@ export default class File {
      * Whether to recursively obtain the file list under a subdirectory.
      * The default value is false.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     recursive?: boolean;
 
     /**
      * Called when file information is obtained successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: (file: FileResponse) => void;
 
     /**
      * Called when file information fails to be obtained.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -225,24 +249,28 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
     /**
      * Called when local files are deleted successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: () => void;
 
     /**
      * Called when the deletion fails.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -258,12 +286,14 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
     /**
      * Character string to write into the local file.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     text: string;
 
@@ -271,6 +301,7 @@ export default class File {
      * Encoding format. The default format is UTF-8.
      * Currently, only UTF-8 is supported.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     encoding?: string;
 
@@ -278,24 +309,28 @@ export default class File {
      * Whether to enable the append mode.
      * The default value is false.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     append?: boolean;
 
     /**
      * Called when texts are written into a file successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: () => void;
 
     /**
      * Called when texts fail to be written into a file.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -311,6 +346,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
@@ -318,6 +354,7 @@ export default class File {
      * Encoding format. The default format is UTF-8.
      * Currently, only UTF-8 is supported.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     encoding?: string;
 
@@ -325,6 +362,7 @@ export default class File {
      * Position where the reading starts.
      * The default value is the start position of the file.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     position?: number;
 
@@ -332,24 +370,28 @@ export default class File {
      * Position where the reading starts.
      * The default value is the start position of the file.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     length?: number;
 
     /**
      * Called when texts are read successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: (data: { text: string }) => void;
 
     /**
      * Called when texts fail to be read.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -365,12 +407,14 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
     /**
      * Buffer from which the data is derived.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     buffer: Uint8Array;
 
@@ -378,6 +422,7 @@ export default class File {
      * Offset to the position where the writing starts.
      * The default value is 0.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     position?: number;
 
@@ -385,24 +430,28 @@ export default class File {
      * Whether to enable the append mode. The default value is false.
      * If the value is true, the position parameter will become invalid.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     append?: boolean;
 
     /**
      * Called when data from a buffer is written into a file successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: () => void;
 
     /**
      * Called when data from a buffer fails to be written into a file.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -418,6 +467,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
@@ -425,6 +475,7 @@ export default class File {
      * Position where the reading starts.
      * The default value is the start position of the file.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     position?: number;
 
@@ -432,24 +483,28 @@ export default class File {
      * Length of the content to read.
      * If this parameter is not set, all content of the file will be read.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     length?: number;
 
     /**
      * Called when the buffer data is read successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: (data: { buffer: Uint8Array }) => void;
 
     /**
      * Called when the buffer data fails to be read.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -465,24 +520,28 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
     /**
      * Called when the check result is obtained successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: () => void;
 
     /**
      * Called when the check fails.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -499,6 +558,7 @@ export default class File {
      * 2. The maximum number of characters allowed is 128.
      * 3. A maximum of five recursions are allowed for creating the directory.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
@@ -506,24 +566,28 @@ export default class File {
      * Whether to recursively create upper-level directories of the specified directory.
      * The default value is false.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     recursive?: boolean;
 
     /**
      * Called when the directory is created successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: () => void;
 
     /**
      * Called when the creation fails.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;
@@ -539,6 +603,7 @@ export default class File {
      * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
      * 2. The maximum number of characters allowed is 128.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     uri: string;
 
@@ -546,24 +611,28 @@ export default class File {
      * Whether to recursively delete sub files and subdirectories of the specified directory.
      * The default value is false.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     recursive?: boolean;
 
     /**
      * Called when the directory is deleted successfully.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     success?: () => void;
 
     /**
      * Called when the deletion fails.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+* @Syscap SystemCapability.ArkUI.Lite
      */
     complete?: () => void;
   }): void;

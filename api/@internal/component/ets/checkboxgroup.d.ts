@@ -16,21 +16,25 @@
 /**
  * CheckboxGroup SelectStatus
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum SelectStatus {
   /**
    * All checkboxs is selected.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   All,
   /**
    * Part of the checkbox is selected.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Part,
   /**
    * None of the checkbox is selected.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   None,
 }
@@ -38,11 +42,13 @@ declare enum SelectStatus {
 /**
  * Defines the option of CheckboxGroup.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface CheckboxGroupOption {
   /**
    * Setting the group of CheckboxGroup.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    group?: string;
 }
@@ -50,11 +56,13 @@ declare interface CheckboxGroupOption {
 /**
  * Provides an interface for the CheckboxGroup component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (options?: CheckboxGroupOption): CheckboxGroupAttribute;
 }
@@ -62,24 +70,28 @@ interface CheckboxGroupInterface {
 /**
  * Defines the attribute functions of CheckboxGroup.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
 
   /**
    * setting whether all checkbox is selected.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    selectAll(value: boolean): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
    selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (name: Array<any>, status: SelectStatus) => void): CheckboxGroupAttribute;
 }

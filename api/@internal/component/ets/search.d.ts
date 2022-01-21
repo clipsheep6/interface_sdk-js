@@ -16,16 +16,19 @@
 /**
  * Provides the method of switching the cursor position.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class SearchController {
   /**
    * constructor.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor();
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   caretPosition(value: number): void;
 }
@@ -33,6 +36,7 @@ declare class SearchController {
 /**
  * The construct function of search
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface SearchInterface {
   (options?: { value?: string;
@@ -45,59 +49,69 @@ interface SearchInterface {
 /**
  * The attribute function of search
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the search button text
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   searchButton(value: string): SearchAttribute;
 
   /**
    * Set the place hold text color
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholderColor(value: ResourceColor): SearchAttribute;
 
   /**
    * Set the font used for place holder text
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   placeholderFont(value?: Font): SearchAttribute;
 
   /**
    * Set the font used for input text
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   textFont(value?: Font): SearchAttribute;
 
   /**
    * Call the function when clicked the search button
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onSubmit(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Call the function when editing the input text
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onChange(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCopy(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onCut(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onPaste(callback: (value: string) => void): SearchAttribute;
 }

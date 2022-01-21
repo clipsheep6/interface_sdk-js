@@ -17,47 +17,55 @@
 /**
  * Defines the option of CustomDialogController.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface CustomDialogControllerOption {
   /**
    * Custom builder function.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   builder: any;
 
   /**
    * Defines the cancel function.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   cancel?: () => void;
 
   /**
    * Defines if use auto cancel when click on the outside of the dialog.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   autoCancel?: boolean;
 
   /**
    * Defines the dialog alignment of the screen.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alignment?: DialogAlignment;
 
   /**
    * Defines the dialog offset.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   offset?: Offset;
 
   /**
    * Defines if use costom style.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   customStyle?: boolean;
 
   /**
    * Grid count of dialog.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   gridCount?: number;
 }
@@ -65,23 +73,27 @@ declare interface CustomDialogControllerOption {
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CustomDialogController {
   /**
    * The constructor transfers parameter settings.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(value: CustomDialogControllerOption);
 
   /**
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   open();
 
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   close();
 }

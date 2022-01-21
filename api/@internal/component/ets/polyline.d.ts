@@ -16,28 +16,33 @@
 /**
  * Provides an interface for drawing polylines.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface PolylineInterface {
   /**
    * Uses new to create Polyline.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   new (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 
   /**
    * Called when using the draw fold.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   points(value: Array<any>): PolylineAttribute;
 }

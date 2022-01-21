@@ -16,11 +16,13 @@
 /**
  * Provides the interface for the marquee attributes.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface MarqueeInterface {
   /**
    * Create marquee.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): MarqueeAttribute;
 }
@@ -28,53 +30,62 @@ interface MarqueeInterface {
 /**
  * Declares marquee properties.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font Color.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontColor(value: ResourceColor): MarqueeAttribute;
 
   /**
    * Set marquee font size.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontSize(value: Length): MarqueeAttribute;
 
   /**
    * Set marquee allow scale.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   allowScale(value: boolean): MarqueeAttribute;
 
   /**
    * Set marquee font weight.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
   /**
    * Set marquee font family.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
 
   /**
    * Called when scrolling starts.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onStart(event: () => void): MarqueeAttribute;
 
   /**
    * Called when scrolling to the bottom.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onBounce(event: () => void): MarqueeAttribute;
 
   /**
    * Called when scrolling is complete.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onFinish(event: () => void): MarqueeAttribute;
 }

@@ -19,6 +19,7 @@
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type CanvasFillRule = "evenodd" | "nonzero";
 
@@ -29,6 +30,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type CanvasLineCap = "butt" | "round" | "square";
 
@@ -42,6 +44,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
@@ -51,6 +54,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
@@ -64,6 +68,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
@@ -78,6 +83,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
@@ -87,12 +93,14 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "low": (default)low
  * "medium": medium
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CanvasGradient {
   /**
@@ -101,6 +109,7 @@ declare class CanvasGradient {
    * @param string CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
    *    a SYNTAX_ERR error is thrown.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   addColorStop(offset: number, color: string): void;
 }
@@ -108,6 +117,7 @@ declare class CanvasGradient {
 /**
  * Path object, which provides basic methods for drawing paths.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CanvasPath {
   /**
@@ -120,6 +130,7 @@ declare class CanvasPath {
    * @param counterclockwise If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
@@ -131,6 +142,7 @@ declare class CanvasPath {
    * @param y2 The y-axis coordinate of the second control point.
    * @param radius Radius of the arc.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -143,12 +155,14 @@ declare class CanvasPath {
    * @param x x-axis coordinate of the end point.
    * @param y y-axis coordinate of the end point.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
    * Returns the pen point to the start point of the current subpath
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   closePath(): void;
 
@@ -165,6 +179,7 @@ declare class CanvasPath {
    * @param counterclockwise If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   ellipse(
     x: number,
@@ -182,6 +197,7 @@ declare class CanvasPath {
    * @param x The x-axis coordinate of the end point of the line.
    * @param y The y-axis coordinate of the end point of the line.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineTo(x: number, y: number): void;
 
@@ -190,6 +206,7 @@ declare class CanvasPath {
    * @param x The x-axis coordinate of the point.
    * @param y The y-axis coordinate of the point.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   moveTo(x: number, y: number): void;
 
@@ -200,6 +217,7 @@ declare class CanvasPath {
    * @param x x-axis coordinate of the end point.
    * @param y y-axis coordinate of the end point.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -210,6 +228,7 @@ declare class CanvasPath {
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rect(x: number, y: number, w: number, h: number): void;
 }
@@ -217,6 +236,7 @@ declare class CanvasPath {
 /**
  * 2D path object for path drawing
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class Path2D extends CanvasPath {
   /**
@@ -224,12 +244,14 @@ declare class Path2D extends CanvasPath {
    * @param path Indicates the path object to be added.
    * @param transform Transformation matrix of the new trail
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
   /**
    * Create an empty path object.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor();
 
@@ -237,6 +259,7 @@ declare class Path2D extends CanvasPath {
    * Create a copy of a path object
    * @param path Path object to be copied
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(path: Path2D);
 
@@ -244,6 +267,7 @@ declare class Path2D extends CanvasPath {
    * Create a new path according to the description.
    * @param d Indicates the path string that compiles with the SVG path description specifications.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(d: string);
 }
@@ -251,12 +275,14 @@ declare class Path2D extends CanvasPath {
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface CanvasPattern {
   /**
    * Adds the matrix transformation effect to the current template.
    * @param transform transformation matrix
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setTransform(transform?: Matrix2D): void;
 }
@@ -264,12 +290,14 @@ declare interface CanvasPattern {
 /**
  * Size information of the text
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
    *    the rectangular boundary of the rendered text.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly actualBoundingBoxAscent: number;
 
@@ -277,6 +305,7 @@ declare interface TextMetrics {
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
    *    the rectangular boundary of the rendered text.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly actualBoundingBoxDescent: number;
 
@@ -284,6 +313,7 @@ declare interface TextMetrics {
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the left of the text rectangle boundary.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly actualBoundingBoxLeft: number;
 
@@ -291,6 +321,7 @@ declare interface TextMetrics {
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the right of the text rectangle boundary.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly actualBoundingBoxRight: number;
 
@@ -298,6 +329,7 @@ declare interface TextMetrics {
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
    *    the wireframe.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly alphabeticBaseline: number;
 
@@ -305,6 +337,7 @@ declare interface TextMetrics {
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
    *    em square in the wireframe.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly emHeightAscent: number;
 
@@ -312,6 +345,7 @@ declare interface TextMetrics {
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *    em box in the wireframe.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly emHeightDescent: number;
 
@@ -319,6 +353,7 @@ declare interface TextMetrics {
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
    *    highest rectangle boundary of all fonts rendering text.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly fontBoundingBoxAscent: number;
 
@@ -326,6 +361,7 @@ declare interface TextMetrics {
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *   rectangular boundary of all fonts rendering text.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly fontBoundingBoxDescent: number;
 
@@ -333,6 +369,7 @@ declare interface TextMetrics {
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the hanging baseline of the wireframe.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly hangingBaseline: number;
 
@@ -340,12 +377,14 @@ declare interface TextMetrics {
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the ideographic baseline of the wireframe.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly ideographicBaseline: number;
 
   /**
    * Indicates the width of a character string. The value is of the double type.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly width: number;
 }
@@ -353,23 +392,27 @@ declare interface TextMetrics {
 /**
  * Bitmap image object that can be drawn onto the current Canvas
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ImageBitmap {
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly height: number;
 
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly width: number;
 
   /**
    * Releases all graphics resources associated with an ImageBitmap.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   close(): void;
 
@@ -377,6 +420,7 @@ declare class ImageBitmap {
    * Create an ImageBitmap object based on the transferred image path.
    * @param src Path of the image object.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(src: string);
 
@@ -384,6 +428,7 @@ declare class ImageBitmap {
    * Transfer a PixelMap object to construct an ImageBitmap object.
    * @param data PixelMap object
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(data: PixelMap);
 }
@@ -391,23 +436,27 @@ declare class ImageBitmap {
 /**
  * Image data object
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ImageData {
   /**
    * Array containing image pixel data
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly data: Uint8ClampedArray;
 
   /**
    * Width of the image.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly height: number;
 
   /**
    * Height of the image.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly width: number;
 
@@ -417,6 +466,7 @@ declare class ImageData {
    * @param height Height of the image.
    * @param data Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 }
@@ -424,17 +474,20 @@ declare class ImageData {
 /**
  * This object allows you to set properties when creating a rendering context
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class RenderingContextSettings {
   /**
    * Indicates whether the canvas contains an alpha channel. The default value is false.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   alpha?: boolean;
 
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   antialias?: boolean;
 
@@ -443,6 +496,7 @@ declare class RenderingContextSettings {
    * @param antialias Indicates whether anti-aliasing is enabled for canvas
    * @param alpha Indicates whether the canvas contains an alpha channel
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(antialias?: boolean, alpha?: boolean);
 }
@@ -450,12 +504,14 @@ declare class RenderingContextSettings {
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    The default value is 1.0. If the value is out of range, the assignment is invalid.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   globalAlpha: number;
 
@@ -493,6 +549,7 @@ declare class CanvasRenderer extends CanvasPath {
    *    the top layer are used.
    * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   globalCompositeOperation: string;
 
@@ -502,6 +559,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   drawImage(image: ImageBitmap, dx: number, dy: number): void;
 
@@ -513,6 +571,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   drawImage(image: ImageBitmap, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -528,6 +587,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   drawImage(
     image: ImageBitmap,
@@ -544,6 +604,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Clear the sub-path list and start a new path.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   beginPath(): void;
 
@@ -551,6 +612,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Sets the currently created path as the current clipping path
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   clip(fillRule?: CanvasFillRule): void;
 
@@ -559,6 +621,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param path Path to be cut.
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   clip(path: Path2D, fillRule?: CanvasFillRule): void;
 
@@ -566,6 +629,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Fills existing paths according to the current fill style.
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fill(fillRule?: CanvasFillRule): void;
 
@@ -574,12 +638,14 @@ declare class CanvasRenderer extends CanvasPath {
    * @param path Path to be filled.
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
   /**
    * Draws an existing path according to the current stroke style.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stroke(): void;
 
@@ -587,6 +653,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Draws the specified path according to the current stroke style
    * @param path Specified stroke path object
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   stroke(path: Path2D): void;
 
@@ -597,6 +664,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @param path Specified stroke path object
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillStyle: string | CanvasGradient | CanvasPattern;
 
@@ -607,6 +675,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @param path Specified stroke path object
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeStyle: string | CanvasGradient | CanvasPattern;
 
@@ -617,6 +686,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param x1 x-axis coordinate of the end point.
    * @param y1 y-axis coordinate of the end point.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
@@ -629,6 +699,7 @@ declare class CanvasRenderer extends CanvasPath {
    * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
    * "no-repeat": Non-repeating images in both X and Y directions
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
@@ -641,6 +712,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y1 The y-axis coordinate of the end circle.
    * @param r1 Radius of the end circle.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
@@ -669,6 +741,7 @@ declare class CanvasRenderer extends CanvasPath {
    *    When the value is 0%, there is no change in the image.
    * none：Turn off filter effects
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   filter(filter: string): void;
 
@@ -677,6 +750,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param sw Width of the ImageData object.
    * @param sh Height of the ImageData object.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createImageData(sw: number, sh: number): ImageData;
 
@@ -685,6 +759,7 @@ declare class CanvasRenderer extends CanvasPath {
    *    The image content is not copied.
    * @param imagedata ImageData object to be copied.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -695,6 +770,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -704,6 +780,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   putImageData(imagedata: ImageData, dx: number, dy: number): void;
 
@@ -721,6 +798,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dirtyHeight Height of the rectangular area in the source image data.
    *    The default is the height of the image data.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   putImageData(
     imagedata: ImageData,
@@ -736,48 +814,56 @@ declare class CanvasRenderer extends CanvasPath {
    * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
    *    The value false indicates that the image is not smooth.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   imageSmoothingEnabled: boolean;
 
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   imageSmoothingQuality(quality: ImageSmoothingQuality): void;
 
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineCap: CanvasLineCap;
 
   /**
    * Dotted line offset attribute. The default value is 0.0.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineDashOffset: number;
 
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineJoin: CanvasLineJoin;
 
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   lineWidth: number;
 
   /**
    * The value of this parameter cannot be 0 or a negative number.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   miterLimit: number;
 
   /**
    * Gets the current segment style.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getLineDash(): number[];
 
@@ -786,6 +872,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param segments A set of numbers that describe the length of alternating drawn line segments and
    *    spacing (coordinate space units).
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setLineDash(segments: number[]): void;
 
@@ -796,6 +883,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -806,6 +894,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
@@ -816,42 +905,49 @@ declare class CanvasRenderer extends CanvasPath {
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
    * Shadow blur radius. The default value is 0. The value cannot be a negative number.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowBlur: number;
 
   /**
    * Shadow color. The default value is transparent black.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowColor: string;
 
   /**
    * Horizontal offset distance of the shadow. The default value is 0.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowOffsetX: number;
 
   /**
    * Vertical offset distance of the shadow. The default value is 0.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   shadowOffsetY: number;
 
   /**
    * Top of the stack pop-up state in the drawing state stack
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   restore(): void;
 
   /**
    * Saves the current drawing state to the drawing state stack
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   save(): void;
 
@@ -862,6 +958,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y The y-axis coordinate of the start point of the text.
    * @param maxWidth Maximum width of the drawing.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
@@ -869,6 +966,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
    * @param text Text string to be measured.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   measureText(text: string): TextMetrics;
 
@@ -879,42 +977,49 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y The y-axis-axis coordinate of the start point of the text.
    * @param maxWidth Maximum width of the stroke.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   direction(direction: CanvasDirection): void;
 
   /**
    * Font style. The default value is 10px sans-serif.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   font: string;
 
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   textAlign: CanvasTextAlign;
 
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   textBaseline: CanvasTextBaseline;
 
   /**
    * Obtains the currently applied transformation matrix.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   getTransform(): Matrix2D;
 
   /**
    * Resets the current transformation matrix using the identity matrix
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   resetTransform(): void;
 
@@ -923,6 +1028,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param angle The radian of clockwise rotation, which can be converted to an angle value using the formula:
    *    degree * Math.PI / 180
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   rotate(angle: number): void;
 
@@ -931,6 +1037,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param x Horizontal scaling factor
    * @param y Vertical scaling factor
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   scale(x: number, y: number): void;
 
@@ -944,6 +1051,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param e Horizontal movement
    * @param f Vertical movement
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -952,6 +1060,7 @@ declare class CanvasRenderer extends CanvasPath {
    *    the transformations are superimposed for multiple times.
    * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setTransform(transform?: Matrix2D): void;
 
@@ -965,6 +1074,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param e Horizontal movement
    * @param f Vertical movement
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -973,6 +1083,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param x Horizontal movement distance
    * @param y Vertical travel distance
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   translate(x: number, y: number): void;
 
@@ -980,6 +1091,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Set a PixelMap to the current context. The drawing content is synchronized to the PixelMap.
    * @param value PixelMap object
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   setPixelMap(value?: PixelMap): void;
 
@@ -987,6 +1099,7 @@ declare class CanvasRenderer extends CanvasPath {
    * transfer ImageBitmap to content.
    * @param ImageBitmap
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 }
@@ -994,17 +1107,20 @@ declare class CanvasRenderer extends CanvasPath {
 /**
  * Draw context object for the Canvas component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly height: number;
 
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   readonly width: number;
 
@@ -1014,6 +1130,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   toDataURL(type?: string, quality?: any): string;
 
@@ -1021,6 +1138,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(settings?: RenderingContextSettings);
 }
@@ -1028,6 +1146,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 /**
  * Draw context object for the OffscreenCanvas component.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
@@ -1036,12 +1155,14 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   toDataURL(type?: string, quality?: any): string;
 
   /**
    * transfer the content to ImageBitmap
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -1051,6 +1172,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param height the height of the OffscreenCanvas
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(width: number, height: number,settings?: RenderingContextSettings);
 }
@@ -1058,23 +1180,27 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class OffscreenCanvas extends CanvasRenderer {
   /**
    * Height of the off-screen canvas.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   height: number;
 
   /**
    * Width of the off-screen canvas.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   width: number;
 
   /**
    * Exports rendered content as an ImageBitmap object
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   transferToImageBitmap(): ImageBitmap;
 
@@ -1083,6 +1209,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    * @param width Width of the off-screen canvas.
    * @param height Height of the off-screen canvas.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   constructor(width: number, height: number);
 }
@@ -1090,12 +1217,14 @@ declare class OffscreenCanvas extends CanvasRenderer {
 /**
  *TextTimer component, which provides the text timer capability.
  * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface CanvasInterface {
   /**
    * Construct a canvas component.
    * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (context?: CanvasRenderingContext2D): CanvasAttribute;
 }
@@ -1104,6 +1233,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   onReady(event: () => void): CanvasAttribute;
 }

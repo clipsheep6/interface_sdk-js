@@ -165,7 +165,8 @@ ohos_declaration_template("ohos_declaration_phone") {
 ohos_copy("ace_platform") {
   sources = [
     "api/config",
-    "api/phone",
+    "api/common",
+    "api/liteWearable",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"

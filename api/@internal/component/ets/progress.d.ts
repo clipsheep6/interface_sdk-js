@@ -16,12 +16,14 @@
 /**
  * Type of progress bar
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare enum ProgressStyle {
   /**
    * Linear progress bar style.
    * @devices phone, tablet, car.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Linear,
 
@@ -29,6 +31,7 @@ declare enum ProgressStyle {
    * Ring progress bar.
    * @devices phone, tablet, car.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Ring,
 
@@ -36,6 +39,7 @@ declare enum ProgressStyle {
    * Eclipse progress bar.
    * @devices phone, tablet, car.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Eclipse,
 
@@ -43,6 +47,7 @@ declare enum ProgressStyle {
    * ScaleRing progress bar.
    * @devices phone, tablet, car.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   ScaleRing,
 
@@ -50,6 +55,7 @@ declare enum ProgressStyle {
    * Capsule progress bar.
    * @devices phone, tablet, car.
    * @since 8
+* @Syscap SystemCapability.ArkUI.Standard
    */
   Capsule,
 }
@@ -57,40 +63,47 @@ declare enum ProgressStyle {
 /**
  * Provides the progress bar interface.
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 interface ProgressInterface {
   /**
    * Called when the progress bar is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   (object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
 }
 
 /**
  * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
    * Called when the current progress value is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   value(value: number): ProgressAttribute;
 
   /**
    * Called when the progress bar foreground is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   color(value: ResourceColor): ProgressAttribute;
 
   /**
    * Called when the style of the circular progress bar is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    */
   circularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
 
   /**
    * Called when the style of the cricular progress bar is set.
    * @since 7
+* @Syscap SystemCapability.ArkUI.Standard
    * @deprecated since 7
    */
   cricularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
