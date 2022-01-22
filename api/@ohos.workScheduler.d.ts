@@ -95,35 +95,6 @@ declare namespace workScheduler {
     }
 
     /**
-     * Class of the work scheduler extension.
-     *
-     * @since 8
-     * @sysCap SystemCapability.Ressched.WorkScheduler
-     * @devices phone, tv, wearable, tablet, car
-     */
-    export default class WorkSchedulerExtension {
-        /**
-         * Called back when a work is started.
-         *
-         * @since 8
-         * @sysCap SystemCapability.Ressched.WorkScheduler
-         * @devices phone, tv, wearable, tablet, car
-         * @param work The info of work.
-         */
-        onWorkStart(work: WorkInfo): void;
-
-        /**
-         * Called back when a work is stopped.
-         *
-         * @since 8
-         * @sysCap SystemCapability.Ressched.WorkScheduler
-         * @devices phone, tv, wearable, tablet, car
-         * @param work The info of work.
-         */
-        onWorkStop(work: WorkInfo): void;
-    }
-
-    /**
      * Add a work to the queue. A work can be executed only when it meets the preset triggering condition
      * and complies with the rules fo work scheduler manager.
      *
