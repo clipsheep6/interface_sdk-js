@@ -1,5 +1,6 @@
 {
   "name": "grid-row",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v4.0"

@@ -1,5 +1,6 @@
 {
   "name": "list",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v3.0"

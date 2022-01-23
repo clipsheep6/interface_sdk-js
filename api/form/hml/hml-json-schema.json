@@ -5,6 +5,17 @@
       "type": "string",
       "description": "组件名称，如div、list等"
     },
+    "syscap": {
+      "type": "array",
+      "description": "支持哪些syscap",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SystemCapability.ArkUI.Core",
+          "SystemCapability.ArkUI.Lite"
+        ]
+      }
+    },
     "version": {
       "type": "array",
       "description": "该属性的当前的版本",

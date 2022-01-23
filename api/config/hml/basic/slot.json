@@ -1,5 +1,6 @@
 {
   "name": "slot",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v1.0"
