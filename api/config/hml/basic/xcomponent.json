@@ -1,5 +1,6 @@
 {
   "name": "xcomponent",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v8.0"

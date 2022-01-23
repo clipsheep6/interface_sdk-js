@@ -1,5 +1,6 @@
 {
   "name": "polyline",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v7.0"

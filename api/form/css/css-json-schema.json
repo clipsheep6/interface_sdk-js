@@ -9,6 +9,17 @@
           "name": {
             "type": "string"
           },
+          "syscap": {
+            "type": "array",
+            "description": "支持哪些syscap",
+            "items": {
+              "type": "string",
+              "enum": [
+                "SystemCapability.ArkUI.Core",
+                "SystemCapability.ArkUI.Lite"
+              ]
+            }
+          },
           "supportedDevices": {
             "type": "array",
             "description": "本字段非必填,如果为空，表示该属性支持所有的设备类型",
