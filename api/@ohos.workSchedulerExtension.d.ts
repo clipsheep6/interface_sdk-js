@@ -18,7 +18,7 @@ import workScheduler from "./@ohos.workScheduler";
 /**
  * Class of the work scheduler extension.
  *
- * @since 9
+ * @since 9 Preview
  * @sysCap SystemCapability.Ressched.WorkScheduler
  * @devices phone, tv, wearable, tablet, car
  */
@@ -26,7 +26,7 @@ export default class WorkSchedulerExtension {
     /**
      * Called back when a work is started.
      *
-     * @since 9
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param work The info of work.
@@ -36,7 +36,7 @@ export default class WorkSchedulerExtension {
     /**
      * Called back when a work is stopped.
      *
-     * @since 9
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param work The info of work.

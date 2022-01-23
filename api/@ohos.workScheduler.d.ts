@@ -18,7 +18,7 @@ import {AsyncCallback} from './basic';
 /**
  * Work scheduler interface.
  *
- * @since 8
+ * @since 9 Preview
  * @sysCap SystemCapability.Ressched.WorkScheduler
  * @devices phone, tv, wearable, tablet, car
  */
@@ -27,7 +27,7 @@ declare namespace workScheduler {
      * The info of work.
      *
      * @name WorkInfo
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      */
@@ -98,7 +98,7 @@ declare namespace workScheduler {
      * Add a work to the queue. A work can be executed only when it meets the preset triggering condition
      * and complies with the rules fo work scheduler manager.
      *
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param work The info of work.
@@ -109,7 +109,7 @@ declare namespace workScheduler {
     /**
      * Stop a work.
      *
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param work The info of work.
@@ -121,7 +121,7 @@ declare namespace workScheduler {
     /**
      * Obtains the latest status of a work.
      *
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param workId The id of work.
@@ -132,7 +132,7 @@ declare namespace workScheduler {
     /**
      * Get all work status.
      *
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param workId The id of work.
@@ -144,7 +144,7 @@ declare namespace workScheduler {
     /**
      * Stop all and clear work.
      *
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @return true if success, otherwise false.
@@ -154,7 +154,7 @@ declare namespace workScheduler {
     /**
      * Check last work timeout.
      *
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tv, wearable, tablet, car
      * @param workId The id of work.
@@ -167,7 +167,7 @@ declare namespace workScheduler {
      * Describes network type.
      *
      * @name NetworkType
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tablet, tv, wearable, car
     */
@@ -202,7 +202,7 @@ declare namespace workScheduler {
      * Describes charging type.
      *
      * @name ChargingType
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tablet, tv, wearable, car
     */
@@ -229,7 +229,7 @@ declare namespace workScheduler {
      * Describes the battery status.
      *
      * @name BatteryStatus
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tablet, tv, wearable, car
     */
@@ -252,7 +252,7 @@ declare namespace workScheduler {
      * Describes the storage request.
      *
      * @name StorageRequest
-     * @since 8
+     * @since 9 Preview
      * @sysCap SystemCapability.Ressched.WorkScheduler
      * @devices phone, tablet, tv, wearable, car
     */
