@@ -85,7 +85,8 @@ export default class AbilityContext extends Context {
      * @return Returns the {@link AbilityResult}.
      */
     startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
-    startAbilityForResult(want: Want): Promise<AbilityResult>;
+    startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
+    startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
     /**
      * Starts an ability and returns the execution result when the ability is destroyed with account.
@@ -164,4 +165,15 @@ export default class AbilityContext extends Context {
      */
     disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
     disconnectAbility(connection: number): Promise<void>;
+
+    /**
+     * Set mission label of current ability.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param label The label of ability that showed in recent missions.
+     */
+     setMissionLabel(label: string, callback:AsyncCallback<void>): void;
+     setMissionLabel(label: string): Promise<void>;
 }

@@ -41,6 +41,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/column.d.ts",
     "api/@internal/component/ets/column_split.d.ts",
     "api/@internal/component/ets/common.d.ts",
+    "api/@internal/component/ets/context_menu.d.ts",
     "api/@internal/component/ets/counter.d.ts",
     "api/@internal/component/ets/custom_dialog_controller.d.ts",
     "api/@internal/component/ets/data_panel.d.ts",
@@ -102,6 +103,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/units.d.ts",
     "api/@internal/component/ets/video.d.ts",
+    "api/@internal/component/ets/web.d.ts",
     "api/@internal/component/ets/xcomponent.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
@@ -125,10 +127,7 @@ ohos_copy("common_api") {
 }
 
 ohos_copy("bundle_api") {
-  sources = [
-    "api/bundle/bundleFlag.d.ts",
-    "api/bundle/bundleStatusCallback.d.ts",
-  ]
+  sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""

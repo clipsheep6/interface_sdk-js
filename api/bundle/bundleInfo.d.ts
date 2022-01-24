@@ -15,6 +15,7 @@
 
 import { AbilityInfo } from './abilityInfo';
 import { ApplicationInfo } from './applicationInfo';
+import { ExtensionAbilityInfo } from './extensionAbilityInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
@@ -234,4 +235,19 @@ export interface BundleInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   readonly entryInstallationFree: boolean;
+
+  /**
+    * @default Indicates the grant status of required permissions
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly reqPermissionStates: Array<number>;
+
+  /**
+    * @default Obtains configuration information about an ability
+    * @since 9 preview
+    * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
+    */
+  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }

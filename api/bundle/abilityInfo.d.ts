@@ -15,6 +15,7 @@
 
 import { ApplicationInfo } from './applicationInfo';
 import { CustomizeData } from './customizeData'
+import { Metadata } from './metadata'
 import bundle from './../@ohos.bundle';
 
 /**
@@ -99,6 +100,7 @@ export interface AbilityInfo {
     * @default Info about which ability is this nick point to
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly targetAbility: string;
 
@@ -106,6 +108,7 @@ export interface AbilityInfo {
     * @default Indicates the background service addressing a specific usage scenario
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly backgroundModes: number;
 
@@ -120,6 +123,7 @@ export interface AbilityInfo {
     * @default Indicates whether the ability provides the embedded card capability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly formEnabled: boolean;
 
@@ -127,6 +131,7 @@ export interface AbilityInfo {
     * @default Enumerates types of templates that can be used by an ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly type: bundle.AbilityType;
 
@@ -134,6 +139,7 @@ export interface AbilityInfo {
     * @default Enumerates the subType of templates used by an ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly subType: bundle.AbilitySubType;
 
@@ -141,6 +147,7 @@ export interface AbilityInfo {
     * @default Enumerates ability display orientations
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly orientation: bundle.DisplayOrientation;
 
@@ -176,6 +183,7 @@ export interface AbilityInfo {
     * @default Indicates the permission required for reading ability data
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly readPermission: string;
 
@@ -183,6 +191,7 @@ export interface AbilityInfo {
     * @default Indicates the permission required for writing data to the ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly writePermission: string;
 
@@ -197,6 +206,7 @@ export interface AbilityInfo {
     * @default Where form can be displayed
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly formEntity: number;
 
@@ -204,6 +214,7 @@ export interface AbilityInfo {
     * @default Minimum height of ability.
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly minFormHeight: number;
 
@@ -211,6 +222,7 @@ export interface AbilityInfo {
     * @default Default height of ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly defaultFormHeight: number;
 
@@ -218,6 +230,7 @@ export interface AbilityInfo {
     * @default Minimum width of ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly minFormWidth: number;
 
@@ -225,6 +238,7 @@ export interface AbilityInfo {
     * @default Default width of ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly defaultFormWidth: number;
 
@@ -232,6 +246,7 @@ export interface AbilityInfo {
     * @default Uri of ability
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
   readonly uri: string;
 
@@ -248,4 +263,20 @@ export interface AbilityInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   readonly metaData: Array<CustomizeData>;
+
+  /**
+    * @default Indicates the metadata of ability
+    * @since 9 preview
+    * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
+    * 
+    */
+  readonly metadata: Array<Metadata>;
+
+  /**
+    * @default Indicates the metadata of ability
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+   readonly enabled: boolean;
 }
