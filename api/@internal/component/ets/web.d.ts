@@ -42,6 +42,24 @@ interface WebInterface {
 }
 
 declare class WebAttribute extends CommonMethod<WebAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+   create(value: WebOptions): WebAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+   pop(): WebAttribute;
+
+   /**
+    * Just use for genetate tsbundle
+    * @ignore ide should ignore this arrtibute
+    */
+   debugLine(value: string): WebAttribute;
+
    /**
     * Triggered at the end of web page loading
     * @since 8
