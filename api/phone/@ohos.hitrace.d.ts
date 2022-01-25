@@ -103,22 +103,22 @@ declare namespace hitrace {
      */
     enum HiTraceCommunicationMode {
         /**
-         * unspecified communication mode
+         * unspecified
          */
         DEFAULT = 0,
 
         /**
-         * thread-to-thread communication mode
+         * thread-to-thread
          */
         THREAD  = 1,
 
         /**
-         * process-to-process communication mode
+         * process-to-process
          */
         PROCESS = 2,
 
         /**
-         * device-to-device communication mode
+         * device-to-device
          */
         DEVICE  = 3,
     }
@@ -128,8 +128,8 @@ declare namespace hitrace {
      */
     interface HiTraceId {
         chainId: bigint; /* 0n: invalid */
-        spandId?: number;
-        parentSpanId?: number;
+        spandId?: bigint;
+        parentSpanId?: bigint;
         flags?: number;
     }
 
@@ -184,7 +184,7 @@ declare namespace hitrace {
      * @param {HiTraceId} id trace id of the trace.
      * @param {string} msg description about this trace point.
      */
-    function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracePointType,id: HiTraceId, msg?: string): void;
+    function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracePointType, id: HiTraceId, msg?: string): void;
 
     /**
      * check whether a trace id is valid.
