@@ -29,14 +29,19 @@ declare namespace storage {
      * <p>The {@link references} instance loads all data of the storage file and
      * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
      *
-     * @param path Indicates the path of storage file stored.
+     * @note N/A
+     * @since 8
+     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     *
+     * @param context Indicates the context of the ability or the application.
+     * @param name Indicates the path of storage file name stored.
      * @return Returns the {@link Storage} instance matching the specified storage file name.
      * @throws BusinessError if invoked failed
-     * @since 5
      */
-    function getStorageSync(path: string): Storage;
-    function getStorage(path: string, callback: AsyncCallback<Storage>): void;
-    function getStorage(path: string): Promise<Storage>;
+    function getStorageSync(context:Context, name: string): Storage;
+    function getStorage(context:Context, name: string, callback: AsyncCallback<Storage>): void;
+    function getStorage(context:Context, name: string): Promise<Storage>;
 
     /**
      * Deletes a {@link Storage} instance matching a specified storage file name
@@ -47,13 +52,18 @@ declare namespace storage {
      * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
      * will occur.
      *
-     * @param path Indicates the path of storage file
+     * @note N/A
+     * @since 8
+     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     *
+     * @param context Indicates the context of the ability or the application.
+     * @param name Indicates the path of storage file name stored.
      * @throws BusinessError if invoked failed
-     * @since 5
      */
-    function deleteStorageSync(path: string): void;
-    function deleteStorage(path: string, callback: AsyncCallback<void>): void;
-    function deleteStorage(path: string): Promise<void>;
+    function deleteStorageSync(context:Context, name: string): void;
+    function deleteStorage(context:Context, name: string, callback: AsyncCallback<void>): void;
+    function deleteStorage(context:Context, name: string): Promise<void>;
 
     /**
      * Deletes a {@link Storage} instance matching a specified storage file name
@@ -63,13 +73,18 @@ declare namespace storage {
      * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
      * will occur.
      *
-     * @param path Indicates the path of storage file.
+     * @note N/A
+     * @since 8
+     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     *
+     * @param context Indicates the context of the ability or the application.
+     * @param name Indicates the path of storage file name stored.
      * @throws BusinessError if invoked failed
-     * @since 5
      */
-    function removeStorageFromCacheSync(path: string): void;
-    function removeStorageFromCache(path: string, callback: AsyncCallback<void>): void;
-    function removeStorageFromCache(path: string): Promise<void>;
+    function removeStorageFromCacheSync(context:Context, name: string): void;
+    function removeStorageFromCache(context:Context, name: string, callback: AsyncCallback<void>): void;
+    function removeStorageFromCache(context:Context, name: string): Promise<void>;
 
     /**
      * Provides interfaces to obtain and modify storage data.
