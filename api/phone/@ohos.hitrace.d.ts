@@ -157,9 +157,9 @@ declare namespace hitrace {
     function getId(): HiTraceId;
 
     /**
-     * change the trace id of a trace.
+     * change the trace id for a trace.
      *
-     * @param {HiTraceId} id trace id of a trace.
+     * @param {HiTraceId} id trace id which will be set into a trace.
      */
     function setId(id: HiTraceId): void;
 
@@ -177,7 +177,7 @@ declare namespace hitrace {
     function createSpan(): HiTraceId;
 
     /**
-     * start trace point
+     * set a trace point
      * 
      * @param {HiTraceCommunicationMode} mode communication mode.
      * @param {HiTraceTracePointType} type trace point type.
@@ -195,7 +195,7 @@ declare namespace hitrace {
     function isValid(id: HiTraceId): boolean;
 
     /**
-     * check whether a trace id has enabled a trace flag.
+     * check whether a trace id has enabled the designative trace flag.
      * 
      * @param {HiTraceId} id the trace id to check.
      * @param {HiTraceFlag} flag the trace flag to check.
@@ -204,10 +204,10 @@ declare namespace hitrace {
     function isFlagEnabled(id: HiTraceId, flag: HiTraceFlag): boolean;
 
     /**
-     * enable a trace flag for a trace id.
+     * enable a designative trace flag for a trace id.
      * 
      * @param {HiTraceId} id trace id which need enable a flag. 
-     * @param {HiTraceFlag} flag trace flag will be enabled in a trace. 
+     * @param {HiTraceFlag} flag the designative trace flag which will be enabled.
      */
     function enableFlag(id: HiTraceId, flag: HiTraceFlag): void;
 }
