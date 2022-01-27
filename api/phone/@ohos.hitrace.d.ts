@@ -128,8 +128,8 @@ declare namespace hitrace {
      */
     interface HiTraceId {
         chainId: bigint; /* 0n: invalid */
-        spandId?: bigint;
-        parentSpanId?: bigint;
+        spandId?: number;
+        parentSpanId?: number;
         flags?: number;
     }
 
