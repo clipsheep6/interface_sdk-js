@@ -151,18 +151,6 @@ declare namespace rdb {
         executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
         /**
-         * change the encrypted key(not null) if the database is configured with encrypted key.
-         *
-         * @note N/A
-         * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         * @param newEncryptKey the encrypted key is uint8 form in a vector.
-         */
-        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
-        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
-
-        /**
          * beginTransaction before excute your sql
          *
          * @note N/A
@@ -242,14 +230,16 @@ declare namespace rdb {
      * @permission N/A
      */
     interface StoreConfig {
+    /**
+     * the name of relational database.
+     *
+     * @since 7
+     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import import data_rdb from '@ohos.data.rdb';
+     * @permission N/A
+     */
         name: string;
-        /**
-         * Indicates the encryptKey of the database file
-         *
-         * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         */
-        encryptKey: Uint8Array;
     }
 
     /**
