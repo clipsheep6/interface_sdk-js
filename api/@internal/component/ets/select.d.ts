@@ -130,7 +130,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Callback for selecting an item from the select.
    * @since 8
    */
-  onSelected(event: (index: number) => void): SelectAttribute;
+  onSelected(event: (index: number, value?: string) => void): SelectAttribute;
 }
 
 declare const Select: SelectInterface;

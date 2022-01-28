@@ -212,7 +212,7 @@ interface PreviewParams {
   title?: string;
   width?: number;
   height?: number;
-  language?: string;
+  locale?: string;
   colorMode?: string;
   deviceType?: string;
   dpi?: number;
@@ -888,6 +888,30 @@ declare class CommonMethod<T> {
    * @since 7
    */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
+
+  /**
+   * Set focusable.
+   * @since 8
+   */
+   focusable(value: boolean): T;
+
+  /**
+   * Trigger a event when got focus.
+   * @since 8
+   */
+   onFocus(event: () => void): T;
+
+  /**
+   * Trigger a event when lose focus.
+   * @since 8
+   */
+   onBlur(event: () => void): T;
+
+  /**
+   * Trigger a event when focus move.
+   * @since 8
+   */
+   onFocusMove(event: (direction?: FocusDirection) => void): T;
 
   /**
    * animation
