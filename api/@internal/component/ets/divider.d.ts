@@ -35,18 +35,12 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(): DividerAttribute;
+  create(): DividerAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): DividerAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
   debugLine(value: string): DividerAttribute;
 
   /**

@@ -80,7 +80,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value: {
+  create(value: {
     id: number;
     name: string;
     bundle: string;
@@ -94,12 +94,6 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): FormComponentAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
   debugLine(value: string): FormComponentAttribute;
 
   /**

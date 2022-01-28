@@ -34,19 +34,19 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): MarqueeAttribute;
+  create(value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): MarqueeAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): MarqueeAttribute;
+  pop(): MarqueeAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): MarqueeAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): MarqueeAttribute;
  
   /**
    * Set marquee font Color.

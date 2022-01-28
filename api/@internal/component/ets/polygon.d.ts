@@ -36,13 +36,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: { width?: string | number; height?: string | number }): PolygonAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): PolygonAttribute;
+  create(value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 
   /**
    * Just use for genetate tsbundle

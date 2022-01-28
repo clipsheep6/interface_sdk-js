@@ -35,18 +35,12 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options: { value: number; min?: number; max?: number }): GaugeAttribute;
+  create(options: { value: number; min?: number; max?: number }): GaugeAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): GaugeAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
   debugLine(value: string): GaugeAttribute;
 
   /**

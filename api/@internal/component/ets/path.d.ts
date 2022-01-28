@@ -45,13 +45,13 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): PathAttribute;
+  pop(): PathAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): PathAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): PathAttribute;
  
   /**
    * Called when the command string drawn by the path is set.

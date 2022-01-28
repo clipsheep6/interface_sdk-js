@@ -32,11 +32,11 @@ interface ForEachInterface {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(
+  create(
     arr: Array<any>,
     itemGenerator: (item: any, index?: number) => void,
     keyGenerator?: (item: any, index?: number) => string,
-   ): ForEachInterface;
+  ): ForEachInterface;
 
   /**
    * Just use for genetate tsbundle

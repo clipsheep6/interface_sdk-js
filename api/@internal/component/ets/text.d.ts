@@ -34,19 +34,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(content?: string | Resource): TextAttribute;
+  create(content?: string | Resource): TextAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): TextAttribute;
+  pop(): TextAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): TextAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TextAttribute;
 
   /**
    * Called when the font color is set.

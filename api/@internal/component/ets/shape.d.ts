@@ -39,19 +39,19 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: PixelMap): ShapeAttribute;
+  create(value?: PixelMap): ShapeAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): ShapeAttribute;
+  pop(): ShapeAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): ShapeAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ShapeAttribute;
 
   /**
    * Viewport of shape

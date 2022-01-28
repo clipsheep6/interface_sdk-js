@@ -44,19 +44,13 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: { width?: string | number; height?: string | number }): LineAttribute;
+  create(value?: { width?: string | number; height?: string | number }): LineAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): LineAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): LineAttribute;
+  debugLine(value: string): LineAttribute;
  
   /**
    * Coordinate of the start point of the line (relative coordinate).

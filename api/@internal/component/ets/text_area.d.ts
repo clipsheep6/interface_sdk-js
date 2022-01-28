@@ -76,19 +76,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: TextAreaOption): TextAreaAttribute;
+  create(value?: TextAreaOption): TextAreaAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): TextAreaAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): TextAreaAttribute;
+  debugLine(value: string): TextAreaAttribute;
 
   /**
    * Called when the color of the placeholder is set.

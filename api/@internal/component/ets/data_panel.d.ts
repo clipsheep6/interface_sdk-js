@@ -77,18 +77,18 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options: DataPanelOption): DataPanelAttribute;
+  create(options: DataPanelOption): DataPanelAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): DataPanelAttribute;
+  pop(): DataPanelAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): DataPanelAttribute;
 
   /**

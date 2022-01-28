@@ -60,19 +60,13 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(): LoadingProgressAttribute;
+  create(): LoadingProgressAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): LoadingProgressAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): LoadingProgressAttribute;
+  debugLine(value: string): LoadingProgressAttribute;
  
   /**
    * Load the color of the progress bar.

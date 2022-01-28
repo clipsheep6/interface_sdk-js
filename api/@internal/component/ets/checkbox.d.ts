@@ -53,18 +53,18 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options?: CheckboxOption): CheckboxAttribute;
+  create(options?: CheckboxOption): CheckboxAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): CheckboxAttribute;
+  pop(): CheckboxAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): CheckboxAttribute;
 
   /**

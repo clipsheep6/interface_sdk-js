@@ -45,19 +45,19 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(controller?: PatternLockController): PatternLockAttribute;
+  create(controller?: PatternLockController): PatternLockAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): PatternLockAttribute;
+  pop(): PatternLockAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): PatternLockAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): PatternLockAttribute;
  
   /**
    * The square side length of pattern lock component.

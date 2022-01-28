@@ -160,7 +160,7 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value: BadgeParamWithNumber | BadgeParamWithString): BadgeAttribute;
+  create(value: BadgeParamWithNumber | BadgeParamWithString): BadgeAttribute;
 }
 
 declare const Badge: BadgeInterface

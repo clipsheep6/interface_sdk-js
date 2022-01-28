@@ -70,18 +70,18 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: FlexOption): FlexAttribute;
+  create(value?: FlexOption): FlexAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): FlexAttribute;
+  pop(): FlexAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): FlexAttribute;
 }
 

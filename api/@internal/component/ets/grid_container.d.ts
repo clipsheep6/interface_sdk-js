@@ -100,7 +100,7 @@ declare class GridContainerAttribute extends ColumnAttribute {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: GridContainerOption): GridContainerAttribute;
+  create(value?: GridContainerOption): GridContainerAttribute;
 
   /**
    * Just use for genetate tsbundle

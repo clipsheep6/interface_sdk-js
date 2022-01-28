@@ -63,7 +63,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value: {
+  create(value: {
     id: string;
     type: string;
     libraryname?: string;
@@ -74,13 +74,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): XComponentAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): XComponentAttribute;
+  debugLine(value: string): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent surface is created.

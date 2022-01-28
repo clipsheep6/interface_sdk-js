@@ -42,19 +42,19 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
+  create(value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): PluginComponentAttribute;
+  pop(): PluginComponentAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): PluginComponentAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): PluginComponentAttribute;
  
   /**
    * Set pluginComponent size,

@@ -58,13 +58,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: CircleOption): CircleAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-   pop(): CircleAttribute;
+  create(value?: CircleOption): CircleAttribute;
 
    /**
     * Just use for genetate tsbundle

@@ -81,19 +81,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(controller?: SwiperController): SwiperAttribute;
+  create(controller?: SwiperController): SwiperAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): SwiperAttribute;
+  pop(): SwiperAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): SwiperAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SwiperAttribute;
 
   /**
    * Called when the index value of the displayed subcomponent is set in the container.

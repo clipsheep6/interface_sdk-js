@@ -66,7 +66,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(
+  create(
     value?:
     | {
         width?: number | string;
@@ -79,19 +79,13 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
         radiusWidth?: number | string;
         radiusHeight?: number | string;
       },
-   ): RectAttribute;
+  ): RectAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): RectAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): RectAttribute;
+  debugLine(value: string): RectAttribute;
 
   /**
    * Called when the fillet width is set.

@@ -51,7 +51,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options?: { value?: string;
+  create(options?: { value?: string;
     placeholder?: string;
     icon?: string;
     controller?: SearchController
@@ -61,13 +61,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): SearchAttribute;
+  pop(): SearchAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): SearchAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SearchAttribute;
 
   /**
    * Set the search button text

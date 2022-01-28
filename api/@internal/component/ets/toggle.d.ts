@@ -56,19 +56,19 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
+  create(options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): ToggleAttribute;
+  pop(): ToggleAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): ToggleAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ToggleAttribute;
 
   /**
    * Called when the selected state of the component changes.

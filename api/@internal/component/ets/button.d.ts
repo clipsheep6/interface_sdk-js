@@ -88,24 +88,24 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   createWithChild(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
+  createWithChild(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   createWithLabel(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
+  createWithLabel(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): ButtonAttribute;
+  pop(): ButtonAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): ButtonAttribute;
 
   /**

@@ -535,7 +535,7 @@ declare class CalendarAttribute {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value: {
+  create(value: {
     date: { year: number; month: number; day: number };
     currentData: MonthData;
     preData: MonthData;
@@ -547,12 +547,12 @@ declare class CalendarAttribute {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): CalendarAttribute;
+  pop(): CalendarAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): CalendarAttribute;
 
   /**

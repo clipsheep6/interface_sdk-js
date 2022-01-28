@@ -34,19 +34,19 @@ declare class SheetAttribute extends CommonMethod<SheetAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(): SheetAttribute;
+  create(): SheetAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): SheetAttribute;
+  pop(): SheetAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): SheetAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SheetAttribute;
 }
 
 declare const Sheet: SheetInterface;

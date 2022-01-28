@@ -1108,18 +1108,18 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(context?: CanvasRenderingContext2D): CanvasAttribute;
+  create(context?: CanvasRenderingContext2D): CanvasAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): CanvasAttribute;
+  pop(): CanvasAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): CanvasAttribute;
 
   /**

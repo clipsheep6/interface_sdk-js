@@ -34,7 +34,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(min?: number | string): BlankAttribute;
+  create(min?: number | string): BlankAttribute;
 
   /**
    * Just use for genetate tsbundle
@@ -42,10 +42,10 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    */
   pop(): BlankAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): BlankAttribute;
 
   /**

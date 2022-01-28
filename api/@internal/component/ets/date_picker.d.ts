@@ -119,18 +119,18 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options?: DatePickerOption): DatePickerAttribute;
+  create(options?: DatePickerOption): DatePickerAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): DatePickerAttribute;
+  pop(): DatePickerAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): DatePickerAttribute;
 
   /**

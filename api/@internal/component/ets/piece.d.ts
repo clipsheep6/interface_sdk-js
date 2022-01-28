@@ -52,19 +52,19 @@ declare class PieceAttribute extends CommonMethod<PieceAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(options?: { content: string; icon?: string }): PieceAttribute;
+  create(options?: { content: string; icon?: string }): PieceAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): PieceAttribute;
+  pop(): PieceAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): PieceAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): PieceAttribute;
  
   /**
    * Called when the relative position of the icon and the text is set.

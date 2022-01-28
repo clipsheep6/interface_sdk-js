@@ -30,7 +30,7 @@ interface ColumnInterface {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: { space?: string | number }): ColumnAttribute;
+  create(value?: { space?: string | number }): ColumnAttribute;
 }
 
 /**
@@ -42,12 +42,12 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): ColumnAttribute;
+  pop(): ColumnAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
   debugLine(value: string): ColumnAttribute;
 
   /**

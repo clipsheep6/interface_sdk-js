@@ -33,19 +33,13 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(): ImageAnimatorAttribute;
+  create(): ImageAnimatorAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): ImageAnimatorAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): ImageAnimatorAttribute;
+  debugLine(value: string): ImageAnimatorAttribute;
  
   /**
    * list images

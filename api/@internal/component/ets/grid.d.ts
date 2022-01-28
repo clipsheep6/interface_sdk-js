@@ -44,7 +44,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(scroller?: Scroller): GridAttribute;
+  create(scroller?: Scroller): GridAttribute;
 
   /**
    * Just use for genetate tsbundle

@@ -64,19 +64,19 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   create(value?: { target: string; type?: NavigationType }): NavigatorAttribute;
+  create(value?: { target: string; type?: NavigationType }): NavigatorAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
-   pop(): NavigatorAttribute;
+  pop(): NavigatorAttribute;
 
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): NavigatorAttribute;
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): NavigatorAttribute;
  
   /**
    * Called when determining whether the routing component is active.
