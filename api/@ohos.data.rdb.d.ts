@@ -178,7 +178,6 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          */
         name: string;
-        encryptKey: Uint8Array;
     }
 
     /**
