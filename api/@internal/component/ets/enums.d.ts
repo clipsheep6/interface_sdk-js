@@ -701,6 +701,12 @@ declare enum FocusDirection {
    * @since 8
    */
   Tab,
+
+  /**
+   * From the key shift+tab.
+   * @since 8
+   */
+  ShiftTab,
 }
 
 /**
