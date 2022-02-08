@@ -14,6 +14,7 @@
  */
 
 import AbilityStageContext from "./application/AbilityStageContext";
+import Want from './@ohos.application.Want';
 
 /**
  * The class of an ability stage.
@@ -41,4 +42,14 @@ export default class AbilityStage {
      * @return -
      */
     onCreate(): void;
+
+    /**
+     * Called back when start specified ability.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @return -
+     */
+    onAcceptWant(want: Want): string;
 }

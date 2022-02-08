@@ -16,6 +16,7 @@
 import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
+import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * The class of an ability.
@@ -119,6 +120,27 @@ export default class Ability {
      * @return true if ability agrees to migrate and saves data successfully, otherwise false.
      */
      onContinue(wantParam : {[key: string]: any}): boolean;
+
+    /**
+     * Called when the launch mode of an ability is set to singleton.
+     * This happens when you re-launch an ability that has been at the top of the ability stack.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @return -
+     */
+    onNewWant(want: Want): void;
+
+     /**
+      * Called when the system configuration is updated.
+      *
+      * @devices phone, tablet, tv, wearable, car
+      * @since 8
+      * @sysCap AAFwk
+      * @return -
+      */
+    onConfigurationUpdated(config: Configuration): void;
 }
 
 export interface LaunchParam {
