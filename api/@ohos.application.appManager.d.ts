@@ -16,6 +16,7 @@
 import { AsyncCallback } from './basic';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AppStateData from './application/AppStateData';
+import { ProcessRunningInfo } from './@ohos.application.ProcessRunningInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -76,16 +77,27 @@ declare namespace appManager {
     function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
     function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
-     /**
-     * Is user running in stability test.
-     *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @SysCap appexecfwk
-     * @return Returns true if user is running stability test.
-     */
-      function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
-      function isRunningInStabilityTest(): Promise<boolean>;
+    /**
+    * Is user running in stability test.
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 8
+    * @SysCap appexecfwk
+    * @return Returns true if user is running stability test.
+    */
+    function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
+    function isRunningInStabilityTest(): Promise<boolean>;
+
+    /**
+    * Get information about running processes
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 8
+    * @SysCap appexecfwk
+    * @return Returns true if user is running stability test.
+    */
+    function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
+    function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
 }
 
 export default appManager;
