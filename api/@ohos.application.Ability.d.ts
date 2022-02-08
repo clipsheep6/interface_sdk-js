@@ -16,6 +16,79 @@
 import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
+import rpc from '/@ohos.rpc";
+
+/**
+ * The interface of an Caller.
+ *
+ * @since 8
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ */
+ interface Caller {
+     /**
+     * Notify the server of Sequenceable type data.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+     call(method, data: rpc.Sequenceable): Promise<void>;
+
+    /**
+     * Notify the server of Sequenceable type data and return the notification result.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     * return Sequenceable data
+     */
+     callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
+
+    /**
+     * Clear service records.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     * return Sequenceable data
+     */
+     release(): void;
+
+    /**
+     * Register death listener notification callback.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     * return Sequenceable data
+     */
+     onRelease(callback: function): void;
+ }
+ 
+ /**
+ * The interface of an Callee.
+ *
+ * @since 8
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ */
+ interface Callee {
+
+     /**
+     * Register data listener callback.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+     on(method: string, callback: function): void;
+
+     /**
+     * Unregister data listener callback.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+     off(method: string): void;
+ }
 
 /**
  * The class of an ability.
@@ -49,6 +122,14 @@ export default class Ability {
      * @sysCap AAFwk
      */
     lastRequestWant: Want;
+
+    /**
+     * Call Service Sutb Object
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+    callee: Callee;
 
     /**
      * Called back when an ability is started for initialization.
