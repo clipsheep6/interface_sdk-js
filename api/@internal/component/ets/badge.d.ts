@@ -137,6 +137,11 @@ interface BadgeInterface {
    * @since 7
    */
   (value: BadgeParamWithString): BadgeAttribute;
+  /**
+   * value: visible status of badge.
+   * @since 8
+   */
+  visible(value?: boolean) : BadgeAttribute;
 }
 
 /**
