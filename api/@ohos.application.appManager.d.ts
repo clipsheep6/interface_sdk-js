@@ -21,11 +21,12 @@ import { ProcessRunningInfo } from './application/ProcessRunningInfo';
 /**
  * This module provides the function of app manager service.
  *
- * @since 8
+ * @since 9
  * @SysCap appexecfwk
  * @devices phone, tablet, tv, wearable, car
  * @import import appManager from '@ohos.application.appManager'
  * @permission N/A
+ * @StageModelOnly
  */
 declare namespace appManager {
     /**
@@ -33,10 +34,11 @@ declare namespace appManager {
      *
      * @default -
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @SysCap appexecfwk
      * @param observer The application state observer.
      * @return Returns the number code of the observer.
+     * @StageModelOnly
      */
     function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
 
@@ -44,10 +46,11 @@ declare namespace appManager {
      * Unregister application state observer.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @SysCap appexecfwk
      * @param observerId Indicates the number code of the observer.
      * @return -
+     * @StageModelOnly
      */
     function unregisterApplicationStateObserver(observerId: number,  callback: AsyncCallback<void>): void;
     function unregisterApplicationStateObserver(observerId: number): Promise<void>;
@@ -56,9 +59,10 @@ declare namespace appManager {
      * getForegroundApplications.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @SysCap appexecfwk
      * @return Returns the list of AppStateData.
+     * @StageModelOnly
      */
      function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
      function getForegroundApplications(): Promise<Array<AppStateData>>;
@@ -67,12 +71,13 @@ declare namespace appManager {
      * Kill process with account.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @SysCap appexecfwk
      * @param bundleName The process bundle name.
      * @param accountId The account id.
      * @systemapi hide this for inner system use
      * @return -
+     * @StageModelOnly
      */
     function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
     function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
@@ -81,9 +86,10 @@ declare namespace appManager {
      * Is user running in stability test.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @SysCap appexecfwk
      * @return Returns true if user is running stability test.
+     * @StageModelOnly
      */
       function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
       function isRunningInStabilityTest(): Promise<boolean>;
@@ -92,13 +98,40 @@ declare namespace appManager {
     * Get information about running processes
     *
     * @devices phone, tablet, tv, wearable, car
-    * @since 8
+    * @since 9
     * @SysCap appexecfwk
     * @systemapi Hide this for inner system use.
     * @return -
+    * @StageModelOnly
     */
     function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
     function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
+
+    /**
+    * Kill process by bundleName
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 9
+    * @SysCap appexecfwk
+    * @param bundleName The process bundle name.
+    * @systemapi Hide this for inner system use.
+    * @StageModelOnly
+    */
+    function killProcesses(bundleName: string): Promise<void>;
+    function killProcesses(bundleName: string, callback: AsyncCallback<void>): void;
+
+    /**
+    * clear Application Data
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 9
+    * @SysCap appexecfwk
+    * @systemapi Hide this for inner system use.
+    * @param bundleName The process bundle name.
+    * @StageModelOnly
+    */
+    function clearUpApplicationData(bundleName: string): Promise<void>;
+    function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>): void;
 }
 
 export default appManager;
