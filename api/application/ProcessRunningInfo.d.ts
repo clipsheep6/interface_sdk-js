@@ -16,37 +16,42 @@
 /**
  * The class of an process running information.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export interface ProcessRunningInfo {
     /**
      * @default process id
-     * @since 8
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
-     pid: number;
+    pid: number;
 
-     /**
-      * @default user id
-      * @since 8
-      * @SysCap SystemCapability.Appexecfwk
-      */
-     uid: number;
- 
-     /**
-      * @default the name of the process
-      * @since 8
-      * @SysCap SystemCapability.Appexecfwk
-      */
-     processName: string;
- 
-     /**
-      * @default an array of the bundleNames running in the process
-      * @since 8
-      * @SysCap SystemCapability.Appexecfwk
-      */
-     bundleNames: Array<string>;
+    /**
+     * @default user id
+     * @since 9
+     * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
+     */
+    uid: number;
+
+    /**
+     * @default the name of the process
+     * @since 9
+     * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
+     */
+    processName: string;
+
+    /**
+     * @default an array of the bundleNames running in the process
+     * @since 9
+     * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
+     */
+    bundleNames: Array<string>;
 }

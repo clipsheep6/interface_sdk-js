@@ -19,51 +19,58 @@ import bundle from '../@ohos.bundle';
 /**
  * The class of an extension running information.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export interface ExtensionRunningInfo {
     /**
     * @default Indicates the extension of the extension info
-    * @since 8
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     extension: ElementName;
 
     /**
     * @default process id
-    * @since 8
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     pid: number;
 
     /**
     * @default user id
-    * @since 8
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     uid: number;
 
     /**
     * @default the name of the process
-    * @since 8
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     processName: string;
 
     /**
     * @default ability start time
-    * @since 8
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     startTime: number;
 
     /**
     * @default All package names under the current process
-    * @since 8
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     clientPackage: Array<String>;
 
