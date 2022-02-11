@@ -17,6 +17,7 @@
  * the information of the subscriber
  * @name CommonEventSubscribeInfo
  * @since 7
+ * @sysCap SystemCapability.Notification.commonEvent
  * @permission N/A
  */
 export interface CommonEventSubscribeInfo {
