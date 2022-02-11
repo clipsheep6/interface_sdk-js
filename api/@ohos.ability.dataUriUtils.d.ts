@@ -12,61 +12,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * A utility class used for handling objects that use the DataAbilityHelper scheme.
- * @name dataUriUtils
- * @since 7
- * @sysCap AAFwk
- * @devices phone, tablet
- * @permission N/A
- */
 declare namespace dataUriUtils {
   /**
-   * Obtains the ID attached to the end of the path component of the given uri.
-   *
+   * Obtains the ID attached to the end of the path component of the given URI.
    * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
-   * @param uri Indicates the uri object from which the ID is to be obtained.
+   * @SysCap AAFwk
+   * @param dataUri Indicates the Uri object from which the ID is to be obtained.
    * @return Returns the ID attached to the end of the path component;
+   *         returns -1 if the given dataUri does not contain a path component.
    */
-  function getId(uri: string): number
+  function getIdSync(URI: string): number;
 
   /**
-   * Attaches the given ID to the end of the path component of the given uri.
-   *
+   * Attaches the given ID to the end of the path component of the given URI.
    * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
-   * @param uri Indicates the uri string from which the ID is to be obtained.
+   * @SysCap AAFwk
+   * @param dataUri Indicates the Uri object to which the ID is to be attached.
    * @param id Indicates the ID to attach.
-   * @return Returns the uri object with the given ID attached.
+   * @return Returns the Uri object with the given ID attached.
    */
-  function attachId(uri: string, id: number): string
+   function attachIdSync(URI: string, id: number): string;
 
   /**
-   * Deletes the ID from the end of the path component of the given uri.
-   *
+   * Deletes the ID from the end of the path component of the given URI.
    * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
-   * @param uri Indicates the uri object from which the ID is to be deleted.
-   * @return Returns the uri object with the ID deleted.
+   * @SysCap AAFwk
+   * @param dataUri Indicates the Uri object from which the ID is to be deleted.
+   * @return Returns the Uri object with the ID deleted.
    */
-  function deleteId(uri: string): string
+   function deleteIdSync(URI: string): string;
 
   /**
-   * Updates the ID in the specified uri
-   *
+   * Updates the ID in the specified dataUri.
    * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
-   * @param uri Indicates the uri object to be updated.
+   * @SysCap AAFwk
+   * @param dataUri Indicates the Uri object to be updated.
    * @param id Indicates the new ID.
-   * @return Returns the updated uri object.
+   * @return Returns the updated Uri object.
    */
-  function updateId(uri: string, id: number): string
-
+   function updateIdSync(URI: string, id: number): string;
 }
+
 export default dataUriUtils;
