@@ -61,6 +61,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
 
    /**
+    * Triggered at the begin of web page loading
+    * @since 8
+    */
+    onPageBegin(callback: (event?: { url: string }) => void): WebAttribute;
+
+   /**
+    * Triggered when the page loading progress changes
+    * @since 8
+    */
+    onProgressChange(callback: (event?: { newProgress: number }) => void): WebAttribute;
+
+   /**
+    * Triggered when the title of the main application document changes
+    * @since 8
+    */
+    onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
+
+   /**
     * Get WebView focus callback event
     * @since 8
     */
