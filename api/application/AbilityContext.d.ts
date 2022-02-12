@@ -70,10 +70,11 @@ export default class AbilityContext extends Context {
      * Get the caller object of the startup capability 
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param parameter Indicates the ability to start.
      * @return Caller
+     * @StageModelOnly
      */
     startAbilityByCall(want: Want): Promise<Caller>;
 

@@ -31,35 +31,39 @@ import rpc from '/@ohos.rpc";
      /**
      * Notify the server of Sequenceable type data.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
      call(method, data: rpc.Sequenceable): Promise<void>;
 
     /**
      * Notify the server of Sequenceable type data and return the notification result.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * return Sequenceable data
+     * @StageModelOnly
      */
      callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
 
     /**
      * Clear service records.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * return Sequenceable data
+     * @StageModelOnly
      */
      release(): void;
 
     /**
      * Register death listener notification callback.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * return Sequenceable data
+     * @StageModelOnly
      */
      onRelease(callback: function): void;
  }
@@ -77,16 +81,18 @@ import rpc from '/@ohos.rpc";
      /**
      * Register data listener callback.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
      on(method: string, callback: function): void;
 
      /**
      * Unregister data listener callback.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
      off(method: string): void;
  }
@@ -131,8 +137,9 @@ export default class Ability {
     /**
      * Call Service Sutb Object
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     callee: Callee;
 
