@@ -22,10 +22,11 @@ import rpc from '/@ohos.rpc";
 /**
  * The interface of an Caller.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
  interface Caller {
      /**
@@ -71,10 +72,11 @@ import rpc from '/@ohos.rpc";
  /**
  * The interface of an Callee.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
  interface Callee {
 
