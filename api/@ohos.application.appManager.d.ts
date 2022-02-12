@@ -16,6 +16,7 @@
 import { AsyncCallback } from './basic';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AppStateData from './application/AppStateData';
+import { ProcessRunningInfo } from './application/ProcessRunningInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -86,6 +87,42 @@ declare namespace appManager {
      */
       function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
       function isRunningInStabilityTest(): Promise<boolean>;
+
+    /**
+    * Get information about running processes
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 8
+    * @SysCap appexecfwk
+    * @systemapi Hide this for inner system use.
+    * @return -
+    */
+    function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
+    function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
+
+    /**
+     * Kill processes by bundle name
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     * @devices phone, tablet, tv, wearable, car
+     * @param bundleName bundle name.
+     * @permission ohos.permission.DELETE_MISSIONS
+     * @systemapi hide this for inner system use
+     */
+     function killProcessesByBundleName(bundleName: string): Promise<void>;
+     function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+
+    /**
+     * Clear up application data by bundle name
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     * @devices phone, tablet, tv, wearable, car
+     * @param bundleName bundle name.
+     * @permission ohos.permission.DELETE_MISSIONS
+     * @systemapi hide this for inner system use
+     */
+     function clearUpApplicationData(bundleName: string): Promise<void>;
+     function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 }
 
 export default appManager;
