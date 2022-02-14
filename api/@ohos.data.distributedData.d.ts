@@ -639,13 +639,12 @@ declare namespace distributedData {
         securityLevel?: SecurityLevel;
 		/**
          * Indicates setting the database security level
-         * @since 7
+         * @since 9
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-         * @devices phone, tablet, tv, wearable, car
          * @import N/A
          * @permission N/A
          */
-		schema:Schema;
+		schema?:Schema;
     }
 
     /**
@@ -660,15 +659,15 @@ declare namespace distributedData {
      * @permission N/A
      */
     class Schema {
-        /**
-         * A constructor used to create a Schema instance.
-         * 
-         * @note N/A
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         */
-        constructor()
+		/**
+		* A constructor used to create a Schema instance.
+		* 
+		* @note N/A
+		* @since 8
+		* @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+		* @devices phone, tablet, tv, wearable, car
+		*/
+		constructor()
     }
 
     /**
