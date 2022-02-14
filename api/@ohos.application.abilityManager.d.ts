@@ -62,7 +62,6 @@ declare namespace abilityManager {
      * @devices phone, tablet, tv, wearable, car
      * @since 8
      * @SysCap AAFwk
-     * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
      */
@@ -75,7 +74,7 @@ declare namespace abilityManager {
       * @devices phone, tablet, tv, wearable, car
       * @since 9
       * @SysCap AAFwk
-      * @param config Indicates the new configuration.
+      * @param upperLimit Get the maximum limit of the number of messages.
       * @systemapi Hide this for inner system use.
       * @return -
       */
