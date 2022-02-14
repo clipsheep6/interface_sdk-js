@@ -14,8 +14,8 @@
  */
 
 import { Image, ImageData } from "./global";
-import { WebGLContextAttributes, WebGLRenderingContext } from "../webgl/webgl";
-import { WebGL2RenderingContext } from "../webgl/webgl2";
+import { WebGLContextAttributes, WebGLRenderingContext } from "../../webgl/webgl";
+import { WebGL2RenderingContext } from "../../webgl/webgl2";
 
 /**
  * @devices tv, phone, tablet, wearable

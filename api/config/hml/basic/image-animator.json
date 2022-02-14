@@ -1,5 +1,6 @@
 {
   "name": "image-animator",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v3.0"

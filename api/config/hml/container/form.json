@@ -1,5 +1,6 @@
 {
   "name": "form",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v6.0"

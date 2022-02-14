@@ -1,5 +1,6 @@
 {
   "name": "picker-view",
+  "syscap": ["SystemCapability.ArkUI.Core"],
   "version": [
     {
       "name": "v3.0"

@@ -13,6 +13,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Number of columns occupied by the current list-item in the list. By default, the list-item occupies one column. This attribute is valid only when the list contains multiple columns"
@@ -36,6 +37,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Component width. If this attribute is not set, the width required for the element content is used",
@@ -60,6 +62,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Component height. If this attribute is not set, the height required for the element content is used",
@@ -85,6 +88,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The attribute can have one to four values: 1. If you set a value, it specifies the padding for four sides; 2. If you set two values, the first value specifies the top and bottom padding, and the second value specifies the left and right padding; 3. If you set three values, the first value specifies the top padding, the second value specifies the left and right padding, and the third value specifies the bottom padding; 4. If you set four values, they respectively specify the padding for top, right, bottom, and left sides (in clockwise order)",
@@ -111,6 +115,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Left padding (in px)"
@@ -136,6 +141,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Top padding (in px)"
@@ -161,6 +167,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Right padding (in px)"
@@ -186,6 +193,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Bottom padding (in px)"
@@ -212,6 +220,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Start padding"
@@ -238,6 +247,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "End padding"
@@ -262,6 +272,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set margins for all sides in a declaration. You can set one to four values: 1. One value: specifies the margin for all the four sides; 2. Two values: The first value is for the top and bottom sides, and the second value is for the left and right sides; 3. Three values: The first value is for the top, the second value for the left and right, and the third value for the bottom; 4. They are margins for top, right, bottom, and left sides, respectively"
@@ -285,6 +296,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Left margin"
@@ -308,6 +320,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Top margin"
@@ -331,6 +344,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Right margin"
@@ -354,6 +368,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Bottom margin"
@@ -378,6 +393,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Start margin"
@@ -402,6 +418,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "End margin"
@@ -426,6 +443,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set all boarders. You can set border-width, border-style, and border-color in sequence. Default values are used for attributes that are not set"
@@ -445,6 +463,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the style of all borders. The available values are as follows: 1. dotted: Dotted border. The radius of a dot is half of border-width;2. dashed: Dashed border;3. solid: Solid border;"
@@ -480,6 +499,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "border image."
@@ -505,6 +525,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The border of the image is shifted inward"
@@ -531,6 +552,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Width about the border of the image"
@@ -557,6 +579,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The border image can exceed the size of the border box"
@@ -597,6 +620,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "How the picture fills the border"
@@ -628,6 +652,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The image of border attributes"
@@ -662,6 +687,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "image position"
@@ -687,6 +713,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The previous margin"
@@ -713,6 +740,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The next margin"
@@ -735,6 +763,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Styles of the left borders. The available values are dotted, dashed, and solid"
@@ -765,6 +794,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Styles of the top borders. The available values are dotted, dashed, and solid"
@@ -795,6 +825,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Styles of the right borders. The available values are dotted, dashed, and solid"
@@ -825,6 +856,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Styles of the bottom borders. The available values are dotted, dashed, and solid"
@@ -855,6 +887,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the boarders for every sides respectively. You can set border-width, border-style and border-color in sequence. Default values are used for attributes that are not set"
@@ -879,6 +912,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the boarders for every sides respectively. You can set border-width, border-style and border-color in sequence. Default values are used for attributes that are not set"
@@ -903,6 +937,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the boarders for every sides respectively. You can set border-width, border-style and border-color in sequence. Default values are used for attributes that are not set"
@@ -927,6 +962,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the boarders for every sides respectively. You can set border-width, border-style and border-color in sequence. Default values are used for attributes that are not set"
@@ -950,6 +986,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the width of all borders, or separately set the width of each border"
@@ -975,6 +1012,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set widths of left borders"
@@ -999,6 +1037,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set widths of top borders"
@@ -1023,6 +1062,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set widths of right borders"
@@ -1047,6 +1087,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set widths of right borders"
@@ -1070,6 +1111,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Shorthand attribute to set the color of all borders, or separately set the color of each border"
@@ -1094,6 +1136,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set colors of left borders"
@@ -1118,6 +1161,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set colors of top borders"
@@ -1142,6 +1186,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set colors of right borders"
@@ -1166,6 +1211,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set colors of bottom borders"
@@ -1189,6 +1235,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to set the radius of round borders of an element. This attribute cannot be used to set the width, color, or style of a specific border. To set the width or color, you need to set border-width, border-color, or border-style for all the borders at the same time.",
@@ -1214,6 +1261,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to receptively set the radius of the upper-left rounded corner"
@@ -1238,6 +1286,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to receptively set the radius of the upper-right rounded corner"
@@ -1262,6 +1311,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to receptively set the radius of the lower-left rounded corner"
@@ -1286,6 +1336,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Attribute to receptively set the radius of the lower-right rounded corner"
@@ -1332,6 +1383,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Set the alignment of itself on the cross axis of the parent element. This style will override the align-items style of the parent element.  It is only supported when the parent container is div or list"
@@ -1370,6 +1422,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The start property specifies the starting edge of the element. This attribute defines the offset between the start outer margin boundary of the positioning element and the start boundary of the containing block."
@@ -1402,6 +1455,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The end property specifies the end edge of the element. This attribute defines the offset between the end margin boundary of an anchor element and the end boundary of its containing block."
@@ -1434,6 +1488,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Represents the rendering order of its children for the same parent node.The higher the value, the lower the rendering data."
@@ -1465,6 +1520,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Fills colors for svg images. The following components can be used to set image resource attributes: button (icon attribute), piece (icon attribute), search (icon attribute), input (headicon attribute), textarea (headicon attribute), and image (src attribute)., navigation-bar(logo/starticon/endicon), toolbar-item (icon attribute)."
@@ -1559,6 +1615,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "This attribute supports Gradient Styles or SVG URL"
@@ -1601,6 +1658,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Specifies the display size of a mask image. This parameter is valid only when mask-image is an image resource.\nThe options are as follows:\ncontain: Extends the image to its maximum size so that its height and width are fully appropriate for the content area.\ncover: Expand the image to a large enough size so that the background image completely covers the background area. Some parts of the background image may not be displayed in the background anchor area.\nauto: Keep the original image scale unchanged.\nlength: Set the height and width of the image. The first value sets the width and the second value sets the height. If you set only one value, the second value is set to \"auto\".\nPercentage: Set the width and height of the original image as a percentage of the width and height of the original image. The first value sets the width and the second value sets the height. If you set only one value, the second value is set to \"auto\"."
@@ -1634,6 +1692,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Using keywords: If only one keyword is specified, the second value is center. The two values define the horizontal position and vertical position respectively. −left: leftmost in the horizontal direction −right: rightmost in the horizontal direction −top: top in the vertical direction −bottom: bottom in the vertical direction −center: center position 1. Using <length>: The first value indicates the horizontal position, and the second value indicates the vertical position. The values are in the Xpx Ypx format. 0 0 indicates the upper left corner. If only one value is specified, the other one is 50%. 2.Using <percentage>: The first value indicates the horizontal position, and the second value indicates the vertical position. 0% 0% indicates the upper left corner. 100% 100% indicates the lower right corner. If only one value is specified, the other one is 50%. 3.Using both <percentage> and <length>"
@@ -1657,6 +1716,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "This attribute supports Gradient Styles but is not compatible with background-color or background-image"
@@ -1680,6 +1740,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Background color"
@@ -1699,6 +1760,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Background image. Currently, this attribute is not compatible with background-color or border-color. Both Internet and local image resources are supported"
@@ -1734,6 +1796,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Background image size. The string values are as follows: − contain: Expands the image to the maximum size so that the height and width of the image are applicable to the content area. − cover: Extends the background image to a large enough size so that the background image completely covers the background area. Some parts of the image may not be displayed in the background localization area. − auto: The original image width-height ratio is retained. The two <length> values are as follows: Height and width of the background image. The first value indicates the width, and the second value indicates the height. If you only set one value, the second value is set to auto by default. 2. The two <percentage> values are as follows: Width and height of the background image in percentage of the parent element. The first value indicates the width, and the second value indicates the height. If you only set one value, the other value is set to auto by default"
@@ -1758,6 +1821,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Repeating attribute of a background image. By default, a background image is repeated both horizontally and vertically. 1. repeat: Draws images along the x axis and y axis at the same time. 2. repeat-x: Draws images along the x axis. 3. repeat-y: Draws images along the y axis. 4. no-repeat: The image is not drawn repeatedly."
@@ -1782,6 +1846,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Using keywords: If only one keyword is specified, the second value is center. The two values define the horizontal position and vertical position respectively. −left: leftmost in the horizontal direction −right: rightmost in the horizontal direction −top: top in the vertical direction −bottom: bottom in the vertical direction −center: center position 1. Using <length>: The first value indicates the horizontal position, and the second value indicates the vertical position. The values are in the Xpx Ypx format. 0 0 indicates the upper left corner. If only one value is specified, the other one is 50%. 2.Using <percentage>: The first value indicates the horizontal position, and the second value indicates the vertical position. 0% 0% indicates the upper left corner. 100% 100% indicates the lower right corner. If only one value is specified, the other one is 50%. 3.Using both <percentage> and <length>"
@@ -1806,6 +1871,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Transparency of an element. The value ranges from 0 to 1. 1 indicates opaque, and 0 indicates completely transparent"
@@ -1834,6 +1900,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Type of the view box of the element. Currently, dynamic modification is not supported. Available values are as follows:  flex: flexible layout;  none: This item is hidden"
@@ -1863,6 +1930,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether to display an element. Invisible borders occupy layout space (set the display attribute to none to hide the borders). The values are as follows: 1. visible: The element is visible. 2. hidden: The element is hidden but still takes up space. NOTE If both visibility and display are set, only display takes effect."
@@ -1887,6 +1955,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "How to divide available space of the parent component for a child component. It is used as a shorthand attribute to set the flex-grow attribute of the parent component. NOTE This attribute takes effect only when the parent component is <div>, <list-item>, or <tabs>"
@@ -1911,6 +1980,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "How much a child component will grow. The value specifies allocation of the remaining space on the main axis of the parent component. Size of available space = Container size - Total size of all child components. Value 0 indicates that the child component does not grow. NOTE: This attribute takes effect only when the parent component is <div>, <list-item>, or <tabs>"
@@ -1935,6 +2005,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "How much child component will shrink. The shrink occurs only when the sum of default item widths is greater than that of the parent component. Value 0 indicates that the child component does not shrink. NOTE: This attribute takes effect only when the parent component is <div>, <list-item>, or <tabs>"
@@ -1959,6 +2030,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Initial length of the flex item on the main axis. NOTE: This attribute takes effect only when the parent component is <div>, <list-item>, or <tabs>"
@@ -1989,6 +2061,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Positioning type of an element. Dynamic changes are not supported. 1. fixed: The element is positioned related to the browser window. 2. absolute: The element is positioned absolutely to its parent element. 3. relative: The element is positioned relative to its normal position. NOTE: The absolute attribute takes effect only when the parent component is <div> or <stack>"
@@ -2012,6 +2085,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "left must be used together with position to determine the offset position of an element. The left attribute specifies the left edge position of the element. This attribute defines the offset between the left edge of a positioned element and that of a block included in the element"
@@ -2035,6 +2109,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "top must be used together with position to determine the offset position of an element. The top attribute specifies the top edge position of the element. This attribute defines the offset between the top edge of a positioned element and that of a block included in the element"
@@ -2059,6 +2134,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "right must be used together with position to determine the offset position of an element. The right attribute specifies the right edge position of the element. This attribute defines the offset between the right edge of a positioned element and that of a block included in the element"
@@ -2083,6 +2159,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "bottom must be used together with position to determine the offset position of an element. The bottom attribute specifies the bottom edge position of the element. This attribute defines the offset between the bottom edge of a positioned element and that of a block included in the element"
@@ -2110,6 +2187,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Origin position of the transformed element. The unit can be px or a percentage (relative to the animation target component), for example, 50px 100px or 50% 50%."
@@ -2168,6 +2246,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Translation, rotation, and scaling attributes"
@@ -2191,6 +2270,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "@keyframes rule"
@@ -2214,6 +2294,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Delay for playing the animation, in ms or s, for example, 1000 ms or 1s. The default unit is ms."
@@ -2237,6 +2318,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Animation duration, in ms or s, for example, 1000 ms or 1s. The default unit is ms. NOTE: For basic watches, the maximum animation duration is 60s. animation-duration must be specified. Otherwise, the duration is 0, which means the animation will not be played"
@@ -2268,6 +2350,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Number of times that an animation is played. The animation is played once by default. You can set the value to infinite to play the animation infinitely"
@@ -2346,6 +2429,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Speed curve of an animation, which makes the animation more fluent. Available values include: linear: The animation speed keeps unchanged; ease: The animation starts at a low speed and then accelerates. It slows down before the animation ends. cubic-bezier(0.25, 0.1, 0.25, 1.0); ease-in: The animation starts at a low speed. cubic-bezier(0.42, 0.0, 1.0, 1.0); ease-out: The animation ends at a low speed. cubic-bezier(0.0, 0.0, 0.58, 1.0); ease-in-out: The animation starts and ends at a low speed. cubic-bezier(0.42, 0.0, 0.58, 1.0); fast-out-slow-in: Standard curve, cubic-bezier(0.4, 0.0, 0.2, 1.0); linear-out-slow-in: Deceleration curve, cubic-bezier(0.0, 0.0, 0.2, 1.0); fast-out-linear-in: Acceleration curve, cubic-bezier(0.4, 0.0, 1.0, 1.0); friction: Damping curve, cubic-bezier(0.2, 0.0, 0.2, 1.0);extreme-deceleration: Extreme deceleration curve, cubic-bezier(0.0, 0.0, 0.0, 1.0) curve; sharp: Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0); rhythm: Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0); smooth: Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0); cubic-bezier: You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1"
@@ -2377,6 +2461,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether to restore the initial state after the animation is executed. Available values include: none: The initial state is restored after the animation is executed; forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed"
@@ -2404,6 +2489,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Entry style of shared elements during the transition, which can be exchange or static.During the transition, the style configured on the target page takes effect preferentially. exchange: The source page element is moved to the position of the target page element and is zoomed in or out properly. static: The position of the target page element remains unchanged. You can configure the transparency animation. Currently, only the static effect configured on the target page takes effect"
@@ -2423,6 +2509,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "During the transition, the style configured on the target page takes effect preferentially. This style is used to configure the animation effect of shared elements. The animation effect is an animation sequence defined by @keyframes supporting transform and transparency animations. If the effect of the shared element conflicts with the custom animation, the latter is used"
@@ -2447,6 +2534,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "During the transition, the style configured on the target page takes effect preferentially. This attribute defines the difference curve during the transition of shared elements. The friction curve is used by default if this parameter is not configured"
@@ -2466,6 +2554,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Related to @keyframes, which supports transform and transparent animations"
@@ -2485,6 +2574,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Related to @keyframes, which supports transform and transparent animations"
@@ -2504,6 +2594,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "The unit can be s or ms. The default unit is ms"
@@ -2528,6 +2619,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Speed curve of executing transition animation for smoother transition. For details about the parameters, see the description of the valid values of animation-timing-function"
@@ -2559,6 +2651,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Main axis direction of the flex container. Available values are as follows: column: Items are placed vertically from top to bottom; row: Items are placed horizontally from left to right"
@@ -2590,6 +2683,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether flex items in the container are displayed in a single line or multiple lines. Currently, dynamic modification is not supported. Available values are as follows: nowrap: Items are displayed on a single axis; wrap: Items are displayed on multiple axes."
@@ -2633,6 +2727,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "How items are aligned along the main axis of the current line in a flex container. Available values are as follows: flex-start: Items are packed towards the start line. flex-end: Items are packed towards the end line. center: Items are centered along the line. space-between: Items are positioned with space between the lines. space-around: Items are positioned with space before, between, and after the lines."
@@ -2669,6 +2764,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "How items are aligned along the cross axis of the current line in a flex container. Available values are as follows: stretch: Items are stretched to the same height or width as the container in the cross axis direction; flex-start: Items are aligned to the start of the cross axis; flex-end: Items are aligned to the end of the cross axis; center: Items are aligned in the middle of the cross axis"
@@ -2712,6 +2808,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Multi-line alignment mode when there is extra space in the cross axis. Available values are as follows: flex-start: All lines are packed towards the start of the cross axis. The start edge of the cross axis of the first line is aligned with the start edge of the cross axis of the container. All subsequent lines are aligned with the previous line; flex-end: All lines are packed towards the end of the cross axis. The end of the cross axis of the last line is aligned with the end of the cross axis of the container. All subsequent lines are aligned with the previous line; center: All lines are packed towards the center of the container. Lines are close to each other and aligned with the center of the container. The spacing between the start of the container's cross axis and the first line is equal to the spacing between the end of the container's cross axis and the last line; space-between: All lines are evenly distributed in the container. The spacing between two adjacent lines is the same. The start and end edges of the container's cross axis are aligned with the edges of the first and last lines, respectively; space-around: All lines are evenly distributed in the container, and the spacing between two adjacent lines is the same. The spacing between the start edge of the container's cross axis and the first line and that between the end edge and the last line are half of the spacing between two adjacent lines."
@@ -2736,6 +2833,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Number of columns in the current grid layout. If this attribute is not set, one row and one column are displayed by default. This attribute is valid only when display is set to grid"
@@ -2760,6 +2858,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Number of rows in the current grid layout. If this attribute is not set, one row and one column are displayed by default. This attribute is valid only when display is set to grid"
@@ -2784,6 +2883,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Size of the gap between two consecutive columns in a grid layout. You can also use grid-gap to set the same size of the gap between rows and columns. This attribute is valid only when display is set to grid"
@@ -2808,6 +2908,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Size of the gap between two consecutive rows in a grid layout. You can also use grid-gap to set the same size of the gap between rows and columns. This attribute is valid only when display is set to grid"
@@ -2832,6 +2933,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Start row numbers of the current item in the grid layout. This attribute is valid only when display of the parent component is grid. (The display attribute of the parent component can be set to grid only for the <div> container.)"
@@ -2856,6 +2958,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "End row numbers of the current item in the grid layout. This attribute is valid only when display of the parent component is grid. (The display attribute of the parent component can be set to grid only for the <div> container.)"
@@ -2880,6 +2983,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Start column numbers of the current item in the grid layout. This attribute is valid only when display of the parent component is grid. (The display attribute of the parent component can be set to grid only for the <div> container.)"
@@ -2904,6 +3008,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "End column numbers of the current item in the grid layout. This attribute is valid only when display of the parent component is grid. (The display attribute of the parent component can be set to grid only for the <div> container.)"
@@ -2928,6 +3033,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "restrictions": [
         {
           "name": ["string"]
@@ -2952,6 +3058,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Sets the color of the scroll bar."
@@ -2983,6 +3090,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Sets the width of the scroll bar."
@@ -3014,6 +3122,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Sets the offset of the scroll bar."
@@ -3040,6 +3149,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": ""
@@ -3064,6 +3174,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": ""
@@ -3088,6 +3199,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": ""
@@ -3112,6 +3224,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": ""
@@ -3136,6 +3249,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Number of columns displayed in the main axis direction of the element. The default value is 1"
@@ -3160,6 +3274,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Size of an internal item. When a percentage is set, the value indicates the percentage of the length in the main axis direction relative to the list viewpoint"
@@ -3184,6 +3299,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Color of the physical dynamic effect. This attribute is valid only when scrolleffect is set to fade"
@@ -3208,6 +3324,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Fill color of the navigation point indicator"
@@ -3232,6 +3349,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Color of the currently selected navigation point indicator"
@@ -3256,6 +3374,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Diameter of the navigation point indicator"
@@ -3280,6 +3399,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Position of the indicator relative to the swiper"
@@ -3304,6 +3424,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Diameter of the navigation point indicator"
@@ -3328,6 +3449,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Diameter of the navigation point indicator"
@@ -3352,6 +3474,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Diameter of the navigation point indicator"
@@ -3376,6 +3499,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Loading color of the <refresh> component"
@@ -3422,6 +3546,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Image scale type. The SVG format is not supported. cover: The image is scaled with the aspect ratio retained for both sides to be greater than or equal to the display boundaries and displayed in the middle. contain: The image is scaled with the aspect ratio retained for the image to be completely displayed within the display boundaries and displayed in the middle. fill: The image is resized to fill the display area and its aspect ratio is not retained. none: The image is displayed in the middle with its aspect ratio and size retained. scale-down: The image is displayed in the middle with its aspect ratio retained. The size is equal to or smaller than the original size."
@@ -3454,6 +3579,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether image orientation changes with the text direction. The SVG format is not supported"
@@ -3486,6 +3612,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether the <image> component adapts to the image source size when the width and height are not set. If this attribute is set to true, the object-fit attribute does not take effect. SVG images do not support this attribute"
@@ -3509,6 +3636,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Color of the component"
@@ -3532,6 +3660,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Transparency of an element. The value ranges from 0 to 1. 1 indicates opaque, and 0 indicates completely transparent"
@@ -3555,6 +3684,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Appearing duration, The unit is ms."
@@ -3578,6 +3708,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Width of the component"
@@ -3602,6 +3733,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Secondary color of the component"
@@ -3626,6 +3758,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Scale thickness of the ring progress bar with a scale. This style takes effect only when the type is scale-ring"
@@ -3650,6 +3783,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Number of scales of the ring progress bar with a scale. This style takes effect only when the type is scale-ring"
@@ -3673,6 +3807,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Start angle of the component, which starts from the direction of zero o'clock. The value ranges from 0 to 360 degrees (clockwise)"
@@ -3696,6 +3831,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Total length of the component. The value ranges from –360 to 360. A negative number indicates counterclockwise direction"
@@ -3719,6 +3855,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Center of the component (with the upper left corner of this widget as the coordinate origin). This style must be used together with center-y and radius"
@@ -3742,6 +3879,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Center of the component (with the upper left corner of this widget as the coordinate origin). This style must be used together with center-x and radius"
@@ -3765,6 +3903,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Radius of the component. This style must be used together with center-x and center-y"
@@ -3788,6 +3927,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font size (px).Currently, only 30px and 38px font sizes are supported"
@@ -3820,6 +3960,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether the font size changes following the system's font size settings. NOTE: For details about how to make the configuration take effect dynamically, see the config-changes attribute in the config.json file"
@@ -3843,6 +3984,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Character spacing (px)"
@@ -3870,6 +4012,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font style. Available values are as follows: normal: standard font style. italic: italic font style"
@@ -3941,6 +4084,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font width. For the number type, the value ranges from 100 to 900. The default value is 400. A larger value indicates a larger font width. NOTE: The value must be an integer multiple of 100. The value of the string type can be lighter, normal, hold, or bolder"
@@ -3974,6 +4118,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text modifier. Available values are as follows: underline: An underline is used; line-through: A strikethrough is used; none: The standard text is used"
@@ -4020,6 +4165,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text alignment mode. Available values are as follows: left: The text is left-aligned; center: The text is center-aligned; right: The text is right-aligned; start: The text is aligned with the direction in which the text is written; end: The text in aligned with the opposite direction in which the text is written; NOTE If the text width is not specified, the alignment effect may not be obvious when the text width is the same as the width of the parent container"
@@ -4044,6 +4190,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text line height. When this parameter is set to 0px, the text line height is not limited and the font size is adaptive"
@@ -4078,6 +4225,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text line height. When this parameter is set to 0px, the text line height is not limited and the font size is adaptive"
@@ -4111,6 +4259,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text line height. When this parameter is set to 0px, the text line height is not limited and the font size is adaptive"
@@ -4148,6 +4297,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Set the vertical alignment of the current text"
@@ -4195,6 +4345,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Set the mode for handling blanks in text"
@@ -4220,6 +4371,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text spacing (px)"
@@ -4251,6 +4403,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text decoration color"
@@ -4276,6 +4429,7 @@
           "name": "v7.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Set the amount of indentation before the first line of text"
@@ -4306,6 +4460,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font family, in which fonts are separated by commas (,). Each font is set using a font name or font family name. The first font that exists in the system or the font specified by Customizing Font Styles in the family is selected as the font for the text"
@@ -4335,6 +4490,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Maximum number of lines in the text"
@@ -4359,6 +4515,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Minimum font size in the text. This style must be used together with max-font-size. The font size can be changed dynamically. After the maximum and minimum font sizes are set, font-size does not take effect"
@@ -4383,6 +4540,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Maximum font size in the text. This style must be used together with min-font-size. The font size can be changed dynamically. After the maximum and minimum font sizes are set, font-size does not take effect"
@@ -4407,6 +4565,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Step for dynamically adjusting the font size in the text. The minimum and maximum font sizes must be set"
@@ -4431,6 +4590,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Preset preferred font sizes. For dynamic font size adjusting, the preset sizes are used to match the maximum number of lines in the text. If the preferred font sizes were not set, the font size will be adjusted based on the maximum and minimum font sizes and the step you have set. If the font size cannot match the maximum number of lines in the text, use text-overflow to truncate the text. If this parameter is set, font-size, max-font-size, min-font-size, and font-size-step do not take effect. Example values: 12 px,14 px,16 px"
@@ -4463,6 +4623,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": ""
@@ -4487,6 +4648,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Background image when a rating star is unselected. Only PNG and JPG images in a local path are supported"
@@ -4511,6 +4673,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Secondary background image when a rating star is partially selected. This image will cover the background image and can only be of the PNG or JPG format and from a local path"
@@ -4535,6 +4698,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "values": [
         {
           "name": "url()"
@@ -4572,6 +4736,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Whether the image source is automatically flipped in the RTL text direction"
@@ -4610,6 +4775,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Cap style of a divider. The default value is butt. Available values are as follows: butt: The ends of the divider are squared off. round: A rounded cap is added to each end of the divider. square: A square cap is added to each end of the divider. NOTE If the value is round or square, the line length increases by the line width"
@@ -4634,6 +4800,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Color of the hint text"
@@ -4658,6 +4825,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text color"
@@ -4682,6 +4850,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Width of the internal icon of a circle button. The entire circle button is filled by default."
@@ -4706,6 +4875,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Height of the internal icon of a circle button. The entire circle button is filled by default."
@@ -4730,6 +4900,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Slider color"
@@ -4754,6 +4925,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text color displayed when the component is checked"
@@ -4778,6 +4950,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Text color displayed when the component is not checked"
@@ -4802,6 +4975,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Distance between the two sides of the longest text in texton and textoff and the border of the slider"
@@ -4825,6 +4999,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font color of the selected item"
@@ -4848,6 +5023,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font size of the selected item. The value is of the length type, in pixels"
@@ -4872,6 +5048,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font color of the focus. This attribute is available only for smart TV"
@@ -4896,6 +5073,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Font size of the focus. The value is of the length type, in pixels. This attribute is available only for smart TV'"
@@ -4920,6 +5098,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Color of each section for the scale bar of the gauge component. For example, colors: #FF0000, #00FF00. This style is supported by the gauge chart only"
@@ -4944,6 +5123,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Weight of each section for the scale bar of the gauge component. For example, weights: 2, 2. This style is supported by the gauge chart only"
@@ -4973,6 +5153,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Supported sources of customized fonts"
@@ -4997,6 +5178,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5021,6 +5203,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5045,6 +5228,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5069,6 +5253,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5093,6 +5278,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5117,6 +5303,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5141,6 +5328,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5165,6 +5353,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5189,6 +5378,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5213,6 +5403,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5237,6 +5428,7 @@
           "name": "v4.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": " "
@@ -5260,6 +5452,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Caret color"
@@ -5283,6 +5476,7 @@
           "name": "v6.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "the background color when list item is clicked."
@@ -5304,6 +5498,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Includes content of another file.",
@@ -5319,6 +5514,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Defines set of animation key frames.",
@@ -5334,6 +5530,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Allows for linking to fonts that are automatically activated when needed. This permits authors to work around the limitation of 'web-safe' fonts, allowing for consistent rendering independent of the fonts available in a given user's environment.",
@@ -5349,6 +5546,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Defines a stylesheet for a particular media type.",
@@ -5366,6 +5564,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Represents an element that is being activated by the user.",
@@ -5381,6 +5580,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Represents an element that is checked or toggled to an on state..",
@@ -5396,6 +5596,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Represents an element that is waiting for operation finished.",
@@ -5411,6 +5612,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Represents any disabled element.",
@@ -5426,6 +5628,7 @@
           "name": "v3.0"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.Core"],
       "description": [
         {
           "name": "Represents an element that has received focus.",
