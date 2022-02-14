@@ -17,6 +17,7 @@ import { AsyncCallback } from './basic';
 import { MissionInfo } from './application/MissionInfo';
 import { MissionListener } from './application/MissionListener';
 import { MissionSnapshot } from './application/MissionSnapshot';
+import AbilityContext from './application/AbilityContext';
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -136,7 +137,8 @@ declare namespace missionManager {
      * @return -
      */
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
-    function moveMissionToFront(missionId: number): Promise<void>;
+    function moveMissionToFront(missionId: number, context?: AbilityContext): Promise<void>;
+    function moveMissionToFront(missionId: number, context: AbilityContext, callback: AsyncCallback<void>): void;
 }
 
 export default missionManager;
