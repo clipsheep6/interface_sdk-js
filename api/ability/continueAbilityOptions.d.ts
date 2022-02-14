@@ -25,6 +25,7 @@ export interface ContinueAbilityOptions {
    * @default -
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    */
    deviceId: string;
 
@@ -35,6 +36,7 @@ export interface ContinueAbilityOptions {
    * @default -
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @FAModelOnly
    */
    reversible?: boolean;
 }
