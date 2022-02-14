@@ -637,6 +637,15 @@ declare namespace distributedData {
          * @permission N/A
          */
         securityLevel?: SecurityLevel;
+		/**
+         * Indicates setting the database security level
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
+		schema:Schema;
     }
 
     /**
@@ -660,16 +669,6 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          */
         constructor()
-        /**
-         * Obtains the schema in json format.
-         * 
-         * @note N/A
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-         * @devices phone, tablet, tv, wearable, car 
-         * @returns Returns the schema in json format.
-         */
-        toJsonString():string;
     }
 
     /**
@@ -711,16 +710,6 @@ declare namespace distributedData {
          * @returns Returns true if the child node is successfully added to this {@code FieldNode}; returns false otherwise.
          */
         appendChild(child: FieldNode): boolean;
-        /**
-         * Obtains the field name.
-         * 
-         * @note N/A
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-         * @devices phone, tablet, tv, wearable, car 
-         * @returns Returns the field name.
-         */
-        toJson(): string;
     }
 
     /**
