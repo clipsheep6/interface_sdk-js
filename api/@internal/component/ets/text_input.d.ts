@@ -13,166 +13,250 @@
  * limitations under the License.
  */
 
-import { Font } from ".";
-import { CommonMethod } from "./common";
-import { FontWeight, FontStyle } from "./enums";
-import { Resource, ResourceColor, ResourceStr } from "./units";
 
 /**
  * Declare the type of input box
- * @since 8
+ * @since 7
  */
-export declare enum InputType {
+declare enum InputType {
   /**
    * Basic input mode.
-   * @since 8
+   * @since 7
    */
   Normal,
 
   /**
    * Password entry mode.
-   * @since 8
+   * @since 7
    */
   Number,
 
   /**
    * E-mail address input mode.
-   * @since 8
+   * @since 7
    */
   Email,
 
   /**
    * Pure digital input mode.
-   * @since 8
+   * @since 7
    */
   Password,
 }
 
 /**
  * Declare the type of soft keyboard.
- * @since 8
+ * @since 7
  */
-export declare enum EnterKeyType {
+declare enum EnterKeyType {
   /**
    * Go.
-   * @since 8
+   * @since 7
    */
   Go,
 
   /**
    * Search.
-   * @since 8
+   * @since 7
    */
   Search,
 
   /**
    * Send.
-   * @since 8
+   * @since 7
    */
   Send,
 
   /**
    * Next.
-   * @since 8
+   * @since 7
    */
   Next,
 
   /**
    * Done.
-   * @since 8
+   * @since 7
    */
   Done,
 }
 
 /**
- * Defines the option of TextInput.
+ * Provides the method of switching the cursor position.
  * @since 8
  */
-export declare interface TextInputOption {
+declare class TextInputController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  caretPosition(value: number): void;
+}
+
+/**
+ * Defines the option of TextInput.
+ * @since 7
+ */
+declare interface TextInputOption {
   /**
    * The place holder text string.
-   * @since 8
+   * @since 7
    */
   placeholder?: ResourceStr;
 
   /**
    * Sets the current value of TextArea.
-   * @since 8
+   * @since 7
    */
   text?: ResourceStr;
+
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  controller?: TextInputController;
 }
 
 /**
  * Provides a single-line text input component interface.
- * @since 8
+ * @since 7
  */
-interface TextInput extends TextInputAttribute<TextInput> {
+interface TextInputInterface {
   /**
    * Called when writing a single line of text.
-   * @since 8
+   * @since 7
    */
-  (value?: TextInputOption): TextInput;
+  (value?: TextInputOption): TextInputAttribute;
 }
 
 /**
- * @since 8
+ * @since 7
  */
-declare class TextInputAttribute<T> extends CommonMethod<T> {
+declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: TextInputOption): TextInputAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TextInputAttribute;
+
   /**
    * Called when the input type is set.
-   * @since 8
+   * @since 7
    */
-  type(value: InputType): T;
+  type(value: InputType): TextInputAttribute;
 
   /**
    * Called when the color of the placeholder is set.
-   * @since 8
+   * @since 7
    */
-  placeholderColor(value: ResourceColor): T;
+  placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
-   * @since 8
+   * @since 7
    */
-  placeholderFont(value?: Font): T;
+  placeholderFont(value?: Font): TextInputAttribute;
 
   /**
    * Called when the type of soft keyboard input button is set.
-   * @since 8
+   * @since 7
    */
-  enterKeyType(value: EnterKeyType): T;
+  enterKeyType(value: EnterKeyType): TextInputAttribute;
 
   /**
    * Called when the color of the insertion cursor is set.
-   * @since 8
+   * @since 7
    */
-  caretColor(value: ResourceColor): T;
+  caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when judging whether the text editing has changed.
-   * @since 8
+   * @since 7
    */
-  onEditChanged(callback: (isEditing: boolean) => void): T;
+  onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when submitted.
-   * @since 8
+   * @since 7
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): T;
+  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
-   * @since 8
+   * @since 7
    */
-  onChange(callback: (value: string) => void): T;
+  onChange(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when the input of maximum text length is set.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision.
-   * @since 5
+   * @since 7
    */
-  maxLength(value: number): T;
+  maxLength(value: number): TextInputAttribute;
+
+  /**
+   * Called when the font color is set.
+   * @since 7
+   */
+  fontColor(value: ResourceColor): TextInputAttribute;
+
+  /**
+   * Called when the font size is set.
+   * @since 7
+   */
+  fontSize(value: Length): TextInputAttribute;
+
+  /**
+   * Called when the font style of a font is set.
+   * @since 7
+   */
+  fontStyle(value: FontStyle): TextInputAttribute;
+
+  /**
+   * Called when the font weight is set.
+   * @since 7
+   */
+  fontWeight(value: number | FontWeight | string): TextInputAttribute;
+
+  /**
+   * Called when the font list of text is set.
+   * @since 7
+   */
+  fontFamily(value: ResourceStr): TextInputAttribute;
+
+  /**
+   * Called when the inputFilter of text is set.
+   * @since 8
+   */
+  inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onCopy(callback: (value: string) => void): TextInputAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onCut(callback: (value: string) => void): TextInputAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onPaste(callback: (value: string) => void): TextInputAttribute;
 }
 
-export declare class TextInputExtend<T> extends TextInputAttribute<T> {}
-export declare const TextInputInterface: TextInput;
+declare const TextInput: TextInputInterface;
+declare const TextInputInstance: TextInputAttribute;

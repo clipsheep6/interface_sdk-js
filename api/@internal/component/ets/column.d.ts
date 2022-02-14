@@ -13,34 +13,55 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { HorizontalAlign } from "./enums";
-
 /**
  * Defines the Column Component.
  * @since 7
  */
-interface Column extends ColumnAttribute<Column> {
+interface ColumnInterface {
   /**
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
    * @since 7
    */
-  (value?: { space?: string | number }): Column;
+  (value?: { space?: string | number }): ColumnAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { space?: string | number }): ColumnAttribute;
 }
 
 /**
  * Defines the Column component attribute functions.
  * @since 7
  */
-export declare class ColumnAttribute<T> extends CommonMethod<T> {
+declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ColumnAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ColumnAttribute;
+
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
    * @since 7
    */
-  alignItems(value: HorizontalAlign): T;
+  alignItems(value: HorizontalAlign): ColumnAttribute;
+
+  /**
+   * Sets the alignment format of the subassembly in the vertical direction.
+   * @since 8
+   */
+  justifyContent(value: FlexAlign): ColumnAttribute;
 }
 
-export declare class ColumnExtend<T> extends ColumnAttribute<T> {}
-export declare const ColumnInterface: Column;
+declare const Column: ColumnInterface;
+declare const ColumnInstance: ColumnAttribute;

@@ -1,97 +1,326 @@
-/*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { CommonMethod } from "./common";
-
-/**
- * Defines the WebController.
- * @since 8
- */
-export declare class WebController {
+declare enum MessageLevel {
   /**
-   * Defines the constructor of WebController.
+   * Debug level.
+   * @since 8
+   */
+  Debug,
+
+  /**
+   * Error level.
+   * @since 8
+   */
+  Error,
+
+  /**
+   * Info level.
+   * @since 8
+   */
+  Info,
+
+  /**
+   * Log level.
+   * @since 8
+   */
+  Log,
+
+  /**
+   * Warn level.
+   * @since 8
+   */
+  Warn
+}
+
+declare class JsResult {
+  /**
+   * Constructor.
    * @since 8
    */
   constructor();
 
   /**
-   * Reload current web page.
+   * Handle the user's JavaScript result if cancel the dialog.
    * @since 8
    */
-  reload();
+  handleCancel(): void;
+
+  /**
+   * Handle the user's JavaScript result if confirm the dialog.
+   * @since 8
+   */
+  handleConfirm(): void;
 }
 
-/**
- * Defines the option of Web component.
- * @since 8
- */
-export declare interface WebOption {
+declare class ConsoleMessage {
   /**
-   * The web url.
+   * Constructor.
    * @since 8
    */
-  src: string;
+  constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
   /**
-   * The web Controller.
+   * Get the message of a console message.
+   *
+   * @return Return the message of a console message.
    * @since 8
    */
+  getMessage(): string;
+
+  /**
+   * Get the source id of a console message.
+   *
+   * @return Return the source id of a console message.
+   * @since 8
+   */
+  getSourceId(): string;
+
+  /**
+   * Get the line number of a console message.
+   *
+   * @return Return the line number of a console message.
+   * @since 8
+   */
+  getLineNumber(): number;
+
+  /**
+   * Get the message level of a console message.
+   *
+   * @return Return the message level of a console message, which can be {@link MessageLevel}.
+   * @since 8
+   */
+  getMessageLevel(): MessageLevel;
+}
+
+declare class WebResourceRequest {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Get request headers.
+   *
+   * @return Return a map of the request headers
+   * @since 8
+   */
+  getRequestHeader(): Map<string, string>;
+
+  /**
+   * Get the request url.
+   *
+   * @return Return the request url.
+   * @since 8
+   */
+  getRequestUrl(): string;
+
+  /**
+   * Check whether the request is associated with gesture.
+   *
+   * @return Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @since 8
+   */
+  isRequestGesture(): boolean;
+
+  /**
+   * Check whether the request is for getting the main frame.
+   *
+   * @return Return {@code true} if the request is associated with gesturefor getting the main frame; return {@code false} otherwise.
+   * @since 8
+   */
+  isMainFrame(): boolean;
+
+  /**
+   * Check whether the request redirects.
+   *
+   * @return Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @since 8
+   */
+  isRedirect(): boolean;
+}
+
+declare class WebResourceError {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Get the info of the web resource error.
+   *
+   * @return Return the info of the web resource error.
+   * @since 8
+   */
+  getErrorInfo(): string;
+
+  /**
+   * Get the code of the web resource error.
+   *
+   * @return Return the code of the web resource error.
+   * @since 8
+   */
+  getErrorCode(): number;
+}
+
+declare class WebController {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Means to load a piece of code and execute JS code in the context of the currently displayed page
+   * @since 8
+   */
+  runJavaScript(jscode: string);
+
+  /**
+   * Indicates that a piece of code is loaded
+   * @since 8
+   */
+  loadData(value: { baseUrl: string, data: string, mimeType: string, encoding: string, historyUrl: string });
+
+  /**
+   * Load the given URL
+   * @since 8
+   */
+  loadUrl(url: string);
+
+  /**
+  * Check whether the web page can go back
+  * @since 8
+  */
+  accessBackward(): boolean;
+
+  /**
+  * Check whether the web page can go forward
+  * @since 8
+  */
+  accessForward(): boolean;
+
+  /**
+  * Check whether the web page can go back or forward the given number of steps
+  * @since 8
+  */
+  accessStep(step: number): boolean;
+
+  /**
+  * Go back in the history of the web
+  * @since 8
+  */
+  backward();
+
+  /**
+  * Go forward in the history of the web
+  * @since 8
+  */
+  forward();
+
+}
+
+declare interface WebOptions {
+  /**
+   * Set the address of the web page to be displayed
+   * @since 8
+   */
+  src: string | Resource;
   controller: WebController;
 }
 
-/**
- * Defines the Web component.
- * @since 8
- */
-interface Web extends WebAttribute<Web> {
+interface WebInterface {
   /**
-   * Defines the constructor of Web.
+   * Set Value.
    * @since 8
    */
-  (value: WebOption): Web;
+  (value: WebOptions): WebAttribute;
 }
 
-/**
- * Defines the Web component attribute functions.
- * @since 8
- */
-declare class WebAttribute<T> extends CommonMethod<T> {
+declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
-   * The Callback of onPageStart.
+   * Set whether WebView allows JavaScript scripts to execute
    * @since 8
    */
-  onPageStart(callback: (url: string) => void): T;
+  javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * The Callback of onPageFinish.
+   * Enable or disable local file system access in WebView
    * @since 8
    */
-  onPageFinish(callback: (url: string) => void): T;
+  fileAccess(fileAccess: boolean): WebAttribute;
 
   /**
-   * The Callback of onError.
+   * Triggered at the end of web page loading
    * @since 8
    */
-  onError(callback: (errorMsg: string) => void): T;
+  onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
 
   /**
-   * The Callback of onMessage.
+   * Get WebView focus callback event
    * @since 8
    */
-  onMessage(callback: (msg: string) => void): T;
+  onRequestSelected(event: () => void): WebAttribute;
+
+  /**
+   * Triggered when the web page wants to display a JavaScript alert() dialog.
+   *
+   * @param callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   * @since 8
+   */
+  onAlert(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   *
+   * @param callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   * @since 8
+   */
+  onBeforeUnload(callback: (event?: { message: string, result: JsResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the web page wants to display a JavaScript confirm() dialog.
+   *
+   * @param callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
+   * @since 8
+   */
+  onConfirm(callback: (event?: {url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the web page receives a JavaScript console message.
+   *
+   * @param callback The triggered function when the web page receives a JavaScript console message.
+   * @since 8
+   */
+  onConsole(callback: (event?: {message: ConsoleMessage}) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the web page receives a web resource loading error.
+   *
+   * @param callback The triggered function when the web page receives a web resource loading error.
+   * @since 8
+   */
+  onErrorReceive(callback: (event?: {request: WebResourceRequest, error: WebResourceError}) => void): WebAttribute;
+
+  /**
+   * Triggered when the web page receives a web resource loading HTTP error.
+   *
+   * @param callback The triggered function when the web page receives a web resource loading HTTP error.
+   * @since 8
+   */
+  onHttpErrorReceive(callback: (event?: {request: WebResourceRequest, error: WebResourceError}) => void): WebAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: WebOptions): WebAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): WebAttribute;
 }
 
-export declare class WebExtend<T> extends WebAttribute<T> {}
-export declare const WebInterface: Web;
+declare const Web: WebInterface;
+declare const WebInstance: WebAttribute;

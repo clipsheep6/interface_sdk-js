@@ -121,7 +121,21 @@ declare namespace rdb {
          * @return Returns a ResultSet object if the operation is successful;
          */
         query(rdbPredicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        query(rdbPredicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
+        query(rdbPredicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+        /**
+         * Queries data in the database based on SQL statement.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param sql Indicates the SQL statement to execute.
+         * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
+         * @return Returns a ResultSet object if the operation is successful;
+         */
+        querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
+        querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
         /**
          * Executes an SQL statement that contains specified parameters but returns no value.
@@ -134,7 +148,64 @@ declare namespace rdb {
          * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
-        executeSql(sql: string, bindArgs: Array<ValueType>): Promise<void>;
+        executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
+
+        /**
+         * change the encrypted key(not null) if the database is configured with encrypted key.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param newEncryptKey the encrypted key is uint8 form in a vector.
+         */
+        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
+        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
+
+        /**
+         * beginTransaction before excute your sql
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        beginTransaction(callback: AsyncCallback<void>):void;
+        beginTransaction(): Promise<void>;
+
+        /**
+         * commit the the sql you have excuted.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        commit(callback: AsyncCallback<void>):void;
+        commit(): Promise<void>;
+
+        /**
+         * roll back the sql you have already excuted
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        rollBack(callback: AsyncCallback<void>):void;
+        rollBack(): Promise<void>;
+
+        /**
+         * Set table to be distributed table.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @param tables the tables name you want to set
+         * @devices phone, tablet, tv, wearable, car
+         */
+        setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
+        setDistributedTables(tables: Array<string>): Promise<void>;
     }
 
     /**
@@ -171,13 +242,14 @@ declare namespace rdb {
      * @permission N/A
      */
     interface StoreConfig {
+        name: string;
         /**
-         * Indicates the name of the database file
+         * Indicates the encryptKey of the database file
          *
-         * @since 7
+         * @since 8
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          */
-        name: string;
+        encryptKey: Uint8Array;
     }
 
     /**

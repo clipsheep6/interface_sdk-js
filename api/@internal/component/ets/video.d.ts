@@ -13,14 +13,105 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ImageFit } from "./enums";
-import { Resource } from "./units";
+/**
+ * Seek mode.
+ * @since 8
+ */
+declare enum SeekMode {
+  /**
+   * Sync to keyframes before the time point.
+   * @since 8
+   */
+  PreviousKeyframe,
+
+  /**
+   * Sync to keyframes after the time point.
+   * @since 8
+   */
+  NextKeyframe,
+
+  /**
+   * Sync to closest keyframes.
+   * @since 8
+   */
+  ClosestKeyframe,
+
+   /**
+   * Seek to frames closest the time point.
+   * @since 8
+   */
+  Accurate,
+}
+
+/**
+ * playback speed.
+ * @since 8
+ */
+declare enum PlaybackSpeed {
+    /**
+     * 0.75x speed playback.
+     * @since 8
+     */
+    Speed_Forward_0_75_X,
+  
+    /**
+     * 1.00x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_00_X,
+  
+    /**
+     * 1.25x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_25_X,
+  
+    /**
+     * 1.75x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_75_X,
+  
+    /**
+     * 2.00x speed playback.
+     * @since 8
+     */
+    Speed_Forward_2_00_X,
+  }
+  
+  /**
+   * @since 7
+   */
+  interface VideoOption {
+    /**
+     * src of video.
+     * @since 7
+     */
+    src?: string | Resource;
+  
+    /**
+     * playback rate of video.
+     * @since 7
+     */
+    currentProgressRate?: number | string | PlaybackSpeed;
+  
+    /**
+     * preview uri of video.
+     * @since 8
+     */
+    previewUri?: string | PixelMap | Resource;
+  
+    /**
+     * controller of video.
+     * @since 7
+     */
+    controller?: VideoController;
+  }
 
 /**
  * @since 7
  */
-export declare class VideoController {
+declare class VideoController {
   /**
    * constructor.
    * @since 7
@@ -52,122 +143,121 @@ export declare class VideoController {
   setCurrentTime(value: number);
 
   /**
-   * Provides a full screen playback method.
-   * @since 7
+   * Provide the progress method of video playback.
+   * @since 8
    */
-  requestFullscreen(value: boolean);
-
-  /**
-   * Provides a method to exit full screen playback.
-   * @since 7
-   */
-  exitFullscreen();
+  setCurrentTime(value: number, seekMode: SeekMode);
 }
 
 /**
  * @since 7
  */
-interface Video extends VideoAttribute<Video> {
+interface VideoInterface {
   /**
    * Set the value.
    * @since 7
    */
-  (value: {
-    src?: string | Resource;
-    currentProgressRate?: number | string;
-    previewUri?: string;
-    controller?: VideoController;
-  }): Video;
+  (value: VideoOption): VideoAttribute;
 }
 
 /**
  * @since 7
  */
-declare class VideoAttribute<T> extends CommonMethod<T> {
+declare class VideoAttribute extends CommonMethod<VideoAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: {
+    src?: string | Resource;
+    previewUri?: string | PixelMap | Resource;
+    controller?: VideoController;
+  }): VideoAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): VideoAttribute;
+
   /**
    * Called when judging whether the video is muted.
    * @since 7
    */
-  muted(value: boolean): T;
+  muted(value: boolean): VideoAttribute;
 
   /**
    * Called when judging whether the video is played automatically.
    * @since 7
    */
-  autoPlay(value: boolean): T;
+  autoPlay(value: boolean): VideoAttribute;
 
   /**
    * Called when judging whether the control bar is displayed.
    * @since 7
    */
-  controls(value: boolean): T;
+  controls(value: boolean): VideoAttribute;
 
   /**
-   * Called when judging whether the video is played circularly.
+   * Called when judging whether the video is played circular.
    * @since 6
    */
-  loop(value: boolean): T;
+  loop(value: boolean): VideoAttribute;
 
   /**
    * Called when determining the zoom type of the video source.
    * @since 7
    */
-  objectFit(value: ImageFit): T;
+  objectFit(value: ImageFit): VideoAttribute;
 
   /**
    * Called when the video is played.
    * @since 7
    */
-  onStart(event: () => void): T;
+  onStart(event: () => void): VideoAttribute;
 
   /**
    * Called when the video is paused.
    * @since 7
    */
-  onPause(event: () => void): T;
+  onPause(event: () => void): VideoAttribute;
 
   /**
    * Called when the video playback ends.
    * @since 7
    */
-  onFinish(event: () => void): T;
-
-  /**
-   * Called when the video enters and exits the full screen.
-   * @since 7
-   */
-  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): T;
+  onFinish(event: () => void): VideoAttribute;
 
   /**
    * Called when the video preparation is complete.
    * @since 7
    */
-  onPrepared(callback: (event?: { duration: number }) => void): T;
+  onPrepared(callback: (event?: { duration: number }) => void): VideoAttribute;
 
   /**
    * Called when the time information is reported when the progress bar process is operated.
    * @since 7
    */
-  onSeeking(callback: (event?: { time: number }) => void): T;
+  onSeeking(callback: (event?: { time: number }) => void): VideoAttribute;
 
   /**
    * Called when the playback time information is reported after the operation progress bar is completed.
    * @since 7
    */
-  onSeeked(callback: (event?: { time: number }) => void): T;
+  onSeeked(callback: (event?: { time: number }) => void): VideoAttribute;
 
   /**
    * Called when the playback progress changes.
    * @since 7
    */
-  onUpdate(callback: (event?: { time: number }) => void): T;
+  onUpdate(callback: (event?: { time: number }) => void): VideoAttribute;
 
   /**
    * Called when playback fails.
    * @since 7
    */
-  onError(event: () => void): T;
+  onError(event: () => void): VideoAttribute;
 }
 
-export declare class VideoExtend<T> extends VideoAttribute<T> {}
-export declare const VideoInterface: Video;
+declare const Video: VideoInterface;
+declare const VideoInstance: VideoAttribute;

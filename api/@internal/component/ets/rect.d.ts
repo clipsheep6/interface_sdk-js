@@ -13,51 +13,98 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
 
 /**
  * Provides an interface for drawing rectangles.
  * @since 7
  */
-interface Rect extends RectAttribute<Rect> {
+interface RectInterface {
   /**
-   * Called when a rectangle is created.
+   * Use new function to create Rect.
    * @since 7
    */
-  (
+  new (
     value?:
-      | { width?: number | string; height?: number | string; radius?: number | string | Array<any> }
+      | {
+          width?: number | string;
+          height?: number | string;
+          radius?: number | string | Array<any>;
+        }
       | {
           width?: number | string;
           height?: number | string;
           radiusWidth?: number | string;
           radiusHeight?: number | string;
         },
-  ): Rect;
+  ): RectAttribute;
+
+  /**
+   * Called when a rectangle is created.
+   * @since 7
+   */
+  (
+    value?:
+      | {
+          width?: number | string;
+          height?: number | string;
+          radius?: number | string | Array<any>;
+        }
+      | {
+          width?: number | string;
+          height?: number | string;
+          radiusWidth?: number | string;
+          radiusHeight?: number | string;
+        },
+  ): RectAttribute;
 }
 
 /**
  * @since 7
  */
-declare class RectAttribute<T> extends CommonShapeMethod<T> {
+declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(
+    value?:
+    | {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
+    | {
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
+  ): RectAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): RectAttribute;
+
   /**
    * Called when the fillet width is set.
    * @since 7
    */
-  radiusWidth(value: number | string): T;
+  radiusWidth(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet height is set.
    * @since 7
    */
-  radiusHeight(value: number | string): T;
+  radiusHeight(value: number | string): RectAttribute;
 
   /**
    * Called when the fillet size is set.
    * @since 7
    */
-  radius(value: number | string | Array<any>): T;
+  radius(value: number | string | Array<any>): RectAttribute;
 }
 
-export declare class RectExtend<T> extends RectAttribute<T> {}
-export declare const RectInterface: Rect;
+declare const Rect: RectInterface;
+declare const RectInStance: RectAttribute;

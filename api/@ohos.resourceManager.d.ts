@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
+import Context from './application/Context';
+
 /**
  * Provides resource related APIs.
  *
  * @since 6
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Global.ResourceManager
  */
-declare namespace resmgr {
+declare namespace resourceManager {
 /**
  * Enumerates screen directions.
  *
@@ -194,6 +196,7 @@ export interface AsyncCallback<T> {
  *
  * @param callback Indicates the callback containing the ResourceManager object.
  * @since 6
+ * @FAModelOnly
  */
 export function getResourceManager(callback: AsyncCallback<ResourceManager>);
 
@@ -203,6 +206,7 @@ export function getResourceManager(callback: AsyncCallback<ResourceManager>);
  * @param bundleName Indicates the bundle name of the specified application.
  * @param callback Indicates the callback containing the ResourceManager object.
  * @since 6
+ * @FAModelOnly
  */
 export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>);
 
@@ -211,6 +215,7 @@ export function getResourceManager(bundleName: string, callback: AsyncCallback<R
  *
  * @return Returns that the ResourceManager object is returned in Promise mode.
  * @since 6
+ * @FAModelOnly
  */
 export function getResourceManager(): Promise<ResourceManager>;
 
@@ -220,8 +225,51 @@ export function getResourceManager(): Promise<ResourceManager>;
  * @param bundleName Indicates the bundle name of the specified application.
  * @return Returns that the ResourceManager object is returned in Promise mode.
  * @since 6
+ * @FAModelOnly
  */
 export function getResourceManager(bundleName: string): Promise<ResourceManager>;
+
+/**
+ * Obtains the ResourceManager object of the current application.
+ *
+ * @param ctx The Context object.
+ * @param callback Indicates the callback containing the ResourceManager object.
+ * @since 9 preview
+ * @StageModelOnly
+ */
+export function getResourceManager(ctx: Context, callback: AsyncCallback<ResourceManager>);
+
+/**
+ * Obtains the ResourceManager object of the specified application.
+ *
+ * @param ctx The Context object.
+ * @param bundleName Indicates the bundle name of the specified application.
+ * @param callback Indicates the callback containing the ResourceManager object.
+ * @since 9 preview
+ * @StageModelOnly
+ */
+export function getResourceManager(ctx: Context, bundleName: string, callback: AsyncCallback<ResourceManager>);
+
+/**
+ * Obtains the ResourceManager object of the current application.
+ *
+ * @param ctx The Context object.
+ * @return Returns that the ResourceManager object is returned in Promise mode.
+ * @since 9 preview
+ * @StageModelOnly
+ */
+export function getResourceManager(ctx: Context): Promise<ResourceManager>;
+
+/**
+ * Obtains the ResourceManager object of the specified application.
+ *
+ * @param ctx The Context object.
+ * @param bundleName Indicates the bundle name of the specified application.
+ * @return Returns that the ResourceManager object is returned in Promise mode.
+ * @since 9 preview
+ * @StageModelOnly
+ */
+export function getResourceManager(ctx: Context, bundleName: string): Promise<ResourceManager>;
 
 /**
  * Provides the capability of accessing application resources.
@@ -358,6 +406,24 @@ export interface ResourceManager {
      * @since 6
      */
     getPluralString(resId: number, num: number): Promise<string>;
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return the raw file resource.
+     * @since 8
+     */
+    getRawFile(path: string, callback: AsyncCallback<Uint8Array>);
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @return Returns the raw file resource corresponding to the specified resource path.
+     * @since 8
+     */
+    getRawFile(path: string): Promise<Uint8Array>;
 }
 }
-export default resmgr;
+export default resourceManager;

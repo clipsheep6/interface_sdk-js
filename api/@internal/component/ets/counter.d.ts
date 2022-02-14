@@ -13,43 +13,53 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
- * @since 8
+ * @since 7
  */
-interface Counter extends CounterAttribute<Counter> {
+interface CounterInterface {
   /**
    * Return Counter.
-   * @since 8
+   * @since 7
    */
-  (): Counter;
+  (): CounterAttribute;
 }
 
 /**
- * Defines the Counter attibute functions.
- * @since 8
+ * Defines the Counter attribute functions.
+ * @since 7
  */
-declare class CounterAttribute<T> extends CommonMethod<T> {
+declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
-   * Listens to the value change event.
-   * @since 8
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
    */
-  onStateChange(event: () => void): T;
+  create(): CounterAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): CounterAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): CounterAttribute;
 
   /**
    * Listen to the event that the value increases.
-   * @since 8
+   * @since 7
    */
-  onInc(event: () => void): T;
+  onInc(event: () => void): CounterAttribute;
 
   /**
    * Listens to the number decrease event.
-   * @since 8
+   * @since 7
    */
-  onDec(event: () => void): T;
+  onDec(event: () => void): CounterAttribute;
 }
 
-export declare const CounterInterface: Counter;
-export declare class CounterExtend<T> extends CounterAttribute<T> {}
+declare const CounterInstance: CounterAttribute;
+declare const Counter: CounterInterface;

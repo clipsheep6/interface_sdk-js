@@ -13,30 +13,47 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
 
 /**
  * Provides interfaces for layout in the vertical direction.
  * @since 7
  */
-interface RowSplit extends RowSplitAttribute<RowSplit> {
+interface RowSplitInterface {
   /**
    * Called when the layout along the vertical direction is set.
    * @since 7
    */
-  (): RowSplit;
+  (): RowSplitAttribute;
 }
 
 /**
  * @since 7
  */
-declare class RowSplitAttribute<T> extends CommonMethod<T> {
+declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(): RowSplitAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): RowSplitAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): RowSplitAttribute;
+
   /**
    * Called when judging whether the split line can be dragged.
    * @since 7
    */
-  resizeable(value: boolean): T;
+  resizeable(value: boolean): RowSplitAttribute;
 }
 
-export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {}
-export declare const RowSplitInterface: RowSplit;
+declare const RowSplit: RowSplitInterface;
+declare const RowSplitInstance: RowSplitAttribute;

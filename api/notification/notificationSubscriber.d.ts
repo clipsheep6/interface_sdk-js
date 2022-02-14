@@ -22,8 +22,7 @@ import notification from '../@ohos.notification';
  * a notification is canceled.
  *
  * @name NotificationSubscriber
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  * @systemapi Hide this for inner system use.
  * @since 7
@@ -36,6 +35,13 @@ export interface NotificationSubscriber {
   onDisconnect?:() => void;
   onDestroy?:() => void;
   onDisturbModeChange?:(mode: notification.DoNotDisturbMode) => void;
+
+  /**
+   * Callback when the Do Not Disturb setting changed.
+   *
+   * @since 8
+   */
+  onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
 }
 
 /**
@@ -43,8 +49,7 @@ export interface NotificationSubscriber {
  * a notification is canceled.
  *
  * @name SubscribeCallbackData
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  * @systemapi Hide this for inner system use.
  * @since 7

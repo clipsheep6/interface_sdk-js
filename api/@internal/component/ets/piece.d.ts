@@ -13,23 +13,20 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
 
 /**
  * Sets the relative position of icons and text.
  * @since 8
  */
-export declare enum IconPosition {
+declare enum IconPosition {
   /**
    * The icon is at the beginning of the text.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Start,
 
   /**
    * The icon is at the end of the text.
-   * @devices phone, tablet, car.
    * @since 8
    */
   End,
@@ -39,21 +36,78 @@ export declare enum IconPosition {
  * Provides text and icons for setting block entries.
  * @since 8
  */
-interface Piece extends PieceAttribute<Piece> {
+interface PieceInterface {
   /**
    * Called when setting the position of a block entry.
    * @since 8
    */
-  (options?: { content: string; icon?: string }): Piece;
+  (options?: { content: string; icon?: string }): PieceAttribute;
 }
 
-declare class PieceAttribute<T> extends CommonMethod<T> {
+/**
+ * @since 8
+ */
+declare class PieceAttribute extends CommonMethod<PieceAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: { content: string; icon?: string }): PieceAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): PieceAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): PieceAttribute;
+ 
   /**
    * Called when the relative position of the icon and the text is set.
    * @since 8
    */
-  iconPosition(value: IconPosition): T;
+  iconPosition(value: IconPosition): PieceAttribute;
+  /**
+   * Called when the value of Piece fontColor is set
+   * @since 8
+   */
+  fontColor(value: ResourceColor): PieceAttribute;
+  /**
+   * Called when the value of Piece fontSize is set
+   * @since 8
+   */
+  fontSize(value: Length): PieceAttribute;
+  /**
+   * Called when the value of Piece fontStyle is set
+   * @since 8
+   */
+  fontStyle(value: FontStyle): PieceAttribute;
+  /**
+   * Called when the value of Piece fontWeight is set
+   * @since 8
+   */
+  fontWeight(value: number | FontWeight | string): PieceAttribute;
+  /**
+   * Called when the value of Piece fontFamily is set
+   * @since 8
+   */
+  fontFamily(value: ResourceStr): PieceAttribute;
+  /**
+   * Called when the value of Piece showDelete is set
+   * @since 8
+   */
+  showDelete(value: boolean): PieceAttribute;
+  /**
+   * Default icon is invisible,
+   * Callback onClose function when icon is clicked
+   * @since 8
+   */
+  onClose(callback: () => void): PieceAttribute;
 }
 
-export declare class PieceExtend<T> extends PieceAttribute<T> {}
-export declare const PieceInterface: Piece;
+declare const Piece: PieceInterface;
+declare const PieceInstance: PieceAttribute;

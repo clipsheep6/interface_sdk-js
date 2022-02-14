@@ -17,7 +17,7 @@
  * looping
  * @since 7
  */
-interface ForEach {
+interface ForEachInterface {
   /**
    * Set the value, array, and key.
    * @since 7
@@ -26,11 +26,33 @@ interface ForEach {
     arr: Array<any>,
     itemGenerator: (item: any, index?: number) => void,
     keyGenerator?: (item: any, index?: number) => string,
-  ): ForEach;
+  ): ForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(
+    arr: Array<any>,
+    itemGenerator: (item: any, index?: number) => void,
+    keyGenerator?: (item: any, index?: number) => string,
+  ): ForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ForEachInterface;  
 }
 
 /**
  * @devices phone, tablet, car
  * @since 7
  */
-export declare const ForEachInterface: ForEach;
+declare const ForEach: ForEachInterface;

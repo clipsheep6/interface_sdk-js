@@ -13,79 +13,147 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Resource } from "./units";
-
 /**
- * Declare the type of selector
+ * Defines the option of TextPicker.
  * @since 8
  */
-export declare enum PickerStyle {
+declare interface TextPickerOption {
   /**
-   * Inside the line.
-   * @since 8
+   * Specifies the range of the text selector.
    */
-  INLINE = 0,
-
+  range: string[] | Resource;
   /**
-   * Block-level elements.
-   * @since 8
+   * Value of the current selection.
    */
-  BLOCK,
-
+  value?: string;
   /**
-   * fade.
-   * @since 8
+   * Current selected subscript.
    */
-  FADE,
+  selected?: number;
 }
 
 /**
  * @since 8
  */
-interface TextPicker extends TextPickerAttribute<TextPicker> {
+interface TextPickerInterface {
   /**
-   * Add the property of the selector value range.
+   * Defines the TextPicker constructor.
    * @since 8
    */
-  (options?: {
-    range: string[] | Resource;
-    value?: string;
-    selected?: number;
-    loop?: boolean;
-    style?: PickerStyle;
-  }): TextPicker;
+  (options?: TextPickerOption): TextPickerAttribute;
 }
 
 /**
  * Style the text selector.
  * @since 8
  */
-declare class TextPickerAttribute<T> extends CommonMethod<T> {
+declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: TextPickerOption): TextPickerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): TextPickerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TextPickerAttribute;
+
   /**
    * Called when the default height of the selected element is set.
    * @since 8
    */
-  defaultPickerItemHeight(value: number): T;
-
+  defaultPickerItemHeight(value: number | string): TextPickerAttribute;
   /**
    * Called when the pop-up value is returned.
    * @since 8
    */
-  onAccept(callback: (value: string, index: number) => void): T;
-
+  onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
   /**
    * Called when the Cancel button in the pop-up window is clicked.
    * @since 8
    */
-  onCancel(callback: () => void): T;
-
+  onCancel(callback: () => void): TextPickerAttribute;
   /**
    * Called when the OK button in the pop-up window is clicked.
    * @since 8
    */
-  onChange(callback: (value: string, index: number) => void): T;
+  onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
 }
 
-export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {}
-export declare const TextPickerInterface: TextPicker;
+/**
+ * Defines the TextPickerDialogOption for Text Picker Dialog.
+ * @since 8
+ */
+declare interface TextPickerDialogOption extends TextPickerOption {
+  /**
+   * Called when the default height of the selected element is set.
+   * @since 8
+   */
+  defaultPickerItemHeight?: number | string;
+}
+
+/**
+ * Defines the event callback status in the pop-up window state.
+ * @since 8
+ */
+declare enum TextPickerDialogStatus {
+  /**
+   * Triggered when a user clicks the OK button.
+   * @since 8
+   */
+  Accept,
+  /**
+   * Triggered when a user taps the Cancel button.
+   * @since 8
+   */
+  Cancel,
+  /**
+   * Triggered when a user performs scrolling selection.
+   * @since 8
+   */
+  Update,
+}
+
+/**
+ * Defines the TextPickerDialogResult for TextPickerDialog.
+ * @since 8
+ */
+declare interface TextPickerDialogResult {
+ /**
+   * The currently selected value.
+   * @since 8
+   */
+  value: string;
+  /**
+   * The subscript of the current selection.
+   * @since 8
+   */
+  index: number;
+  /**
+   * Operation status of the current user.
+   * @since 8
+   */
+  status: TextPickerDialogStatus;
+}
+/**
+ * Defines TextPickerDialog which uses show method to show TextPicker dialog.
+ * @since 8
+ */
+declare class TextPickerDialog {
+  /**
+   * Invoking method display.
+   * @since 8
+   */
+  static show(options?: TextPickerDialogOption, callback?: (value: TextPickerDialogResult) => void);
+}
+
+declare const TextPicker: TextPickerInterface;
+declare const TextPickerInstance: TextPickerAttribute;

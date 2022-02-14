@@ -13,31 +13,46 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Alignment } from "./enums";
-
 /**
  * Provides ports for stacking containers.
  * @since 7
  */
-interface Stack extends StackAttribute<Stack> {
+interface StackInterface {
   /**
    * Set the value.
    * @since 7
    */
-  (value?: { alignContent?: Alignment }): Stack;
+  (value?: { alignContent?: Alignment }): StackAttribute;
 }
 
 /**
  * @since 7
  */
-declare class StackAttribute<T> extends CommonMethod<T> {
+declare class StackAttribute extends CommonMethod<StackAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { alignContent?: Alignment }): StackAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): StackAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): StackAttribute;
+
   /**
    * Called when the occupancy of items in the container is set.
    * @since 7
    */
-  alignContent(value: Alignment): T;
+  alignContent(value: Alignment): StackAttribute;
 }
 
-export declare class StackExtend<T> extends StackAttribute<T> {}
-export declare const StackInterface: Stack;
+declare const Stack: StackInterface;
+declare const StackInstance: StackAttribute;

@@ -32,8 +32,7 @@ import { NotificationRequest } from './notification/notificationRequest';
  *
  * @name notification
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @import import notification from '@ohos.notification';
  * @permission N/A
  */
@@ -44,7 +43,8 @@ declare namespace notification {
    * <p>If a notification with the same ID has been published by the current application and has not been deleted,
    * this method will update the notification.
    *
-   * @param Publishes a notification.
+   * @param request notification request
+   * @param callback callback function
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
   function publish(request: NotificationRequest): Promise<void>;
@@ -52,15 +52,17 @@ declare namespace notification {
   /**
    * Cancels a notification with the specified ID.
    *
-   * @param ID of the notification to cancel, which must be unique in the application.
+   * @param id of the notification to cancel, which must be unique in the application.
+   * @param callback callback function
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
    * Cancels a notification with the specified label and ID.
    *
-   * @param ID of the notification to cancel, which must be unique in the application.
-   * @param Label of the notification to cancel.
+   * @param id ID of the notification to cancel, which must be unique in the application.
+   * @param label Label of the notification to cancel.
+   * @param callback callback function
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
@@ -76,7 +78,7 @@ declare namespace notification {
    *
    * @param slot Indicates the notification slot to be created, which is set by {@link NotificationSlot}.
    * This parameter must be specified.
-   *
+   * @param callback callback function
    * @systemapi Hide this for inner system use.
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
@@ -94,7 +96,8 @@ declare namespace notification {
   /**
    * Adds a slot type.
    *
-   * @param Slot type to add.
+   * @param type Slot type to add.
+   * @param callback callback function
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
   function addSlot(type: SlotType): Promise<void>;
@@ -104,7 +107,7 @@ declare namespace notification {
    *
    * @param slots Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * This parameter must be specified.
-   *
+   * @param callback callback function
    * @systemapi Hide this for inner system use.
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
@@ -122,8 +125,8 @@ declare namespace notification {
   /**
    * Obtains a notification slot of the specified slot type.
    *
-   * @param Type of the notification slot to obtain.
-   *
+   * @param slotType Type of the notification slot to obtain.
+   * @param callback callback function
    * @return Returns the created {@link NotificationSlot}.
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
@@ -140,7 +143,8 @@ declare namespace notification {
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
    *
-   * @param Type of the NotificationSlot to remove.
+   * @param slotType Type of the NotificationSlot to remove.
+   * @param callback callback function
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
   function removeSlot(slotType: SlotType): Promise<void>;
@@ -186,8 +190,7 @@ declare namespace notification {
    *
    * @name ContentType
    * @since 7
-   * @sysCap SystemCapability.Notification.ANS
-   * @devices phone, tablet, tv, wearable, car
+   * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    */
   export enum ContentType {
@@ -496,6 +499,63 @@ declare namespace notification {
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
+   * Cancel the notification of a specified group for this application.
+   *
+   * @since 8
+   */
+  function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
+  function cancelGroup(groupName: string): Promise<void>;
+
+  /**
+   * Delete the notification of a specified group for this application.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
+  function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
+
+  /**
+   * Set the Do Not Disturb date.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
+  function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
+
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
+  function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
+
+  /**
+   * Obtains whether to support the Do Not Disturb mode.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
+  function supportDoNotDisturbMode(): Promise<boolean>;
+
+  /**
+   * Obtains whether the template is supported by the system.
+   *
+   * @since 8
+   * @param templateName Name of template to be Obtained
+   */
+  function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
+  function isSupportTemplate(templateName: string): Promise<boolean>;
+
+  /**
    * Describes a BundleOption.
    */
   export interface BundleOption {
@@ -540,6 +600,85 @@ declare namespace notification {
      * are allowed to interrupt the user in Do Not Disturb mode.
      */
     ALLOW_ALARMS
+  }
+
+  /**
+   * The type of the Do Not Disturb.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+   export enum DoNotDisturbType {
+    /**
+     * Non do not disturb type notification
+     */
+    TYPE_NONE = 0,
+
+    /**
+     * Execute do not disturb once in the set time period (only watch hours and minutes)
+     */
+    TYPE_ONCE = 1,
+
+    /**
+     * Execute do not disturb every day with a set time period (only watch hours and minutes)
+     */
+    TYPE_DAILY = 2,
+
+    /**
+     * Execute in the set time period (specify the time, month, day and hour)
+     */
+    TYPE_CLEARLY = 3,
+  }
+
+  /**
+   * Describes a DoNotDisturbDate instance.
+   *
+   * @systemapi Hide this for inner system use.
+   */
+  export interface DoNotDisturbDate {
+    /**
+     * the type of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    type: DoNotDisturbType;
+
+    /**
+     * the start time of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    begin: Date;
+
+    /**
+     * the end time of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    end: Date;
+  }
+
+  /**
+   * Notification source type
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum SourceType {
+    /**
+     * General notification
+     */
+    TYPE_NORMAL = 0x00000000,
+
+    /**
+     * Continuous notification
+     */
+    TYPE_CONTINUOUS = 0x00000001,
+
+    /**
+     * Scheduled notification
+     */
+    TYPE_TIMER = 0x00000002,
   }
 }
 

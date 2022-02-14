@@ -13,125 +13,119 @@
  * limitations under the License.
  */
 
-import { GestureType, GestureMask } from "./gesture";
-import { Circle } from "./circle";
-import { Ellipse } from "./ellipse";
-import { Path } from "./path";
-import { Rect } from "./rect";
-import { Resource, Length, Padding, Margin } from "./units";
-import {
-  Alignment,
-  BorderStyle,
-  Color,
-  Curve,
-  Direction,
-  GradientDirection,
-  ImageRepeat,
-  ImageSize,
-  ItemAlign,
-  KeySource,
-  LineCapStyle,
-  LineJoinStyle,
-  PlayMode,
-  SharedTransitionEffectType,
-  TransitionType,
-  Visibility,
-} from "./enums";
-
 /**
  * Defining Component ClassDecorator * @since 7
  */
-export declare const Component: ClassDecorator;
+declare const Component: ClassDecorator;
 
 /**
  * Defining Entry ClassDecorator.
  * @since 7
  */
-export declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator;
 
 /**
  * Defining Observed ClassDecorator.
  * @since 7
  */
-export declare const Observed: ClassDecorator;
+declare const Observed: ClassDecorator;
 
 /**
  * Defining Preview ClassDecorator.
  * @since 7
  */
-export declare const Preview: ClassDecorator;
+declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
+
+/**
+ * Defining BuilderParam PropertyDecorator
+ * @since 7
+ */
+declare const BuilderParam: PropertyDecorator;
 
 /**
  * Defining State PropertyDecorator.
  * @since 7
  */
-export declare const State: PropertyDecorator;
+declare const State: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
  * @since 7
  */
-export declare const Prop: PropertyDecorator;
+declare const Prop: PropertyDecorator;
 
 /**
  * Defining Link PropertyDecorator.
  * @since 7
  */
-export declare const Link: PropertyDecorator;
+declare const Link: PropertyDecorator;
 
 /**
  * Defining ObjectLink PropertyDecorator.
  * @since 7
  */
-export declare const ObjectLink: PropertyDecorator;
+declare const ObjectLink: PropertyDecorator;
 
 /**
  * Defining Provide PropertyDecorator.
  * @since 7
  */
-export declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
  * Defining Consume PropertyDecorator.
  * @since 7
  */
-export declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
  * Defining StorageProp PropertyDecorator.
  * @since 7
  */
-export declare const StorageProp: (value: string) => PropertyDecorator;
+declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
  * Defining StorageLink PropertyDecorator.
  * @since 7
  */
-export declare const StorageLink: (value: string) => PropertyDecorator;
+declare const StorageLink: (value: string) => PropertyDecorator;
 
 /**
  * Defining Watch PropertyDecorator.
  * @since 7
  */
-export declare const Watch: (value: string) => PropertyDecorator;
+declare const Watch: (value: string) => PropertyDecorator;
+
 
 /**
  * Defining Builder MethodDecorator
  * @since 7
  */
-export declare const Builder: MethodDecorator;
+declare const Builder: MethodDecorator;
+
+/**
+ * Defining Styles MethodDecorator
+ * @since 8
+ */
+declare const Styles: MethodDecorator;
+
+/**
+ * Defining Extend MethodDecorator
+ * @since 7
+ */
+declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
-export declare const CustomDialog: ClassDecorator;
+declare const CustomDialog: ClassDecorator;
 
 /**
  * Defines the data type of the interface restriction.
  * @since 7
  */
-export declare interface Configuration {
+declare interface Configuration {
   /**
    * Set colorMode.
    * @since 7
@@ -146,24 +140,73 @@ export declare interface Configuration {
 }
 
 /**
+ * Defines the data type of the interface restriction.
+ * @devices phone, tablet, car
+ * @since 8
+ */
+declare interface Rectangle {
+  /**
+   * x:Horizontal coordinate
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  x?: Length;
+
+  /**
+   * y:Vertical axis coordinate.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  y?: Length;
+
+  /**
+   * Sets the width of the current touchRect.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  width?: Length;
+
+  /**
+   * Sets the height of the current touchRect.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  height?: Length;
+}
+
+/**
  * Defining isSystemplugin Constants.
  * @since 7
  */
-declare const isSystemplugin: Function;
+declare const isSystemplugin: (...args: string[]) => any;
 
 /**
  * global $r function
  * @since 7
  */
-export declare function $r(value: string, ...params: any[]): Resource;
+declare function $r(value: string, ...params: any[]): Resource;
 
 /**
  * global $rawfile function
  * @since 7
  */
-export declare function $rawfile(value: string): Resource;
+declare function $rawfile(value: string): Resource;
 
-export interface AnimateToParam {
+/**
+ * global getContentStorage function
+ * @since 8
+ */
+declare function getContentStorage(value: any): ContentStorage;
+
+declare type Context = any;
+
+/**
+ * global getContext function
+ * @since 8
+ */
+declare function getContext(value: any): Context;
+
+interface AnimateToParam {
   duration?: number;
   tempo?: number;
   curve?: Curve | string;
@@ -174,52 +217,146 @@ export interface AnimateToParam {
 }
 
 /**
+ * Define Preview property
+ * @since 8
+ */
+interface PreviewParams {
+  title?: string;
+  width?: number;
+  height?: number;
+  locale?: string;
+  colorMode?: string;
+  deviceType?: string;
+  dpi?: number;
+  orientation?: string;
+  roundScreen?: boolean;
+}
+
+/**
+ * ItemDragInfo object description
+ * @since 8
+ */
+interface ItemDragInfo {
+  /**
+   * Obtains the X coordinate of the drag window, in vp.
+   * @since 8
+   */
+  x: number;
+
+  /**
+   * Obtains the Y coordinate of the drag window, in vp.
+   * @since 8
+   */
+  y: number;
+}
+
+/**
  * Defining animation function.
  * @since 7
  */
-export declare function animateTo(value: AnimateToParam, event: () => void): void;
+declare function animateTo(value: AnimateToParam, event: () => void): void;
 
 /**
  * Converts a value in vp units to a value in px.
  * @since 7
  */
-export declare function vp2px(value: number): number;
+declare function vp2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of vp.
  * @since 7
  */
-export declare function px2vp(value: number): number;
+declare function px2vp(value: number): number;
 
 /**
  * Converts a number in fp units to a number in px.
  * @since 7
  */
-export declare function fp2px(value: number): number;
+declare function fp2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of fp.
  * @since 7
  */
-export declare function px2fp(value: number): number;
+declare function px2fp(value: number): number;
 
 /**
  * Converts a number in units of lpx to a number in units of px.
  * @since 7
  */
-export declare function lpx2px(value: number): number;
+declare function lpx2px(value: number): number;
 
 /**
  * Converts a number in units of px to a number in units of lpx.
  * @since 7
  */
-export declare function px2lpx(value: number): number;
+declare function px2lpx(value: number): number;
+
+/**
+ * Defines the event target.
+ * @since 8
+ */
+interface EventTarget {
+  /**
+   * Area of current target.
+   * @since 8
+   */
+  area: Area;
+}
+
+/**
+ * Defines the event source type.
+ * @since 8
+ */
+declare enum SourceType {
+  /**
+   * Unknown type.
+   * @since 8
+   */
+  Unknown,
+
+  /**
+   * The mouse type.
+   * @since 8
+   */
+  Mouse,
+
+  /**
+   * The touch screen type.
+   * @since 8
+   */
+  TouchScreen,
+}
+
+/**
+ * Defines the base event.
+ * @since 8
+ */
+interface BaseEvent {
+  /**
+   * Defines the current target which fires this event.
+   * @since 8
+   */
+  target: EventTarget;
+
+  /**
+   * Event timestamp.
+   * @since 8
+   */
+  timestamp: number;
+
+  /**
+   * the event source info.
+   * @since 8
+   */
+  source: SourceType;
+}
 
 /**
  * The tap action triggers this method invocation.
  * @since 7
  */
-export interface ClickEvent {
+interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
    * @since 7
@@ -243,19 +380,61 @@ export interface ClickEvent {
    * @since 7
    */
   y: number;
+}
+
+/**
+ * The mouse click action triggers this method invocation.
+ * @since 8
+ */
+interface MouseEvent extends BaseEvent {
+  /**
+   * Mouse button of the click event.
+   * @since 8
+   */
+  button: MouseButton;
 
   /**
-   * Event timestamp.
-   * @since 7
+   * Mouse action of the click event.
+   * @since 8
    */
-  timestamp: number;
+  action: MouseAction;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the device screen.
+   * @since 8
+   */
+  screenX: number;
+
+  /**
+   * The Y coordinate of the click point relative to the upper edge of the device screen.
+   * @since 8
+   */
+  screenY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the clicked element.
+   * @since 8
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * @since 8
+   */
+  y: number;
+
+  /**
+   * The blocking event pops up.
+   * @since 8
+   */
+  stopPropagation?: () => void;
 }
 
 /**
  * Type of the touch event.
  * @since 7
  */
-export interface TouchObject {
+interface TouchObject {
   /**
    * Type of the touch event.
    * @since 7
@@ -297,7 +476,7 @@ export interface TouchObject {
  * Touch Action Function Parameters
  * @since 7
  */
-export interface TouchEvent {
+interface TouchEvent extends BaseEvent {
   /**
    * Type of the touch event.
    * @since 7
@@ -317,12 +496,6 @@ export interface TouchEvent {
   changedTouches: TouchObject[];
 
   /**
-   * Event timestamp.
-   * @since 7
-   */
-  timestamp: number;
-
-  /**
    * The blocking event pops up.
    * @since 7
    */
@@ -330,28 +503,10 @@ export interface TouchEvent {
 }
 
 /**
- * Description of the PasteData object
- * @since 7
- */
-export interface PasteData {
-  /**
-   * Gets the clipboard text data.
-   * @since 7
-   */
-  getPlainText(): string;
-
-  /**
-   * Sets the clipboard text data.
-   * @since 7
-   */
-  setPlainText(value: string);
-}
-
-/**
  * pixelmap object with release function.
  * @since 7
  */
-export declare class PixelMap {
+declare class PixelMap {
   /**
    * release function.
    * @since 7
@@ -363,13 +518,7 @@ export declare class PixelMap {
  * DragEvent object description
  * @since 7
  */
-export interface DragEvent {
-  /**
-   * Gets the current clipboard data object.
-   * @since 7
-   */
-  getPasteData(): PasteData;
-
+interface DragEvent {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
@@ -381,31 +530,13 @@ export interface DragEvent {
    * @since 7
    */
   getY(): number;
-
-  /**
-   * Obtains the drag description.
-   * @since 7
-   */
-  getDescription(): string;
-
-  /**
-   * Set the drag description.
-   * @since 7
-   */
-  setDescription(value: string);
-
-  /**
-   * Set the floating window object. Value: floating window object.
-   * @since 7
-   */
-  setPixmap(value: PixelMap);
 }
 
 /**
  * KeyEvent object description:
  * @since 7
  */
-export interface KeyEvent {
+interface KeyEvent {
   /**
    * Type of a key.
    * @since 7
@@ -457,10 +588,146 @@ export interface KeyEvent {
 }
 
 /**
+ * Component State Styels.
+ * @since 8
+ */
+interface StateStyels {
+  /**
+   * Defines normal state styles.
+   * @since 8
+   */
+  normal?: any;
+
+  /**
+   * Defines pressed state styles.
+   * @since 8
+   */
+  pressed?: any;
+
+  /**
+   * Defines disabled state styles.
+   * @since 8
+   */
+  disabled?: any;
+
+  /**
+   * Defines focused state styles.
+   * @since 8
+   */
+  focused?: any;
+
+  /**
+   * Defines clicked state styles.
+   * @since 8
+   */
+  clicked?: any;
+}
+
+interface PopupOption {
+  /**
+   * Information in the pop-up window.
+   * @since 7
+   */
+  message: string;
+
+  /**
+   * placement On Top
+   * @since 7
+   */
+  placementOnTop?: boolean;
+
+  /**
+   * The first button.
+   * @since 7
+   */
+  primaryButton?: {
+    /**
+     * Button text value
+     * @since 7
+     */
+    value: string;
+
+    /**
+     * action
+     * @since 7
+     */
+    action: () => void;
+  };
+
+  /**
+   * The second button.
+   * @since 7
+   */
+  secondaryButton?: {
+    /**
+     * Button text value
+     * @since 7
+     */
+    value: string;
+
+    /**
+     * action
+     * @since 7
+     */
+    action: () => void;
+  };
+
+  /**
+   * on State Change
+   * @since 7
+   */
+  onStateChange?: (event: { isVisible: boolean }) => void;
+}
+
+interface CustomPopupOption {
+  /**
+   * builder of popup
+   * @since 8
+   */
+  builder: CustomBuilder;
+
+  /**
+   * placement of popup
+   * @since 8
+   */
+  placement?: Placement;
+
+  /**
+   * mask color of popup
+   * @since 8
+   */
+  maskColor?: Color | string | Resource | number;
+
+  /**
+   * background color of popup
+   * @since 8
+   */
+  popupColor?: Color | string | Resource | number;
+
+  /**
+   * whether show arrow
+   * @since 8
+   */
+  enableArrow?: boolean;
+
+  /**
+   * whether hide popup when click mask
+   * @since 8
+   */
+  autoCancel?: boolean;
+
+  /**
+   * on State Change
+   * @since 8
+   */
+  onStateChange?: (event: { isVisible: boolean }) => void;
+}
+
+/**
  * CommonMethod
  * @since 7
  */
-export declare class CommonMethod<T> {
+declare class CommonMethod<T> {
   /**
    * constructor.
    * @since 7
@@ -480,6 +747,13 @@ export declare class CommonMethod<T> {
   height(value: Length): T;
 
   /**
+   * Sets the response region of the current component.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  responseRegion(value: Array<Rectangle> | Rectangle): T;
+
+  /**
    * The size of the current component.
    * @since 7
    */
@@ -496,6 +770,20 @@ export declare class CommonMethod<T> {
     minHeight?: number | string | Resource;
     maxHeight?: number | string | Resource;
   }): T;
+
+  /**
+   * Sets the touchable of the current component
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  touchable(value: boolean): T;
+
+  /**
+   * layout Weight
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  layoutWeight(value: number | string): T;
 
   /**
    * Inner margin
@@ -520,20 +808,25 @@ export declare class CommonMethod<T> {
    * src: Image address url
    * @since 7
    */
-  backgroundImage(src: string, repeat?: ImageRepeat): T;
+  backgroundImage(src: string | Resource, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
    * @since 7
    */
-  backgroundImageSize(value: { width?: number | string; height?: number | string } | ImageSize): T;
+  backgroundImageSize(
+    value: {
+      width?: number | string | Resource;
+      height?: number | string | Resource
+    } | ImageSize
+  ): T;
 
   /**
    * Background image position
    * x:Horizontal coordinate;y:Vertical axis coordinate.
    * @since 7
    */
-  backgroundImagePosition(value: { x?: number | string; y?: number | string } | Alignment): T;
+  backgroundImagePosition(value: { x?: number | string | Resource; y?: number | string | Resource } | Alignment): T;
 
   /**
    * Opacity
@@ -578,40 +871,28 @@ export declare class CommonMethod<T> {
   borderRadius(value: number | string | Resource): T;
 
   /**
-   * Navigation title
-   * @since 7
-   */
-  navigationTitle(value: string): T;
-
-  /**
-   * Navigation subtitle
-   * @since 7
-   */
-  navigationSubTitle(value: string): T;
-
-  /**
-   * Hide navigation bar
-   * @since 7
-   */
-  hideNavigationBar(value: boolean): T;
-
-  /**
-   * Hide navigation back button
-   * @since 7
-   */
-  hideNavigationBackButton(value: boolean): T;
-
-  /**
-   * Hide tool bar
-   * @since 7
-   */
-  hideToolBar(value: boolean): T;
-
-  /**
    * Trigger a click event when a click is clicked.
    * @since 7
    */
   onClick(event: (event?: ClickEvent) => void): T;
+
+  /**
+   * Trigger a mouse hover event.
+   * @since 8
+   */
+  onHover(event: (isHover?: boolean) => void): T;
+
+  /**
+   * Set hover effect.
+   * @since 8
+   */
+  hoverEffect(value: HoverEffect): T;
+
+  /**
+   * Trigger a mouse event.
+   * @since 8
+   */
+  onMouse(event: (event?: MouseEvent) => void): T;
 
   /**
    * Trigger a touch event when touched.
@@ -620,22 +901,34 @@ export declare class CommonMethod<T> {
   onTouch(event: (event?: TouchEvent) => void): T;
 
   /**
-   * Mouse hover event
-   * @since 7
-   */
-  onHover(event: (isHover?: boolean) => void): T;
-
-  /**
    * Keyboard input
    * @since 7
    */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
 
   /**
-   * Pan event
-   * @since 7
+   * Set focusable.
+   * @since 8
    */
-  onPan(event: (event?: any) => void): T;
+   focusable(value: boolean): T;
+
+  /**
+   * Trigger a event when got focus.
+   * @since 8
+   */
+   onFocus(event: () => void): T;
+
+  /**
+   * Trigger a event when lose focus.
+   * @since 8
+   */
+   onBlur(event: () => void): T;
+
+  /**
+   * Trigger a event when focus move.
+   * @since 8
+   */
+   onFocusMove(event: (direction?: FocusDirection) => void): T;
 
   /**
    * animation
@@ -658,8 +951,18 @@ export declare class CommonMethod<T> {
   transition(value: {
     type?: TransitionType;
     opacity?: number;
-    translate?: { x?: number | string; y?: number | string; z?: number | string };
-    scale?: { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string };
+    translate?: {
+      x?: number | string;
+      y?: number | string;
+      z?: number | string;
+    };
+    scale?: {
+      x?: number;
+      y?: number;
+      z?: number;
+      centerX?: number | string;
+      centerY?: number | string;
+    };
     rotate?: {
       x?: number;
       y?: number;
@@ -826,6 +1129,13 @@ export declare class CommonMethod<T> {
   onDisAppear(event: () => void): T;
 
   /**
+   * This callback is triggered when the size or position of this component has changed.
+   * @param event event callback.
+   * @since 8
+   */
+  onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
+
+  /**
    * Controls the display or hide of the current component.
    * @since 7
    */
@@ -948,32 +1258,32 @@ export declare class CommonMethod<T> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 7
    */
-  onDrag(event: (event?: DragEvent) => void): T;
+  onDragStart(event: (event?: DragEvent, extraParams?: string) => (() => any) | void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 7
    */
-  onDragEnter(event: (event?: DragEvent) => void): T;
+  onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 7
    */
-  onDragMove(event: (event?: DragEvent) => void): T;
+  onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 7
    */
-  onDragLeave(event: (event?: DragEvent) => void): T;
+  onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 7
    */
-  onDrop(event: (event?: DragEvent) => void): T;
+  onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -1049,57 +1359,25 @@ export declare class CommonMethod<T> {
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    * @since 7
    */
-  clip(value: boolean | Circle | Ellipse | Path | Rect): T;
+  clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
    * @since 7
    */
-  mask(value: Circle | Ellipse | Path | Rect): T;
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
-   * Accessibility group. If this parameter is set to true, the component and all its subcomponents can be selected, and the accessibility service does not focus on the content of its subcomponents.
-   * @since 7
+   * Key. User can set an key to the component to identify it.
+   * @since 8
    */
-  accessibilityGroup(value: boolean): T;
+  key(value: string): T;
 
   /**
-   * Accessible text. When a component does not contain text attributes,
-   * the screen reads aloud when the component is selected, and the user cannot clearly know what component is currently selected.
-   * To solve this problem, developers can set an accessible text for a component that does not contain text information.
-   * When the component is selected for screen reading, the content of the accessible text is broadcast, helping the user of screen reading clearly know which component is selected.
-   * If the component has both text attributes and accessible text attributes,
-   * only accessible text content is broadcast when the component is selected.
-   * @since 7
+   * Id. User can set an id to the component to identify it.
+   * @since 8
    */
-  accessibilityText(value: string): T;
-
-  /**
-   * Accessibility instructions are used to further explain the current component to the user, for example,
-   * to help the user understand the possible consequences of the operation to be performed,
-   * especially when these consequences cannot be learned from the attributes of the component itself and the accessibility text.
-   * Developers can set relatively detailed explanatory text for this property of a component to help users understand what will be done.
-   * If the component has both the text attribute and the accessibility attribute, when the component is selected,
-   * the text attribute of the component is first broadcast, and then the content of the accessibility attribute is broadcast.
-   * @since 7
-   */
-  accessibilityDescription(value: string): T;
-
-  /**
-   * Accessibility importance, which controls whether a component is identifiable by an accessible auxiliary service.
-   * The value can be auto, yes, no, or no-hide-descendants.
-   * (The last value causes screen reading to ignore the current component and all its subcomponents).
-   * If this parameter is set to yes, the current component can be selected for accessibility auxiliary services.
-   * If this parameter is set to no, the current component cannot be selected for accessibility auxiliary services.
-   * @since 7
-   */
-  accessibilityImportance(value: string): T;
-
-  /**
-   * onAccessibility
-   * @since 7
-   */
-  onAccessibility(callback: (event?: { eventType: number }) => void): T;
+  id(value: string): T;
 
   /**
    * geometryTransition
@@ -1111,86 +1389,64 @@ export declare class CommonMethod<T> {
    * Popup control
    * @since 7
    */
-  bindPopup(
-    show: boolean,
-    popup: {
-      /**
-       * Information in the pop-up window.
-      .
-       * @since 7
-       */
-      message: string;
-
-      /**
-       * placement On Top
-      .
-       * @since 7
-       */
-      placementOnTop?: boolean;
-
-      /**
-       * The first button.
-      .
-       * @since 7
-       */
-      primaryButton?: {
-        /**
-         * Button text value
-        .
-         * @since 7
-         */
-        value: string;
-
-        /**
-         * action
-        .
-         * @since 7
-         */
-        action: () => void;
-      };
-
-      /**
-       * The second button.
-      .
-       * @since 7
-       */
-      secondaryButton?: {
-        /**
-         * Button text value
-        .
-         * @since 7
-         */
-        value: string;
-
-        /**
-         * action
-        .
-         * @since 7
-         */
-        action: () => void;
-      };
-
-      /**
-       * on State Change
-      .
-       * @since 7
-       */
-      onStateChange?: (event: { isVisible: boolean }) => void;
-    },
-  ): T;
+  bindPopup(show: boolean, popup: PopupOption | CustomPopupOption): T;
 
   /**
    * Menu control
    * @since 7
    */
-  bindMenu(content: { value: string; action: () => void }[]): T;
+  bindMenu(content: { value: string; action: () => void }[] | CustomBuilder): T;
+
+  /**
+   * ContextMenu control
+   * @since 8
+   */
+  bindContextMenu(content: CustomBuilder, responseType : ResponseType): T;
+
+  /**
+   * Sets styles for component state.
+   * @since 8
+   */
+  stateStyles(value: StateStyels): T;
 }
+
+/**
+ * CommonAttribute
+ * @since 7
+ */
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+
+/**
+ * CommonInterface
+ * @since 7
+ */
+interface CommonInterface {
+  (): CommonAttribute;
+}
+
+/**
+ * CommonInstance
+ * @since 7
+ */
+declare const CommonInstance: CommonAttribute;
+
+/**
+ * Common
+ * @since 7
+ */
+declare const Common: CommonInterface;
+
+/**
+ * Defines the CustomBuilder Type.
+ * @since 7
+ */
+declare type CustomBuilder = (() => any) | void;
 
 /**
  * CommonShapeMethod
  * @since 7
  */
-export declare class CommonShapeMethod<T> extends CommonMethod<T> {
+declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
@@ -1268,7 +1524,7 @@ export declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Custom Component
  * @since 7
  */
-export declare class CustomComponent<T> {
+declare class CustomComponent {
   /**
    * Customize the pop-up content constructor.
    * @since 7
@@ -1276,14 +1532,14 @@ export declare class CustomComponent<T> {
   build(): void;
 
   /**
-   * Private  aboutToAppear Method
+   * aboutToAppear Method
    * @since 7
    */
-  private aboutToAppear?(): void;
+  aboutToAppear?(): void;
 
   /**
-   * Private  aboutToDisappear Method
+   * aboutToDisappear Method
    * @since 7
    */
-  private aboutToDisappear?(): void;
+  aboutToDisappear?(): void;
 }

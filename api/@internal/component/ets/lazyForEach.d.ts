@@ -17,7 +17,7 @@
  * Data Change Listener.
  * @since 7
  */
-export declare interface DataChangeListener {
+declare interface DataChangeListener {
   /**
    * Data ready.
    * @since 7
@@ -53,7 +53,7 @@ export declare interface DataChangeListener {
  * Data  changed.
  * @since 7
  */
-export declare interface IDataSource {
+declare interface IDataSource {
   /**
    * Total count.
    * @since 7
@@ -83,7 +83,7 @@ export declare interface IDataSource {
  * Lazy loading.
  * @since 7
  */
-interface LazyForEach {
+interface LazyForEachInterface {
   /**
    * Enter the value to obtain the LazyForEach.
    * @since 7
@@ -92,10 +92,32 @@ interface LazyForEach {
     dataSource: IDataSource,
     itemGenerator: (item: any, index?: number) => void,
     keyGenerator?: (item: any, index?: number) => string,
-  ): LazyForEach;
+  ): LazyForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(
+    dataSource: IDataSource,
+    itemGenerator: (item: any, index?: number) => void,
+    keyGenerator?: (item: any, index?: number) => string,
+  ): LazyForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): LazyForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): LazyForEachInterface; 
 }
 
 /**
  * @since 7
  */
-export declare const LazyForEachInterface: LazyForEach;
+declare const LazyForEach: LazyForEachInterface;

@@ -18,14 +18,14 @@ import image from '../@ohos.multimedia.image';
 import { WantAgent } from '../@ohos.wantAgent';
 import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
+import { NotificationTemplate } from './notificationTemplate';
 
 /**
  * Defines a NotificationRequest instance.
  *
  * @name NotificationRequest
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationRequest {
@@ -140,6 +140,13 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
+   * The group information for this notification.
+   *
+   * @since 8
+   */
+  groupName?: string;
+
+  /**
    * Read-only name of the package for which a notification is created.
    */
   readonly creatorBundleName?: string;
@@ -165,4 +172,28 @@ export interface NotificationRequest {
    * Obtains the unique hash code of a notification in the current application.
    */
   readonly hashCode?: string;
+
+  /**
+   * Whether the notification can be remove.
+   *
+   * @default true
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  readonly isRemoveAllowed?: boolean;
+
+  /**
+   * Notification source. enum SourceType
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  readonly source?: number;
+
+  /**
+   * Obtains the template of this notification.
+   *
+   * @since 8
+   */
+  template?: NotificationTemplate;
 }

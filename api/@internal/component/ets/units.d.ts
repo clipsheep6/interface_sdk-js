@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { Color, FontStyle, FontWeight } from "./enums";
-
 /**
  * Defines the data type of the interface restriction.
  * @since 7
  */
-export declare interface Resource {
+declare interface Resource {
   /**
    * Set id.
    * @since 7
@@ -43,19 +41,19 @@ export declare interface Resource {
  * Defines the length property with string, number and resource unit.
  * @since 7
  */
-export declare type Length = string | number | Resource;
+declare type Length = string | number | Resource;
 
 /**
  * Defines the string which can use resource.
  * @since 7
  */
-export declare type ResourceStr = string | Resource;
+declare type ResourceStr = string | Resource;
 
 /**
  * Defines the padding property.
  * @since 7
  */
-export declare type Padding = {
+declare type Padding = {
   /**
    * top property.
    */
@@ -79,15 +77,15 @@ export declare type Padding = {
 
 /**
  * Defines the margin property.
- * @sicne 7
+ * @since 7
  */
-export declare type Margin = Padding;
+declare type Margin = Padding;
 
 /**
  * Defines the offset property.
  * @since 7
  */
-export declare type Offset = {
+declare type Offset = {
   /**
    * dx property.
    */
@@ -103,13 +101,13 @@ export declare type Offset = {
  * Defines the color which can use resource.
  * @since 7
  */
-export declare type ResourceColor = Color | number | string | Resource;
+declare type ResourceColor = Color | number | string | Resource;
 
 /**
  * Defines the font used for text.
  * @since 7
  */
-export declare interface Font {
+declare interface Font {
   /**
    * font size.
    */
@@ -129,4 +127,51 @@ export declare interface Font {
    * font style.
    */
   style?: FontStyle;
+}
+
+/**
+ * Defines the area property.
+ * @since 8
+ */
+declare interface Area {
+  /**
+   * Defines the width property.
+   * @since 8
+   */
+  width: Length;
+
+  /**
+   * Defines the height property.
+   * @since 8
+   */
+  height: Length;
+
+  /**
+   * Defines the local position.
+   * @since 8
+   */
+  pos: Position;
+
+  /**
+   * Defines the global position.
+   * @since 8
+   */
+  globalPos: Position;
+}
+
+/**
+ * Defines the position.
+ * @since 8
+ */
+declare interface Position {
+  /**
+   * Coordinate x of the Position.
+   * @since 8
+   */
+  x: Length;
+  /**
+   * Coordinate y of the Position.
+   * @since 8
+   */
+  y: Length;
 }

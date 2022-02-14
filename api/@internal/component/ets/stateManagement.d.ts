@@ -142,8 +142,7 @@ declare abstract class SubscribedAbstractProperty<T> {
  */
 declare class SyncedPropertyTwoWay<T>
   extends SubscribedAbstractProperty<T>
-  implements ISinglePropertyChangeSubscriber<T>
-{
+  implements ISinglePropertyChangeSubscriber<T> {
   /**
    * Sources of synchronization attributes bidirectionally.
    * @since 7
@@ -186,8 +185,7 @@ declare class SyncedPropertyTwoWay<T>
  */
 declare class SyncedPropertyOneWay<T>
   extends SubscribedAbstractProperty<T>
-  implements ISinglePropertyChangeSubscriber<T>
-{
+  implements ISinglePropertyChangeSubscriber<T> {
   /**
    * Pack value for single-item binding.
    * @since 7
@@ -234,12 +232,12 @@ declare class SyncedPropertyOneWay<T>
 /**
  * @since 7
  */
-export declare class AppStorage {
+declare class AppStorage {
   /**
    * Called when a link is set.
    * @since 7
    */
-  static Link<T>(propName: string): any;
+  static Link(propName: string): any;
 
   /**
    * Called when a hyperlink is set.
@@ -251,7 +249,7 @@ export declare class AppStorage {
    * Called when a property is set.
    * @since 7
    */
-  static Prop<S>(propName: string): any;
+  static Prop(propName: string): any;
 
   /**
    * Called when dynamic properties are set.
@@ -317,7 +315,7 @@ export declare class AppStorage {
 /**
  * @since 7
  */
-export declare class Environment {
+declare class Environment {
   /**
    * Constructor.
    * @since 7
@@ -351,7 +349,7 @@ export declare class Environment {
 /**
  * @since 7
  */
-export declare enum ColorMode {
+declare enum ColorMode {
   /**
    * Bright color.
    * @since 7
@@ -368,7 +366,7 @@ export declare enum ColorMode {
 /**
  * @since 7
  */
-export declare enum LayoutDirection {
+declare enum LayoutDirection {
   /**
    * Elements are laid out from left to right.
    * @since 7
@@ -380,12 +378,18 @@ export declare enum LayoutDirection {
    * @since 7
    */
   RTL,
+
+  /**
+   * Elements are laid out from auto.
+   * @since 8
+   */
+  Auto
 }
 
 /**
  * @since 7
  */
-export declare class PersistentStorage {
+declare class PersistentStorage {
   /**
    * Constructor parameters.
    * @since 7
@@ -425,7 +429,7 @@ export declare class PersistentStorage {
 /**
  * @since 7
  */
-export declare class Storage {
+declare class Storage {
   /**
    * Constructor parameters.
    * @since 7
@@ -460,7 +464,7 @@ export declare class Storage {
 /**
  * @since 7
  */
-export declare abstract class SubscribaleAbstract {
+declare abstract class SubscribaleAbstract {
   /**
    * Returns the ownership attribute set by the.
    * @since 7
@@ -499,6 +503,103 @@ export declare abstract class SubscribaleAbstract {
 }
 
 /**
+ * @since 9
+ * @StageModelOnly
+ */
+ declare class ContentStorage {
+  /**
+   * Called when a link is set.
+   * @since 9
+   * @StageModelOnly
+   */
+  link(propName: string): any;
+
+  /**
+   * Called when a hyperlink is set.
+   * @since 9
+   * @StageModelOnly
+   */
+  setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+
+  /**
+   * Called when a property is set.
+   * @since 9
+   * @StageModelOnly
+   */
+  prop(propName: string): any;
+
+  /**
+   * Called when dynamic properties are set.
+   * @since 9
+   * @StageModelOnly
+   */
+  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+
+  /**
+   * Called when owning or not.
+   * @since 9
+   * @StageModelOnly
+   */
+  has(propName: string): boolean;
+
+  /**
+   * Called when data is obtained.
+   * @since 9
+   * @StageModelOnly
+   */
+  get<T>(propName: string): T | undefined;
+
+  /**
+   * Called when setting.
+   * @since 9
+   * @StageModelOnly
+   */
+  set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * Called when setting or creating.
+   * @since 9
+   * @StageModelOnly
+   */
+  setOrCreate<T>(propName: string, newValue: T): void;
+
+  /**
+   * Called when a deletion is made.
+   * @since 9
+   * @StageModelOnly
+   */
+  delete(propName: string): boolean;
+
+  /**
+   * Called when a dictionary is sorted.
+   * @since 9
+   * @StageModelOnly
+   */
+  keys(): IterableIterator<string>;
+
+  /**
+   * Called when a cleanup occurs.
+   * @since 9
+   * @StageModelOnly
+   */
+  clear(): boolean;
+
+  /**
+   * Called when the data can be changed.
+   * @since 9
+   * @StageModelOnly
+   */
+  isMutable(propName: string): boolean;
+
+  /**
+   * Called when you check how much data is stored.
+   * @since 9
+   * @StageModelOnly
+   */
+  size(): number;
+}
+
+/**
  * @since 7
  */
-export declare const appStorage: AppStorage;
+declare const appStorage: AppStorage;

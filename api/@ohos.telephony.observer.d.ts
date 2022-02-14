@@ -39,6 +39,7 @@ declare namespace observer {
    * @param options including slotId Indicates the ID of the target card slot.
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including an instance of the {@code NetworkState} class.
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
   function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
   function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;

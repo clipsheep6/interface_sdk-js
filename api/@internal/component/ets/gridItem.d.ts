@@ -13,54 +13,82 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
  */
-interface GridItem extends GridItemAttribute<GridItem> {
+interface GridItemInterface {
   /**
    * Return to get GridItem.
    * @since 7
    */
-  (): GridItem;
+  (): GridItemAttribute;
 }
 
 /**
  * @since 7
  */
-declare class GridItemAttribute<T> extends CommonMethod<T> {
+declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(): GridItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): GridItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): GridItemAttribute;
+ 
   /**
    * This parameter specifies the start line number of the current element.
    * @since 7
    */
-  rowStart(value: number): T;
+  rowStart(value: number): GridItemAttribute;
 
   /**
    * Specifies the end line number of the current element.
    * @since 7
    */
-  rowEnd(value: number): T;
+  rowEnd(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies the start column number of the current element.
    * @since 7
    */
-  columnStart(value: number): T;
+  columnStart(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies the end column number of the current element.
    * @since 7
    */
-  columnEnd(value: number): T;
+  columnEnd(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies whether to recreate the node when the component build is triggered.
    * @since 7
    */
-  forceRebuild(value: boolean): T;
+  forceRebuild(value: boolean): GridItemAttribute;
+
+  /**
+   * Called when judging whether it is selectable.
+   * @since 8
+   */
+  selectable(value: boolean): GridItemAttribute;
+
+  /**
+   * Called when the gridItem is selected.
+   * @since 8
+   */
+  onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
 }
 
-export declare class GridItemExtend<T> extends GridItemAttribute<T> {}
-export declare const GridItemInterface: GridItem;
+declare const GridItem: GridItemInterface
+declare const GridItemInstance: GridItemAttribute;

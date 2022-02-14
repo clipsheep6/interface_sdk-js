@@ -128,6 +128,20 @@ declare namespace wantConstant {
     ACTION_CHOOSE = "ohos.want.action.choose",
 
     /**
+     * Indicates the action of starting a Page ability for take a picture.
+     *
+     * @since 8
+     */
+     ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
+
+    /**
+     * Indicates the action of starting a Page ability for Take a video.
+     *
+     * @since 8
+     */
+     ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
+
+    /**
      * Indicates the action of showing the application selection dialog box.
      *
      * @since 6
@@ -196,6 +210,13 @@ declare namespace wantConstant {
      * @since 7
      */
     PARAMS_STREAM = "ability.params.stream",
+
+    /**
+     * Indicates the action of providing oauth service.
+     *
+     * @since 8
+     */
+    ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
   }
 
   /**

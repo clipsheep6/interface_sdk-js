@@ -19,6 +19,7 @@ import { AbilityResult } from './ability/abilityResult';
 import { Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
+import { ContinueAbilityOptions } from './ability/continueAbilityOptions';
 
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
@@ -27,6 +28,7 @@ import { ConnectOptions } from './ability/connectOptions';
  * @sysCap AAFwk
  * @devices phone, tablet
  * @permission N/A
+ * @FAModelOnly
  */
 declare namespace featureAbility {
   /**
@@ -37,6 +39,7 @@ declare namespace featureAbility {
    * @sysCap AAFwk
    * @param parameter Indicates the ability to start.
    * @return -
+   * @FAModelOnly
    */
   function getWant(callback: AsyncCallback<Want>): void;
   function getWant(): Promise<Want>;
@@ -49,6 +52,7 @@ declare namespace featureAbility {
    * @sysCap AAFwk
    * @param parameter Indicates the ability to start.
    * @return -
+   * @FAModelOnly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>): void;
   function startAbility(parameter: StartAbilityParameter): Promise<number>;
@@ -58,6 +62,7 @@ declare namespace featureAbility {
    *
    * @return Returns the application context.
    * @since 6
+   * @FAModelOnly
    */
   function getContext(): Context;
 
@@ -69,6 +74,7 @@ declare namespace featureAbility {
    * @sysCap AAFwk
    * @param parameter Indicates the ability to start.
    * @return Returns the {@link AbilityResult}.
+   * @FAModelOnly
    */
   function startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void;
   function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
@@ -82,6 +88,7 @@ declare namespace featureAbility {
    * @sysCap AAFwk
    * @param parameter Indicates the result to return.
    * @return -
+   * @FAModelOnly
    */
   function terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
   function terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -93,6 +100,7 @@ declare namespace featureAbility {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
   function terminateSelf(): Promise<void>;
@@ -105,6 +113,7 @@ declare namespace featureAbility {
    * @sysCap AAFwk
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
+   * @FAModelOnly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
@@ -115,6 +124,7 @@ declare namespace featureAbility {
    * @since 7
    * @sysCap AAFwk
    * @return Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
+   * @FAModelOnly
    */
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
   function hasWindowFocus(): Promise<boolean>;
@@ -128,6 +138,7 @@ declare namespace featureAbility {
    * @param request The element name of the service ability
    * @param options The remote object instance
    * @return Returns the number code of the ability connected
+   * @FAModelOnly
    */
   function connectAbility(request: Want, options:ConnectOptions ): number;
 
@@ -138,9 +149,22 @@ declare namespace featureAbility {
   * @since 7
   * @SysCap aafwk
   * @param connection The number code of the ability connected
+  * @FAModelOnly
   */
   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
   function disconnectAbility(connection: number): Promise<void>;
+
+  /**
+   * Migrates this ability to the given device on the same distributed network.
+   * @default -
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @return -
+   * @FAModelOnly
+   */
+   function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
+   function continueAbility(options: ContinueAbilityOptions): Promise<void>;
 
   export enum AbilityWindowConfiguration {
     WINDOW_MODE_UNDEFINED = 0,
@@ -161,12 +185,6 @@ declare namespace featureAbility {
     INVALID_PARAMETER = -1,
     ABILITY_NOT_FOUND = -2,
     PERMISSION_DENY = -3
-  }
-
-  export enum ContinuationState {
-    LOCAL_RUNNING = 0,
-    REMOTE_RUNNING = 1,
-    REPLICA_RUNNING = 2
   }
 
   export enum DataAbilityOperationType {

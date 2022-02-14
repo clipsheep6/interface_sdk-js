@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
-
 /**
  * Type of progress bar
  * @since 7
  */
-export declare enum ProgressStyle {
+declare enum ProgressStyle {
   /**
    * Linear progress bar style.
    * @devices phone, tablet, car.
@@ -29,54 +26,87 @@ export declare enum ProgressStyle {
   Linear,
 
   /**
-   * Circular progress bar.
+   * Ring progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  Ring,
+
+  /**
+   * Eclipse progress bar.
    * @devices phone, tablet, car.
    * @since 7
    */
   Eclipse,
+
+  /**
+   * ScaleRing progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  ScaleRing,
+
+  /**
+   * Capsule progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  Capsule,
 }
 
 /**
  * Provides the progress bar interface.
  * @since 7
  */
-interface Progress extends ProgressAttribute<Progress> {
+interface ProgressInterface {
   /**
    * Called when the progress bar is set.
    * @since 7
    */
-  (object: { value: number; total?: number; style?: ProgressStyle }): Progress;
+  (object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ProgressAttribute<T> extends CommonMethod<T> {
+declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ProgressAttribute;
+
   /**
    * Called when the current progress value is set.
    * @since 7
    */
-  value(value: number): T;
+  value(value: number): ProgressAttribute;
 
   /**
    * Called when the progress bar foreground is set.
    * @since 7
    */
-  color(value: ResourceColor): T;
+  color(value: ResourceColor): ProgressAttribute;
 
   /**
    * Called when the style of the circular progress bar is set.
    * @since 7
-   * @deprecated since 7
    */
-  circularStyle(value: { strokeWidth?: number; scaleCount?: number; scaleWidth?: number }): T;
+  circularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
 
   /**
    * Called when the style of the cricular progress bar is set.
    * @since 7
+   * @deprecated since 7
    */
-  cricularStyle(value: { strokeWidth?: number; scaleCount?: number; scaleWidth?: number }): T;
+  cricularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
 }
 
-export declare class ProgressExtend<T> extends ProgressAttribute<T> {}
-export declare const ProgressInterface: Progress;
+declare const Progress: ProgressInterface;
+declare const ProgressInstance: ProgressAttribute;

@@ -13,31 +13,47 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Defines the ColumnSplit component.
  * @since 7
  */
-interface ColumnSplit extends ColumnSplitAttribute<ColumnSplit> {
+interface ColumnSplitInterface {
   /**
    * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
    * @since 7
    */
-  (): ColumnSplit;
+  (): ColumnSplitAttribute;
 }
 
 /**
  * Defines the ColumnSplit component attribute functions.
  * @since 7
  */
-declare class ColumnSplitAttribute<T> extends CommonMethod<T> {
+declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(): ColumnSplitAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ColumnSplitAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ColumnSplitAttribute;
+
   /**
    * Indicates whether the split line can be dragged. The default value is false.
    * @since 7
    */
-  resizeable(value: boolean): T;
+  resizeable(value: boolean): ColumnSplitAttribute;
 }
 
-export declare const ColumnSplitInterface: ColumnSplit;
-export declare class ColumnSplitExtend<T> extends ColumnSplitAttribute<T> {}
+declare const ColumnSplitInstance: ColumnSplitAttribute;
+declare const ColumnSplit: ColumnSplitInterface;

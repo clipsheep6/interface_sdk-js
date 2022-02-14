@@ -13,27 +13,116 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { FontStyle, FontWeight } from "./enums";
-import { ResourceColor } from "./units";
-
 /**
+ * Provides the method of switching the cursor position.
  * @since 8
  */
-interface Search extends SearchAttribute<Search> {
-  (options?: { value?: string; placeholder?: string; icon?: string }): Search;
+declare class SearchController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  caretPosition(value: number): void;
 }
 
 /**
+ * The construct function of search
  * @since 8
  */
-declare class SearchAttribute<T> extends CommonMethod<T> {
-  searchButton(value: string): T;
-  placeholderColor(value: ResourceColor): T;
-  placeholderFont(value: { size: number; weight: FontWeight; family: string; style: FontStyle }): T;
-  onSubmit(callback: (value: string) => void): T;
-  onChange(callback: (value: string) => void): T;
+interface SearchInterface {
+  (options?: { value?: string;
+      placeholder?: string;
+      icon?: string;
+      controller?: SearchController
+  }): SearchAttribute;
 }
 
-export declare class SearchExtend<T> extends SearchAttribute<T> {}
-export declare const SearchInterface: Search;
+/**
+ * The attribute function of search
+ * @since 8
+ */
+declare class SearchAttribute extends CommonMethod<SearchAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: { value?: string;
+    placeholder?: string;
+    icon?: string;
+    controller?: SearchController
+  }): SearchAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): SearchAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SearchAttribute;
+
+  /**
+   * Set the search button text
+   * @since 8
+   */
+  searchButton(value: string): SearchAttribute;
+
+  /**
+   * Set the place hold text color
+   * @since 8
+   */
+  placeholderColor(value: ResourceColor): SearchAttribute;
+
+  /**
+   * Set the font used for place holder text
+   * @since 8
+   */
+  placeholderFont(value?: Font): SearchAttribute;
+
+  /**
+   * Set the font used for input text
+   * @since 8
+   */
+  textFont(value?: Font): SearchAttribute;
+
+  /**
+   * Call the function when clicked the search button
+   * @since 8
+   */
+  onSubmit(callback: (value: string) => void): SearchAttribute;
+
+  /**
+   * Call the function when editing the input text
+   * @since 8
+   */
+  onChange(callback: (value: string) => void): SearchAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 8
+   */
+  onCopy(callback: (value: string) => void): SearchAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 8
+   */
+  onCut(callback: (value: string) => void): SearchAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 8
+   */
+  onPaste(callback: (value: string) => void): SearchAttribute;
+}
+
+declare const Search: SearchInterface;
+declare const SearchInstance: SearchAttribute;

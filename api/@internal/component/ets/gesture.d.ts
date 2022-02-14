@@ -17,7 +17,7 @@
  * Creating an Object
  * @since 7
  */
-export declare enum GestureDirection {
+declare enum GestureDirection {
   /**
    * Sliding in all directions.
    * @since 7
@@ -41,7 +41,7 @@ export declare enum GestureDirection {
  * Creating an Object
  * @since 7
  */
-export declare enum PanDirection {
+declare enum PanDirection {
   /**
    * Default.
    * @since 7
@@ -93,9 +93,39 @@ export declare enum PanDirection {
 
 /**
  * Creating an Object
+ * @since 8
+ */
+declare enum SwipeDirection {
+  /**
+   * Default.
+   * @since 8
+   */
+  None,
+
+  /**
+   * Sliding horizontally.
+   * @since 8
+   */
+  Horizontal,
+
+  /**
+   * Sliding Vertical
+   * @since 8
+   */
+  Vertical,
+
+  /**
+   * Sliding in all directions.
+   * @since 8
+   */
+  All,
+}
+
+/**
+ * Creating an Object
  * @since 7
  */
-export declare enum GestureMode {
+declare enum GestureMode {
   /**
    * Sequential gesture recognition is performed in sequence according to the gesture registration sequence.
    * @since 7
@@ -119,7 +149,7 @@ export declare enum GestureMode {
  * Creating an Object
  * @since 7
  */
-export declare enum GestureMask {
+declare enum GestureMask {
   /**
    * High-priority response to the current gesture.When the current gesture fails to be recognized, other gesture responses are triggered.For gestures with the same priority, responses are performed based on the recognition sequence.
    * @since 7
@@ -134,118 +164,166 @@ export declare enum GestureMask {
 }
 
 /**
- * Creating an Object
- * @since 7
+ * Type of the finger information.
+ * @since 8
  */
-export declare type GestureType =
+interface FingerInfo {
   /**
-   * Set a type value.
-   * @since 7
+   * Finger unique identifier.
+   * @since 8
    */
-  TapGesture | LongPressGesture | PanGesture | PinchGesture | RotationGesture | GestureGroup;
+  id: number;
 
-/**
- * long press gesture event used in the longpress scenario.
- * @since 7
- */
-export interface LongPressGestureEvent extends GestureEvent {
   /**
-   * Indicates whether an event is triggered repeatedly.
-   * @since 7
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @since 8
    */
-  repeat: boolean;
+  globalX: number;
+
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @since 8
+   */
+  globalY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   * @since 8
+   */
+  localX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @since 8
+   */
+  localY: number;
 }
 
 /**
- * pan gesture event used in the pan gesture triggering scenario.
+ * Defines the Gesture Type.
+ * @since 7
  */
-export interface PanGestureEvent extends GestureEvent {
+declare type GestureType =
+  | TapGestureInterface
+  | LongPressGestureInterface
+  | PanGestureInterface
+  | PinchGestureInterface
+  | SwipeGestureInterface
+  | RotationGestureInterface
+  | GestureGroupInterface;
+
+/**
+ * Defines event info for gesture.
+ * @since 7
+ */
+interface GestureEvent extends BaseEvent {
+  /**
+   * Indicates whether an event is triggered repeatedly.
+   * Used in LongPressGesture.
+   * @since 7
+   */
+  repeat: boolean;
+
+  /**
+   * All finger information.
+   * Used in LongPressGesture and TapGesture.
+   * @since 8
+   */
+  fingerList: FingerInfo[];
+
   /**
    * Gesture event offset X.
+   * The unit is vp.
+   * Used in PanGesture.
    * @since 7
    */
   offsetX: number;
 
   /**
    * Gesture event offset Y.
+   * The unit is vp.
+   * Used in PanGesture.
    * @since 7
    */
   offsetY: number;
-}
 
-/**
- * pinch gesture event used for triggering the pinch gesture.
- * @since 7
- */
-export interface PinchGestureEvent extends GestureEvent {
+  /**
+   * Gesture event direction angle.
+   * The unit is deg.
+   * Used in RotationGesture and SwipeGesture.
+   * @since 7
+   */
+  angle: number;
+
+  /**
+   * Gesture event slide speed.
+   * The unit is vp.
+   * Used in SwipeGesture.
+   * @since 8
+   */
+  speed: number;
+
   /**
    * Scaling ratio.
+   * Used in PinchGesture.
    * @since 7
    */
   scale: number;
 
   /**
-   * X-axis coordinate of the kneading center point, in pixels.
+   * X-axis coordinate of the kneading center point.
+   * The unit is vp.
+   * Used in PinchGesture.
    * @since 7
    */
   pinchCenterX: number;
 
   /**
-   * Y-axis coordinate of the kneading center point, in pixels.
+   * Y-axis coordinate of the kneading center point.
+   * The unit is vp.
+   * Used in PinchGesture.
    * @since 7
    */
   pinchCenterY: number;
 }
 
 /**
- * rotation gesture event used for triggering the pinch gesture.
+ * Defines TapGesture interface.
  * @since 7
  */
-export interface RotationGestureEvent extends GestureEvent {
-  /**
-   * Rotation angle.
-   * @since 7
-   */
-  angle: number;
-}
-
-/**
- * base event for gesture.
- * @since 7
- */
-export interface GestureEvent {
-  /**
-   * Event timestamp.
-   * @since 7
-   */
-  timestamp: number;
-}
-
-/**
- * Creating an interface
- * @since 7
- */
-interface TapGesture {
+interface TapGestureInterface {
   /**
    * Set the value.
    * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
    * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
    * @since 7
    */
-  (value?: { count?: number; fingers?: number }): TapGesture;
+  (value?: { count?: number; fingers?: number }): TapGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { count?: number; fingers?: number }): TapGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): TapGestureInterface;
 
   /**
    * Tap gesture recognition success callback.
    * @since 7
    */
-  onAction(event: (event?: GestureEvent) => void): TapGesture;
+  onAction(event: (event?: GestureEvent) => void): TapGestureInterface;
 }
 
 /**
- * Creating an interface
+ * Defines LongPressGesture interface.
  * @since 7
  */
-interface LongPressGesture {
+interface LongPressGestureInterface {
   /**
    * Set the value.
    * fingers: Indicates the hand index that triggers the long press.
@@ -253,31 +331,44 @@ interface LongPressGesture {
    * duration: Minimum press and hold time, in milliseconds.
    * @since 7
    */
-  (value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGesture;
+  (value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): LongPressGestureInterface;
 
   /**
    * LongPress gesture recognition success callback.
    * @since 7
    */
-  onAction(event: (event?: LongPressGestureEvent) => void): LongPressGesture;
+  onAction(event: (event?: GestureEvent) => void): LongPressGestureInterface;
 
   /**
    * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    * @since 7
    */
-  onActionEnd(event: (event?: LongPressGestureEvent) => void): LongPressGesture;
+  onActionEnd(event: (event?: GestureEvent) => void): LongPressGestureInterface;
 
   /**
    * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    * @since 7
    */
-  onActionCancel(event: () => void): LongPressGesture;
+  onActionCancel(event: () => void): LongPressGestureInterface;
 }
 
 /**
+ * Defines the PanGesture option.
  * @since 7
  */
-export declare class PanGestureOption {
+declare class PanGestureOption {
   /**
    * Constructor parameters.
    * @since 7
@@ -304,130 +395,215 @@ export declare class PanGestureOption {
 }
 
 /**
+ * Defines the PanGesture interface.
  * @since 7
  */
-interface PanGesture {
+interface PanGestureInterface {
   /**
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption): PanGesture;
+  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption): PanGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(
+    value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption,
+  ): PanGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): PanGestureInterface;
 
   /**
    * Pan gesture recognition success callback.
    * @since 7
    */
-  onActionStart(event: (event?: PanGestureEvent) => void): PanGesture;
+  onActionStart(event: (event?: GestureEvent) => void): PanGestureInterface;
 
   /**
    * Callback when the Pan gesture is moving.
    * @since 7
    */
-  onActionUpdate(event: (event?: PanGestureEvent) => void): PanGesture;
+  onActionUpdate(event: (event?: GestureEvent) => void): PanGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    * @since 7
    */
-  onActionEnd(event: (event?: PanGestureEvent) => void): PanGesture;
+  onActionEnd(event: (event?: GestureEvent) => void): PanGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    * @since 7
    */
-  onActionCancel(event: () => void): PanGesture;
+  onActionCancel(event: () => void): PanGestureInterface;
 }
 
 /**
+ * Defines the SwipeGesture interface.
+ * @since 8
+ */
+interface SwipeGestureInterface {
+  /**
+   * Set the value.
+   * @since 8
+   */
+  (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): SwipeGestureInterface;
+
+  /**
+   * Slide gesture recognition success callback.
+   * @since 8
+   */
+  onAction(event: (event?: GestureEvent) => void): SwipeGestureInterface;
+}
+
+/**
+ * Defines the PinchGesture interface.
  * @since 7
  */
-interface PinchGesture {
+interface PinchGestureInterface {
   /**
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number; distance?: number }): PinchGesture;
+  (value?: { fingers?: number; distance?: number }): PinchGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { fingers?: number; distance?: number }): PinchGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): PinchGestureInterface;
 
   /**
    * Pan gesture recognition success callback.
    * @since 7
    */
-  onActionStart(event: (event?: PinchGestureEvent) => void): PinchGesture;
+  onActionStart(event: (event?: GestureEvent) => void): PinchGestureInterface;
 
   /**
    * Callback when the Pan gesture is moving.
    * @since 7
    */
-  onActionUpdate(event: (event?: PinchGestureEvent) => void): PinchGesture;
+  onActionUpdate(event: (event?: GestureEvent) => void): PinchGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    * @since 7
    */
-  onActionEnd(event: (event?: PinchGestureEvent) => void): PinchGesture;
+  onActionEnd(event: (event?: GestureEvent) => void): PinchGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    * @since 7
    */
-  onActionCancel(event: () => void): PinchGesture;
+  onActionCancel(event: () => void): PinchGestureInterface;
 }
 
 /**
+ * Defines the RotationGesture interface.
  * @since 7
  */
-interface RotationGesture {
+interface RotationGestureInterface {
   /**
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number; angle?: number }): RotationGesture;
+  (value?: { fingers?: number; angle?: number }): RotationGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { fingers?: number; angle?: number }): RotationGestureInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): RotationGestureInterface;
 
   /**
    * Pan gesture recognition success callback.
    * @since 7
    */
-  onActionStart(event: (event?: RotationGestureEvent) => void): RotationGesture;
+  onActionStart(event: (event?: GestureEvent) => void): RotationGestureInterface;
 
   /**
    * Callback when the Pan gesture is moving.
    * @since 7
    */
-  onActionUpdate(event: (event?: RotationGestureEvent) => void): RotationGesture;
+  onActionUpdate(event: (event?: GestureEvent) => void): RotationGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
    * @since 7
    */
-  onActionEnd(event: (event?: RotationGestureEvent) => void): RotationGesture;
+  onActionEnd(event: (event?: GestureEvent) => void): RotationGestureInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    * @since 7
    */
-  onActionCancel(event: () => void): RotationGesture;
+  onActionCancel(event: () => void): RotationGestureInterface;
 }
 
 /**
+ * Defines the GestureGroup interface.
  * @since 7
  */
-interface GestureGroup {
+interface GestureGroupInterface {
   /**
    * Return to Obtain GestureGroup.
    * @since 7
    */
-  (mode: GestureMode, ...gesture: GestureType[]): GestureGroup;
+  (mode: GestureMode, ...gesture: GestureType[]): GestureGroupInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(mode: GestureMode, ...gesture: GestureType[]): GestureGroupInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): GestureGroupInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
    * @since 7
    */
-  onCancel(event: () => void): GestureGroup;
+  onCancel(event: () => void): GestureGroupInterface;
 }
 
-export declare const TapGestureInterface: TapGesture;
-export declare const LongPressGestureInterface: LongPressGesture;
-export declare const PanGestureInterface: PanGesture;
-export declare const PinchGestureInterface: PinchGesture;
-export declare const RotationGestureInterface: RotationGesture;
-export declare const GestureGroupInterface: GestureGroup;
+declare const TapGesture: TapGestureInterface;
+declare const LongPressGesture: LongPressGestureInterface;
+declare const PanGesture: PanGestureInterface;
+declare const SwipeGesture: SwipeGestureInterface;
+declare const PinchGesture: PinchGestureInterface;
+declare const RotationGesture: RotationGestureInterface;
+declare const GestureGroup: GestureGroupInterface;

@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
+import { NotificationUserInput } from './notificationUserInput';
 import { WantAgent } from '../@ohos.wantAgent';
 
 /**
  * Describes an action button displayed in a notification.
  * @name NotificationActionButton
  * @since 7
- * @devices phone, tablet, tv, wearable, car
  * @permission N/A
- * @sysCap SystemCapability.Notification.ANS
+ * @syscap SystemCapability.Notification.Notification
  */
 export interface NotificationActionButton {
   /**
@@ -38,4 +38,11 @@ export interface NotificationActionButton {
    * Extra information of the button.
    */
   extras?: {[key: string]: any};
+
+  /**
+   * User input
+   *
+   * @since 8
+   */
+  userInput?: NotificationUserInput;
 }

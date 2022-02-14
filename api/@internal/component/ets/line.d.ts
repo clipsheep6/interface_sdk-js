@@ -13,45 +13,57 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
-
 /**
  * Line drawing component.
  * @since 7
  */
-interface Line extends LineAttribute<Line> {
+interface LineInterface {
   /**
-   * Returns the line.
+   * Uses new to create the line.
+   * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    * @since 7
    */
-  (): Line;
+  new (value?: { width?: string | number; height?: string | number }): LineAttribute;
+
   /**
    * The return value of the parameter is Line.
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    * @since 7
    */
-  (value?: { width?: string | number; height?: string | number }): Line;
+  (value?: { width?: string | number; height?: string | number }): LineAttribute;
 }
 
 /**
  * inheritance CommonShapeMethod.
  * @since 7
  */
-declare class LineAttribute<T> extends CommonShapeMethod<T> {
+declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { width?: string | number; height?: string | number }): LineAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): LineAttribute;
+ 
   /**
    * Coordinate of the start point of the line (relative coordinate).
    * @since 7
    */
-  startPoint(value: Array<any>): T;
+  startPoint(value: Array<any>): LineAttribute;
 
   /**
    * Line end coordinates (relative coordinates).
    * @since 7
    */
-  endPoint(value: Array<any>): T;
+  endPoint(value: Array<any>): LineAttribute;
 }
 
-export declare class LineExtend<T> extends LineAttribute<T> {}
-export declare const LineInterface: Line;
+declare const Line: LineInterface;
+declare const LineInstance: LineAttribute;

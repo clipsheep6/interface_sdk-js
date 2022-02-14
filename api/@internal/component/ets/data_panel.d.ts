@@ -13,13 +13,30 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
+
+/**
+ * DataPanelType enum
+ * @since 8
+ */
+declare enum DataPanelType {
+  /**
+   * Line Type
+   * @since 8
+   */
+  Line,
+
+  /**
+   * Line Rainbow
+   * @since 8
+   */
+  Circle,
+}
 
 /**
  * Defines the option of DataPanel.
  * @since 7
  */
-export declare interface DataPanelOption {
+declare interface DataPanelOption {
   /**
    * Current data value. the max length is 9.
    * @since 7
@@ -31,31 +48,55 @@ export declare interface DataPanelOption {
    * @since 7
    */
   max?: number;
+
+  /**
+   * DataPanel Type
+   * @since 8
+   */
+  type?: DataPanelType;
 }
 
 /**
  * Defines the DataPanel component.
  * @since 7
  */
-interface DataPanel extends DataPanelAttribute<DataPanel> {
+interface DataPanelInterface {
   /**
    * Return a DataPanel.
    * @since 7
    */
-  (options: DataPanelOption): DataPanel;
+  (options: DataPanelOption): DataPanelAttribute;
 }
 
 /**
  * Defines the DataPanel attribute functions.
  * @since 7
  */
-declare class DataPanelAttribute<T> extends CommonMethod<T> {
+declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options: DataPanelOption): DataPanelAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): DataPanelAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): DataPanelAttribute;
+
   /**
    * Disable the special effect of the data ratio chart.
    * @since 7
    */
-  closeEffect(value: boolean): T;
+  closeEffect(value: boolean): DataPanelAttribute;
 }
 
-export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {}
-export declare const DataPanelInterface: DataPanel;
+declare const DataPanel: DataPanelInterface
+declare const DataPanelInstance: DataPanelAttribute;

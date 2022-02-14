@@ -14,210 +14,299 @@
  */
 
 /**
-  * The xml module provides utilities for converting XML text to Javascript object.
-  * @since 8
-  * @sysCap SystemCapability.CCRuntime
-  * @devices phone, tablet
-  * @import import xml from '@ohos.xml';
-  * @permission N/A
-  */
+ * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
+ * @since 8
+ * @syscap SystemCapability.Utils.Lang
+ * @import import xml from '@ohos.xml';
+ * @permission N/A
+ */
 declare namespace xml {
-    class DefaultKey {
+    class XmlSerializer {
         /**
-         * default Name of the declaration property key in the output object.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * A parameterized constructor used to create a new XmlSerializer instance.
+         * As the input parameter of the constructor function, init supports three types.
+         * The input parameter is an Arrarybuff.
+         * The input parameter is a DataView.
+         * The input parameter is an encoding format of string type.
          */
-        readonly declarationKey = "_declaration";
-		/**
-         * default Name of the instruction property key in the output object.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        readonly instructionKey = "_instruction";
+        constructor(buffer: ArrayBuffer | DataView, encoding?: string);
+
         /**
-         * default Name of the attributes property key in the output object.
+         * Write an attribute.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
+         * @param name Key name of the attribute.
+         * @param value Values of attribute.
          */
-        readonly attributesKey = "_attributes";
+        setAttributes(name: string, value: string): void;
+
         /**
-         * default Name of the text property key in the output object.
+         * Add an empty element.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
+         * @param name Key name of the attribute.
+         * @param value Values of element.
          */
-        readonly textKey = "_text";
-		/**
-         * default Name of the cdata property key in the output object.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        readonly cdataKey = "_cdata";
+        addEmptyElement(name: string): void;
+
         /**
-         * default Name of the doctype property key in the output object.
+         * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
          */
-        readonly doctypeKey = "_doctype";
+        setDeclaration(): void;
+
         /**
-         * default Name of the comment property key in the output object.
+         * Writes a elemnet start tag with the given name.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
+         * @param name name of the element.
          */
-        readonly commentKey = "_comment";
-		/**
-         * default Name of the parent property key in the output object.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        readonly parentKey = "_parent";
+        startElement(name: string): void;
+
         /**
-         * default Name of the type property key in the output object.
+         * Writes end tag of the element.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
          */
-        readonly typeKey = "_type";
+        endElement(): void;
+
         /**
-         * default Name of the name property key in the output object.
+         * Writes the namespace of the current element tag.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
+         * @param prefix Values name of the prefix.
+         * @param namespace Values of namespace.
          */
-        readonly nameKey = "_name";
-		/**
-         * default Name of the elements property key in the output object.
+        setNamespace(prefix: string, namespace: string): void;
+
+        /**
+         * Writes the comment.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime
+         * @syscap SystemCapability.Utils.Lang
+         * @param text Values of comment.
          */
-        readonly elementsKey = "_elements";
+        setComment(text: string): void;
+
+        /**
+         * Writes the CDATA.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param text Values of CDATA.
+         */
+        setCDATA(text: string): void;
+
+        /**
+         * Writes the text.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param text Values of text.
+         */
+        setText(text: string): void;
+
+        /**
+         * Writes the DOCTYPE.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param text Values of docType.
+         */
+        setDocType(text: string): void;
     }
 
-    interface ConvertOptions {
+    enum EventType {
         /**
-         * Whether to trim whitespace characters that may exist before and after the text, default false.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        trim: boolean;
+          * Start a document.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        START_DOCUMENT,
         /**
-         * Whether to ignore writing declaration directives of xml.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreDeclaration?: boolean;
+          * End a document.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        END_DOCUMENT,
         /**
-         * Whether to ignore writing processing instruction of xml.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreInstruction?: boolean;
+          * Start a tag.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        START_TAG,
         /**
-         * Whether to print attributes across multiple lines and indent them.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreAttributes?: boolean;
+          * End a tag.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        END_TAG,
         /**
-         * Whether to ignore writing comments of the elements.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreComment?: boolean;
-		/**
-         * Whether to ignore writing CData of the elements.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreCdata?: boolean;
+          * Character data.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        TEXT,
         /**
-         * Whether to ignore writing Doctype of the elements.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreDoctype?: boolean;
+          * A CDATA sections.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        CDSECT,
         /**
-         * Whether to ignore writing texts of the elements.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        ignoreText?: boolean;
-		/**
-         * Name of the property key which will be used for the declaration.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        declarationKey: string;
+          * An XML comment.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        COMMENT,
         /**
-         * Name of the property key which will be used for the processing instruction.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        instructionKey: string;
+          * An XML document type declaration.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        DOCDECL,
         /**
-         * Name of the property key which will be used for the attributes.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        attributesKey: string;
-		/**
-         * Name of the property key which will be used for the text.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        textKey: string;
+          * An XML processing instruction declaration.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        INSTRUCTION,
         /**
-         * Name of the property key which will be used for the cdata.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        cdataKey: string;
+          * An entity reference.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        ENTITY_REFERENCE,
         /**
-         * Name of the property key which will be used for the doctype.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        doctypeKey: string;
-		/**
-         * Name of the property key which will be used for the comment.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        commentKey: string;
-        /**
-         * Name of the property key which will be used for the parent.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        parentKey: string;
-        /**
-         * Name of the property key which will be used for the type.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        typeKey: string;
-        /**
-         * Name of the property key which will be used for the name.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        nameKey: string;
-		/**
-         * Name of the property key which will be used for the elements.
-         * @since 8
-         * @sysCap SystemCapability.CCRuntime
-         */
-        elementsKey: string;
+          * a whitespace.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        WHITESPACE
     }
 
-    interface ConvertXML {
+    /** The current parse info.  */
+    interface ParseInfo {
         /**
-         * To convert XML text to JavaScript object.
+          * The current column number, starting from 1.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getColumnNumber(): number;
+        /**
+          * The current depth of the element.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getDepth(): number;
+        /**
+          * The current line number, starting from 1.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getLineNumber(): number;
+        /**
+          * The current element's name.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getName(): string;
+        /**
+          * The current element's namespace.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getNamespace(): string;
+        /**
+          * The current element's prefix.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getPrefix(): string;
+        /**
+          * The text content of the current event as String.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getText(): string;
+        /**
+          * Returns true if the current element is empty.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        isEmptyElementTag(): boolean;
+        /**
+          * Checks whether the current TEXT event contains only whitespace characters.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        isWhitespace(): boolean;
+        /**
+          * Returns the number of attributes of the current start tag.
+          * @since 8
+          * @syscap SystemCapability.Utils.Lang
+          */
+        getAttributeCount(): number;
+    }
+
+    /** parse options for XmlPullParser. */
+    interface ParseOptions {
+
+        /**
+         * Whether to parsing Doctype of the elements.
          * @since 8
-         * @sysCap SystemCapability.CCRuntime.
-         * @param xml The xml text to be converted.
-         * @param option Option Inputed by user to set.
-         * @return Returns a JavaScript object converting from XML text.
+         * @syscap SystemCapability.Utils.Lang
          */
-        convert(xml: string, option?: ConvertOptions) : Object;
+        supportDoctype?: boolean;
+
+        /**
+         * Whether to ignore parsing texts of the elements.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        ignoreNameSpace?: boolean;
+
+        /**
+         * tag value callback function.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param name The current tag name.
+         * @param value The current tag value.
+         * @return Returns a Boolean variable for whether parse continually.
+         */
+        tagValueCallbackFunction?: (name: string, value: string) => boolean;
+
+        /**
+         * attribute value callback function.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param name The current attribute name.
+         * @param value The current attribute value.
+         * @return Returns a Boolean variable for whether parse continually.
+         */
+        attributeValueCallbackFunction?: (name: string, value: string) => boolean;
+
+        /**
+         * token value callback function.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param eventType The current token eventtype.
+         * @param value The current token parseinfo.
+         * @return Returns a Boolean variable for whether parse continually.
+         */
+        tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
+    }
+
+    class XmlPullParser {
+        /**
+          * A constructor used to create a new XmlPullParser instance.
+          */
+        constructor(buffer: ArrayBuffer | DataView, encoding?: string);
+
+        /**
+         * Starts parsing the XML file.
+         * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         * @param option parse options for XmlPullParser, the interface including two Boolean variables and three callback functions.
+         */
+        parse(option: ParseOptions): void;
     }
 }
 export default xml;

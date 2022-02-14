@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { ResourceColor } from ".";
-import { Offset, ResourceStr } from "./units";
-
 /**
  * The alignment of dialog,
  * @since 7
  */
-export declare enum DialogAlignment {
+declare enum DialogAlignment {
   /**
    * Vertical top alignment.
    * @since 7
@@ -44,13 +41,49 @@ export declare enum DialogAlignment {
    * @since 7
    */
   Default,
+
+  /**
+   * Align the upper left corner.
+   * @since 8
+   */
+  TopStart,
+
+  /**
+   * Align the upper right corner.
+   * @since 8
+   */
+  TopEnd,
+
+  /**
+   * Left center alignment.
+   * @since 8
+   */
+  CenterStart,
+
+  /**
+   * Right center alignment.
+   * @since 8
+   */
+  CenterEnd,
+
+  /**
+   * Align the lower left corner.
+   * @since 8
+   */
+  BottomStart,
+
+  /**
+   * Align the lower right corner.
+   * @since 8
+   */
+  BottomEnd,
 }
 
 /**
  * Base param used for AlertDialog.show method.
  * @since 7
  */
-export declare interface AlertDialogParam {
+declare interface AlertDialogParam {
   /**
    * Title Properties
    * @since 7
@@ -98,7 +131,7 @@ export declare interface AlertDialogParam {
  * Defines the AlertDialog with confirm button.
  * @since 7
  */
-export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
+declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
    * Invoke the commit function.
    * @since 7
@@ -117,7 +150,7 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
     fontColor?: ResourceColor;
 
     /**
-     * Backgound color of the confirmation button.
+     * Background color of the confirmation button.
      * @since 7
      */
     backgroundColor?: ResourceColor;
@@ -130,7 +163,7 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   };
 }
 
-export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
+declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
    * @since 7
@@ -149,7 +182,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     fontColor?: ResourceColor;
 
     /**
-     * Backgound color of the confirmation button.
+     * Background color of the confirmation button.
      * @since 7
      */
     backgroundColor?: ResourceColor;
@@ -179,7 +212,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     fontColor?: ResourceColor;
 
     /**
-     * Backgound color of the confirmation button.
+     * Background color of the confirmation button.
      * @since 7
      */
     backgroundColor?: ResourceColor;
@@ -196,7 +229,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  * Defines AlertDialog which uses show method to show alert dialog.
  * @since 7
  */
-export declare class AlertDialog {
+declare class AlertDialog {
   /**
    * Invoking method display.
    * @since 7

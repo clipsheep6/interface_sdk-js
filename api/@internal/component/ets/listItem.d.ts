@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
 
 /**
  * Declare item ceiling attribute.
  * @since 7
  */
-export declare enum Sticky {
+declare enum Sticky {
   /**
    * No sticky.
    * @since 7
@@ -44,7 +43,7 @@ export declare enum Sticky {
  * @devices phone, tablet
  * @since 7
  */
-export declare enum EditMode {
+declare enum EditMode {
   /**
    * Unrestricted operations.
    * @since 7
@@ -67,38 +66,69 @@ export declare enum EditMode {
 /**
  * @since 7
  */
-export declare class ListItemExtend<T> extends ListItemAttribute<T> {}
 
 /**
  * Values in the list
  * @since 7
  */
-interface ListItem extends ListItemAttribute<ListItem> {
+interface ListItemInterface {
   /**
    * Called when an interface is used.
    * @since 7
    */
-  (value?: string): ListItem;
+  (value?: string): ListItemAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ListItemAttribute<T> extends CommonMethod<T> {
+declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: string): ListItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ListItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ListItemAttribute;
+ 
   /**
    * Called when setting whether item is ceiling effect.
    * @since 7
    */
-  sticky(value: Sticky): T;
+  sticky(value: Sticky): ListItemAttribute;
 
   /**
    * Called when judging whether it is editable.
    * @since 7
    */
-  editable(value: boolean | EditMode): T;
+  editable(value: boolean | EditMode): ListItemAttribute;
+
+  /**
+   * Called when judging whether it is selectable.
+   * @since 8
+   */
+  selectable(value: boolean): ListItemAttribute;
+
+  /**
+   * Called when the listItem is selected.
+   * @since 8
+   */
+  onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**
  * @since 7
  */
-export declare const ListItemInterface: ListItem;
+declare const ListItemInstance: ListItemAttribute;
+declare const ListItem: ListItemInterface;
+
