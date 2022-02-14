@@ -19,49 +19,49 @@ import bundle from '../@ohos.bundle';
 /**
  * The class of an extension running information.
  *
- * @since 8
+ * @since 9
  * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface ExtensionRunningInfo {
     /**
     * @default Indicates the extension of the extension info
-    * @since 8
+    * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     extension: ElementName;
 
     /**
     * @default process id
-    * @since 8
+    * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     pid: number;
 
     /**
     * @default user id
-    * @since 8
+    * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     uid: number;
 
     /**
     * @default the name of the process
-    * @since 8
+    * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     processName: string;
 
     /**
     * @default ability start time
-    * @since 8
+    * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     startTime: number;
 
     /**
     * @default All package names under the current process
-    * @since 8
+    * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     clientPackage: Array<String>;
@@ -70,7 +70,6 @@ export interface ExtensionRunningInfo {
     * @default Enumerates types of the entension info
     * @since 9
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
-    * @StageModelOnly
     */
     type: bundle.ExtensionAbilityType;
 }
