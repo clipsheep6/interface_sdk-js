@@ -19,8 +19,7 @@ import { ResultSet } from './data/rdb/resultSet';
  * Provides methods for rdbStore create and delete.
  *
  * @since 7
- * @sysCap SystemCapability.Data.DATA_APPDATAMGR
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @import import data_rdb from '@ohos.data.rdb';
  * @permission N/A
  */
@@ -33,8 +32,7 @@ declare namespace rdb {
      *
      * @note N/A
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @param config Indicates the configuration of the database related to this RDB store. The configurations include
      * the database path, storage mode, and whether the database is read-only.
      * @param version Indicates the database version for upgrade or downgrade.
@@ -48,8 +46,7 @@ declare namespace rdb {
      *
      * @note N/A
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @param name Indicates the database name.
      * @return Returns true if the database is deleted; returns false otherwise.
      */
@@ -116,8 +113,7 @@ declare namespace rdb {
      * This class provides methods for creating, querying, updating, and deleting RDBs.
      *
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
      * @permission N/A
      */
@@ -127,8 +123,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param name Indicates the target table.
          * @param values Indicates the row of data to be inserted into the table.
          * @return Returns the row ID if the operation is successful; returns -1 otherwise.
@@ -141,8 +136,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
          * @param rdbPredicates Indicates the specified update condition by the instance object of RdbPredicates.
          * @return Returns the number of affected rows.
@@ -155,8 +149,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param rdbPredicates Indicates the specified delete condition by the instance object of RdbPredicates.
          * @return Returns the number of affected rows.
          */
@@ -168,8 +161,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param rdbPredicates Indicates the specified query condition by the instance object of RdbPredicates.
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
@@ -182,8 +174,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param sql Indicates the SQL statement to execute.
          * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
          * @return Returns a ResultSet object if the operation is successful;
@@ -196,8 +187,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param sql Indicates the SQL statement to execute.
          * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
          */
@@ -209,8 +199,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param newEncryptKey the encrypted key is uint8 form in a vector.
          */
         changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
@@ -221,8 +210,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         beginTransaction(callback: AsyncCallback<void>):void;
         beginTransaction(): Promise<void>;
@@ -232,8 +220,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         commit(callback: AsyncCallback<void>):void;
         commit(): Promise<void>;
@@ -243,8 +230,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         rollBack(callback: AsyncCallback<void>):void;
         rollBack(): Promise<void>;
@@ -254,9 +240,8 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param tables the tables name you want to set
-         * @devices phone, tablet, tv, wearable, car
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
         setDistributedTables(tables: Array<string>): Promise<void>;
@@ -320,8 +305,7 @@ declare namespace rdb {
      * Indicates possible value types
      *
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
      * @permission N/A
      */
@@ -331,8 +315,7 @@ declare namespace rdb {
      * Values in buckets are stored in key-value pairs
      *
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
      * @permission N/A
      */
@@ -344,8 +327,7 @@ declare namespace rdb {
      * Manages relational database configurations.
      *
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
      * @permission N/A
      */
@@ -355,7 +337,7 @@ declare namespace rdb {
          * Indicates the encryptKey of the database file
          *
          * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         encryptKey: Uint8Array;
     }
@@ -364,8 +346,7 @@ declare namespace rdb {
      * Manages relational database configurations.
      *
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
      * @permission N/A
      */
@@ -376,8 +357,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         constructor(name: string)
 
@@ -410,8 +390,7 @@ declare namespace rdb {
          *
          * @note This method is similar to = of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the RdbPredicates.
          * @return Returns the RdbPredicates that match the specified field.
@@ -424,8 +403,7 @@ declare namespace rdb {
          *
          * @note This method is similar to != of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the RdbPredicates.
          * @return Returns the RdbPredicates that match the specified field.
@@ -437,8 +415,7 @@ declare namespace rdb {
          *
          * @note This method is similar to ( of the SQL statement and needs to be used together with endWrap().
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicates with the left parenthesis.
          */
         beginWrap(): RdbPredicates;
@@ -449,8 +426,7 @@ declare namespace rdb {
          * @note This method is similar to ) of the SQL statement and needs to be used together
          * with beginWrap().
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicates with the right parenthesis.
          */
         endWrap(): RdbPredicates;
@@ -460,8 +436,7 @@ declare namespace rdb {
          *
          * @note This method is similar to or of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicates with the or condition.
          */
         or(): RdbPredicates;
@@ -471,8 +446,7 @@ declare namespace rdb {
          *
          * @note This method is similar to and of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicates with the and condition.
          */
         and(): RdbPredicates;
@@ -483,8 +457,7 @@ declare namespace rdb {
          *
          * @note This method is similar to contains of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the RdbPredicates.
          * @return Returns the RdbPredicates that match the specified field.
@@ -497,8 +470,7 @@ declare namespace rdb {
          *
          * @note This method is similar to value% of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the RdbPredicates.
          * @return Returns the RdbPredicates that match the specified field.
@@ -511,8 +483,7 @@ declare namespace rdb {
          *
          * @note This method is similar to %value of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the RdbPredicates.
          * @return Returns the RdbPredicates that match the specified field.
@@ -524,8 +495,7 @@ declare namespace rdb {
          *
          * @note This method is similar to is null of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @return Returns the RdbPredicates that match the specified field.
          */
@@ -536,8 +506,7 @@ declare namespace rdb {
          *
          * @note This method is similar to is not null of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @return Returns the RdbPredicates that match the specified field.
          */
@@ -549,8 +518,7 @@ declare namespace rdb {
          *
          * @note This method is similar to like of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the RdbPredicates. The percent sign (%) in the value
          * is a wildcard (like * in a regular expression).
@@ -564,8 +532,7 @@ declare namespace rdb {
          *
          * @note Different from like, the input parameters of this method are case-sensitive.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with RdbPredicates.
          * @return Returns the SQL statement with the specified RdbPredicates.
@@ -577,8 +544,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
          * @param low Indicates the minimum value.
          * @param high Indicates the maximum value.
@@ -592,8 +558,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param low Indicates the minimum value to match with DataAbilityPredicates.
          * @param high Indicates the maximum value to match with DataAbilityPredicates.
@@ -606,8 +571,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core 
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicates.
@@ -619,8 +583,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicates.
@@ -632,8 +595,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicates.
@@ -645,8 +607,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicates.
@@ -659,8 +620,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name for sorting the return list.
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
@@ -672,8 +632,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name for sorting the return list.
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
@@ -684,8 +643,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         distinct(): RdbPredicates;
@@ -695,8 +653,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param value Indicates the max length of the return list.
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
@@ -707,8 +664,7 @@ declare namespace rdb {
          *
          * @note Use this method together with limit(int).
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param rowOffset Indicates the start position of the returned result. The value is a positive integer.
          * @return Returns the SQL query statement with the specified AbsPredicates.
          */
@@ -719,8 +675,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param fields Indicates the specified columns by which query results are grouped.
          * @return Returns the RdbPredicates with the specified columns by which query results are grouped.
          */
@@ -731,8 +686,7 @@ declare namespace rdb {
          *
          * @note Before using this method, you need to create an index column.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param indexName Indicates the name of the index column.
          * @return Returns RdbPredicates with the specified index column.
          */
@@ -744,8 +698,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param values Indicates the values to match with RdbPredicates.
          * @return Returns RdbPredicates that matches the specified field.
@@ -758,8 +711,7 @@ declare namespace rdb {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
          * @param values Indicates the values to match with RdbPredicates.
          * @return Returns RdbPredicates that matches the specified field.
