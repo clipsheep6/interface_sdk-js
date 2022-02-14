@@ -637,14 +637,14 @@ declare namespace distributedData {
          * @permission N/A
          */
         securityLevel?: SecurityLevel;
-		/**
+        /**
          * Indicates setting the database security level
          * @since 9
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
          * @import N/A
          * @permission N/A
          */
-		schema?:Schema;
+        schema?:Schema;
     }
 
     /**
@@ -652,21 +652,20 @@ declare namespace distributedData {
      * 
      * You can create Schema objects and put them in Options when creating or opening the database.
      * 
-     * @since 8
+     * @since 9
      * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet, tv, wearable, car
      * @import N/A
      * @permission N/A
      */
     class Schema {
-		/**
-		* A constructor used to create a Schema instance.
-		* 
-		* @note N/A
-		* @since 8
-		* @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-		* @devices phone, tablet, tv, wearable, car
-		*/
+        /**
+         * A constructor used to create a Schema instance.
+		 * 
+		 * @note N/A
+		 * @since 8
+		 * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+		 * @devices phone, tablet, tv, wearable, car
+		 */
 		constructor()
     }
 
@@ -689,7 +688,7 @@ declare namespace distributedData {
         /**
          * A constructor used to create a FieldNode instance with the specified field.
          * name Indicates the field node name.
-         * 
+         *  
          * @note N/A
          * @since 8
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
