@@ -26,36 +26,38 @@ import PermissionRequestResult from "./PermissionRequestResult";
 /**
  * The context of an ability. It allows access to ability-specific resources.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @StageModelOnly
  */
 export default class AbilityContext extends Context {
     /**
      * Indicates configuration information about an ability.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     abilityInfo: AbilityInfo;
 
     /**
      * Indicates configuration information about an module.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
 
     /**
      * Starts a new ability.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @return -
+     * @StageModelOnly
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -64,13 +66,13 @@ export default class AbilityContext extends Context {
     /**
      * Starts a new ability with account.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
      * @param want Indicates the account to start.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
     startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -79,11 +81,11 @@ export default class AbilityContext extends Context {
     /**
      * Starts an ability and returns the execution result when the ability is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @return Returns the {@link AbilityResult}.
+     * @StageModelOnly
      */
     startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
     startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
@@ -92,13 +94,13 @@ export default class AbilityContext extends Context {
     /**
      * Starts an ability and returns the execution result when the ability is destroyed with account.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
      * @param want Indicates the account to start.
      * @systemapi hide for inner use.
      * @return Returns the {@link AbilityResult}.
+     * @StageModelOnly
      */
     startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
     startAbilityForResultWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -107,10 +109,10 @@ export default class AbilityContext extends Context {
     /**
      * Destroys this Page ability.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
+     * @StageModelOnly
      */
     terminateSelf(callback: AsyncCallback<void>): void;
     terminateSelf(): Promise<void>;
@@ -119,11 +121,11 @@ export default class AbilityContext extends Context {
      * Sets the result code and data to be returned by this Page ability to the caller
      * and destroys this Page ability.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the result to return.
      * @return -
+     * @StageModelOnly
      */
     terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
     terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -131,38 +133,38 @@ export default class AbilityContext extends Context {
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @hide hide for inner use.
      * @return Returns the number code of the ability connected
+     * @StageModelOnly
      */
     connectAbility(want: Want, options: ConnectOptions): number;
 
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @param accountId The account to connect
      * @systemapi hide for inner use.
      * @return Returns the number code of the ability connected
+     * @StageModelOnly
      */
     connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * The callback interface was connect successfully.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection The number code of the ability connected
      * @hide hide for inner use.
+     * @StageModelOnly
      */
     disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
     disconnectAbility(connection: number): Promise<void>;
@@ -170,10 +172,10 @@ export default class AbilityContext extends Context {
     /**
      * Set mission label of current ability.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param label The label of ability that showed in recent missions.
+     * @StageModelOnly
      */
      setMissionLabel(label: string, callback:AsyncCallback<void>): void;
      setMissionLabel(label: string): Promise<void>;
@@ -181,10 +183,10 @@ export default class AbilityContext extends Context {
      /**
      * Requests certain permissions from the system.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @StageModelOnly
      */
     requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
     requestPermissionsFromUser(permissions: Array<string>) : Promise<PermissionRequestResult>;

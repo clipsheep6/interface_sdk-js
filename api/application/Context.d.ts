@@ -22,111 +22,121 @@ import EventHub from "./EventHub";
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @StageModelOnly
  */
 export default class Context extends BaseContext {
     /**
      * Indicates the capability of accessing application resources.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     resourceManager: resmgr.ResourceManager;
 
     /**
      * Indicates configuration information about an application.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     applicationInfo: ApplicationInfo;
 
     /**
      * Indicates app cache dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     cacheDir: string;
 
     /**
      * Indicates app temp dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     tempDir: string;
 
     /**
      * Indicates app files dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     filesDir : string;
 
     /**
      * Indicates app database dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     databaseDir : string;
 
     /**
      * Indicates app storage dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     storageDir : string;
 
     /**
      * Indicates app bundle code dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     bundleCodeDir : string;
 
     /**
      * Indicates app distributed files dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     distributedFilesDir: string;
 
     /**
      * Indicates event hub.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     eventHub: EventHub;
 
     /**
      * Create a bundle context
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @param bundleName Indicates the bundle name.
      * @return application context
+     * @StageModelOnly
      */
     createBundleContext(bundleName: string): Context;
 
      /**
      * Get application context
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return application context
+     * @StageModelOnly
      */
     getApplicationContext(): Context;
 }

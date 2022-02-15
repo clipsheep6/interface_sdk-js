@@ -25,10 +25,10 @@ import BaseContext from '../application/BaseContext';
  * Can only be obtained through the ability.
  *
  * @since 6
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @SysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import abilityManager from 'app/context'
  * @permission N/A
+ * @FAModelOnly
  */
 export interface Context extends BaseContext {
 
@@ -39,9 +39,9 @@ export interface Context extends BaseContext {
     * the ability; if in the context of the application, return the
     * root dir of the application.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable, car
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @return the root dir
+    * @FAModelOnly
     */
     getOrCreateLocalDir(): Promise<string>;
     getOrCreateLocalDir(callback: AsyncCallback<string>): void;
@@ -54,10 +54,10 @@ export interface Context extends BaseContext {
     * @note Pid and uid are optional. If you do not pass in pid and uid,
     * it will check your own permission.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable, car
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @return asynchronous callback with {@code 0} if the PID
     *         and UID have the permission; callback with {@code -1} otherwise.
+    * @FAModelOnly
     */
     verifyPermission(permission: string, options?: PermissionOptions): Promise<number>;
     verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback<number>): void;
@@ -68,16 +68,16 @@ export interface Context extends BaseContext {
     * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null.
     * @param requestCode Indicates the request code to be passed to the PermissionRequestResult
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable, car
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     requestPermissionsFromUser(permissions: Array<string>, requestCode: number, resultCallback: AsyncCallback<PermissionRequestResult>): void;
 
     /**
     * Obtains information about the current application.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     getApplicationInfo(callback: AsyncCallback<ApplicationInfo>): void
     getApplicationInfo(): Promise<ApplicationInfo>;
@@ -85,8 +85,8 @@ export interface Context extends BaseContext {
     /**
     * Obtains the bundle name of the current ability.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     getBundleName(callback: AsyncCallback<string>): void
     getBundleName(): Promise<string>;
@@ -94,8 +94,8 @@ export interface Context extends BaseContext {
     /**
     * Obtains information about the current process, including the process ID and name.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     getProcessInfo(callback: AsyncCallback<ProcessInfo>): void
     getProcessInfo(): Promise<ProcessInfo>;
@@ -103,8 +103,8 @@ export interface Context extends BaseContext {
     /**
     * Obtains the ohos.bundle.ElementName object of the current ability. This method is available only to Page abilities.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     getElementName(callback: AsyncCallback<ElementName>): void
     getElementName(): Promise<ElementName>;
@@ -112,8 +112,8 @@ export interface Context extends BaseContext {
     /**
     * Obtains the name of the current process.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     getProcessName(callback: AsyncCallback<string>): void
     getProcessName(): Promise<string>;
@@ -121,8 +121,8 @@ export interface Context extends BaseContext {
     /**
     * Obtains the bundle name of the ability that called the current ability.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
-    * @devices phone, tablet, tv, wearable
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     getCallingBundle(callback: AsyncCallback<string>): void
     getCallingBundle(): Promise<string>;
@@ -131,45 +131,57 @@ export interface Context extends BaseContext {
 /**
  * @name the result of requestPermissionsFromUser with asynchronous callback
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @SysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
- * @devices phone, tablet, tv, wearable, car
+ * @FAModelOnly
  */
 interface PermissionRequestResult {
     /**
     * @default The request code passed in by the user
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     requestCode: number;
 
     /**
     * @default The permissions passed in by the user
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     permissions: Array<string>;
 
     /**
     * @default The results for the corresponding request permissions
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
     */
     authResults: Array<number>;
 }
 
+/**
+ * @name PermissionOptions
+ * @since 7
+ * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
+ * @FAModelOnly
+ */
 interface PermissionOptions {
  /**
   * @default The process id
   * @since 7
-  * @SysCap SystemCapability.Appexecfwk
+  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+  * @FAModelOnly
   */
  pid?: number;
 
  /**
   * @default The user id
   * @since 7
-  * @SysCap SystemCapability.Appexecfwk
+  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+  * @FAModelOnly
   */
  uid?: number;
 }

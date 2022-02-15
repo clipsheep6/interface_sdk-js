@@ -14,27 +14,68 @@
  */
 
 import { AsyncCallback } from './basic';
-import Configuration from './@ohos.application.Configuration';
+import { Configuration } from './@ohos.application.Configuration';
+import { AbilityRunningInfo } from './application/AbilityRunningInfo';
+import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 
 /**
  * The class of an ability manager.
  *
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 declare namespace abilityManager {
+
+    /**
+     * @name AbilityState
+     * @since 8
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @permission N/A
+     */
+    export enum AbilityState {
+        INITIAL = 0,
+        FOREGROUND = 9,
+        BACKGROUND = 10,
+        FOREGROUNDING = 11,
+        BACKGROUNDING = 12
+    }
+
     /**
      * Updates the configuration by modifying the configuration.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @SysCap AAFwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
      */
     function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
     function updateConfiguration(config: Configuration): Promise<void>;
+
+    /**
+     * Get information about running abilitys
+     *
+     * @since 8
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @param config Indicates the new configuration.
+     * @systemapi Hide this for inner system use.
+     * @return -
+     */
+    function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
+    function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
+ 
+     /**
+      * Get information about running extensions
+      *
+      * @since 9
+      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+      * @param config Indicates the new configuration.
+      * @systemapi Hide this for inner system use.
+      * @return -
+      */
+    function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
+    function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 }
+
+export default abilityManager;
