@@ -22,7 +22,7 @@ import {AsyncCallback, Callback} from "./basic";
  * @syscap  SystemCapability.FileManagement.File.DistributedFile
  */
 
-declare namespace Remotefileshare {
+declare namespace remoteFileShare {
   /**
    * Create the remote share path of src share file.
    *
