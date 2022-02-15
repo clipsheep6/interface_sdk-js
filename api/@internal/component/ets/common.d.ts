@@ -1258,7 +1258,7 @@ declare class CommonMethod<T> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 7
    */
-  onDragStart(event: (event?: DragEvent, extraParams?: string) => (() => any) | void): T;
+  onDragStart(value: {info: string, event: (event?: DragEvent, extraParams?: string) => (() => any)}): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
