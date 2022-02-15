@@ -30,6 +30,56 @@ declare enum MessageLevel {
   Warn
 }
 
+declare enum HitTestType {
+  /**
+   * The edit text.
+   * @since 8
+   */
+  Edit,
+
+  /**
+   * The email address.
+   * @since 8
+   */
+  Email,
+
+  /**
+   * The HTML::a tag with src=http.
+   * @since 8
+   */
+  Http,
+
+  /**
+   * The HTML::a tag with src=http + HTML::img.
+   * @since 8
+   */
+  HttpImg,
+
+  /**
+   * The HTML::img tag.
+   * @since 8
+   */
+  Img,
+
+  /**
+   * The map address.
+   * @since 8
+   */
+  Map,
+
+  /**
+   * The phone number.
+   * @since 8
+   */
+  Phone,
+
+  /**
+   * Other unknown hit test.
+   * @since 8
+   */
+  Unknown
+}
+
 declare class JsResult {
   /**
    * Constructor.
@@ -170,22 +220,70 @@ declare class WebController {
   constructor();
 
   /**
+   * Let the Web inactive.
+   * @since 8
+   */
+  onInactive(): void;
+
+  /**
+   * Let the Web active.
+   * @since 8
+   */
+  onActive(): void;
+
+  /**
    * Means to load a piece of code and execute JS code in the context of the currently displayed page
    * @since 8
    */
-  runJavaScript(jscode: string);
+  runJavaScript(jscode: string, callback?: (result: string) => void);
 
   /**
    * Indicates that a piece of code is loaded
    * @since 8
    */
-  loadData(value: { baseUrl: string, data: string, mimeType: string, encoding: string, historyUrl: string });
+  loadData(value: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
   /**
    * Load the given URL
    * @since 8
    */
-  loadUrl(url: string);
+  loadUrl(url: string, additionalHttpHeaders?: Array<{ key: string, value: string }>);
+
+  /**
+   * refreshes the current URL.
+   * @since 8
+   */
+  refresh();
+
+  /**
+   * Stops the current load.
+   * @since 8
+   */
+  stop();
+
+  /**
+   * Registers the JavaScript object and method list.
+   * @since 8
+   */
+  registerJavaScriptProxy(value: { obj: object, name: string, methodList: Array<string> });
+
+  /**
+   * Deletes a registered JavaScript object with given name.
+   * @since 8
+   */
+  deleteJavaScriptProxy(value: { name: string });
+
+  /**
+   * Get the type of hit test.
+   * @since 8
+   */
+  getHitTest(): HitTestType;
+
+  /**
+   * Get the request focus.
+   * @since 8
+   */
+  requestFocus();
 
   /**
   * Check whether the web page can go back
@@ -256,6 +354,40 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
 
   /**
+   * Triggered at the begin of web page loading
+   * @since 8
+   */
+  onPageBegin(callback: (event?: { url: string }) => void): WebAttribute;
+
+  /**
+   * Triggered when the page loading progress changes
+   * @since 8
+   */
+  onProgressChange(callback: (event?: { newProgress: number }) => void): WebAttribute;
+
+  /**
+   * Triggered when the title of the main application document changes
+   * @since 8
+   */
+  onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
+
+  /**
+   * Triggered when the host application is notified that a previously invoked geolocation permission request onGeolocationShow() has been canceled. Therefore, any related UI should be hidden.
+   * @since 8
+   */
+  onGeolocationHide(callback: () => void): WebAttribute;
+
+  /**
+   * Triggered when notifies the host application that web content from the specified source is attempting to use the Geolocation API
+   * 
+   * @param origin The origin that ask for the geolocation permission.
+   * @param allow The geolocation permission status.
+   * @param retain Whether to allow the geolocation permission status to be saved to the system.
+   * @since 8
+   */
+  onGeolocationShow(callback: (event?: { origin: string, allow: boolean, retain: boolean }) => void): WebAttribute;
+
+  /**
    * Get WebView focus callback event
    * @since 8
    */
@@ -308,6 +440,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   onHttpErrorReceive(callback: (event?: {request: WebResourceRequest, error: WebResourceError}) => void): WebAttribute;
+
+  /**
+   * Triggered when download start
+   * @since 8
+   */
+  onDownloadStart(callback: (event?: {url: string, userAgent: string, contentDisposition: string, mimetype: string, contentLength: number}) => void): WebAttribute;
 
   /**
    * Just use for genetate tsbundle
