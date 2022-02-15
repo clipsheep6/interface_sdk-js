@@ -48,4 +48,4 @@ declare namespace remoteFileShare {
   function getSecurityLabel(path:string): Promise<string>;
 }
 
-export default Remotefileshare;
+export default remoteFileShare;
