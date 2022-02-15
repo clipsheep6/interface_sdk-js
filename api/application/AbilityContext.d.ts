@@ -22,6 +22,7 @@ import Context from "./Context";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
+import { Configuration } from '../@ohos.application.Configuration';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -49,6 +50,14 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
+
+    /**
+     * Indicates configuration information.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+    config: Configuration;
 
     /**
      * Starts a new ability.
