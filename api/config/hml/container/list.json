@@ -34,6 +34,26 @@
       ]
     },
     {
+      "name": "scrollbarreservedheight",
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+      "required": false,
+      "description": [
+        {
+          "name": "Whether to reserved space at the bottom on the scorllbar",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        }
+      ],
+      "type": "enum",
+      "options": [
+        {
+          "name": "true"
+        },
+        {
+          "name": "false"
+        }
+      ]
+    },
+    {
       "name": "cachedcount",
       "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
