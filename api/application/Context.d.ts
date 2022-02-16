@@ -139,4 +139,21 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     getApplicationContext(): Context;
+
+    /**
+     * Switch file area
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 9
+     * @sysCap AAFwk
+     * @param mode file area.
+     */
+    switchArea(mode: AreaMode): void;
+}
+
+export enum AreaMode {
+    EL1 = 0,
+    EL2 = 1,
+    EL3 = 2,
+    EL4 = 3
 }
