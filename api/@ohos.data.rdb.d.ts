@@ -208,18 +208,6 @@ declare namespace rdb {
         executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
         /**
-         * change the encrypted key(not null) if the database is configured with encrypted key.
-         *
-         * @note N/A
-         * @since 8
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         * @param newEncryptKey the encrypted key is uint8 form in a vector.
-         */
-        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
-        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
-
-        /**
          * beginTransaction before excute your sql
          *
          * @note N/A
@@ -360,7 +348,6 @@ declare namespace rdb {
          * @since 8
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          */
-        encryptKey: Uint8Array;
     }
 
     /**
