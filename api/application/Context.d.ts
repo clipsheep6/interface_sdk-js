@@ -124,7 +124,7 @@ export default class Context {
      * Switch file area
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param mode file area.
      */
