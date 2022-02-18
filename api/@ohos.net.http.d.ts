@@ -28,20 +28,12 @@ declare namespace http {
   export interface HttpRequestOptions {
     method?: RequestMethod; // default is GET
     /**
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * extraData can be a string or an ArrayBuffer(API 8).
      */
     extraData?: string | Object | ArrayBuffer;
     header?: Object; // default is 'content-type': 'application/json'
-    readTimeout?: number; // default is 60s
-    connectTimeout?: number; // default is 60s.
-    /**
-     * @since 8
-     */
-    ifModifiedSince?: number; // "If-Modified-Since", default is 0.
-    /**
-     * @since 8
-     */
-    fixedLengthStreamingMode?: number; // default is -1 means disabled.
+    readTimeout?: number; // default is 60000ms
+    connectTimeout?: number; // default is 60000ms.
   }
 
   export interface HttpRequest {
@@ -63,6 +55,19 @@ declare namespace http {
      * @deprecated use once() instead since 8.
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
+
+    /**
+     * @since 8
+     */
+    on(type: "headersReceive", callback: Callback<Object>): void;
+    /**
+     * @since 8
+     */
+    once(type: "headersReceive", callback: Callback<Object>): void;
+    /**
+     * @since 8
+     */
+    off(type: "headersReceive", callback?: Callback<Object>): void;
   }
 
   export enum RequestMethod {
@@ -116,7 +121,7 @@ declare namespace http {
 
   export interface HttpResponse {
     /**
-     * result can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * result can be a string or an ArrayBuffer(API 8).
      */
     result: string | Object | ArrayBuffer;
     responseCode: ResponseCode | number;
@@ -125,66 +130,6 @@ declare namespace http {
      * @since 8
      */
     cookies: string;
-  }
-
-  /**
-   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   *
-   * @param options {@code HttpResponseCacheOptions}
-   * @param callback the newly-installed cache
-   * @since 8
-   */
-  function createHttpResponseCache(options: HttpResponseCacheOptions, callback: AsyncCallback<HttpResponseCache>): void;
-  function createHttpResponseCache(options: HttpResponseCacheOptions): Promise<HttpResponseCache>;
-
-  /**
-   * Obtains the {@code HttpResponseCache} object.
-   *
-   * @param callback Returns the {@code HttpResponseCache} object.
-   * @since 8
-   */
-  function getInstalledHttpResponseCache(callback: AsyncCallback<HttpResponseCache>): void;
-  function getInstalledHttpResponseCache(): Promise<HttpResponseCache>;
-
-  /**
-   * @since 8
-   */
-  export interface HttpResponseCacheOptions {
-    /**
-     * Indicates the full directory for storing the cached data.
-     */
-    filePath: string;
-    /**
-     * Indicates the child directory for storing the cached data. It is an optional parameter.
-     */
-    fileChildPath?: string;
-    /**
-     * Indicates the maximum size of the cached data.
-     */
-    cacheSize: number;
-  }
-
-  /**
-   * @since 8
-   */
-  export interface HttpResponseCache {
-    /**
-     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
-     */
-    flush(callback: AsyncCallback<void>): void;
-    flush(): Promise<void>;
-
-    /**
-     * Disables a cache without changing the data in it.
-     */
-    close(callback: AsyncCallback<void>): void;
-    close(): Promise<void>;
-
-    /**
-     * Disables a cache and deletes the data in it.
-     */
-    delete(callback: AsyncCallback<void>): void;
-    delete(): Promise<void>;
   }
 }
 

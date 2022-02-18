@@ -20,7 +20,7 @@ import connection from "./@ohos.net.connection";
  * Provides TCP and UDP Socket APIs.
  *
  * @since 7
- * @sysCap SystemCapability.Communication.NetManager
+ * @sysCap SystemCapability.Communication.NetStack
  * @devices phone, tablet, tv, wearable, car
  */
 declare namespace socket {
