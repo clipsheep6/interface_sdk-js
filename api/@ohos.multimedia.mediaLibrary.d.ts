@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback } from './basic';
-import Context from './@ohos.ability';
 import image from './@ohos.multimedia.image';
 
 /**

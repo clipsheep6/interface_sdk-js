@@ -72,12 +72,12 @@ declare namespace process {
      */
     function kill(signal: number, pid: number): boolean;
 
-    readonly getEgid: number;
-    readonly getEuid: number;
-    readonly getGid: number;
-    readonly getUid: number;
-    readonly getGroups: number[];
-    readonly getPid: number;
-    readonly getPpid: number;
+    function getEgid(): number;
+    function getEuid(): number;
+    function getGid(): number;
+    function getUid(): number;
+    function getGroups(): number[];
+    function getPid(): number;
+    function getPpid(): number;
 }
 export default process;

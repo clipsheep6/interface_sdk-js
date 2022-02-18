@@ -30,7 +30,7 @@ export interface ConnectOptions {
    * @param elementName The element name of the service ability
    * @param remoteObject The remote object instance
    */
-  onConnect: (elementName: ElementName, remoteObject: RemoteObject) => void;
+  onConnect: (elementName: ElementName, remoteObject: rpc.RemoteObject) => void;
 
   /**
    * The callback interface was disconnect successfully.

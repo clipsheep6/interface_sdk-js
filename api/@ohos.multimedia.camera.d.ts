@@ -14,7 +14,6 @@
  */
 
 import {ErrorCallback, AsyncCallback} from './basic';
-import Context from './@ohos.ability';
 
 /**
  * @name camera

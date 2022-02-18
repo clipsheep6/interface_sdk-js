@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import LightWeightMap from './@ohos.util.LightWeightMap';
+
 declare class PlainArray<T> {
   /**
    * A constructor used to create a PlainArray object.
@@ -145,7 +147,7 @@ declare class PlainArray<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void,
+  forEach(callbackfn: (value?: T, key?: number, map?: LightWeightMap<number, T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object

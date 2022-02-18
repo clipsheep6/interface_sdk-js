@@ -18,7 +18,7 @@ import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
 import { Configuration } from './@ohos.application.Configuration';
-import rpc from '/@ohos.rpc';
+import rpc from './@ohos.rpc';
 
 /**
  * The interface of a Caller.
@@ -67,7 +67,7 @@ import rpc from '/@ohos.rpc';
      * return Sequenceable data
      * @StageModelOnly
      */
-     onRelease(callback: function): void;
+     onRelease(callback: Function): void;
  }
 
  /**
@@ -88,7 +88,7 @@ import rpc from '/@ohos.rpc';
      * @sysCap AAFwk
      * @StageModelOnly
      */
-     on(method: string, callback: function): void;
+     on(method: string, callback: Function): void;
 
      /**
      * Unregister data listener callback.
