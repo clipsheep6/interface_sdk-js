@@ -20,7 +20,7 @@ import { Want } from './ability/want';
  * Plugin component template property.
  * @since 8
  */
-interface PluginComponentTemplate {
+declare interface PluginComponentTemplate {
   source: string;
   ability: string;
 }
@@ -37,6 +37,7 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   interface PushParameters {
+    owner: Want;
     want: Want;
     name: string;
     data: KVObject;
@@ -49,6 +50,7 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   interface RequestParameters {
+    owner: Want; 
     want: Want;
     name: string;
     data: KVObject;
@@ -92,6 +94,7 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component push method.
    * @since 8
+   * @FAModelOnly
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
@@ -106,6 +109,12 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
+  
+  /**
+   * Plugin component event listener.
+   * @since 8
+   */
+  function on(owner: Want, eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
 }
-
 export default pluginComponentManager;
+export default PluginComponentTemplate;
