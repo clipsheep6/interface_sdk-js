@@ -122,6 +122,24 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const CustomDialog: ClassDecorator;
 
 /**
+ * Defines the data type of the interface drag item.
+ * @since 8
+ */
+declare interface DragItemInfo {
+  /**
+   * Set builder.
+   * @since 8
+   */
+  builder: (() => any);
+
+  /**
+   * Set info.
+   * @since 8
+   */
+  info?: string;
+}
+
+/**
  * Defines the data type of the interface restriction.
  * @since 7
  */
@@ -1258,7 +1276,7 @@ declare class CommonMethod<T> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 7
    */
-  onDragStart(event: (event?: DragEvent, extraParams?: string) => (() => any) | void): T;
+  onDragStart(event: (event?: DragEvent, extraParams?: string) => (() => any) | void | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
