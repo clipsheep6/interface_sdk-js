@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -20,7 +20,7 @@ import Context from "./application/Context";
  *
  * @name preferences
  * @since 8
- * @syscap SystemCapability.DistributedDataManager.Preference.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * 
  */
 declare namespace preferences {
@@ -80,7 +80,7 @@ declare namespace preferences {
      * the file that stores preferences data, and use emovePreferencesFromCache
      * to remove the {@link Preferences} instance from the memory.
      *
-     * @syscap SystemCapability.DistributedDataManager.Preference.Core
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * 
      * @since 8
      */
