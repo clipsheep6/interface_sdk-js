@@ -1462,6 +1462,30 @@ declare enum HoverEffect {
  * Placement enumeration description
  * @since 8
  */
+declare enum ScrollSensitivity {
+  /**
+   * Fast scroll sensitivity
+   * @since 8
+   */
+  Fast,
+
+  /**
+   * Fast scroll sensitivity
+   * @since 8
+   */
+  Normal,
+
+  /**
+   * Fast scroll sensitivity
+   * @since 8
+   */
+  Slow,
+}
+
+/**
+ * Placement enumeration description
+ * @since 8
+ */
 declare enum Placement {
   /**
    * Left placement

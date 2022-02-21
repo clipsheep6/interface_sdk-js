@@ -86,6 +86,12 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 8
    */
   onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
+
+  /**
+   * Called when setting scroll sensitivity
+   * @since 8
+   */
+  scrollSensitivity(sensitivity: ScrollSensitivity | number): void;
 }
 
 /**

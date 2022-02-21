@@ -203,6 +203,37 @@
       ]
     },
     {
+      "name": "scrollsensitivity",
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+      "required": false,
+      "version": [
+        {
+          "name": "v8.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "DP value per degree of wheel rotation",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        }
+      ],
+      "type": "enum|number",
+      "options": [
+        {
+          "name": "fast",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        },
+        {
+          "name": "normal",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        },
+        {
+          "name": "slow",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        }
+      ]
+    },
+    {
       "name": "shareid",
       "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,

@@ -150,6 +150,12 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 8
    */
   onChange(callback: (value: DatePickerResult) => void): DatePickerAttribute;
+
+  /**
+   * Called when setting scroll sensitivity
+   * @since 8
+   */
+  scrollSensitivity(sensitivity: ScrollSensitivity | number): void;
 }
 
 /**

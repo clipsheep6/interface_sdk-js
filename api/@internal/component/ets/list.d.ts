@@ -117,6 +117,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   multiSelectable(value: boolean): ListAttribute;
 
   /**
+   * Called when setting scroll sensitivity
+   * @since 8
+   */
+  scrollSensitivity(sensitivity: ScrollSensitivity | number): void;
+
+  /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    * @since 7
    */

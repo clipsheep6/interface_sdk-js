@@ -185,6 +185,12 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   trackThickness(value: Length): SliderAttribute;
 
   /**
+   * Called when setting scroll sensitivity
+   * @since 8
+   */
+  scrollSensitivity(sensitivity: ScrollSensitivity | number): void;
+
+  /**
    * Called when the selection value changes.
    * @devices phone, tablet, car
    * @since 7
