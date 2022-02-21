@@ -2339,6 +2339,10 @@
         {
           "name": "cubic-bezier",
           "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+        },
+        {
+          "name": "steps()",
+          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
         }
       ],
       "version": [
@@ -3120,6 +3124,50 @@
       "restrictions": [
         {
           "name": ["length"]
+        }
+      ]
+    },
+    {
+      "name": "animation-direction",
+      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
+      "syntax": [
+        {
+          "name": "normal | reverse | alternate | alternate-reverse"
+        }
+      ],
+      "values": [
+        {
+          "name": "normal",
+          "description":"The animation is looped forward."
+        },
+        {
+          "name": "reverse",
+          "description":"Animation reverse loop"
+        },
+        {
+          "name": "alternate",
+          "description":"The animation is played alternately and cyclically, with odd times playing forward and even times playing backward."
+        },
+        {
+          "name": "alternate-reverse",
+          "description":"The animation is played alternately in reverse rotation, odd times of reverse playback, even times of forward playback."
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifying the Playback Mode of the Animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
         }
       ]
     },
