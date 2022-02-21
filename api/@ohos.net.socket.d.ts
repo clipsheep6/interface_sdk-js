@@ -21,7 +21,6 @@ import connection from "./@ohos.net.connection";
  *
  * @since 7
  * @syscap SystemCapability.Communication.NetStack
- * @devices phone, tablet, tv, wearable, car
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;

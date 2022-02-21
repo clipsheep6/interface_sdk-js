@@ -20,7 +20,6 @@ import {AsyncCallback, Callback} from "./basic";
  *
  * @since 6
  * @syscap SystemCapability.Communication.NetStack
- * @devices phone, tablet, tv, wearable, car
  */
 declare namespace http {
   function createHttp(): HttpRequest;
