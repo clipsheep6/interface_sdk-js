@@ -16,6 +16,7 @@
 import {Callback} from "./basic";
 import radio from "./@ohos.telephony.radio";
 import call from "./@ohos.telephony.call";
+import {SimState} from "./@ohos.telephony.sim";
 
 /**
  * Monitors telephony state updates of a device, including updates of the network state,
@@ -70,11 +71,44 @@ declare namespace observer {
    *   The value of number is an empty string if the application does not have
    *     the {@code ohos.permission#READ_CALL_LOG READ_CALL_LOG} permission.
    */
-  function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: string }>): void;
+  function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: String }>): void;
   function on(type: 'callStateChange', options: { slotId: number },
-    callback: Callback<{ state: CallState, number: string }>): void;
+    callback: Callback<{ state: CallState, number: String }>): void;
 
-  function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: string }>): void;
+  function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: String }>): void;
+
+  /**
+   * Receives a sim state change. This callback is invoked when the sim state of a specified card updates
+   * and the observer is added to monitor the updates.
+   *
+   * @param type simStateChange
+   * @param options including slotId Indicates the ID of the target card slot.
+   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param callback including state Indicates the sim state, and reason Indicates the cause of the change.
+   *   The value of reason is an empty string if the application does not have
+   */
+  function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
+  function on(type: 'simStateChange', options: { slotId: number },
+    callback: Callback<SimStateData>): void;
+
+  function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
+
+  /**
+   * @since 8
+   */
+  export interface SimStateData {
+    state: SimState,
+    reason: LockReason
+  }
+  
+  /**
+   * @since 8
+   */
+  export enum LockReason {
+    SIM_NONE,
+    SIM_PIN,
+    SIM_PUK,
+  }
 }
 
 export default observer;
