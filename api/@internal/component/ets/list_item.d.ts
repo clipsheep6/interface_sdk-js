@@ -64,8 +64,15 @@ declare enum EditMode {
 }
 
 /**
- * @since 7
+ * Defines the select style of list item.
+ * @since 8
  */
+interface ListItemSelectStyle {
+  /**
+   * Defines the select icon src.
+   */
+  icon: ResourceStr | PixelMap;
+}
 
 /**
  * Values in the list
@@ -117,7 +124,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * Called when judging whether it is selectable.
    * @since 8
    */
-  selectable(value: boolean): ListItemAttribute;
+  selectable(value: boolean, style?: ListItemSelectStyle): ListItemAttribute;
 
   /**
    * Called when the listItem is selected.
@@ -131,4 +138,3 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  */
 declare const ListItemInstance: ListItemAttribute;
 declare const ListItem: ListItemInterface;
-
