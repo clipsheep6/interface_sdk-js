@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { BundleStatusCallback } from './bundle/bundleStatusCallback';
 import { LauncherAbilityInfo} from './bundle/launcherAbilityInfo';
 import { ShortcutInfo } from './bundle/shortcutInfo';
 

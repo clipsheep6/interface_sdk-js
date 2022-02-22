@@ -16,7 +16,6 @@
 import { AsyncCallback } from './basic';
 import { AbilityMissionInfo } from './app/abilityMissionInfo';
 import { ActiveProcessInfo } from './app/activeProcessInfo';
-import { MissionSnapshot } from './app/missionSnapshot';
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.

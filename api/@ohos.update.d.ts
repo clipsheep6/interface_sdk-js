@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BussinessError } from "./basic";
+import { AsyncCallback } from "./basic";
 
 /**
  * A static class to do update for device.
@@ -281,7 +281,7 @@ declare namespace update {
          *
          * @since 6
          */
-        installMode: INSTALL_MODE;
+        installMode: InstallMode;
 
         /**
          * Auto installation time interval

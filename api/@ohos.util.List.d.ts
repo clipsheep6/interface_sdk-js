@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import ArrayList from './@ohos.util.ArrayList';
+
 declare class List<T> {
   /**
    * A constructor used to create a List object.

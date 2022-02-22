@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import ArrayList from './@ohos.util.ArrayList';
+
 declare class LinkedList<T> {
   /**
    * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.

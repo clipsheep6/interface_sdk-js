@@ -44,7 +44,7 @@ declare namespace filemanager {
  * @throws {TypedError} Parameter check failed
  */
 declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}): Promise<FileInfo[]>;
-declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
+declare function listFile(path: string, type: string, options: {dev?: DevInfo, offset?: number, count?: number}, callback: AsyncCallback<FileInfo[]>): void;
 
 /**
  * getRoot.
@@ -61,7 +61,7 @@ declare function listFile(path: string, type: string, options?: {dev?: DevInfo, 
  * @throws {TypedError} Parameter check failed
  */
 declare function getRoot(options?: {dev?: DevInfo}): Promise<FileInfo[]>;
-declare function getRoot(options?: {dev?: DevInfo}, callback: AsyncCallback<FileInfo[]>): void;
+declare function getRoot(options: {dev?: DevInfo}, callback: AsyncCallback<FileInfo[]>): void;
 
 /**
  * createFile.
@@ -80,7 +80,7 @@ declare function getRoot(options?: {dev?: DevInfo}, callback: AsyncCallback<File
  * @throws {TypedError} Parameter check failed
  */
 declare function createFile(path: string, filename: string, options?: {dev?: DevInfo}): Promise<string>;
-declare function createFile(path: string, filename: string, options?: {dev?: DevInfo}, callback: AsyncCallback<string>): void;
+declare function createFile(path: string, filename: string, options: {dev?: DevInfo}, callback: AsyncCallback<string>): void;
 
 /**
  * FileInfo

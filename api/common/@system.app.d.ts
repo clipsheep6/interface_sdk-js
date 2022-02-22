@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { RequestFullWindowOptions } from '../tablet/@system.app';
+
 /**
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  */

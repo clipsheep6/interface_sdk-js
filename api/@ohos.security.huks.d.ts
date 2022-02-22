@@ -101,8 +101,8 @@ declare namespace huks {
      * @param token Indicates the value of token.
      * @param options Indicates the properties of the update operation.
      */
-    function update(handle: number, token?: Uint8Array, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
-    function update(handle: number, token?: Uint8Array, options: HuksOptions,) : Promise<HuksResult>;
+    function update(handle: number, token?: Uint8Array, options?: HuksOptions, callback?: AsyncCallback<HuksResult>) : void;
+    function update(handle: number, token?: Uint8Array, options?: HuksOptions) : Promise<HuksResult>;
 
     /**
      * Finish Operation.
@@ -122,7 +122,7 @@ declare namespace huks {
      * @param options Indicates the properties of the abort operation.
      */
     function abort(handle: number, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
-    function abort(handle: number, options: HuksOptions) : Promise(HuksResult>;
+    function abort(handle: number, options: HuksOptions) : Promise<HuksResult>;
 
     /**
      * Get the sdk version.
@@ -354,7 +354,7 @@ declare namespace huks {
         HUKS_SEND_TYPE_SYNC = 1,
     }
 
-    declare enum HuksTagType {
+    export enum HuksTagType {
         HUKS_TAG_TYPE_INVALID = 0 << 28,
         HUKS_TAG_TYPE_INT = 1 << 28,
         HUKS_TAG_TYPE_UINT = 2 << 28,

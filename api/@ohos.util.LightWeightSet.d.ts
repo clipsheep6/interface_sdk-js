@@ -12,7 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-declare class LightWeightSet<T> {
+import LightWeightMap from './@ohos.util.LightWeightMap';
+
+declare class LightWeightSet<K, V> {
   /**
    * A constructor used to create a LightWeightSet object.
    * @since 8
@@ -32,7 +34,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  add(value: T): boolean;
+  add(value: V): boolean;
   /**
    * Adds all the objects in a specified LightWeightSet container to the current LightWeightSet container
    * @param set the Map object to provide the added element
@@ -40,7 +42,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  addAll(set: LightWeightMap<T>): boolean;
+  addAll(set: LightWeightMap<K, V>): boolean;
   /**
    * Returns whether this set has all the object in a specified set
    * @param set the Set object to compare
@@ -48,7 +50,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  hasAll(set: LightWeightSet<T>): boolean;
+  hasAll(set: LightWeightSet<K, V>): boolean;
   /**
    * Checks whether an LightWeightSet container has a specified key
    * @param key need to determine whether to include the key
@@ -56,7 +58,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  has(key: T): boolean;
+  has(key: K): boolean;
   /**
    * Checks whether an the objects of an LightWeighSet containeer are of the same type as a specified Object LightWeightSet
    * @param obj need to determine whether to include the obj
@@ -80,7 +82,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  getIndexOf(key: T): number;
+  getIndexOf(key: K): number;
   /**
    * Deletes an object of a specified Object type from an LightWeightSet container
    * @param key  Target to be deleted
@@ -88,7 +90,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  remove(key: T): T;
+  remove(key: K): K;
   /**
    * Deletes an object at the loaction identified by index from an LightWeightSet container
    * @param index  Target subscript for search
@@ -110,14 +112,14 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: T, key?: T, map?: LightWeightSet<T>) => void,
+  forEach(callbackfn: (value?: V, key?: K, map?: LightWeightSet<K, V>) => void,
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  [Symbol.iterator](): IterableIterator<T>;
+  [Symbol.iterator](): IterableIterator<[K, V]>;
   /**
    * Obtains a string that contains all the keys and values in an LightWeightSet container
    * @since 8
@@ -129,7 +131,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  toArray(): Array<T>;
+  toArray(): Array<V>;
   /**
    * Obtains the object at the location  identified by index in an LightWeightSet container
    * @param index Target subscript for search
@@ -137,19 +139,19 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  getValueAt(index: number): T;
+  getValueAt(index: number): V;
   /**
    * Returns a ES6 iterator of the values contained in this Set
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  values(): IterableIterator<T>;
+  values(): IterableIterator<V>;
   /**
    * Returns a Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  entries(): IterableIterator<[T, T]>;
+  entries(): IterableIterator<[K, V]>;
 }
 
 export default LightWeightSet;
