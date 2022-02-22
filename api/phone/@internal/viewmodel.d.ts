@@ -2041,6 +2041,11 @@ export interface DivElement extends Element {
    * Returns the offset of the current scrolling. The return value type is Object.
    */
   getScrollOffset(): ScrollOffset;
+
+  /**
+   * append a child, support dynamic add element.
+   */
+  appendChildren(param: { child: object }): void;
 }
 
 export interface Application {

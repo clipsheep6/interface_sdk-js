@@ -13,8 +13,34 @@
  * limitations under the License.
  */
 
-export * from './viewmodel';
-export * from './featureability';
-export * from './console';
-export * from './global';
-export * from './document';
+export declare class document {
+  /**
+   * create Element.
+   * @param tagName is tagName.
+   */
+  static createElement(tagName: string): DynamicElement;
+
+}
+
+export interface DynamicElement {
+
+  /**
+   * setAttr to Element.
+   * @param eg{"src":"common/images/bg-tv.jpg"}.
+   */
+   setAttr(attrParmas: object): void;
+
+  /**
+   * setStyle to Element.
+   * @param eg{"width":"300px","height":"300px"}
+   */
+   setStyle(styleParmas: object): void;
+
+  /**
+   * append child to element(div)
+   * @param child element
+   */
+   appendChildren(child: DynamicElement): void;
+
+}
+
