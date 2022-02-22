@@ -16,7 +16,7 @@
 /**
  * @name Obtains configuration information about an ability
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @SysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
  */
@@ -25,21 +25,21 @@ export interface AppVersionInfo {
   /**
   * @default appName
   * @since 7
-  * @SysCap SystemCapability.Appexecfwk
+  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly appName: string;
 
   /**
   * @default versionCode
   * @since 7
-  * @SysCap SystemCapability.Appexecfwk
+  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly versionCode: number;
 
   /**
   * @default versionName
   * @since 7
-  * @SysCap SystemCapability.Appexecfwk
+  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly versionName: string;
 }

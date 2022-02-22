@@ -406,7 +406,7 @@ declare namespace bundle {
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
 
   /**
-   * Obtains based on a given application info.
+   * Obtains based on a given bundle name.
    *
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -606,31 +606,34 @@ declare namespace bundle {
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
   /**
-   * Get  the gids list by bundleName
+   * Get the gids list by bundleName
+   * 
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
-   * @param bundleName  Indicates the bundle name of the application.
+   * @SysCap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application.
    * @return Returns a list of gids.
-   * @permission 
-   * @systemapi
    */
   function getBundleGids(bundleName: string, callback: AsyncCallback<Array<number>>): void;
   function getBundleGids(bundleName: string): Promise<Array<number>>;
    
   /**
-   * Gets the specified ability label
+   * Get the specified ability label
+   * 
    * @since 8
-   * @param bundleName  Indicates the bundle name of the application.
-   * @param abilityName  Indicates the ability name .
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application.
+   * @param abilityName Indicates the ability name.
    * @return Returns the specified ability label
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
    
    /**
-    * Gets the specified ability icon
+    * Get the specified ability icon
+    * 
     * @since 8
-    * @param bundleName  Indicates the bundle name of the application.
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
     * @param abilityName Indicates the ability name.
     * @return Returns the specified ability icon
     */
@@ -639,18 +642,22 @@ declare namespace bundle {
    
    /**
     * Get whether to enable a specified ability
+    * 
     * @since 8
+    * @syscap SystemCapability.BundleManager.BundleFramework
     * @param info Indicates information about the ability to set.
-    * @returns  Returns whether to enable a specified ability
+    * @returns Returns whether to enable a specified ability
     */ 
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
    
    /**
     * Get whether to enable a specified application
+    * 
     * @since 8
-    * @param bundleName  Indicates the bundle name of the application.
-    *  @returns Returns whether to enable a specified application
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @returns Returns whether to enable a specified application
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
