@@ -798,6 +798,7 @@ export interface VideoElement extends Element {
 
 export interface TextMetrics {
   width: number;
+  height: number;
 }
 
 /**
