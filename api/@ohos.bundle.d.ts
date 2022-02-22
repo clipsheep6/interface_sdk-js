@@ -391,21 +391,36 @@ declare namespace bundle {
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
+   
+  /**
+   * Obtains the interface used to get ability info.
+   *
+   * @since 7
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the IBundleInstaller interface.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   */
+  function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
+  function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
 
   /**
-   * Obtains based on a given bundle name.
+   * Obtains based on a given application info.
    *
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo object
    *              that will be returned.
-   * @param userId Indicates the user ID.
+   * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns the ApplicationInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number) : Promise<ApplicationInfo>;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>) : void;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number) : Promise<ApplicationInfo>;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -446,12 +461,14 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo objects
    *              that will be returned.
-   * @param userId Indicates the user ID.
+   * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns a list of ApplicationInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    */
   function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
   function getAllApplicationInfo(bundleFlags: number, userId: number) : Promise<Array<ApplicationInfo>>;
+  function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
+  function getAllApplicationInfo(bundleFlags: number, userId?: number) : Promise<Array<ApplicationInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -477,8 +494,6 @@ declare namespace bundle {
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
-
-  /**
 
   /**
    * Obtains the Want for starting the main ability of an application based on the
@@ -589,6 +604,56 @@ declare namespace bundle {
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
+
+  /**
+   * Get  the gids list by bundleName
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @param bundleName  Indicates the bundle name of the application.
+   * @return Returns a list of gids.
+   * @permission 
+   * @systemapi
+   */
+  function getBundleGids(bundleName: string, callback: AsyncCallback<Array<number>>): void;
+  function getBundleGids(bundleName: string): Promise<Array<number>>;
+   
+  /**
+   * Gets the specified ability label
+   * @since 8
+   * @param bundleName  Indicates the bundle name of the application.
+   * @param abilityName  Indicates the ability name .
+   * @return Returns the specified ability label
+   */
+  function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
+   
+   /**
+    * Gets the specified ability icon
+    * @since 8
+    * @param bundleName  Indicates the bundle name of the application.
+    * @param abilityName Indicates the ability name.
+    * @return Returns the specified ability icon
+    */
+  function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityIcon(bundleName: string, abilityName: string): Promise<string>;
+   
+   /**
+    * Get whether to enable a specified ability
+    * @since 8
+    * @param info Indicates information about the ability to set.
+    * @returns  Returns whether to enable a specified ability
+    */ 
+  function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
+  function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
+   
+   /**
+    * Get whether to enable a specified application
+    * @since 8
+    * @param bundleName  Indicates the bundle name of the application.
+    *  @returns Returns whether to enable a specified application
+    */
+  function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
+  function isApplicationEnabled(bundleName: string): Promise<boolean>;
 }
 
 export default bundle;

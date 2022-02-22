@@ -18,6 +18,10 @@ import { ApplicationInfo } from '../bundle/applicationInfo';
 import { ProcessInfo } from './processInfo';
 import { ElementName } from '../bundle/elementName';
 import BaseContext from '../application/BaseContext';
+import { HapModuleInfo } from '../bundle/hapModuleInfo';
+import { AppVersionInfo } from './appVersionInfo';
+import { AbilityInfo } from '../bundle/abilityInfo';
+
 
 /**
  * The context of an ability or an application.  It allows access to
@@ -126,6 +130,86 @@ export interface Context extends BaseContext {
     */
     getCallingBundle(callback: AsyncCallback<string>): void
     getCallingBundle(): Promise<string>;
+    
+    /**
+    * Obtains the files dir.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getFilesDir(callback: AsyncCallback<string>): void;
+    getFilesDir(): Promise<string>;
+    
+    /**
+    * Obtains the cache Dir.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getCacheDir(callback: AsyncCallback<string>): void;
+    getCacheDir(): Promise<string>;
+
+    /**
+    * Obtains the external cache dir.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getExternalCacheDir(callback: AsyncCallback<string>): void;
+    getExternalCacheDir(): Promise<string>;
+    
+    /**
+    * Obtains or create the distributed dir.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getOrCreateDistributedDir(): Promise<string>;
+    getOrCreateDistributedDir(callback: AsyncCallback<string>): void;
+
+    /**
+    * Obtains the app type.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getAppType(callback: AsyncCallback<string>): void
+    getAppType(): Promise<string>;
+
+    /**
+    * Obtains the hap module Info.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getHapModuleInfo(callback: AsyncCallback<HapModuleInfo>): void
+    getHapModuleInfo(): Promise<HapModuleInfo>;
+
+    /**
+    * Obtains the app version info.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getAppVersionInfo(callback: AsyncCallback<AppVersionInfo>): void
+    getAppVersionInfo(): Promise<AppVersionInfo>;
+
+    /**
+    * Obtains the application context.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getApplicationContext(): Context;
+    
+    /**
+    * Obtains the ability info.
+    * @since 7
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void
+    getAbilityInfo(): Promise<AbilityInfo>;
 }
 
 /**

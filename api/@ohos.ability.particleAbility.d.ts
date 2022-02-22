@@ -17,6 +17,8 @@ import { AsyncCallback } from './basic';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { NotificationRequest } from './notification/notificationRequest';
+import { ConnectOptions } from './ability/connectOptions';
+import { Want } from './ability/want';
 
 /**
  * A Particle Ability represents an ability with service.
@@ -85,5 +87,28 @@ declare namespace particleAbility {
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
   function cancelBackgroundRunning(): Promise<void>;
+
+  /**
+   * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
+   * @default -
+   * @since 7
+   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param request The element name of the service ability
+   * @param options The remote object instance
+   * @return Returns the number code of the ability connected
+   * @FAModelOnly
+   */
+   function connectAbility(request: Want, options:ConnectOptions ): number;
+
+  /**
+  * The callback interface was connect successfully.
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param connection The number code of the ability connected
+  * @FAModelOnly
+  */
+   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
+   function disconnectAbility(connection: number): Promise<void>;
 }
 export default particleAbility;
