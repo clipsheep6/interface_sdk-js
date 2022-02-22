@@ -16,6 +16,7 @@
 /**
  * PluginComponentTemplate
  * @since 8
+ * @systemapi Hide this for inner system use.
  */
 interface PluginComponentTemplate {
   source: string;
@@ -25,52 +26,61 @@ interface PluginComponentTemplate {
 /**
  * Provides plugin component.
  * @since 8
+ * @systemapi Hide this for inner system use.
  */
 interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
 
 /**
  * @since 8
+ * @systemapi Hide this for inner system use.
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
+   * @systemapi Hide this for inner system use.
    */
   create(value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
+   * @systemapi Hide this for inner system use.
    */
   pop(): PluginComponentAttribute;
 
   /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
+   * @systemapi Hide this for inner system use.
    */
   debugLine(value: string): PluginComponentAttribute;
  
   /**
    * Set pluginComponent size,
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   size(value: { width: number; height: number }): PluginComponentAttribute;
 
   /**
    * pluginComponent onComplete callback,
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }

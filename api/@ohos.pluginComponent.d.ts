@@ -19,8 +19,9 @@ import { Want } from './ability/want';
 /**
  * Plugin component template property.
  * @since 8
+ * @systemapi Hide this for inner system use.
  */
-interface PluginComponentTemplate {
+declare interface PluginComponentTemplate {
   source: string;
   ability: string;
 }
@@ -28,6 +29,7 @@ interface PluginComponentTemplate {
 /**
  * Plugin component manager interface.
  * @since 8
+ * @systemapi Hide this for inner system use.
  */
 declare namespace pluginComponentManager {
   type KVObject = {[key: string]: number | string | boolean | [] | KVObject}
@@ -35,8 +37,10 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component push parameters.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   interface PushParameters {
+    owner: Want;
     want: Want;
     name: string;
     data: KVObject;
@@ -47,8 +51,10 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component request parameters.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   interface RequestParameters {
+    owner: Want; 
     want: Want;
     name: string;
     data: KVObject;
@@ -58,6 +64,7 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component request callback parameters.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   interface RequestCallbackParameters {
     componentTemplate: PluginComponentTemplate;
@@ -68,6 +75,7 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component request event result value.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   interface RequestEventResult {
     template?: string;
@@ -78,6 +86,7 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component push event callback.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject,
     extraData: KVObject) => void;
@@ -85,6 +94,7 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component request event callback.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
 
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
@@ -92,20 +102,31 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component push method.
    * @since 8
+   * @FAModelOnly
+   * @systemapi Hide this for inner system use.
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
   /**
    * Plugin component request method.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
    * Plugin component event listener.
    * @since 8
+   * @systemapi Hide this for inner system use.
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
+  
+  /**
+   * Plugin component event listener.
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  function on(owner: Want, eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
 }
-
 export default pluginComponentManager;
+export default PluginComponentTemplate;
