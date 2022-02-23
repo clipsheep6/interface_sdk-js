@@ -1113,6 +1113,14 @@ declare namespace rpc {
         getCallingUid(): number;
 
         /**
+         * Obtains the access token of the {@link RemoteProxy} object.
+         *
+         * @return Returns the access token of the {@link RemoteProxy} object.
+         * @since 8
+         */
+        getCallingTokenID(): number;
+
+        /**
          * Modifies the description of the current {@code RemoteObject}.
          *
          * <p>This method is used to change the default descriptor specified during the creation of {@code RemoteObject}.
@@ -1290,6 +1298,16 @@ declare namespace rpc {
          * @since 7
          */
         static getCallingUid(): number;
+
+        /**
+         * Obtains the access token of a proxy.
+         *
+         * <p>This method is static.
+         *
+         * @return Returns the access token of the proxy.
+         * @since 8
+         */
+        static getCallingTokenID(): number;
 
         /**
          * Obtains the ID of the device where the peer process resides.
