@@ -605,17 +605,6 @@ declare namespace bundle {
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
   /**
-   * Get the gids list by bundleName
-   * 
-   * @since 8
-   * @SysCap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
-   * @return Returns a list of gids.
-   */
-  function getBundleGids(bundleName: string, callback: AsyncCallback<Array<number>>): void;
-  function getBundleGids(bundleName: string): Promise<Array<number>>;
-   
-  /**
    * Get the specified ability label
    * 
    * @since 8
