@@ -23,6 +23,7 @@ import { BundleInstaller } from './bundle/bundleInstaller';
 import { ShortcutInfo } from './bundle/shortcutInfo';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 import { PermissionDef } from  './bundle/PermissionDef';
+import image from './@ohos.multimedia.image';
 
 /**
  * bundle.
@@ -418,7 +419,6 @@ declare namespace bundle {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
-  function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number) : Promise<ApplicationInfo>;
   function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>) : void;
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number) : Promise<ApplicationInfo>;
 
@@ -466,7 +466,6 @@ declare namespace bundle {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    */
   function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
-  function getAllApplicationInfo(bundleFlags: number, userId: number) : Promise<Array<ApplicationInfo>>;
   function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
   function getAllApplicationInfo(bundleFlags: number, userId?: number) : Promise<Array<ApplicationInfo>>;
 
@@ -637,8 +636,8 @@ declare namespace bundle {
     * @param abilityName Indicates the ability name.
     * @return Returns the specified ability icon
     */
-  function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
-  function getAbilityIcon(bundleName: string, abilityName: string): Promise<string>;
+  function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
+  function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
    
    /**
     * Get whether to enable a specified ability

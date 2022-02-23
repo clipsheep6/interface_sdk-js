@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
+import { Callback } from './basic';
 import { Want } from './ability/want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
@@ -20,6 +21,7 @@ import { Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
 import { ContinueAbilityOptions } from './ability/continueAbilityOptions';
+import { AbilityAgent } from './ability/abilityAgent';
 
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
@@ -155,6 +157,85 @@ declare namespace featureAbility {
    */
    function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
    function continueAbility(options: ContinueAbilityOptions): Promise<void>;
+
+   /**
+   * start assist ability,different abilit connect info .
+   * @default -
+   * @since 7
+   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param want info: bundlename,abilityname,B device deviceid
+   */
+  function startAssistAbility(want: Want): void;
+
+  /**
+  * stop ability connect 
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param AsyncCallback
+  */
+  function stopAssistAbility(callback: AsyncCallback<void>): void;
+  function stopAssistAbility(): Promise<void>;
+
+  /**
+  * Register the observe of assistConnect.
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param type assistConnect.
+  * @param callback callback interface.
+  */
+  function on(type: 'assistConnect', callback: Callback<AbilityAgent>): void;
+
+  /**
+  * Register the observe of assistConnectFailed.
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param type assistConnectFailed.
+  * @param callback callback interface. 
+  */
+  function on(type: 'assistConnectFailed', callback: Callback<number>): void;
+
+  /**
+  * Register the observe of assistDisconnect.
+  * @default - 
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param type assistDisconnect.
+  * @param callback callback interface.
+  */
+  function on(type: 'assistDisconnect', callback: Callback<number>): void;
+
+  /**
+  * UDeregister the observe of assistConnect.
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param type assistConnect.
+  * @param callback callback interface.
+  */
+  function off(type: 'assistConnect', callback?: Callback<AbilityAgent>): void;
+
+  /**
+  * UDeregister the observe of assistConnectFailed.
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param type assistConnectFailed.
+  * @param callback callback interface.
+  */
+  function off(type: 'assistConnectFailed', callback?: Callback<number>): void;
+
+  /**
+  * UDeregister the observe of assistDisconnect.
+  * @default -
+  * @since 7
+  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @param type assistDisconnect.
+  * @param callback callback interface.
+  */
+  function off(type: 'assistDisconnect', callback?: Callback<number>): void;
 
   export enum AbilityWindowConfiguration {
     WINDOW_MODE_UNDEFINED = 0,
