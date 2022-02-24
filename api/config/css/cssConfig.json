@@ -7020,16 +7020,21 @@
     },
     {
       "name": "line-height",
-      "syntax": [
-        {
-          "name": "<length>"
-        }
-      ],
       "supportedDevices": [
         "tv",
         "phone",
         "tablet",
         "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "[ normal | <length> | <percentage> ]"
+        }
+      ],
+      "values": [        
+        {
+          "name": "normal"
+        }        
       ],
       "version": [
         {
@@ -7044,7 +7049,9 @@
       "restrictions": [
         {
           "name": [
-            "length"
+            "enum",
+            "length",
+            "percentage"
           ]
         }
       ]
@@ -8582,6 +8589,38 @@
         {
           "name": [
             "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "word-spacing",
+      "syntax": [
+        {
+          "name": "[normal | <length> | <percentage>]"
+        }
+      ],
+      "values":[
+        {
+          "name":"normal"
+        }
+      ],
+      "version": [
+        {
+          "name": "v3.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Text spacing(px)"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum",
+            "length",
+            "percentage"
           ]
         }
       ]
