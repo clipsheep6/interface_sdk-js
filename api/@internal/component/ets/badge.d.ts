@@ -143,7 +143,14 @@ interface BadgeInterface {
  * Defines Badge Componrnt attribute.
  * @since 7
  */
-declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
+declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {
+  /**
+   * Describes the show attribute.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  show(value?: boolean): BadgeAttribute;
+}
 
 declare const Badge: BadgeInterface
 declare const BadgeInstance: BadgeAttribute;
