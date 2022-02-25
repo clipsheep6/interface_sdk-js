@@ -159,81 +159,87 @@ declare namespace featureAbility {
    function continueAbility(options: ContinueAbilityOptions): Promise<void>;
 
    /**
-   * start assist ability,different abilit connect info .
+   * Starts the specified ability on the device to establish a collaboration session.
    * @default -
    * @since 7
    * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param want info: bundlename,abilityname,B device deviceid
+   * @param want Want about the ability to start.
    */
   function startAssistAbility(want: Want): void;
 
   /**
-  * stop ability connect 
+  * Disconnects this collaboration session. This method uses an asynchronous callback to return the result.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param AsyncCallback
+  * @param AsyncCallback Callback used to return the result.
   */
   function stopAssistAbility(callback: AsyncCallback<void>): void;
   function stopAssistAbility(): Promise<void>;
 
   /**
-  * Register the observe of assistConnect.
+  * Listens for the even of successfully starting the specified ability for establishing a collaboration session.
+  * This method uses a callback to return the result.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param type assistConnect.
-  * @param callback callback interface.
+  * @param type Event type. The value is fixed at assistConnect.
+  * @param callback Callback used to return the result.
   */
   function on(type: 'assistConnect', callback: Callback<AbilityAgent>): void;
 
   /**
-  * Register the observe of assistConnectFailed.
+  * Listens for the event of collaboration session failure. This method uses a callback to return the result.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param type assistConnectFailed.
-  * @param callback callback interface. 
+  * @param type Event type. The value is fixed at assistConnectFailed.
+  * @param callback Callback used to return the status code. For details, see AssistantCode. 
   */
   function on(type: 'assistConnectFailed', callback: Callback<number>): void;
 
   /**
-  * Register the observe of assistDisconnect.
+  * Listens for the event of collaboration session disconnection. This method uses a callback to return the result.
   * @default - 
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param type assistDisconnect.
-  * @param callback callback interface.
+  * @param type Event type. The value is fixed at assistDisconnect.
+  * @param callback Callback used to return the status code. For details, see AssistantCode.
   */
   function on(type: 'assistDisconnect', callback: Callback<number>): void;
 
   /**
-  * UDeregister the observe of assistConnect.
+  * Cancels listening for the even of successfully starting the specified ability
+  * for establishing a collaboration session. This method uses a callback to return the result.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param type assistConnect.
-  * @param callback callback interface.
+  * @param type Event type. The value is fixed at assistConnect.
+  * @param callback Callback specified in featureAbility.on(type:'assistConnect').
+  * If no callback is specified, listening will be canceled for all callbacks.
   */
   function off(type: 'assistConnect', callback?: Callback<AbilityAgent>): void;
 
   /**
-  * UDeregister the observe of assistConnectFailed.
+  * Cancels listening for the event of collaboration session failure. This method uses a callback to return the result.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param type assistConnectFailed.
-  * @param callback callback interface.
+  * @param type Event type. The value is fixed at assistConnectFailed.
+  * @param callback Callback specified in featureAbility.on(type:'assistConnectFailed').
+  * If no callback is specified, listening will be canceled for all callbacks.
   */
   function off(type: 'assistConnectFailed', callback?: Callback<number>): void;
 
   /**
-  * UDeregister the observe of assistDisconnect.
+  * Cancels listening for the event of collaboration session disconnection.
+  * This method uses a callback to return the result.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param type assistDisconnect.
-  * @param callback callback interface.
+  * @param type Event type. The value is fixed at assistDisconnect.
+  * @param callback Callback specified in featureAbility.on(type:'assistDisconnect').
+  * If no callback is specified, listening will be canceled for all callbacks.
   */
   function off(type: 'assistDisconnect', callback?: Callback<number>): void;
 

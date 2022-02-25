@@ -14,26 +14,145 @@
  */
 
  /**
- * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
- */
+  * Enumerates the collaboration states.
+  * @since 7
+  * @sysCap SystemCapability.Ability.AbilityBase
+  * @permission N/A
+  */
 export enum AssistantCode {
-    OK = 0,
-    ERR_UNCONNECTED = 1,
-    ERR_INVALID_PARAMETER = 2,
-    ERR_SYSTEM_ERROR = 3,
-    ERR_EVENT_HANDLER_IS_NOT_SET_UP = 4,
-    ERR_ABILITY_TYPE_NOT_SUPPORTED = 5,
-    ERR_SIGNATURE_IS_NOT_CONSISTENT = 6,
-    ERR_ABILITY_NOT_MATCHED = 7,
-    ERR_ABILITY_TERMINATED = 8,
-    ERR_DEVICE_OFFLINE = 9,
-    ERR_PROCESS_DIED = 10,
-    ERR_ABILITY_START_FAILED = 11,
-    ERR_VERSION_INCOMPATIBLE = 12,
-    ERR_DISTRIBUTED_COMMUNICATION_PERMISSION_DENIED = 13,
-    ERR_TIMEOUT = 14,
-    ERR_IN_ASSISTING_MODE = 15,
-    ERR_NETWORK_TYPE_NOT_SUPPORTED = 16
+  /**
+   * Operation succeeded.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  OK = 0,
+
+  /**
+   * Failed to establish the collaboration session.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_UNCONNECTED = 1,
+
+  /**
+   * Invalid parameters.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_INVALID_PARAMETER = 2,
+
+  /**
+   * System error.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_SYSTEM_ERROR = 3,
+
+  /**
+   * EventHandler is not set.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_EVENT_HANDLER_IS_NOT_SET_UP = 4,
+
+  /**
+   * Invalid ability type.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_ABILITY_TYPE_NOT_SUPPORTED = 5,
+
+  /**
+   * Signatures don't match.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_SIGNATURE_IS_NOT_CONSISTENT = 6,
+
+  /**
+   * No matching ability.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_ABILITY_NOT_MATCHED = 7,
+
+  /**
+   * Ability exited.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_ABILITY_TERMINATED = 8,
+
+  /**
+   * The device is offline.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_DEVICE_OFFLINE = 9,
+
+  /**
+   * The process has been killed.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_PROCESS_DIED = 10,
+
+  /**
+   * Failed to start the ability.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_ABILITY_START_FAILED = 11,
+
+  /**
+   * Incompatible versions.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_VERSION_INCOMPATIBLE = 12,
+
+  /**
+   * The permission request for distributed communication was rejected.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_DISTRIBUTED_COMMUNICATION_PERMISSION_DENIED = 13,
+
+  /**
+   * Operation timed out.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_TIMEOUT = 14,
+
+  /**
+   * The ability is already in a collaboration session.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_IN_ASSISTING_MODE = 15,
+
+  /**
+   * The networking mode is not supported.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityBase
+   */
+  ERR_NETWORK_TYPE_NOT_SUPPORTED = 16
 }

@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 import { AsyncCallback } from '../basic';
+
 /**
- * AbilityAgent,oncallback object.
+ * AbilityAgent, onCallback object.
  * @name AbilityAgent 
  * @since 7
  * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -22,54 +23,78 @@ import { AsyncCallback } from '../basic';
  */
  export interface AbilityAgent {
   /**
-   * register message,get AsyncCallback info.
+   * Listens for the event of sending messages to the peer device. This method uses a callback to return the result.
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param type message
-   * @return Returns the register results.
+   * @param type Event type. The value is fixed at message.
+   * @param callback Callback used to return the result.
    */
   on(type: 'message', callback: AsyncCallback<string>): void;
 
   /**
-   * register stateChange,get AsyncCallback info.
+   * Listens for collaboration lifecycle change events. This method uses a callback to return the result.
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel 
-   * @param type stateChange.
-   * @return Returns the register results.
+   * @param type Event type. The value is fixed at stateChange.
+   * @param callback Callback used to return the state value. For details about the state values, see LifecycleEvent.
    */
   on(type: 'stateChange', callback: AsyncCallback<number>): void;
 
   /**
-   * unRegister message,get AsyncCallback info.
+   * Cancels listening for the event of sending messages to the peer device.
+   * This method uses a callback to return the result.
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param type message
-   * @return Returns the unRegister results.
+   * @param type Event type. The value is fixed at message.
+   * @param callback Callback specified in abilityAgent.on(type: "message").
+   * If no callback is specified, listening will be canceled for all callbacks.
    */
   off(type: 'message', callback?: AsyncCallback<string>): void;
 
   /**
-   * unRegister stateChange,get AsyncCallback info.
+   * Cancels listening for the collaboration lifecycle changes.
+   * This method uses a callback to return the result.
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel 
-   * @param type stateChange.
-   * @return Returns the unRegister results.
+   * @param type Event type. The value is fixed at stateChange.
+   * @param callback Callback specified in abilityAgent.on(type: "stateChange").
+   * If no callback is specified, listening will be canceled for all callbacks.
    */
   off(type: 'stateChange', callback?: AsyncCallback<number>): void;
 
   /**
-   * postMessage,get AsyncCallback info.
+   * Sends a message to the peer device. This method uses an asynchronous callback to return the result.
    * @since 7
    * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel 
-   * @param data Message.
-   * @return -
+   * @param data Message to send.
+   * @param callback Callback used to return the result.
    */
   postMessage(data: Message, callback:AsyncCallback<void>): void;
   postMessage(data: Message): Promise<void>;
 }
 
+/**
+ * Defines a Message instance.
+ * @name AbilityAgent 
+ * @since 7
+ * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @permission N/A
+ */
 export interface Message {
+  /**
+   * Message type.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   */
   type: string;
+
+  /**
+   * Message content.
+   * @default -
+   * @since 7
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   */
   data: {[key: string]: Object};
 }
 

@@ -387,14 +387,13 @@ declare namespace bundle {
   function getBundleInstaller(): Promise<BundleInstaller>;
    
   /**
-   * Obtains the interface used to get ability info.
+   * Obtains information about the current ability.
    *
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param abilityName Indicates the ability name.
-   * @return Returns the IBundleInstaller interface.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @return Returns the AbilityInfo object for the current ability.
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
@@ -598,47 +597,47 @@ declare namespace bundle {
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
   /**
-   * Get the specified ability label
+   * Obtains the label of a specified ability.
    * 
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
    * @param abilityName Indicates the ability name.
-   * @return Returns the specified ability label
+   * @return Returns the label representing the label of the specified ability.
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
    
-   /**
-    * Get the specified ability icon
+  /**
+    * Obtains the icon of a specified ability.
     * 
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
-    * @param bundleName Indicates the bundle name of the application.
+    * @param bundleName Indicates the bundle name of the application to which the ability belongs.
     * @param abilityName Indicates the ability name.
-    * @return Returns the specified ability icon
+    * @return Returns the PixelMap object representing the icon of the specified ability.
     */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
    
-   /**
-    * Get whether to enable a specified ability
+  /**
+    * Checks whether a specified ability is enabled.
     * 
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
-    * @param info Indicates information about the ability to set.
-    * @returns Returns whether to enable a specified ability
+    * @param info Indicates information about the ability to check.
+    * @returns Returns true if the ability is enabled; returns false otherwise.
     */ 
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
    
-   /**
-    * Get whether to enable a specified application
+  /**
+    * Checks whether a specified application is enabled.
     * 
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application.
-    * @returns Returns whether to enable a specified application
+    * @returns Returns true if the application is enabled; returns false otherwise.
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;

@@ -132,7 +132,7 @@ export interface Context extends BaseContext {
     getCallingBundle(): Promise<string>;
     
     /**
-    * Obtains the files dir.
+    * Obtains the file directory of this application on the internal storage.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -141,7 +141,7 @@ export interface Context extends BaseContext {
     getFilesDir(): Promise<string>;
     
     /**
-    * Obtains the cache Dir.
+    * Obtains the cache directory of this application on the internal storage.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -150,7 +150,8 @@ export interface Context extends BaseContext {
     getCacheDir(): Promise<string>;
 
     /**
-    * Obtains the external cache dir.
+    * Obtains the absolute path to the application-specific cache directory on the primary
+    * external or shared storage device. The application can place its cache files in this directory.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -159,7 +160,8 @@ export interface Context extends BaseContext {
     getExternalCacheDir(): Promise<string>;
     
     /**
-    * Obtains or create the distributed dir.
+    * Obtains the distributed file path for storing ability or application data files.
+    * If the distributed file path does not exist, the system will create a path and return the created path.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -168,7 +170,7 @@ export interface Context extends BaseContext {
     getOrCreateDistributedDir(callback: AsyncCallback<string>): void;
 
     /**
-    * Obtains the app type.
+    * Obtains the application type.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -177,7 +179,7 @@ export interface Context extends BaseContext {
     getAppType(): Promise<string>;
 
     /**
-    * Obtains the hap module Info.
+    * Obtains the ModuleInfo object for this application.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -186,7 +188,7 @@ export interface Context extends BaseContext {
     getHapModuleInfo(): Promise<HapModuleInfo>;
 
     /**
-    * Obtains the app version info.
+    * Obtains the application version information.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -195,7 +197,7 @@ export interface Context extends BaseContext {
     getAppVersionInfo(): Promise<AppVersionInfo>;
 
     /**
-    * Obtains the application context.
+    * Obtains the context of this application.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
@@ -203,7 +205,7 @@ export interface Context extends BaseContext {
     getApplicationContext(): Context;
     
     /**
-    * Obtains the ability info.
+    * hecks the detailed information of this ability.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly

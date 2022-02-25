@@ -22,7 +22,7 @@
  */
 export interface ProcessInfo {
   /**
-   * The id of the current process
+   * ID of the current process.
    *
    * @default -
    * @since 7
@@ -31,7 +31,7 @@ export interface ProcessInfo {
   pid: number;
 
   /**
-   * The name of the current process
+   * Name of the current process.
    *
    * @default -
    * @since 7

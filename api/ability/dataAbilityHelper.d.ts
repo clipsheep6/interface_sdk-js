@@ -200,11 +200,11 @@ export interface DataAbilityHelper {
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
 
     /**
-     * Calls the method of the Data ability.
+     * Calls the extended API of the DataAbility. This method uses a promise to return the result.
      *
      * @since 7
      * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @param uri Indicates the Data ability of the method to call.
+     * @param uri URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
      * @param method Indicates the method to call.
      * @param arg Indicates the parameter of the String type.
      * @param extras Indicates the parameter of the PacMap type. 
@@ -220,6 +220,7 @@ export interface DataAbilityHelper {
 }
 
 /**
+ * Defines a PacMap object for storing a series of values.
  * @since 7
  * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A

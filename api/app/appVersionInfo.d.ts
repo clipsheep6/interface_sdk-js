@@ -14,7 +14,7 @@
  */
 
 /**
- * @name Obtains configuration information about an ability
+ * Defines an AppVersionInfo object.
  * @since 7
  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission NA
@@ -23,6 +23,7 @@
 export interface AppVersionInfo {
 
   /**
+  * Application name.
   * @default appName
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
@@ -30,6 +31,7 @@ export interface AppVersionInfo {
   readonly appName: string;
 
   /**
+  * Application version number.
   * @default versionCode
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
@@ -37,6 +39,7 @@ export interface AppVersionInfo {
   readonly versionCode: number;
 
   /**
+  * Application version name.
   * @default versionName
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.Core

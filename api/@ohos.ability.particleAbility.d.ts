@@ -89,23 +89,23 @@ declare namespace particleAbility {
   function cancelBackgroundRunning(): Promise<void>;
 
   /**
-   * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
+   * Binds an ability to a Service ability.
    * @default -
    * @since 7
    * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param request The element name of the service ability
-   * @param options The remote object instance
-   * @return Returns the number code of the ability connected
+   * @param request Want about the Service ability.
+   * @param options Callback object for the client. If this parameter is null, an exception is thrown.
+   * @return Returns Unique identifier of the connection between the client and the service side.
    * @FAModelOnly
    */
    function connectAbility(request: Want, options:ConnectOptions ): number;
 
   /**
-  * The callback interface was connect successfully.
+  * disconnect ability to a Service ability.
   * @default -
   * @since 7
   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param connection The number code of the ability connected
+  * @param connection Return value of the particleAbility.connectAbility API.
   * @FAModelOnly
   */
    function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
