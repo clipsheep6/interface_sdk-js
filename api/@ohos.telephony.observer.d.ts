@@ -42,9 +42,6 @@ declare namespace observer {
   function on(type: 'networkStateChange', callback: AsyncCallback<NetworkState>): void;
   function on(type: 'networkStateChange', options: { slotId: number }, callback: AsyncCallback<NetworkState>): void;
 
-  function once(type: 'networkStateChange', callback: AsyncCallback<NetworkState>): void;
-  function once(type: 'networkStateChange', options: { slotId: number }, callback: AsyncCallback<NetworkState>): void;
-
   function off(type: 'networkStateChange', callback?: AsyncCallback<NetworkState>): void;
 
   /**
@@ -57,10 +54,6 @@ declare namespace observer {
    */
   function on(type: 'signalInfoChange', callback: AsyncCallback<Array<SignalInformation>>): void;
   function on(type: 'signalInfoChange', options: { slotId: number },
-    callback: AsyncCallback<Array<SignalInformation>>): void;
-
-  function once(type: 'signalInfoChange', callback: AsyncCallback<Array<SignalInformation>>): void;
-  function once(type: 'signalInfoChange', options: { slotId: number },
     callback: AsyncCallback<Array<SignalInformation>>): void;
 
   function off(type: 'signalInfoChange', callback?: AsyncCallback<Array<SignalInformation>>): void;
@@ -78,10 +71,6 @@ declare namespace observer {
    */
   function on(type: 'callStateChange', callback: AsyncCallback<{ state: CallState, number: String }>): void;
   function on(type: 'callStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: CallState, number: String }>): void;
-
-  function once(type: 'callStateChange', callback: AsyncCallback<{ state: CallState, number: String }>): void;
-  function once(type: 'callStateChange', options: { slotId: number },
     callback: AsyncCallback<{ state: CallState, number: String }>): void;
 
   function off(type: 'callStateChange', callback?: AsyncCallback<{ state: CallState, number: String }>): void;

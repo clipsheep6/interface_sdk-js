@@ -101,6 +101,8 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the ICCID; returns an empty string if no SIM card is inserted.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function getSimIccId(slotId: number, callback: AsyncCallback<string>): void;
   function getSimIccId(slotId: number): Promise<string>;
@@ -116,6 +118,8 @@ declare namespace sim {
    * @param callback Returns the GID1; returns an empty string if no SIM card is inserted or
    * no GID1 in the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function getSimGid1(slotId: number, callback: AsyncCallback<string>): void;
   function getSimGid1(slotId: number): Promise<string>;
