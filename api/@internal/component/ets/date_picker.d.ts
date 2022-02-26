@@ -56,11 +56,6 @@ declare interface DatePickerOptions {
    * Specifies the date selector check date.
    */
   selected?: Date;
-
-  /**
-   * Selector type, including date selector and time selector. By default, the date selector is used.
-   */
-  type?: DatePickerType;
 }
 
 /**
