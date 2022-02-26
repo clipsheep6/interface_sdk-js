@@ -92,6 +92,7 @@
 /// <reference path="./text_input.d.ts" />
 /// <reference path="./text_picker.d.ts" />
 /// <reference path="./text_timer.d.ts" />
+/// <reference path="./time_picker.d.ts" />
 /// <reference path="./toggle.d.ts" />
 /// <reference path="./units.d.ts" />
 /// <reference path="./video.d.ts" />

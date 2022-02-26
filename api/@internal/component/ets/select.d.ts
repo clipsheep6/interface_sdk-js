@@ -14,10 +14,10 @@
  */
 
 /**
- * The declare of slectOption.
+ * The declare of slectOptions.
  * @since 8
  */
-declare interface SelectOption {
+declare interface SelectOptions {
   /**
    * option string.
    * @since 8
@@ -40,7 +40,7 @@ interface SelectInterface {
    * Called when the select is set.
    * @since 8
    */
-  (options: Array<SelectOption>): SelectAttribute;
+  (options: Array<SelectOptions>): SelectAttribute;
 }
 
 /**
@@ -76,19 +76,19 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the background color of the selected items in the select.
    * @since 8
    */
-  selectedOptionBgColor(value: ResourceColor): SelectAttribute;
+  selectedOptionsBgColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the text style of the selected items in the select.
    * @since 8
    */
-  selectedOptionFont(value: Font): SelectAttribute;
+  selectedOptionsFont(value: Font): SelectAttribute;
 
   /**
    * Sets the text color of the selected item in the select.
    * @since 8
    */
-  selectedOptionFontColor(value: ResourceColor): SelectAttribute;
+  selectedOptionsFontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the background color of the select item.
@@ -112,7 +112,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Callback for selecting an item from the select.
    * @since 8
    */
-  onSelected(event: (index: number, value?: string) => void): SelectAttribute;
+  onSelect(callback: (index: number, value?: string) => void): SelectAttribute;
 }
 
 declare const Select: SelectInterface;
