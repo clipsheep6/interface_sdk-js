@@ -14,6 +14,7 @@
 */
 
 import { ErrorCallback, AsyncCallback, Callback } from './basic';
+import audio from './@ohos.multimedia.audio';
 
 /**
  * @name media
@@ -268,6 +269,20 @@ declare namespace media {
     * @return A Promise instance used to return the track info in MediaDescription.
     */
     getTrackDescription() : Promise<Array<MediaDescription>>;
+
+    /**
+     * Set audio renderer info for audio playback.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    setAudioRendererInfo(info: audio.AudioRendererInfo, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set audio renderer info for audio playback
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    setAudioRendererInfo(info: audio.AudioRendererInfo): Promise<void>;
 
     /**
      * Listens for audio playback buffering events.

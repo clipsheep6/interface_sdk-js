@@ -1142,6 +1142,241 @@ declare namespace mediaLibrary {
      */
     TYPE_TV
   }
+
+  /**
+   * Create helper to extract metadata from media source.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   */
+  function createMediaMetadataHelper(context: Context) : MediaMetadataHelper;
+
+  /**
+   * Helper to extract metadata from media source.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   */
+  interface MediaMetadataHelper {
+    /**
+     * Set source by uri.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    setUriSource(uri: string, type: MediaType, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set source by uri.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    setUriSource(uri: string, type: MediaType): Promise<void>;
+
+    /**
+     * Get output pixelmap from media source.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    getPixelMap(options: PixelMapOptions, callback: AsyncCallback<image.PixelMap>): Promise<void>;
+
+    /**
+     * Get output pixelmap from media source.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    getPixelMap(options: PixelMapOptions): Promise<image.PixelMap>;
+
+    /**
+     * Get metadata by key.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    getMetadataValue(key: MetadataCode, callback: AsyncCallback<string>): void;
+
+    /**
+     * Get metadata by key.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    getMetadataValue(key: MetadataCode): Promise<string>;
+
+    /**
+     * Release helper.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Release helper.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    release(): Promise<void>;
+  }
+
+  /**
+   * Options for output pixelmap
+   * @since 9
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   */
+  interface PixelMapOptions {
+    /**
+     * Output format
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    format: image.PixelMapFormat;
+    /**
+     * Select type for frame
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    selectType: SelectType;
+    /**
+     * Select index.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    index: number;
+    /**
+     * Select time.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    time: number;
+
+    /**
+     * Target size.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    size?: Size;
+  }
+
+  /**
+   * Type for select frame
+   * @since 9
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   */
+  enum SelectType {
+    /**
+     * Select by default value.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    SELECT_TYPE_DEFAULT = 0,
+    /**
+     * Select by index.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    SELECT_TYPE_INDEX,
+    /**
+     * Select by time.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    SELECT_TYPE_TIME
+  }
+
+  /**
+   * Meta data key code
+   * @since 9
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   */
+  enum MetadataCode {
+    /**
+     * Retrieves data sources of the MIME types. MIME types include video/mp4, audio/mp4,
+     * and audio/amr-wb.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_MIMETYPE = 0,
+
+    /**
+     * Retrieves the number of audio tracks (such as audio, video, and text) in a data source
+     * (such as an MP4 or 3GPP file).
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_NUM_TRACKS = 1,
+
+    /**
+     * Retrieves whether the media contains audio.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_HAS_AUDIO = 2,
+
+    /**
+     * Retrieves whether the media contains video.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_HAS_VIDEO = 3,
+
+    /**
+     * Retrieves the playback duration (in milliseconds) of a data source.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_DURATION = 4,
+
+    /**
+     * Retrieves the title of a data source.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_TITLE = 5,
+
+    /**
+     * Retrieves the date when a data source was created or modified.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_DATE = 6,
+
+    /**
+     * Retrieves the video width of the media containing video.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_VIDEO_WIDTH = 7,
+
+    /**
+     * Retrieves the video height of the media containing video.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_VIDEO_HEIGHT = 8,
+
+    /**
+     * Retrieves the video rotation angle, in degrees, if any. The rotation angle can be 0, 90, 180, or 270 degrees.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_VIDEO_ROTATION = 9,
+
+    /**
+     * Retrieves the average bitrate, in bits per second, if any.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_BITRATE = 10,
+
+    /**
+     * Retrieves the sampling rate, if any.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_SAMPLE_RATE = 11,
+
+    /**
+     * Retrieves each sampling bit, if any.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    AV_KEY_BITS_PER_SAMPLE = 12,
+  }
 }
 
 export default mediaLibrary;
