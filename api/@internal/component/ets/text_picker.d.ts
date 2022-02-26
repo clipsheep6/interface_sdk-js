@@ -71,10 +71,10 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
 }
 
 /**
- * Defines the TextPickerDialogOptions for Text Picker Dialog.
+ * Defines the struct of TextPickerResult.
  * @since 8
  */
-declare interface TextPickerDialogOptions extends TextPickerOptions {
+declare interface TextPickerResult {
   /**
    * The currently selected value.
    * @since 8

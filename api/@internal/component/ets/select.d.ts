@@ -14,10 +14,10 @@
  */
 
 /**
- * The declare of slectOptions.
+ * The declare of slectOption.
  * @since 8
  */
-declare interface SelectOptions {
+declare interface SelectOption {
   /**
    * option string.
    * @since 8
@@ -40,7 +40,7 @@ interface SelectInterface {
    * Called when the select is set.
    * @since 8
    */
-  (options: Array<SelectOptions>): SelectAttribute;
+  (options: Array<SelectOption>): SelectAttribute;
 }
 
 /**
@@ -76,19 +76,19 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the background color of the selected items in the select.
    * @since 8
    */
-  selectedOptionsBgColor(value: ResourceColor): SelectAttribute;
+  selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the text style of the selected items in the select.
    * @since 8
    */
-  selectedOptionsFont(value: Font): SelectAttribute;
+  selectedOptionFont(value: Font): SelectAttribute;
 
   /**
    * Sets the text color of the selected item in the select.
    * @since 8
    */
-  selectedOptionsFontColor(value: ResourceColor): SelectAttribute;
+  selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the background color of the select item.
