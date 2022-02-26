@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import Context from './@ohos.ability';
+import { AsyncCallback, Callback } from './basic';
+import Context from './app/context';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -851,21 +851,23 @@ declare namespace mediaLibrary {
      */
     getFileAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
     /**
-     * Trun on mornitor the data changes by media type
+     * Turn on mornitor the data changes by media type
+     * support one or combination of 'device','album','image','audio','video','file','remotefile'
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type, mediaType
      * @param callback no value returned
      */
-    on(type: 'Device'|'Album'|'Image'|'Audio'|'Video'|'File'| 'Remote file', callback: () => {}): void;
+    on(type: Array<string>, callback: Callback<void>): void;
     /**
-     * Trun off Mornitor the data changes by media type
+     * Turn off mornitor the data changes by media type
+     * support one or combination of 'device','album','image','audio','video','file','remotefile'
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type, mediaType
      * @param callback no value returned
      */
-     off(type: 'Device'|'Album'|'Image'|'Audio'|'Video'|'File'| 'Remote file', callback?: () => {}): void;
+     off(type: Array<string>, callback: Callback<void>): void;
     /**
      * Create File Asset
      * @since 8
