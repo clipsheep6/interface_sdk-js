@@ -80,6 +80,26 @@ declare namespace abilityManager {
      */
     function deleteMissions(missionIds: Array<number>): Promise<void>;
     function deleteMissions(missionIds: Array<number>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Obtains the memory size of this application.
+     * @since 7
+     * @SysCap N/A
+     * @return Returns memory size of this application.
+     */
+    function getAppMemorySize(): Promise<number>;
+    function getAppMemorySize(callback: AsyncCallback<number>): void;
+
+    /**
+     * Checks whether the current device is a low RAM (memory-limited) device.
+     * This method helps you determine whether any optimization is needed to enable your application
+     * to run on the target device. For example, you may need to disable some RAM-hogging features for a low RAM device.
+     * @since 7
+     * @SysCap N/A
+     * @return Returns true if the current device is a low RAM device and false otherwise.
+     */
+    function isRamConstrainedDevice(): Promise<number>;
+    function isRamConstrainedDevice(callback: AsyncCallback<number>): void;
 }
 
 export default abilityManager;

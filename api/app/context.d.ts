@@ -205,13 +205,32 @@ export interface Context extends BaseContext {
     getApplicationContext(): Context;
     
     /**
-    * hecks the detailed information of this ability.
+    * Checks the detailed information of this ability.
     * @since 7
     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void
     getAbilityInfo(): Promise<AbilityInfo>;
+
+    /**
+    * Checks whether the configuration of this ability is changing.
+    * @since 7
+    * @sysCap SystemCapability.Appexecfwk
+    * @return true if the configuration of this ability is changing and false otherwise.
+    * @FAModelOnly
+    */
+    isUpdatingConfigurations(): Promise<boolean>;
+    isUpdatingConfigurations(callback: AsyncCallback<boolean>): void;
+
+    /**
+    * Informs the system of the time required for drawing this Page ability.
+    * @since 7
+    * @sysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
+    */
+    printDrawnCompleted(): Promise<void>;
+    printDrawnCompleted(callback: AsyncCallback<void>): void;
 }
 
 /**
