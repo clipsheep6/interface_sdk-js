@@ -1386,6 +1386,18 @@ declare namespace audio {
      */
     getRenderRate(): Promise<AudioRendererRate>;
     /**
+     * Set volume for audio renderer instance.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setVolume(volume: number, callback: AsyncCallback<void>): void;
+    /**
+     * Set volume for audio renderer instance.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setVolume(volume: number): Promise<void>;
+    /**
      * Subscribes for audio interrupt event callback.
      * @param type Event type.
      * @return InterruptEvent callback.

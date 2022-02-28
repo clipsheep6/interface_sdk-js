@@ -159,6 +159,39 @@ declare namespace image {
   }
 
   /**
+   * Enum for alpha type.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  enum AlphaType {
+    /**
+     * Indicates an unknown alpha type.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    UNKNOWN = 0,
+    /**
+     * Indicates that the image format does not include the alpha channel, or the alpha type of all pixels is opaque.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    OPAQUE,
+    /**
+     * Indicates that the color channel of each pixel is premultiplied by the alpha channel value.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    PREMUL,
+    /**
+     * Indicates that the color component of each pixel is independent from the alpha channel and is not
+     * premultiplied by the value.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    UNPREMUL
+  }
+
+  /**
    * The componet type of image.
    * @since 8
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -608,6 +641,26 @@ declare namespace image {
      * @return Total number of bytes.
      */
     getPixelBytesNumber(): number;
+
+    /**
+     * Get pixel bytes Capacity.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    getPixelBytesCapacity(): number;
+
+    /**
+     * Set alpha type.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    setAlphaType(alphaType: AlphaType, callback: AsyncCallback<void>): void;
+    /**
+     * Set alpha type.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    setAlphaType(alphaType: AlphaType): Promise<void>;
 
     /**
      * Releases this PixelMap object. This method uses a callback to return the result.
