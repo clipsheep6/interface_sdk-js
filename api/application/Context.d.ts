@@ -153,7 +153,5 @@ export default class Context extends BaseContext {
 
 export enum AreaMode {
     EL1 = 0,
-    EL2 = 1,
-    EL3 = 2,
-    EL4 = 3
+    EL2 = 1
 }
