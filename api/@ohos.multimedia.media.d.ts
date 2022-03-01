@@ -62,6 +62,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @param callback Callback used to return AudioPlayer instance if the operation is successful; returns null otherwise.
+   * @systemapi
    */
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder>): void;
   /**
@@ -70,6 +71,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @return A Promise instance used to return VideoRecorder instance if the operation is successful; returns null otherwise.
+   * @systemapi
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
 
@@ -350,11 +352,39 @@ declare namespace media {
    */
   enum AudioEncoder {
     /**
+     * Default audio encoding format, which is AMR-NB.
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    DEFAULT = 0,
+
+    /**
+     * Indicates the AMR-NB audio encoding format.
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    AMR_NB = 1,
+
+    /**
+     * Indicates the AMR-WB audio encoding format.
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    AMR_WB = 2,
+
+    /**
      * Advanced Audio Coding Low Complexity (AAC-LC).
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      */
     AAC_LC = 3,
+
+    /**
+     * High-Efficiency Advanced Audio Coding (HE-AAC).
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    HE_AAC = 4
   }
 
   /**
@@ -366,11 +396,32 @@ declare namespace media {
    */
   enum AudioOutputFormat {
     /**
+     * Default audio output format, which is Moving Pictures Expert Group 4 (MPEG-4).
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    DEFAULT = 0,
+
+    /**
      * Indicates the Moving Picture Experts Group-4 (MPEG4) media format.
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      */
     MPEG_4 = 2,
+
+    /**
+     * Indicates the Adaptive Multi-Rate Narrowband (AMR-NB) media format.
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    AMR_NB = 3,
+
+    /**
+     * Indicates the Adaptive Multi-Rate Wideband (AMR-WB) media format.
+     * @since 6
+     * @syscap SystemCapability.Multimedia.Media.AudioRecorder
+     */
+    AMR_WB = 4,
 
     /**
      * Audio Data Transport Stream (ADTS), a transmission stream format of Advanced Audio Coding (AAC) audio.
@@ -559,6 +610,7 @@ declare namespace media {
   * Describes video recorder states.
   * @since 8
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+  * @systemapi
   */
   type VideoRecordState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error';
 
@@ -567,6 +619,7 @@ declare namespace media {
    * to create an VideoRecorder instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
    */
   interface VideoRecorder {
     /**
@@ -1158,6 +1211,7 @@ declare namespace media {
    * Provides the video recorder profile definitions.
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
    */
   interface VideoRecorderProfile {
     /**
@@ -1236,6 +1290,7 @@ declare namespace media {
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
+   * @systemapi
    */
   enum AudioSourceType {
     /**
@@ -1257,6 +1312,7 @@ declare namespace media {
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
+   * @systemapi
    */
   enum VideoSourceType {
     /**
@@ -1277,6 +1333,7 @@ declare namespace media {
    * Provides the video recorder configuration definitions.
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
    */
   interface VideoRecorderConfig {
     /**

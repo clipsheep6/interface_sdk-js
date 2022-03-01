@@ -30,24 +30,24 @@ declare enum MessageLevel {
   Warn
 }
 
-declare enum MixedModeContent {
+declare enum MixedMode {
   /**
-   * MIXED_CONTENT_ALWAYS_ALLOW level.
+   * Allows all sources.
    * @since 8
    */
-  MIXED_CONTENT_ALWAYS_ALLOW,
+  ALL,
 
   /**
-   * MIXED_CONTENT_NEVER_ALLOW level.
+   * Allows sources Compatibly.
    * @since 8
    */
-  MIXED_CONTENT_NEVER_ALLOW,
+  Compatible,
 
   /**
-   * MIXED_CONTENT_COMPATIBILITY_MODE level.
+   * Don't allow unsecure sources from a secure origin.
    * @since 8
    */
-  MIXED_CONTENT_COMPATIBILITY_MODE,
+  None,
 }
 
 declare enum HitTestType {
@@ -316,19 +316,19 @@ declare class WebController {
    * Means to load a piece of code and execute JS code in the context of the currently displayed page
    * @since 8
    */
-  runJavaScript(jscode: string, callback?: (result: string) => void);
+  runJavaScript(options: { script: string, callback?: (result: string) => void });
 
   /**
    * Indicates that a piece of code is loaded
    * @since 8
    */
-  loadData(value: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
+  loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
   /**
    * Load the given URL
    * @since 8
    */
-  loadUrl(url: string, additionalHttpHeaders?: Array<{ key: string, value: string }>);
+  loadUrl(options: {url: string, headers?: Array<{ key: string, value: string }> });
 
   /**
    * refreshes the current URL.
@@ -346,13 +346,13 @@ declare class WebController {
    * Registers the JavaScript object and method list.
    * @since 8
    */
-  registerJavaScriptProxy(value: { obj: object, name: string, methodList: Array<string> });
+  registerJavaScriptProxy(options: { obj: object, name: string, methodList: Array<string> });
 
   /**
    * Deletes a registered JavaScript object with given name.
    * @since 8
    */
-  deleteJavaScriptProxy(value: { name: string });
+  deleteJavaScriptRegister(name: string);
 
   /**
    * Get the type of hit test.
@@ -450,7 +450,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Whether to load HTTP and HTTPS content
    * @since 8
    */
-  mixedMode(mixedMode: MixedModeContent): WebAttribute;
+  mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
    * Sets whether the WebView supports zooming using on-screen controls or gestures

@@ -20,20 +20,22 @@ import wantConstant from "./@ohos.ability.wantConstant";
  * The management class for uri of file.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
-export default class UriPermissionManager {
+declare namespace uriPermissionManager {
     /**
      * Check whether the application corresponding to the accesstokenID has access rights to the URI.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param accessTokenId Indicates the access token of the application.
      * @return Returns 0 if the verification is successful, otherwise returns -1.
      */
-    verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number, callback: AsyncCallback<number>): void;
-    verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number): Promise<number>;
+    function verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number, callback: AsyncCallback<number>): void;
+    function verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number): Promise<number>;
 }
+
+export default uriPermissionManager;

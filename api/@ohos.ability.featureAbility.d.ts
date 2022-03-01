@@ -26,7 +26,7 @@ import { ContinueAbilityOptions } from './ability/continueAbilityOptions';
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
  * @name featureAbility
  * @since 6
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
  */
@@ -35,7 +35,7 @@ declare namespace featureAbility {
    * Obtain the want sended from the source ability.
    *
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
    * @FAModelOnly
@@ -47,7 +47,7 @@ declare namespace featureAbility {
    * Starts a new ability.
    *
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
    * @FAModelOnly
@@ -58,7 +58,7 @@ declare namespace featureAbility {
   /**
    * Obtains the application context.
    *
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns the application context.
    * @since 6
    * @FAModelOnly
@@ -69,7 +69,7 @@ declare namespace featureAbility {
    * Starts an ability and returns the execution result when the ability is destroyed.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return Returns the {@link AbilityResult}.
    * @FAModelOnly
@@ -82,7 +82,7 @@ declare namespace featureAbility {
    * and destroys this Page ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the result to return.
    * @return -
    * @FAModelOnly
@@ -94,7 +94,7 @@ declare namespace featureAbility {
    * Destroys this Page ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -105,7 +105,7 @@ declare namespace featureAbility {
    * Obtains the dataAbilityHelper.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
    * @FAModelOnly
@@ -116,7 +116,7 @@ declare namespace featureAbility {
    * Checks whether the main window of this ability has window focus.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
    * @FAModelOnly
    */
@@ -127,7 +127,7 @@ declare namespace featureAbility {
    * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
    * @default -
    * @since 7
-   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param request The element name of the service ability
    * @param options The remote object instance
    * @return Returns the number code of the ability connected
@@ -139,7 +139,7 @@ declare namespace featureAbility {
   * The callback interface was connect successfully.
   * @default -
   * @since 7
-  * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
   * @param connection The number code of the ability connected
   * @FAModelOnly
   */
@@ -150,7 +150,7 @@ declare namespace featureAbility {
    * Migrates this ability to the given device on the same distributed network.
    * @default -
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
