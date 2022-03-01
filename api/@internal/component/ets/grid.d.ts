@@ -137,6 +137,18 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   supportAnimation(value: boolean): GridAttribute;
 
   /**
+   * control if the grid supports drag animation.
+   * @since 8
+   */
+  dragAnimation(value: boolean): GridAttribute;
+
+  /**
+   * control if the grid supports edge effect animation.
+   * @since 8
+   */
+  edgeEffection(value: EdgeEffect): GridAttribute;
+
+  /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
