@@ -30,7 +30,7 @@ declare namespace settings {
      * @param name uri parameter
      * @return settingsdata uri
      */
-    function getUri(name: string): string;
+    function getUriSync(name: string): string;
 
     /**
      * get value from settingsdata
@@ -40,7 +40,7 @@ declare namespace settings {
      * @param defValue default value
      * @return settingsdata value
      */
-     function getValue(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
+     function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
 
     /**
      * set settingsdata value
@@ -51,7 +51,7 @@ declare namespace settings {
      * @param value value
      * @return value set result
      */
-     function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
+     function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 
 }
 
