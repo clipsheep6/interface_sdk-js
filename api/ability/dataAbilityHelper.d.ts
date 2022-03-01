@@ -203,7 +203,7 @@ export interface DataAbilityHelper {
      * Calls the extended API of the DataAbility. This method uses a promise to return the result.
      *
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
      * @param method Indicates the method to call.
      * @param arg Indicates the parameter of the String type.
@@ -222,8 +222,9 @@ export interface DataAbilityHelper {
 /**
  * Defines a PacMap object for storing a series of values.
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
+ * @FAModelOnly
  */
  export interface PacMap {
   
@@ -235,7 +236,8 @@ export interface DataAbilityHelper {
      * values of primitive types are supported, but not custom Sequenceable objects.
      * @default -
      * @since 7
-     * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
      */
      [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }

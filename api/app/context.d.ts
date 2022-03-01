@@ -134,7 +134,7 @@ export interface Context extends BaseContext {
     /**
     * Obtains the file directory of this application on the internal storage.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getFilesDir(callback: AsyncCallback<string>): void;
@@ -143,27 +143,17 @@ export interface Context extends BaseContext {
     /**
     * Obtains the cache directory of this application on the internal storage.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getCacheDir(callback: AsyncCallback<string>): void;
     getCacheDir(): Promise<string>;
-
-    /**
-    * Obtains the absolute path to the application-specific cache directory on the primary
-    * external or shared storage device. The application can place its cache files in this directory.
-    * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
-    * @FAModelOnly
-    */
-    getExternalCacheDir(callback: AsyncCallback<string>): void;
-    getExternalCacheDir(): Promise<string>;
     
     /**
     * Obtains the distributed file path for storing ability or application data files.
     * If the distributed file path does not exist, the system will create a path and return the created path.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getOrCreateDistributedDir(): Promise<string>;
@@ -172,7 +162,7 @@ export interface Context extends BaseContext {
     /**
     * Obtains the application type.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getAppType(callback: AsyncCallback<string>): void
@@ -181,7 +171,7 @@ export interface Context extends BaseContext {
     /**
     * Obtains the ModuleInfo object for this application.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getHapModuleInfo(callback: AsyncCallback<HapModuleInfo>): void
@@ -190,7 +180,7 @@ export interface Context extends BaseContext {
     /**
     * Obtains the application version information.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getAppVersionInfo(callback: AsyncCallback<AppVersionInfo>): void
@@ -199,7 +189,7 @@ export interface Context extends BaseContext {
     /**
     * Obtains the context of this application.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getApplicationContext(): Context;
@@ -207,7 +197,7 @@ export interface Context extends BaseContext {
     /**
     * Checks the detailed information of this ability.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void
@@ -216,7 +206,7 @@ export interface Context extends BaseContext {
     /**
     * Checks whether the configuration of this ability is changing.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.Appexecfwk
     * @return true if the configuration of this ability is changing and false otherwise.
     * @FAModelOnly
     */
@@ -226,7 +216,7 @@ export interface Context extends BaseContext {
     /**
     * Informs the system of the time required for drawing this Page ability.
     * @since 7
-    * @sysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.Appexecfwk
     * @FAModelOnly
     */
     printDrawnCompleted(): Promise<void>;

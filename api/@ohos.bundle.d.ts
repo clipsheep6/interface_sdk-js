@@ -393,6 +393,7 @@ declare namespace bundle {
    * @param bundleName Indicates the application bundle name to be queried.
    * @param abilityName Indicates the ability name.
    * @return Returns the AbilityInfo object for the current ability.
+   * @FAModelOnly
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
@@ -408,6 +409,7 @@ declare namespace bundle {
    * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns the ApplicationInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
+   * @FAModelOnly
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
   function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>) : void;
@@ -455,6 +457,7 @@ declare namespace bundle {
    * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns a list of ApplicationInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @FAModelOnly
    */
   function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
   function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;

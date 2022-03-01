@@ -16,7 +16,7 @@
 /**
  * Defines an AppVersionInfo object.
  * @since 7
- * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
  */
@@ -26,7 +26,7 @@ export interface AppVersionInfo {
   * Application name.
   * @default appName
   * @since 7
-  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly appName: string;
 
@@ -34,7 +34,7 @@ export interface AppVersionInfo {
   * Application version number.
   * @default versionCode
   * @since 7
-  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly versionCode: number;
 
@@ -42,7 +42,7 @@ export interface AppVersionInfo {
   * Application version name.
   * @default versionName
   * @since 7
-  * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly versionName: string;
 }
