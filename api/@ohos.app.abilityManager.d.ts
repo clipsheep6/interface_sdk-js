@@ -84,9 +84,10 @@ declare namespace abilityManager {
     /**
      * Is it a ram-constrained device
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return whether a ram-constrained device.
      * @permission N/A
+     * @FAModelOnly
      */
     function isRamConstrainedDevice(): Promise<boolean>;
     function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
@@ -94,9 +95,10 @@ declare namespace abilityManager {
     /**
      * Get the memory size of the application
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return application memory size.
      * @permission N/A
+     * @FAModelOnly
      */
     function getAppMemorySize(): Promise<number>;
     function getAppMemorySize(callback: AsyncCallback<number>): void;

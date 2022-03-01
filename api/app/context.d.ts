@@ -130,7 +130,7 @@ export interface Context extends BaseContext {
     /**
     * Prints out the time required for the system to complete drawing this Page ability.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     printDrawnCompleted(callback: AsyncCallback<void>): void
@@ -139,7 +139,7 @@ export interface Context extends BaseContext {
     /**
     * Checks whether the configuration of this ability is changing.
     * @since 7
-    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
     isUpdatingConfigurations(callback: AsyncCallback<boolean>): void
