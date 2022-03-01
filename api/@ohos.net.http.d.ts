@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -71,13 +71,38 @@ declare namespace http {
 
     /**
      * Registers an observer for HTTP Response Header events.
+     *
+     * @deprecated use on_headersReceive instead since 8.
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
 
     /**
      * Unregisters the observer for HTTP Response Header events.
+     *
+     * @deprecated use off_headersReceive instead since 8.
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
+
+    /**
+     * Registers an observer for HTTP Response Header events.
+     *
+     * @since 8
+     */
+    on(type: "headersReceive", callback: Callback<Object>): void;
+
+    /**
+     * Unregisters the observer for HTTP Response Header events.
+     *
+     * @since 8
+     */
+    off(type: "headersReceive", callback?: Callback<Object>): void;
+
+    /**
+     * Registers a one-time observer for HTTP Response Header events.
+     *
+     * @since 8
+     */
+    once(type: "headersReceive", callback: Callback<Object>): void;
   }
 
   export enum RequestMethod {
@@ -131,7 +156,7 @@ declare namespace http {
 
   export interface HttpResponse {
     /**
-     * result can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
      */
     result: string | Object | ArrayBuffer;
     /**

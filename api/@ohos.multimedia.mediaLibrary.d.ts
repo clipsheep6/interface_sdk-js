@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import Context from './@ohos.ability';
+import { AsyncCallback, Callback } from './basic';
+import Context from './app/context';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -38,7 +38,7 @@ declare namespace mediaLibrary {
    * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @StageModelOnly
-   * @param Hap context information
+   * @param context hap context information
    * @return Instance of MediaLibrary
    */
   function getMediaLibrary(context: Context): MediaLibrary;
@@ -262,7 +262,7 @@ declare namespace mediaLibrary {
      * If it is a directory where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param callback, Callback return the result of isDerectory.
+     * @param callback Callback return the result of isDerectory.
      */
     isDirectory(callback: AsyncCallback<boolean>): void;
     /**
@@ -275,43 +275,45 @@ declare namespace mediaLibrary {
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param callback, no value will be returned.
+     * @param callback no value will be returned.
+     * @systemapi
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     commitModify(): Promise<void>;
     /**
      * Open the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param mode, mode for open, for example: rw, r, w.
-     * @param callback, Callback return the fd of the file.
+     * @param mode mode for open, for example: rw, r, w.
+     * @param callback Callback return the fd of the file.
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
      * Open the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param mode, mode for open, for example: rw, r, w.
+     * @param mode mode for open, for example: rw, r, w.
      */
     open(mode: string): Promise<number>;
     /**
      * Close the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param fd, fd of the file which had been opened
-     * @param callback, no value will be returned.
+     * @param fd fd of the file which had been opened
+     * @param callback no value will be returned.
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
      * Close the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param fd, fd of the file which had been opened
+     * @param fd fd of the file which had been opened
      */
     close(fd: number): Promise<void>;
     /**
@@ -325,7 +327,7 @@ declare namespace mediaLibrary {
      * Get thumbnail of the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param size, thumbnail's size
+     * @param size thumbnail's size
      * @param callback Callback used to return the thumbnail's pixelmap.
      */
     getThumbnail(size: Size, callback: AsyncCallback<image.PixelMap>): void;
@@ -333,7 +335,7 @@ declare namespace mediaLibrary {
      * Get thumbnail of the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param size, thumbnail's size
+     * @param size thumbnail's size
      */
     getThumbnail(size?: Size): Promise<image.PixelMap>;
     /**
@@ -342,6 +344,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isFavorite ture is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
+     * @systemapi
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -349,6 +352,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isFavorite ture is favorite file, false is not favorite file
+     * @systemapi
      */
     favorite(isFavorite: boolean): Promise<void>;
     /**
@@ -356,12 +360,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return true or false.
+     * @systemapi
      */
     isFavorite(callback: AsyncCallback<boolean>): void;
     /**
      * If the file is favorite when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     isFavorite():Promise<boolean>;
     /**
@@ -369,7 +375,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isTrash true is trashed file, false is not trashed file
-     * @param callback Callback used to return, No value is returned. 
+     * @param callback Callback used to return, No value is returned.
+     * @systemapi
      */
     trash(isTrash: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -377,6 +384,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isTrash true is trashed file, false is not trashed file
+     * @systemapi
      */
     trash(isTrash: boolean,): Promise<void>;
     /**
@@ -384,12 +392,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return true or false.
+     * @systemapi
      */
     isTrash(callback: AsyncCallback<boolean>): void;
     /**
      * If the file is in trash when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     isTrash():Promise<boolean>;
   }
@@ -732,12 +742,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback, no value will be returned.
+     * @systemapi
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify the meta data for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     commitModify(): Promise<void>;
     /**
@@ -821,15 +833,15 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type, public directory predefined in DirectoryType.
-     * @param callback, Callback return the FetchFileResult.
+     * @param callback Callback return the FetchFileResult.
      */
     getPublicDirectory(type: DirectoryType, callback: AsyncCallback<string>): void;
     /**
      * get system predefined root dir, use to create file asset by relative path
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param type, public directory predefined in DirectoryType.
-     * @param return A promise instance used to return the public directory in the format of string
+     * @param type public directory predefined in DirectoryType.
+     * @return A promise instance used to return the public directory in the format of string
      */
     getPublicDirectory(type: DirectoryType): Promise<string>;
     /**
@@ -846,33 +858,33 @@ declare namespace mediaLibrary {
      * if need all data, getAllObject from FetchFileResult
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param options, Media retrieval options.
+     * @param options Media retrieval options.
      * @return A promise instance used to return the files in the format of a FetchFileResult instance
      */
     getFileAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
     /**
-     * Trun on mornitor the data changes by media type
+     * Turn on mornitor the data changes by media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param type, mediaType
+     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
      */
-    on(type: 'Device'|'Album'|'Image'|'Audio'|'Video'|'File'| 'Remote file', callback: () => {}): void;
+    on(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback: Callback<void>): void;
     /**
-     * Trun off Mornitor the data changes by media type
+     * Turn off mornitor the data changes by media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param type, mediaType
+     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
      */
-     off(type: 'Device'|'Album'|'Image'|'Audio'|'Video'|'File'| 'Remote file', callback?: () => {}): void;
+     off(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Create File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param mediaType, mediaType for example:IMAGE, VIDEO, AUDIO, FILE
-     * @param displayName, file name
-     * @param relativePath, relative path
+     * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
+     * @param displayName file name
+     * @param relativePath relative path
      * @param callback Callback used to return the FileAsset
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string, callback: AsyncCallback<FileAsset>): void;
@@ -880,9 +892,9 @@ declare namespace mediaLibrary {
      * Create File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param mediaType, mediaType for example:IMAGE, VIDEO, AUDIO, FILE
-     * @param displayName, file name
-     * @param relativePath, relative path
+     * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
+     * @param displayName file name
+     * @param relativePath relative path
      * @return A Promise instance used to return the FileAsset
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
@@ -890,8 +902,9 @@ declare namespace mediaLibrary {
      * Delete File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param uri, FileAsset's URI
+     * @param uri FileAsset's URI
      * @param callback no value returned
+     * @systemapi
      */
     deleteAsset(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -900,6 +913,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param uri, FileAsset's URI
      * @return A Promise instance, no value returned
+     * @systemapi
      */
     deleteAsset(uri: string): Promise<void>;
     /**
@@ -1002,7 +1016,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
-     * @param callback, Callback return the list of the all the peer devices' information
+     * @param callback Callback return the list of the all the peer devices' information
      */
     getAllPeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1017,7 +1031,7 @@ declare namespace mediaLibrary {
      * Release MediaLibrary instance
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @param callback, no value returned
+     * @param callback no value returned
      */
     release(callback: AsyncCallback<void>): void;
     /**

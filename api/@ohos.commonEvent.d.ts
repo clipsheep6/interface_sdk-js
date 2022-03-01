@@ -171,6 +171,12 @@ declare namespace commonEvent {
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
 
     /**
+     * this commonEvent means when the thermal state level change
+     * @since 8
+     */
+     COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
+
+    /**
      * this commonEvent means when the user is present after the device waked up.
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
@@ -890,35 +896,35 @@ declare namespace commonEvent {
     /**
      * The external storage was removed.
      * This is a protected common event that can only be sent by system.
-     * @since 8
+     * @since 9
      */
     COMMON_EVENT_VOLUME_REMOVED = "usual.event.data.VOLUME_REMOVED",
 
     /**
      * The external storage was unmounted.
      * This is a protected common event that can only be sent by system.
-     * @since 8
+     * @since 9
      */
     COMMON_EVENT_VOLUME_UNMOUNTED = "usual.event.data.VOLUME_UNMOUNTED",
 
     /**
      * The external storage was mounted.
      * This is a protected common event that can only be sent by system.
-     * @since 8
+     * @since 9
      */
     COMMON_EVENT_VOLUME_MOUNTED = "usual.event.data.VOLUME_MOUNTED",
 
     /**
      * The external storage was bad removal.
      * This is a protected common event that can only be sent by system.
-     * @since 8
+     * @since 9
      */
     COMMON_EVENT_VOLUME_BAD_REMOVAL = "usual.event.data.VOLUME_BAD_REMOVAL",
 
     /**
      * The external storage was eject.
      * This is a protected common event that can only be sent by system.
-     * @since 8
+     * @since 9
      */
     COMMON_EVENT_VOLUME_EJECT = "usual.event.data.VOLUME_EJECT",
 
