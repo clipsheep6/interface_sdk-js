@@ -281,7 +281,7 @@ declare namespace media {
     on(type: 'bufferingUpdate', callback: (infoType: BufferingInfoType, value: number) => void): void;
     /**
      * Audio media URI. Mainstream audio formats are supported.
-     * local:fd://XXX, file://XXX. network:http://xxx
+     * local:fd://XXX, network:http://xxx
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
@@ -500,7 +500,6 @@ declare namespace media {
     /**
      * Audio output uri.support two kind of uri now.
      * format like: scheme + "://" + "context".
-     * file:  file://path
      * fd:    fd://fd
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
@@ -975,7 +974,7 @@ declare namespace media {
 
     /**
      * media url. Mainstream video formats are supported.
-     * local:fd://XXX, file://XXX. network:http://xxx
+     * local:fd://XXX, network:http://xxx
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
@@ -1357,7 +1356,6 @@ declare namespace media {
     /**
      * video output uri.support two kind of uri now.
      * format like: scheme + "://" + "context".
-     * file:  file://path
      * fd:    fd://fd
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
