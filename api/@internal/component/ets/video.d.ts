@@ -82,7 +82,7 @@ declare enum PlaybackSpeed {
   /**
    * @since 7
    */
-  interface VideoOption {
+  interface VideoOptions {
     /**
      * src of video.
      * @since 7
@@ -132,7 +132,7 @@ declare class VideoController {
 
   /**
    * Provides an event to stop playback.
-   * @since 6
+   * @since 7
    */
   stop();
 
@@ -157,7 +157,7 @@ interface VideoInterface {
    * Set the value.
    * @since 7
    */
-  (value: VideoOption): VideoAttribute;
+  (value: VideoOptions): VideoAttribute;
 }
 
 /**

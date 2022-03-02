@@ -194,7 +194,7 @@ declare function $rawfile(value: string): Resource;
 
 /**
  * global getContentStorage function
- * @since 8
+ * @since 9
  */
 declare function getContentStorage(value: any): ContentStorage;
 
@@ -621,7 +621,7 @@ interface KeyEvent {
  * Component State Styels.
  * @since 8
  */
-interface StateStyels {
+interface StateStyles {
   /**
    * Defines normal state styles.
    * @since 8
@@ -653,7 +653,7 @@ interface StateStyels {
   clicked?: any;
 }
 
-interface PopupOption {
+interface PopupOptions {
   /**
    * Information in the pop-up window.
    * @since 7
@@ -709,7 +709,7 @@ interface PopupOption {
   onStateChange?: (event: { isVisible: boolean }) => void;
 }
 
-interface CustomPopupOption {
+interface CustomPopupOptions {
   /**
    * builder of popup
    * @since 8
@@ -955,12 +955,6 @@ declare class CommonMethod<T> {
    onBlur(event: () => void): T;
 
   /**
-   * Trigger a event when focus move.
-   * @since 8
-   */
-   onFocusMove(event: (direction?: FocusDirection) => void): T;
-
-  /**
    * animation
    * @since 7
    */
@@ -1159,7 +1153,7 @@ declare class CommonMethod<T> {
   onDisAppear(event: () => void): T;
 
   /**
-   * This callback is triggered when the size or position of this component has changed.
+   * This callback is triggered when the size or position of this component change finished.
    * @param event event callback.
    * @since 8
    */
@@ -1419,7 +1413,7 @@ declare class CommonMethod<T> {
    * Popup control
    * @since 7
    */
-  bindPopup(show: boolean, popup: PopupOption | CustomPopupOption): T;
+  bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
   /**
    * Menu control
@@ -1437,7 +1431,7 @@ declare class CommonMethod<T> {
    * Sets styles for component state.
    * @since 8
    */
-  stateStyles(value: StateStyels): T;
+  stateStyles(value: StateStyles): T;
 
   /**
    * id for distrubte identification.
