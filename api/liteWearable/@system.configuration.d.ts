@@ -36,7 +36,7 @@ export interface LocaleResponse {
 }
 
 /**
- * @Syscap SysCap.ACE.UIEngineLite
+ * @syscap SysCap.ACE.UIEngineLite
  */
 export default class Configuration {
   /**

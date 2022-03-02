@@ -20,7 +20,7 @@ import { AsyncCallback, BussinessError } from "./basic";
  *
  * @devices all
  * @since 6
- * @Syscap SystemCapability.Updater.Raw
+ * @syscap SystemCapability.Updater.Raw
  */
 declare namespace update {
     /**
@@ -313,7 +313,7 @@ declare namespace update {
      *
      * @devices all
      * @since 6
-     * @Syscap SystemCapability.Updater.Raw
+     * @syscap SystemCapability.Updater.Raw
      */
     export interface Updater {
         /**

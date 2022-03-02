@@ -30,7 +30,7 @@ import { ContentStorage } from '../@internal/component/ets/state_management';
  * The context of an ability. It allows access to ability-specific resources.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -39,7 +39,7 @@ export default class AbilityContext extends Context {
      * Indicates configuration information about an ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     abilityInfo: AbilityInfo;
@@ -48,7 +48,7 @@ export default class AbilityContext extends Context {
      * Indicates configuration information about an module.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
@@ -57,7 +57,7 @@ export default class AbilityContext extends Context {
      * Indicates configuration information.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @StageModelOnly
      */
     config: Configuration;
@@ -66,7 +66,7 @@ export default class AbilityContext extends Context {
      * Starts a new ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @return -
      * @StageModelOnly
@@ -80,7 +80,7 @@ export default class AbilityContext extends Context {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param parameter Indicates the ability to start.
      * @return Caller
      * @StageModelOnly
@@ -91,7 +91,7 @@ export default class AbilityContext extends Context {
      * Starts a new ability with account.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
      * @param want Indicates the account to start.
      * @systemapi hide for inner use.
@@ -106,7 +106,7 @@ export default class AbilityContext extends Context {
      * Starts an ability and returns the execution result when the ability is destroyed.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @return Returns the {@link AbilityResult}.
      * @StageModelOnly
@@ -119,7 +119,7 @@ export default class AbilityContext extends Context {
      * Starts an ability and returns the execution result when the ability is destroyed with account.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
      * @param want Indicates the account to start.
      * @systemapi hide for inner use.
@@ -134,7 +134,7 @@ export default class AbilityContext extends Context {
      * Destroys this Page ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -146,7 +146,7 @@ export default class AbilityContext extends Context {
      * and destroys this Page ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the result to return.
      * @return -
      * @StageModelOnly
@@ -158,7 +158,7 @@ export default class AbilityContext extends Context {
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @hide hide for inner use.
@@ -171,7 +171,7 @@ export default class AbilityContext extends Context {
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @param accountId The account to connect
@@ -185,7 +185,7 @@ export default class AbilityContext extends Context {
      * The callback interface was connect successfully.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection The number code of the ability connected
      * @hide hide for inner use.
      * @StageModelOnly
@@ -197,7 +197,7 @@ export default class AbilityContext extends Context {
      * Set mission label of current ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param label The label of ability that showed in recent missions.
      * @StageModelOnly
      */
@@ -208,7 +208,7 @@ export default class AbilityContext extends Context {
      * Requests certain permissions from the system.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @StageModelOnly
      */

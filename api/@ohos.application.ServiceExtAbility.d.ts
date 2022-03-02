@@ -21,7 +21,7 @@ import Want from './@ohos.application.Want';
  * class of service extension ability.
  *
  * @since 9
- * @sysCap AAFwk
+ * @syscap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @systemapi hide for inner use.
  * @StageModelOnly
@@ -31,7 +31,7 @@ export default class ServiceExtAbility {
      * Indicates service extension ability context.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
@@ -42,7 +42,7 @@ export default class ServiceExtAbility {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -54,7 +54,7 @@ export default class ServiceExtAbility {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -66,7 +66,7 @@ export default class ServiceExtAbility {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param want Indicates the want of service extension to start.
      * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
      *     incremented by 1 every time the service extension is started. For example, if the service extension
@@ -82,7 +82,7 @@ export default class ServiceExtAbility {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param want Indicates connection information about the Service ability.
      * @systemapi hide for inner use.
      * @return Returns the proxy of the Service ability.
@@ -95,7 +95,7 @@ export default class ServiceExtAbility {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param want Indicates disconnection information about the service extension.
      * @systemapi hide for inner use.
      * @return -
@@ -109,7 +109,7 @@ export default class ServiceExtAbility {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param want Indicates the want of the service extension being connected.
      * @systemapi hide for inner use.
      * @return -
