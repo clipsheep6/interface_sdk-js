@@ -18,7 +18,7 @@
  * @devices phone, tablet, car
  * @since 8
  */
-declare interface RadioOption {
+declare interface RadioOptions {
   /**
    * Radio group name.
    * @devices phone, tablet, car
@@ -45,7 +45,7 @@ interface RadioInterface {
    * @devices phone, tablet, car
    * @since 8
    */
-  (options: RadioOption): RadioAttribute;
+  (options: RadioOptions): RadioAttribute;
 }
 
 /**
