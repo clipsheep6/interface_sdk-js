@@ -126,6 +126,24 @@ export interface Context extends BaseContext {
     */
     getCallingBundle(callback: AsyncCallback<string>): void
     getCallingBundle(): Promise<string>;
+
+    /**
+    * Prints out the time required for the system to complete drawing this Page ability.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    printDrawnCompleted(callback: AsyncCallback<void>): void
+    printDrawnCompleted(): Promise<void>;
+
+    /**
+    * Checks whether the configuration of this ability is changing.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    isUpdatingConfigurations(callback: AsyncCallback<boolean>): void
+    isUpdatingConfigurations(): Promise<boolean>;
 }
 
 /**

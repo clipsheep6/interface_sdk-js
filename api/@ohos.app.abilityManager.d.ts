@@ -80,6 +80,28 @@ declare namespace abilityManager {
      */
     function deleteMissions(missionIds: Array<number>): Promise<void>;
     function deleteMissions(missionIds: Array<number>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Is it a ram-constrained device
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return whether a ram-constrained device.
+     * @permission N/A
+     * @FAModelOnly
+     */
+    function isRamConstrainedDevice(): Promise<boolean>;
+    function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Get the memory size of the application
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return application memory size.
+     * @permission N/A
+     * @FAModelOnly
+     */
+    function getAppMemorySize(): Promise<number>;
+    function getAppMemorySize(callback: AsyncCallback<number>): void;
 }
 
 export default abilityManager;
