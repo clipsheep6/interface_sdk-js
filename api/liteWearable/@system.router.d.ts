@@ -35,7 +35,7 @@ export interface RouterOptions {
 }
 
 /**
- * @Syscap SysCap.ACE.UIEngineLite
+ * @syscap SysCap.ACE.UIEngineLite
  */
 export default class Router {
   /**

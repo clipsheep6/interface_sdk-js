@@ -24,7 +24,7 @@ import StartOptions from "../@ohos.application.StartOptions";
  * serviceExtension-specific resources.
  *
  * @since 9
- * @sysCap AAFwk
+ * @syscap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @systemapi hide for inner use.
  * @permission N/A
@@ -36,7 +36,7 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param parameter Indicates the ability to start.
      * @systemapi hide for inner use.
      * @return -
@@ -51,7 +51,7 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param parameter Indicates the ability to start.
      * @param parameter Indicates the accountId to start.
      * @systemapi hide for inner use.
@@ -67,7 +67,7 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -84,7 +84,7 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param request Indicates the service extension to connect.
      * @systemapi hide for inner use.
      * @return connection id, int value.
@@ -101,7 +101,7 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param request Indicates the service extension to connect.
      * @param request Indicates the account to connect.
      * @systemapi hide for inner use.
@@ -116,7 +116,7 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap AAFwk
      * @param connection the connection id returned from connectAbility api.
      * @systemapi hide for inner use.
      * @return -

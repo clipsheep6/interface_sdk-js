@@ -17,7 +17,7 @@
  * The ability or extension state data.
  *
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @permission N/A
  */
@@ -26,7 +26,7 @@ export default class AbilityStateData {
      * The bundle name.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     bundleName: string;
@@ -35,7 +35,7 @@ export default class AbilityStateData {
      * The ability name.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     abilityName: string;
@@ -44,7 +44,7 @@ export default class AbilityStateData {
      * The pid.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     pid: number;
@@ -53,7 +53,7 @@ export default class AbilityStateData {
      * The uid.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     uid: number;
@@ -62,7 +62,7 @@ export default class AbilityStateData {
      * The application state.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     state: number;
@@ -72,7 +72,7 @@ export default class AbilityStateData {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @syscap appexecfwk
      * @systemapi hide for inner use.
      */
     abilityType: number;
