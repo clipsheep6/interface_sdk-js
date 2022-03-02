@@ -613,7 +613,7 @@ declare abstract class SubscribaleAbstract {
    * Called when a property is synced.
    * @since 9
    */
-  linkProp<T>(key: string, defaultValue: T): void;
+  distributeProp<T>(key: string, defaultValue: T): void;
 
   /**
    * Called when a property is deleted.
@@ -625,7 +625,7 @@ declare abstract class SubscribaleAbstract {
    * Called when multiple properties are synced.
    * @since 9
    */
-  linkProps(
+  distributeProps(
     properties: {
       key: string;
       defaultValue: any;
@@ -636,7 +636,7 @@ declare abstract class SubscribaleAbstract {
    * Get the key value.
    * @since 9
    */
-  Keys(): Array<string>;
+  keys(): Array<string>;
 }
 
 /**
