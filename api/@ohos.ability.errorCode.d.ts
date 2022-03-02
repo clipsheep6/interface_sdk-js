@@ -13,29 +13,41 @@
  * limitations under the License.
  */
 
-/**
- * @name This class saves process information about an application
- * @since 7
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import ProcessInfo from 'app/processInfo'
- * @permission N/A
- */
-export interface ProcessInfo {
+ /**
+  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+  * @since 7
+  * @syscap N/A
+  */
+export enum ErrorCode {
   /**
-   * The id of the current process
-   *
+   * Permission denied.
    * @default -
    * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap N/A
    */
-  pid: number;
+  PERMISSION_DENY = -3,
 
   /**
-   * The name of the current process
-   *
+   * Ability not found.
    * @default -
    * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityBase
    */
-  processName: string;
+  ABILITY_NOT_FOUND = -2,
+
+  /**
+   * Invalid parameter.
+   * @default -
+   * @since 7
+   * @syscap N/A
+   */
+  INVALID_PARAMETER = -1,
+
+  /**
+   * No error.
+   * @default -
+   * @since 7
+   * @syscap N/A
+   */
+  NO_ERROR = 0
 }

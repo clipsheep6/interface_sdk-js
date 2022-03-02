@@ -14,28 +14,35 @@
  */
 
 /**
- * @name This class saves process information about an application
+ * Defines an AppVersionInfo object.
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import ProcessInfo from 'app/processInfo'
- * @permission N/A
+ * @permission NA
+ * @devices phone, tablet, tv, wearable, car
  */
-export interface ProcessInfo {
-  /**
-   * The id of the current process
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  pid: number;
+export interface AppVersionInfo {
 
   /**
-   * The name of the current process
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  processName: string;
+  * Application name.
+  * @default appName
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+  readonly appName: string;
+
+  /**
+  * Application version number.
+  * @default versionCode
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+  readonly versionCode: number;
+
+  /**
+  * Application version name.
+  * @default versionName
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+  readonly versionName: string;
 }
