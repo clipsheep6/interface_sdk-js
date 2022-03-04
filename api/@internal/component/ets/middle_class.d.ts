@@ -329,11 +329,7 @@ declare class TSPolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
 }
 
 declare class TSProgressAttribute extends CommonMethod<ProgressAttribute> {
-    create(object: {
-        value: number;
-        total?: number;
-        style?: ProgressStyle;
-    }): ProgressAttribute;
+    create(options: ProgressOptions): ProgressAttribute;
     debugLine(value: string): ProgressAttribute;
 }
 
