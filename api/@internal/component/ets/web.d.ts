@@ -277,6 +277,65 @@ declare class WebResourceError {
 }
 
 /**
+ * Defines the web resource response.
+ * @since 8
+ */
+declare class WebResourceResponse {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Get the data.
+   *
+   * @return Return the data.
+   * @since 8
+   */
+  getData(): string;
+
+  /**
+   * Get the encoding.
+   *
+   * @return Return the encoding.
+   * @since 8
+   */
+  getEncoding(): string;
+
+  /**
+   * Get the mime type.
+   *
+   * @return Return the mime type.
+   * @since 8
+   */
+  getMimeType(): string;
+
+  /**
+   * Get the reason phrase.
+   *
+   * @return Return the reason phrase.
+   * @since 8
+   */
+  getReasonPhrase(): string;
+
+  /**
+   * Get the headers.
+   * @return Return the headers.
+   * @since 8
+   */
+  getResponseHeaders() : Map<string, string>;
+
+  /**
+   * Get the status code.
+   *
+   * @return Return the status code.
+   * @since 8
+   */
+  getStatusCode(): number;
+}
+
+/**
  * Defines the js geolocation request.
  * @since 8
  */
@@ -692,9 +751,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered function when the web page receives a web resource loading HTTP error.
    * @since 8
    */
-  onHttpErrorReceive(
-    callback: (event?: { request: WebResourceRequest; error: WebResourceError }) => void,
-  ): WebAttribute;
+  onHttpErrorReceive(callback: (event?: { request: WebResourceRequest, error: WebResourceResponse }) => void): WebAttribute;
 
   /**
    * Triggered when download start
