@@ -14,7 +14,7 @@
  */
 
  /**
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  * @since 3
  */

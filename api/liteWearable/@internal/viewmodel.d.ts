@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export interface ViewModel {
   /**
    * Displays content based on the current system language and a path of the language resource key specified through $t.
@@ -21,44 +25,64 @@ export interface ViewModel {
    *              1. Named placeholder, for example, {name}. The actual content must be of the object type, for example, $t('strings.object', {name: 'Hello world'}).
    *              2. Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world']).
    * @returns content to display
+   * @since 7
    */
   $t(path: string, param?: object | Array<any>): string;
 
   /**
    * An object that holds all DOM elements and component instances that have been registered with the refs attribute
+   * @since 7
    */
   $refs: ElementReferences;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export interface ListScrollToOptions {
   /**
    * specified position.
+   * @since 7
    */
   index: number;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export interface ListElement {
   /**
    * Scrolls the list to the position of the item at the specified index.
+   * @since 7
    */
   scrollTo(position: ListScrollToOptions): void;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export interface ImageAnimatorElement {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
+   * @since 7
    */
   start(): void;
   /**
    * Pauses the frame animation playback of an image.
+   * @since 7
    */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
+   * @since 7
    */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
+   * @since 7
    */
   resume(): void;
   /**
@@ -66,45 +90,60 @@ export interface ImageAnimatorElement {
    * Playing
    * Paused
    * Stopped
+   * @since 7
    */
   getState(): "Playing" | "Paused" | "Stopped";
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export interface ElementReferences {
   [k: string]: object & ListElement & ImageAnimatorElement;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
    * Data model of the page that can be converted into a JSON object.
    * The attribute name cannot start with $ or an underscore (_) or contain the reserved words such as for, if, show, and tid.
    * For a function, the return value must be an object.
    * Set the value of data to the return value of the function during page initialization.
+   * @since 7
    */
   data?: Data;
 
   /**
    * Called when the page is initialized. This function can be called only once in a lifecycle.
+   * @since 7
    */
   onInit?(): void;
 
   /**
    * Called when the page is created. This function can be called only once in a lifecycle.
+   * @since 7
    */
   onReady?(): void;
 
   /**
    * Called when the page is displayed.
+   * @since 7
    */
   onShow?(): void;
 
   /**
    * Called when the application is created
+   * @since 7
    */
   onCreate?(): void;
 
   /**
    * Called when the application is destroyed or called when the page is redirected to another one (without entering the navigation stack).
+   * @since 7
    */
   onDestroy?(): void;
 }
@@ -113,6 +152,11 @@ type DefaultData<T> = object;
 type CombinedOptions<T extends ViewModel, Data> = object &
   Options<T, Data> &
   ThisType<T & ViewModel & Data>;
+
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export declare function extendViewModel<T extends ViewModel, Data>(
   options: CombinedOptions<T, Data>
 ): ViewModel & Data;
