@@ -600,6 +600,46 @@ declare abstract class SubscribaleAbstract {
 }
 
 /**
+ * @since 9
+ */
+ declare class DistributedStorage {
+  /**
+   * Constructor parameters.
+   * @since 9
+   */
+  constructor(sessionId: string, notifier: (status: string) => void);
+
+  /**
+   * Called when a property is synced.
+   * @since 9
+   */
+  distributeProp<T>(key: string, defaultValue: T): void;
+
+  /**
+   * Called when a property is deleted.
+   * @since 9
+   */
+  deleteProp(key: string): void;
+
+  /**
+   * Called when multiple properties are synced.
+   * @since 9
+   */
+  distributeProps(
+    properties: {
+      key: string;
+      defaultValue: any;
+    }[],
+  ): void;
+
+  /**
+   * Get the key value.
+   * @since 9
+   */
+  keys(): Array<string>;
+}
+
+/**
  * @since 7
  */
 declare const appStorage: AppStorage;
