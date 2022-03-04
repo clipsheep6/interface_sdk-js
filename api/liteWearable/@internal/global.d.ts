@@ -19,6 +19,8 @@
  * @param delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
  */
 export declare function setInterval(
   handler: Function,
@@ -32,6 +34,8 @@ export declare function setInterval(
  * @param delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
  */
 export declare function setTimeout(
   handler: Function,
@@ -42,21 +46,29 @@ export declare function setTimeout(
 /**
  * Cancels the interval set by " setInterval()".
  * @param intervalID Indicates the timer ID returned by "setInterval()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
  */
 export declare function clearInterval(intervalID?: number): void;
 
 /**
  * Cancels the timer set by " setTimeout()".
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
 /**
  * Conditional compilation for rich equipment
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
  */
 export declare const STANDARD: string;
 
 /**
  * Conditional compilation for lite equipment
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
  */
 export declare const LITE: string;
