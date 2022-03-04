@@ -249,6 +249,65 @@ declare class WebResourceError {
   getErrorCode(): number;
 }
 
+/**
+ * Defines the web resource response.
+ * @since 8
+ */
+declare class WebResourceResponse {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Get the data.
+   *
+   * @return Return the data.
+   * @since 8
+   */
+  getData(): string;
+
+  /**
+   * Get the encoding.
+   *
+   * @return Return the encoding.
+   * @since 8
+   */
+  getEncoding(): string;
+
+  /**
+   * Get the mime type.
+   *
+   * @return Return the mime type.
+   * @since 8
+   */
+  getMimeType(): string;
+
+  /**
+   * Get the reason phrase.
+   *
+   * @return Return the reason phrase.
+   * @since 8
+   */
+  getReasonPhrase(): string;
+
+  /**
+   * Get the headers.
+   * @return Return the headers.
+   * @since 8
+   */
+  getResponseHeaders() : Map<string, string>;
+
+  /**
+   * Get the status code.
+   *
+   * @return Return the status code.
+   * @since 8
+   */
+  getStatusCode(): number;
+}
+
 declare class JsGeolocation {
   /**
    * Constructor.
@@ -336,7 +395,7 @@ declare class WebController {
    * Load the given URL
    * @since 8
    */
-  loadUrl(options: {url: string, headers?: Array<{ key: string, value: string }> });
+  loadUrl(options: { url: string, headers?: Array<{ key: string, value: string }> });
 
   /**
    * refreshes the current URL.
@@ -609,7 +668,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
    * @since 8
    */
-  onConfirm(callback: (event?: {url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+  onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a JavaScript console message.
@@ -617,7 +676,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered function when the web page receives a JavaScript console message.
    * @since 8
    */
-  onConsole(callback: (event?: {message: ConsoleMessage}) => boolean): WebAttribute;
+  onConsole(callback: (event?: { message: ConsoleMessage }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading error.
@@ -625,7 +684,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered function when the web page receives a web resource loading error.
    * @since 8
    */
-  onErrorReceive(callback: (event?: {request: WebResourceRequest, error: WebResourceError}) => void): WebAttribute;
+  onErrorReceive(callback: (event?: { request: WebResourceRequest, error: WebResourceError }) => void): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading HTTP error.
@@ -633,13 +692,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered function when the web page receives a web resource loading HTTP error.
    * @since 8
    */
-  onHttpErrorReceive(callback: (event?: {request: WebResourceRequest, error: WebResourceError}) => void): WebAttribute;
+  onHttpErrorReceive(callback: (event?: { request: WebResourceRequest, error: WebResourceResponse }) => void): WebAttribute;
 
   /**
    * Triggered when download start
    * @since 8
    */
-  onDownloadStart(callback: (event?: {url: string, userAgent: string, contentDisposition: string, mimetype: string, contentLength: number}) => void): WebAttribute;
+  onDownloadStart(callback: (event?: { url: string, userAgent: string, contentDisposition: string, mimetype: string, contentLength: number }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page refreshes accessed history.
