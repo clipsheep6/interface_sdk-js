@@ -199,6 +199,12 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   objectFit(value: ImageFit): VideoAttribute;
 
   /**
+   * Called when determining the seek mode of the video.
+   * @since 8
+   */
+  seekMode(value: SeekMode): VideoAttribute;
+
+  /**
    * Called when the video is played.
    * @since 7
    */
