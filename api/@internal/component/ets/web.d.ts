@@ -266,7 +266,7 @@ declare class WebResourceRequest {
    * @return Return the data.
    * @since 8
    */
-  getData(): string;
+  getResponseData(): string;
 
   /**
    * Get the encoding.
@@ -274,7 +274,7 @@ declare class WebResourceRequest {
    * @return Return the encoding.
    * @since 8
    */
-  getEncoding(): string;
+  getResponseEncoding(): string;
 
   /**
    * Get the mime type.
@@ -282,7 +282,7 @@ declare class WebResourceRequest {
    * @return Return the mime type.
    * @since 8
    */
-  getMimeType(): string;
+  getResponseMimeType(): string;
 
   /**
    * Get the reason phrase.
@@ -290,14 +290,14 @@ declare class WebResourceRequest {
    * @return Return the reason phrase.
    * @since 8
    */
-  getReasonPhrase(): string;
+  getReasonMessage(): string;
 
   /**
    * Get the headers.
    * @return Return the headers.
    * @since 8
    */
-  getResponseHeaders() : Map<string, string>;
+  getResponseHeader() : Map<string, string>;
 
   /**
    * Get the status code.
@@ -305,7 +305,7 @@ declare class WebResourceRequest {
    * @return Return the status code.
    * @since 8
    */
-  getStatusCode(): number;
+  getResponseCode(): number;
 }
 
 /**
