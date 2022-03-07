@@ -103,25 +103,15 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the width of the bar graph is set.
+   * Notice: barWidth no longer supports Number type, but only Length type since 7.
    * @since 7
-   */
-  barWidth(value: number): TabsAttribute;
-
-  /**
-   * Called when the height of the bar graph is set.
-   * @since 7
-   */
-  barHeight(value: number): TabsAttribute;
-
-  /**
-   * Called when the width of the bar graph is set.
-   * @since 8
    */
   barWidth(value: Length): TabsAttribute;
 
   /**
    * Called when the height of the bar graph is set.
-   * @since 8
+   * Notice: barHeight no longer supports Number type, but only Length type since 7.
+   * @since 7
    */
   barHeight(value: Length): TabsAttribute;
 
