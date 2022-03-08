@@ -40,7 +40,7 @@
     * Specifies the text for the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
     * @param txt the text value.
-    * @param pattern the {@link MatchPattern} of the text value,default to {@link MatchPattern.EQUALS}
+    * @param pattern the {@link MatchPattern} of the text value,default to {@link MatchPattern.EQUALS}.
     * @return Returns this {@link By} object.
     * @since 8
     * @test
