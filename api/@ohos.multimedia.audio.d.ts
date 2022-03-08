@@ -1054,11 +1054,18 @@ declare namespace audio {
      */
     getAudioScene(): Promise<AudioScene>;
     /**
-    * Monitors device changes
-    * @since 7
-    * @syscap SystemCapability.Multimedia.Audio.Device
-    */
+     * Monitors device changes
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Cancels the listening of device change events.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Listens for audio interruption events. When the audio of an application is interrupted by another application,
