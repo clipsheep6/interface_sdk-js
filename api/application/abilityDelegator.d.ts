@@ -14,10 +14,10 @@
  */
 
 import { AsyncCallback } from '../basic';
-import Ability from '../@ohos.application.Ability'
+import { Ability } from '../@ohos.application.Ability'
 import { AbilityMonitor } from './abilityMonitor'
 import { Context } from '../app/context'
-import Want from "../@ohos.application.Want";
+import { Want } from "../@ohos.application.Want";
 import { ShellCmdResult } from './shellCmdResult'
 
 /**
@@ -154,7 +154,7 @@ export interface AbilityDelegator {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @hide
+     * @systemapi Hide this for inner system use.
      * @param msg Log information
      * @param code Result code
      */
