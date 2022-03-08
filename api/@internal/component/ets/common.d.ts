@@ -121,6 +121,41 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const CustomDialog: ClassDecorator;
 
 /**
+ * Defining Consume PropertyDecorator.
+ * @since 7
+ */
+declare const LocalStorageLink: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining Consume PropertyDecorator.
+ * @since 7
+ */
+declare const LocalStorageProp: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining LocalStorage.
+ * @since 7
+ */
+declare const LocalStorage: LocalStorageOption;
+
+/**
+ * Defines the data type of the interface restriction.
+ * @since 7
+ */
+declare interface LocalStorageOption{
+  /**
+   * Set callback.
+   * @since 7
+   */
+  ({}) : any;
+  /**
+   * Set GetShared.
+   * @since 7
+   */
+  GetShared?: any;
+}
+
+/**
  * Defines the data type of the interface restriction.
  * @since 7
  */
