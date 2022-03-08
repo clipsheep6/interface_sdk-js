@@ -22,7 +22,7 @@ declare const Component: ClassDecorator;
  * Defining Entry ClassDecorator.
  * @since 7
  */
-declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator & ((value: any) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -119,6 +119,37 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  * @since 7
  */
 declare const CustomDialog: ClassDecorator;
+
+/**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @since 8
+ */
+declare const LocalStorageLink: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining LocalStorageProp PropertyDecorator.
+ * @since 8
+ */
+declare const LocalStorageProp: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+
+/**
+ * Defining LocalStorage.
+ * @since 8
+ */
+declare class LocalStorage {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor(value?: Object);
+
+  /**
+   * Set GetShared.
+   * @since 8
+   */
+  static GetShared(): any;
+}
 
 /**
  * Defines the data type of the interface restriction.
