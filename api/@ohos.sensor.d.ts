@@ -340,7 +340,7 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEART_RATE
+     * @permission ohos.permission.READ_HEALTH_DATA 
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
