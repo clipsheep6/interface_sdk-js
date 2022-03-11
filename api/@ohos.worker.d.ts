@@ -109,7 +109,7 @@ interface ErrorEvent extends Event {
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
-declare interface MessageEvent<T = Object> extends Event {
+declare interface MessageEvent<T = any> extends Event {
   /**
    * Data transferred when an exception occurs.
    * @since 7
