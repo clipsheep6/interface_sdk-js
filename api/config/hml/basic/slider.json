@@ -5,7 +5,7 @@
       "name": "v3.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
   "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
   "description": [
     {
@@ -16,7 +16,8 @@
   "attributes": [
     {
       "name": "direction",
-      "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.lite ,SystemCapability.ArkUI.ArkUI.Full"],
+  
       "version": [
         {
           "name": "v6.0"
