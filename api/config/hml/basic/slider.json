@@ -5,10 +5,15 @@
       "name": "v3.0"
     }
   ],
+<<<<<<< HEAD
   "syscap": [
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.ArkUI.ArkUI.Lite"
   ],
+=======
+  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
+>>>>>>> ac2eaaf2082745ba55ec0490b6b49d5b0294dc87
   "description": [
     {
       "name": "The <slider> component is used to quickly adjust the settings, such as the volume and brightness."
@@ -17,6 +22,11 @@
   "attributes": [
     {
       "name": "direction",
+<<<<<<< HEAD
+=======
+      "syscap": ["SystemCapability.ArkUI.ArkUI.lite ,SystemCapability.ArkUI.ArkUI.Full"],
+  
+>>>>>>> ac2eaaf2082745ba55ec0490b6b49d5b0294dc87
       "version": [
         {
           "name": "v6.0"
