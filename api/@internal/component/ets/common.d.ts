@@ -617,6 +617,12 @@ declare enum SourceType {
    * @since 8
    */
   TouchScreen,
+
+  /**
+   * The keyboard type.
+   * @since 8
+   */
+  Keyboard,
 }
 
 /**
