@@ -22,6 +22,8 @@ import { HapModuleInfo } from '../bundle/hapModuleInfo';
 import { AppVersionInfo } from './appVersionInfo';
 import { AbilityInfo } from '../bundle/abilityInfo';
 import { DisplayOrientation } from '../@ohos.bundle';
+import { ContinuationExtraParams } from './continuationExtraParams';
+import { ContinuationResult } from './continuationResult';
 
 
 /**
@@ -258,6 +260,19 @@ export interface Context extends BaseContext {
     */
     printDrawnCompleted(callback: AsyncCallback<void>): void;
     printDrawnCompleted(): Promise<void>;
+
+    /**
+    * Shows the list of devices that can be selected for ability hopping on the distributed network.
+    * 
+    * @since 8
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @param extraParams Indicates the {@link ContinuationExtraParams} object containing the extra parameters
+    * used to filter the list of available devices.
+    * @return Returns the result of show device list operation, in {@link ContinuationResult}.
+    * @FAModelOnly
+    */
+    showDeviceList(extraParams: ContinuationExtraParams, callback: AsyncCallback<ContinuationResult>): void;
+    showDeviceList(extraParams: ContinuationExtraParams): Promise<ContinuationResult>;
 }
 
 /**
