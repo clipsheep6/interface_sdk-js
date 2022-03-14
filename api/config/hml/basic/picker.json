@@ -154,6 +154,37 @@
       ]
     },
     {
+      "name": "scrollSensitivity",
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+      "required": false,
+      "description": [
+        {
+          "name": "DP value per degree of wheel rotation",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        }
+      ],
+      "version": [
+        {
+          "name": "v8.0"
+        }
+      ],
+      "type": "enum|number",
+      "options": [
+        {
+          "name": "fast",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        },
+        {
+          "name": "normal",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        },
+        {
+          "name": "slow",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+        }
+      ]
+    },
+    {
       "name": "lunarswitch",
       "supportedDevices": ["phone","tablet"],
       "required": false,
