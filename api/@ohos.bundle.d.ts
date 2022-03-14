@@ -23,6 +23,7 @@ import { BundleInstaller } from './bundle/bundleInstaller';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 import { PermissionDef } from  './bundle/PermissionDef';
 import image from './@ohos.multimedia.image';
+import { CheckPackageHasInstalledOptions } from './bundle/CheckPackageHasInstalledOptions';
 
 /**
  * bundle.
@@ -632,6 +633,16 @@ declare namespace bundle {
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
+
+  /**
+    * Checks whether a specified application is installed.
+    * 
+    * @since 8
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param options Indicates the CheckPackageHasInstalledOptions.
+    * @permission ohos.permission.GET_BUNDLE_INFO
+    */
+  function hasInstalled(options: CheckPackageHasInstalledOptions): void;
 }
 
 export default bundle;
