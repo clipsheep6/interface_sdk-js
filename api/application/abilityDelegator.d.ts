@@ -14,11 +14,11 @@
  */
 
 import { AsyncCallback } from '../basic';
-import { Ability } from '../@ohos.application.Ability'
-import { AbilityMonitor } from './abilityMonitor'
-import { Context } from '../app/context'
-import { Want } from "../@ohos.application.Want";
-import { ShellCmdResult } from './shellCmdResult'
+import Ability from '../@ohos.application.Ability';
+import { AbilityMonitor } from './abilityMonitor';
+import { Context } from '../app/context';
+import Want from "../@ohos.application.Want";
+import { ShellCmdResult } from './shellCmdResult';
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
@@ -32,7 +32,7 @@ export interface AbilityDelegator {
     /**
      * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param monitor AbilityMonitor object
      */
@@ -42,7 +42,7 @@ export interface AbilityDelegator {
     /**
      * Remove a specified AbilityMonitor object from the application memory.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param monitor AbilityMonitor object
      */
@@ -52,7 +52,7 @@ export interface AbilityDelegator {
     /**
      * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param monitor AbilityMonitor object
      * @param timeout Maximum wait time, in milliseconds
@@ -65,7 +65,7 @@ export interface AbilityDelegator {
     /**
      * Obtain the application context.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return App Context
      */
@@ -74,7 +74,7 @@ export interface AbilityDelegator {
     /**
      * Obtain the lifecycle state of a specified ability.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param ability The Ability object
      * @return The state of the Ability object. enum AbilityLifecycleState
@@ -84,7 +84,7 @@ export interface AbilityDelegator {
     /**
      * Obtain the ability that is currently being displayed.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return The top ability of the current application
      */
@@ -105,7 +105,7 @@ export interface AbilityDelegator {
     /**
      * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param ability The ability object
      * @return true: success false: failure
@@ -116,7 +116,7 @@ export interface AbilityDelegator {
     /**
      * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param ability The ability object
      * @return true: success false: failure
