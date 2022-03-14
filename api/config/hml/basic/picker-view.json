@@ -5,7 +5,10 @@
       "name": "v3.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full",
+    "SystemCapability.ArkUI.ArkUI.Lite"
+  ],
   "description": [
     {
       "name": "The <picker-view> component provides the view that shows an embedded scrollable selector on the screen."
@@ -26,16 +29,25 @@
           "name": "text"
         },
         {
-          "name": "date"
+          "name": "date",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         },
         {
           "name": "time"
         },
         {
-          "name": "datetime"
+          "name": "datetime",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         },
         {
-          "name": "multi-text"
+          "name": "multi-text",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ]
     },
@@ -61,30 +73,48 @@
     },
     {
       "name": "indicatorprefix",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "Prefix field added when a value is specified for the text selector."
+          "name": "Prefix field added when a value is specified for the text selector.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "indicatorsuffix",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "Suffix field added when a value is specified for the text selector."
+          "name": "Suffix field added when a value is specified for the text selector.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "containsecond",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "Whether seconds are contained."
+          "name": "Whether seconds are contained.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -99,6 +129,9 @@
     },
     {
       "name": "hours",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "version": [
         {
           "name": "v5.0"
@@ -107,7 +140,10 @@
       "required": false,
       "description": [
         {
-          "name": "Time format used by the time selector. Available values include: 12: displayed in 12-hour format and distinguished by a.m. and p.m. 24: displayed in 24-hour format."
+          "name": "Time format used by the time selector. Available values include: 12: displayed in 12-hour format and distinguished by a.m. and p.m. 24: displayed in 24-hour format.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -122,26 +158,41 @@
     },
     {
       "name": "start",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "Start date of the date selector, in the format of YYYY-MM-DD."
+          "name": "Start date of the date selector, in the format of YYYY-MM-DD.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "end",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "End date of the date selector, in the format of YYYY-MM-DD."
+          "name": "End date of the date selector, in the format of YYYY-MM-DD.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "lunar",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "version": [
         {
           "name": "v5.0"
@@ -150,7 +201,10 @@
       "required": false,
       "description": [
         {
-          "name": "Whether the pop-up window displays the lunar calendar."
+          "name": "Whether the pop-up window displays the lunar calendar.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -165,6 +219,9 @@
     },
     {
       "name": "vibrate",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -173,7 +230,10 @@
       "required": false,
       "description": [
         {
-          "name": "Whether the device vibrates when the picker-view is scrolled. true: The device vibrates when the picker-view is scrolled; false: The device does not vibrate when the picker-view is scrolled."
+          "name": "Whether the device vibrates when the picker-view is scrolled. true: The device vibrates when the picker-view is scrolled; false: The device does not vibrate when the picker-view is scrolled.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -188,10 +248,16 @@
     },
     {
       "name": "lunarswitch",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "Whether to display the lunar calendar switch in the date selector. When this switch is displayed, you can switch between the lunar calendar and Gregorian calendar. Turn on the switch to display the lunar calendar, and turn off the switch to hide the lunar calendar. This attribute is available for smartphones."
+          "name": "Whether to display the lunar calendar switch in the date selector. When this switch is displayed, you can switch between the lunar calendar and Gregorian calendar. Turn on the switch to display the lunar calendar, and turn off the switch to hide the lunar calendar. This attribute is available for smartphones.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -206,20 +272,32 @@
     },
     {
       "name": "columns",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": true,
       "description": [
         {
-          "name": "Number of columns in the multi-column text selector."
+          "name": "Number of columns in the multi-column text selector.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "shareid",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
-          "name": "Used for the transition of shared elements and takes effect only when it is configured. This attribute cannot be modified after being set. list-item, image, text, button, label components are supported for the transition of shared elements."
+          "name": "Used for the transition of shared elements and takes effect only when it is configured. This attribute cannot be modified after being set. list-item, image, text, button, label components are supported for the transition of shared elements.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
@@ -286,6 +364,9 @@
     },
     {
       "name": "disabled",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -294,7 +375,10 @@
       ],
       "description": [
         {
-          "name": "Whether a component is disabled. If it is disabled, it cannot respond to user interaction."
+          "name": "Whether a component is disabled. If it is disabled, it cannot respond to user interaction.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -309,6 +393,9 @@
     },
     {
       "name": "focusable",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -317,7 +404,10 @@
       ],
       "description": [
         {
-          "name": "Whether a component can gain focus. When focusable is set to true, the component can respond to focus events and key events. If a key event or click event is set for the component, this attribute is set to true automatically."
+          "name": "Whether a component can gain focus. When focusable is set to true, the component can respond to focus events and key events. If a key event or click event is set for the component, this attribute is set to true automatically.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -332,6 +422,9 @@
     },
     {
       "name": "data-*",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -340,13 +433,19 @@
       ],
       "description": [
         {
-          "name": "Attribute set for a component to facilitate data storage and reading."
+          "name": "Attribute set for a component to facilitate data storage and reading.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "click-effect",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -355,7 +454,10 @@
       ],
       "description": [
         {
-          "name": "Click effect complying with spring physics. Available values are as follows:\nspring-small: The button icon scales down to 90% of its size when it is selected. This is appropriate for small icons.\nspring-medium: The component scales down to 95% of its size when it is selected. This is appropriate for medium-sized components.spring-large: The button icon scales down and up by 95% of its size, which is appropriate to large icons."
+          "name": "Click effect complying with spring physics. Available values are as follows:\nspring-small: The button icon scales down to 90% of its size when it is selected. This is appropriate for small icons.\nspring-medium: The component scales down to 95% of its size when it is selected. This is appropriate for medium-sized components.spring-large: The button icon scales down and up by 95% of its size, which is appropriate to large icons.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -373,6 +475,9 @@
     },
     {
       "name": "voicelabel",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -381,13 +486,19 @@
       ],
       "description": [
         {
-          "name": "Voice label. When a voice label is triggered, the click event of the component is triggered."
+          "name": "Voice label. When a voice label is triggered, the click event of the component is triggered.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "subscriptflag",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -396,7 +507,10 @@
       ],
       "description": [
         {
-          "name": "Voice subscript switch. Available values are as follows:\nauto: For the <image> and <list-item> components, if subscriptflag is set to auto, the voice subscript is turned on. For other components, if subscriptflag is set to auto, the voice subscript is turned off.\non: Turn on the voice subscript.\noff: Turn off the voice subscript.If no customized subscript is set, the subscript is automatically accumulated from 1."
+          "name": "Voice subscript switch. Available values are as follows:\nauto: For the <image> and <list-item> components, if subscriptflag is set to auto, the voice subscript is turned on. For other components, if subscriptflag is set to auto, the voice subscript is turned off.\non: Turn on the voice subscript.\noff: Turn off the voice subscript.If no customized subscript is set, the subscript is automatically accumulated from 1.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -414,6 +528,9 @@
     },
     {
       "name": "subscriptlabel",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -422,13 +539,19 @@
       ],
       "description": [
         {
-          "name": "Custom subscript. After it is set, the subscript is displayed in the way you specified. To make this attribute take effect, you need to turn on the voice subscript."
+          "name": "Custom subscript. After it is set, the subscript is displayed in the way you specified. To make this attribute take effect, you need to turn on the voice subscript.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "scenelabel",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -437,7 +560,10 @@
       ],
       "description": [
         {
-          "name": "Available values are as follows:\nvideo: Video scenario. For example, to watch a video, a user can say the voiceLabel (usually the video name), play voiceLabel, see voiceLabel, or watch voiceLabel, etc.\naudio: Music scenario. For example, to listen to a song, a user can say the voiceLabel (usually the song name), play voiceLabel, or listen voiceLabel, etc.\npage: Page scenario. For example, to go to a page, a user can say the voiceLabel (usually the page name), switch to voiceLabel, go to voiceLabel, or jump to voiceLabel, etc.\nswitch: Switch scenario. For example, to turn on or turn off a switch, a user can say the voiceLabel (usually the switch name), turn on voiceLabel, open voiceLabel, turn off voiceLabel, close voiceLabel, etc.common: Common scenario, which is triggered by the voiceLabel."
+          "name": "Available values are as follows:\nvideo: Video scenario. For example, to watch a video, a user can say the voiceLabel (usually the video name), play voiceLabel, see voiceLabel, or watch voiceLabel, etc.\naudio: Music scenario. For example, to listen to a song, a user can say the voiceLabel (usually the song name), play voiceLabel, or listen voiceLabel, etc.\npage: Page scenario. For example, to go to a page, a user can say the voiceLabel (usually the page name), switch to voiceLabel, go to voiceLabel, or jump to voiceLabel, etc.\nswitch: Switch scenario. For example, to turn on or turn off a switch, a user can say the voiceLabel (usually the switch name), turn on voiceLabel, open voiceLabel, turn off voiceLabel, close voiceLabel, etc.common: Common scenario, which is triggered by the voiceLabel.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -461,6 +587,9 @@
     },
     {
       "name": "accessibilitygroup",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -469,7 +598,10 @@
       ],
       "description": [
         {
-          "name": "Accessibility group. If this attribute is set to true, the component and all its child components form an entire selectable component, and the accessibility service will no longer available for the content of its child components."
+          "name": "Accessibility group. If this attribute is set to true, the component and all its child components form an entire selectable component, and the accessibility service will no longer available for the content of its child components.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -484,6 +616,9 @@
     },
     {
       "name": "accessibilitytext",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -492,13 +627,19 @@
       ],
       "description": [
         {
-          "name": "Accessibility text. If a component does not contain text information, it will not be read when the component is selected by the screen reader. In this case, the screen reader user cannot know which component is selected. To solve this problem, you can set this attribute for components without text information. When the component is selected by the screen reader, the specified accessibility text will be read, informing the user which component is selected. If a component with this attribute set contains text information, only the accessibility text will be read."
+          "name": "Accessibility text. If a component does not contain text information, it will not be read when the component is selected by the screen reader. In this case, the screen reader user cannot know which component is selected. To solve this problem, you can set this attribute for components without text information. When the component is selected by the screen reader, the specified accessibility text will be read, informing the user which component is selected. If a component with this attribute set contains text information, only the accessibility text will be read.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "accessibilitydescription",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -507,13 +648,19 @@
       ],
       "description": [
         {
-          "name": "Accessibility description. You can specify further explanation of the current component, for example, possible operation consequences, especially those cannot be learned from component attributes and accessibility text. You can set a detailed description text for the attribute of the component to help users understand the operation to be performed. If a component contains both text information and the accessibility description, the text is read first and then the accessibility description, when the component is selected."
+          "name": "Accessibility description. You can specify further explanation of the current component, for example, possible operation consequences, especially those cannot be learned from component attributes and accessibility text. You can set a detailed description text for the attribute of the component to help users understand the operation to be performed. If a component contains both text information and the accessibility description, the text is read first and then the accessibility description, when the component is selected.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "accessibilityimportance",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "version": [
         {
@@ -522,7 +669,10 @@
       ],
       "description": [
         {
-          "name": "Accessibility importance, which is used to decide whether a component can be identified by the accessibility service. The value can be auto, yes, no, or no-hide-descendants. The last value forces the screen reader to ignore the current component and all its subcomponents.\nyes: The current component is selectable for the accessibility service.no: The current component is not selectable for the accessibility service."
+          "name": "Accessibility importance, which is used to decide whether a component can be identified by the accessibility service. The value can be auto, yes, no, or no-hide-descendants. The last value forces the screen reader to ignore the current component and all its subcomponents.\nyes: The current component is selectable for the accessibility service.no: The current component is not selectable for the accessibility service.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
@@ -582,6 +732,9 @@
     },
     {
       "name": "dir",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "version": [
         {
           "name": "v6.0"
@@ -590,7 +743,10 @@
       "required": false,
       "description": [
         {
-          "name": "Sets the element layout mode. The rtl, ltr, and auto attributes can be set."
+          "name": "Sets the element layout mode. The rtl, ltr, and auto attributes can be set.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "enum",
@@ -671,9 +827,15 @@
     },
     {
       "name": "columnchange",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "description": [
         {
-          "name": "Triggered when the value of a column in the multi-column selector changes. column indicates the column whose value has changed, newValue indicates the selected value, and newSelected indicates the index of the selected value."
+          "name": "Triggered when the value of a column in the multi-column selector changes. column indicates the column whose value has changed, newValue indicates the selected value, and newSelected indicates the index of the selected value.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ]
     }

@@ -6,8 +6,7 @@
     }
   ],
   "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Full"
   ],
   "description": [
     {
@@ -27,6 +26,10 @@
     },
     {
       "name": "id",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -35,13 +38,21 @@
       ],
       "description": [
         {
-          "name": "Unique ID of a component."
+          "name": "Unique ID of a component.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "style",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -50,13 +61,21 @@
       ],
       "description": [
         {
-          "name": "Style declaration of a component."
+          "name": "Style declaration of a component.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "class",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -65,13 +84,21 @@
       ],
       "description": [
         {
-          "name": "Style class of a component, which is used to refer to a style table."
+          "name": "Style class of a component, which is used to refer to a style table.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "ref",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -80,7 +107,11 @@
       ],
       "description": [
         {
-          "name": "Used to register reference information of child elements or child components. The reference information is registered with the parent component on $refs."
+          "name": "Used to register reference information of child elements or child components. The reference information is registered with the parent component on $refs.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
@@ -330,6 +361,10 @@
     },
     {
       "name": "for",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -338,13 +373,21 @@
       ],
       "description": [
         {
-          "name": "Expands the current element based on the configured data list."
+          "name": "Expands the current element based on the configured data list.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "tid",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -353,13 +396,21 @@
       ],
       "description": [
         {
-          "name": "The tid attribute accelerates the for loop and improves the re-rendering efficiency when data in a loop changes.\nThe tid attribute specifies the unique ID of each element in the array. If it is not specified, the index of each element in the array is used as the ID. For example, tid=\"id\" indicates that the id attribute of each element is its unique ID."
+          "name": "The tid attribute accelerates the for loop and improves the re-rendering efficiency when data in a loop changes.\nThe tid attribute specifies the unique ID of each element in the array. If it is not specified, the index of each element in the array is used as the ID. For example, tid=\"id\" indicates that the id attribute of each element is its unique ID.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "if",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -368,7 +419,11 @@
       ],
       "description": [
         {
-          "name": "Whether the element is added or removed."
+          "name": "Whether the element is added or removed.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "enum",
@@ -409,6 +464,10 @@
     },
     {
       "name": "elif",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -428,6 +487,10 @@
     },
     {
       "name": "else",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -439,6 +502,10 @@
     },
     {
       "name": "show",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -447,7 +514,11 @@
       ],
       "description": [
         {
-          "name": "Whether the element is displayed or hidden."
+          "name": "Whether the element is displayed or hidden.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "enum",
@@ -464,6 +535,10 @@
   "events": [
     {
       "name": "drag",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -471,12 +546,20 @@
       ],
       "description": [
         {
-          "name": "The duration of drag."
+          "name": "The duration of drag.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragstart",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -484,12 +567,20 @@
       ],
       "description": [
         {
-          "name": "The drag starts."
+          "name": "The drag starts.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragend",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -497,12 +588,20 @@
       ],
       "description": [
         {
-          "name": "The drag ends."
+          "name": "The drag ends.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragenter",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -510,12 +609,20 @@
       ],
       "description": [
         {
-          "name": "The drag enters."
+          "name": "The drag enters.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragover",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -523,12 +630,20 @@
       ],
       "description": [
         {
-          "name": "The drag overs."
+          "name": "The drag overs.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragleave",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -536,12 +651,20 @@
       ],
       "description": [
         {
-          "name": "The drag leaves."
+          "name": "The drag leaves.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "drop",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -549,7 +672,11 @@
       ],
       "description": [
         {
-          "name": "The drag drops."
+          "name": "The drag drops.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
@@ -587,57 +714,113 @@
     },
     {
       "name": "click",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when a component is clicked."
+          "name": "Triggered when a component is clicked.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "longpress",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when a component is long pressed."
+          "name": "Triggered when a component is long pressed.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "doubleclick",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when a component is double clicked."
+          "name": "Triggered when a component is double clicked.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchstart",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when the pinch starts."
+          "name": "Triggered when the pinch starts.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchupdate",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when the pinch updates."
+          "name": "Triggered when the pinch updates.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchend",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when the pinch ends."
+          "name": "Triggered when the pinch ends.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchcancel",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "description": [
         {
-          "name": "Triggered when the pinch is interrupted."
+          "name": "Triggered when the pinch is interrupted.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
