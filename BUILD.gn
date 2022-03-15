@@ -60,6 +60,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/grid.d.ts",
     "api/@internal/component/ets/gridItem.d.ts",
     "api/@internal/component/ets/grid_container.d.ts",
+    "api/@internal/component/ets/hyperlink.d.ts",
     "api/@internal/component/ets/image.d.ts",
     "api/@internal/component/ets/image_animator.d.ts",
     "api/@internal/component/ets/index-full.d.ts",
