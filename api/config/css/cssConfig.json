@@ -3077,6 +3077,50 @@
             "SystemCapability.ArkUI.ArkUI.Full",
             "SystemCapability.ArkUI.ArkUI.Lite"
           ]
+        },
+        {
+          "name": "block",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ],
+          "version": [
+            {
+              "name": "v9.0"
+            }
+          ]
+        },
+        {
+          "name": "inline",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ],
+          "version": [
+            {
+              "name": "v9.0"
+            }
+          ]
+        },
+        {
+          "name": "inline-block",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ],
+          "version": [
+            {
+              "name": "v9.0"
+            }
+          ]
+        },
+        {
+          "name": "inline-flex",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ],
+          "version": [
+            {
+              "name": "v9.0"
+            }
+          ]
         }
       ],
       "version": [
@@ -7506,6 +7550,39 @@
         {
           "name": [
             "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "box-sizing",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+      "values": [
+        {
+          "name": "content-box",
+          "description": "The border fills outer",
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full"]
+        },
+        {
+          "name": "border-box",
+          "description": "The border fills inner",
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full"]
+        }
+      ],
+      "version": [
+        {
+          "name": "v9.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "border style. Available values are as follows: content-border: border is fills outer,this value is default; border-box: border is fills inner"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
           ]
         }
       ]
