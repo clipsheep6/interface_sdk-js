@@ -377,8 +377,8 @@ export declare class FeatureAbility {
 
   /**
    * Listens for messages sent from other devices.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @param options Options.
-   * @devices liteWearable
    * @since 5
    */
   static subscribeMsg(options: SubscribeMessageOptions): void;
