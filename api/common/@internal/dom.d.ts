@@ -17,6 +17,7 @@ export { Element } from './viewmodel';
 
 /**
  * global dom
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 export declare class dom {

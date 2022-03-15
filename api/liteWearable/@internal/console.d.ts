@@ -13,34 +13,43 @@
  * limitations under the License.
  */
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 7
+ */
 export declare class console {
   /**
    * Prints "debug" logs.
    * @param message Text to print
+   * @since 7
    */
   static debug(message: string): void;
 
   /**
    * Prints "log" logs.
    * @param message Text to print
+   * @since 7
    */
   static log(message: string): void;
 
   /**
    * Prints "info" logs.
    * @param message Text to print
+   * @since 7
    */
   static info(message: string): void;
 
   /**
    * Prints "warn" logs.
    * @param message Text to print
+   * @since 7
    */
   static warn(message: string): void;
 
   /**
    * Prints "error" logs.
    * @param message Text to print
+   * @since 7
    */
   static error(message: string): void;
 }
