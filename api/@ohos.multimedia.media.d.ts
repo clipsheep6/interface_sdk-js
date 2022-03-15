@@ -76,6 +76,15 @@ declare namespace media {
   function createVideoRecorder(): Promise<VideoRecorder>;
 
   /**
+   * Creates an SoundPlayer instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+   * @import import media from '@ohos.multimedia.media'
+   * @return Returns a SoundPlayer instance if the operation is successful; returns null otherwise.
+   */
+  function createSoundPlayer(): SoundPlayer;
+
+  /**
    * Enumerates ErrorCode types, return in BusinessError::code
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -1474,6 +1483,217 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     AUDIO_FLAC = 'audio/flac',
+  }
+
+  /**
+   * Play short sound. Use createSoundPlayer to create an instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+   */
+  interface SoundPlayer {
+    /**
+     * Load one sound by media uri.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param uri Playback position to jump.
+     * @return Id for loaded sound.
+     */
+    load(uri: string, callback: AsyncCallback<number>): void;
+    /**
+     * Load one sound by media uri.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param uri Playback position to jump.
+     * @return Id for loaded sound.
+     */
+    load(uri: string): Promise<number>;
+
+    /**
+      * Unload one sound by sound id.
+      * @since 8
+      * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+      * @param soundId Id for sound to unload.
+      */
+    unload(soundId: number, callback: AsyncCallback<void>): void;
+    /**
+     * Unload one sound by sound id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param soundId Id for sound to unload.
+     */
+    unload(soundId: number): Promise<void>;
+
+    /**
+     * Play one sound by sound id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param soundId Id for sound to play.
+     * @return Id for sound play task.
+     */
+    play(soundId: number, callback: AsyncCallback<number>): void;
+    /**
+     * Play one sound by sound id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param soundId Id for sound to play.
+     * @param options Options for this play task, see @SoundOptions
+     * @return Id for sound play task.
+     */
+    play(soundId: number, options: SoundOptions, callback: AsyncCallback<number>): void;
+    /**
+     * Play one sound by sound id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param soundId Id for sound to play.
+     * @param options Options for this play task, see @SoundOptions
+     * @return Id for sound play task.
+     */
+    play(soundId: number, options?: SoundOptions): Promise<number>;
+
+    /**
+     * Pause one play task by id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param taskId Id for sound play task.
+     */
+    pause(taskId: number, callback: AsyncCallback<void>): void;
+    /**
+     * Pause one play task by id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param taskId Id for sound play task.
+     */
+    pause(taskId: number): Promise<void>;
+
+    /**
+     * Pause all play tasks.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    pauseAll(callback: AsyncCallback<void>): void;
+    /**
+     * Pause all play tasks.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    pauseAll(): Promise<void>;
+
+    /**
+     * Resume one play task by id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param taskId Id for sound play task.
+     */
+    resume(taskId: number, callback: AsyncCallback<void>): void;
+    /**
+     * Resume one play task by id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param taskId Id for sound play task.
+     */
+    resume(taskId: number): Promise<void>;
+
+    /**
+     * Resume all play tasks.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    resumeAll(callback: AsyncCallback<void>): void;
+    /**
+     * Resume all play tasks.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    resumeAll(): Promise<void>;
+
+    /**
+     * Stop one play task by id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param taskId Id for sound play task.
+     */
+    stop(taskId: number, callback: AsyncCallback<void>): void;
+    /**
+     * Stop one play task by id.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param taskId Id for sound play task.
+     */
+    stop(taskId: number): Promise<void>;
+
+    /**
+     * Release sound player instance.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    release(callback: AsyncCallback<void>): void;
+    /**
+     * Release sound player instance.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    release(): Promise<void>;
+
+    /**
+     * Listens for sound loaded event.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     * @param type Type of the sound player event to listen for.
+     * @param callback Callback used to listen for the sound loaded event, return sound id.
+     */
+    on(type: 'soundLoaded', callback: Callback<number>): void;
+  }
+
+  /**
+   * Provides the sound play configuration definitions for sound player.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+   */
+  interface SoundOptions {
+    /**
+     * Loop number, 0 for no loop, -1 for forever loop.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    loopNumber: number;
+    /**
+     * Playback speed, 0.0 to 1.0.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    speed: number;
+    /**
+     * Playback volumes.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    volumes: SoundVolumes;
+    /**
+     * Sound priority for conflict situation.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    priority: number;
+  }
+
+  /**
+   * Provides the volume configuration definitions for sound player.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+   */
+  interface SoundVolumes {
+    /**
+     * Left volume, 0.0 to 1.0.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    left: number;
+    /**
+     * Right volume, 0.0 to 1.0.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Media.SoundPlayer
+     */
+    right: number;
   }
 }
 export default media;
