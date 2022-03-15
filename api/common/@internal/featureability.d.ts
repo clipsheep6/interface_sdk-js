@@ -14,7 +14,6 @@
  */
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 5
  */
 export interface Result {
@@ -32,7 +31,6 @@ export interface Result {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  */
 export interface SubscribeMessageResponse {
@@ -62,7 +60,6 @@ export interface SubscribeMessageResponse {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 5
  */
 export interface CallAbilityParam {
@@ -108,7 +105,6 @@ export interface CallAbilityParam {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 5
  */
 export interface SubscribeAbilityEventParam {
@@ -148,7 +144,6 @@ export interface SubscribeAbilityEventParam {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  */
 export interface SendMessageOptions {
@@ -198,7 +193,6 @@ export interface SendMessageOptions {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  */
 export interface SubscribeMessageOptions {
@@ -216,7 +210,6 @@ export interface SubscribeMessageOptions {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 5
  */
 export interface RequestParams {
@@ -271,7 +264,6 @@ export interface RequestParams {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 5
  */
 export interface FinishWithResultParams {
@@ -289,13 +281,11 @@ export interface FinishWithResultParams {
 }
 
 /**
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  */
 export declare class FeatureAbility {
   /**
    * Start a FA without callback result.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result of whether to call Ability's interface successfully.
    * @since 5
@@ -304,7 +294,6 @@ export declare class FeatureAbility {
 
   /**
    * Start a FA with callback result.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result of the data FA returned.
    * @since 5
@@ -313,7 +302,6 @@ export declare class FeatureAbility {
 
   /**
    * FA call the interface to destory itself and set the result as parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result whether to callback successfully.
    * @since 5
@@ -323,7 +311,6 @@ export declare class FeatureAbility {
   /**
 
    * Get device information list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param flag Default 0, get the information list of all devices in the network.
    * @returns A Promise object is returned, which contains the result whether the device information list is obtained successfully.
    * @since 5
@@ -333,7 +320,6 @@ export declare class FeatureAbility {
   /**
 
    * Calls an AA.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param param Indicates the request param.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
@@ -342,7 +328,6 @@ export declare class FeatureAbility {
 
   /**
    * Start FA migration.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
    */
@@ -350,7 +335,6 @@ export declare class FeatureAbility {
 
   /**
    * Subscribes to events of an AA.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param param Indicates the request param.
    * @param func Indicates the event reporting callback.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
@@ -360,7 +344,6 @@ export declare class FeatureAbility {
 
   /**
    * Unsubscribes from events of an AA.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param param Indicates the request param.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
@@ -369,7 +352,6 @@ export declare class FeatureAbility {
 
   /**
    * Sends messages to the destination device.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @param options Options.
    * @since 5
    */
@@ -377,7 +359,6 @@ export declare class FeatureAbility {
 
   /**
    * Listens for messages sent from other devices.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @param options Options.
    * @since 5
    */
@@ -385,7 +366,6 @@ export declare class FeatureAbility {
 
   /**
    * Cancels the listening for messages sent from other devices.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
    */
   static unsubscribeMsg(): void;
