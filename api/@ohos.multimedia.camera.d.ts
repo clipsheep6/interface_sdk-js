@@ -28,11 +28,19 @@ declare namespace camera {
   /**
    * Creates a CameraManager instance.
    * @param context Current application context.
-   * @return CameraManager instance.
+   * @param callback Callback used to return the CameraManager instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   function getCameraManager(context: Context, callback: AsyncCallback<CameraManager>): void;
+
+  /**
+   * Creates a CameraManager instance.
+   * @param context Current application context.
+   * @return Promise used to return the CameraManager instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
   function getCameraManager(context: Context): Promise<CameraManager>;
 
   /**
@@ -71,43 +79,66 @@ declare namespace camera {
   interface CameraManager  {
     /**
      * Gets all camera descriptions.
-     * @return All camera descriptions.
+     * @param callback Callback used to return the array of supported cameras.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getCameras(callback: AsyncCallback<Array<Camera>>): void;
+
+    /**
+     * Gets all camera descriptions.
+     * @return Promise used to return an array of supported cameras.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     getCameras(): Promise<Array<Camera>>;
 
     /**
      * Creates a CameraInput instance by camera id.
-     * @param cameraId Target camera id.
-     * @return CameraInput instance.
+     * @param cameraId Camera ID used to create the instance.
+     * @param callback Callback used to return the CameraInput instance.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     createCameraInput(cameraId: string, callback: AsyncCallback<CameraInput>): void;
+
+    /**
+     * Creates a CameraInput instance by camera id.
+     * @param cameraId Camera ID used to create the instance.
+     * @return Promise used to return the CameraInput instance.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     createCameraInput(cameraId: string): Promise<CameraInput>;
 
     /**
      * Creates a CameraInput instance by camera position and type.
      * @param position Target camera position.
      * @param type Target camera type.
-     * @return CameraInput instance.
+     * @param callback Callback used to return the CameraInput instance.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     createCameraInput(position: CameraPosition, type: CameraType, callback: AsyncCallback<CameraInput>): void;
+
+    /**
+     * Creates a CameraInput instance by camera position and type.
+     * @param position Target camera position.
+     * @param type Target camera type.
+     * @return Promise used to return the CameraInput instance.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     createCameraInput(position: CameraPosition, type: CameraType): Promise<CameraInput>;
 
     /**
      * Subscribes camera status change event callback.
      * @param type Event type.
-     * @return CameraStatusInfo event callback.
+     * @param callback Callback used to get the camera status change.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "cameraStatus", callback: AsyncCallback<CameraStatusInfo>): void;
+    on(type: 'cameraStatus', callback: AsyncCallback<CameraStatusInfo>): void;
   }
 
   /**
@@ -275,129 +306,223 @@ declare namespace camera {
   interface CameraInput {
     /**
      * Gets camera id.
-     * @return Camera id.
+     * @param callback Callback used to return the camera ID.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getCameraId(callback: AsyncCallback<string>): void;
+
+    /**
+     * Gets camera id.
+     * @return Promise used to return the camera ID.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     getCameraId(): Promise<string>;
 
     /**
      * Check if device has flash light.
-     * @return Flash light has or not.
+     * @param callback Callback used to return the flash light support status.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     hasFlash(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Check if device has flash light.
+     * @return Promise used to return the flash light support status.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     hasFlash(): Promise<boolean>;
 
     /**
-     * Gets all supported flash modes for current camera input.
-     * @return Supported flash mode array.
+     * Checks whether a specified flash mode is supported.
+     * @param flashMode Flash mode.
+     * @param callback Callback used to return the flash light support status.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     isFlashModeSupported(flashMode: FlashMode, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Checks whether a specified flash mode is supported.
+     * @param flashMode Flash mode
+     * @return Promise used to return flash mode support status.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     isFlashModeSupported(flashMode: FlashMode): Promise<boolean>;
 
     /**
      * Gets current flash mode.
-     * @return Current flash mode.
+     * @param callback Callback used to return the current flash mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getFlashMode(callback: AsyncCallback<FlashMode>): void;
+
+    /**
+     * Gets current flash mode.
+     * @return Promise used to return the flash mode.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     getFlashMode(): Promise<FlashMode>;
 
     /**
      * Sets flash mode.
      * @param flashMode Target flash mode.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     setFlashMode(flashMode: FlashMode, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets flash mode.
+     * @param flashMode Target flash mode.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     setFlashMode(flashMode: FlashMode): Promise<void>;
 
     /**
-     * Gets all supported focus modes for current camera input.
-     * @return Supported focus mode array.
+     * Checks whether a specified focus mode is supported.
+     * @param afMode Focus mode.
+     * @param callback Callback used to return the device focus support status.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     isFocusModeSupported(afMode: FocusMode, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Checks whether a specified focus mode is supported.
+     * @param afMode Focus mode.
+     * @return Promise used to return the focus mode support status.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     isFocusModeSupported(afMode: FocusMode): Promise<boolean>;
 
     /**
      * Gets current focus mode.
-     * @return Current focus mode.
+     * @param callback Callback used to return the current focus mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getFocusMode(callback: AsyncCallback<FocusMode>): void;
+
+    /**
+     * Gets current focus mode.
+     * @return Promise used to return the focus mode.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     getFocusMode(): Promise<FocusMode>;
 
     /**
      * Sets focus mode.
      * @param afMode Target focus mode.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     setFocusMode(afMode: FocusMode, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets focus mode.
+     * @param afMode Target focus mode.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     setFocusMode(afMode: FocusMode): Promise<void>;
 
     /**
      * Gets all supported zoom ratio range.
-     * @param afMode Target focus mode.
+     * @param callback Callback used to return the zoom ratio range.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getZoomRatioRange(callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Gets all supported zoom ratio range.
+     * @return Promise used to return the zoom ratio range.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     getZoomRatioRange(): Promise<Array<number>>;
 
     /**
      * Gets zoom ratio.
-     * @return Current zoom ratio.
+     * @param callback Callback used to return the current zoom ratio value.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getZoomRatio(callback: AsyncCallback<number>): void;
+
+    /**
+     * Gets zoom ratio.
+     * @return Promise used to return the zoom ratio value.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     getZoomRatio(): Promise<number>;
 
     /**
      * Sets zoom ratio.
      * @param zoomRatio Target zoom ratio.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     setZoomRatio(zoomRatio: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets zoom ratio.
+     * @param zoomRatio Target zoom ratio.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     setZoomRatio(zoomRatio: number): Promise<void>;
 
     /**
      * Releases instance.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Releases instance.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     release(): Promise<void>;
 
     /**
      * Subscribes focus status change event callback.
      * @param type Event type.
-     * @return FocusState event callback.
+     * @param callback Callback used to get the focus state change.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "focusStateChange", callback: AsyncCallback<FocusState>): void;
+    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
      * Subscribes error event callback.
      * @param type Event type.
-     * @return Error event callback.
+     * @param callback Callback used to get the camera input errors.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "error", callback: ErrorCallback<CameraInputError>): void;
+    on(type: 'error', callback: ErrorCallback<CameraInputError>): void;
   }
 
   /**
@@ -503,11 +628,19 @@ declare namespace camera {
   /**
    * Gets a CaptureSession instance.
    * @param context Current application context.
-   * @return CaptureSession instance.
+   * @param callback Callback used to return the CaptureSession instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   function createCaptureSession(context: Context, callback: AsyncCallback<CaptureSession>): void;
+
+  /**
+   * Gets a CaptureSession instance.
+   * @param context Current application context.
+   * @return Promise used to return the CaptureSession instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
   function createCaptureSession(context: Context): Promise<CaptureSession>;
 
   /**
@@ -517,132 +650,242 @@ declare namespace camera {
   interface CaptureSession {
     /**
      * Begin capture session config.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     beginConfig(callback: AsyncCallback<void>): void;
+
+    /**
+     * Begin capture session config.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     beginConfig(): Promise<void>;
 
     /**
      * Commit capture session config.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     commitConfig(callback: AsyncCallback<void>): void;
+
+    /**
+     * Commit capture session config.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     commitConfig(): Promise<void>;
 
     /**
      * Adds a camera input.
      * @param cameraInput Target camera input to add.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     addInput(cameraInput: CameraInput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Adds a camera input.
+     * @param cameraInput Target camera input to add.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     addInput(cameraInput: CameraInput): Promise<void>;
 
     /**
      * Adds a camera preview output.
      * @param previewOutput Target camera preview output to add.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     addOutput(previewOutput: PreviewOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Adds a camera preview output.
+     * @param previewOutput Target camera preview output to add.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     addOutput(previewOutput: PreviewOutput): Promise<void>;
 
     /**
      * Adds a camera photo output.
      * @param photoOutput Target camera photo output to add.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     addOutput(photoOutput: PhotoOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Adds a camera photo output.
+     * @param photoOutput Target camera photo output to add.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     addOutput(photoOutput: PhotoOutput): Promise<void>;
 
     /**
      * Adds a camera video output.
      * @param videoOutput Target camera video output to add.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     addOutput(videoOutput: VideoOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Adds a camera video output.
+     * @param videoOutput Target camera video output to add.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     addOutput(videoOutput: VideoOutput): Promise<void>;
 
     /**
      * Removes a camera input.
      * @param cameraInput Target camera input to remove.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     removeInput(cameraInput: CameraInput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Removes a camera input.
+     * @param cameraInput Target camera input to remove.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     removeInput(cameraInput: CameraInput): Promise<void>;
 
     /**
      * Removes a camera preview output.
      * @param previewOutput Target camera preview output to remove.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     removeOutput(previewOutput: PreviewOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Removes a camera preview output.
+     * @param previewOutput Target camera preview output to remove.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     removeOutput(previewOutput: PreviewOutput): Promise<void>;
 
     /**
      * Removes a camera photo output.
      * @param photoOutput Target camera photo output to remove.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     removeOutput(photoOutput: PhotoOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Removes a camera photo output.
+     * @param photoOutput Target camera photo output to remove.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     removeOutput(photoOutput: PhotoOutput): Promise<void>;
 
     /**
      * Removes a camera video output.
      * @param videoOutput Target camera video output to remove.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     removeOutput(videoOutput: VideoOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Removes a camera video output.
+     * @param videoOutput Target camera video output to remove.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     removeOutput(videoOutput: VideoOutput): Promise<void>;
 
     /**
      * Starts capture session.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     start(callback: AsyncCallback<void>): void;
+
+    /**
+     * Starts capture session.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     start(): Promise<void>;
 
     /**
      * Stops capture session.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     stop(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stops capture session.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     stop(): Promise<void>;
 
     /**
      * Release capture session instance.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Release capture session instance.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     release(): Promise<void>;
 
     /**
      * Subscribes error event callback.
      * @param type Event type.
-     * @return Error event callback.
+     * @param callback Callback used to get the capture session errors.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "error", callback: ErrorCallback<CaptureSessionError>): void;
+    on(type: 'error', callback: ErrorCallback<CaptureSessionError>): void;
   }
 
   /**
    * Enum for CaptureSession error code.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   enum CaptureSessionErrorCode {
     ERROR_UNKNOWN = -1
@@ -652,7 +895,6 @@ declare namespace camera {
    * Capture session error object.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   interface CaptureSessionError extends Error {
     code: CaptureSessionErrorCode;
@@ -661,11 +903,19 @@ declare namespace camera {
   /**
    * Creates a PreviewOutput instance.
    * @param surfaceId Surface object id used in camera preview output.
-   * @return PreviewOutput instance.
+   * @param callback Callback used to return the PreviewOutput instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   function createPreviewOutput(surfaceId: string, callback: AsyncCallback<PreviewOutput>): void;
+
+  /**
+   * Creates a PreviewOutput instance.
+   * @param surfaceId Surface object id used in camera preview output.
+   * @return Promise used to return the PreviewOutput instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
   function createPreviewOutput(surfaceId: string): Promise<PreviewOutput>;
 
   /**
@@ -676,46 +926,52 @@ declare namespace camera {
   interface PreviewOutput {
     /**
      * Release output instance.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Release output instance.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     release(): Promise<void>;
 
     /**
      * Subscribes frame start event callback.
      * @param type Event type.
-     * @return Frame start event callback.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "frameStart", callback: AsyncCallback<void>): void;
+    on(type: 'frameStart', callback: AsyncCallback<void>): void;
 
     /**
      * Subscribes frame end event callback.
      * @param type Event type.
-     * @return Frame end event callback.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "frameEnd", callback: AsyncCallback<void>): void;
+    on(type: 'frameEnd', callback: AsyncCallback<void>): void;
 
     /**
      * Subscribes error event callback.
      * @param type Event type.
-     * @return Error event callback.
+     * @param callback Callback used to get the preview output errors.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "error", callback: ErrorCallback<PreviewOutputError>): void;
+    on(type: 'error', callback: ErrorCallback<PreviewOutputError>): void;
   }
 
   /**
    * Enum for preview output error code.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   enum PreviewOutputErrorCode {
     ERROR_UNKNOWN = -1
@@ -725,7 +981,6 @@ declare namespace camera {
    * Preview output error object.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   interface PreviewOutputError extends Error {
     code: PreviewOutputErrorCode;
@@ -734,11 +989,19 @@ declare namespace camera {
   /**
    * Creates a PhotoOutput instance.
    * @param surfaceId Surface object id used in camera photo output.
-   * @return PhotoOutput instance.
+   * @param callback Callback used to return the PhotoOutput instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   function createPhotoOutput(surfaceId: string, callback: AsyncCallback<PhotoOutput>): void;
+
+  /**
+   * Creates a PhotoOutput instance.
+   * @param surfaceId Surface object id used in camera photo output.
+   * @return Promise used to return the PhotoOutput instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
   function createPhotoOutput(surfaceId: string): Promise<PhotoOutput>;
 
   /**
@@ -753,21 +1016,21 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     ROTATION_0 = 0,
-    
+
     /**
      * The capture image rotates 90 degrees.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     ROTATION_90 = 90,
-    
+
     /**
      * The capture image rotates 180 degrees.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     ROTATION_180 = 180,
-    
+
     /**
      * The capture image rotates 270 degrees.
      * @since 8
@@ -788,14 +1051,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     QUALITY_LEVEL_HIGH = 0,
-    
+
     /**
      * Medium image quality.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     QUALITY_LEVEL_MEDIUM,
-    
+
     /**
      * Low image quality.
      * @since 8
@@ -831,58 +1094,81 @@ declare namespace camera {
   interface PhotoOutput {
     /**
      * Start capture output.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     capture(callback: AsyncCallback<void>): void;
+
+    /**
+     * Start capture output.
+     * @param setting Photo capture settings.
+     * @param callback Callback used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void;
+
+    /**
+     * Start capture output.
+     * @param setting Photo capture settings.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     capture(setting?: PhotoCaptureSetting): Promise<void>;
 
     /**
      * Release output instance.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Release output instance.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     release(): Promise<void>;
 
     /**
      * Subscribes capture start event callback.
      * @param type Event type.
-     * @return Capture start event callback.
+     * @param callback Callback used to get the capture ID.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "captureStart", callback: AsyncCallback<number>): void;
+    on(type: 'captureStart', callback: AsyncCallback<number>): void;
 
     /**
      * Subscribes frame shutter event callback.
      * @param type Event type.
-     * @return Frame shutter event callback.
+     * @param callback Callback used to get the frame shutter information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "frameShutter", callback: AsyncCallback<FrameShutterInfo>): void;
+    on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void;
 
     /**
      * Subscribes capture end event callback.
      * @param type Event type.
-     * @return Capture end event callback.
+     * @param callback Callback used to get the capture end information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "captureEnd", callback: AsyncCallback<CaptureEndInfo>): void;
+    on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void;
 
     /**
      * Subscribes error event callback.
      * @param type Event type.
-     * @return Error event callback.
+     * @param callback Callback used to get the photo output errors.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "error", callback: ErrorCallback<PhotoOutputError>): void;
+    on(type: 'error', callback: ErrorCallback<PhotoOutputError>): void;
   }
 
   /**
@@ -929,7 +1215,6 @@ declare namespace camera {
    * Enum for photo output error code.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   enum PhotoOutputErrorCode {
     ERROR_UNKNOWN = -1
@@ -939,7 +1224,6 @@ declare namespace camera {
    * Photo output error object.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   interface PhotoOutputError extends Error {
     code: PhotoOutputErrorCode;
@@ -948,11 +1232,19 @@ declare namespace camera {
   /**
    * Creates a VideoOutput instance.
    * @param surfaceId Surface object id used in camera video output.
-   * @return VideoOutput instance.
+   * @param callback Callback used to return the VideoOutput instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   function createVideoOutput(surfaceId: string, callback: AsyncCallback<VideoOutput>): void;
+
+  /**
+   * Creates a VideoOutput instance.
+   * @param surfaceId Surface object id used in camera video output.
+   * @return Promise used to return the VideoOutput instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
   function createVideoOutput(surfaceId: string): Promise<VideoOutput>;
 
   /**
@@ -963,62 +1255,84 @@ declare namespace camera {
   interface VideoOutput {
     /**
      * Start video output.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     start(callback: AsyncCallback<void>): void;
+
+        /**
+     * Start video output.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     start(): Promise<void>;
 
     /**
      * Stop video output.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     stop(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop video output.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     stop(): Promise<void>;
 
     /**
      * Release output instance.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     release(callback: AsyncCallback<void>): void;
+
+    /**
+     * Release output instance.
+     * @return Promise used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
     release(): Promise<void>;
 
     /**
      * Subscribes frame start event callback.
      * @param type Event type.
-     * @return Frame start event callback.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "frameStart", callback: AsyncCallback<void>): void;
+    on(type: 'frameStart', callback: AsyncCallback<void>): void;
 
     /**
      * Subscribes frame end event callback.
      * @param type Event type.
-     * @return Frame end event callback.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    on(type: "frameEnd", callback: AsyncCallback<void>): void;
+    on(type: 'frameEnd', callback: AsyncCallback<void>): void;
 
     /**
      * Subscribes error event callback.
      * @param type Event type.
-     * @return Error event callback.
+     * @param callback Callback used to get the video output errors.
      * @since 8
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @initial
      */
-    on(type: "error", callback: ErrorCallback<VideoOutputError>): void;
+    on(type: 'error', callback: ErrorCallback<VideoOutputError>): void;
   }
 
   /**
    * Enum for video output error code.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   enum VideoOutputErrorCode {
     ERROR_UNKNOWN = -1
@@ -1028,7 +1342,6 @@ declare namespace camera {
    * Video output error object.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @initial
    */
   interface VideoOutputError extends Error {
     code: VideoOutputErrorCode;
