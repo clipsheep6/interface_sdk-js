@@ -20,6 +20,7 @@ import { WantAgent } from './@ohos.wantAgent';
  * Provides js api for systemTimer
  *
  * @since 7
+ * @syscap SystemCapability.Miscservices.Time
  * @systemapi Hide this for inner system use.
  */
 declare namespace systemTimer {
