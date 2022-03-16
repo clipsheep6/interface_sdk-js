@@ -20,7 +20,8 @@ import { AsyncCallback, BussinessError } from "./basic";
  *
  * @devices all
  * @since 6
- * @Syscap SystemCapability.Updater.Raw
+ * @syscap SystemCapability.Update.UpdateService
+ * @systemapi hide for inner use.
  */
 declare namespace update {
     /**
@@ -313,7 +314,8 @@ declare namespace update {
      *
      * @devices all
      * @since 6
-     * @Syscap SystemCapability.Updater.Raw
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
      */
     export interface Updater {
         /**
@@ -373,12 +375,12 @@ declare namespace update {
         applyNewVersion(): Promise<number>;
 
         /**
-         * Reboot to clean cache.
+         * Reboot and clean user data.
          *
          * @since 6
          */
-        rebootAndCleanCache(callback: AsyncCallback<number>): void;
-        rebootAndCleanCache(): Promise<number>;
+        rebootAndCleanUserData(callback: AsyncCallback<number>): void;
+        rebootAndCleanUserData(): Promise<number>;
 
         /**
          * verify update package.
