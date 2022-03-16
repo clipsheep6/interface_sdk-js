@@ -16,7 +16,7 @@ import { AsyncCallback } from './basic';
 
 /**
  * upload and download
- *
+ * @syscap SystemCapability.Miscservices.Download
  * @since 7
  * @import request from '@ohos.request';
  * @permission {@code ohos.permission.INTERNET}
