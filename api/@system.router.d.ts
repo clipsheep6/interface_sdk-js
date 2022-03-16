@@ -191,7 +191,7 @@ export default class Router {
    * @returns Page params.
    * @since 7
    */
-  static getParams(): Object;
+  static getParams(): any;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
