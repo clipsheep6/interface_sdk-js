@@ -28,7 +28,6 @@ declare namespace process {
         * return pid is the pid of the current process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return the pid of the current process.
         */
         readonly pid: number;
@@ -36,7 +35,6 @@ declare namespace process {
         * return ppid is the pid of the current child process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return the pid of the current child process.
         */
         readonly ppid: number;
@@ -45,7 +43,6 @@ declare namespace process {
         * return exitCode is the exit code of the current child process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return the exit code of the current child process.
         */
         readonly exitCode: number;
@@ -54,7 +51,6 @@ declare namespace process {
         * return boolean is whether the current process signal is sent successfully
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return whether the current process signal is sent successfully.
         */
         readonly killed: boolean;
@@ -63,7 +59,6 @@ declare namespace process {
         * return 'number' is the target process exit code
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return the target process exit code.
         */
         wait(): Promise<number>;
@@ -72,7 +67,6 @@ declare namespace process {
         * return it as 'Uint8Array' of the stdout until EOF
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return subprocess standard outpute.
         */
         getOutput(): Promise<Uint8Array>;
@@ -81,7 +75,6 @@ declare namespace process {
         * return it as 'Uint8Array of the stderr until EOF
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @return return subprocess standard error output.
         */
         getErrorOutput(): Promise<Uint8Array>;
@@ -90,7 +83,6 @@ declare namespace process {
         * close the target process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         */
         close(): void;
 
@@ -98,7 +90,6 @@ declare namespace process {
         * send a signal to process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
         * @param signal number or string represents the signal sent.
         */
         kill(signal: number | string): void;
@@ -108,7 +99,6 @@ declare namespace process {
     * returns the numeric valid group ID of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @return return the numeric valid group ID of the process.
     */
     const egid: number;
@@ -117,7 +107,6 @@ declare namespace process {
     * return the numeric valid user identity of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @return return the numeric valid user identity of the process.
     */
     const euid: number;
@@ -126,7 +115,6 @@ declare namespace process {
     * returns the numeric group id of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @return return the numeric group if of the process.
     */
     const gid: number
@@ -143,7 +131,6 @@ declare namespace process {
     * return an array with supplementary group id
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @return return an array with supplementary group id.
     */
     const groups: number[];
@@ -160,7 +147,6 @@ declare namespace process {
     * return ppid is The pid of the current child process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @return return The pid of the current child process.
     */
     const ppid: number;
@@ -259,7 +245,6 @@ declare namespace process {
     * @param options This is an object. The object contains three parameters. Timeout is the running time of the child
     * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
     * maximum buffer area for standard input and output.
-    * @systemapi Hide this for inner system use
     * @return Return a child process object.
     */
     function runCmd(command: string,
@@ -277,7 +262,6 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param type Indicates the type of event registered.
-    * @systemapi Hide this for inner system use
     * @param listener Represents the registered event function
     */
     function on(type: string, listener: EventListener): void;
@@ -287,7 +271,6 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param type Remove the type of registered event.
-    * @systemapi Hide this for inner system use
     * @return Return removed result.
     */
     function off(type: string): boolean;
@@ -304,7 +287,6 @@ declare namespace process {
     * Return the current work directory;
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @return Return the current work directory.
     */
     function cwd(): string;
@@ -313,7 +295,6 @@ declare namespace process {
     * Change current  directory
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
     * @param dir The path you want to change.
     */
     function chdir(dir: string): void;
