@@ -74,7 +74,7 @@ declare enum HitTestType {
    * The edit text.
    * @since 8
    */
-  Edit,
+  EditText,
 
   /**
    * The email address.
@@ -86,13 +86,13 @@ declare enum HitTestType {
    * The HTML::a tag with src=http.
    * @since 8
    */
-  Http,
+  HttpAnchor,
 
   /**
    * The HTML::a tag with src=http + HTML::img.
    * @since 8
    */
-  HttpImg,
+  HttpAnchorImg,
 
   /**
    * The HTML::img tag.
@@ -469,7 +469,7 @@ declare class WebController {
    * Load the given URL
    * @since 8
    */
-  loadUrl(options: { url: string; headers?: Array<{ key: string; value: string }> });
+  loadUrl(options: { url: string; headers?: Header });
 
   /**
    * refreshes the current URL.
