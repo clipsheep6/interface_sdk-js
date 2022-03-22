@@ -109,9 +109,7 @@
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
-    "SystemCapability.UserIAM.AuthExecutorManager",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
-    "SystemCapability.UserIAM.UserIdm",
     "SystemCapability.UserIAM.UserAuth.FaceAuth",
     "SystemCapability.Miscservices.InputMethodFramework",
     "SystemCapability.Miscservices.Pasteboard",
@@ -149,6 +147,8 @@
     "SystemCapability.Ability.AbilityRuntime.Mission",
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
-    "SystemCapability.Applications.ContactsData"
+    "SystemCapability.Applications.ContactsData",
+    "SystemCapability.Applications.settings.Core",
+    "SystemCapability.Test.UiTest"
   ]
 }
