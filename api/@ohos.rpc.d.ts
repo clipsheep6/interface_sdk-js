@@ -616,14 +616,14 @@ declare namespace rpc {
          * @throws ParcelException Throws this exception if reading the char array fails.
          * @since 7
          */
-        readCharArray(dataIn: number[]) : void;
+        readCharArray(dataIn: boolean[]) : void;
 
         /**
          * Reads a single character array from the {@link MessageParcel} object.
          * @return Returns a single character array.
          * @since 7
          */
-        readCharArray(): number[];
+        readCharArray(): boolean[];
 
         /**
          * Reads a string array from the {@link MessageParcel} object.
@@ -977,7 +977,7 @@ declare namespace rpc {
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
          * @since 7
          */
-        TF_WAIT_TIME  = 4;
+        TF_WAIT_TIME  = 8;
 
         /**
          * A constructor used to create a MessageOption instance.
@@ -1043,7 +1043,7 @@ declare namespace rpc {
          * if no such remote object is found.
          * @since 7
          */
-        queryLocalInterface(descriptor: string): IRemoteBroker;
+        queryLocalInterface(descriptor: string): IRemoteObject;
 
         /**
          * Queries an interface descriptor.
@@ -1196,7 +1196,7 @@ declare namespace rpc {
          * @return Returns null by default, indicating a proxy interface.
          * @since 7
          */
-        queryLocalInterface(interface: string): IRemoteBroker;
+        queryLocalInterface(interface: string): IRemoteObject;
 
         /**
          * Registers a callback used to receive death notifications of a remote object.
