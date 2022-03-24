@@ -32,12 +32,24 @@ declare namespace formBindingData {
     function createFormBindingData(obj?: Object | string): FormBindingData;
 
     /**
+     * add image field to the special FormBindingData instance.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.Form
+     * @param obj Indicates the FormBindingData instance image. This Parameter should be passed in as
+     * {key1: fileDescriptor1, key2: fileDescriptor2}.
+     * @return -
+     */
+    function addFormBindingImage(obj: Object, formBindingData: FormBindingData): void;
+
+    /**
      * Defines the createFormBindingData result interface.
      * @syscap SystemCapability.Ability.Form
      * @since 8
      */
     interface FormBindingData {
         data: Object
+        image: Object
     }
 }
 export default formBindingData;
