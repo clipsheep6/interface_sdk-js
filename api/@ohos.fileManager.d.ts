@@ -31,7 +31,7 @@ declare namespace filemanager {
  * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 8
- * @permission N/A
+ * @permission ohos.permission.FILE_MANAGER
  * @function listFile
  * @param {string} path - path.
  * @param {string} type - type.
@@ -53,7 +53,7 @@ declare function listFile(path: string, type: string, options?: {dev?: DevInfo, 
  * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 8
- * @permission N/A
+ * @permission ohos.permission.FILE_MANAGER
  * @function getRoot
  * @param {Object} options - options
  * @param {DevInfo} [options.dev = {name: "local"}] - dev name.
@@ -71,7 +71,7 @@ declare function getRoot(options?: {dev?: DevInfo}, callback: AsyncCallback<File
  * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 8
- * @permission N/A
+ * @permission ohos.permission.FILE_MANAGER
  * @function createFile
  * @param {string} path - album uri.
  * @param {string} filename- file name.
@@ -90,7 +90,6 @@ declare function createFile(path: string, filename: string, options?: {dev?: Dev
  * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 8
- * @permission N/A
  * @systemapi
  */
 declare interface FileInfo {
@@ -131,7 +130,6 @@ declare interface FileInfo {
  * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 8
- * @permission N/A
  * @systemapi
  */
  declare interface DevInfo {
