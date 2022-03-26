@@ -334,7 +334,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
@@ -344,7 +343,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
