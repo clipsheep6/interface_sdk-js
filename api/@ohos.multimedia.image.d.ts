@@ -159,6 +159,62 @@ declare namespace image {
   }
 
   /**
+   * Enumerates alpha types.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  enum AlphaType {
+    /**
+     * Indicates an unknown alpha type.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    UNKNOWN = 0,
+
+    /**
+     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    OPAQUE = 1,
+
+    /**
+     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    PREMUL = 2,
+
+    /**
+     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    UNPREMUL = 3
+  }
+
+  /**
+   * Enum for image scale mode.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  enum ScaleMode {
+    /**
+     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    CENTER_CROP = 1, // Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
+
+    /**
+     * Indicates the effect that fits the image into the target size.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    FIT_TARGET_SIZE = 2,
+  }
+
+  /**
    * The componet type of image.
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -431,6 +487,20 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     editable?: boolean;
+
+    /**
+     * PixelMap expected alpha type.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    alphaType: AlphaType;
+
+    /**
+     * PixelMap expected scaling effect.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    scaleMode: ScaleMode;
   }
 
   /**
