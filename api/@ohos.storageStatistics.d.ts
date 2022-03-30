@@ -27,6 +27,8 @@ declare namespace storageStatistics {
    * Get the totalSize of volume.
    *
    * @since 8
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @permission ohos.permission.STORAGE_MANAGER
    * @systemapi
    */
   function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
@@ -35,6 +37,8 @@ declare namespace storageStatistics {
    * Get the free size Of volume.
    * 
    * @since 8
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @permission ohos.permission.STORAGE_MANAGER
    * @systemapi
    */
   function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
