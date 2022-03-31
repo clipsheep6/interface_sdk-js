@@ -669,7 +669,7 @@ declare class CanvasRenderer extends CanvasPath {
    * none：Turn off filter effects
    * @since 8
    */
-  filter(filter: string): void;
+  filter: string;
 
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -698,6 +698,40 @@ declare class CanvasRenderer extends CanvasPath {
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
+   * is a point in path
+   * @param x position
+   * @param y position
+   * @since 9
+   */
+  isPointInPath(x: number, y: number): boolean;
+
+  /**
+   * is a point in path2D
+   * @param path path2D
+   * @param x position
+   * @param y position
+   * @since 9
+   */
+  isPointInPath(path: Path2D, x: number, y: number): boolean;
+
+  /**
+   * is a point in stroke
+   * @param x position
+   * @param y position
+   * @since 9
+   */
+  isPointInStroke(x: number, y: number): boolean;
+
+  /**
+   * is a point in stroke path2D
+   * @param path path2D
+   * @param x position
+   * @param y position
+   * @since 9
+   */
+  isPointInStroke(path: Path2D, x: number, y: number): boolean;
+
+  /**
    * Obtains the PixelMap of a specified area on the current canvas.
    * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
    * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
@@ -712,7 +746,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param imagedata ImageData object to be drawn.
    * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
-   * @since 8
+   * @since 9
    */
   putImageData(imagedata: ImageData, dx: number, dy: number): void;
 
