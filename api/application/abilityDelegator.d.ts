@@ -154,7 +154,6 @@ export interface AbilityDelegator {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
      * @param msg Log information
      * @param code Result code
      */
