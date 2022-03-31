@@ -159,6 +159,17 @@ declare namespace featureAbility {
   function getWindow(): Promise<window.Window>;
 
   /**
+   * When the ability starts, set whether to wake up the screen.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param wakeUp True means wake up the screen.
+   * @FAModelOnly
+   */
+  function setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void;
+  function setWakeUpScreen(wakeUp: boolean): Promise<void>;
+
+  /**
    * Obtain the window configuration.
    * 
    * @since 7
