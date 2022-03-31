@@ -16,6 +16,7 @@
 import { Image, ImageData } from "./global";
 import { WebGLContextAttributes, WebGLRenderingContext } from "../../webgl/webgl";
 import { WebGL2RenderingContext } from "../../webgl/webgl2";
+import { PixelMap } from "../../@ohos.multimedia.image";
 
 /**
  * Defines the foucs param.
@@ -1124,7 +1125,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dh Image The height drawn on the target canvas.
    * @since 7
    */
-  drawImage(image: Image, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(image: Image | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    * Draw an Image object.
@@ -1140,7 +1141,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @since 7
    */
   drawImage(
-    image: Image,
+    image: Image | PixelMap,
     sx: number,
     sy: number,
     sw: number,
@@ -1297,6 +1298,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @since 7
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
+
+  /**
+   * Get an PixelMap object.
+   * @param sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param sw The width of the rectangular area of the image data to be extracted.
+   * @param sh The height of the rectangular area of the image data to be extracted.
+   * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   */
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
   /**
    * Draws the specified ImageData object to the canvas.
@@ -1965,7 +1976,7 @@ export interface CanvasRenderingContext2D {
    * @param dHeight Height of the drawing area.
    * @since 4
    */
-  drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void;
+  drawImage(image: Image | PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
   /**
    * Draws an image.
@@ -1981,7 +1992,7 @@ export interface CanvasRenderingContext2D {
    * @since 4
    */
   drawImage(
-    image: Image,
+    image: Image | PixelMap,
     sx: number,
     sy: number,
     sWidth: number,
@@ -2030,6 +2041,16 @@ export interface CanvasRenderingContext2D {
    * @since 4
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
+
+  /**
+   * Get an PixelMap object.
+   * @param sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param sw The width of the rectangular area of the image data to be extracted.
+   * @param sh The height of the rectangular area of the image data to be extracted.
+   * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   */
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
   /**
    * Puts the ImageData onto a rectangular area on the canvas.
