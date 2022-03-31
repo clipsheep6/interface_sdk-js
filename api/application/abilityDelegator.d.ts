@@ -149,7 +149,7 @@ export interface AbilityDelegator {
     executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
 
     /**
-     * Prints log information to the unit testing console.
+     * Finish the test and print log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
      *
      * @since 8
