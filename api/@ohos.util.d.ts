@@ -587,9 +587,9 @@ declare namespace util {
         decode(src: Uint8Array | string): Promise<Uint8Array>;
     }
 
-    class types{
+    class Types{
         /**
-         * The types constructor
+         * The Types constructor
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param No input parameter is required.
