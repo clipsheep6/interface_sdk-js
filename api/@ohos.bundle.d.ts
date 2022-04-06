@@ -85,6 +85,7 @@ declare namespace bundle {
     GET_EXTENSION_INFO_WITH_PERMISSION = 0x00000002,
     GET_EXTENSION_INFO_WITH_APPLICATION = 0x00000004,
     GET_EXTENSION_INFO_WITH_METADATA = 0x00000020,
+    GET_EXTENSION_INFO_WITH_DISABLE = 0x00000100,
   }
 
 /**
@@ -535,14 +536,28 @@ declare namespace bundle {
    *
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param abilityInfo Indicates information about the ability to set.
+   * @param info Indicates information about the ability to set.
    * @param isEnabled Specifies whether to enable the ability. The value true means to enable it, and the
-   *                  value false means to disable it..
+   *                  value false means to disable it.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
+
+  /**
+   * Sets whether to enable a specified extensionAbility.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param info Indicates information about the extensionAbility to set.
+   * @param isEnabled Specifies whether to enable the extensionAbility. The value true means to enable it, and the
+   *                  value false means to disable it.
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @systemapi Hide this for inner system use
+   */
+     function setExtensionAbilityEnabled(info: ExtensionAbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
+     function setExtensionAbilityEnabled(info: ExtensionAbilityInfo, isEnable: boolean): Promise<void>;
 
   /**
    * Query extension info of by utilizing a Want.
@@ -609,6 +624,17 @@ declare namespace bundle {
     */ 
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
+
+  /**
+    * Checks whether a specified extensionAbility is enabled.
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param info Indicates information about the extensionAbility to check.
+    * @returns Returns true if the extensionAbility is enabled; returns false otherwise.
+  */ 
+    function isExtensionAbilityEnabled(info: ExtensionAbilityInfo, callback: AsyncCallback<boolean>): void;
+    function isExtensionAbilityEnabled(info: ExtensionAbilityInfo): Promise<boolean>;
 
   /**
     * Checks whether a specified application is enabled.
