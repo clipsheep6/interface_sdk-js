@@ -556,8 +556,8 @@ declare namespace bundle {
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use
    */
-     function setExtensionAbilityEnabled(info: ExtensionAbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
-     function setExtensionAbilityEnabled(info: ExtensionAbilityInfo, isEnable: boolean): Promise<void>;
+  function setExtensionAbilityEnabled(info: ExtensionAbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setExtensionAbilityEnabled(info: ExtensionAbilityInfo, isEnable: boolean): Promise<void>;
 
   /**
    * Query extension info of by utilizing a Want.
@@ -632,9 +632,9 @@ declare namespace bundle {
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param info Indicates information about the extensionAbility to check.
     * @returns Returns true if the extensionAbility is enabled; returns false otherwise.
-  */ 
-    function isExtensionAbilityEnabled(info: ExtensionAbilityInfo, callback: AsyncCallback<boolean>): void;
-    function isExtensionAbilityEnabled(info: ExtensionAbilityInfo): Promise<boolean>;
+    */ 
+  function isExtensionAbilityEnabled(info: ExtensionAbilityInfo, callback: AsyncCallback<boolean>): void;
+  function isExtensionAbilityEnabled(info: ExtensionAbilityInfo): Promise<boolean>;
 
   /**
     * Checks whether a specified application is enabled.
