@@ -44,6 +44,13 @@ export interface InstallParam {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   isKeepData: boolean;
+
+  /**
+    * @default Indicates whether to install a service or not
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   isHmService: boolean;
 }
 
 /**

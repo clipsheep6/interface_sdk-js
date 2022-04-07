@@ -115,7 +115,6 @@ export interface HapModuleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly installationFree: boolean;
-
   /**
     * @default Indicates main elementName of the module
     * @since 8
@@ -136,4 +135,11 @@ export interface HapModuleInfo {
     * 
     */
   readonly metadata: Array<Metadata>;
+  /**
+    * @default Indicates whether the bundle is a service
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * 
+    */
+  readonly isHmService: boolean;
 }
