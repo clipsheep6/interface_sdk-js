@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2020-2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,8 +14,8 @@
  */
 
 import { Image, ImageData } from "./global";
-import { WebGLContextAttributes, WebGLRenderingContext } from "../webgl/webgl";
-import { WebGL2RenderingContext } from "../webgl/webgl2";
+import { WebGLContextAttributes, WebGLRenderingContext } from "../../webgl/webgl";
+import { WebGL2RenderingContext } from "../../webgl/webgl2";
 
 /**
  * Defines the foucs param.

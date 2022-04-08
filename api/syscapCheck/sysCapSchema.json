@@ -26,7 +26,7 @@
       "properties": {
         "general": {
           "description": "core equipment",
-          "type":"array",
+          "type": "array",
           "items": {
             "type": "string",
             "enum": [
@@ -46,7 +46,18 @@
           "description": "N equipment",
           "type":"array",
           "items": {
-            "type": "object"
+            "maxProperties": 1,
+            "minProperties": 1,
+            "type": "object",
+            "patternProperties": {
+              ".+": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^SystemCapability\\.[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+){0,2}$"
+                }
+              }
+            }
           }
         }
       }
@@ -63,7 +74,8 @@
         "addedSysCaps": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^SystemCapability\\.[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+){0,2}$"
           }
         }
       }
@@ -81,13 +93,15 @@
         "addedSysCaps": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^SystemCapability\\.[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+){0,2}$"
           }
         },
         "removedSysCaps": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^SystemCapability\\.[a-zA-Z0-9]+\\.[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+){0,2}$"
           }
         }
       }

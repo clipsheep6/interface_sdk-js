@@ -33,11 +33,7 @@ declare namespace window {
     /**
      * System alert.
      */
-    TYPE_SYSTEM_ALERT,
-    /**
-     * System gesture.
-     */
-    TYPE_SYSTEM_GESTURE
+    TYPE_SYSTEM_ALERT
   }
 
   /**
@@ -271,7 +267,7 @@ declare namespace window {
 
     /**
      * The dimbehind value of window.
-     * @since 6
+     * @since 7
      */
     dimBehindValue: number
 
@@ -319,7 +315,6 @@ declare namespace window {
    * Create a sub window with a specific id and type, only support 7.
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 7
    */
   function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
@@ -328,7 +323,6 @@ declare namespace window {
    * Create a sub window with a specific id and type, only support 7.
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 7
    */
   function create(id: string, type: WindowType): Promise<Window>;
@@ -338,7 +332,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
@@ -348,7 +341,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
@@ -681,7 +673,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    on(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+    on(type: 'keyboardHeightChange', callback: Callback<number>): void;
 
     /**
      * unregister the callback of keyboardHeightChange
@@ -689,7 +681,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    off(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+    off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
 
     /**
      * Whether the window supports thr wide gamut setting.

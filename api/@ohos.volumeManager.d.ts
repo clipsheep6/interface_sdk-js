@@ -34,10 +34,16 @@ declare namespace volumeManager {
   id: string;
   uuid: string;
   description: string;
-  removeAble: boolean;
+  removable: boolean;
   state: number;
   path: string;
 }
+/**
+   * Get All Volumes
+   * 
+   * @since 9
+   * @systemapi
+   */
 function getAllVolumes(callback: AsyncCallback<Array<Volume>>): void;
 function getAllVolumes(): Promise<Array<Volume>>;
 

@@ -83,13 +83,13 @@ export default class Context extends BaseContext {
     databaseDir : string;
 
     /**
-     * Indicates app storage dir.
+     * Indicates app preferences dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    storageDir : string;
+    preferencesDir : string;
 
     /**
      * Indicates app bundle code dir.
@@ -160,6 +160,12 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
 export enum AreaMode {
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
     EL1 = 0,
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
     EL2 = 1
 }

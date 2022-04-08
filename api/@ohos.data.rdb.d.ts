@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
@@ -22,7 +23,6 @@ import Context from "./application/Context";
  * @since 7
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @import import data_rdb from '@ohos.data.rdb';
- * @permission N/A
  */
 declare namespace rdb {
     /**
@@ -62,7 +62,6 @@ declare namespace rdb {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SyncMode {
         /**
@@ -71,7 +70,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import N/A
-         * @permission N/A
          */
         SYNC_MODE_PUSH = 0,
 
@@ -81,7 +79,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import N/A
-         * @permission N/A
          */
         SYNC_MODE_PULL = 1,
     }
@@ -92,7 +89,6 @@ declare namespace rdb {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SubscribeType {
         /**
@@ -100,7 +96,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import N/A
-         * @permission N/A
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
     }
@@ -113,7 +108,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     interface RdbStore {
         /**
@@ -260,7 +254,7 @@ declare namespace rdb {
         sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
         /**
-         * Registers a observer for the database. When data in the distributed database changes,
+         * Registers an observer for the database. When data in the distributed database changes,
          * the callback will be invoked.
          *
          * @note N/A
@@ -289,7 +283,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValueType = number | string | boolean;
 
@@ -299,7 +292,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValuesBucket = {
         [key: string]: ValueType | Uint8Array | null;
@@ -311,7 +303,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     interface StoreConfig {
         name: string;
@@ -323,7 +314,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     class RdbPredicates {
         /**

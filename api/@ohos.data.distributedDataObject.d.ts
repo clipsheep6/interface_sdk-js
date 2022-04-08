@@ -12,6 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
 import {AsyncCallback, Callback} from './basic';
 
 /**
@@ -51,6 +52,7 @@ declare namespace distributedDataObject {
          *
          * @param sessionId The sessionId to be joined, if empty, leave all session
          * @return Operation result, true is success, false is failed
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @since 8
          */
         setSessionId(sessionId?: string): boolean;

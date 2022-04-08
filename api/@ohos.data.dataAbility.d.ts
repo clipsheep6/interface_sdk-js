@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from './basic';
 import rdb from './@ohos.data.rdb';
 
@@ -21,7 +22,6 @@ import rdb from './@ohos.data.rdb';
  * @since 7
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @import import data_dataAbility from '@ohos.data.dataAbility';
- * @permission N/A
  */
 declare namespace dataAbility {
     /**
@@ -42,7 +42,6 @@ declare namespace dataAbility {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @import import data_dataAbility from '@ohos.data.dataAbility';
-     * @permission N/A
      */
     class DataAbilityPredicates {
         /**
@@ -385,7 +384,6 @@ declare namespace dataAbility {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValueType = number | string | boolean;
 }

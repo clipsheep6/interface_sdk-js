@@ -36,8 +36,24 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
+ * Sets a vsync after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called when the vsync trigger.
+ * @since 3
+ */
+export declare function requestAnimationFrame(handler: Function): number;
+
+/**
+ * Cancels the vsync callback set by "requestAnimationFrame()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
+ * @since 3
+ */
+export declare function cancelAnimationFrame(requestId: number): void;
+
+/**
  * Cancels the interval set by " setInterval()".
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @since 3
  */
@@ -45,11 +61,21 @@ export declare function clearInterval(intervalID?: number): void;
 
 /**
  * Cancels the timer set by "setTimeout()".
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @since 3
  */
 export declare function clearTimeout(timeoutID?: number): void;
+
+/**
+ * Get the java interface instance. The java instance needs to register, otherwise it cannot be obtained.
+ * After obtaining the instance, you can call the function with the same name on the Java side.
+ * @param name Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
+ * @returns A promise object is returned. The resolve callback is the object of PA. The reject callback returns the object containing code and error data.
+ * @since 5
+ * @deprecated since 8
+ */
+export declare function createLocalParticleAbility(name?: string): any;
 
 /**
  * Defining syscap function.

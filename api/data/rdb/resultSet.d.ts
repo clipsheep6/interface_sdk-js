@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from '../../basic'
 
 /**
@@ -20,7 +21,6 @@ import { AsyncCallback } from '../../basic'
  * @since 7
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @import import data_rdb from '@ohos.data.rdb';
- * @permission N/A
  */
 interface ResultSet {
     /**

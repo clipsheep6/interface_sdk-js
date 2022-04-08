@@ -171,34 +171,29 @@ declare interface Configuration {
 
 /**
  * Defines the data type of the interface restriction.
- * @devices phone, tablet, car
  * @since 8
  */
 declare interface Rectangle {
   /**
    * x:Horizontal coordinate
-   * @devices phone, tablet, car
    * @since 8
    */
   x?: Length;
 
   /**
    * y:Vertical axis coordinate.
-   * @devices phone, tablet, car
    * @since 8
    */
   y?: Length;
 
   /**
    * Sets the width of the current touchRect.
-   * @devices phone, tablet, car
    * @since 8
    */
   width?: Length;
 
   /**
    * Sets the height of the current touchRect.
-   * @devices phone, tablet, car
    * @since 8
    */
   height?: Length;
@@ -222,25 +217,6 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @since 7
  */
 declare function $rawfile(value: string): Resource;
-
-/**
- * global getContentStorage function
- * @since 9
- */
-declare function getContentStorage(value: any): ContentStorage;
-
-/**
- * Defines the context mock object.
- * @since 8
- * @systemapi
- */
-declare type Context = any;
-
-/**
- * global getContext function
- * @since 8
- */
-declare function getContext(value: any): Context;
 
 /**
  * Defines the animate function params.
@@ -455,7 +431,7 @@ declare interface TransitionOptions {
    * Defines the param of translate.
    * @since 7
    */
-  translate?: TransitionOptions;
+  translate?: TranslateOptions;
   /**
    * Defines the param of scale.
    * @since 7
@@ -1814,6 +1790,24 @@ declare class CustomComponent {
    * @since 7
    */
   aboutToDisappear?(): void;
+
+  /**
+   * onPageShow Method
+   * @since 7
+   */
+  onPageShow?(): void;
+
+  /**
+   * onPageHide Method
+   * @since 7
+   */
+  onPageHide?(): void;
+
+  /**
+   * onBackPress Method
+   * @since 7
+   */
+  onBackPress?(): void;
 }
 
 /**
