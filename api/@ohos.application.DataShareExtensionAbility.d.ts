@@ -25,15 +25,34 @@ import rdb from './@ohos.data.rdb';
  *
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
- * @systemapi Hide this for inner system use.
+ * @StageModelOnly.
  */
 export default class DataShareExtensionAbility {
+	 /**
+     * Opens a file in a specified remote path.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+     * @param uri Indicates the path of the file to open.
+     * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
+     *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
+     *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
+     *             any existing data, or "rwt" for read and write access that truncates any existing file.
+     * @param callback Indicates the callback when openfile success
+     * @return Returns the file descriptor.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
+     */
+    openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
+    openFile(uri: string, mode: string): Promise<number>;
+
     /**
      * Indicates datashare extension ability context.
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      */
     context?: ExtensionContext;
 
@@ -43,7 +62,8 @@ export default class DataShareExtensionAbility {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param want Indicates connection information about the datashare extension ability.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return -
      */
     onCreate?(want: Want): void;
@@ -59,7 +79,8 @@ export default class DataShareExtensionAbility {
      *     <p>1. "&ast;/*": Obtains all types supported by a data share.
      *     <p>2. "image/*": Obtains files whose main type is image of any subtype.
      *     <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the MIME type of the matched files; returns null if there is no type that matches the Data
      */
     getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
@@ -71,7 +92,8 @@ export default class DataShareExtensionAbility {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the position where the data is to insert.
      * @param valueBucket Indicates the data to insert.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the index of the newly inserted data record.
      */
     insert?(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
@@ -85,7 +107,8 @@ export default class DataShareExtensionAbility {
      * @param valueBucket Indicates the data to update. This parameter can be null.
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be updated by
      *        default.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the number of data records updated.
      */
     update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates,
@@ -99,7 +122,8 @@ export default class DataShareExtensionAbility {
      * @param uri Indicates the database table storing the data to delete.
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be deleted by
      *     default.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the number of data records deleted.
      */
     delete?(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
@@ -114,7 +138,8 @@ export default class DataShareExtensionAbility {
      *                the processing logic when this parameter is null.
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be queried by
      *                   default.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the queried data.
      */
     query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates,
@@ -129,7 +154,8 @@ export default class DataShareExtensionAbility {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the uri of the data.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the MIME type that matches the data specified by {@code uri}.
      */
     getType?(uri: string, callback: AsyncCallback<string>): void;
@@ -141,7 +167,8 @@ export default class DataShareExtensionAbility {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the position where the data is to insert.
      * @param valueBuckets Indicates the data to insert.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the number of data records inserted.
      */
     batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
@@ -154,7 +181,8 @@ export default class DataShareExtensionAbility {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the uri to normalize.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the normalized uri if the data share supports URI normalization;
      */
     normalizeUri?(uri: string, callback: AsyncCallback<string>): void;
@@ -166,7 +194,8 @@ export default class DataShareExtensionAbility {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the uri to denormalize.
-     * @systemapi Hide this for inner system use.
+	 * @systemapi Hide this for inner system use.
+     * @StageModelOnly.
      * @return Returns the denormalized {@code uri} object if the denormalization is successful; returns the original
      * {@code uri} passed to this method if there is nothing to do; returns {@code null} if the data identified by
      * the original {@code uri} cannot be found in the current environment.
