@@ -124,6 +124,17 @@ declare namespace featureAbility {
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
   function hasWindowFocus(): Promise<boolean>;
 
+   /**
+   * Set the property of the ability window whether show on lock screen.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return -.
+   * @FAModelOnly
+   */
+  function setShowOnLockScreen(isShow: boolean, callback: AsyncCallback<void>): void;
+  function setShowOnLockScreen(isShow: boolean): Promise<void>;
+
   /**
    * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
    * @default -
