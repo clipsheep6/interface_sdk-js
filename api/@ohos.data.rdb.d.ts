@@ -298,8 +298,8 @@ declare namespace rdb {
          * @param backupPath Indicates the backup path of the database.
          * @return Returns 0 if the back up operation is successfull.
          */
-        ChangeDbFileForRestore(newPath:string, backupPath:string, callback: AsyncCallback<number>):void;
-        ChangeDbFileForRestore(newPath:string, backupPath:string): Promise<number>;
+        restore(newPath:string, backupPath:string, callback: AsyncCallback<number>):void;
+        restore(newPath:string, backupPath:string): Promise<number>;
     }
 
     /**
