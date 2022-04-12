@@ -296,7 +296,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param newPath Indicates the path to which the database backup files are to be restored.
          * @param backupPath Indicates the backup path of the database.
-         * @return Returns 0 if the back up operation is successfull.
+         * @return Returns 0 if the restore operation is successfull.
          */
         restore(newPath:string, backupPath:string, callback: AsyncCallback<number>):void;
         restore(newPath:string, backupPath:string): Promise<number>;
