@@ -620,6 +620,32 @@ declare namespace bundle {
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
+
+  /**
+    * Set the module wether need upgrade
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @param moduleName Indicates the module name of the application.
+    * @param isNeedUpdate Indicates isNeedUpdate of the application.
+    * @systemapi Hide this for inner system use
+    */
+  function updateModuleUpgradeFlag(bundleName: string, moduleName: string, isNeedUpdate:boolean,callback: AsyncCallback<void>):void;
+  function updateModuleUpgradeFlag(bundleName: string, moduleName: string, isNeedUpdate:boolean): Promise<void>;
+ 
+  /**
+    * Checks whether a specified module is removable.
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @param moduleName Indicates the module name of the application.
+    * @returns Returns true if the module is removable; returns false otherwise.
+    * @systemapi Hide this for inner system use
+    */
+  function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
+  function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 }
 
 export default bundle;
