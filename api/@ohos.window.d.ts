@@ -105,7 +105,7 @@ declare namespace window {
      * the content color of the navigation bar
      * @since 8
      */
-     navigationBarContentColor?: string;
+    navigationBarContentColor?: string;
   }
 
   /**
@@ -267,6 +267,7 @@ declare namespace window {
 
     /**
      * The dimbehind value of window.
+     * @systemapi Hide this for inner system use.
      * @since 7
      */
     dimBehindValue: number
@@ -595,13 +596,13 @@ declare namespace window {
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
-      /**
+    /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-       loadContent(path: string): Promise<void>;
+    loadContent(path: string): Promise<void>;
 
     /**
      * Checks whether the window is displayed
@@ -739,6 +740,7 @@ declare namespace window {
      * Sets the dimBehind of window.
      * @param dimBehindValue the specified dimBehind.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 7
      */
     setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
@@ -747,6 +749,7 @@ declare namespace window {
      * Sets the dimBehind of window.
      * @param dimBehind the specified dimBehind.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 7
      */
     setDimBehind(dimBehindValue: number): Promise<void>;
@@ -787,6 +790,7 @@ declare namespace window {
      * Sets whether outside can be touch or not.
      * @param touchable outside can be touch if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 7
      */
     setOutsideTouchable(touchable: boolean): Promise<void>;
