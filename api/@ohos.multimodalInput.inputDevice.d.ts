@@ -28,7 +28,7 @@ declare namespace inputDevice {
 
     type AxisType = 'NULL';
 
-    type KeyboardType = 'alphabetic_keyboard' | 'digital_keyboard' | 'handwriting_pen' | 'no_keyboard' | 'unknown_device';
+    type KeyboardType = 'alphabetic_keyboard' | 'digital_keyboard' | 'handwriting_pen' | 'remote_control' | 'no_keyboard' | 'unknown_device';
 
     /**
      * Defines axis information about events that can be reported by an input device.
