@@ -84,14 +84,14 @@ declare namespace inputDevice {
     function getDevice(deviceId: number): Promise<InputDeviceData>;
 
     /**
-     * 获取键盘类型
+     * 获取指定设备id的键盘类型
      *
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param deviceId 输入设备ID。
+     * @param 指定的设备id。
      * @return 返回键盘类型。
      */
-	function getKeyboardType(deviceId: number, callback: Callback<KeyboardType>): void;
+    function getKeyboardType(deviceId: number, callback: Callback<KeyboardType>): void;
     function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 }
 
