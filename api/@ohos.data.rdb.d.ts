@@ -280,7 +280,7 @@ declare namespace rdb {
          * Back up the database to the specified path.
          *
          * @note N/A
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param databasePath Indicates the backup path of the database.
          * @return Returns 0 if the back up operation is successfull.
@@ -292,7 +292,7 @@ declare namespace rdb {
          * Restore the database backup file to the specified path.
          *
          * @note N/A
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param newPath Indicates the path to which the database backup files are to be restored.
          * @param backupPath Indicates the backup path of the database.
