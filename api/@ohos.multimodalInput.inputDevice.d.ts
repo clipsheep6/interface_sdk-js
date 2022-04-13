@@ -28,6 +28,8 @@ declare namespace inputDevice {
 
     type AxisType = 'NULL';
 
+    type KeyboardType = 'alphabetic_keyboard' | 'digital_keyboard' | 'handwriting_pen' | 'no_keyboard' | 'unknown_device';
+
     /**
      * Defines axis information about events that can be reported by an input device.
      * For example, a touchscreen may report information such as x, y, and pressure,
@@ -80,6 +82,17 @@ declare namespace inputDevice {
      */
     function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
     function getDevice(deviceId: number): Promise<InputDeviceData>;
+
+    /**
+     * 获取键盘类型
+     *
+     * @since 8
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param deviceId 输入设备ID。
+     * @return 返回键盘类型。
+     */
+	function getKeyboardType(deviceId: number, callback: Callback<KeyboardType>): void;
+    function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 }
 
 export default inputDevice;
