@@ -283,10 +283,9 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param databasePath Indicates the backup path of the database.
-         * @return Returns 0 if the back up operation is successfull.
          */
-        backup(databasePath:string, callback: AsyncCallback<number>):void;
-        backup(databasePath:string): Promise<number>;
+        backup(databasePath:string, callback: AsyncCallback<void>):void;
+        backup(databasePath:string): Promise<void>;
 
         /**
          * Restore the database backup file to the specified path.
@@ -296,10 +295,9 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param newPath Indicates the path to which the database backup files are to be restored.
          * @param backupPath Indicates the backup path of the database.
-         * @return Returns 0 if the restore operation is successfull.
          */
-        restore(newPath:string, backupPath:string, callback: AsyncCallback<number>):void;
-        restore(newPath:string, backupPath:string): Promise<number>;
+        restore(newPath:string, backupPath:string, callback: AsyncCallback<void>):void;
+        restore(newPath:string, backupPath:string): Promise<void>;
     }
 
     /**
