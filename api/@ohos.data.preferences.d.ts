@@ -177,7 +177,7 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        off(type: 'change', callback: Callback<{ key: string }>): void;
+        off(type: 'change', callback?: Callback<{ key: string }>): void;
     }
 
     /**
