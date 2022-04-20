@@ -99,3 +99,97 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @since 8
  */
 export declare function canIUse(syscap: string): boolean;
+
+/**
+ * Defines the AppStorage interface.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+export declare class AppStorage {
+  /**
+   * Called when a link is set.
+   * @since 7
+   */
+  static Link(propName: string): any;
+
+  /**
+   * Called when a hyperlink is set.
+   * @since 7
+   */
+  static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+
+  /**
+   * Called when a property is set.
+   * @since 7
+   */
+  static Prop(propName: string): any;
+
+  /**
+   * Called when dynamic properties are set.
+   * @since 7
+   */
+  static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+
+  /**
+   * Called when owning or not.
+   * @since 7
+   */
+  static Has(propName: string): boolean;
+
+  /**
+   * Called when data is obtained.
+   * @since 7
+   */
+  static Get<T>(propName: string): T | undefined;
+
+  /**
+   * Called when setting.
+   * @since 7
+   */
+  static Set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * Called when setting or creating.
+   * @since 7
+   */
+  static SetOrCreate<T>(propName: string, newValue: T): void;
+
+  /**
+   * Called when a deletion is made.
+   * @since 7
+   */
+  static Delete(propName: string): boolean;
+
+  /**
+   * Called when a dictionary is sorted.
+   * @since 7
+   */
+  static Keys(): IterableIterator<string>;
+
+  /**
+   * Called when a cleanup occurs.
+   * @since 7
+   */
+  static staticClear(): boolean;
+
+  /**
+   * Called when the data can be changed.
+   * @since 7
+   */
+  static IsMutable(propName: string): boolean;
+
+  /**
+   * Called when you check how much data is stored.
+   * @since 7
+   */
+  static Size(): number;
+}
+
+/**
+ * Used for ide.
+ * @since 7
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @hide
+ */
+export declare const appStorage: AppStorage;

@@ -280,7 +280,7 @@ declare class SyncedPropertyOneWay<T>
  * Defines the AppStorage interface.
  * @since 7
  */
-declare class AppStorage {
+class AppStorage {
   /**
    * Called when a link is set.
    * @since 7
@@ -584,11 +584,3 @@ declare abstract class SubscribaleAbstract {
    */
   public removeOwningPropertyById(subscriberId: number): void;
 }
-
-/**
- * Used for ide.
- * @since 7
- * @systemapi
- * @hide
- */
-declare const appStorage: AppStorage;
