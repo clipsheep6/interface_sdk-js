@@ -26,33 +26,6 @@ interface GridInterface {
 }
 
 /**
- * The enum of property layoutDirection
- * @since 8
- */
-declare enum GridDirection {
-  /**
-   * The row direction.
-   * @since 8
-   */
-  Row,
-  /**
-   * The column direction.
-   * @since 8
-   */
-  Column,
-  /**
-   * The row reverse direction.
-   * @since 8
-   */
-  RowReverse,
-  /**
-   * The column reverse direction.
-   * @since 8
-   */
-  ColumnReverse,
-}
-
-/**
  * Defines the grid attibute functions.
  * @since 7
  */
@@ -142,10 +115,10 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   cellLength(value: number): GridAttribute;
 
   /**
-   * control GridDirection of the grid.
+   * control LayoutDirection of the grid.
    * @since 8
    */
-  layoutDirection(value: GridDirection): GridAttribute;
+  layoutDirection(value: LayoutDirection): GridAttribute;
 
   /**
    * control if the grid supports animation.

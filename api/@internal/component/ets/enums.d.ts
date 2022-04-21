@@ -1415,3 +1415,30 @@ declare enum Placement {
    */
   BottomRight,
 }
+
+/**
+ * The enum of property layoutDirection
+ * @since 8
+ */
+ declare enum LayoutDirection {
+  /**
+   * The row direction.
+   * @since 8
+   */
+  Row,
+  /**
+   * The column direction.
+   * @since 8
+   */
+  Column,
+  /**
+   * The row reverse direction.
+   * @since 8
+   */
+  RowReverse,
+  /**
+   * The column reverse direction.
+   * @since 8
+   */
+  ColumnReverse,
+}
