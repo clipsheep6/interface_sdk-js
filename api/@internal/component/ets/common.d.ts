@@ -22,7 +22,7 @@ declare const Component: ClassDecorator;
  * Defining Entry ClassDecorator.
  * @since 7
  */
-declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator & ((value: any) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -119,6 +119,110 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  * @since 7
  */
 declare const CustomDialog: ClassDecorator;
+
+/**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageLink: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining LocalStorageProp PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageProp: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+ * Defining LocalStorage.
+ * @since 9
+ */
+declare class LocalStorage {
+
+  /**
+   * constructor.
+   * @since 9
+   */
+   constructor(initializingProperties?: Object);
+
+  /**
+   * Set GetShared(@StageModelOnly).
+   * @since 9
+   */
+  static GetShared(): any;
+
+  /**
+   * return true if prooperty with given name exists
+   * @since 9
+   */
+  has(propName: string): boolean;
+
+  /**
+   * return a Map Iterator
+   * @since 9
+   */
+  keys(): IterableIterator<string>;
+
+  /**
+   * return number of properties
+   * @since 9
+   */
+  size(): number;
+
+  /**
+   * returns value of given property
+   * @since 9
+   */
+  get<T>(propName: string): T | undefined;
+
+  /**
+   * Set value of given property
+   * @since 9
+   */
+  set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * add property if not property with given name
+   * @since 9
+   */
+  setOrCreate<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * create and return a 'link' (two-way sync) to named property
+   * @since 9
+   */
+  link<T>(propName: string, linkUser?: T, subscribersName?: string): T| undefined;
+
+  /**
+   * Like link(), will create and initialize a new source property in LocalStorge if missing
+   * @since 9
+   */
+  setAndLink<T>(propName: string, defaultValue: T, linkUser?: T, subscribersName?: string): T;
+
+  /**
+   * create and return a 'prop' (one-way sync) to named property
+   * @since 9
+   */
+  prop<T>(propName: string, propUser?: T, subscribersName?: string): T | undefined;
+
+  /**
+   * Like prop(), will create and initialize a new source property in LocalStorage if missing
+   * @since 9
+   */
+  setAndProp<T>(propName: string, defaultValue: T, propUser?: T, subscribersName?: string): T;
+  
+  /**
+   * Delete property from StorageBase
+   * @since 9
+   * @returns false if method failed
+   */
+  delete(propName: string): boolean;
+
+  /**
+   * delete all properties from the StorageBase
+   * @since 9
+   */
+  clear(): boolean;
+}
 
 /**
  * Defines the data type of the interface restriction.
