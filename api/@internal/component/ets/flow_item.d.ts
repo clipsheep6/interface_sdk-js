@@ -31,18 +31,6 @@ interface FlowItemInterface {
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): FlowItemAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): FlowItemAttribute;
-
-  /**
    * FlowItem占用行数.
    * @since 9
    */

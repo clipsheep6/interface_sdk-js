@@ -43,25 +43,6 @@ interface WaterFlowInterface {
  */
 declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(style: GridStyle, scroller?: Scroller): WaterFlowAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): WaterFlowAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   * @since 9
-   */
-  debugLine(value: string): GridAttribute;
-
-  /**
    * 用于设置列与列的间距
    * @since 9
    */
