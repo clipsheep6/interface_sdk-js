@@ -774,6 +774,52 @@ declare namespace audio {
   }
 
   /**
+   * Audio usage.
+   * @since 9
+   */
+   enum AudioUsage {
+    UNKNOWN = 0,
+    MEDIA = 1,
+    COMMUNICATION = 2,
+    VOICE_COMMUNICATION_SIGNALLING = 3,
+    ALARM = 4,
+    NOTIFICATION = 5,
+    NOTIFICATION_RINGTONE = 6,
+    NOTIFICATION_EVENT = 7,
+    ASSISTANCE_ACCESSIBILITY = 8,
+    ASSISTANCE_NAVIGATION_GUIDANCE = 9,
+    ASSISTANCE_SONIFICATION = 10,
+    GAME = 11,
+    VIRTUAL_SOURCE = 12,
+    ASSISTANT = 13,
+    TTS = 14,
+    ULTRASOUND = 15,
+  }
+
+  /**
+   * Audio content.
+   * @since 9
+   */
+  enum AudioContent {
+    UNKNOWN = 0,
+    SPEECH = 1,
+    MUSIC = 2,
+    MOVIE = 3,
+    SONIFICATION = 4,
+    RINGTONE = 5
+  }
+
+  /**
+   * Audio interrupt.
+   * @since 9
+   */
+  interface Interrupt {
+    readonly sessionId : number,
+    usage : AudioUsage,
+    content : AudioContent,
+  }
+
+  /**
    * Enumerates device change types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1198,6 +1244,52 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
+    /**
+     * Create the interrupt.
+     * @param usage The audio usage type.
+     * @param content The audio content type.
+     * @param callback callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    createInterrupt(usage: AudioUsage, content: AudioContent, callback: AsyncCallback<void>): void;
+    /**
+     * Request independent interrupt event.
+     * @param interrupt The interrupt.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    requestIndependentInterrupt(interrupt: Interrupt, callback: AsyncCallback<boolean>): void;
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param interrupt The interrupt.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(interrupt: Interrupt): Promise<boolean>;
+    /**
+     * Listens for independent interruption events. When the audio of an application is interrupted by another application,
+     * the callback is invoked to notify the former application.
+     * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+     on(type: 'independentInterrupt', callback: Callback<InterruptAction>): void;
+     /**
+      * Cancels the listening of independent interruption events.
+      * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+      * @param callback Callback invoked for the independent interruption event.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Audio.Renderer
+      * @systemapi
+      */
+     off(type: 'independentInterrupt', callback?: Callback<InterruptAction>): void;
   }
 
   /**
@@ -1535,13 +1627,29 @@ declare namespace audio {
      */
     getRenderRate(): Promise<AudioRendererRate>;
     /**
+     * Sets interrupt.
+     * @param interrupt The interrupt.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterrupt(interrupt: Interrupt, callback: AsyncCallback<void>): void;
+    /**
+     * Sets audio interrupt.
+     * @param interrupt The interrupt.
+     * @return Promise used to return the audio render rate.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterrupt(interrupt: Interrupt): Promise<void>;
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param callback Callback used to listen for interrupt callback.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
+     on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
