@@ -2349,3 +2349,55 @@ declare class TSGestureGroupInterface {
    */
   pop(): GestureGroupInterface;
 }
+
+declare class TSWaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  create(style: GridStyle, scroller?: Scroller): WaterFlowAttribute;
+
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  pop(): WaterFlowAttribute;
+
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  debugLine(value: string): WaterFlowAttribute;
+}
+
+declare class TSFlowItemAttribute extends CommonMethod<FlowItemAttribute> {
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  create(): FlowItemAttribute;
+
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  pop(): FlowItemAttribute;
+
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  debugLine(value: string): FlowItemAttribute;
+}
