@@ -1649,7 +1649,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-     on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
+    on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
