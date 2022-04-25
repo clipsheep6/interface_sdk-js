@@ -774,44 +774,177 @@ declare namespace audio {
   }
 
   /**
-   * Audio usage.
+   * Enumerates the audio usage.
    * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
    */
    enum AudioUsage {
+    /**
+     * Unknow usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     UNKNOWN = 0,
+    
+    /**
+     * Media usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     MEDIA = 1,
+    
+    /**
+     * Communication usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     COMMUNICATION = 2,
+    
+    /**
+     * Voice communication siganalling usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     VOICE_COMMUNICATION_SIGNALLING = 3,
+    
+    /**
+     * Alarm usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     ALARM = 4,
+    
+    /**
+     * Notification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     NOTIFICATION = 5,
+    
+    /**
+     * Notification ringtone usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     NOTIFICATION_RINGTONE = 6,
+    
+    /**
+     * Notification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     NOTIFICATION_EVENT = 7,
+    
+    /**
+     * Assistance accessibility usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     ASSISTANCE_ACCESSIBILITY = 8,
+    
+    /**
+     * Assistance navigation guidance usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     ASSISTANCE_NAVIGATION_GUIDANCE = 9,
+    
+    /**
+     * Assistance sonification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     ASSISTANCE_SONIFICATION = 10,
+    
+    /**
+     * Game usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     GAME = 11,
+    
+    /**
+     * Virtual source usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     VIRTUAL_SOURCE = 12,
+    
+    /**
+     * Assistant usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     ASSISTANT = 13,
+    
+    /**
+     * TTS usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     TTS = 14,
+    
+    /**
+     * Ultrasound usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     ULTRASOUND = 15,
   }
 
   /**
-   * Audio content.
+   * Enumerates the audio content.
    * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
    */
   enum AudioContent {
+    /**
+     * Unknow usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     UNKNOWN = 0,
+    
+    /**
+     * Speech usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     SPEECH = 1,
+    
+    /**
+     * Music usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     MUSIC = 2,
+    
+    /**
+     * Movie usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     MOVIE = 3,
+    
+    /**
+     * Sonification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     SONIFICATION = 4,
+    
+    /**
+     * Ringtone usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
     RINGTONE = 5
   }
 
   /**
-   * Audio interrupt.
+   * Describes the parameters of interrupt.
    * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
    */
   interface Interrupt {
     readonly sessionId : number,
