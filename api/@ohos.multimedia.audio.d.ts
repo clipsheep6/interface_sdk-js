@@ -1413,7 +1413,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      */
-     on(type: 'independentInterrupt', callback: Callback<InterruptAction>): void;
+    on(type: 'independentInterrupt', callback: Callback<InterruptAction>): void;
      /**
       * Cancels the listening of independent interruption events.
       * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
@@ -1422,7 +1422,7 @@ declare namespace audio {
       * @syscap SystemCapability.Multimedia.Audio.Renderer
       * @systemapi
       */
-     off(type: 'independentInterrupt', callback?: Callback<InterruptAction>): void;
+    off(type: 'independentInterrupt', callback?: Callback<InterruptAction>): void;
   }
 
   /**
