@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -2348,4 +2348,27 @@ declare class TSGestureGroupInterface {
    * @since 8
    */
   pop(): GestureGroupInterface;
+}
+
+/**
+ * Used for TS compiler.
+ * @ignore
+ * @systemapi
+ * @since 8
+ */
+declare class TSRemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 8
+   */
+  create(windowIdLow32Bit?: number, windowIdHigh32Bit?: number, windowName?: string): RemoteWindowAttribute;
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 8
+   */
+  pop(): RemoteWindowAttribute;
 }
