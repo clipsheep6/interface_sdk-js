@@ -48,12 +48,6 @@ interface PluginComponentInterface {
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
-   * Set pluginComponent size,
-   * @since 8
-   */
-  size(value: { width: number; height: number }): PluginComponentAttribute;
-
-  /**
    * pluginComponent onComplete callback,
    * @since 8
    */
