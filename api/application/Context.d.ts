@@ -149,7 +149,17 @@ export default class Context extends BaseContext {
      * @param mode file area.
      * @StageModelOnly
      */
-     switchArea(mode: AreaMode): void;
+    switchArea(mode: AreaMode): void;
+
+     /**
+     * Get file area
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return file area.
+     * @StageModelOnly
+     */
+    getArea(): string;
 }
 
 /**
