@@ -1219,12 +1219,12 @@ declare namespace audio {
      */
     readonly deviceType: DeviceType;
     /**
-     * the type of netWorkId 
+     * Distributed device id
      * @since 8 
      */
     readonly netWorkId: string;
     /**
-     * the type of netWorkId 
+     * Audio port name
      * @since 8 
      */
     readonly portId: string;
@@ -1263,7 +1263,7 @@ declare namespace audio {
      */
     updateUi: boolean;
     /**
-     * device web id
+     * Distributed device id
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio
      */
