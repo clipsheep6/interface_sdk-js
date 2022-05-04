@@ -159,7 +159,7 @@ export default class Context extends BaseContext {
      * @return file area.
      * @StageModelOnly
      */
-    getArea(): string;
+    getArea(): AreaMode;
 }
 
 /**
