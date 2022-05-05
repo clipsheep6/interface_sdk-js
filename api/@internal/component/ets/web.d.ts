@@ -175,19 +175,19 @@ declare enum RenderExitReason {
   PROCESS_WAS_KILLED,
 
   /**
-   * SIGKILL or task manager kill.
+   * Segmentation fault.
    * @since 8
    */
   PROCESS_CRASHED,
 
   /**
-   * SIGKILL or task manager kill.
+   * Out of memory.
    * @since 8
    */
   PROCESS_OOM,
 
   /**
-   * SIGKILL or task manager kill.
+   * Unkown reason.
    * @since 8
    */
   PROCESS_EXIT_UNKNOWN,
@@ -763,7 +763,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether javaScript running in the context of a file URL can access content from other file URLs.
    * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
    * {@code false} otherwise.
-   * 
+   *
    * @since 8
    */
   fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
@@ -889,6 +889,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   userAgent(userAgent: string): WebAttribute;
+
+  /**
+   * Sets the Web's debugging access.
+   * @param webDebuggingAccess {@code true} means the Web access to remote debugging; {@code false} otherwise.
+   *
+   * @since 9
+   */
+  webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.
@@ -1042,7 +1050,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    */
-  onFileSelectorShow(callback: (event?: { result: FileSelectorResult, 
+  onFileSelectorShow(callback: (event?: { result: FileSelectorResult,
     fileSelector: FileSelectorParam }) => void): WebAttribute;
 }
 
