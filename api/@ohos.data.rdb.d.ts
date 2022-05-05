@@ -277,24 +277,24 @@ declare namespace rdb {
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
         /**
-         * Back up the database to the specified path.
+         * Backup the database.
          *
          * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param databasePath Indicates the backup path of the database.
+         * @param databasePath Indicates the backup name of the database.
          */
         backup(databasePath:string, callback: AsyncCallback<void>):void;
         backup(databasePath:string): Promise<void>;
 
         /**
-         * Restore the database backup file to the specified path.
+         * Restore the database.
          *
          * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param newPath Indicates the path to which the database backup files are to be restored.
-         * @param backupPath Indicates the backup path of the database.
+         * @param newPath Indicates the restore name when the database restored.
+         * @param backupPath Indicates the backup name of the database.
          */
         restore(newPath:string, backupPath:string, callback: AsyncCallback<void>):void;
         restore(newPath:string, backupPath:string): Promise<void>;
