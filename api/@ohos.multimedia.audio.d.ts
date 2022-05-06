@@ -1218,6 +1218,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceType: DeviceType;
+    /**
+     * Distributed device id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio
+     */
+    readonly netWorkId: string;
   }
 
   /**
@@ -1252,6 +1258,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     updateUi: boolean;
+    /**
+     * Distributed device id 
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio
+     */
+    netWorkId: string;
   }
 
   /**
