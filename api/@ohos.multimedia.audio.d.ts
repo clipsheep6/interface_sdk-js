@@ -1224,12 +1224,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio
      */
     readonly netWorkId: string;
-    /**
-     * Audio port name 
-     * @since 9 
-     * @syscap SystemCapability.Multimedia.Audio
-     */
-    readonly portName: string;
   }
 
   /**
