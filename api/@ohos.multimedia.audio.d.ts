@@ -1077,6 +1077,50 @@ declare namespace audio {
      */
     getAudioParameter(key: string): Promise<string>;
     /**
+     * Sets an distributed audio parameter. This method uses an asynchronous callback to return the result.
+     * @param netWorkId the distributed device net id.
+     * @param key Key of the distributed audio parameter to set.
+     * @param value Value of the distributed audio parameter to set.
+     * @param callback Callback used to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @systemapi
+     */
+    setDistributedAudioParm(netWorkId: string, key: string, value: string, callback: AsyncCallback<void>): void;
+     /**
+      * Sets an distributed audio parameter. This method uses a promise to return the result.
+      * @param netWorkId the distributed device id.
+      * @param key Key of the distributed audio parameter to set.
+      * @param value Value of the distributed audio parameter to set.
+      * @return Promise used to return the result.
+      * @since 8
+      * @syscap SystemCapability.Multimedia.Audio.Core
+      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+      * @systemapi
+      */
+    setDistributedAudioParm(netWorkId: string, key: string, value: string): Promise<void>;
+     /**
+      * Obtains the value of an distributed audio parameter. This method uses an asynchronous callback to return the query result.
+      * @param netWorkId the distributed device id.
+      * @param key Key of the distributed audio parameter whose value is to be obtained.
+      * @param callback Callback used to return the value of the distributed audio parameter.
+      * @since 8
+      * @syscap SystemCapability.Multimedia.Audio.Core
+      * @systemapi
+      */
+    getDistributedAudioParm(netWorkId: string, key: string, callback: AsyncCallback<string>): void;
+     /**
+      * Obtains the value of an distributed audio parameter. This method uses a promise to return the query result.
+      * @param netWorkId the distributed device id.
+      * @param key Key of the distributed audio parameter whose value is to be obtained.
+      * @return Promise used to return the value of the distributed audio parameter.
+      * @since 8
+      * @syscap SystemCapability.Multimedia.Audio.Core
+      * @systemapi
+      */
+    getDistributedAudioParm(netWorkId: string, key: string): Promise<string>;
+    /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
      * @param deviceType Audio device type.
      * @param active Active status to set. The value true means to set the device to the active status, and false
@@ -1218,6 +1262,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceType: DeviceType;
+    /**
+     * Distributed device id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio
+     */
+    readonly netWorkId: string;
   }
 
   /**
@@ -1252,6 +1302,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     updateUi: boolean;
+    /**
+     * Distributed device id 
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio
+     */
+    netWorkId: string;
   }
 
   /**
