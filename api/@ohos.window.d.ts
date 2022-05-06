@@ -810,6 +810,22 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets whether is transparent or not.
+     * @param isTransparent is transparent if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setTransparent(isTransparent: boolean): Promise<void>;
+
+    /**
+    * Sets whether is transparent or not.
+    * @param isTransparent is transparent if true, or not if false.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @since 7
+    */
+    setTransparent(isTransparent: boolean, callback: AsyncCallback<void>): void;
   }
   /**
    * window stage callback event type
