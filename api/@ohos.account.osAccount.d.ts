@@ -404,6 +404,41 @@ declare namespace osAccount {
          * @systemapi Hide this for inner system use.
          */
         off(type: 'activate' | 'activating', name: string, callback?: Callback<number>): void;
+
+        /**
+         * Obtain bundle id from uid.
+         *
+         * @since 9
+         * @param uid Indicates the target uid.
+         * @return bundle id.
+         * @systemapi Hide this for inner system use.
+         */
+        getBundleIdFromUid(uid: number, callback: AsyncCallback<number>): void;
+        getBundleIdFromUid(uid: number): Promise<number>;
+
+        /**
+         * Check whether current process belongs to the main os account
+         *
+         * @since 9
+         * @return Returns {@code true} if current process belongs to the main os account;
+         *         returns {@code false} otherwise.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @systemapi Hide this for inner system use.
+         */
+        isMainOsAccount(callback: AsyncCallback<boolean>): void;
+        isMainOsAccount(): Promise<boolean>;
+
+        /**
+         * Queries the constraint type list of the os account
+         *
+         * @since 9
+         * @return Returns {@code true} if current process belongs to the main os account;
+         *         returns {@code false} otherwise.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @systemapi Hide this for inner system use.
+         */
+        queryOsAccountConstraintTypes(localId: number, constraint: string, callback: AsyncCallback<Array<ConstraintTypeInfo>>): void;
+        queryOsAccountConstraintTypes(localId: number, constraint: string): Promise<Array<ConstraintTypeInfo>>;
     }
 
     /**
@@ -1364,6 +1399,57 @@ declare namespace osAccount {
          * Indicates that the fingerprint image is unreadable due to lack of motion.
          */
         FINGERPRINT_TIP_TOO_SLOW = 5
+    }
+
+    /**
+     * Enumerates for constraint types.
+     *
+     * @name ConstraintType
+     * @since 9
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum ConstraintType {
+        /**
+         * No constraints are set
+         */
+        CONSTRAINT_NOT_EXIST = 0,
+
+        /**
+         * Constraint is set by setOsAccountConstraints
+         */
+        CONSTRAINT_TYPE_BASE = 1,
+
+        /**
+         * Constraint is set by device owner
+         */
+        CONSTRAINT_TYPE_DEVICE_OWNER = 2,
+
+        /**
+         * Constraint is set by profile owner
+         */
+        CONSTRAINT_TYPE_PROFILE_OWNER = 3
+    }
+
+    /**
+     * Provides information about the constraint type info of an os account.
+     *
+     * @name ConstraintTypeInfo
+     * @since 9
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface ConstraintTypeInfo {
+        /**
+         * Indicates the id of an os account who set the constraint.
+         * When type is CONSTRAINT_TYPE_BASE, localId will be -1.
+         */
+        localId: number;
+
+        /**
+         * Indicates the type of the constraint.
+         */
+        type: ConstraintType;
     }
 }
 
