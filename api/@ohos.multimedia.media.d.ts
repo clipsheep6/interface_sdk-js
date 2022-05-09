@@ -270,6 +270,66 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There is a audio track selected
+     * by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @param callback async callback return the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number, callback: AsyncCallback<number>): void;
+
+    /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There is a audio track selected
+     * by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @return a promise to report the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number): Promise<number>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @return a promise to return the indexes of currently selected tracks.
+     */
+    getSelectedTracks(): Promise<Array<number>>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param callback async callback return the the indexes of currently selected tracks.
+     */
+    getSelectedTracks(callback: AsyncCallback<Array<number>>): void
+
+    /**
+     * Set the network stream playback's cache limit.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param limit the value indicates how much data need to be cached before starting playback.
+     * @param callback async callback to indicate this call finished.
+     */
+    setCacheLimit(limit: number, callback: AsyncCallback<void>): void
+
+    /**
+     * Set the network stream playback's cache limit.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param limit the value indicates how much data need to be cached before starting playback.
+     * @return a promise to indicate this call finished.
+     */
+    setCacheLimit(limit: number): Promise<void>
+
+    /**
      * Listens for audio playback buffering events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
@@ -972,6 +1032,66 @@ declare namespace media {
     * @return A Promise instance used to return the track info in MediaDescription.
     */
     getTrackDescription() : Promise<Array<MediaDescription>>;
+
+    /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There are a video and audio track
+     * selected by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @param callback async callback return the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number, callback: AsyncCallback<number>): void;
+
+    /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There are a video and audio track
+     * selected by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @return a promise to report the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number): Promise<number>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @return a promise to return the indexes of currently selected tracks.
+     */
+    getSelectedTracks(): Promise<Array<number>>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param callback async callback return the the indexes of currently selected tracks.
+     */
+    getSelectedTracks(callback: AsyncCallback<Array<number>>): void
+
+    /**
+     * Set the network stream playback's cache limit.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param limit the value indicates how much data need to be cached before starting playback.
+     * @param callback async callback to indicate this call finished.
+     */
+    setCacheLimit(limit: number, callback: AsyncCallback<void>): void
+
+    /**
+     * Set the network stream playback's cache limit.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param limit the value indicates how much data need to be cached before starting playback.
+     * @return a promise to indicate this call finished.
+     */
+    setCacheLimit(limit: number): Promise<void>
 
     /**
      * media url. Mainstream video formats are supported.
