@@ -312,24 +312,6 @@ declare namespace media {
     getSelectedTracks(callback: AsyncCallback<Array<number>>): void
 
     /**
-     * Set the network stream playback's cache limit.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     * @param limit the value indicates how much data need to be cached before starting playback.
-     * @param callback async callback to indicate this call finished.
-     */
-    setCacheLimit(limit: number, callback: AsyncCallback<void>): void
-
-    /**
-     * Set the network stream playback's cache limit.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     * @param limit the value indicates how much data need to be cached before starting playback.
-     * @return a promise to indicate this call finished.
-     */
-    setCacheLimit(limit: number): Promise<void>
-
-    /**
      * Listens for audio playback buffering events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
@@ -352,6 +334,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
     loop: boolean;
+
+    /**
+     * The network stream playback's cache limit. The value indicates how much data need to be
+     * cached in memory expressed in milliseconds before starting playback. For local file's
+     * playback, write this variable is no effect and get this variable will always return -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    cachedDurationLimit: number;
+
+    /**
+     * The network stream playback's cache limit. The value indicates how much data need to be
+     * cached in memory expressed in bytes before starting playback. For local file's playback,
+     * write this variable is no effect and get this variable will always return -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    cachedSizeLimit: number;
 
     /**
      * Current playback position.
@@ -1076,24 +1076,6 @@ declare namespace media {
     getSelectedTracks(callback: AsyncCallback<Array<number>>): void
 
     /**
-     * Set the network stream playback's cache limit.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @param limit the value indicates how much data need to be cached before starting playback.
-     * @param callback async callback to indicate this call finished.
-     */
-    setCacheLimit(limit: number, callback: AsyncCallback<void>): void
-
-    /**
-     * Set the network stream playback's cache limit.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @param limit the value indicates how much data need to be cached before starting playback.
-     * @return a promise to indicate this call finished.
-     */
-    setCacheLimit(limit: number): Promise<void>
-
-    /**
      * media url. Mainstream video formats are supported.
      * local:fd://XXX, file://XXX. network:http://xxx
      * @since 8
@@ -1107,6 +1089,24 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
     loop: boolean;
+
+    /**
+     * The network stream playback's cache limit. The value indicates how much data need to be
+     * cached in memory expressed in milliseconds before starting playback. For local file's
+     * playback, write this variable is no effect and get this variable will always return -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    cachedDurationLimit: number;
+
+    /**
+     * The network stream playback's cache limit. The value indicates how much data need to be
+     * cached in memory expressed in bytes before starting playback. For local file's playback,
+     * write this variable is no effect and get this variable will always return -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    cachedSizeLimit: number;
 
     /**
      * Current playback position.
