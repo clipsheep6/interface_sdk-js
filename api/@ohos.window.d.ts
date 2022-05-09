@@ -810,6 +810,13 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * disable window decoration. It must be called before loadContent.
+     * @systemapi
+     * @since 9
+     */
+     disableWindowDecor(): void;
   }
   /**
    * window stage callback event type
