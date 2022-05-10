@@ -278,6 +278,29 @@ declare namespace rdb {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+
+        /**
+         * Backup the database.
+         *
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param databasePath Indicates the backup name of the database.
+         */
+        backup(databasePath:string, callback: AsyncCallback<void>):void;
+        backup(databasePath:string): Promise<void>;
+
+        /**
+         * Restore the database.
+         *
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param newPath Indicates the restore name when the database restored.
+         * @param backupPath Indicates the backup name of the database.
+         */
+        restore(newPath:string, backupPath:string, callback: AsyncCallback<void>):void;
+        restore(newPath:string, backupPath:string): Promise<void>;
     }
 
     /**
