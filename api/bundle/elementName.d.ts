@@ -43,6 +43,15 @@
   bundleName: string;
 
   /**
+   * module name
+   * @default -
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  moduleName: string;
+
+  /**
    * ability name
    * @default ability class name.
    *
