@@ -19,7 +19,7 @@
  */
 export interface BrightnessResponse {
     /**
-     * Screen brightness, which ranges from 1 to 100.
+     * Screen brightness, which ranges from 1 to 255.
      * @since 3
      */
     value: number;
@@ -201,7 +201,7 @@ export default class Brightness {
      * @param options Options.
      * @since 3
      */
-    static setValue(options?: SetBrightnessOptions): void;
+    static setValue(options: SetBrightnessOptions): void;
 
     /**
      * Obtains the screen brightness adjustment mode.
@@ -215,12 +215,12 @@ export default class Brightness {
      * @param options Options.
      * @since 3
      */
-    static setMode(options?: SetBrightnessModeOptions): void;
+    static setMode(options: SetBrightnessModeOptions): void;
 
     /**
-     * Sets whether to always keey the screen on.
+     * Sets whether to always keep the screen on.
      * @param options Options.
      * @since 3
      */
-    static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;
+    static setKeepScreenOn(options: SetKeepScreenOnOptions): void;
 }
