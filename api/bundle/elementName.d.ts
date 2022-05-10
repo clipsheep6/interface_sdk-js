@@ -49,7 +49,7 @@
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
    */
-  moduleName: string;
+  moduleName?: string;
 
   /**
    * ability name
