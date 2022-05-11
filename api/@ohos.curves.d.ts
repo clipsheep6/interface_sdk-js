@@ -41,28 +41,36 @@ declare namespace curves {
   }
 
   /**
-   * Initializes the interpolator curve when called.
-   * @since 7
+   * Interface for curve object.
+   * @since 9
    */
-  function init(curve?: Curve): string;
+  interface ICurve {
+    interpolate(fraction : number) : number;
+  }
+
+  /**
+   * Initializes the interpolator curve when called.
+   * @since 9
+   */
+  function init(curve?: Curve): ICurve;
 
   /**
    * Constructs a step curve when called.
-   * @since 7
+   * @since 9
    */
-  function steps(count: number, end: boolean): string;
+  function steps(count: number, end: boolean): ICurve;
 
   /**
    * Constructs a third-order Bezier curve when called.
-   * @since 7
+   * @since 9
    */
-  function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
+  function cubicBezier(x1: number, y1: number, x2: number, y2: number): ICurve;
 
   /**
    * Constructs a spring curve when called.
-   * @since 7
+   * @since 9
    */
-  function spring(velocity: number, mass: number, stiffness: number, damping: number): string;
+  function spring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 }
 
 export default curves;
