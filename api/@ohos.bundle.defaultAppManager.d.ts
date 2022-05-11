@@ -65,12 +65,10 @@ declare namespace defaultAppManager {
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type application type or file type.
-   * @param userId indicates the id for the user.
    * @return return true if caller is default application; return false otherwise.
    * @permission N/A
    */
-  function isDefaultApplication(type: string, userId?: number) : Promise<boolean>;
-  function isDefaultApplication(type: string, userId: number, callback: AsyncCallback<boolean>) : void;
+  function isDefaultApplication(type: string) : Promise<boolean>;
   function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
 
   /**
