@@ -128,9 +128,14 @@ import { AsyncCallback } from "./basic";
         deviceId: string;
 
         /**
+         * The bundle name
+         */
+        bundleName: string;
+
+        /**
          * The list of permision name
          */ 
-        permissionName: Array<string>;
+        permNames: Array<string>;
 
         /**
          * The begin time
