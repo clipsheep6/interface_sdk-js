@@ -42,7 +42,7 @@ declare namespace curves {
 
   /**
    * Interface for curve object.
-   * @since 9
+   * @since 7
    */
   interface ICurve {
     interpolate(fraction : number) : number;
@@ -50,25 +50,25 @@ declare namespace curves {
 
   /**
    * Initializes the interpolator curve when called.
-   * @since 9
+   * @since 7
    */
   function init(curve?: Curve): ICurve;
 
   /**
    * Constructs a step curve when called.
-   * @since 9
+   * @since 7
    */
   function steps(count: number, end: boolean): ICurve;
 
   /**
    * Constructs a third-order Bezier curve when called.
-   * @since 9
+   * @since 7
    */
   function cubicBezier(x1: number, y1: number, x2: number, y2: number): ICurve;
 
   /**
    * Constructs a spring curve when called.
-   * @since 9
+   * @since 7
    */
   function spring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
 }
