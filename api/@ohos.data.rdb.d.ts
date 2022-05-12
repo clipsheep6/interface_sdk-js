@@ -17,7 +17,7 @@ import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
-import { DataShareValuesBucket } from "./@ohos.data.DataShareValuesBucket";
+import { ValueType, ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
  * Provides methods for rdbStore create and delete.
@@ -135,8 +135,8 @@ declare namespace rdb {
          * @param values Indicates the row of data to be inserted into the table.
          * @return Returns the row ID if the operation is successful; returns -1 otherwise.
          */
-        insert(name: string, values: DataShareValuesBucket, callback: AsyncCallback<number>): void;
-        insert(name: string, values: DataShareValuesBucket): Promise<number>;
+        insert(name: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
+        insert(name: string, values: ValuesBucket): Promise<number>;
 
         /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
@@ -162,8 +162,8 @@ declare namespace rdb {
          * @param predicates Indicates the specified update condition by the instance object of RdbPredicates.
          * @return Returns the number of affected rows.
          */
-        update(name: string, values: DataShareValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(name: string, values: DataShareValuesBucket, predicates: DataSharePredicates): Promise<number>;
+        update(name: string, values: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
+        update(name: string, values: ValuesBucket, predicates: DataSharePredicates): Promise<number>;
  
         /**
          * Deletes data from the database based on a specified instance object of rdbPredicates.
@@ -333,26 +333,6 @@ declare namespace rdb {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-    }
-
-    /**
-     * Indicates possible value types
-     *
-     * @since 7
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
-     */
-    type ValueType = number | string | boolean;
-
-    /**
-     * Values in buckets are stored in key-value pairs
-     *
-     * @since 7
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import import data_rdb from '@ohos.data.rdb';
-     */
-    type ValuesBucket = {
-        [key: string]: ValueType | Uint8Array | null;
     }
 
     /**
