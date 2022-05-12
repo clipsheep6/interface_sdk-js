@@ -900,6 +900,13 @@ declare namespace window {
      * @since 9
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+    /**
+     * Sets whether can show on lock screen or not.
+     * @param showOnLockScreen can show on lock screen if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setShowOnLockScreen(showOnLockScreen: boolean): void;
   }
 }
 
