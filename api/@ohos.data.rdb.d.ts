@@ -17,7 +17,6 @@ import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
-import DataShareResultSet from "./@ohos.data.DataShareResultSet";
 import { DataShareValuesBucket } from "./@ohos.data.DataShareValuesBucket";
 /**
  * Provides methods for rdbStore create and delete.
