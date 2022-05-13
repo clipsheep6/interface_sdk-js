@@ -1118,18 +1118,18 @@ export interface OffscreenCanvasRenderingContext2D {
 
   /**
    * Draw an Image object.
-   * @param image An element drawn to the context.
+   * @param image An element drawn to the context. Only support Image object in api7 and support Pixelmap object since api9.
    * @param dx The top left corner of the image is the X-axis coordinates on the target canvas.
    * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
    * @param dw Image The width drawn on the target canvas.
    * @param dh Image The height drawn on the target canvas.
-   * @since 7
+   * @since 9
    */
   drawImage(image: Image | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    * Draw an Image object.
-   * @param image An element drawn to the context.
+   * @param image An element drawn to the context. Only support Image object in api7 and support Pixelmap object since api9.
    * @param dx The top left corner of the image is the X-axis coordinates on the target canvas.
    * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
    * @param dw Image The width drawn on the target canvas.
@@ -1138,7 +1138,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sy The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
    * @param sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
    * @param sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
-   * @since 7
+   * @since 9
    */
   drawImage(
     image: Image | PixelMap,
@@ -1306,6 +1306,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
    * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   * @since 9
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
@@ -1969,18 +1970,18 @@ export interface CanvasRenderingContext2D {
 
   /**
    * Draws an image.
-   * @param image Image resource.
+   * @param image An element drawn to the context. Only support Image object in api7 and support Pixelmap object since api9.
    * @param dx X-coordinate of the upper left corner of the drawing area on the canvas.
    * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
-   * @since 4
+   * @since 9
    */
   drawImage(image: Image | PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
   /**
    * Draws an image.
-   * @param image Image resource.
+   * @param image An element drawn to the context. Only support Image object in api7 and support Pixelmap object since api9.
    * @param sx X-coordinate of the upper left corner of the rectangle used to crop the source image.
    * @param sy Y-coordinate of the upper left corner of the rectangle used to crop the source image.
    * @param sWidth Target width of the image to crop.
@@ -1989,7 +1990,7 @@ export interface CanvasRenderingContext2D {
    * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
-   * @since 4
+   * @since 9
    */
   drawImage(
     image: Image | PixelMap,
@@ -2049,6 +2050,7 @@ export interface CanvasRenderingContext2D {
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
    * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   * @since 9
    */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
