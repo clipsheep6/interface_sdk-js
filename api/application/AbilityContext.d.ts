@@ -24,7 +24,7 @@ import StartOptions from "../@ohos.application.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
 import Caller from '../@ohos.application.Ability';
-import { LocalStorage } from '../@internal/component/ets/stateManagement';
+import { LocalStorage } from '../@internal/component/ets/state_management';
 import image from '../@ohos.multimedia.image';
 
 /**
