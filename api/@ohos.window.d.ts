@@ -875,6 +875,13 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * disable window decoration. It must be called before loadContent.
+     * @systemapi
+     * @since 9
+     */
+     disableWindowDecor(): void;
   }
   /**
    * window stage callback event type
@@ -958,6 +965,13 @@ declare namespace window {
      * @since 9
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+    /**
+     * Sets whether can show on lock screen or not
+     * @param showOnLockScreen can show on lock screen if true, or not if false
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setShowOnLockScreen(showOnLockScreen: boolean): void;
   }
 }
 
