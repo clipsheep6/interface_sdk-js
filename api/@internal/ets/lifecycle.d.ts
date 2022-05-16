@@ -129,6 +129,16 @@ export declare interface LifecycleForm {
    * @FAModelOnly
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
+
+  /**
+   * Called when the system shares the form.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return Returns the WantParams object.
+   * @FAModelOnly
+   */
+  onShare?(): {[key: string]: any};
 }
 
 /**
