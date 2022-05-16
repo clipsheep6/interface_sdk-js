@@ -18,7 +18,7 @@ import { ApplicationInfo } from './bundle/applicationInfo';
 import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
-import Want from './@ohos.application.want';
+import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { PermissionDef } from  './bundle/PermissionDef';
 import image from './@ohos.multimedia.image';
@@ -71,6 +71,10 @@ declare namespace bundle {
      * @since 8
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
+    /**
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_CERTIFICATE_FINGERPRINT = 0x00000400,
   }
 
 /**
