@@ -50,6 +50,16 @@
 }
 
 /**
+ * Represents the point on the device screen.
+ *
+ * @since 9
+ */
+declare interface Point {
+    readonly  X: number;
+    readonly  Y: number;
+}
+
+/**
  * Represents the rectangle area on the device screen.
  *
  * @since 9
@@ -371,18 +381,20 @@ declare interface Rect {
       /**
        * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
+       * @param speed the speed of swipe,default 600.
        * @since 9
        * @test
        */
-      scrollToTop(): Promise<void>;
+      scrollToTop(speed?: number): Promise<void>;
 
       /**
        * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
+       * @param speed the speed of swipe,default 600.
        * @since 9
        * @test
        */
-      scrollToBottom(): Promise<void>;
+      scrollToBottom(speed?: number): Promise<void>;
 
       /**
        * Scroll on this {@link UiComponent}to find matched {@link UiComponent},applicable to scrollable one.
@@ -402,6 +414,15 @@ declare interface Rect {
        * @test
        */
       getBounds(): Promise<Rect>;
+
+      /**
+       * Get the boundsCenter of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @return the boundsCenter object.
+       * @since 9
+       * @test
+       */
+      getBoundsCenter(): Promise<Point>;
 
       /**
        * Drag this {@link UiComponent} to the bounds rect of target UiComponent.
