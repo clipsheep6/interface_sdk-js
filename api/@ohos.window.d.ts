@@ -14,7 +14,7 @@
 */
 import { AsyncCallback, Callback } from './basic' ;
 import { Context } from  './app/context';
-import { LocalStorage } from './@internal/component/ets/stateManagement'
+import { LocalStorage } from './@internal/component/ets/state_management'
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
