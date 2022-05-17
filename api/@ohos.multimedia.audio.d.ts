@@ -774,6 +774,185 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the audio usage.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+   enum AudioUsage {
+    /**
+     * Unknow usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    UNKNOWN = 0,
+    
+    /**
+     * Media usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    MEDIA = 1,
+    
+    /**
+     * Communication usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    COMMUNICATION = 2,
+    
+    /**
+     * Voice communication siganalling usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    VOICE_COMMUNICATION_SIGNALLING = 3,
+    
+    /**
+     * Alarm usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    ALARM = 4,
+    
+    /**
+     * Notification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    NOTIFICATION = 5,
+    
+    /**
+     * Notification ringtone usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    NOTIFICATION_RINGTONE = 6,
+    
+    /**
+     * Notification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    NOTIFICATION_EVENT = 7,
+    
+    /**
+     * Assistance accessibility usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    ASSISTANCE_ACCESSIBILITY = 8,
+    
+    /**
+     * Assistance navigation guidance usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    ASSISTANCE_NAVIGATION_GUIDANCE = 9,
+    
+    /**
+     * Assistance sonification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    ASSISTANCE_SONIFICATION = 10,
+    
+    /**
+     * Game usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    GAME = 11,
+    
+    /**
+     * Virtual source usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    VIRTUAL_SOURCE = 12,
+    
+    /**
+     * Assistant usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    ASSISTANT = 13,
+    
+    /**
+     * TTS usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    TTS = 14,
+    
+    /**
+     * Ultrasound usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    ULTRASOUND = 15,
+  }
+
+  /**
+   * Enumerates the audio content.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum AudioContent {
+    /**
+     * Unknow usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    UNKNOWN = 0,
+    
+    /**
+     * Speech usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    SPEECH = 1,
+    
+    /**
+     * Music usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    MUSIC = 2,
+    
+    /**
+     * Movie usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    MOVIE = 3,
+    
+    /**
+     * Sonification usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    SONIFICATION = 4,
+    
+    /**
+     * Ringtone usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    RINGTONE = 5
+  }
+
+  /**
+   * Describes the parameters of interrupt.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface Interrupt {
+    readonly sessionId : number,
+    usage : AudioUsage,
+    content : AudioContent,
+  }
+
+  /**
    * Enumerates device change types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1198,6 +1377,52 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
+    /**
+     * Create the interrupt.
+     * @param usage The audio usage type.
+     * @param content The audio content type.
+     * @param callback callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    createInterrupt(usage: AudioUsage, content: AudioContent, callback: AsyncCallback<void>): void;
+    /**
+     * Request independent interrupt event.
+     * @param interrupt The interrupt.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    requestIndependentInterrupt(interrupt: Interrupt, callback: AsyncCallback<boolean>): void;
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param interrupt The interrupt.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(interrupt: Interrupt): Promise<boolean>;
+    /**
+     * Listens for independent interruption events. When the audio of an application is interrupted by another application,
+     * the callback is invoked to notify the former application.
+     * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    on(type: 'independentInterrupt', callback: Callback<InterruptAction>): void;
+     /**
+      * Cancels the listening of independent interruption events.
+      * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+      * @param callback Callback invoked for the independent interruption event.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Audio.Renderer
+      * @systemapi
+      */
+    off(type: 'independentInterrupt', callback?: Callback<InterruptAction>): void;
   }
 
   /**
@@ -1534,6 +1759,22 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRenderRate(): Promise<AudioRendererRate>;
+    /**
+     * Sets interrupt.
+     * @param interrupt The interrupt.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterrupt(interrupt: Interrupt, callback: AsyncCallback<void>): void;
+    /**
+     * Sets audio interrupt.
+     * @param interrupt The interrupt.
+     * @return Promise used to return the audio render rate.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterrupt(interrupt: Interrupt): Promise<void>;
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
