@@ -321,7 +321,7 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the playback event.
      */
-    on(type: 'play' | 'pause' | 'stop' | 'reset' | 'dataLoad' | 'finish' | 'volumeChange', callback: () => void): void;
+    on(type: 'play' | 'pause' | 'stop' | 'reset' | 'loadeddata' | 'finish' | 'volumeChange', callback: () => void): void;
 
     /**
      * Listens for audio playback events.
@@ -330,7 +330,7 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the playback event.
      */
-    on(type: 'timeUpdate', callback: Callback<number>): void;
+    on(type: 'timeupdate', callback: Callback<number>): void;
 
     /**
      * Listens for playback error events.
