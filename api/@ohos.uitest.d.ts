@@ -381,7 +381,7 @@ declare interface Rect {
       /**
        * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe,default 600.
+       * @param speed the speed of swipe (pixels per second), default is 600.
        * @since 9
        * @test
        */
@@ -390,7 +390,7 @@ declare interface Rect {
       /**
        * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe,default 600.
+       * @param speed the speed of swipe (pixels per second), default is 600.
        * @since 9
        * @test
        */
@@ -556,7 +556,7 @@ declare interface Rect {
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe,default 600.
+   * @param speed the speed of swipe (pixels per second), default is 600.
    * @since 8
    * @test
    */
@@ -569,7 +569,7 @@ declare interface Rect {
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of drag,default 600.
+   * @param speed the speed of swipe (pixels per second), default is 600.
    * @since 9
    * @test
    */
