@@ -15,6 +15,8 @@
 
 import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.application.formBindingData";
+import formInfo from "./@ohos.application.formInfo";
+import Want from './@ohos.application.Want';
 
 /**
  * interface of formProvider.
@@ -50,5 +52,45 @@ declare namespace formProvider {
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
         callback: AsyncCallback<void>): void;
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
+
+    /**
+     * Request to publish a form to the form host.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param want The want of the form to publish
+     * @param formBindingData Indicates the form data
+     * @systemapi hide for inner use.
+     * @return Returns form id
+     */
+    function requestPublishForm(want: Want, callback: AsyncCallback<number>): void;
+    function requestPublishForm(want: Want, formBindingData: formBindingData.FormBindingData,
+        callback: AsyncCallback<number>): void;
+    function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<number>;
+
+    /**
+     * Add the form info.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param formInfo Indicates the form info to be added
+     * @systemapi hide for inner use.
+     * @return -
+     */
+    function addFormInfo(formInfo: formInfo.FormInfo, callback: AsyncCallback<void>);
+    function addFormInfo(formInfo: formInfo.FormInfo): Promise<void>;
+
+    /**
+     * Remove the specified form info.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param moduleName Indicates the module name of the dynamic form info to be removed
+     * @param formName Indicates the form name of the dynamic form info to be removed
+     * @systemapi hide for inner use.
+     * @return -
+     */
+    function removeFormInfo(moduleName: string, formName: string, callback: AsyncCallback<void>);
+    function removeFormInfo(moduleName: string, formName: string): Promise<void>;
 }
 export default formProvider;
