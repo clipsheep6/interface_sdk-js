@@ -135,10 +135,11 @@ export declare interface LifecycleForm {
    *
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param formId Indicates the ID of the deleted form.
    * @return Returns the WantParams object.
    * @FAModelOnly
    */
-  onShare?(): {[key: string]: any};
+  onShare?(formId: string): {[key: string]: any};
 }
 
 /**

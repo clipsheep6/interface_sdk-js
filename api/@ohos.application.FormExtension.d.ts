@@ -145,8 +145,9 @@ export default class FormExtension {
      *
      * @since 9
      * @syscap SystemCapability.Ability.Form
+	 * @param formId Indicates the ID of the form.
      * @return Returns the WantParams object.
      * @StageModelOnly
      */
-    onShare(): {[key: string]: any};
+    onShare(formId: string): {[key: string]: any};
 }
