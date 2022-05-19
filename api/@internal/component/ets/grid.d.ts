@@ -28,26 +28,31 @@ interface GridInterface {
 /**
  * The enum of property layoutDirection
  * @since 8
+ * @deprecated since 9
  */
 declare enum GridDirection {
   /**
    * The row direction.
    * @since 8
+   * @deprecated since 9
    */
   Row,
   /**
    * The column direction.
    * @since 8
+   * @deprecated since 9
    */
   Column,
   /**
    * The row reverse direction.
    * @since 8
+   * @deprecated since 9
    */
   RowReverse,
   /**
    * The column reverse direction.
    * @since 8
+   * @deprecated since 9
    */
   ColumnReverse,
 }
@@ -142,16 +147,29 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   cellLength(value: number): GridAttribute;
 
   /**
-   * control GridDirection of the grid.
+   * control the layout orientation of the grid.
    * @since 8
    */
-  layoutDirection(value: GridDirection): GridAttribute;
+  layoutDirection(value: LayoutOrientation | GridDirection): GridAttribute;
 
   /**
    * control if the grid supports animation.
    * @since 8
+   * @deprecated since 9
    */
   supportAnimation(value: boolean): GridAttribute;
+
+  /**
+   * control if the grid supports drag animation.
+   * @since 9
+   */
+   dragAnimation(value: boolean): GridAttribute;
+
+   /**
+    * control if the grid supports edge effection.
+    * @since 9
+    */
+   edgeEffection(value: EdgeEffect): GridAttribute;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
