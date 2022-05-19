@@ -1418,6 +1418,21 @@ declare namespace distributedData {
          sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
 
          /**
+         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
+         * {@code KvStoreObserver} will be invoked.
+         *
+         * @note N/A
+         * @since 7
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param observer Indicates the observer of data change events in the distributed database.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         on(event: 'syncComplete', type: SubscribeType, observer: Callback<ChangeNotification>): void;
+
+         /**
           * Register Synchronizes SingleKvStore databases callback.
           * 
           * <p> Sync result is returned through asynchronous callback.
@@ -1429,6 +1444,19 @@ declare namespace distributedData {
           */
          on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
 
+        /**
+         * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
+         *
+         * @note N/A
+         * @since 8
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         off(event:'syncComplete', observer?: Callback<ChangeNotification>): void;
+
          /**
           * UnRegister Synchronizes SingleKvStore databases callback.
           * @note N/A
@@ -1437,7 +1465,6 @@ declare namespace distributedData {
           * @throws Throws this exception if no {@code SingleKvStore} database is available.
           */
          off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
-	 
 	 
          /**
           * Sets the default delay allowed for database synchronization
@@ -1665,6 +1692,34 @@ declare namespace distributedData {
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+        
+        /**
+         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
+         * {@code KvStoreObserver} will be invoked.
+         *
+         * @note N/A
+         * @since 7
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param observer Indicates the observer of data change events in the distributed database.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         on(event: 'syncComplete', type: SubscribeType, observer: Callback<ChangeNotification>): void;
+
+        /**
+         * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
+         *
+         * @note N/A
+         * @since 8
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         off(event:'syncComplete', observer?: Callback<ChangeNotification>): void;
 
         /**
          * UnRegister Synchronizes DeviceKVStore databases callback.
@@ -1673,7 +1728,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;   
     }
     
     /**
