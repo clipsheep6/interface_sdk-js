@@ -1430,7 +1430,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-         on(event: 'syncComplete', type: SubscribeType, observer: Callback<ChangeNotification>): void;
+         on(event: 'dataChange', type: SubscribeType, observer: Callback<ChangeNotification>): void;
 
          /**
           * Register Synchronizes SingleKvStore databases callback.
@@ -1455,7 +1455,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-         off(event:'syncComplete', observer?: Callback<ChangeNotification>): void;
+         off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
 
          /**
           * UnRegister Synchronizes SingleKvStore databases callback.
@@ -1706,7 +1706,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-         on(event: 'syncComplete', type: SubscribeType, observer: Callback<ChangeNotification>): void;
+         on(event: 'dataChange', type: SubscribeType, observer: Callback<ChangeNotification>): void;
 
         /**
          * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
@@ -1719,7 +1719,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-         off(event:'syncComplete', observer?: Callback<ChangeNotification>): void;
+         off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
 
         /**
          * UnRegister Synchronizes DeviceKVStore databases callback.
