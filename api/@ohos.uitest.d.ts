@@ -50,6 +50,16 @@
 }
 
 /**
+ * Represents the point on the device screen.
+ *
+ * @since 9
+ */
+declare interface Point {
+    readonly  X: number;
+    readonly  Y: number;
+}
+
+/**
  * Represents the rectangle area on the device screen.
  *
  * @since 9
@@ -371,18 +381,20 @@ declare interface Rect {
       /**
        * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
        * @since 9
        * @test
        */
-      scrollToTop(): Promise<void>;
+      scrollToTop(speed?: number): Promise<void>;
 
       /**
        * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
        * @since 9
        * @test
        */
-      scrollToBottom(): Promise<void>;
+      scrollToBottom(speed?: number): Promise<void>;
 
       /**
        * Scroll on this {@link UiComponent}to find matched {@link UiComponent},applicable to scrollable one.
@@ -394,7 +406,7 @@ declare interface Rect {
        */
       scrollSearch(by:By):Promise<UiComponent>;
 
-	  /**
+      /**
        * Get the bounds rect of this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
        * @return the bounds rect object.
@@ -402,6 +414,15 @@ declare interface Rect {
        * @test
        */
       getBounds(): Promise<Rect>;
+
+      /**
+       * Get the boundsCenter of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @return the boundsCenter object.
+       * @since 9
+       * @test
+       */
+      getBoundsCenter(): Promise<Point>;
 
       /**
        * Drag this {@link UiComponent} to the bounds rect of target UiComponent.
@@ -535,22 +556,24 @@ declare interface Rect {
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
    * @since 8
    * @test
    */
-  swipe(startx:number,starty:number,endx:number,endy:number):Promise<void>;
+  swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
 
-/**
+  /**
    * Drag on the screen between the specified points.
    * @syscap SystemCapability.Test.UiTest
    * @param startx the x-coordinate of the starting point.
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
    * @since 9
    * @test
    */
-  drag(startx: number, starty: number, endx: number, endy: number): Promise<void>;
+  drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
 
   /**
    * Capture current screen and save as picture which PNG format.
