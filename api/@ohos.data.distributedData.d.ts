@@ -1189,6 +1189,15 @@ declare namespace distributedData {
         off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
 
         /**
+        * UnRegister Synchronizes {@code KvStore} database callback.
+        * @note N/A
+        * @since 8
+        * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+        * @throws Throws this exception if no {@code SingleKvStore} database is available.
+        */
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
+
+        /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
          * 
          * @note N/A
@@ -1728,7 +1737,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;   
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
     }
     
     /**
