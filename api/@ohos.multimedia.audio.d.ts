@@ -2002,7 +2002,26 @@ declare namespace audio {
   }
 
   enum ToneType {
+    TONE_TYPE_DIAL_0 = 0, // 0 key
+    TONE_TYPE_DIAL_1,     // 1 key
+    TONE_TYPE_DIAL_2,     // 2 key
+    TONE_TYPE_DIAL_3,     // 3 key
+    TONE_TYPE_DIAL_4,     // 4 key
+    TONE_TYPE_DIAL_5,     // 5 key
+    TONE_TYPE_DIAL_6,     // 6 key
+    TONE_TYPE_DIAL_7,     // 7 key
+    TONE_TYPE_DIAL_8,     // 8 key
+    TONE_TYPE_DIAL_9,     // 9 key
+    TONE_TYPE_DIAL_S,     // * key
+    TONE_TYPE_DIAL_P,     // # key
+    TONE_TYPE_DIAL_A,     // A key
+    TONE_TYPE_DIAL_B,     // B key
+    TONE_TYPE_DIAL_C,     // C key
+    TONE_TYPE_DIAL_D,     // D key
 
+    TONE_TYPE_CALL_SUP_DIAL = 100,
+
+    TONE_TYPE_CALL_PROP_BEEP = 200,
   }
 
   /**
