@@ -727,6 +727,32 @@ declare namespace bundle {
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
+   * Obtains the config file designated by metadata name and ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param ability Indicates the abilityInfo of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getConfigFileByAbility(ability: AbilityInfo, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getConfigFileByAbility(ability: AbilityInfo, metadataName?: string): Promise<Array<string>>;
+
+  /**
+   * Obtains the config file designated by metadata name and ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param ability Indicates the abilityInfo of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getConfigFileByExtension(extension: ExtensionAbilityInfo, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getConfigFileByExtension(extension: ExtensionAbilityInfo, metadataName?: string): Promise<Array<string>>;
 }
 
 export default bundle;
