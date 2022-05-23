@@ -1218,6 +1218,29 @@ declare namespace audio {
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
 
     /**
+     * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(callback: AsyncCallback<AudioStreamManager>): void;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(): Promise<AudioStreamManager>;
+  }
+
+  /**
+   * Implements audio stream management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface AudioStreamManager {
+    /**
      * Get infos of current existing audio renderers.
      * @param callback Callback used to return the infos of current existing audio renderers.
      * @since 9
@@ -1298,11 +1321,11 @@ declare namespace audio {
    */
   interface AudioRendererChangeInfo {
     /**
-     * Session id.
+     * Audio stream unique id.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    readonly sessionId: number;
+    readonly streamId: number;
 
     /**
      * Uid for audio renderer client application.
@@ -1342,11 +1365,11 @@ declare namespace audio {
    */
   interface AudioCapturerChangeInfo {
     /**
-     * Session id.
+     * Audio stream unique id.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    readonly sessionId: number;
+    readonly streamId: number;
 
     /**
      * Uid for audio capturer client application.
