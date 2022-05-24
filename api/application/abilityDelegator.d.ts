@@ -136,6 +136,16 @@ export interface AbilityDelegator {
     print(msg: string): Promise<void>;
 
     /**
+     * Synchronously print the log information to the unit test console.
+     * The total length of the log information to be printed cannot exceed 1000 characters.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param msg Log information
+     */
+    syncPrint(msg: string): void;
+
+    /**
      * Execute the given command in the aa tools side.
      *
      * @since 8
