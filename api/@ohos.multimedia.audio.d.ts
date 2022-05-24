@@ -1218,7 +1218,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
+  }
 
+  /**
+   * Implements audio stream management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface AudioStreamManager {
     /**
      * Check if system support low latency configuration in audio renderer.
      * @since 9
