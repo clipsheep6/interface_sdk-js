@@ -336,25 +336,6 @@ declare namespace media {
     loop: boolean;
 
     /**
-     * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in milliseconds before starting playback. Defautly, the player
-     * will decide cache limit by itself. For local file's playback, write this variable is no
-     * effect and get this variable will always return -1.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     */
-    cachedDurationLimit?: number;
-
-    /**
-     * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in bytes before starting playback. Defautly, the player will
-     * decide cache limit by itself. For local file's playback, write this variable is no effect
-     * and get this variable will always return -1.
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     */
-    cachedSizeLimit?: number;
-
-    /**
      * Current playback position.
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
@@ -374,6 +355,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
     readonly state: AudioState;
+
+    /**
+     * the network stream playback's cache limit. Defautly, the player will decide cache limit by
+     * itself, set it to change the limit by yourself. For local file's playback, write this variable
+     * is no effect and get this variable will always return a object with that all property is -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    cacheLimit ?: PlaybackCacheLimit;
 
     /**
      * Listens for audio playback events.
@@ -1092,26 +1082,6 @@ declare namespace media {
     loop: boolean;
 
     /**
-     * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in milliseconds before starting playback. Defautly, the player
-     * will decide cache limit by itself. For local file's playback, write this variable is no
-     * effect and get this variable will always return -1.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     */
-    cachedDurationLimit?: number;
-
-    /**
-     * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in bytes before starting playback. Defautly, the player will
-     * decide cache limit by itself. For local file's playback, write this variable is no effect
-     * and get this variable will always return -1.
-     * @since NA
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     */
-    cachedSizeLimit?: number;
-
-    /**
      * Current playback position.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -1145,6 +1115,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
     readonly height: number;
+
+    /**
+     * the network stream playback's cache limit. Defautly, the player will decide cache limit by
+     * itself, set it to change the limit by yourself. For local file's playback, write this variable
+     * is no effect and get this variable will always return a object with that all property is -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    cacheLimit ?: PlaybackCacheLimit;
 
     /**
      * set payback speed.
@@ -1207,6 +1186,29 @@ declare namespace media {
      * @param callback Callback used to listen for the playback error event.
      */
     on(type: 'error', callback: ErrorCallback): void;
+  }
+
+  /**
+   * The network stream playback's cache limit.
+   * @since NA
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  interface PlaybackCacheLimit {
+    /**
+     * The value indicates how much data need to be cached in memory expressed in milliseconds
+     * before starting playback.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    durationUpperLimit?: number;
+
+    /**
+     * The value indicates how much data need to be cached in memory expressed in bytes before
+     * starting playback.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    sizeUpperLimit?: number;
   }
 
   /**
