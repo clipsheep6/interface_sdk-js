@@ -337,21 +337,22 @@ declare namespace media {
 
     /**
      * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in milliseconds before starting playback. For local file's
-     * playback, write this variable is no effect and get this variable will always return -1.
+     * cached in memory expressed in milliseconds before starting playback. Defautly, the player
+     * will decide cache limit by itself. For local file's playback, write this variable is no
+     * effect and get this variable will always return -1.
      * @since NA
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
-    cachedDurationLimit: number;
+    cachedDurationLimit?: number;
 
     /**
      * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in bytes before starting playback. For local file's playback,
-     * write this variable is no effect and get this variable will always return -1.
-     * @since NA
+     * cached in memory expressed in bytes before starting playback. Defautly, the player will
+     * decide cache limit by itself. For local file's playback, write this variable is no effect
+     * and get this variable will always return -1.
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
-    cachedSizeLimit: number;
+    cachedSizeLimit?: number;
 
     /**
      * Current playback position.
@@ -1092,21 +1093,23 @@ declare namespace media {
 
     /**
      * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in milliseconds before starting playback. For local file's
-     * playback, write this variable is no effect and get this variable will always return -1.
+     * cached in memory expressed in milliseconds before starting playback. Defautly, the player
+     * will decide cache limit by itself. For local file's playback, write this variable is no
+     * effect and get this variable will always return -1.
      * @since NA
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    cachedDurationLimit: number;
+    cachedDurationLimit?: number;
 
     /**
      * The network stream playback's cache limit. The value indicates how much data need to be
-     * cached in memory expressed in bytes before starting playback. For local file's playback,
-     * write this variable is no effect and get this variable will always return -1.
+     * cached in memory expressed in bytes before starting playback. Defautly, the player will
+     * decide cache limit by itself. For local file's playback, write this variable is no effect
+     * and get this variable will always return -1.
      * @since NA
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    cachedSizeLimit: number;
+    cachedSizeLimit?: number;
 
     /**
      * Current playback position.
