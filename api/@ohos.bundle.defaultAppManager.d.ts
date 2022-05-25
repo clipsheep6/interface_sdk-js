@@ -57,6 +57,30 @@ declare namespace defaultAppManager {
      * @since 9
      */
     VIDEO = "VIDEO",
+    /**
+     * default pdf identifier.
+     *
+     * @since 9
+     */
+    PDF = "PDF",
+    /**
+     * default word identifier.
+     *
+     * @since 9
+     */
+    WORD = "WORD",
+    /**
+     * default excel identifier.
+     *
+     * @since 9
+     */
+    EXCEL = "EXCEL",
+    /**
+     * default ppt identifier.
+     *
+     * @since 9
+     */
+    PPT = "PPT",
   }
 
   /**
