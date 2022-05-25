@@ -49,8 +49,8 @@ declare namespace systemTime {
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      * @since 8
      */
-    function getRealTime(isNano?: boolean, callback: AsyncCallback<number>): void;
-    function getRealTime(isNano?: boolean): Promise<number>;
+    function getRealTime(callback: AsyncCallback<number>): void;
+    function getRealTime(): Promise<number>;
 
     /**
      * Sets the system time.
