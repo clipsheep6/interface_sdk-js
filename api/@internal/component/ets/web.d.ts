@@ -175,19 +175,19 @@ declare enum RenderExitReason {
   PROCESS_WAS_KILLED,
 
   /**
-   * SIGKILL or task manager kill.
+   * Segmentation fault.
    * @since 8
    */
   PROCESS_CRASHED,
 
   /**
-   * SIGKILL or task manager kill.
+   * Out of memory.
    * @since 8
    */
   PROCESS_OOM,
 
   /**
-   * SIGKILL or task manager kill.
+   * Unkown reason.
    * @since 8
    */
   PROCESS_EXIT_UNKNOWN,
@@ -1018,14 +1018,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
-
-  /**
-   * Triggered when the Web page receives an ssl Error.
-   * @param callback The triggered callback when the Web page receives an ssl Error.
-   *
-   * @since 8
-   */
-  onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
   /**
    * Triggered when the render process exits.
