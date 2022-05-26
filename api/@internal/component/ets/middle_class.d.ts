@@ -2363,7 +2363,7 @@ declare class TSRemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute
    * @systemapi
    * @since 9
    */
-  create(target?: WindowAnimationTarget | undefined): RemoteWindowAttribute;
+  create(target?: windowAnimationManager.WindowAnimationTarget | undefined): RemoteWindowAttribute;
 
   /**
    * Used for TS compiler.
