@@ -1200,6 +1200,12 @@ declare class CommonMethod<T> {
   focusable(value: boolean): T;
 
   /**
+   * Set tabIndex.
+   * @since 9
+   */
+  tabIndex(index: number): T;
+
+  /**
    * Trigger a event when got focus.
    * @since 8
    */
