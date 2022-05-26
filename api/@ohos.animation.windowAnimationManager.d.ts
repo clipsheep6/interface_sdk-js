@@ -20,7 +20,7 @@
  * @systemapi Hide this for inner system use.
  * @since 9
  */
- declare namespace windowAnimationManager {
+declare namespace windowAnimationManager {
   /**
    * Set the window animation controller.
    *
