@@ -959,25 +959,25 @@ declare namespace rpc {
          * Indicates synchronous call.
          * @since 7
          */
-        TF_SYNC = 0;
+        static TF_SYNC = 0;
 
         /**
          * Indicates asynchronous call.
          * @since 7
          */
-        TF_ASYNC = 1;
+        static TF_ASYNC = 1;
 
         /**
          * Indicates the sendRequest API for returning the file descriptor.
          * @since 7
          */
-        TF_ACCEPT_FDS = 0x10;
+        static TF_ACCEPT_FDS = 0x10;
 
         /**
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
          * @since 7
          */
-        TF_WAIT_TIME  = 8;
+        static TF_WAIT_TIME  = 8;
 
         /**
          * A constructor used to create a MessageOption instance.
@@ -1159,19 +1159,19 @@ declare namespace rpc {
          * Indicates the message code for a Ping operation.
          * @since 7
          */
-        PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
+        static PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
 
         /**
          * Indicates the message code for a dump operation.
          * @since 7
          */
-        DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
+        static DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
 
         /**
          * Indicates the message code for a transmission.
          * @since 7
          */
-        INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
+        static INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
 
         /**
          * Indicates the minimum value of a valid message code.
@@ -1179,7 +1179,7 @@ declare namespace rpc {
          * <p>This constant is used to check the validity of an operation.
          * @since 7
          */
-        MIN_TRANSACTION_ID = 0x1;
+        static MIN_TRANSACTION_ID = 0x1;
 
         /**
          * Indicates the maximum value of a valid message code.
@@ -1187,7 +1187,7 @@ declare namespace rpc {
          * <p>This constant is used to check the validity of an operation.
          * @since 7
          */
-        MAX_TRANSACTION_ID = 0x00FFFFFF;
+        static MAX_TRANSACTION_ID = 0x00FFFFFF;
 
         /**
          * Queries a local interface with a specified descriptor.
@@ -1421,25 +1421,25 @@ declare namespace rpc {
          * The mapped memory is executable.
          * @since 8
          */
-        PROT_EXEC = 4;
+        static PROT_EXEC = 4;
 
         /**
          * The mapped memory is inaccessible.
          * @since 8
          */
-        PROT_NONE = 0;
+        static PROT_NONE = 0;
 
         /**
          * The mapped memory is readable.
          * @since 8
          */
-        PROT_READ = 1;
+        static PROT_READ = 1;
 
         /**
          * The mapped memory is writable.
          * @since 8
          */
-        PROT_WRITE = 2;
+        static PROT_WRITE = 2;
 
         /**
          * Creates an Ashmem object with the specified name and size.
