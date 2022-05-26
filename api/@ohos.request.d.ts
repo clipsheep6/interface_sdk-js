@@ -192,7 +192,7 @@ declare namespace request {
    * @return -
    */
   function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
-  
+
   /**
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
