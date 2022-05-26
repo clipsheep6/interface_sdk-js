@@ -67,6 +67,24 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
   /**
+   * Obtains a TonePlayer instance. This method uses an asynchronous callback to return the renderer instance.
+   * @param options Tone playing attribute.
+   * @return Promise used to return the tone player instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
+
+  /**
+   * Obtains a TonePlayer instance. This method uses a promise to return the renderer instance.
+   * @param options Tone playing attribute.
+   * @return Promise used to return the tone player instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
+
+  /**
    * Enumerates the audio states.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1840,6 +1858,98 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+  }
+
+  enum ToneType {
+    TONE_TYPE_DIAL_0 = 0, // 0 key
+    TONE_TYPE_DIAL_1,     // 1 key
+    TONE_TYPE_DIAL_2,     // 2 key
+    TONE_TYPE_DIAL_3,     // 3 key
+    TONE_TYPE_DIAL_4,     // 4 key
+    TONE_TYPE_DIAL_5,     // 5 key
+    TONE_TYPE_DIAL_6,     // 6 key
+    TONE_TYPE_DIAL_7,     // 7 key
+    TONE_TYPE_DIAL_8,     // 8 key
+    TONE_TYPE_DIAL_9,     // 9 key
+    TONE_TYPE_DIAL_S,     // * key
+    TONE_TYPE_DIAL_P,     // # key
+    TONE_TYPE_DIAL_A,     // A key
+    TONE_TYPE_DIAL_B,     // B key
+    TONE_TYPE_DIAL_C,     // C key
+    TONE_TYPE_DIAL_D,     // D key
+
+    TONE_TYPE_CALL_SUP_DIAL = 100,
+
+    TONE_TYPE_CALL_PROP_BEEP = 200,
+  }
+
+  /**
+   * Provides APIs for tone playing.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  interface TonePlayer {
+    /**
+     * Starts player. This method uses an asynchronous callback to return the result.
+     * @param type Tone type to play.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    load(type: ToneType, callback: AsyncCallback<void>): void;
+    /**
+     * Starts tplayerone. This method uses a promise to return the result.
+     * @param type Tone type to play.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    load(type: ToneType): Promise<void>;
+
+    /**
+     * Starts player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    start(callback: AsyncCallback<void>): void;
+    /**
+     * Starts player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    start(): Promise<void>;
+
+    /**
+     * Stops player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    stop(callback: AsyncCallback<void>): void;
+    /**
+     * Stops player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    stop(): Promise<void>;
+
+    /**
+     * Releases the player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    release(callback: AsyncCallback<void>): void;
+    /**
+     * Releases the player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    release(): Promise<void>;
   }
 }
 
