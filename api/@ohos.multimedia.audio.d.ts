@@ -67,6 +67,24 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
   /**
+   * Obtains a TonePlayer instance. This method uses an asynchronous callback to return the renderer instance.
+   * @param options Tone playing attribute.
+   * @return Promise used to return the tone player instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
+
+  /**
+   * Obtains a TonePlayer instance. This method uses a promise to return the renderer instance.
+   * @param options Tone playing attribute.
+   * @return Promise used to return the tone player instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
+
+  /**
    * Enumerates the audio states.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -1211,6 +1229,183 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(callback: AsyncCallback<AudioStreamManager>): void;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(): Promise<AudioStreamManager>;
+  }
+
+  /**
+   * Implements audio stream management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface AudioStreamManager {
+    /**
+     * Get infos of current existing audio renderers.
+     * @param callback Callback used to return the infos of current existing audio renderers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioRendererInfos(callback: AsyncCallback<AudioRendererChangeInfos>): void;
+
+    /**
+     * Get infos of current existing audio renderers.
+     * @return Promise used to return the infos of current existing audio renderers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioRendererInfos(): Promise<AudioRendererChangeInfos>;
+
+    /**
+     * Get infos of current existing audio capturers.
+     * @param callback Callback used to return the infos of current existing audio capturers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioCapturerInfos(callback: AsyncCallback<AudioCapturerChangeInfos>): void;
+
+    /**
+     * Get infos of current existing audio capturers.
+     * @return Promise used to return the infos of current existing audio capturers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioCapturerInfos(): Promise<AudioCapturerChangeInfos>;
+
+    /**
+     * Listens for audio renderer change events. When there is any audio renderer change,
+     * registered clients will receive the callback.
+     * @param type Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param callback Callback invoked for the audio renderer change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    on(type: "audioRendererChange", callback: Callback<AudioRendererChangeInfos>): void;
+
+    /**
+     * UnSubscribes to audio renderer change events.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    off(type: "audioRendererChange");
+
+    /**
+     * Listens for audio capturer change events. When there is any audio capturer change,
+     * registered clients will receive the callback.
+     * @param type Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param callback Callback invoked for the audio capturer change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    on(type: "audioCapturerChange", callback: Callback<AudioCapturerChangeInfos>): void;
+
+    /**
+     * UnSubscribes to audio capturer change events.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    off(type: "audioCapturerChange");
+  }
+
+  /**
+   * Array of AudioRendererChangeInfo, which is read-only.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  type AudioRendererChangeInfos = Array<Readonly<AudioRendererChangeInfo>>;
+
+  /**
+   * Describes audio renderer change information.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioRendererChangeInfo {
+    /**
+     * Audio stream unique id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    readonly streamId: number;
+
+    /**
+     * Uid for audio renderer client application.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    readonly clientUid: number;
+
+    /**
+     * Audio renderer information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    readonly rendererInfo: AudioRendererInfo;
+
+    /**
+     * Audio state.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    readonly rendererState: AudioState;
+  }
+
+  /**
+   * Array of AudioCapturerChangeInfo, which is read-only.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  type AudioCapturerChangeInfos = Array<Readonly<AudioCapturerChangeInfo>>;
+
+  /**
+   * Describes audio capturer change information.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  interface AudioCapturerChangeInfo {
+    /**
+     * Audio stream unique id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    readonly streamId: number;
+
+    /**
+     * Uid for audio capturer client application.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     */
+    readonly clientUid: number;
+
+    /**
+     * Audio capturer information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    readonly capturerInfo: AudioCapturerInfo;
+
+    /**
+     * Audio state.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     */
+    readonly capturerState: AudioState;
   }
 
   /**
@@ -1840,6 +2035,98 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+  }
+
+  enum ToneType {
+    TONE_TYPE_DIAL_0 = 0, // 0 key
+    TONE_TYPE_DIAL_1,     // 1 key
+    TONE_TYPE_DIAL_2,     // 2 key
+    TONE_TYPE_DIAL_3,     // 3 key
+    TONE_TYPE_DIAL_4,     // 4 key
+    TONE_TYPE_DIAL_5,     // 5 key
+    TONE_TYPE_DIAL_6,     // 6 key
+    TONE_TYPE_DIAL_7,     // 7 key
+    TONE_TYPE_DIAL_8,     // 8 key
+    TONE_TYPE_DIAL_9,     // 9 key
+    TONE_TYPE_DIAL_S,     // * key
+    TONE_TYPE_DIAL_P,     // # key
+    TONE_TYPE_DIAL_A,     // A key
+    TONE_TYPE_DIAL_B,     // B key
+    TONE_TYPE_DIAL_C,     // C key
+    TONE_TYPE_DIAL_D,     // D key
+
+    TONE_TYPE_CALL_SUP_DIAL = 100,
+
+    TONE_TYPE_CALL_PROP_BEEP = 200,
+  }
+
+  /**
+   * Provides APIs for tone playing.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  interface TonePlayer {
+    /**
+     * Starts player. This method uses an asynchronous callback to return the result.
+     * @param type Tone type to play.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    load(type: ToneType, callback: AsyncCallback<void>): void;
+    /**
+     * Starts tplayerone. This method uses a promise to return the result.
+     * @param type Tone type to play.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    load(type: ToneType): Promise<void>;
+
+    /**
+     * Starts player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    start(callback: AsyncCallback<void>): void;
+    /**
+     * Starts player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    start(): Promise<void>;
+
+    /**
+     * Stops player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    stop(callback: AsyncCallback<void>): void;
+    /**
+     * Stops player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    stop(): Promise<void>;
+
+    /**
+     * Releases the player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    release(callback: AsyncCallback<void>): void;
+    /**
+     * Releases the player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    release(): Promise<void>;
   }
 }
 
