@@ -855,6 +855,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @deprecated since 9
      */
     setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
     /**
@@ -865,6 +866,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @deprecated since 9
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
     /**
@@ -873,6 +875,7 @@ declare namespace audio {
      * @param callback Callback used to return the volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -881,6 +884,7 @@ declare namespace audio {
      * @return Promise used to return the volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -889,6 +893,7 @@ declare namespace audio {
      * @param callback Callback used to return the minimum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -897,6 +902,7 @@ declare namespace audio {
      * @return Promise used to return the minimum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -905,6 +911,7 @@ declare namespace audio {
      * @param callback Callback used to return the maximum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -913,6 +920,7 @@ declare namespace audio {
      * @return Promise used to return the maximum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -921,6 +929,7 @@ declare namespace audio {
      * @param callback Callback used to return the device list.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
@@ -929,6 +938,7 @@ declare namespace audio {
      * @return Promise used to return the device list.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
     /**
@@ -938,6 +948,7 @@ declare namespace audio {
      * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -947,6 +958,7 @@ declare namespace audio {
      * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
     /**
@@ -956,6 +968,7 @@ declare namespace audio {
      * muted, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -965,6 +978,7 @@ declare namespace audio {
      * and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -974,6 +988,7 @@ declare namespace audio {
      * active, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -983,6 +998,7 @@ declare namespace audio {
      * and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 9
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -992,6 +1008,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
+     * @deprecated since 9
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -1001,6 +1018,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
+     * @deprecated since 9
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
     /**
@@ -1010,6 +1028,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
+     * @deprecated since 9
      */
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
@@ -1019,6 +1038,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
+     * @deprecated since 9
      */
     isMicrophoneMute(): Promise<boolean>;
     /**
@@ -1028,6 +1048,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @deprecated since 9
      */
     setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
     /**
@@ -1037,6 +1058,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @deprecated since 9
      */
     setRingerMode(mode: AudioRingMode): Promise<void>;
     /**
@@ -1044,6 +1066,7 @@ declare namespace audio {
      * @param callback Callback used to return the ringer mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @deprecated since 9
      */
     getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
     /**
@@ -1051,6 +1074,7 @@ declare namespace audio {
      * @return Promise used to return the ringer mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @deprecated since 9
      */
     getRingerMode(): Promise<AudioRingMode>;
     /**
@@ -1097,6 +1121,7 @@ declare namespace audio {
      * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -1107,6 +1132,7 @@ declare namespace audio {
      * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean): Promise<void>;
     /**
@@ -1115,6 +1141,7 @@ declare namespace audio {
      * @param callback Callback used to return the active status of the device.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     isDeviceActive(deviceType: ActiveDeviceType, callback: AsyncCallback<boolean>): void;
     /**
@@ -1123,6 +1150,7 @@ declare namespace audio {
      * @return Promise used to return the active status of the device.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     isDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
     /**
@@ -1139,6 +1167,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
+     * @deprecated since 9
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
     /**
@@ -1149,6 +1178,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
+     * @deprecated since 9
      */
     setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
     /**
@@ -1158,6 +1188,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
+     * @deprecated since 9
      */
     setAudioScene(scene: AudioScene): Promise<void>;
     /**
@@ -1165,6 +1196,7 @@ declare namespace audio {
      * @param callback Callback used to return the audio scene mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @deprecated since 9
      */
     getAudioScene(callback: AsyncCallback<AudioScene>): void;
     /**
@@ -1172,6 +1204,7 @@ declare namespace audio {
      * @return Promise used to return the audio scene mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @deprecated since 9
      */
     getAudioScene(): Promise<AudioScene>;
     /**
@@ -1180,6 +1213,7 @@ declare namespace audio {
      * @param callback Callback used to obtain the device update details.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
 
@@ -1188,6 +1222,7 @@ declare namespace audio {
      * @param callback Callback used to obtain the device update details.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
@@ -1211,6 +1246,273 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
+
+    /**
+     * Obtains an AudioRoutingManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
+
+    /**
+     * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getRoutingManager(): Promise<AudioRoutingManager>;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(callback: AsyncCallback<AudioStreamManager>): void;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(): Promise<AudioStreamManager>;
+
+    /**
+     * Obtains an AudioCommunicationManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getCommunicationManager(callback: AsyncCallback<AudioCommunicationManager>): void;
+
+    /**
+     * Obtains an AudioCommunicationManager instance. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getCommunicationManager(): Promise<AudioCommunicationManager>;
+  }
+
+  /**
+   * Implements audio device and routing management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   */
+  interface AudioRoutingManager {
+    /**
+     * Obtains the audio devices with a specific flag. This method uses an asynchronous callback to return the query result.
+     * @param deviceFlag Audio device flag.
+     * @param callback Callback used to return the device list.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Obtains the audio devices with a specific flag. This method uses a promise to return the query result.
+     * @param deviceFlag Audio device flag.
+     * @return Promise used to return the device list.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
+    /**
+     * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param callback Callback used to obtain the device update details.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes to device change events.
+     * @param callback Callback used to obtain the device update details.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
+    /**
+     * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
+     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
+     */
+    setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
+     */
+    setMicrophoneMute(mute: boolean): Promise<void>;
+    /**
+     * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
+     * @param Callback used to return the mute status of the microphone. The value true means that the microphone is
+     * muted, and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
+     */
+    isMicrophoneMute(callback: AsyncCallback<boolean>): void;
+    /**
+     * Checks whether the microphone is muted. This method uses a promise to return the query result.
+     * @return Promise used to return the mute status of the microphone. The value true means that the microphone is
+     * muted, and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
+     */
+    isMicrophoneMute(): Promise<boolean>;
+  }
+
+  /**
+   * Implements audio stream management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface AudioStreamManager {
+    /**
+     * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the active status of the stream. The value true means that the stream is
+     * active, and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
+    /**
+     * Checks whether a stream is active. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the active status of the stream. The value true means that the stream is active,
+     * and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    isActive(volumeType: AudioVolumeType): Promise<boolean>;
+  }
+
+  /**
+   * Implements audio communication management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Communication
+   */
+  interface AudioCommunicationManager {
+    /**
+     * Sets the audio scene mode to change audio strategies. This method uses an asynchronous callback to return the
+     * result.
+     * @param scene Audio scene mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
+     */
+    setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
+    /**
+     * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
+     * @param scene Audio scene mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
+     */
+    setAudioScene(scene: AudioScene): Promise<void>;
+    /**
+     * Obtains the audio scene mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the audio scene mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getAudioScene(callback: AsyncCallback<AudioScene>): void;
+    /**
+     * Obtains the audio scene mode. This method uses a promise to return the query result.
+     * @return Promise used to return the audio scene mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getAudioScene(): Promise<AudioScene>;
+    /**
+     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * @param deviceType Audio device type.
+     * @param active Active status to set. The value true means to set the device to the active status, and false
+     * means the opposite.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Sets a device to the active state. This method uses a promise to return the result.
+     * @param deviceType Audio device type.
+     * @param active Active status to set. The value true means to set the device to the active status, and false
+     * means the opposite.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    setDeviceActive(deviceType: ActiveDeviceType, active: boolean): Promise<void>;
+    /**
+     * Checks whether a device is active. This method uses an asynchronous callback to return the query result.
+     * @param deviceType Audio device type.
+     * @param callback Callback used to return the active status of the device.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    isDeviceActive(deviceType: ActiveDeviceType, callback: AsyncCallback<boolean>): void;
+    /**
+     * Checks whether a device is active. This method uses a promise to return the query result.
+     * @param deviceType Audio device type.
+     * @return Promise used to return the active status of the device.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    isDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
+    /**
+     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
+     * @param mode Ringer mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     */
+    setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the ringer mode. This method uses a promise to return the result.
+     * @param mode Ringer mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     */
+    setRingerMode(mode: AudioRingMode): Promise<void>;
+    /**
+     * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
+    /**
+     * Obtains the ringer mode. This method uses a promise to return the query result.
+     * @return Promise used to return the ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getRingerMode(): Promise<AudioRingMode>;
+    /**
+     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
+     * @param callback Callback used to get the updated ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
+     */
+    on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
   }
 
   /**
