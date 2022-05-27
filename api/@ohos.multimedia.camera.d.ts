@@ -317,6 +317,62 @@ declare namespace camera {
   }
 
   /**
+   * Point parameter.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  interface Point {
+    /**
+     * x co-ordinate
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    x: number;
+    /**
+     * y co-ordinate
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    y: number;
+  }
+
+  /**
+   * Enum for camera format type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+   enum CameraFormat {
+    /**
+     * YUV 420 Format.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    CAMERA_FORMAT_YUV_420_SP = 0,
+
+    /**
+     * H.264 Format.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    CAMERA_FORMAT_H264,
+
+    /**
+     * H.265 Format.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    CAMERA_FORMAT_H265,
+
+    /**
+     * JPEG Format.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    CAMERA_FORMAT_JPEG
+
+  }  
+
+  /**
    * Camera input object.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -337,6 +393,108 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getCameraId(): Promise<string>;
+
+    /**
+     * Get supported preview sizes.
+     * @param format Format to get the supported sizes.
+     * @param callback Callback used to return the array of supported sizes.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedPreviewSizes(format: CameraFormat, callback: AsyncCallback<Array<Size>>): void;
+
+    /**
+     * Get supported preview sizes.
+     * @param format Format to get the supported sizes.
+     * @return Promise used to return the array of supported sizes.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedPreviewSizes(format: CameraFormat): Promise<Array<Size>>;
+    
+    /**
+     * Get supported photo sizes.
+     * @param format Format to get the supported sizes.
+     * @param callback Callback used to return the array of supported sizes.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedPhotoSizes(format: CameraFormat, callback: AsyncCallback<Array<Size>>): void;
+
+    /**
+     * Get supported photo sizes.
+     * @param format Format to get the supported sizes.
+     * @return Promise used to return the array of supported sizes.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedPhotoSizes(format: CameraFormat): Promise<Array<Size>>;
+
+    /**
+     * Get supported video sizes.
+     * @param format Format to get the supported sizes.
+     * @param callback Callback used to return the array of supported sizes.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedVideoSizes(format: CameraFormat, callback: AsyncCallback<Array<Size>>): void;
+
+     /**
+      * Get supported video sizes.
+      * @param format Format to get the supported sizes.
+      * @return Promise used to return the array of supported sizes.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    getSupportedVideoSizes(format: CameraFormat): Promise<Array<Size>>;
+
+    /**
+     * Get supported preview Formats.
+     * @param callback Callback used to return the array of supported formats.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedPreviewFormats(callback: AsyncCallback<Array<CameraFormat>>): void;
+
+     /**
+      * Get supported preview Formats.
+      * @return Promise used to return the array of supported formats.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    getSupportedPreviewFormats(): Promise<Array<CameraFormat>>;
+
+    /**
+     * Get supported photo Formats.
+     * @param callback Callback used to return the array of supported formats.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedPhotoFormats(callback: AsyncCallback<Array<CameraFormat>>): void;
+
+     /**
+      * Get supported photo Formats.
+      * @return Promise used to return the array of supported formats.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    getSupportedPhotoFormats(): Promise<Array<CameraFormat>>;
+    
+    /**
+     * Get supported video Formats.
+     * @param callback Callback used to return the array of supported formats.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedVideoFormats(callback: AsyncCallback<Array<CameraFormat>>): void;
+
+     /**
+      * Get supported video Formats.
+      * @return Promise used to return the array of supported formats.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    getSupportedVideoFormats(): Promise<Array<CameraFormat>>;
 
     /**
      * Check if device has flash light.
@@ -407,6 +565,158 @@ declare namespace camera {
     setFlashMode(flashMode: FlashMode): Promise<void>;
 
     /**
+     * Checks whether a specified exposure mode is supported.
+     * @param aeMode Exposure mode.
+     * @param callback Callback used to return the exposure mode support status.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isExposureModeSupported(aeMode: ExposureMode, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Checks whether a specified exposure mode is supported.
+     * @param aeMode Exposure mode
+     * @return Promise used to return exposure mode support status.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isExposureModeSupported(aeMode: ExposureMode): Promise<boolean>;
+ 
+    /**
+     * Gets current exposure mode.
+     * @param callback Callback used to return the current exposure mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureMode(callback: AsyncCallback<ExposureMode>): void;
+
+    /**
+     * Gets current exposure mode.
+     * @return Promise used to return the current exposure mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureMode(): Promise<ExposureMode>;
+
+    /**
+     * Sets exposure mode.
+     * @param aeMode Exposure mode
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setExposureMode(aeMode: ExposureMode, callback: AsyncCallback<void>): void;
+
+     /**
+      * Sets Exposure mode.
+      * @param aeMode Exposure mode
+      * @return Promise used to return the result.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    setExposureMode(aeMode: ExposureMode): Promise<void>;
+
+    /**
+     * Gets current exposure point.
+     * @param callback Callback used to return the current exposure point.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposurePoint(callback: AsyncCallback<Point>): void;
+
+    /**
+     * Gets current exposure point.
+     * @return Promise used to return the current exposure point.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposurePoint(): Promise<Point>;
+
+    /**
+     * Set the center point of the exposure area.
+     * @param exposurePoint Exposure point
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setExposurePoint(exposurePoint: Point, callback: AsyncCallback<void>): void;
+
+     /**
+      * Set the center point of the exposure area.
+      * @param exposurePoint Exposure point
+      * @return Promise used to return the result.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    setExposurePoint(exposurePoint: Point): Promise<void>;
+
+    /**
+     * Query the exposure compensation range.
+     * @param callback Callback used to return the array of compenstation range.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureBiasRange(callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Query the exposure compensation range.
+     * @return Promise used to return the array of compenstation range.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureBiasRange(): Promise<Array<number>>;
+
+    /**
+     * Set exposure compensation.
+     * @param exposureBias Exposure compensation
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setExposureBias(exposureBias: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set exposure compensation.
+     * @param exposureBias Exposure compensation
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setExposureBias(exposureBias: number): Promise<void>;
+
+    /**
+     * Query exposure step size.
+     * @param callback Callback used to return the compenstation step.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureBiasStep(callback: AsyncCallback<number>): void;
+
+    /**
+     * Query exposure step size.
+     * @return Promise used to return the compenstation step.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureBiasStep(): Promise<number>;
+ 
+    /**
+     * Query the exposure value.
+     * @param callback Callback used to return the exposure value.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureValue(callback: AsyncCallback<number>): void;
+
+    /**
+     * Query the exposure value.
+     * @return Promise used to return the exposure value.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getExposureValue(): Promise<number>;
+  
+      /**
      * Checks whether a specified focus mode is supported.
      * @param afMode Focus mode.
      * @param callback Callback used to return the device focus support status.
@@ -459,6 +769,56 @@ declare namespace camera {
     setFocusMode(afMode: FocusMode): Promise<void>;
 
     /**
+     * Sets focus point.
+     * @param point Target focus point.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setFocusPoint(point: Point, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets focus point.
+     * @param afMode Target focus point.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setFocusPoint(point: Point): Promise<void>;
+
+    /**
+     * Gets current focus point.
+     * @param callback Callback used to return the current focus point.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getFocusPoint(callback: AsyncCallback<Point>): void;
+
+    /**
+     * Gets current focus point.
+     * @return Promise used to return the current focus point.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getFocusPoint(): Promise<Point>;
+
+    /**
+     * Gets current focal length.
+     * @param callback Callback used to return the current focal point.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getFocalLength(callback: AsyncCallback<number>): void;
+
+    /**
+     * Gets current focal length.
+     * @return Promise used to return the current focal point.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getFocalLength(): Promise<number>;
+ 
+    /**
      * Gets all supported zoom ratio range.
      * @param callback Callback used to return the zoom ratio range.
      * @since 9
@@ -509,6 +869,58 @@ declare namespace camera {
     setZoomRatio(zoomRatio: number): Promise<void>;
 
     /**
+     * Query the supported frame rate range.
+     * @param callback Callback used to return the array of frame rates.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getFrameRateRange(callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Query the supported frame rate range.
+     * @return Promise used to return the array of frame rates.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getFrameRateRange(): Promise<Array<number>>;
+ 
+    /**
+     * Set the minimum frame rate value.
+     * @param minFrameRate Minimum frame rate that needs to be supported.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setMinFrameRate(minFrameRate: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the minimum frame rate value.
+     * @param minFrameRate Minimum frame rate that needs to be supported.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setMinFrameRate(minFrameRate: number): Promise<void>;
+
+    /**
+     * Set the maximum frame rate value.
+     * @param maxFrameRate Maximum frame rate that needs to be supported.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setMaxFrameRate(maxFrameRate: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the maximum frame rate value.
+     * @param maxFrameRate Maximum frame rate that needs to be supported.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setMaxFrameRate(maxFrameRate: number): Promise<void>;
+   
+    /**
      * Releases instance.
      * @param callback Callback used to return the result.
      * @since 9
@@ -532,6 +944,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes exposure status change event callback.
+     * @param type Event type.
+     * @param callback Callback used to get the exposure state change.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    on(type: 'exposureStateChange', callback: AsyncCallback<ExposureState>): void;
 
     /**
      * Subscribes error event callback.
@@ -595,6 +1016,28 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     FLASH_MODE_ALWAYS_OPEN
+  }
+
+  /**
+   * Enum for exposure mode.
+   * @since 9
+   */
+  enum ExposureMode {
+    /**
+     * Lock exposure mode.
+     * @since 9
+     */
+    EXPOSURE_MODE_LOCKED = 0,
+    /**
+     * Auto exposure mode.
+     * @since 9
+     */
+     EXPOSURE_MODE_AUTO,
+     /**
+     * Continuous automatic exposure.
+     * @since 9
+     */
+    EXPOSURE_MODE_CONTINUOUS_AUTO
   }
 
   /**
@@ -663,6 +1106,23 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   function createCaptureSession(context: Context, callback: AsyncCallback<CaptureSession>): void;
+
+  /**
+   * Enum for exposure state.
+   * @since 9
+   */
+  enum ExposureState {
+    /**
+     * Scan state.
+     * @since 8
+     */
+    EXPOSURE_STATE_SCAN = 0,
+    /**
+     * Converged state.
+     * @since 8
+     */
+    EXPOSURE_STATE_CONVERGED
+  }
 
   /**
    * Gets a CaptureSession instance.
@@ -784,6 +1244,24 @@ declare namespace camera {
     addOutput(videoOutput: VideoOutput): Promise<void>;
 
     /**
+     * Adds a camera metadata output.
+     * @param metadataOutput Target metadata output to add.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    addOutput(metadataOutput: MetadataOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Adds a camera metadata output.
+     * @param metadataOutput Target metadata output to add.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    addOutput(metadataOutput: MetadataOutput): Promise<void>;
+
+    /**
      * Removes a camera input.
      * @param cameraInput Target camera input to remove.
      * @param callback Callback used to return the result.
@@ -854,6 +1332,24 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     removeOutput(videoOutput: VideoOutput): Promise<void>;
+
+    /**
+     * Removes a camera metadata output.
+     * @param metadataOutput Target metadata output to remove.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    removeOutput(metadataOutput: MetadataOutput, callback: AsyncCallback<void>): void;
+
+    /**
+     * Removes a camera metadata output.
+     * @param metadataOutput Target metadata output to remove.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    removeOutput(metadataOutput: MetadataOutput): Promise<void>;
 
     /**
      * Starts capture session.
@@ -1070,6 +1566,26 @@ declare namespace camera {
     ROTATION_270 = 270
   }
 
+  interface Location {
+    /**
+     * Latitude.
+     * @since 9
+     */
+    latitude: number;
+
+    /**
+     * Longitude.
+     * @since 9
+     */
+    longitude: number;
+
+    /**
+     * Altitude.
+     * @since 9
+     */
+    altitude: number;
+  }
+
   /**
    * Enumerates the image quality levels.
    * @since 9
@@ -1115,6 +1631,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     rotation?: ImageRotation;
+
+    /**
+     * Photo location.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    location?: Location;
   }
 
   /**
@@ -1164,6 +1687,40 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     release(): Promise<void>;
+
+    /**
+     * whether to support mirror photo.
+     * @param callback Callback used to return the mirror support status.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isMirrorSupported(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Check if device has flash light.
+     * @return Promise used to return the mirror support status.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isMirrorSupported(): Promise<boolean>;
+
+    /**
+     * Set the mirror photo function switch.
+     * @param mirror whether to enable the mirror.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setMirror(mirror: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the mirror photo function switch.
+     * @param mirror whether to enable the mirror.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setMirror(mirror: boolean): Promise<void>;
 
     /**
      * Subscribes capture start event callback.
@@ -1279,6 +1836,38 @@ declare namespace camera {
   function createVideoOutput(surfaceId: string): Promise<VideoOutput>;
 
   /**
+   * Enum for video stabilization mode.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+   enum VideoStabilizationMode {
+    /**
+     * Turn off video stablization.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    OFF = 0,
+    /**
+     * Use standard anti-shake algorithm.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    STANDARD,
+    /**
+     * Use anit-shake algorithm that achieve cinematic effects.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    MOVIE,
+    /**
+     * Automatic selection.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    AUTO
+  }
+
+  /**
    * Video output object.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1292,7 +1881,7 @@ declare namespace camera {
      */
     start(callback: AsyncCallback<void>): void;
 
-        /**
+    /**
      * Start video output.
      * @return Promise used to return the result.
      * @since 9
@@ -1315,6 +1904,90 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     stop(): Promise<void>;
+
+    /**
+     * pause video recording.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    pause(callback: AsyncCallback<void>): void;
+
+    /**
+      * pause video recording.
+      * @return Promise used to return the result.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      */
+    pause(): Promise<void>;
+
+    /**
+     * resume video recording.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    resume(callback: AsyncCallback<void>): void;
+
+    /**
+     * resume video recording.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    resume(): Promise<void>;
+
+    /**
+     * Query whether the specified video stabilization mode is supported.
+     * @param vsMode Video Stabilization mode.
+     * @param callback Callback used to return if video stablization mode is supported.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isVideoStablizationModeSupported(vsMode: VideoStabilizationMode, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Query whether the specified video stabilization mode is supported.
+     * @param callback Callback used to return if video stablization mode is supported.
+     * @return Promise used to return flash mode support status.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isVideoStablizationModeSupported(vsMode: VideoStabilizationMode): Promise<boolean>;
+
+    /**
+     * Query the video stabilization mode currently in use.
+     * @param callback Callback used to return the current video stabilization mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getActiveVideoStabilizationMode(callback: AsyncCallback<VideoStabilizationMode>): void;
+
+    /**
+     * Query the video stabilization mode currently in use.
+     * @return Promise used to return the current video stabilization mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getActiveVideoStabilizationMode(): Promise<VideoStabilizationMode>;
+ 
+    /**
+     * Set video stabilization mode.
+     * @param mode video stabilization mode to set.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setVideoStabilizationMode(mode: VideoStabilizationMode, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set video stabilization mode.
+     * @param mode video stabilization mode to set.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setVideoStabilizationMode(mode: VideoStabilizationMode): Promise<void>;
 
     /**
      * Release output instance.
@@ -1376,6 +2049,211 @@ declare namespace camera {
    */
   interface VideoOutputError extends Error {
     code: VideoOutputErrorCode;
+  }
+
+  /**
+   * Creates a MetadataOutput instance.
+   * @param callback Callback used to return the MetadataOutput instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  function createMetadataOutput(callback: AsyncCallback<MetadataOutput>): void;
+
+  /**
+   * Creates a MetadataOutput instance.
+   * @return Promise used to return the MetadataOutput instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  function createMetadataOutput(): Promise<MetadataOutput>;
+
+  /**
+   * metadata output type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  enum MetadataObjectType {
+    FACE = 0
+  }
+
+  /**
+   * Rectangle
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  interface Rect {
+    /**
+     * X coordinator of top left point.
+     * @param Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    topLeftX: number;
+    /**
+     * Y coordinator of top left point.
+     * @param Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    topLeftY: number;
+    /**
+     * Width of this rectangle.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    width: number;
+    /**
+     * Height of this rectangle.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    height: number;
+  }
+
+  /**
+   * metadata object.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  
+  interface MetadataObject {
+    /**
+     * Get current metadata object type.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getType(callback: AsyncCallback<MetadataObjectType>): void;
+
+    /**
+     * Get current metadata object type.
+     * @param Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getType(): Promise<MetadataObjectType>;
+
+    /**
+     * Get current metadata object timestamp in milliseconds.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getTimestamp(callback: AsyncCallback<number>): void;
+
+    /**
+     * Get current metadata object timestamp in milliseconds.
+     * @param Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getTimestamp(): Promise<number>;
+
+    /**
+     * Get the axis-aligned bounding box of detected metadata object.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getBoundingBox(callback: AsyncCallback<Rect>): void;
+
+    /**
+     * Get the axis-aligned bounding box of detected metadata object.
+     * @param Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getBoundingBox(): Promise<Rect>;
+  }
+
+  /**
+   * Metadata face object.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  interface MetadataFaceObject extends MetadataObject {
+  }
+
+    /**
+     * Metadata Output object
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    interface MetadataOutput {
+    /**
+     * get all the available metadata Object Types
+     * @param callback Callback used to return the array of metadata object types.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getAvailableMetadataObjectTypes(callback: AsyncCallback<Array<MetadataObjectType>>): void;
+
+    /**
+     * get all the available metadata Object Types
+     * @return Promise used to return an array of metadata object types.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getAvailableMetadataObjectTypes(): Promise<Array<MetadataObjectType>>;
+
+    /**
+     * Set target metadata object types to be captured.
+     * @param metadataObjectTypes Array of MetadataObjectType.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setCapturingMetadataObjectTypes(metadataObjectTypes: Array<MetadataObjectType>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set target metadata object types to be captured.
+     * @param metadataObjectTypes Array of MetadataObjectType.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    setCapturingMetadataObjectTypes(metadataObjectTypes: Array<MetadataObjectType>): Promise<void>;
+
+    /**
+     * Start output metadata
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    start(callback: AsyncCallback<void>): void;
+
+    /**
+     * Start output metadata
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    start(): Promise<void>;
+
+    /**
+     * Stop output metadata
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    stop(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop output metadata
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    stop(): Promise<void>;
+
+    /**
+     * Subscribes to metadata objects available event callback.
+     * @param type Event type.
+     * @param callback Callback used to get the available metadata objects.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void;
   }
 }
 
