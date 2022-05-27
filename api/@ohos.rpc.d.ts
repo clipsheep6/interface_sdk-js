@@ -962,10 +962,22 @@ declare namespace rpc {
         TF_SYNC = 0;
 
         /**
+         * Indicates synchronous call.
+         * @since 9
+         */
+        static TF_SYNC = 0;
+
+        /**
          * Indicates asynchronous call.
          * @since 7
          */
         TF_ASYNC = 1;
+
+        /**
+         * Indicates asynchronous call.
+         * @since 9
+         */
+        static TF_ASYNC = 1;
 
         /**
          * Indicates the sendRequest API for returning the file descriptor.
@@ -974,10 +986,22 @@ declare namespace rpc {
         TF_ACCEPT_FDS = 0x10;
 
         /**
+         * Indicates the sendRequest API for returning the file descriptor.
+         * @since 9
+         */
+        static TF_ACCEPT_FDS = 0x10;
+
+        /**
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
          * @since 7
          */
         TF_WAIT_TIME  = 4;
+
+        /**
+         * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
+         * @since 9
+         */
+        static TF_WAIT_TIME  = 4;
 
         /**
          * A constructor used to create a MessageOption instance.
@@ -1162,16 +1186,34 @@ declare namespace rpc {
         PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
 
         /**
+         * Indicates the message code for a Ping operation.
+         * @since 9
+         */
+        static PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
+
+        /**
          * Indicates the message code for a dump operation.
          * @since 7
          */
         DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
 
         /**
+         * Indicates the message code for a dump operation.
+         * @since 9
+         */
+        static DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
+
+        /**
          * Indicates the message code for a transmission.
          * @since 7
          */
         INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
+
+        /**
+         * Indicates the message code for a transmission.
+         * @since 9
+         */
+        static INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
 
         /**
          * Indicates the minimum value of a valid message code.
@@ -1182,12 +1224,28 @@ declare namespace rpc {
         MIN_TRANSACTION_ID = 0x1;
 
         /**
+         * Indicates the minimum value of a valid message code.
+         *
+         * <p>This constant is used to check the validity of an operation.
+         * @since 9
+         */
+        static MIN_TRANSACTION_ID = 0x1;
+
+        /**
          * Indicates the maximum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
          * @since 7
          */
         MAX_TRANSACTION_ID = 0x00FFFFFF;
+
+        /**
+         * Indicates the maximum value of a valid message code.
+         *
+         * <p>This constant is used to check the validity of an operation.
+         * @since 9
+         */
+        static MAX_TRANSACTION_ID = 0x00FFFFFF;
 
         /**
          * Queries a local interface with a specified descriptor.
@@ -1424,10 +1482,22 @@ declare namespace rpc {
         PROT_EXEC = 4;
 
         /**
+         * The mapped memory is executable.
+         * @since 9
+         */
+        static PROT_EXEC = 4;
+
+        /**
          * The mapped memory is inaccessible.
          * @since 8
          */
         PROT_NONE = 0;
+
+        /**
+         * The mapped memory is inaccessible.
+         * @since 9
+         */
+        static PROT_NONE = 0;
 
         /**
          * The mapped memory is readable.
@@ -1436,10 +1506,22 @@ declare namespace rpc {
         PROT_READ = 1;
 
         /**
+         * The mapped memory is readable.
+         * @since 9
+         */
+        static PROT_READ = 1;
+
+        /**
          * The mapped memory is writable.
          * @since 8
          */
         PROT_WRITE = 2;
+
+        /**
+         * The mapped memory is writable.
+         * @since 9
+         */
+        static PROT_WRITE = 2;
 
         /**
          * Creates an Ashmem object with the specified name and size.
