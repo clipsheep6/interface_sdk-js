@@ -166,6 +166,7 @@ declare namespace formHost {
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
+     * @param FormInfoType Indicates the form type (dynamic/static/all) the form infos belong to.
      * @return Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
@@ -192,8 +193,7 @@ declare namespace formHost {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param bundleName Indicates the bundle name of the application.
-     * @param moduleName Indicates the module name of the application.
-     * @param formIntoType Indicates whether fetching static forms, dynamic forms for both.
+     * @param filter Indicates the requirements the forms that the formInfos belong to have to meet.
      * @return Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
