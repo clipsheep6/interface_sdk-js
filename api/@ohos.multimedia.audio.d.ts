@@ -1860,6 +1860,11 @@ declare namespace audio {
     on(type: "stateChange", callback: Callback<AudioState>): void;
   }
 
+  /**
+   * Enumerates tone types for player.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
   enum ToneType {
     TONE_TYPE_DIAL_0 = 0, // 0 key
     TONE_TYPE_DIAL_1,     // 1 key
@@ -1878,9 +1883,20 @@ declare namespace audio {
     TONE_TYPE_DIAL_C,     // C key
     TONE_TYPE_DIAL_D,     // D key
 
-    TONE_TYPE_CALL_SUP_DIAL = 100,
+    TONE_TYPE_COMMON_SUPERVISORY_DIAL = 100,
+    TONE_TYPE_COMMON_SUPERVISORY_BUSY,
+    TONE_TYPE_COMMON_SUPERVISORY_CONGESTION,
+    TONE_TYPE_COMMON_SUPERVISORY_RADIO_ACK,
+    TONE_TYPE_COMMON_SUPERVISORY_RADIO_NOTAVAIL,
+    TONE_TYPE_COMMON_SUPERVISORY_ERROR,
+    TONE_TYPE_COMMON_SUPERVISORY_CALL_WAITING,
+    TONE_TYPE_COMMON_SUPERVISORY_RINGTONE,
 
-    TONE_TYPE_CALL_PROP_BEEP = 200,
+    TONE_TYPE_COMMON_PROPRIETARY_BEEP = 200,
+    TONE_TYPE_COMMON_PROPRIETARY_ACK,
+    TONE_TYPE_COMMON_PROPRIETARY_NACK,
+    TONE_TYPE_COMMON_PROPRIETARY_PROMPT,
+    TONE_TYPE_COMMON_PROPRIETARY_BEEP2,
   }
 
   /**
