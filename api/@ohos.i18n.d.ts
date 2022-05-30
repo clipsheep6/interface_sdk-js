@@ -143,7 +143,7 @@ export function setSystemLocale(locale: string): boolean;
  * @syscap SystemCapability.Global.I18n
  * @since 8
  */
-export interface Util {
+export class Util {
     /**
      * Convert from unit to to unit and format according to the locale.
      *
@@ -155,7 +155,7 @@ export interface Util {
      * @param style The style of format.
      * @since 8
      */
-    unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
+    static unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
 }
 
 /**
@@ -186,7 +186,7 @@ export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
      */
-    type: string;
+    type?: string;
 }
 
 /**
@@ -537,7 +537,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a digit character
      */
-    isDigit(char: string): boolean;
+    static isDigit(char: string): boolean;
 
     /**
      * Determines if the specified character is a space character or not.
@@ -546,7 +546,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a space character
      */
-    isSpaceChar(char: string): boolean;
+    static isSpaceChar(char: string): boolean;
 
     /**
      * Determines if the specified character is a whitespace character
@@ -555,7 +555,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a whitespace character
      */
-    isWhitespace(char: string): boolean;
+    static isWhitespace(char: string): boolean;
 
     /**
      * Determines if the specified character is a RTL character or not.
@@ -564,7 +564,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a RTL character
      */
-    isRTL(char: string): boolean;
+    static isRTL(char: string): boolean;
 
     /**
      * Determines if the specified character is a Ideographic character or not.
@@ -573,7 +573,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a Ideographic character
      */
-    isIdeograph(char: string): boolean;
+    static isIdeograph(char: string): boolean;
 
     /**
      * Determines if the specified character is a Letter or not.
@@ -582,7 +582,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a Letter
      */
-    isLetter(char: string): boolean;
+    static isLetter(char: string): boolean;
 
     /**
      * Determines if the specified character is a LowerCase character or not.
@@ -591,7 +591,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a LowerCase character
      */
-    isLowerCase(char: string): boolean;
+    static isLowerCase(char: string): boolean;
 
     /**
      * Determines if the specified character is a UpperCase character or not.
@@ -600,7 +600,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns true if the character is a UpperCase character
      */
-    isUpperCase(char: string): boolean;
+    static isUpperCase(char: string): boolean;
 
     /**
      * Get the general category value of the specified character.
@@ -609,7 +609,7 @@ export class Character {
      * @param char the character to be tested
      * @return Returns the general category of the specified character.
      */
-    getType(char: string): string;
+    static getType(char: string): string;
 }
 
 /**
