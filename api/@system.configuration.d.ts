@@ -52,5 +52,5 @@ export default class Configuration {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
-  static getLocale(): LocaleResponse;
+  getLocale(): LocaleResponse;
 }
