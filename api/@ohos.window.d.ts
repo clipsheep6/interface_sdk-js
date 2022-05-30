@@ -28,10 +28,12 @@ declare namespace window {
   enum WindowType {
     /**
      * App.
+     * @FAModelOnly
      */
     TYPE_APP,
     /**
      * System alert.
+     * @StageModelOnly
      */
     TYPE_SYSTEM_ALERT
   }
@@ -316,6 +318,7 @@ declare namespace window {
    * @param id Indicates window id.
    * @param type Indicates window type.
    * @since 7
+   * @FAModelOnly
    */
   function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
@@ -324,6 +327,7 @@ declare namespace window {
    * @param id Indicates window id.
    * @param type Indicates window type.
    * @since 7
+   * @FAModelOnly
    */
   function create(id: string, type: WindowType): Promise<Window>;
 
@@ -363,12 +367,14 @@ declare namespace window {
    * Get the final show window.
    * @param id Indicates window id.
    * @since 6
+   * @FAModelOnly
    */
   function getTopWindow(callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
    * @since 6
+   * @FAModelOnly
    */
   function getTopWindow(): Promise<Window>;
 
@@ -376,6 +382,7 @@ declare namespace window {
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
+   * @StageModelOnly
    */
   function getTopWindow(ctx: Context): Promise<Window>;
 
@@ -383,6 +390,7 @@ declare namespace window {
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
+   * @StageModelOnly
    */
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
 
@@ -592,6 +600,7 @@ declare namespace window {
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @StageModelOnly
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
@@ -600,6 +609,7 @@ declare namespace window {
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @StageModelOnly
      */
     loadContent(path: string): Promise<void>;
 
