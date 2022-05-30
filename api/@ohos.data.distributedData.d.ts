@@ -14,12 +14,15 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
+import ValuesBucket from './@ohos.data.DatashareValuesBucket';
+import Predicates from './@ohos.data.DatasharePredicates';
+import DataShareResultSet from './@ohos.data.DataShareResultSet';
+
 /**
  * Providers interfaces to creat a {@link KVManager} istances.
  * @since 7
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
  * @import N/A
- * @permission N/A
  */
 
 declare namespace distributedData {
@@ -29,7 +32,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface KVManagerConfig {
         /**
@@ -37,7 +39,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         userInfo: UserInfo;
 
@@ -46,7 +47,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         bundleName: string;
     }
@@ -60,7 +60,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface UserInfo {
         /** 
@@ -68,7 +67,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         userId?: string;
 
@@ -77,7 +75,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         userType?: UserType;
     }
@@ -88,7 +85,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum UserType {
         /** 
@@ -96,7 +92,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         SAME_USER_ID = 0
     }
@@ -106,7 +101,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A 
      */
     namespace Constants {
         /**
@@ -114,7 +108,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         const MAX_KEY_LENGTH = 1024;
 
@@ -123,7 +116,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         const MAX_VALUE_LENGTH = 4194303;
 
@@ -132,7 +124,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         const MAX_KEY_LENGTH_DEVICE = 896;
 
@@ -141,7 +132,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         const MAX_STORE_ID_LENGTH = 128;
 
@@ -150,7 +140,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         const MAX_QUERY_LENGTH = 512000;
 
@@ -159,7 +148,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         const MAX_BATCH_SIZE = 128;
     }
@@ -172,7 +160,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum ValueType {
         /** 
@@ -180,7 +167,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         STRING = 0,
 
@@ -189,7 +175,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         INTEGER = 1,
 
@@ -198,7 +183,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         FLOAT = 2,
 
@@ -207,7 +191,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A 
          * */
         BYTE_ARRAY = 3,
 
@@ -216,7 +199,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          * */
         BOOLEAN = 4,
 
@@ -225,7 +207,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         DOUBLE = 5
     }
@@ -236,7 +217,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface Value {
         /**
@@ -244,7 +224,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          * @see ValueType
          * @type {number}
          * @memberof Value
@@ -255,7 +234,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         value: Uint8Array | string | number | boolean;
     }
@@ -266,7 +244,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface Entry {
         /**
@@ -274,7 +251,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         key: string;
         /**
@@ -282,7 +258,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         value: Value;
     }
@@ -296,7 +271,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface ChangeNotification {
         /** 
@@ -304,7 +278,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         insertEntries: Entry[];
         /** 
@@ -312,7 +285,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         updateEntries: Entry[];
         /** 
@@ -320,7 +292,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A 
          */
         deleteEntries: Entry[];
         /**
@@ -328,7 +299,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         deviceId: string;
     }
@@ -339,7 +309,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SyncMode {
         /** 
@@ -347,7 +316,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         PULL_ONLY = 0,
         /** 
@@ -355,7 +323,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         PUSH_ONLY = 1,
         /** 
@@ -363,7 +330,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         PUSH_PULL = 2
     }
@@ -374,7 +340,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SubscribeType {
         /** 
@@ -382,7 +347,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
         */
         SUBSCRIBE_TYPE_LOCAL = 0,
 
@@ -391,7 +355,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
         */
         SUBSCRIBE_TYPE_REMOTE = 1,
 
@@ -400,7 +363,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         SUBSCRIBE_TYPE_ALL = 2,
     }
@@ -411,7 +373,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum KVStoreType {
         /** 
@@ -419,7 +380,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
-         * @permission N/A
          */
         DEVICE_COLLABORATION = 0,
 
@@ -428,7 +388,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         SINGLE_VERSION = 1,
 
@@ -437,7 +396,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
-         * @permission N/A
          */
         MULTI_VERSION = 2,
     }
@@ -448,7 +406,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SecurityLevel {
         /**
@@ -457,7 +414,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
-         * @permission N/A
          */
         NO_LEVEL = 0,
 
@@ -468,7 +424,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         S0 = 1,
 
@@ -479,7 +434,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         S1 = 2,
 
@@ -490,7 +444,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         S2 = 3,
 
@@ -501,7 +454,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         S3 = 5,
 
@@ -512,7 +464,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         S4 = 6,
     }
@@ -526,7 +477,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface Options {
         /**
@@ -534,7 +484,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         createIfMissing?: boolean;
         /**
@@ -542,7 +491,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         encrypt?: boolean;
         /**
@@ -550,15 +498,14 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         backup?: boolean;
         /**
          * Indicates setting whether database files are automatically synchronized
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @import N/A
-         * @permission N/A
          */
         autoSync?: boolean;
         /**
@@ -566,7 +513,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         kvStoreType?: KVStoreType;
         /**
@@ -574,7 +520,6 @@ declare namespace distributedData {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
-         * @permission N/A
          */
         securityLevel?: SecurityLevel;
         /**
@@ -582,7 +527,6 @@ declare namespace distributedData {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
-         * @permission N/A
          */
         schema?: Schema;
     }
@@ -595,13 +539,11 @@ declare namespace distributedData {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @import N/A
-     * @permission N/A
      */
     class Schema {
         /**
          * A constructor used to create a Schema instance.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -609,7 +551,6 @@ declare namespace distributedData {
         /**
          * Indicates the root json object.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -617,7 +558,6 @@ declare namespace distributedData {
         /**
          * Indicates the string array of json.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -625,7 +565,6 @@ declare namespace distributedData {
         /**
          * Indicates the mode of schema.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -633,7 +572,6 @@ declare namespace distributedData {
         /**
          * Indicates the skipsize of schema.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -652,14 +590,12 @@ declare namespace distributedData {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @import N/A
-     * @permission N/A
      */
     class FieldNode {
         /**
          * A constructor used to create a FieldNode instance with the specified field.
          * name Indicates the field node name.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -669,7 +605,6 @@ declare namespace distributedData {
          * 
          * <p>Adding a child node makes this node a non-leaf node. Field value will be ignored if it has child node.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param child The field node to append. 
@@ -679,7 +614,6 @@ declare namespace distributedData {
         /**
          * Indicates the default value of fieldnode.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
@@ -687,7 +621,6 @@ declare namespace distributedData {
          /**
           * Indicates the nullable of database field.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           */
@@ -695,7 +628,6 @@ declare namespace distributedData {
          /**
           * Indicates the type of value.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           */
@@ -711,13 +643,11 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     interface KvStoreResultSet {
         /**
          * Obtains the number of lines in a result set.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns the number of lines.
@@ -726,7 +656,6 @@ declare namespace distributedData {
         /**
          * Obtains the current read position in a result set.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns the current read position. The read position starts with 0.
@@ -736,7 +665,6 @@ declare namespace distributedData {
          * Moves the read position to the first line.
          * 
          * <p>If the result set is empty, false is returned.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns true if the operation succeeds; return false otherwise.
@@ -746,7 +674,6 @@ declare namespace distributedData {
          * Moves the read position to the last line.
          * 
          * <p>If the result set is empty, false is returned.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns true if the operation succeeds; return false otherwise.
@@ -756,7 +683,6 @@ declare namespace distributedData {
          * Moves the read position to the next line.
          * 
          * <p>If the result set is empty or the data in the last line is being read, false is returned.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns true if the operation succeeds; return false otherwise.
@@ -766,7 +692,6 @@ declare namespace distributedData {
          * Moves the read position to the previous line.
          * 
          * <p>If the result set is empty or the data in the first line is being read, false is returned.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns true if the operation succeeds; return false otherwise.
@@ -775,7 +700,6 @@ declare namespace distributedData {
         /**
          * Moves the read position by a relative offset to the current position.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param offset Indicates the relative offset to the current position. Anegative offset indicates moving backwards, and a
@@ -789,7 +713,6 @@ declare namespace distributedData {
         /**
          * Moves the read position from 0 to an absolute position.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param position Indicates the absolute position.
@@ -799,7 +722,6 @@ declare namespace distributedData {
         /**
          * Checks whether the read position is the first line.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
         
@@ -851,13 +773,11 @@ declare namespace distributedData {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      */
     class Query {
         /**
          * A constructor used to create a Query instance.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          */
@@ -1175,7 +1095,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      * @version 1
      */
     interface KVStore {
@@ -1184,7 +1103,6 @@ declare namespace distributedData {
          *
          * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
          * 
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
@@ -1197,40 +1115,64 @@ declare namespace distributedData {
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
+         /**
+         * Writes a value of the valuesbucket type into the {@code KvStore} database.
+         * 
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param value Indicates the data record to put.
+         * Spaces before and after the key will be cleared.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+        putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
+        putBatch(value: Array<ValuesBucket>): Promise<void>;
+
         /**
          * Deletes the key-value pair based on a specified key.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
-         *  @throws Throws this exception if any of the following errors 
+         * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
          */
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
 
+         /**
+         * Deletes the key-value pair based on a specified key.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the datasharePredicates.
+         * Spaces before and after the key will be cleared.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+        delete(predicates: Predicates, callback: AsyncCallback<void>);
+        delete(predicates: Predicates): Promise<void>;
+        
         /**
          * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
          * {@code KvStoreObserver} will be invoked.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the observer of data change events in the distributed database.
+         * @param listener Indicates the observer of data change events in the distributed database.
          * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-        on(event: 'dataChange', type: SubscribeType, observer: Callback<ChangeNotification>): void;
+        on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
 
         /**
          * Subscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
          * 
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws Throws this exception if any of the following errors 
@@ -1242,20 +1184,29 @@ declare namespace distributedData {
         /**
          * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
          * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-        off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
+        off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
+
+        /**
+         * UnRegister Synchronizes {@code KvStore} database callback.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param syncCallback Indicates the callback used to send the synchronization result to caller.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
 
         /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param entries Indicates the key-value pairs to be inserted in batches.
@@ -1267,7 +1218,6 @@ declare namespace distributedData {
         /**
          * Deletes key-value pairs in batches from the {@code KvStore} database.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param keys Indicates the key-value pairs to be deleted in batches.
@@ -1281,7 +1231,6 @@ declare namespace distributedData {
          * 
          * <p>After the database transaction is started, you can submit or roll back the operation.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws Throws this exception if a database error occurs.
@@ -1292,7 +1241,6 @@ declare namespace distributedData {
         /**
          * Submits a transaction operation in the {@code KvStore} database.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param callback 
@@ -1304,7 +1252,6 @@ declare namespace distributedData {
         /**
          * Rolls back a transaction operation in the {@code KvStore} database.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws Throws this exception if a database error occurs.
@@ -1315,7 +1262,6 @@ declare namespace distributedData {
         /**
          * Sets whether to enable synchronization.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param enabled Specifies whether to enable synchronization. The value true means to enable
@@ -1330,7 +1276,6 @@ declare namespace distributedData {
          * 
          * <p>The labels determine the devices with which data will be synchronized.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param localLabels Indicates the synchronization labels of the local device.
@@ -1354,7 +1299,6 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      * @version 1
      */
     interface SingleKVStore extends KVStore {
@@ -1430,6 +1374,20 @@ declare namespace distributedData {
         getResultSet(query: Query): Promise<KvStoreResultSet>;
 
         /**
+         * Obtains the KvStoreResultSet object matching the specified Predicate object.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the datasharePredicates.
+         * Spaces before and after the key will be cleared.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+        getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
+        getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
+
+        /**
          * Closes a {@code KvStoreResultSet} object returned by getResultSet.
          * 
          * @since 8
@@ -1469,44 +1427,80 @@ declare namespace distributedData {
         /**
          * Synchronizes the database to the specified devices with the specified delay allowed.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param deviceIdList Indicates the list of devices to which to synchronize the database.
+         * @param deviceIds Indicates the list of devices to which to synchronize the database.
          * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @param allowedDelayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * @throws Throws this exception if any of the following errors 
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @throws Throws this exception if any of the following errors
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * occurs: {@code INVALID_ARGUMENT}, 
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
-         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void
 
-         /**
-          * Register Synchronizes SingleKvStore databases callback.
-          * 
-          * <p> Sync result is returned through asynchronous callback.
-          * @note N/A
-          * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-          * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
-          * @throws Throws this exception if no {@code SingleKvStore} database is available.
-          */
+        /**
+         * Synchronizes the database to the specified devices with the specified delay allowed.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param deviceIds Indicates the list of devices to which to synchronize the database.
+         * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @param query Indicates the {@code Query} object. 
+         * @throws Throws this exception if any of the following errors
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * occurs: {@code INVALID_ARGUMENT}, 
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+         sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
+	 
+        /**
+         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
+         * {@code KvStoreObserver} will be invoked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param listener Indicates the observer of data change events in the distributed database.
+         * @throws Throws this exception if no {@code SingleKvStore} database is available.
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+        /**
+         * Register Synchronizes SingleKvStore databases callback. 
+         * <p> Sync result is returned through asynchronous callback.
+         * @since 8
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
+         * @throws Throws this exception if no {@code SingleKvStore} database is available.
+         */
          on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
 
-         /**
-          * UnRegister Synchronizes SingleKvStore databases callback.
-          * @note N/A
-          * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-          * @throws Throws this exception if no {@code SingleKvStore} database is available.
-          */
+        /**
+         * Unsubscribes from the SingleKvStore database based on the specified subscribeType and {@code KvStoreObserver}.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
+
+        /**
+         * UnRegister Synchronizes SingleKvStore databases callback.
+         * @since 8
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @throws Throws this exception if no {@code SingleKvStore} database is available.
+         */
          off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
 	 
 	 
          /**
           * Sets the default delay allowed for database synchronization
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.Core
           * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
@@ -1519,7 +1513,6 @@ declare namespace distributedData {
          /**
           * Get the security level of the database.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.Core
           * @returns SecurityLevel {@code SecurityLevel} the security level of the database.
@@ -1541,13 +1534,11 @@ declare namespace distributedData {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @import N/A
-     * @permission N/A
      */
     interface DeviceKVStore extends KVStore {
         /**
          * Obtains the {@code String} value matching a specified device ID and key.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deviceId Indicates the device to be queried.
@@ -1562,7 +1553,6 @@ declare namespace distributedData {
          /**
           * Obtains all key-value pairs matching a specified device ID and key prefix.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Identifies the device whose data is to be queried.
@@ -1577,7 +1567,6 @@ declare namespace distributedData {
          /**
           * Obtains the list of key-value pairs matching the specified {@code Query} object.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param query Indicates the {@code Query} object.
@@ -1591,7 +1580,6 @@ declare namespace distributedData {
          /**
           * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore 
           * @param deviceId Indicates the ID of the device to which the key-value pairs belong.
@@ -1609,7 +1597,6 @@ declare namespace distributedData {
           * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
           * {@code KvStoreResultSet} objects in a timely manner.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Identifies the device whose data is to be queried.
@@ -1624,7 +1611,6 @@ declare namespace distributedData {
          /**
           * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param query Indicates the {@code Query} object.
@@ -1638,7 +1624,6 @@ declare namespace distributedData {
          /**
           * Obtains the {@code KvStoreResultSet} object matching a specified device ID and {@code Query} object.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Indicates the ID of the device to which the {@code KvStoreResultSet} object belongs.
@@ -1648,10 +1633,37 @@ declare namespace distributedData {
          getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
          getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
+        /**
+         * Obtains the KvStoreResultSet object matching the specified Predicate object.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the datasharePredicates.
+         * Spaces before and after the key will be cleared.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+         getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
+
+        /**
+         * Obtains the KvStoreResultSet object matching a specified Device ID and Predicate object.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the key.
+         * @param deviceId Indicates the ID of the device to which the results belong.
+         * Spaces before and after the key will be cleared.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+         getResultSet(deviceId: string, predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(deviceId: string, predicates: Predicates): Promise<KvStoreResultSet>;
+         
          /**
           * Closes a {@code KvStoreResultSet} object returned by getResultSet.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
@@ -1664,7 +1676,6 @@ declare namespace distributedData {
          /**
           * Obtains the number of results matching the specified {@code Query} object.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param query Indicates the {@code Query} object.
@@ -1678,7 +1689,6 @@ declare namespace distributedData {
          /**
           * Obtains the number of results matching a specified device ID and {@code Query} object.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Indicates the ID of the device to which the results belong.
@@ -1693,7 +1703,6 @@ declare namespace distributedData {
           * synchronized from remote devices. This operation does not synchronize data to other databases or affect
           * subsequent data synchronization.
           * 
-          * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Identifies the device whose data is to be removed. The value cannot be the current device ID.
@@ -1707,32 +1716,74 @@ declare namespace distributedData {
          * Synchronizes {@code DeviceKVStore} databases.
          *
          * <p>This method returns immediately and sync result will be returned through asynchronous callback.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param deviceIdList Indicates the list of IDs of devices whose
+         * @param deviceIds Indicates the list of IDs of devices whose
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
          * {@code DeviceKVStore} databases are to be synchronized.
          * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
          * {@code PUSH_PULL}.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-        sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+        sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+
+        /**
+         * Synchronizes {@code DeviceKVStore} databases.
+         *
+         * <p>This method returns immediately and sync result will be returned through asynchronous callback.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param deviceIds Indicates the list of IDs of devices whose
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * {@code DeviceKVStore} databases are to be synchronized.
+         * @param query Indicates the {@code Query} object. 
+         * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
+         * {@code PUSH_PULL}.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @throws Throws this exception if no DeviceKVStore database is available.
+         */
+        sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
 
         /**
          * Register Synchronizes DeviceKVStore databases callback.
          * 
          * <p>Sync result is returned through asynchronous callback.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+        
+        /**
+         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
+         * {@code KvStoreObserver} will be invoked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param listener Indicates the observer of data change events in the distributed database.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+        /**
+         * Unsubscribes from the DeviceKVStore database based on the specified subscribeType and {@code KvStoreObserver}.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+         off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
 
         /**
          * UnRegister Synchronizes DeviceKVStore databases callback.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws Throws this exception if no DeviceKVStore database is available.
@@ -1746,7 +1797,6 @@ declare namespace distributedData {
      * <p>You must pass {@link KVManagerConfig} to provide configuration information
      * for creating the {@link KVManager} instance.
      *
-     * @note N/A
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @param config Indicates the {@link KVStore} configuration information,
@@ -1763,14 +1813,12 @@ declare namespace distributedData {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
-     * @permission N/A
      * @version 1
      */
     interface KVManager {
         /**
          * Creates and obtains a {@code KVStore} database by specifying {@code Options} and {@code storeId}.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param options Indicates the options used for creating and obtaining the {@code KVStore} database,
@@ -1794,7 +1842,6 @@ declare namespace distributedData {
          * otherwise closing the database will fail. If you are attempting to close a database that is already closed, an error
          * will be returned.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param kvStore Indicates the {@code KvStore} database to close.
@@ -1813,7 +1860,6 @@ declare namespace distributedData {
          * 
          * <p>You can use this method to delete a {@code KvStore} database not in use. After the database is deleted, all its data will be
          * lost.
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param storeId Identifies the {@code KvStore} database to delete.
@@ -1829,7 +1875,6 @@ declare namespace distributedData {
          * Obtains the storeId of all {@code KvStore} databases that are created by using the {@code getKvStore} method and not deleted by
          * calling the {@code deleteKvStore} method.
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core 
          * @returns Returns the storeId of all created {@code KvStore} databases. 
@@ -1843,7 +1888,6 @@ declare namespace distributedData {
         /**
          * register DeviceChangeCallback to get notification when device's status changed
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deathCallback device change callback {@code DeviceChangeCallback}
@@ -1854,7 +1898,6 @@ declare namespace distributedData {
         /**
          * unRegister DeviceChangeCallback and can not receive notification
          * 
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.

@@ -74,7 +74,7 @@ declare namespace appManager {
      * @param accountId The account id.
      * @systemapi hide this for inner system use
      * @return -
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS, ohos.permission.CLEAN_BACKGROUND_PROCESSES
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
      */
     function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
     function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
@@ -94,7 +94,6 @@ declare namespace appManager {
     *
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi Hide this for inner system use.
     * @return Returns the array of {@link ProcessRunningInfo}.
     * @permission ohos.permission.GET_RUNNING_INFO
     */
@@ -123,7 +122,7 @@ declare namespace appManager {
      function clearUpApplicationData(bundleName: string): Promise<void>;
      function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 
-    /**	    
+    /**
      * Is it a ram-constrained device
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.Core

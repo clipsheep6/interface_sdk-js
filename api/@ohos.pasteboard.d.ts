@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 
 /**
  * systemPasteboard
- * @syscap SystemCapability.Miscservices.Pasteboard
+ * @syscap SystemCapability.MiscServices.Pasteboard
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {

@@ -645,7 +645,7 @@ declare namespace rpc {
          * @param sequenceableArray Sequenceable array to read.
          * @since 8
          */
-        readSequenceableArray(sequenceableArray Sequenceable[]): void;
+        readSequenceableArray(sequenceableArray: Sequenceable[]): void;
 
         /**
          * Reads the specified {@link IRemoteObject} array from this {@link MessageParcel} object.
@@ -739,6 +739,12 @@ declare namespace rpc {
         readRawData(size: number): number[];
     }
 
+
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface Sequenceable {
         /**
          * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
@@ -768,8 +774,9 @@ declare namespace rpc {
      * <p> SendRequestResult object contains four members,
      * namely error code of this operation, request code, data parcel
      * and reply parcel.
-     * @since 8
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
+     * @since 8
      */
     interface SendRequestResult {
         /**
@@ -799,6 +806,11 @@ declare namespace rpc {
         reply: MessageParcel;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface IRemoteObject {
         /**
          * Queries the description of an interface.
@@ -907,6 +919,11 @@ declare namespace rpc {
         isObjectDead(): boolean;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface IRemoteBroker {
         /**
          * Obtains a proxy or remote object. This method must be implemented by its derived classes.
@@ -918,6 +935,11 @@ declare namespace rpc {
         asObject(): IRemoteObject;
     }
 
+    /** 
+     * @since 7
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     */
     interface DeathRecipient {
         /**
          * Called to perform subsequent operations when a death notification of the remote object is received.
@@ -927,6 +949,11 @@ declare namespace rpc {
         onRemoteDied(): void;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class MessageOption {
         /**
          * Indicates synchronous call.
@@ -957,7 +984,7 @@ declare namespace rpc {
          *
          * @param syncFlags Specifies whether the SendRequest is called synchronously (default) or asynchronously.
          * @param waitTime Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
-         * @since 8
+         * @since 7
          */
         constructor(syncFlags?: number, waitTime = TF_WAIT_TIME);
 
@@ -965,7 +992,7 @@ declare namespace rpc {
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @return Returns whether the SendRequest is called synchronously or asynchronously.
-         * @since 8
+         * @since 7
          */
         getFlags(): number;
 
@@ -973,7 +1000,7 @@ declare namespace rpc {
          * Sets the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @param flags Indicates the call flag, which can be synchronous or asynchronous.
-         * @since 8
+         * @since 7
          */
         setFlags(flags: number): void;
 
@@ -981,7 +1008,7 @@ declare namespace rpc {
          * Obtains the maximum wait time for this RPC call.
          *
          * @return Returns maximum wait time obtained.
-         * @since 8
+         * @since 7
          */
         getWaitTime(): number;
 
@@ -989,17 +1016,22 @@ declare namespace rpc {
          * Sets the maximum wait time for this RPC call.
          *
          * @param waitTime Indicates maximum wait time to set.
-         * @since 8
+         * @since 7
          */
         setWaitTime(waitTime: number): void;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class RemoteObject implements IRemoteObject {
         /**
          * A constructor to create a RemoteObject instance.
          *
          * @param descriptor Specifies interface descriptor.
-         * @since 8
+         * @since 7
          */
         constructor(descriptor: string);
 
@@ -1117,6 +1149,11 @@ declare namespace rpc {
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class RemoteProxy implements IRemoteObject {
         /**
          * Indicates the message code for a Ping operation.
@@ -1250,6 +1287,11 @@ declare namespace rpc {
         isObjectDead(): boolean;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class IPCSkeleton {
         /**
          * Obtains a local {@link IRemoteObject} reference of a registered service.
@@ -1370,6 +1412,8 @@ declare namespace rpc {
      * including creating, closing, mapping, and unmapping an Ashmem object,
      * reading data from and writing data to an Ashmem object,
      * obtaining the Ashmem size, and setting Ashmem protection.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
      * @since 8
      */
     class Ashmem {
@@ -1392,7 +1436,7 @@ declare namespace rpc {
         PROT_READ = 1;
 
         /**
-         * The mapped memory is writeable.
+         * The mapped memory is writable.
          * @since 8
          */
         PROT_WRITE = 2;

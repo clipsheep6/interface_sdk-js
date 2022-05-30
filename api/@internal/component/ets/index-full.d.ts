@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -44,6 +44,7 @@
 /// <reference path="./grid.d.ts" />
 /// <reference path="./gridItem.d.ts" />
 /// <reference path="./grid_container.d.ts" />
+/// <reference path="./hyperlink.d.ts" />
 /// <reference path="./image.d.ts" />
 /// <reference path="./image_animator.d.ts" />
 /// <reference path="./lazy_for_each.d.ts" />
@@ -98,3 +99,5 @@
 /// <reference path="./xcomponent.d.ts" />
 /// <reference path="./inspector.d.ts" />
 /// <reference path="./sidebar.d.ts" />
+/// <reference path="./ability_component.d.ts" />
+/// <reference path="./remote_window.d.ts" />

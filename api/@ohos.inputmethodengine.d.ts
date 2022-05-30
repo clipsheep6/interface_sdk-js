@@ -19,7 +19,7 @@ import {AsyncCallback} from './basic';
  * inputmethodengine
  *
  * @since 8
- * @syscap SystemCapability.MiscServices.InputMethodEngine
+ * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
 declare namespace inputMethodEngine {
     const ENTER_KEY_TYPE_UNSPECIFIED: number;
@@ -58,7 +58,7 @@ declare namespace inputMethodEngine {
     function createKeyboardDelegate(): KeyboardDelegate;
 
     interface KeyboardController {
-        hideKeyboard(callbakc: AsyncCallback<void>): void;
+        hideKeyboard(callback: AsyncCallback<void>): void;
 
         hideKeyboard(): Promise<void>;
     }
@@ -68,13 +68,9 @@ declare namespace inputMethodEngine {
 
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
-        on(type: 'keyboardShow', callback: () => void): void;
+        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
 
-        off(type: 'keyboardShow', callback: () => void): void;
-
-        on(type: 'keyboardHide', callback: () => void): void;
-
-        off(type: 'keyboardHide', callback: () => void): void;
+        off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
     }
 
     interface TextInputClient {
@@ -90,35 +86,35 @@ declare namespace inputMethodEngine {
 
         deleteBackward(length: number): Promise<boolean>;
 
-        InsertText(text: string, callback: AsyncCallback<boolean>): void;
+        insertText(text: string, callback: AsyncCallback<boolean>): void;
 
-        InsertText(text: string): Promise<boolean>;
+        insertText(text: string): Promise<boolean>;
 
         getForward(length: number, callback: AsyncCallback<string>): void;
 
         getForward(length: number): Promise<string>;
 
-        getEditorAttribute(lcallback: AsyncCallback<EditorAttribute>): void;
+        getBackward(length: number, callback: AsyncCallback<string>): void;
+
+        getBackward(length: number): Promise<string>;
+
+        getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         getEditorAttribute(): Promise<EditorAttribute>;
     }
 
     interface KeyboardDelegate {
-        on(type: 'keyDown', callback: (event: KeyEvent) => boolean): void;
+        on(type: 'keyDown'|'keyUp', callback: (event: KeyEvent) => boolean): void;
 
-        off(type: 'keyDown', callback?: (event: KeyEvent) => boolean): void;
-
-        on(type: 'keyUp', callback: (event: KeyEvent) => boolean): void;
-
-        off(type: 'keyUp', callback?: (event: KeyEvent) => boolean): void;
+        off(type: 'keyDown'|'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
         on(type: 'cursorContextChange', callback: (x: number, y: number, height: number) => void): void;
 
         off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void;
 
-        on(type: 'selectionChange', callback: (oldBegine: number, oldEnd: number, newBegine: number, newEnd: number) => void): void;
+        on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
-        off(type: 'selectionChange', callback?: (oldBegine: number, oldEnd: number, newBegine: number, newEnd: number) => void): void;
+        off(type: 'selectionChange', callback?: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
         on(type: 'textChange', callback: (text: string) => void): void;
 
@@ -128,6 +124,11 @@ declare namespace inputMethodEngine {
     interface EditorAttribute {
         readonly inputPattern: number;
         readonly enterKeyType: number;
+    }
+
+    interface KeyEvent {
+        readonly keyCode: number;
+        readonly keyAction: number;
     }
 }
 

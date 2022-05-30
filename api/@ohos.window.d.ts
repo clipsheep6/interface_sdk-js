@@ -13,8 +13,8 @@
 * limitations under the License.
 */
 import { AsyncCallback, Callback } from './basic' ;
-import { Context } from  './app/context';
-import { ContentStorage } from './@internal/component/ets/stateManagement'
+import { Context } from  './application/BaseContext';
+import { LocalStorage } from './@internal/component/ets/stateManagement'
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -35,9 +35,83 @@ declare namespace window {
      */
     TYPE_SYSTEM_ALERT,
     /**
-     * System gesture.
+     * input method.
+     * @systemapi Hide this for inner system use.
+     * @since 9
      */
-    TYPE_SYSTEM_GESTURE
+    TYPE_INPUT_METHOD,
+    /**
+     * status bar.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_STATUS_BAR,
+    /**
+     * panel.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_PANEL,
+    /**
+     * keyguard.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_KEYGUARD,
+    /**
+     * volume.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_VOLUME_OVERLAY,
+    /**
+     * navigation bar.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_NAVIGATION_BAR,
+    /**
+     * float.
+     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+     * @since 9
+     */
+    TYPE_FLOAT,
+    /**
+     * wallpaper.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_WALLPAPER,
+    /**
+     * desktop.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_DESKTOP,
+    /**
+     * recent.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_LAUNCHER_RECENT,
+    /**
+     * dock.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_LAUNCHER_DOCK,
+    /**
+     * voice interaction.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_VOICE_INTERACTION,
+    /**
+     * pointer.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_POINTER
   }
 
   /**
@@ -67,6 +141,27 @@ declare namespace window {
     PRIMARY,
     SECONDARY,
     FLOATING
+  }
+
+   /**
+   * Describes the mode of window layout
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  enum WindowLayoutMode {
+    /**
+     * CASCADE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_CASCADE,
+    /**
+     * TILE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_TILE
   }
 
   /**
@@ -109,7 +204,7 @@ declare namespace window {
      * the content color of the navigation bar
      * @since 8
      */
-     navigationBarContentColor?: string;
+    navigationBarContentColor?: string;
   }
 
   /**
@@ -270,12 +365,6 @@ declare namespace window {
     brightness: number
 
     /**
-     * The dimbehind value of window.
-     * @since 6
-     */
-    dimBehindValue: number
-
-    /**
      * Whether keep screen on.
      * @since 6
      */
@@ -319,7 +408,6 @@ declare namespace window {
    * Create a sub window with a specific id and type, only support 7.
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 7
    */
   function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
@@ -328,7 +416,6 @@ declare namespace window {
    * Create a sub window with a specific id and type, only support 7.
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 7
    */
   function create(id: string, type: WindowType): Promise<Window>;
@@ -338,7 +425,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
@@ -348,7 +434,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
@@ -393,6 +478,50 @@ declare namespace window {
    * @since 8
    */
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
+
+  /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number): Promise<void>;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(): Promise<void>;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
    * register the callback of systemBarTintChange
@@ -602,7 +731,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
@@ -611,7 +740,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage): Promise<void>;
+    loadContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
      * Loads content
@@ -621,13 +750,13 @@ declare namespace window {
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
-      /**
+    /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-       loadContent(path: string): Promise<void>;
+    loadContent(path: string): Promise<void>;
 
     /**
      * Checks whether the window is displayed
@@ -681,7 +810,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    on(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+    on(type: 'keyboardHeightChange', callback: Callback<number>): void;
 
     /**
      * unregister the callback of keyboardHeightChange
@@ -689,7 +818,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    off(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+    off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
 
     /**
      * Whether the window supports thr wide gamut setting.
@@ -762,22 +891,6 @@ declare namespace window {
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the dimBehind of window.
-     * @param dimBehindValue the specified dimBehind.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets the dimBehind of window.
-     * @param dimBehind the specified dimBehind.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setDimBehind(dimBehindValue: number): Promise<void>;
-
-    /**
      * Sets whether focusable or not.
      * @param isFocusable can be focus if true, or can not be focus if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -810,22 +923,6 @@ declare namespace window {
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets whether outside can be touch or not.
-     * @param touchable outside can be touch if true, or not if false.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setOutsideTouchable(touchable: boolean): Promise<void>;
-
-    /**
-     * Sets whether outside can be touch or not.
-     * @param touchable outside can be touch if true, or not if false.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setOutsideTouchable(touchable: boolean, callback: AsyncCallback<void>): void;
-
-    /**
      * Sets whether is private mode or not.
      * @param isPrivacyMode in private mode if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -856,6 +953,24 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+    
+    /**
+     * set the flag of the window is forbidden to move in split screen mode
+     * @param isForbidSplitMove the flag of the window is forbidden to move in split screen mode
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 9
+     */
+    setForbidSplitMove(isForbidSplitMove: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * set the flag of the window is forbidden to move in split screen mode
+     * @param isForbidSplitMove the flag of the window is forbidden to move in split screen mode
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 9
+     */
+    setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
   }
   /**
    * window stage callback event type
@@ -913,7 +1028,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
@@ -921,7 +1036,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage?: ContentStorage): Promise<void>;
+    loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
@@ -939,6 +1054,21 @@ declare namespace window {
      * @since 9
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * disable window decoration. It must be called before loadContent.
+     * @systemapi
+     * @since 9
+     */
+     disableWindowDecor(): void;
+
+    /**
+     * Sets whether can show on lock screen or not
+     * @param showOnLockScreen can show on lock screen if true, or not if false
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+     setShowOnLockScreen(showOnLockScreen: boolean): void;
   }
 }
 

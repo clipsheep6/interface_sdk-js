@@ -80,24 +80,28 @@ declare namespace mediaLibrary {
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
+   * @deprecated since 9
    */
   interface MediaAssetOption {
     /**
      * URI of the media source.
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
      */
     src: string;
     /**
      * Multipurpose Internet Mail Extensions (MIME) type of the media.
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
      */
     mimeType: string;
     /**
      * Relative path for storing media resources.
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
      */
     relativePath?: string;
   }
@@ -107,18 +111,21 @@ declare namespace mediaLibrary {
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
+   * @deprecated since 9
    */
   interface MediaSelectOption {
     /**
      * Media type, which can be image, video, or media (indicating both image and video).
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
      */
     type: 'image' | 'video' | 'media';
     /**
      * Maximum number of media items that can be selected
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @deprecated since 9
      */
     count: number;
   }
@@ -277,7 +284,7 @@ declare namespace mediaLibrary {
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback no value will be returned.
      */
     commitModify(callback: AsyncCallback<void>): void;
@@ -285,14 +292,14 @@ declare namespace mediaLibrary {
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      */
     commitModify(): Promise<void>;
     /**
      * Open the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
      */
@@ -301,7 +308,7 @@ declare namespace mediaLibrary {
      * Open the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      */
     open(mode: string): Promise<number>;
@@ -309,7 +316,7 @@ declare namespace mediaLibrary {
      * Close the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
      * @param callback no value will be returned.
      */
@@ -318,7 +325,7 @@ declare namespace mediaLibrary {
      * Close the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
      */
     close(fd: number): Promise<void>;
@@ -351,7 +358,7 @@ declare namespace mediaLibrary {
      * Set favorite for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite ture is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
      */
@@ -360,7 +367,7 @@ declare namespace mediaLibrary {
      * Set favorite for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite ture is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
@@ -383,7 +390,7 @@ declare namespace mediaLibrary {
      * Set trash for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      * @param callback Callback used to return, No value is returned.
      */
@@ -392,7 +399,7 @@ declare namespace mediaLibrary {
      * Set trash for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      */
     trash(isTrash: boolean): Promise<void>;
@@ -750,7 +757,7 @@ declare namespace mediaLibrary {
      * Modify the meta data for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback, no value will be returned.
      */
     commitModify(callback: AsyncCallback<void>): void;
@@ -758,7 +765,7 @@ declare namespace mediaLibrary {
      * Modify the meta data for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      */
     commitModify(): Promise<void>;
     /**
@@ -896,7 +903,7 @@ declare namespace mediaLibrary {
      * Create File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
@@ -907,7 +914,7 @@ declare namespace mediaLibrary {
      * Create File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
@@ -918,7 +925,7 @@ declare namespace mediaLibrary {
      * Delete File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri FileAsset's URI
      * @param callback no value returned
      * @systemapi
@@ -928,7 +935,7 @@ declare namespace mediaLibrary {
      * Delete File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri, FileAsset's URI
      * @return A Promise instance, no value returned
      * @systemapi
@@ -959,6 +966,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media resource option.
      * @param callback Callback used to return the URI that stores the media resources.
+     * @deprecated since 9
      */
     storeMediaAsset(option: MediaAssetOption, callback: AsyncCallback<string>): void;
     /**
@@ -967,6 +975,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media resource option.
      * @return Promise used to return the URI that stores the media resources.
+     * @deprecated since 9
      */
     storeMediaAsset(option: MediaAssetOption): Promise<string>;
     /**
@@ -977,6 +986,7 @@ declare namespace mediaLibrary {
      * @param images List of images to preview.
      * @param index Sequence number of the first image to preview.
      * @param callback Callback used for image preview. No value is returned.
+     * @deprecated since 9
      */
     startImagePreview(images: Array<string>, index: number, callback: AsyncCallback<void>): void;
     /**
@@ -985,6 +995,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param images List of images to preview.
      * @param callback Callback used for image preview. No value is returned.
+     * @deprecated since 9
      */
     startImagePreview(images: Array<string>, callback: AsyncCallback<void>): void;
     /**
@@ -995,6 +1006,7 @@ declare namespace mediaLibrary {
      * @param images List of images to preview.
      * @param index Sequence number of the first image to preview.
      * @return Promise used to return whether the operation is successful.
+     * @deprecated since 9
      */
     startImagePreview(images: Array<string>, index?: number): Promise<void>;
     /**
@@ -1004,6 +1016,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media selection option.
      * @param callback Callback used to return the list of URIs that store the selected media resources.
+     * @deprecated since 9
      */
     startMediaSelect(option: MediaSelectOption, callback: AsyncCallback<Array<string>>): void;
     /**
@@ -1013,6 +1026,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media selection option.
      * @return Promise used to return the list of URIs that store the selected media resources.
+     * @deprecated since 9
      */
     startMediaSelect(option: MediaSelectOption): Promise<Array<string>>;
     /**

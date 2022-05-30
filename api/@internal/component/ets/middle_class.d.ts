@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1247,7 +1247,7 @@ declare class TSProgressAttribute extends CommonMethod<ProgressAttribute> {
    * @systemapi
    * @since 8
    */
-  create(object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
+  create(options: ProgressOptions): ProgressAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -2348,4 +2348,28 @@ declare class TSGestureGroupInterface {
    * @since 8
    */
   pop(): GestureGroupInterface;
+}
+
+/**
+ * Used for TS compiler.
+ * @ignore
+ * @systemapi
+ * @since 9
+ */
+declare class TSRemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  create(target: WindowAnimationTarget): RemoteWindowAttribute;
+
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  pop(): RemoteWindowAttribute;
 }

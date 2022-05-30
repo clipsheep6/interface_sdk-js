@@ -156,6 +156,17 @@ export interface Util {
      * @since 8
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
+
+    /**
+     * Get the order of year, month, day in the specified locale. Year, month, day are separated by '-'.
+     * 'y' stands for year, 'L' stands for month, d stands for day.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Information of the locale
+     * @return Returns the string of 'y', 'L', 'd' joined by '-'.
+     * @since 9
+     */
+    getDateOrder(locale: string): string;
 }
 
 /**
@@ -635,6 +646,7 @@ export class Character {
 /**
  * Add one language to preferred language List.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param language the language to be added.
  * @param index the position of preferred language list to be inserted. 
@@ -646,6 +658,7 @@ export function addPreferredLanguage(language: string, index?: number): boolean;
 /**
  * Remove one language from preferred language list.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param index the position of removed language in preferred language list.
  * @return Returns a boolean represent whether removed success.
@@ -670,6 +683,15 @@ export function getPreferredLanguageList(): Array<string>;
  * @since 8
  */
 export function getFirstPreferredLanguage(): string;
+
+/**
+ * Get the preferred language of App.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @return Returns a string represent the preferred language of App.
+ * @since 9
+ */
+ export function getAppPreferredLanguage(): string;
 
 /**
  * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
@@ -726,6 +748,45 @@ export class TimeZone {
      * @since 7
      */
     getOffset(date?: number): number;
+}
+
+/**
+ * Provides the API for transliterate text from one format to another.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 9
+ */
+export class Transliterator {
+    /**
+     * Get a string array of all available transliterator ids.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string array of all available transliterator ids.
+     * @since 9
+     */
+    static getAvailableIDs(): string[];
+
+    /**
+     * Get a Transliterator that is specified by id name.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param id specified the type of Transliterator. id is formed by source and dest. Transliterator will tranliste
+     *           the input string from source format to the dest format. For example, a Simplified Chinese to Latn
+     *           Transliterator will transform the text written in Chinese to Latn characters.
+     * @return Returns Transliterator that is specified by id name.
+     * @since 9
+     */
+    static getInstance(id: string): Transliterator;
+
+    /**
+     * Transform the input text.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param id text to be transliterated.
+     * @return Returns the output text that is tranlisterated from source format to the dest format.
+     * @since 9
+     */
+    transform(text: string): string;
 }
 }
 export default i18n;

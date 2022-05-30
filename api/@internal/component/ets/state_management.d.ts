@@ -586,101 +586,95 @@ declare abstract class SubscribaleAbstract {
 }
 
 /**
- * Defines the content storage interface.
+ * Defining LocalStorage.
  * @since 9
- * @StageModelOnly
  */
-declare class ContentStorage {
+declare class LocalStorage {
   /**
-   * Called when a link is set.
+   * constructor.
    * @since 9
-   * @StageModelOnly
    */
-  link(propName: string): any;
+  constructor(initializingProperties?: Object);
 
   /**
-   * Called when a hyperlink is set.
-   * @since 9
+   * Get current LocalStorage shared from stage.
    * @StageModelOnly
+   * @since 9
    */
-  setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  static GetShared(): LocalStorage;
 
   /**
-   * Called when a property is set.
+   * return true if prooperty with given name exists
    * @since 9
-   * @StageModelOnly
-   */
-  prop(propName: string): any;
-
-  /**
-   * Called when dynamic properties are set.
-   * @since 9
-   * @StageModelOnly
-   */
-  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
-
-  /**
-   * Called when owning or not.
-   * @since 9
-   * @StageModelOnly
    */
   has(propName: string): boolean;
 
   /**
-   * Called when data is obtained.
+   * return a Map Iterator
    * @since 9
-   * @StageModelOnly
-   */
-  get<T>(propName: string): T | undefined;
-
-  /**
-   * Called when setting.
-   * @since 9
-   * @StageModelOnly
-   */
-  set<T>(propName: string, newValue: T): boolean;
-
-  /**
-   * Called when setting or creating.
-   * @since 9
-   * @StageModelOnly
-   */
-  setOrCreate<T>(propName: string, newValue: T): void;
-
-  /**
-   * Called when a deletion is made.
-   * @since 9
-   * @StageModelOnly
-   */
-  delete(propName: string): boolean;
-
-  /**
-   * Called when a dictionary is sorted.
-   * @since 9
-   * @StageModelOnly
    */
   keys(): IterableIterator<string>;
 
   /**
-   * Called when a cleanup occurs.
+   * return number of properties
    * @since 9
-   * @StageModelOnly
-   */
-  clear(): boolean;
-
-  /**
-   * Called when the data can be changed.
-   * @since 9
-   * @StageModelOnly
-   */
-  isMutable(propName: string): boolean;
-
-  /**
-   * Called when you check how much data is stored.
-   * @since 9
-   * @StageModelOnly
    */
   size(): number;
+
+  /**
+   * returns value of given property
+   * @since 9
+   */
+  get<T>(propName: string): T;
+
+  /**
+   * Set value of given property
+   * @since 9
+   */
+  set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * add property if not property with given name
+   * @since 9
+   */
+  setOrCreate<T>(propName: string, newValue?: T): boolean;
+
+  /**
+   * create and return a 'link' (two-way sync) to named property
+   * @since 9
+   */
+  link<T>(propName: string, linkUser?: T, subscribersName?: string): T;
+
+  /**
+   * Like link(), will create and initialize a new source property in LocalStorge if missing
+   * @since 9
+   */
+  setAndLink<T>(propName: string, defaultValue: T, linkUser?: T, subscribersName?: string): T;
+
+  /**
+   * create and return a 'prop' (one-way sync) to named property
+   * @since 9
+   */
+  prop<T>(propName: string, propUser?: T, subscribersName?: string): T;
+
+  /**
+   * Like prop(), will create and initialize a new source property in LocalStorage if missing
+   * @since 9
+   */
+  setAndProp<T>(propName: string, defaultValue: T, propUser?: T, subscribersName?: string): T;
+  
+  /**
+   * Delete property from StorageBase
+   * @since 9
+   * @returns false if method failed
+   */
+  delete(propName: string): boolean;
+
+  /**
+   * delete all properties from the StorageBase
+   * @since 9
+   */
+  clear(): boolean;
 }
 
 /**

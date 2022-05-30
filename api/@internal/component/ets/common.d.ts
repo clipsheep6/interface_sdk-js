@@ -20,9 +20,10 @@ declare const Component: ClassDecorator;
 
 /**
  * Defining Entry ClassDecorator.
- * @since 7
+ * Only API 9 and later support parameters.
+ * @since 9
  */
-declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -121,6 +122,25 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const CustomDialog: ClassDecorator;
 
 /**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageLink: (value: string) => PropertyDecorator;
+
+/**
+ * Defining LocalStorageProp PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageProp: (value: string) => PropertyDecorator;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare function getContext(component?: Object): Object;
+ 
+/**
  * Defines the data type of the interface restriction.
  * @since 7
  */
@@ -140,34 +160,29 @@ declare interface Configuration {
 
 /**
  * Defines the data type of the interface restriction.
- * @devices phone, tablet, car
  * @since 8
  */
 declare interface Rectangle {
   /**
    * x:Horizontal coordinate
-   * @devices phone, tablet, car
    * @since 8
    */
   x?: Length;
 
   /**
    * y:Vertical axis coordinate.
-   * @devices phone, tablet, car
    * @since 8
    */
   y?: Length;
 
   /**
    * Sets the width of the current touchRect.
-   * @devices phone, tablet, car
    * @since 8
    */
   width?: Length;
 
   /**
    * Sets the height of the current touchRect.
-   * @devices phone, tablet, car
    * @since 8
    */
   height?: Length;
@@ -191,25 +206,6 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @since 7
  */
 declare function $rawfile(value: string): Resource;
-
-/**
- * global getContentStorage function
- * @since 9
- */
-declare function getContentStorage(value: any): ContentStorage;
-
-/**
- * Defines the context mock object.
- * @since 8
- * @systemapi
- */
-declare type Context = any;
-
-/**
- * global getContext function
- * @since 8
- */
-declare function getContext(value: any): Context;
 
 /**
  * Defines the animate function params.
@@ -424,7 +420,7 @@ declare interface TransitionOptions {
    * Defines the param of translate.
    * @since 7
    */
-  translate?: TransitionOptions;
+  translate?: TranslateOptions;
   /**
    * Defines the param of scale.
    * @since 7

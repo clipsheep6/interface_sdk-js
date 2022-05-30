@@ -19,14 +19,46 @@
  * @since 8
  */
  enum MatchPattern{
-   /**Equals to a string.*/
+   /**
+    * Equals to a string.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test
+    */
    EQUALS = 0,
-   /**Contains a substring.*/
+   /**
+    * Contains a substring.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test
+    */
    CONTAINS = 1,
-   /**StartsWith a substring.*/
+   /**
+    * StartsWith a substring.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test	
+    */
    STARTS_WITH = 2,
-   /**EndsWith a substring.*/
+   /**
+    * EndsWith a substring.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test
+    */
    ENDS_WITH = 3
+}
+
+/**
+ * Represents the rectangle area on the device screen.
+ *
+ * @since 9
+ */
+declare interface Rect {
+    readonly  leftX: number;
+    readonly  topY: number;
+    readonly  rightX: number;
+    readonly  bottomY: number;
 }
 
 /**
@@ -88,6 +120,16 @@
    clickable(b?:bool):By;
 
    /**
+    * Specifies the longClickable status of the target UiComponent.
+    * @syscap SystemCapability.Test.UiTest
+    * @param b the clickable status,default to true.
+    * @return Returns this {@link By} object.
+    * @since 9
+    * @test
+    */
+   longClickable(b?: bool): By;
+
+   /**
     * Specifies the scrollable status of the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
     * @param b the scrollable status,default to true.
@@ -126,6 +168,26 @@
     * @test
     */
    selected(b?:bool):By;
+
+   /**
+    * Specifies the checked status of the target UiComponent.
+    * @syscap SystemCapability.Test.UiTest
+    * @param b the checked status,default to false.
+    * @return Returns this {@link By} object.
+    * @since 9
+    * @test
+    */
+   checked(b?: bool): By;
+
+   /**
+    * Specifies the checkable status of the target UiComponent.
+    * @syscap SystemCapability.Test.UiTest
+    * @param b the checkable status,default to false.
+    * @return Returns this {@link By} object.
+    * @since 9
+    * @test
+    */
+   checkable(b?: bool): By;
 
    /**
     * Requires that the target UiComponent which is before another UiComponent that specified by the given {@link By}
@@ -203,7 +265,6 @@
       /**
        * Get the text attribute value.
        * @syscap SystemCapability.Test.UiTest
-       * @devices phone,tablet,tv,wearable,car
        * @since 8
        * @test
        */
@@ -226,6 +287,15 @@
        * @test
        */
       isClickable():Promise<bool>;
+
+      /**
+       * Get the longClickable status of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @returns the longClickable status.
+       * @since 9
+       * @test
+       */
+      isLongClickable(): Promise<bool>;
 
       /**
        * Get the scrollable status of this {@link UiComponent}.
@@ -264,6 +334,24 @@
       isSelected():Promise<bool>;
 
       /**
+       * Get the checked status of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @returns the checked status.
+       * @since 9
+       * @test
+       */
+      isChecked(): Promise<bool>;
+
+      /**
+       * Get the checkable status of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @returns the checkable status.
+       * @since 9
+       * @test
+       */
+      isCheckable(): Promise<bool>;
+
+      /**
        * Inject text to this {@link UiComponent},applicable to TextInput.
        * @syscap SystemCapability.Test.UiTest
        * @param text the text to inject.
@@ -271,6 +359,30 @@
        * @test
        */
       inputText(text: string):Promise<void>;
+
+      /**
+       * Clear text of this {@link UiComponent},applicable to TextInput.
+       * @syscap SystemCapability.Test.UiTest
+       * @since 9
+       * @test
+       */
+      clearText(): Promise<void>;
+
+      /**
+       * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
+       * @syscap SystemCapability.Test.UiTest
+       * @since 9
+       * @test
+       */
+      scrollToTop(): Promise<void>;
+
+      /**
+       * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
+       * @syscap SystemCapability.Test.UiTest
+       * @since 9
+       * @test
+       */
+      scrollToBottom(): Promise<void>;
 
       /**
        * Scroll on this {@link UiComponent}to find matched {@link UiComponent},applicable to scrollable one.
@@ -281,6 +393,24 @@
        * @test
        */
       scrollSearch(by:By):Promise<UiComponent>;
+
+	  /**
+       * Get the bounds rect of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @return the bounds rect object.
+       * @since 9
+       * @test
+       */
+      getBounds(): Promise<Rect>;
+
+      /**
+       * Drag this {@link UiComponent} to the bounds rect of target UiComponent.
+       * @syscap SystemCapability.Test.UiTest
+       * @param target the target {@link UiComponent}.
+       * @since 9
+       * @test
+       */
+      dragTo(target: UiComponent): Promise<void>;
 }
 
 /**
@@ -319,6 +449,17 @@
    * @test
    */
   findComponent(by:By):Promise<UiComponent>;
+
+  /**
+   * Find the first matched {@link UiComponent} on current UI during the time given.
+   * @syscap SystemCapability.Test.UiTest
+   * @param by the attribute requirements of the target {@link UiComponent}.
+   * @param time duration of finding in milliseconds
+   * @returns the first matched {@link UiComponent} or undefined.
+   * @since 9
+   * @test
+   */
+  waitForComponent(by: By, time: number): Promise<UiComponent>;
 
   /**
    * Find all the matched {@link UiComponent}s on current UI.
@@ -398,6 +539,18 @@
    * @test
    */
   swipe(startx:number,starty:number,endx:number,endy:number):Promise<void>;
+
+/**
+   * Drag on the screen between the specified points.
+   * @syscap SystemCapability.Test.UiTest
+   * @param startx the x-coordinate of the starting point.
+   * @param starty the y-coordinate of the starting point.
+   * @param endx the x-coordinate of the ending point.
+   * @param endy the y-coordinate of the ending point.
+   * @since 9
+   * @test
+   */
+  drag(startx: number, starty: number, endx: number, endy: number): Promise<void>;
 
   /**
    * Capture current screen and save as picture which PNG format.
