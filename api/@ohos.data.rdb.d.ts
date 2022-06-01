@@ -235,6 +235,26 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         rollBack():void;
+        
+        /**
+         * Backs up a database in a specified name.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param destName Indicates the name that saves the database backup.
+         */
+         backup(destName:string, callback: AsyncCallback<void>):void;
+         backup(destName:string): Promise<void>;
+ 
+         /**
+          * Restores a database from a specified database file.
+          *
+          * @since 9
+          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+          * @param srcName Indicates the name that saves the database file.
+          */
+         restore(srcName:string, callback: AsyncCallback<void>):void;
+         restore(srcName:string): Promise<void>;
 
         /**
          * Set table to be distributed table.
@@ -296,26 +316,6 @@ declare namespace rdb {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-        
-        /**
-         * Backs up a database in a specified name.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param destName Indicates the name that saves the database backup.
-         */
-         backup(destName:string, callback: AsyncCallback<void>):void;
-         backup(destName:string): Promise<void>;
- 
-         /**
-          * Restores a database from a specified unencrypted database file.
-          *
-          * @since 9
-          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-          * @param srcName Indicates the name that saves the unencrypted database file.
-          */
-         restore(srcName:string, callback: AsyncCallback<void>):void;
-         restore(srcName:string): Promise<void>;
     }
 
     /**
