@@ -14,30 +14,6 @@
  */
 
 /**
- * The status of the notification flag.
- *
- * @since 8
- * @systemapi Hide this for inner system use.
- * @syscap SystemCapability.Notification.Notification
- */
-  export enum NotificationFlagStatus {
-  /**
-   * notification flag default value
-   */
-  TYPE_NONE = 0,
-
-  /**
-   * notification flag open
-   */
-   TYPE_OPEN = 1,
-
-  /**
-   * notification flag close
-   */
-   TYPE_CLOSE = 2,
-}
-
-/**
  * Describes a NotificationFlags instance.
  *
  * @name NotificationFlags

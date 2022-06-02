@@ -14,34 +14,3 @@
  */
 
 import { ElementName }  from './elementName';
-
-/**
- * @name Contains basic remote ability information.
- * @since 8
- * @syscap SystemCapability.BundleManager.DistributedBundleFramework
- * @systemapi
- *
- * @permission N/A
- */
-export interface RemoteAbilityInfo {
-    /**
-     * @default Indicates the ability information
-     * @since 8
-     * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-     */
-    readonly elementName: ElementName;
-  
-    /**
-    * @default Indicates the label of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly label: string;
-  
-    /**
-    * @default Indicates the icon of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly icon: string;
-}

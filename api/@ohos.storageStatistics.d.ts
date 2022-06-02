@@ -23,22 +23,6 @@ import {AsyncCallback, Callback} from "./basic";
  * @systemapi
  */
 declare namespace storageStatistics {
-  /**
-   * Get the totalSize of volume.
-   *
-   * @since 8
-   * @systemapi
-   */
-  function getTotalSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
-  function getTotalSizeOfVolume(volumeUuid: string): Promise<number>;
-  /**
-   * Get the free size Of volume.
-   * 
-   * @since 8
-   * @systemapi
-   */
-  function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
-  function getFreeSizeOfVolume(volumeUuid: string): Promise<number>;
 }
 
 export default storageStatistics;

@@ -22,13 +22,5 @@ import { AsyncCallback } from './basic';
  * @since 7
  */
 declare namespace brightness {
-  /**
-   * Sets the screen brightness.
-   *
-   * @param value Brightness value, ranging from 0 to 255.
-   * @systemapi
-   * @since 7
-   */
-  function setValue(value: number): void;
 }
 export default brightness;

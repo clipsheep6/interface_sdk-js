@@ -12,17 +12,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * Sets filter criteria of publishers for subscribing to desired notifications.
- *
- * @name NotificationSubscribeInfo
- * @since 7
- * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
- */
-export interface NotificationSubscribeInfo {
-  bundleNames?: Array<string>;
-  userId?: number;
-}
