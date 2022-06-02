@@ -14,18 +14,3 @@
  */
 
 import { NotificationSlot } from './notificationSlot';
-
-/**
- * Provides sorting information about an active notification.
- *
- * @name NotificationSorting
- * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
- * @since 7
- */
-export interface NotificationSorting {
-  readonly slot: NotificationSlot;
-  readonly hashCode: string;
-  readonly ranking: number;
-}

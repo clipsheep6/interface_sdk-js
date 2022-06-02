@@ -23,22 +23,6 @@ import {AsyncCallback, Callback} from "./basic";
  * @systemapi
  */
 declare namespace Environment {
-  /**
-   * Get the user data path.
-   *
-   * @since 8
-   * @systemapi
-   */
-  function getStorageDataDir(callback: AsyncCallback<string>): void;
-  function getStorageDataDir(): Promise<string>;
-  /**
-   * Get the User storage path.
-   *
-   * @since 8
-   * @systemapi
-   */
-  function getUserDataDir(callback: AsyncCallback<string>): void;
-  function getUserDataDir(): Promise<string>;
 }
 
 export default Environment;

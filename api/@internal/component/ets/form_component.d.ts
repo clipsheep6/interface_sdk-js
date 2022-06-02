@@ -14,60 +14,11 @@
  */
 
 /**
- * Defines the FormDimension enum.
- * @since 7
- * @systemapi
- */
-declare enum FormDimension {
-  /**
-   * 1 x 2 cards
-   * @since 7
-   * @systemapi
-   */
-  Dimension_1_2,
-
-  /**
-   * 2 x 2 cards
-   * @since 7
-   * @systemapi
-   */
-  Dimension_2_2,
-
-  /**
-   * 2 x 4 cards
-   * @since 7
-   * @systemapi
-   */
-  Dimension_2_4,
-
-  /**
-   * 4 x 4 cards
-   * @since 7
-   * @systemapi
-   */
-  Dimension_4_4,
-}
-
-/**
  * Defines the FormComponent.
  * @since 7
  * @systemapi
  */
 interface FormComponentInterface {
-  /**
-   * Set a new value.
-   * @since 7
-   * @systemapi
-   */
-  (value: {
-    id: number;
-    name: string;
-    bundle: string;
-    ability: string;
-    module: string;
-    dimension?: FormDimension;
-    temporary?: boolean;
-  }): FormComponentAttribute;
 }
 
 /**
@@ -75,69 +26,6 @@ interface FormComponentInterface {
  * @systemapi
  */
 declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
-  /**
-   * Sets the display area size of the card.
-   * @since 7
-   * @systemapi
-   */
-  size(value: { width: number; height: number }): FormComponentAttribute;
-
-  /**
-   * Card module name.
-   * @since 7
-   * @systemapi
-   */
-  moduleName(value: string): FormComponentAttribute;
-
-  /**
-   * Set the card size.
-   * @since 7
-   * @systemapi
-   */
-  dimension(value: FormDimension): FormComponentAttribute;
-
-  /**
-   * Indicates whether to allow card update.
-   * @since 7
-   * @systemapi
-   */
-  allowUpdate(value: boolean): FormComponentAttribute;
-
-  /**
-   * Whether the card is visible.
-   * @since 7
-   * @systemapi
-   */
-  visibility(value: Visibility): FormComponentAttribute;
-
-  /**
-   * This function is triggered after card information is obtained.
-   * For details about the form information, see the definition of the original capability subsystem.
-   * @since 7
-   * @systemapi
-   */
-  onAcquired(callback: (info: { id: number }) => void): FormComponentAttribute;
-
-  /**
-   * Card loading error.
-   * @since 7
-   * @systemapi
-   */
-  onError(callback: (info: { errcode: number; msg: string }) => void): FormComponentAttribute;
-
-  /**
-   * Card to be redirected.
-   * @since 7
-   * @systemapi
-   */
-  onRouter(callback: (info: any) => void): FormComponentAttribute;
-
-  /**
-   * Uninstall Card.
-   * @since 7
-   * @systemapi
-   */
-  onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
 }
 
 declare const FormComponent: FormComponentInterface;

@@ -14,17 +14,3 @@
  */
 
 import { NotificationSorting } from './notificationSorting';
-
-/**
- * Provides sorting information about the active notifications among all the notifications that have been subscribed to
- *
- * @name NotificationSortingMap
- * @since 7
- * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
- */
-interface NotificationSortingMap {
-  readonly sortings: {[key: string]: NotificationSorting};
-  readonly sortedHashCode: Array<string>;
-}

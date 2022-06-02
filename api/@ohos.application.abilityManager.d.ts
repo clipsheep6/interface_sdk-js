@@ -26,46 +26,6 @@ import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
  * @permission N/A
  */
 declare namespace abilityManager {
-
-    /**
-     * @name AbilityState
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
-     */
-    export enum AbilityState {
-        INITIAL = 0,
-        FOREGROUND = 9,
-        BACKGROUND = 10,
-        FOREGROUNDING = 11,
-        BACKGROUNDING = 12
-    }
-
-    /**
-     * Updates the configuration by modifying the configuration.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param config Indicates the new configuration.
-     * @systemapi Hide this for inner system use.
-     * @return -
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     */
-    function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
-    function updateConfiguration(config: Configuration): Promise<void>;
-
-    /**
-     * Get information about running abilitys
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @return Returns the array of {@link AbilityRunningInfo}.
-     * @permission ohos.permission.GET_RUNNING_INFO
-     */
-    function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
-    function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 }
 
 export default abilityManager;

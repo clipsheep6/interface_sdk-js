@@ -22,40 +22,6 @@ import {AsyncCallback} from "./basic";
  * @syscap SystemCapability.Customization.ConfigPolicy
  */
 declare namespace configPolicy {
-  /**
-   * Get file from the highest priority config path which contains the given file name.
-   *
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   * @syscap SystemCapability.Customization.ConfigPolicy
-   * @param relPath the relative path of the config file.
-   * @return Returns the path of the highest priority config file.
-   */
-  function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
-  function getOneCfgFile(relPath: string): Promise<string>;
-
-  /**
-   * Get config files in device architecture, ordered by priority from low to high.
-   *
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   * @syscap SystemCapability.Customization.ConfigPolicy
-   * @param relPath the relative path of the config file.
-   * @return Returns paths of config files.
-   */
-  function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
-  function getCfgFiles(relPath: string): Promise<Array<string>>;
-
-  /**
-   * Get config directories in device architecture, ordered by priority from low to high.
-   *
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   * @syscap SystemCapability.Customization.ConfigPolicy
-   * @return Returns paths of config directories.
-   */
-  function getCfgDirList(callback: AsyncCallback<Array<string>>);
-  function getCfgDirList(): Promise<Array<string>>;
 }
 
 export default configPolicy;
