@@ -2514,6 +2514,31 @@ export interface DivElement extends Element {
   getScrollOffset(): ScrollOffset;
 }
 
+export interface XComponentElement extends Element {
+    /**
+   * get the id of surface created by XComponent.
+   * @since 9
+   * @systemapi
+   */
+    getXComponentSurfaceId();
+
+    /**
+     * get the context of native XComponent.
+     * @since 9
+     */
+    getXComponentContext();
+
+    /**
+     * set the surface size created by XComponent.
+     * @since 9
+     * @systemapi
+     */
+    setXComponentSurfaceSize(value: {
+        surfaceWidth: number;
+        surfaceHeight: number;
+    });
+}
+
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
@@ -2608,7 +2633,8 @@ export interface ViewModel {
     TextAreaElement &
     PickerElement &
     VideoElement &
-    DivElement;
+    DivElement &
+    XComponentElement;
 
   /**
    * Obtains the root ViewModel instance.
@@ -2682,7 +2708,8 @@ export interface ElementReferences {
     TextAreaElement &
     PickerElement &
     VideoElement &
-    DivElement;
+    DivElement &
+    XComponentElement;
 }
 
 /**
