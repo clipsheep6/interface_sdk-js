@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-import { NotificationRequest } from './notificationRequest';
-import { NotificationSortingMap } from './notificationSortingMap';
-import notification from '../@ohos.notification';
-
 /**
  * Provides methods that will be called back when the subscriber receives a new notification or
  * a notification is canceled.
@@ -28,26 +24,6 @@ import notification from '../@ohos.notification';
  * @since 7
  */
 export interface NotificationSubscriber {
-  onConsume?:(data: SubscribeCallbackData) => void;
-  onCancel?:(data: SubscribeCallbackData) => void;
-  onUpdate?:(data: NotificationSortingMap) => void;
-  onConnect?:() => void;
-  onDisconnect?:() => void;
-  onDestroy?:() => void;
-
-  /**
-   * Callback when the Do Not Disturb setting changed.
-   * @syscap SystemCapability.Notification.Notification
-   * @since 8
-   */
-  onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
-
-  /**
-   * Callback when the notificaition permission is changed.
-   * @syscap SystemCapability.Notification.Notification
-   * @since 8
-   */
-  onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
 }
 
 /**
@@ -61,11 +37,6 @@ export interface NotificationSubscriber {
  * @since 7
  */
 export interface SubscribeCallbackData {
-  readonly request: NotificationRequest;
-  readonly sortingMap?: NotificationSortingMap;
-  readonly reason?: number;
-  readonly sound?: string;
-  readonly vibrationValues?: Array<number>;
 }
 
 /**
@@ -77,7 +48,4 @@ export interface SubscribeCallbackData {
  * @since 8
  */
 export interface EnabledNotificationCallbackData {
-  readonly bundle: string;
-  readonly uid: number;
-  readonly enable: boolean;
 }

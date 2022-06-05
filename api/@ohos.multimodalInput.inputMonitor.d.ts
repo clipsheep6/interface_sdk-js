@@ -22,36 +22,5 @@
  * @systemapi hide for inner use
  */
 declare namespace inputMonitor {
-    /**
-     * Callback function of the touch input event. If true is returned, the touch input is consumed by the monitor (the system performs the closing action).
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     */
-    interface TouchEventReceiver {
-        (touchEvent:TouchEvent): Boolean;
-    }
-	
-    /**
-     * Listening for touch input events
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type register event type
-     * @param receiver callback function, receive reported data
-     */
-    function on(type:"touch", receiver:TouchEventReceiver):void;
-
-    /**
-     * Cancels listening for touch input events
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type register event type
-     * @param receiver callback function, receive reported data
-     */
-    function off(type:"touch", receiver?:TouchEventReceiver):void;
 }
 export default inputMonitor;
