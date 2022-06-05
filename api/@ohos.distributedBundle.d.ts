@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import { ElementName }  from './bundle/elementName';
-import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
-
 /**
  * distributedBundle.
  * @name distributedBundle
@@ -25,30 +21,5 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
  * @permission NA
  * @systemapi Hide this for inner system use
  */
- declare namespace distributedBundle {
-  /**
-   * Obtains information about the ability info of the remote device.
-   *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-   * @param elementName Indicates the elementName.
-   * @return Returns the ability info of the remote device.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @systemapi
-   */
-   function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
-   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
-
-  /**
-   * Obtains information about the ability infos of the remote device.
-   *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-   * @param elementNames Indicates the elementNames, Maximum array length ten.
-   * @return Returns the ability infos of the remote device.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @systemapi
-   */
-   function getRemoteAbilityInfos(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
-   function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
+declare namespace distributedBundle {
 }

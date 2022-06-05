@@ -13,9 +13,6 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
-import image from './@ohos.multimedia.image';
-
 /**
  * interface for screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -23,65 +20,6 @@ import image from './@ohos.multimedia.image';
  * @since 7
  */
 declare namespace screenshot {
-    /**
-     * Takes a screenshot and saves it as a PixelMap object
-     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @since 7
-     */
-    function save(options?: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
-
-    /**
-     * Takes a screenshot and saves it as a PixelMap object
-     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @since 7
-     */
-    function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
-
-    /**
-     * Describes the region of the screen to capture
-     * @since 7
-     */
-    interface Rect {
-        left: number;
-        top: number;
-        width: number;
-        height: number;
-    }
-
-    /**
-     * Describes the size of the screen region to capture
-     * @since 7
-     */
-    interface Size {
-        width: number;
-        height: number;
-    }
-
-    /**
-     * Describes screenshot options
-     * @since 7
-     */
-    interface ScreenshotOptions {
-        /**
-         * Region of the screen to capture. If this parameter is null, the full screen will be captured
-         */
-        screenRect?: Rect;
-        /**
-         * Region of the screen to capture. If this parameter is null, the full screen will be captured
-         */
-        imageSize?: Size;
-        /**
-         * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0
-         */
-        rotation?: number;
-        /**
-         * The specify screen to be captured.
-         * @since 8
-         */
-        displayId?: number;
-    }
 }
 
 export default screenshot;
