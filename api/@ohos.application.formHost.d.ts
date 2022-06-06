@@ -166,11 +166,13 @@ declare namespace formHost {
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
+     * @param FormInfoType Indicates the form type (dynamic/static/all) the form infos belong to.
      * @return Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
     function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
-    function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+    function getAllFormsInfo(FormInfoType: formInfo.FormInfoType, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getAllFormsInfo(FormInfoType?: formInfo.FormInfoType): Promise<Array<formInfo.FormInfo>>;
 
     /**
      * Obtains the FormInfo objects provided by a specified application on the device.
@@ -185,6 +187,18 @@ declare namespace formHost {
     function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+    /**
+     * Obtains the FormInfo objects provided by a specified application on the device.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param bundleName Indicates the bundle name of the application.
+     * @param filter Indicates the requirements the forms that the formInfos belong to have to meet.
+     * @return Returns the {@link FormInfo}
+     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+     */
+    function getFormsInfo(bundleName: string, filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, filter: formInfo.FormInfoFilter): void;
 
     /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.

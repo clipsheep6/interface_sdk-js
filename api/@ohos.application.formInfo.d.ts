@@ -386,5 +386,65 @@ declare namespace formInfo {
          */
         TEMPORARY_KEY = "ohos.extra.param.key.form_temporary"
     }
+
+    /**
+     * The type of Form the info belongs to.
+     *
+     * @name FormInfoType
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     */
+    enum FormInfoType {
+        /**
+         * form infos from static forms.
+         * 
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        STATIC = 0,
+        /**
+         * form infos from dynamic forms.
+         * 
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        DYNAMIC,
+        /**
+         * form infos from static and dynamic forms.
+         * 
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        ALL
+    }
+
+    /**
+     * The optional options used as filters to ask 
+     * getFormsInfo to return formInfos from only forms that match the options.
+     *
+     * @name FormInfoFilter
+     * 
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     */
+    //TODO:
+    interface FormInfoFilter {
+        /**
+         * optional moduleName that used to ask getFormsInfo to return
+         * form infos with the same moduleName.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        moduleName?: string;
+        /**
+         * optional formInfoType that used to ask getFormsInfo to return
+         * form infos belong to the same form type.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        formInfoType?: formInfo.FormInfoType;
+    }
 }
 export default formInfo;
