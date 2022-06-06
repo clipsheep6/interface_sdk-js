@@ -227,7 +227,7 @@ declare interface AnimateParam {
    * Animation curve.
    * @since 7
    */
-  curve?: Curve | string;
+  curve?: Curve | string | ICurve;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
@@ -248,6 +248,18 @@ declare interface AnimateParam {
    * @since 7
    */
   onFinish?: () => void;
+}
+
+/**
+ * Interface for curve object.
+ * @since 9
+ */
+interface ICurve {
+  /**
+   * Get curve value by fraction.
+   * @since 9
+   */ 
+  interpolate(fraction : number) : number;
 }
 
 /**
