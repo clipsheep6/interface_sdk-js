@@ -72,6 +72,7 @@
 /// <reference path="./rich_text.d.ts" />
 /// <reference path="./row.d.ts" />
 /// <reference path="./row_split.d.ts" />
+/// <reference path="./scene_view.d.ts" />
 /// <reference path="./scroll.d.ts" />
 /// <reference path="./scroll_bar.d.ts" />
 /// <reference path="./search.d.ts" />
