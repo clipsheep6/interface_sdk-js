@@ -169,6 +169,20 @@ declare namespace userAuth {
          */
         auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
 
+
+        /**
+         * Executes authentication with auth widget ui.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @permission ohos.permission.ACCESS_USER_AUTH
+         * @param challenge pass in challenge value.
+         * @param authTrustLevel Trust level of authentication result.
+         * @param authTypes list of authentications.
+         * @param callback Return result and token through callback.
+         * @return Returns ContextId for cancel.
+         */
+        authWithWidget(challenge : Uint8Array, authTrustLevel : AuthTrustLevel, authTypes : UserAuthType[], callback : IUserAuthWidgetCallback) : Uint8Array;
+
         /**
          * Cancels authentication with ContextID.
          * @since 8
@@ -204,6 +218,19 @@ declare namespace userAuth {
         onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void;
     }
 
+    interface IUserAuthWidgetCallback {
+        /**
+         * The authentication result code is returned through the callback.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param result authentication result code.
+         * @param extraInfo pass the specific information for different situation.
+         * If the authentication is passed, the authentication token is returned in extra info,
+         */
+        onResult: (result : number, extraInfo ?: AuthWidgetResult) => void;
+    }
+
+
     /**
      * Authentication result: authentication token, remaining authentication times, freezing time.
      * @since 8
@@ -216,6 +243,20 @@ declare namespace userAuth {
         token ?: Uint8Array;
         remainTimes ?: number;
         freezingTime ?: number;
+    }
+
+    /**
+     * Authentication result: authentication token, passed authentication type, passed authentication trust level.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @param token pass the authentication result if the authentication is passed.
+     * @param authType return the authentication type if the authentication is passed.
+     * @param authTrustLevel return the authentication type's trust level if the authentication is passed.
+     */
+     interface AuthWidgetResult {
+        token : Uint8Array;
+        authType : UserAuthType;
+        authTrustLevel : AuthTrustLevel;
     }
 
     /**
@@ -441,6 +482,13 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      */
     enum UserAuthType {
+        /**
+         * Authentication type pin.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        PIN = 1,
+
         /**
          * Authentication type face.
          * @since 8
