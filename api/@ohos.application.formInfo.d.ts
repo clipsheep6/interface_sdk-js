@@ -32,7 +32,7 @@ declare namespace formInfo {
      */
     interface FormInfo {
         /**
-         * Obtains the bundle name of the application to which this form belongs.
+         * Indicates the bundle name of the application to which this form belongs.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -40,7 +40,15 @@ declare namespace formInfo {
         bundleName: string;
 
         /**
-         * Obtains the name of the application module to which this form belongs.
+         * Indicates the bundle name of the application to which this form belongs.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        bundleName?: string;
+
+        /**
+         * Indicates the name of the application module to which this form belongs.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -48,7 +56,7 @@ declare namespace formInfo {
         moduleName: string;
 
         /**
-         * Obtains the class name of the ability to which this form belongs.
+         * Indicates the class name of the ability to which this form belongs.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -56,7 +64,7 @@ declare namespace formInfo {
         abilityName: string;
 
         /**
-         * Obtains the name of this form.
+         * Indicates the name of this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -64,7 +72,7 @@ declare namespace formInfo {
         name: string;
 
         /**
-         * Obtains the name of this form.
+         * Indicates the description of this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -72,7 +80,15 @@ declare namespace formInfo {
         description: string;
 
         /**
-         * Obtains the type of this form. Currently, JS forms are supported.
+         * Indicates the description of this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        description?: string;
+
+        /**
+         * Indicates the type of this form. Currently, JS forms are supported.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -80,7 +96,7 @@ declare namespace formInfo {
         type: FormType;
 
         /**
-         * Obtains the JS component name of this JS form.
+         * Indicates the JS component name of this JS form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -88,7 +104,15 @@ declare namespace formInfo {
         jsComponentName: string;
 
         /**
-         * Obtains the color mode of this form.
+         * Indicates the JS component name of this JS form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        jsComponentName?: string;
+
+        /**
+         * Indicates the color mode of this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -96,7 +120,15 @@ declare namespace formInfo {
         colorMode: ColorMode;
 
         /**
-         * Checks whether this form is a default form.
+         * Indicates the color mode of this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        colorMode?: ColorMode;
+
+        /**
+         * Indicates whether this form is default.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -104,7 +136,7 @@ declare namespace formInfo {
         isDefault: boolean;
 
         /**
-         * Obtains the updateEnabled.
+         * Indicates whether this form supports scheduled refresh.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -112,7 +144,7 @@ declare namespace formInfo {
         updateEnabled: boolean;
 
         /**
-         * Obtains whether notify visible of this form.
+         * Indicates whether this form is allowed to use visibility notifications.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -120,7 +152,15 @@ declare namespace formInfo {
         formVisibleNotify: boolean;
 
         /**
-         * Obtains the bundle relatedBundleName of the application to which this form belongs.
+         * Indicates whether this form is allowed to use visibility notifications.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        formVisibleNotify?: boolean;
+
+        /**
+         * Indicates the bundle relatedBundleName of the application to which this form belongs.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -128,7 +168,15 @@ declare namespace formInfo {
         relatedBundleName: string;
 
         /**
-         * Obtains the scheduledUpdateTime.
+         * Indicates the bundle relatedBundleName of the application to which this form belongs.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        relatedBundleName?: string;
+
+        /**
+         * Indicates the time when this form is refreshed at a fixed time.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -136,7 +184,15 @@ declare namespace formInfo {
         scheduledUpdateTime: string;
 
         /**
-         * Obtains the form config ability about this form.
+         * Indicates the time when this form is refreshed at a fixed time.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        scheduledUpdateTime?: string;
+
+        /**
+         * Indicates the name of the ability for form adjustment.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -144,7 +200,15 @@ declare namespace formInfo {
         formConfigAbility: string;
 
         /**
-         * Obtains the updateDuration.
+         * Indicates the name of the ability for form adjustment.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        formConfigAbility?: string;
+
+        /**
+         * Indicates the update frequency of this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -152,7 +216,15 @@ declare namespace formInfo {
         updateDuration: number;
 
         /**
-         * Obtains the default grid style of this form.
+         * Indicates the update frequency of this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        updateDuration?: number;
+
+        /**
+         * Indicates the default grid style of this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -160,7 +232,7 @@ declare namespace formInfo {
         defaultDimension: number;
 
         /**
-         * Obtains the grid styles supported by this form.
+         * Indicates the grid styles supported by this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
@@ -168,12 +240,36 @@ declare namespace formInfo {
         supportDimensions: Array<number>;
 
         /**
-         * Obtains the custom data defined in this form.
+         * Indicates the custom data defined in this form.
          *
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
         customizeData: {[key: string]: [value: string]};
+
+        /**
+         * Indicates the custom data defined in this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        customizeData?: {[key: string]: [value: string]};
+
+        /**
+         * Indicates the window-related configurations for this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        window?: Window;
+
+        /**
+         * Indicates whether this form is static.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        isStatic?: boolean;
     }
 
     /**
@@ -182,7 +278,7 @@ declare namespace formInfo {
      * @name FormType
      * @since 8
      * @syscap SystemCapability.Ability.Form
-    */
+     */
     enum FormType {
         /**
          * JS form.
@@ -224,6 +320,30 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         MODE_LIGHT = 1
+    }
+
+    /**
+     * Window-related configurations.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     */
+    interface Window {
+        /**
+         * Indicates the baseline width for form design, in pixels.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        designWidth?: number;
+
+        /**
+         * Whether to automatically calculate the baseline width for form design.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        autoDesignWidth?: boolean;
     }
 
     /**
