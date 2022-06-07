@@ -34,7 +34,7 @@ declare const Observed: ClassDecorator;
  * Defining Preview ClassDecorator.
  * @since 7
  */
-declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
+declare const Preview: ClassDecorator;
 
 /**
  * Defining BuilderParam PropertyDecorator
@@ -167,13 +167,6 @@ declare interface Rectangle {
    */
   height?: Length;
 }
-
-/**
- * Defining isSystemplugin Constants.
- * @since 7
- * @systemapi
- */
-declare const isSystemplugin: (...args: string[]) => any;
 
 /**
  * global $r function
@@ -411,68 +404,6 @@ declare interface TransitionOptions {
    * @since 7
    */
   rotate?: RotateOptions;
-}
-
-/**
- * Define Preview property
- * @since 8
- * @systemapi
- */
-interface PreviewParams {
-  /**
-   * Define Preview title
-   * @since 8
-   * @systemapi
-   */
-  title?: string;
-  /**
-   * Define Preview width
-   * @since 8
-   * @systemapi
-   */
-  width?: number;
-  /**
-   * Define Preview height
-   * @since 8
-   * @systemapi
-   */
-  height?: number;
-  /**
-   * Define Preview locale
-   * @since 8
-   * @systemapi
-   */
-  locale?: string;
-  /**
-   * Define Preview colorMode
-   * @since 8
-   * @systemapi
-   */
-  colorMode?: string;
-  /**
-   * Define Preview deviceType
-   * @since 8
-   * @systemapi
-   */
-  deviceType?: string;
-  /**
-   * Define Preview dpi
-   * @since 8
-   * @systemapi
-   */
-  dpi?: number;
-  /**
-   * Define Preview orientation
-   * @since 8
-   * @systemapi
-   */
-  orientation?: string;
-  /**
-   * Define Preview roundScreen
-   * @since 8
-   * @systemapi
-   */
-  roundScreen?: boolean;
 }
 
 /**
@@ -770,26 +701,6 @@ declare interface TouchEvent extends BaseEvent {
 }
 
 /**
- * Defines the PixelMap type object for ui component.
- * @since 7
- */
-declare type PixelMap = PixelMapMock;
-
-/**
- * pixelmap object with release function.
- * @systemapi
- * @since 7
- */
-declare interface PixelMapMock {
-  /**
-   * release function.
-   * @systemapi
-   * @since 7
-   */
-  release(): void;
-}
-
-/**
  * DragEvent object description
  * @since 7
  */
@@ -1011,14 +922,6 @@ declare interface CustomPopupOptions {
  * @since 7
  */
 declare class CommonMethod<T> {
-  /**
-   * constructor.
-   * @systemapi
-   * @since 7
-   * @ignore
-   */
-  constructor();
-
   /**
    * Sets the width of the current component.
    * @since 7
@@ -1576,14 +1479,6 @@ declare class CommonMethod<T> {
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
-   * Key. User can set an key to the component to identify it.
-   * @since 8
-   * @systemapi
-   * @test
-   */
-  key(value: string): T;
-
-  /**
    * Id. User can set an id to the component to identify it.
    * @since 8
    */
@@ -1663,13 +1558,6 @@ declare type CustomBuilder = (() => any) | void;
  * @since 7
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
-  /**
-   * constructor.
-   * @since 7
-   * @syetemapi
-   */
-  constructor();
-
   /**
    * border Color
    * @since 7
@@ -1777,20 +1665,4 @@ declare class CustomComponent {
    * @since 7
    */
   onBackPress?(): void;
-}
-
-/**
- * View
- * @ignore ide should ignore this class
- * @systemapi
- * @since 7
- */
-declare class View {
-  /**
-   * Just use for generate tsbundle
-   * @ignore ide should ignore this arrtibute
-   * @systemapi
-   * @since 7
-   */
-  create(value: any): any;
 }
