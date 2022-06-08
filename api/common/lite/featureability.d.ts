@@ -18,7 +18,7 @@
  * @systemapi
  * @deprecated since 8
  */
-export interface SubscribeMessageResponse {
+ export interface SubscribeMessageResponse {
   /**
    * Peer device ID.
    * @since 5
