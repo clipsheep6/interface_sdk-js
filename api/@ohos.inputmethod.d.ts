@@ -40,17 +40,11 @@ declare namespace inputMethod {
     function getInputMethodController(): InputMethodController;
 
     /**
-<<<<<<< HEAD
      * Switch input method
      * @since 9
      * @param target Indicates the input method which will replace the curren one
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
-=======
-     * Switch iput method-
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
->>>>>>> c4da1fe59f536084df55bf8d043edf0cb6b7b82b
      */
     function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<void>): void;
     function switchInputMethod(target: InputMethodProperty): Promise<void>;
@@ -59,10 +53,7 @@ declare namespace inputMethod {
      * Get current input method
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-<<<<<<< HEAD
      * @StageModelOnly
-=======
->>>>>>> c4da1fe59f536084df55bf8d043edf0cb6b7b82b
      */
     function getCurrentInputMethod(): InputMethodProperty;
 
@@ -70,7 +61,6 @@ declare namespace inputMethod {
      * @since 8
      */
     interface InputMethodSetting {
-<<<<<<< HEAD
         /**
          * List input methods
          * @since 9
@@ -85,9 +75,6 @@ declare namespace inputMethod {
         listInputMethod(enable?: boolean): Promise<Array<InputMethodProperty>>;
 
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
-=======
-        listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>, enable?: boolean): void;
->>>>>>> c4da1fe59f536084df55bf8d043edf0cb6b7b82b
 
         listInputMethod(enable?: boolean): Promise<Array<InputMethodProperty>>;
 

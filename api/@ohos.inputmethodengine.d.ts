@@ -119,10 +119,7 @@ declare namespace inputMethodEngine {
          *
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-<<<<<<< HEAD
          * @param direction Indicates the distance of cursor to be moved.
-=======
->>>>>>> c4da1fe59f536084df55bf8d043edf0cb6b7b82b
          * @return -
          * @StageModelOnly
          */
@@ -158,7 +155,6 @@ declare namespace inputMethodEngine {
         readonly keyAction: number;
     }
 
-<<<<<<< HEAD
     /**
      * The extension context class of input method.
      *
@@ -166,8 +162,6 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
-=======
->>>>>>> c4da1fe59f536084df55bf8d043edf0cb6b7b82b
     class InputMethodExtensionContext extends ExtensionContext {
 
         /**
@@ -267,11 +261,7 @@ declare namespace inputMethodEngine {
     }
 
     /**
-<<<<<<< HEAD
      * The extension ability class of input method.
-=======
-     * The extension ability class of inputmethod.
->>>>>>> c4da1fe59f536084df55bf8d043edf0cb6b7b82b
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
