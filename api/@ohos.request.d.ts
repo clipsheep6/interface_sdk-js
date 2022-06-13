@@ -640,14 +640,14 @@ declare namespace request {
      * @since 6
      * @permission ohos.permission.INTERNET
      */
-    header: Object;
+    header?: Object;
     /**
      * Request method: POST, PUT. The default POST.
      *
      * @since 6
      * @permission ohos.permission.INTERNET
      */
-    method: string;
+    method?: string;
     /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
@@ -661,7 +661,7 @@ declare namespace request {
      * @since 6
      * @permission ohos.permission.INTERNET
      */
-    data: Array<RequestData>;
+    data?: Array<RequestData>;
   }
 
   interface UploadTask {
