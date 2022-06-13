@@ -18,7 +18,7 @@ import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
- * @sysCap SystemCapability.Miscservices.Pasteboard
+ * @sysCap SystemCapability.MiscServices.Pasteboard
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
