@@ -42,7 +42,7 @@ declare namespace inputMethod {
     /**
      * Switch input method
      * @since 9
-     * @param target Indicates the input method which will replace the curren one
+     * @param target Indicates the input method which will replace the current one
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -65,8 +65,8 @@ declare namespace inputMethod {
          * List input methods
          * @since 9
          * @param enable A three-state flag:
-         *     if true, collect active input methods.
-         *     if false, collect inactive input methods.
+         *     if true, collect enabled input methods.
+         *     if false, collect disabled input methods.
          *     if not given, collect all input methods.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
@@ -76,7 +76,7 @@ declare namespace inputMethod {
 
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
-        listInputMethod(enable?: boolean): Promise<Array<InputMethodProperty>>;
+        listInputMethod(): Promise<Array<InputMethodProperty>>;
 
         displayOptionalInputMethod(callback: AsyncCallback<void>): void;
 
