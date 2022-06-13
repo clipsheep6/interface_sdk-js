@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import { Want } from './ability/want';
-import { image } from '../@ohos.multimedia.image';
+import Want from './@ohos.application.want';
+import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
  * @sysCap SystemCapability.Miscservices.Pasteboard
- * @devices phone, tablet, tv, wearable, car
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
@@ -93,7 +92,7 @@ declare namespace pasteboard {
    * @since 9
    */
   function createPixelMapData(pixelmap: image.PixelMap): PasteData;
-  
+
   /**
    * Creates a PasteData object with mimeType and value.
    * @param key Mimetype indicates the type of value.
@@ -102,7 +101,7 @@ declare namespace pasteboard {
    * @since 9
    */
   function createKvData(key:String, value: Object): PasteData;
-  
+
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param htmlText To save the Html text content.
@@ -136,12 +135,13 @@ declare namespace pasteboard {
   function createUriRecord(uri: string): PasteDataRecord;
 
   /**
-   * Creates a Record object for PasteData#MIMETYPE_Pl_XELMAp.
+   * Creates a Record object for PasteData#MIMETYPE_PIXELMAp.
    * @param pixelMap To save the pixelMap of content.
    * @return The content of a new record
    * @since 9
    */
   function createPixelMapRecord(pixelMap:image.PixelMap):PasteDataRecord;
+
   /**
    * Creates a Record object with mimeType and value.
    * @param key Mimetype indicates the type of value.
@@ -149,7 +149,7 @@ declare namespace pasteboard {
    * @return The content of a new record with mimeType and value.
    * @since 9
    */
-  function createKvRecord(key:String, value: Object):PasteDataRecord;
+  function createKvRecord(key:String, value: Object): PasteDataRecord;
   
   /**
    * get SystemPasteboard
@@ -157,11 +157,12 @@ declare namespace pasteboard {
    * @since 6
    */
   function getSystemPasteboard(): SystemPasteboard;
+
   /**
    * Types of scope that PasteData can be pasted.
    * InApp means that only in-app pasting is allowed.
    * LocalDevice means that only paste in this device is allowed.
-   * CrossDevice means allow pasting in any app across devices.
+   * CrossDevice means allow pasting in any app in across devices.
    * @since 9
    */
   enum ShareOption {
@@ -169,7 +170,7 @@ declare namespace pasteboard {
       LocalDevice,
       CrossDevice
   }
-  
+
   interface PasteDataProperty {
     /**
      * additional property data. key-value pairs.
@@ -193,6 +194,11 @@ declare namespace pasteboard {
      * @since 7
      */
      readonly timestamp: number;
+    /**
+     * Checks whether PasteData is set for local access only.
+     * @since 7
+     */
+     localOnly: boolean;
     /**
      * Scope that PasteData can be pasted. value is one of ShareOption#InApp,ShareOption#LocalDevice,
      * ShareOption#CrossDevice.
@@ -238,7 +244,7 @@ declare namespace pasteboard {
      * @since 9
      */
     data: {
-        [mimeType: string]: ArrayBuffer
+      [mimeType: string]: ArrayBuffer
     }
 
     /**
@@ -347,9 +353,9 @@ declare namespace pasteboard {
     /**
      * the URI of the primary record in a PasteData object.
      * @return string type of uri
-     * @since 7
+     * @since 9
      */
-    getPrimaryPixmal():image.PixelMap;
+    getPrimaryPixmal(): image.PixelMap;
 
     /**
      * DataProperty of a PasteData object.
