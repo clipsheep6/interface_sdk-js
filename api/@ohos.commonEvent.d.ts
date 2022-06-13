@@ -966,6 +966,41 @@ declare namespace commonEvent {
      * @since 9
      */
      COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE"
+
+    /**
+     * Indicate the action of a common event that a STK command has been received by the device.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_STK_COMMAND = "usual.event.STK_COMMAND",
+
+    /**
+     * Indicate the action of a common event that STK session end.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_STK_SESSION_END = "usual.event.STK_SESSION_END",
+
+    /**
+     * Indicate the action of a common event that the STK phone card state has changed.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_STK_CARD_STATE_CHANGED = "usual.event.STK_CARD_STATE_CHANGED",
+
+    /**
+     * Indicate the action of a common event that an alpha string during call control  has been received by the device.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_STK_ALPHA_IDENTIFIER = "usual.event.STK_ALPHA_IDENTIFIER",
+
+    /**
+     * Indicate the action of a common event that the spn display information has been updated.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
   }
 }
 
