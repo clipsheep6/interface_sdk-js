@@ -18,7 +18,7 @@ import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
- * @sysCap SystemCapability.MiscServices.Pasteboard
+ * @syscap SystemCapability.MiscServices.Pasteboard
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
@@ -198,7 +198,7 @@ declare namespace pasteboard {
      * Checks whether PasteData is set for local access only.
      * @since 7
      */
-     localOnly: boolean;
+    localOnly: boolean;
     /**
      * Scope that PasteData can be pasted. value is one of ShareOption#InApp,ShareOption#LocalDevice,
      * ShareOption#CrossDevice.
