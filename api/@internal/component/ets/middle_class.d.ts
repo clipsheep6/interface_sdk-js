@@ -1012,7 +1012,7 @@ declare class TSPageTransitionEnterInterface extends CommonTransition<PageTransi
   create(value: {
     type?: RouteType;
     duration?: number;
-    curve?: Curve | string;
+    curve?: Curve | string | ICurve;
     delay?: number;
   }): PageTransitionEnterInterface;
 }
@@ -1033,7 +1033,7 @@ declare class TSPageTransitionExitInterface extends CommonTransition<PageTransit
   create(value: {
     type?: RouteType;
     duration?: number;
-    curve?: Curve | string;
+    curve?: Curve | string | ICurve;
     delay?: number;
   }): PageTransitionExitInterface;
 }

@@ -109,7 +109,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * Called when page Jump animation is used.
    * @since 7
    */
-  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionEnterInterface;
+  (value: { type?: RouteType; duration?: number; curve?: Curve | string | ICurve; delay?: number }): PageTransitionEnterInterface;
 
   /**
    * Called when the incoming parameter is the normalized progress of the current incoming animation.
@@ -127,7 +127,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * Called when the transition is delayed.
    * @since 7
    */
-  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionExitInterface;
+  (value: { type?: RouteType; duration?: number; curve?: Curve | string | ICurve; delay?: number }): PageTransitionExitInterface;
 
   /**
    * Called when the input parameter is the normalized progress of the current exit animation.
