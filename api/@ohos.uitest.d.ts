@@ -75,6 +75,16 @@
     SECONDARY,
     FLOATING
  }
+
+/**
+ * Set input device type
+ *
+ * @since 9
+ */
+declare enum InputDevice{
+   TOUCH_SCREEN = 0X01;
+   MOUSE = 0X02;
+ }
  
 /**
  * Represents the point on the device screen.
@@ -569,6 +579,15 @@ class UiComponent{
   triggerKey(keyCode:number):Promise<void>;
 
   /**
+   * Set input device type
+   * @syscap SystemCapability.Test.UiTest
+   * @param device the input device type
+   * @since 9
+   * @test
+   */
+  setInputDevice(device:InputDevice):Promise<void>;
+
+  /**
    * Click on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
    * @param x the x-coordinate.
@@ -577,6 +596,35 @@ class UiComponent{
    * @test
    */
   click(x:number,y:number):Promise<void>;
+
+  /**
+   * The mouse right click on the specified location on the screen.
+   * @syscap SystemCapability.Test.UiTest
+   * @param x the x-coordinate.
+   * @param y the y-coordinate.
+   * @since 9
+   * @test
+   */
+  mouseRightClick(x:number,y:number):Promise<void>;
+
+  /**
+   * The mouse wheel click on the specified location on the screen.
+   * @syscap SystemCapability.Test.UiTest
+   * @param x the x-coordinate.
+   * @param y the y-coordinate.
+   * @since 9
+   * @test
+   */
+  mouseWheelClick(x:number,y:number):Promise<void>;
+
+  /**
+   * The mouse wheel scroll on the specified distance on the screen.
+   * @syscap SystemCapability.Test.UiTest
+   * @param wheel_dist the direction and the distance
+   * @since 9
+   * @test
+   */
+  mouseWheelScroll(wheel_dist:number):Promise<void>;
 
   /**
    * DoubleClick on the specified location on the screen.
@@ -624,7 +672,7 @@ class UiComponent{
    */
   swipe(startx:number,starty:number,endx:number,endy:number, speed?: number):Promise<void>;
 
-/**
+  /**
    * Drag on the screen between the specified points.
    * @syscap SystemCapability.Test.UiTest
    * @param startx the x-coordinate of the starting point.
