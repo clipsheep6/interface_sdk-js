@@ -14,6 +14,21 @@
  */
 
 /**
+ * Resize direction for the window.
+ *
+ * @since 9
+ */
+ enum ResizeDirection{
+   LEFT,
+   RIGHT,  
+   UP,
+   DOWN,
+   LEFT_UP,
+   LEFT_DOWN,
+   RIGHT_UP,
+   RIGHT_DOWN
+ }
+/**
  * Enumerates the string value match pattern.
  *
  * @since 8
@@ -47,6 +62,52 @@
     * @test
     */
    ENDS_WITH = 3
+}
+
+/**
+ * Describes the window mode of the tested window
+ *
+ * @since 9
+ */
+ enum WindowMode{
+    FULLSCREEN,
+    PRIMARY,
+    SECONDARY,
+    FLOATING
+ }
+ 
+/**
+ * Represents the point on the device screen.
+ *
+ * @since 9
+ */
+declare interface Point {
+    readonly  X: number;
+    readonly  Y: number;
+}
+
+/**
+ * Represents the rectangle area on the device screen.
+ *
+ * @since 9
+ */
+declare interface Rect {
+    readonly  leftX: number;
+    readonly  topY: number;
+    readonly  rightX: number;
+    readonly  bottomY: number;
+}
+
+/**
+ * Represents filer condition to get the window .
+ *
+ * @since 9
+ */
+declare interface WindowFilter {
+    readonly  bundleName?: string;
+    readonly  title?: string;
+    readonly  focused?: bool;
+    readonly  actived?: bool;
 }
 
 /**
@@ -108,6 +169,16 @@
    clickable(b?:bool):By;
 
    /**
+    * Specifies the longClickable status of the target UiComponent.
+    * @syscap SystemCapability.Test.UiTest
+    * @param b the clickable status,default to true.
+    * @return Returns this {@link By} object.
+    * @since 9
+    * @test
+    */
+   longClickable(b?: bool): By;
+
+   /**
     * Specifies the scrollable status of the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
     * @param b the scrollable status,default to true.
@@ -148,6 +219,26 @@
    selected(b?:bool):By;
 
    /**
+    * Specifies the checked status of the target UiComponent.
+    * @syscap SystemCapability.Test.UiTest
+    * @param b the checked status,default to false.
+    * @return Returns this {@link By} object.
+    * @since 9
+    * @test
+    */
+   checked(b?: bool): By;
+
+   /**
+    * Specifies the checkable status of the target UiComponent.
+    * @syscap SystemCapability.Test.UiTest
+    * @param b the checkable status,default to false.
+    * @return Returns this {@link By} object.
+    * @since 9
+    * @test
+    */
+   checkable(b?: bool): By;
+
+   /**
     * Requires that the target UiComponent which is before another UiComponent that specified by the given {@link By}
     * object,used to locate UiComponent relatively.
     * @syscap SystemCapability.Test.UiTest
@@ -170,14 +261,14 @@
     isAfter(by:By):By;
     }
 
-    /**
-     * Represents a UiComponent of the ohos application,user can perform operations or query attributes on it.
-     *
-     * @since 8
-     * @test
-     * @syscap SystemCapability.Test.UiTest
-     */
-     class UiComponent{
+/**
+ * Represents a UiComponent of the ohos application,user can perform operations or query attributes on it.
+ *
+ * @since 8
+ * @test
+ * @syscap SystemCapability.Test.UiTest
+ */
+class UiComponent{
       /**
        * Click this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
@@ -247,6 +338,15 @@
       isClickable():Promise<bool>;
 
       /**
+       * Get the longClickable status of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @returns the longClickable status.
+       * @since 9
+       * @test
+       */
+      isLongClickable(): Promise<bool>;
+
+      /**
        * Get the scrollable status of this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
        * @returns the scrollable status.
@@ -283,6 +383,24 @@
       isSelected():Promise<bool>;
 
       /**
+       * Get the checked status of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @returns the checked status.
+       * @since 9
+       * @test
+       */
+      isChecked(): Promise<bool>;
+
+      /**
+       * Get the checkable status of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @returns the checkable status.
+       * @since 9
+       * @test
+       */
+      isCheckable(): Promise<bool>;
+
+      /**
        * Inject text to this {@link UiComponent},applicable to TextInput.
        * @syscap SystemCapability.Test.UiTest
        * @param text the text to inject.
@@ -290,6 +408,32 @@
        * @test
        */
       inputText(text: string):Promise<void>;
+
+      /**
+       * Clear text of this {@link UiComponent},applicable to TextInput.
+       * @syscap SystemCapability.Test.UiTest
+       * @since 9
+       * @test
+       */
+      clearText(): Promise<void>;
+
+      /**
+       * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
+       * @syscap SystemCapability.Test.UiTest
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @since 9
+       * @test
+       */
+      scrollToTop(speed?: number): Promise<void>;
+
+      /**
+       * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
+       * @syscap SystemCapability.Test.UiTest
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @since 9
+       * @test
+       */
+      scrollToBottom(speed?: number): Promise<void>;
 
       /**
        * Scroll on this {@link UiComponent}to find matched {@link UiComponent},applicable to scrollable one.
@@ -300,6 +444,33 @@
        * @test
        */
       scrollSearch(by:By):Promise<UiComponent>;
+
+	  /**
+       * Get the bounds rect of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @return the bounds rect object.
+       * @since 9
+       * @test
+       */
+      getBounds(): Promise<Rect>;
+
+      /**
+       * Get the boundsCenter of this {@link UiComponent}.
+       * @syscap SystemCapability.Test.UiTest
+       * @return the boundsCenter object.
+       * @since 9
+       * @test
+       */
+      getBoundsCenter(): Promise<Point>;
+
+      /**
+       * Drag this {@link UiComponent} to the bounds rect of target UiComponent.
+       * @syscap SystemCapability.Test.UiTest
+       * @param target the target {@link UiComponent}.
+       * @since 9
+       * @test
+       */
+      dragTo(target: UiComponent): Promise<void>;
 }
 
 /**
@@ -338,6 +509,27 @@
    * @test
    */
   findComponent(by:By):Promise<UiComponent>;
+
+  /**
+   * Find the first matched {@link UiWindow} window.
+   * @syscap SystemCapability.Test.UiTest
+   * @param filter the filer condition of the target {@link UiWindow}.
+   * @returns the first matched {@link UiWindow} or undefined.
+   * @since 9
+   * @test
+   */
+  findWindow(filter:WindowFilter):Promise<UiWindow>;
+
+  /**
+   * Find the first matched {@link UiComponent} on current UI during the time given.
+   * @syscap SystemCapability.Test.UiTest
+   * @param by the attribute requirements of the target {@link UiComponent}.
+   * @param time duration of finding in milliseconds
+   * @returns the first matched {@link UiComponent} or undefined.
+   * @since 9
+   * @test
+   */
+  waitForComponent(by: By, time: number): Promise<UiComponent>;
 
   /**
    * Find all the matched {@link UiComponent}s on current UI.
@@ -413,10 +605,37 @@
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
+   * @deprecated since 9
    * @since 8
    * @test
    */
   swipe(startx:number,starty:number,endx:number,endy:number):Promise<void>;
+
+  /**
+   * Swipe on the screen between the specified points.
+   * @syscap SystemCapability.Test.UiTest
+   * @param startx the x-coordinate of the starting point.
+   * @param starty the y-coordinate of the starting point.
+   * @param endx the x-coordinate of the ending point.
+   * @param endy the y-coordinate of the ending point.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @since 9
+   * @test
+   */
+  swipe(startx:number,starty:number,endx:number,endy:number, speed?: number):Promise<void>;
+
+/**
+   * Drag on the screen between the specified points.
+   * @syscap SystemCapability.Test.UiTest
+   * @param startx the x-coordinate of the starting point.
+   * @param starty the y-coordinate of the starting point.
+   * @param endx the x-coordinate of the ending point.
+   * @param endy the y-coordinate of the ending point.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @since 9
+   * @test
+   */
+  drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
 
   /**
    * Capture current screen and save as picture which PNG format.
@@ -428,6 +647,141 @@
    */
   screenCap(savePath:string):Promise<bool>;
 }
+
+/**
+ * 
+ *
+ * @since 9
+ * @test
+ * @syscap SystemCapability.Test.UiTest
+ */
+ class UiWindow{
+  /**
+   * Get the bundle name of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the bundle name.
+   * @since 9
+   * @test
+   */
+   getBundleName():Promise<string>;
+
+  /**
+   * Get the bounds rect of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @return the bounds rect object.
+   * @since 9
+   * @test
+   */
+   getBounds():Promise<Rect>;
+   
+  /**
+   * Get the title of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the title value.
+   * @since 9
+   * @test
+   */
+   getTitle():Promise<string>;
+ 
+  /**
+   * Get the windoe mode of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the {@link WindowMode} object.
+   * @since 9
+   * @test
+   */
+   getWindowMode():Promise<WindowMode>;
+
+  /**
+   * Get the focused status of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the focused status
+   * @since 9
+   * @test
+   */
+   isFocused():Promise<bool>;
+
+  /**
+   * Get the actived status of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the actived status
+   * @since 9
+   * @test
+   */
+   isActived():Promise<bool>;
+
+  /**
+   * Set the focused status of this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of focus action
+   * @since 9
+   * @test
+   */
+   focus():Promise<bool>;
+
+  /**
+   * Move this {@link UiWindow} to the specified points.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of move action
+   * @since 9
+   * @test
+   */
+   moveTo(x: number, y: number,):Promise<bool>;
+
+  /**
+   * Resize this {@link UiWindow} to the specified size for the specified direction.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of resize action
+   * @since 9
+   * @test
+   */
+   resize(wide: number, height: number, direction: ResizeDirection):Promise<bool>;
+
+  /**
+   * Change this {@link UiWindow} into split screen mode.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of split action
+   * @since 9
+   * @test
+   */
+   split():Promise<bool>;   
+
+  /**
+   * Maximize this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of maximize action
+   * @since 9
+   * @test
+   */
+   maximize():Promise<bool>;
+
+  /**
+   * Minimize this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of minimize action
+   * @since 9
+   * @test
+   */
+   minimize():Promise<bool>;
+
+  /**
+   * Resume this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of resume action
+   * @since 9
+   * @test
+   */
+   resume():Promise<bool>; 
+
+  /**
+   * Close this {@link UiWindow}.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the result of close action
+   * @since 9
+   * @test
+   */
+   close():Promise<bool>; 
+ }
 
 /**
  * The static builder for building {@link By}object conveniently,usage example:BY.text('txt').enabled(true).

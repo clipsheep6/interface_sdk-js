@@ -20,9 +20,10 @@ declare const Component: ClassDecorator;
 
 /**
  * Defining Entry ClassDecorator.
- * @since 7
+ * Only API 9 and later support parameters.
+ * @since 9
  */
-declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -120,6 +121,25 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  */
 declare const CustomDialog: ClassDecorator;
 
+/**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageLink: (value: string) => PropertyDecorator;
+
+/**
+ * Defining LocalStorageProp PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageProp: (value: string) => PropertyDecorator;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare function getContext(component?: Object): Object;
+ 
 /**
  * Defines the data type of the interface restriction.
  * @since 7
@@ -346,6 +366,39 @@ declare interface ScaleOptions {
    * @since 7
    */
   centerY?: number | string;
+}
+
+declare interface AlignRuleOption {
+  /**
+   * The param of left align.
+   * @since 9
+   */
+  left?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of right align.
+   * @since 9
+   */
+  right?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of middle align.
+   * @since 9
+   */
+  middle?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of top align.
+   * @since 9
+   */
+  top?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of bottom align.
+   * @since 9
+   */
+  bottom?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of center align.
+   * @since 9
+   */
+  center?: { anchor: string, align: VerticalAlign };
 }
 
 declare interface RotateOptions {
@@ -1192,6 +1245,12 @@ declare class CommonMethod<T> {
   onBlur(event: () => void): T;
 
   /**
+   * Set focus index by key tab.
+   * @since 9
+   */
+  tabIndex(index: number): T;
+
+  /**
    * animation
    * @since 7
    */
@@ -1454,6 +1513,8 @@ declare class CommonMethod<T> {
     md?: number | { span: number; offset: number };
     lg?: number | { span: number; offset: number };
   }): T;
+
+  alignRules(value: AlignRuleOption): T;
 
   /**
    * Specifies the aspect ratio of the current component.
