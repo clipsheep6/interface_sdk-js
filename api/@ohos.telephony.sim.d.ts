@@ -424,6 +424,14 @@ declare namespace sim {
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+   function SendCallSetupRequestResult(slotId: number, accept: boolean, callback: AsyncCallback<void>): void;
+   function SendCallSetupRequestResult(slotId: number, accept: boolean): Promise<void>;
+
+  /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   function unlockSimLock(slotId: number, lockInfo: PersoLockInfo, callback: AsyncCallback<LockStatusResponse>): void;
