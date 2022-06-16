@@ -1168,27 +1168,31 @@ declare class CommonMethod<T> {
 
   /**
    * Border style
+   * EdgeStyles be supportted at version 9
    * @since 7
    */
-  borderStyle(value: BorderStyle): T;
+  borderStyle(value: EdgeStyles | BorderStyle): T;
 
   /**
    * Border width
+   * EdgeWidths be supportted at version 9
    * @since 7
    */
-  borderWidth(value: Length): T;
+  borderWidth(value: EdgeWidths | Length): T;
 
   /**
    * Border color
+   * EdgeColors be supportted at version 9
    * @since 7
    */
-  borderColor(value: ResourceColor): T;
+  borderColor(value: EdgeColors | ResourceColor): T;
 
   /**
    * Border radius
+   * BorderRadiuses be supportted at version 9
    * @since 7
    */
-  borderRadius(value: Length): T;
+  borderRadius(value: BorderRadiuses | Length): T;
 
   /**
    * Trigger a click event when a click is clicked.

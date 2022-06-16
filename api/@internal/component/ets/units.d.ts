@@ -82,6 +82,126 @@ declare type Padding = {
 declare type Margin = Padding;
 
 /**
+ * Defines the border width property.
+ * @since 9
+ */
+declare type EdgeWidths = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: Length;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: Length;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: Length;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: Length;
+};
+
+/**
+ * Defines the border radius property.
+ * @since 9
+ */
+declare type BorderRadiuses = {
+  /**
+   * top-left property.
+   * @since 9
+   */
+  topLeft?: Length;
+
+  /**
+   * top-right property.
+   * @since 9
+   */
+  topRight?: Length;
+
+  /**
+   * bottom-left property.
+   * @since 9
+   */
+  bottomLeft?: Length;
+
+  /**
+   * bottom-right property.
+   * @since 9
+   */
+  bottomRight?: Length;
+};
+
+/**
+ * Defines the border color property.
+ * @since 9
+ */
+declare type EdgeColors = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: ResourceColor;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: ResourceColor;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: ResourceColor;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: ResourceColor;
+};
+
+/**
+ * Defines the border style property.
+ * @since 9
+ */
+declare type EdgeStyles = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: BorderStyle;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: BorderStyle;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: BorderStyle;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: BorderStyle;
+};
+
+/**
  * Defines the offset property.
  * @since 7
  */
@@ -243,22 +363,26 @@ declare interface SizeOptions {
 declare interface BorderOptions {
   /**
    * Defines the border width.
+   * EdgeWidths be supportted at version 9
    * @since 7
    */
-  width?: Length;
+  width?: EdgeWidths | Length;
   /**
    * Defines the border color.
+   * EdgeColors be supportted at version 9
    * @since 7
    */
-  color?: ResourceColor;
+  color?: EdgeColors | ResourceColor;
   /**
    * Defines the border radius.
+   * BorderRadiuses be supportted at version 9
    * @since 7
    */
-  radius?: Length;
+  radius?: BorderRadiuses | Length;
   /**
    * Defines the border style.
+   * EdgeStyles be supportted at version 9
    * @since 7
    */
-  style?: BorderStyle;
+  style?: EdgeStyles | BorderStyle;
 }
