@@ -989,7 +989,7 @@ declare namespace commonEvent {
     COMMON_EVENT_STK_CARD_STATE_CHANGED = "usual.event.STK_CARD_STATE_CHANGED",
 
     /**
-     * Indicate the action of a common event that an alpha string during call control  has been received by the device.
+     * Indicate the action of a common event that an alpha string during call control has been received by the device.
      * This common event can be triggered only by system.
      * @since 8
      */
