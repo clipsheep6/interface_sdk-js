@@ -351,11 +351,11 @@ declare namespace pasteboard {
     getPrimaryUri(): string;
 
     /**
-     * the URI of the primary record in a PasteData object.
-     * @return string type of uri
+     * the PixelMap of the primary record in a PasteData object.
+     * @return string type of PixelMap
      * @since 9
      */
-    getPrimaryPixmal(): image.PixelMap;
+    getPrimaryPixelMap(): image.PixelMap;
 
     /**
      * DataProperty of a PasteData object.
