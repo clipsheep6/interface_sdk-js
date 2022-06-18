@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { NotificationRequest } from './notification/notificationRequest';
 import { ConnectOptions } from './ability/connectOptions';
 import Want from './@ohos.application.want';
+import { Context } from './app/context';
 
 /**
  * A Particle Ability represents an ability with service.
@@ -109,6 +110,15 @@ declare namespace particleAbility {
   */
    function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
    function disconnectAbility(connection: number): Promise<void>;
+
+  /**
+   * Obtains the application context.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @return Returns the application context.
+   * @since 9
+   */
+  function getContext(): Context;
 
   /**
   * Obtain the errorCode.
