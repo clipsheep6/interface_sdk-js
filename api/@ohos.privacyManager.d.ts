@@ -53,7 +53,17 @@ import {AsyncCallback, Callback} from './basic'
      * @since 9
      */
      function addPermissionUsedStateListener(permissionName: string, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
- 
+
+    /**
+     * Unregister a permission used state callback.
+     * @param permissionName The permission to be listened.
+     * @param callback The permission used change callback to be registered.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function removePermissionUsedStateListener(permissionName: string, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
+
      /**
      * PermissionUsedState.
      * @systemapi hide this for inner system use
