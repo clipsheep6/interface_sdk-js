@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic'
+import {AsyncCallback, Callback} from './basic'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -36,13 +36,43 @@ import {AsyncCallback} from './basic'
     /**
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
-     * @return Return the reponse of permission used records.
+     * @return Return the response of permission used records.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
     function getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
+
+    /**
+     * Register a permission used state callback.
+     * @param permissionName The permission to be listened.
+     * @param callback The permission used change callback to be registered.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+     function addPermissionUsedStateListener(permissionName: string, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
+ 
+     /**
+     * PermissionUsedState.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+      enum PermissionUsedState {
+        /**
+         * active in foreground
+         */
+        ACTIVE_FOREGROUND = 0,
+        /**
+         * active in background
+         */
+        ACTIVE_BACKGROUND = 1,
+        /**
+         * inactive
+         */
+        INACTIVE = 2,
+    }
 
     /**
      * PermissionUsageFlag.
