@@ -20,7 +20,7 @@ import {AsyncCallback, Callback} from './basic'
  */
  declare namespace privacyManager {
     /**
-     * Add access record of sensitive permission.
+     * Adds access record of sensitive permission.
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be added.
      * @param successCount Access count.
@@ -45,24 +45,25 @@ import {AsyncCallback, Callback} from './basic'
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
 
     /**
-     * Register a permission used state callback.
-     * @param permissionName The permission to be listened.
+     * Starts listening the change of permission used state.
+     * @param tokenIDLists The tokenId lists of specified applications to be listened.
+     * @param permissionNameLists The permission lists to be listened.
      * @param callback The permission used change callback to be registered.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
-     function startListenUsingState(permissionName: string, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
+     function startListenUsingState(tokenIDLists: Array<number>, permissionNameLists: Array<string>, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
 
     /**
-     * Unregister a permission used state callback.
-     * @param permissionName The permission to be listened.
-     * @param callback The permission used change callback to be registered.
+     * Stops listening the change of permission used state.
+     * @param tokenIDLists The tokenId lists of specified applications to be listened.
+     * @param permissionNameLists The permission lists to be listened.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
-    function stopListenUsingState(permissionName: string, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
+    function stopListenUsingState(tokenIDLists: Array<number>, permissionNameLists: Array<string>): void;
 
      /**
      * PermissionUsedState.
