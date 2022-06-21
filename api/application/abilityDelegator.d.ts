@@ -132,7 +132,6 @@ export interface AbilityDelegator {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param msg Log information
      */
-    printSync(msg: string): void;
     print(msg: string, callback: AsyncCallback<void>): void;
     print(msg: string): Promise<void>;
 
@@ -160,6 +159,16 @@ export interface AbilityDelegator {
      */
     finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
     finishTest(msg: string, code: number): Promise<void>;
+
+    /**
+     * Prints log information to the unit testing console synchronously.
+     * The total length of the log information to be printed cannot exceed 1000 characters.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param msg Log information
+     */
+    printSync(msg: string): void;
 }
 
 export default AbilityDelegator;
