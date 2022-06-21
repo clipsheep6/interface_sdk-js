@@ -53,7 +53,7 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi hide this for inner system use
      * @since 9
      */
-     function startListenUsingState(tokenIDLists: Array<number>, permissionNameLists: Array<string>, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
+     function startListenUsingState(tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
 
     /**
      * Stops listening the change of permission used state.
@@ -63,7 +63,7 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi hide this for inner system use
      * @since 9
      */
-    function stopListenUsingState(tokenIDLists: Array<number>, permissionNameLists: Array<string>): void;
+    function stopListenUsingState(tokenIDList: Array<number>, permissionNameList: Array<string>): void;
 
      /**
      * PermissionUsedState.
