@@ -43,7 +43,7 @@ declare namespace fileaccess {
       mode : string;      
       size : number;      
       mtime : number;      
-      mimitype : string;  
+      mimetype : string;  
       next(): File;
       listfile() : Array<File>
    }
