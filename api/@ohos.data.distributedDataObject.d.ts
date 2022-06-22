@@ -129,7 +129,7 @@ declare namespace distributedDataObject {
         off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
 
         /**
-         * Save object, after save object data successfully, the object data will not release when app existed, and resume data on saved device after app existed
+         * Save object, after save object data successfully, the object data will not release when app existed. when app exits and restart again, resume data on saved device
          * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data, you should encrypt it
          *
          * the saved data will be released when
