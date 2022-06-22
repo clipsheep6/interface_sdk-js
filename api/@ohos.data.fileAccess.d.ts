@@ -45,7 +45,7 @@ declare namespace fileaccess {
       mtime : number;      
       mimitype : string;  
       next(): File;
-      listfile() : File
+      listfile() : Array<File>
    }
    
    /**
