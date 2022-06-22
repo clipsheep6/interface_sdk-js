@@ -118,6 +118,8 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/video.d.ts",
     "api/@internal/component/ets/web.d.ts",
     "api/@internal/component/ets/xcomponent.d.ts",
+    "api/@internal/component/ets/grid_col.d.ts",
+    "api/@internal/component/ets/grid_row.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
