@@ -757,7 +757,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    INTERRUPT_SHARE
+    INTERRUPT_SHARE = 1
   }
 
   /**
