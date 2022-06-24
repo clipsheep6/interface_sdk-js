@@ -16,12 +16,14 @@
 /**
  * Provides an interface for the ability component.
  * @since 9
+ * @systemapi 
  */
 interface AbilityComponentInterface {
   /**
    * Construct the ability component.
    * Called when the ability component is used.
    * @since 9
+   * @systemapi
    */
   (want: Want): AbilityComponentAttribute;
 }
@@ -29,16 +31,19 @@ interface AbilityComponentInterface {
 /**
  * Defines the attribute functions of ability component.
  * @since 9
+ * @systemapi
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
    * Called when the component connected with ability.
    * @since 9
+   * @systemapi
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
    * Called when the component onDisconnected with ability.
    * @since 9
+   * @systemapi
    */
    onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
