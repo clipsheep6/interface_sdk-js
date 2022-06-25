@@ -218,7 +218,7 @@ declare abstract class SubscribedAbstractProperty<T> {
  * Defines the basic async callback.
  * @since 6
  */
-export interface AsyncCallback<T> {
+declare interface AsyncCallback<T> {
   /**
    * Defines the callback data.
    * @since 6
@@ -230,7 +230,7 @@ export interface AsyncCallback<T> {
  * Defines the error interface.
  * @since 6
  */
-export interface BusinessError extends Error {
+declare interface BusinessError extends Error {
   /**
    * Defines the basic error code.
    * @since 6
