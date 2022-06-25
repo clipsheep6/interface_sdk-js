@@ -215,6 +215,304 @@ declare abstract class SubscribedAbstractProperty<T> {
 }
 
 /**
+ * Defines the basic async callback.
+ * @since 6
+ */
+export interface AsyncCallback<T> {
+  /**
+   * Defines the callback data.
+   * @since 6
+   */
+  (err: BusinessError, data: T): void;
+}
+
+/**
+ * Defines the error interface.
+ * @since 6
+ */
+export interface BusinessError extends Error {
+  /**
+   * Defines the basic error code.
+   * @since 6
+   */
+  code: number;
+}
+
+/**
+ * Describes area information in an image.
+ * @since 7
+ * @syscap SystemCapability.Multimedia.Image.Core
+ */
+interface PositionArea {
+  /**
+   * Image data that will be read or written.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  pixels: ArrayBuffer;
+
+  /**
+   * Offset for data reading.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  offset: number;
+
+  /**
+   * Number of bytes to read.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  stride: number;
+
+  /**
+   * Region to read.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  region: Region;
+}
+
+/**
+ * Describes region information.
+ * @since 8
+ * @syscap SystemCapability.Multimedia.Image.Core
+ */
+interface Region {
+  /**
+   * Image size.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  size: Size;
+
+  /**
+   * x-coordinate at the upper left corner of the image.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  x: number;
+
+  /**
+   * y-coordinate at the upper left corner of the image.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  y: number;
+}
+
+/**
+ * Describes the size of an image.
+ * @since 6
+ * @syscap SystemCapability.Multimedia.Image.Core
+ */
+interface Size {
+  /**
+   * Height
+   * @since 6
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  height: number;
+
+  /**
+   * Width
+   * @since 6
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  width: number;
+}
+
+/**
+ * Describes image information.
+ * @since 6
+ * @syscap SystemCapability.Multimedia.Image.Core
+ */
+interface ImageInfo {
+  /**
+   * Indicates image dimensions specified by a {@link Size} interface.
+   * @since 6
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  size: Size;
+}
+
+/**
+ * PixelMap instance.
+ * @since 7
+ * @syscap SystemCapability.Multimedia.Image.Core
+ */
+interface PixelMap {
+  /**
+   * Whether the image pixel map can be edited.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  readonly isEditable: boolean;
+
+  /**
+   * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+   * a promise to return the result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param dst A buffer to which the image pixel map data will be written.
+   * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+   */
+  readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
+
+  /**
+   * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+   * a callback to return the result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param dst A buffer to which the image pixel map data will be written.
+   * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+   */
+  readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
+
+  /**
+   * Reads image pixel map data in an area. This method uses a promise to return the data read.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param area Area from which the image pixel map data will be read.
+   * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+   */
+  readPixels(area: PositionArea): Promise<void>;
+
+  /**
+   * Reads image pixel map data in an area. This method uses a callback to return the data read.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param area Area from which the image pixel map data will be read.
+   * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+   */
+  readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
+
+  /**
+   * Writes image pixel map data to the specified area. This method uses a promise to return
+   * the operation result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param area Area to which the image pixel map data will be written.
+   * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+   */
+  writePixels(area: PositionArea): Promise<void>;
+
+  /**
+   * Writes image pixel map data to the specified area. This method uses a callback to return
+   * the operation result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param area Area to which the image pixel map data will be written.
+   * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+   */
+  writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
+
+  /**
+   * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
+   * uses a promise to return the result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param src A buffer from which the image data will be read.
+   * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+   */
+  writeBufferToPixels(src: ArrayBuffer): Promise<void>;
+
+  /**
+   * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
+   * uses a callback to return the result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param src A buffer from which the image data will be read.
+   * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+   */
+  writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
+
+  /**
+   * Obtains pixel map information about this image. This method uses a promise to return the information.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @return A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
+   */
+  getImageInfo(): Promise<ImageInfo>;
+
+  /**
+   * Obtains pixel map information about this image. This method uses a callback to return the information.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param callback Callback used to return the image pixel map information. If the operation fails, an error message is returned.
+   */
+  getImageInfo(callback: AsyncCallback<ImageInfo>): void;
+
+  /**
+   * Obtains the number of bytes in each line of the image pixel map.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @return Number of bytes in each line.
+   */
+  getBytesNumberPerRow(): number;
+
+  /**
+   * Obtains the total number of bytes of the image pixel map.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @return Total number of bytes.
+   */
+  getPixelBytesNumber(): number;
+
+  /**
+   * Releases this PixelMap object. This method uses a callback to return the result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @param callback Callback invoked for instance release. If the operation fails, an error message is returned.
+   */
+  release(callback: AsyncCallback<void>): void;
+
+  /**
+   * Releases this PixelMap object. This method uses a promise to return the result.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @return A Promise instance used to return the instance release result. If the operation fails, an error message is returned.
+   */
+  release(): Promise<void>;
+}
+
+/**
+ * Defines the data type of the interface restriction.
+ * @since 7
+ */
+declare interface Resource {
+  /**
+   * Set id.
+   * @since 7
+   */
+  readonly id: number;
+
+  /**
+   * Set type.
+   * @since 7
+   */
+  readonly type: number;
+
+  /**
+   * Set params.
+   * @since 7
+   */
+  readonly params?: any[];
+
+  /**
+   * Set bundleName.
+   * @since 9
+   */
+  readonly bundleName: string;
+
+  /**
+   * Set moduleName.
+   * @since 9
+   */
+  readonly moduleName: string;
+}
+
+/**
  * Provides an interface for attribute subscribers.
  * @since 7
  * @systemapi
