@@ -1406,6 +1406,20 @@ declare namespace audio {
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
     /**
+     * Obtains the renderer stream id. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(callback: AsyncCallback<number>): void;
+    /**
+     * Obtains the renderer stream id. This method uses a promise to return the result.
+     * @return Promise used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(): Promise<number>;
+    /**
      * Starts the renderer. This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
      * @since 8
@@ -1715,6 +1729,21 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
+
+    /**
+     * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(callback: AsyncCallback<number>): void;
+    /**
+     * Obtains the capturer stream id. This method uses a promise to return the result.
+     * @return Promise used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(): Promise<number>;
 
     /**
      * Starts capturing. This method uses an asynchronous callback to return the result.
