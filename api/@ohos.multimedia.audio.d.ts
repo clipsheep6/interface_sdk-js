@@ -536,17 +536,17 @@ declare namespace audio {
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
     /**
-     * Notification or ringtone usage.
-     * @since 7
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     */
-    STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
-    /**
      * Voice assistant broadcast usage.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STREAM_USAGE_VOICE_ASSISTANT = 16
+    STREAM_USAGE_VOICE_ASSISTANT = 3,
+    /**
+     * Notification or ringtone usage.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_NOTIFICATION_RINGTONE = 6
   }
 
   /**
@@ -1637,7 +1637,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    SOURCE_TYPE_VOICE_RECOGNITION = 6,
+    SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
      * Voice communication source type.
      * @since 8
