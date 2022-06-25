@@ -237,3 +237,12 @@ ohos_copy("form_declaration") {
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
 }
+
+ohos_copy("ace_loader_ark_hap") {
+  deps =[
+    ":ace_loader",
+    ":ace_loader_ark",
+    ":build_ace_loader_library",
+    "//developtools/ace-ets2bundle:common_api_ark",
+  ]
+}
