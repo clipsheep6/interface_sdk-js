@@ -14,42 +14,6 @@
  */
 
 /**
- * Defines the data type of the interface restriction.
- * @since 7
- */
-declare interface Resource {
-  /**
-   * Set id.
-   * @since 7
-   */
-  readonly id: number;
-
-  /**
-   * Set type.
-   * @since 7
-   */
-  readonly type: number;
-
-  /**
-   * Set params.
-   * @since 7
-   */
-  readonly params?: any[];
-
-  /**
-   * Set bundleName.
-   * @since 9
-   */
-  readonly bundleName: string;
-
-  /**
-   * Set moduleName.
-   * @since 9
-   */
-  readonly moduleName: string;
-}
-
-/**
  * Defines the length property with string, number and resource unit.
  * @since 7
  */

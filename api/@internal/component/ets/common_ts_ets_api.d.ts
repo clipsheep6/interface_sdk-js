@@ -341,7 +341,7 @@ interface ImageInfo {
  * @since 7
  * @syscap SystemCapability.Multimedia.Image.Core
  */
-interface PixelMap {
+declare interface PixelMap {
   /**
    * Whether the image pixel map can be edited.
    * @since 7
