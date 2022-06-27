@@ -270,6 +270,48 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There is a audio track selected
+     * by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @param callback async callback return the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number, callback: AsyncCallback<number>): void;
+
+    /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There is a audio track selected
+     * by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @return a promise to report the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number): Promise<number>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @return a promise to return the indexes of currently selected tracks.
+     */
+    getSelectedTracks(): Promise<Array<number>>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param callback async callback return the the indexes of currently selected tracks.
+     */
+    getSelectedTracks(callback: AsyncCallback<Array<number>>): void
+
+    /**
      * Listens for audio playback buffering events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
@@ -313,6 +355,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
     readonly state: AudioState;
+
+    /**
+     * the network stream playback's cache limit. Defautly, the player will decide cache limit by
+     * itself, set it to change the limit by yourself. For local file's playback, write this variable
+     * is no effect and get this variable will always return a object with that all property is -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    cacheLimit ?: PlaybackCacheLimit;
 
     /**
      * Listens for audio playback events.
@@ -974,6 +1025,48 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There are a video and audio track
+     * selected by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @param callback async callback return the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number, callback: AsyncCallback<number>): void;
+
+    /**
+     * Select a media track to be played. Only the most recent one will be effective if this
+     * function called multiple times on same type of track. There are a video and audio track
+     * selected by defaut, even though this function is not called.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param index the index of the track to be selected. The total number of the tracks is
+     * the length of the {@link #getTrackDescription}'s return result array.
+     * @return a promise to report the selection result, refer to {@link MediaErrorCode}
+     */
+    selectTrack(index: number): Promise<number>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @return a promise to return the indexes of currently selected tracks.
+     */
+    getSelectedTracks(): Promise<Array<number>>;
+
+    /**
+     * Get the index of tracks currently selected. For each type track, one track index will
+     * be returned.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param callback async callback return the the indexes of currently selected tracks.
+     */
+    getSelectedTracks(callback: AsyncCallback<Array<number>>): void
+
+    /**
      * media url. Mainstream video formats are supported.
      * local:fd://XXX, file://XXX. network:http://xxx
      * @since 8
@@ -1022,6 +1115,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
     readonly height: number;
+
+    /**
+     * the network stream playback's cache limit. Defautly, the player will decide cache limit by
+     * itself, set it to change the limit by yourself. For local file's playback, write this variable
+     * is no effect and get this variable will always return a object with that all property is -1.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    cacheLimit ?: PlaybackCacheLimit;
 
     /**
      * set payback speed.
@@ -1084,6 +1186,29 @@ declare namespace media {
      * @param callback Callback used to listen for the playback error event.
      */
     on(type: 'error', callback: ErrorCallback): void;
+  }
+
+  /**
+   * The network stream playback's cache limit.
+   * @since NA
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  interface PlaybackCacheLimit {
+    /**
+     * The value indicates how much data need to be cached in memory expressed in milliseconds
+     * before starting playback.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    durationUpperLimit?: number;
+
+    /**
+     * The value indicates how much data need to be cached in memory expressed in bytes before
+     * starting playback.
+     * @since NA
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    sizeUpperLimit?: number;
   }
 
   /**
