@@ -39,14 +39,14 @@ declare namespace fileaccess {
 	  * @systemapi
      */
     interface FileIterator {
-        uri : string;
-        fileName : string;
-        mode : string;
-        size : number;
-        mtime : number;
-        mimetype : string;
-        [Symbol.iterator]() : IterableIterator<FileIterator>;
-        listFile() : FileIterator;
+        uri: string;
+        fileName: string;
+        mode: string;
+        size: number;
+        mtime: number;
+        mimetype: string;
+        [Symbol.iterator](): IterableIterator<FileIterator>;
+        listFile(): FileIterator;
     }
    
     /**
@@ -57,13 +57,13 @@ declare namespace fileaccess {
 	  * @systemapi
      */
     interface Root {
-        deviceId : string;
-        uri : string;
-        displayName :string;
-        flags : number;
-        listFile() : FileIterator;
+        deviceId: string;
+        uri: string;
+        displayName: string;
+        flags: number;
+        listFile(): FileIterator;
     }
-    
+
     /**
      * FileAccessHelper
      * @since 9
@@ -82,8 +82,8 @@ declare namespace fileaccess {
          * @param callback Indicate the callback when openfile success
          * @return Returns the file descriptor
          */
-        openFile(uri:string, flags:number) : Promise<number>;
-        openFile(uri:string, flags:number, callback:AsyncCallback<number>) : void;
+        openFile(uri: string, flags: number) : Promise<number>;
+        openFile(uri: string, flags: number, callback: AsyncCallback<number>) : void;
       
         /**
          * Create a file in a specified path
@@ -94,7 +94,7 @@ declare namespace fileaccess {
          * @return Returns the new file's URI
          */
         createFile(parentUri: string, displayName: string) : Promise<string>;
-        createFile(parentUri: string, displayName: string ,callback:AsyncCallback<string>) : void;
+        createFile(parentUri: string, displayName: string ,callback: AsyncCallback<string>) : void;
       
         /**
          * 
@@ -104,7 +104,7 @@ declare namespace fileaccess {
          * @return Returns the new directory's URI
          */
         mkdir(parentUri: string , displayName: string) : Promise<string>;
-        mkdir(parentUri: string , displayName: string , callback:AsyncCallback<string>) : void;
+        mkdir(parentUri: string , displayName: string , callback: AsyncCallback<string>) : void;
       
         /**
          * Delete a file or delete a directory recursively
@@ -115,7 +115,7 @@ declare namespace fileaccess {
          * @StageModelOnly 
          */
         delete(selectFileUri: string) : Promise<number>;
-        delete(selectFileUri: string , callback:AsyncCallback<string>) : void;
+        delete(selectFileUri: string , callback: AsyncCallback<string>) : void;
       
         /**
          * Move a file or move a directory recursively
@@ -126,7 +126,7 @@ declare namespace fileaccess {
          * @return URI of the generated new file or directory.
          */
         move(sourceFileUri: string, targetParentUri: string) : Promise<string>;
-        move(sourceFileUri: string, targetParentUri: string , callback:AsyncCallback<string>) : void;
+        move(sourceFileUri: string, targetParentUri: string , callback: AsyncCallback<string>) : void;
       
         /**
          * Rname the selected file ot directory.
@@ -137,7 +137,7 @@ declare namespace fileaccess {
          * @return URI of the generated new file or directory
          */
         rename(sourceFileUri: string , displayName: string) : Promise<string>;
-        rename(sourceFileUri: string , displayName: string , callback:AsyncCallback<string>) : void;
+        rename(sourceFileUri: string , displayName: string , callback: AsyncCallback<string>) : void;
        
         /**
          * Get root object from all data providers
