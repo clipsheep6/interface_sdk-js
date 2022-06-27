@@ -45,8 +45,8 @@ import {AsyncCallback, Callback} from './basic'
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
 
     /**
-     * Starts listening the change of permission used state.
-     * @param type startListenUsingState.
+     * Starts listening the change of permission active state.
+     * @param type activeStateChange.
      * @param tokenIDLists The tokenId lists of specified applications to be listened.
      * @param permissionNameLists The permission lists to be listened.
      * @param callback The permission used change callback to be registered.
@@ -54,38 +54,18 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi hide this for inner system use
      * @since 9
      */
-     function on(type: 'startListenUsingState', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, status: PermissionUsedState}>): void;
+     function on(type: 'activeStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, isActive: boolean}>): void;
 
     /**
-     * Stops listening the change of permission used state.
-     * @param type stopListenUsingState.
+     * Stops listening the change of permission active state.
+     * @param type activeStateChange.
      * @param tokenIDLists The tokenId lists of specified applications to be listened.
      * @param permissionNameLists The permission lists to be listened.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
-     function off(type: 'stopListenUsingState', tokenIDList: Array<number>, permissionNameList: Array<string>): void;
-
-     /**
-     * PermissionUsedState.
-     * @systemapi hide this for inner system use
-     * @since 9
-     */
-      enum PermissionUsedState {
-        /**
-         * active in foreground
-         */
-        ACTIVE_FOREGROUND = 0,
-        /**
-         * active in background
-         */
-        ACTIVE_BACKGROUND = 1,
-        /**
-         * inactive
-         */
-        INACTIVE = 2,
-    }
+     function off(type: 'activeStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>): void;
 
     /**
      * PermissionUsageFlag.
