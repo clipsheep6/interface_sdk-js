@@ -80,36 +80,36 @@ declare namespace fileaccess {
          * @since 9 
          * @param uri Indicates the path of the file to open. 
          * @param flags Indicate options of opening a file. The default value is read-only.
-         * @param callback Indicate the callback when openfile success
-         * @return Returns the file descriptor
+         * @param callback Indicate the callback when openfile success.
+         * @return Returns the file descriptor.
          */
         openFile(uri: string, flags: number) : Promise<number>;
         openFile(uri: string, flags: number, callback: AsyncCallback<number>) : void;
       
         /**
-         * Create a file in a specified path
+         * Create a file in a specified path.
          * 
          * @since 9
          * @param parentUri Represents a specific parent directory.
-         * @param displayName Indicates the new file name
-         * @return Returns the new file's URI
+         * @param displayName Indicates the new file name.
+         * @return Returns the new file's URI.
          */
         createFile(parentUri: string, displayName: string) : Promise<string>;
         createFile(parentUri: string, displayName: string ,callback: AsyncCallback<string>) : void;
       
         /**
-         * mkdir a file in a specified path
+         * Create a Directory in a specified path.
          * 
          * @since 9
          * @param parentUri parentUri Represents a specific parent directory.
-         * @param displayName displayName Indicates the new file name 
-         * @return Returns the new directory's URI
+         * @param displayName displayName Indicates the new file name.
+         * @return Returns the new directory's URI.
          */
         mkdir(parentUri: string , displayName: string) : Promise<string>;
         mkdir(parentUri: string , displayName: string , callback: AsyncCallback<string>) : void;
       
         /**
-         * Delete a file or delete a directory recursively
+         * Delete a file or delete a directory recursively.
          * 
          * @since 9
          * @param selectFileUri Indicates the file or directory to be deleted.
@@ -120,7 +120,7 @@ declare namespace fileaccess {
         delete(selectFileUri: string , callback: AsyncCallback<string>) : void;
       
         /**
-         * Move a file or move a directory recursively
+         * Move a file or move a directory recursively.
          * 
          * @since 9
          * @param sourceFileUri Indicates the file or directory to be moved.
@@ -134,18 +134,18 @@ declare namespace fileaccess {
          * Rename the selected file or directory.
          * 
          * @since 9
-         * @param sourceFileUri Indicates the selected file or directory
+         * @param sourceFileUri Indicates the selected file or directory.
          * @param displayName Indicates the new directory or file name.
-         * @return URI of the generated new file or directory
+         * @return URI of the generated new file or directory.
          */
         rename(sourceFileUri: string , displayName: string) : Promise<string>;
         rename(sourceFileUri: string , displayName: string , callback: AsyncCallback<string>) : void;
        
         /**
-         * Get root object from all data providers
+         * Get root object from all data providers.
          * 
          * @since 9
-         * @return Array of root objects
+         * @return Array of root objects.
          */
         getRoots(): Promise<Array<Root>>;
         getRoots(callback:AsyncCallback<Array<Root>>) : void;
