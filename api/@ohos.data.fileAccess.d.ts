@@ -23,7 +23,7 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @param context Indicates the application context.
-     * @param want 
+     * @param want Represents the connected data provider
      * @return Returns the fileAccessHelper.
      * @StageModelOnly
      * @systemapi
