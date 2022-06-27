@@ -74,7 +74,7 @@ declare namespace fileaccess {
      */
     interface FileAccessHelper {
         /**
-         * Opens a file in a specified path.
+         * Open a file in a specified path.
          *
          * @since 9 
          * @param uri Indicates the path of the file to open. 
@@ -97,6 +97,7 @@ declare namespace fileaccess {
         createFile(parentUri: string, displayName: string ,callback: AsyncCallback<string>) : void;
       
         /**
+         * mkdir a file in a specified path
          * 
          * @since 9
          * @param parentUri parentUri Represents a specific parent directory.
@@ -129,7 +130,7 @@ declare namespace fileaccess {
         move(sourceFileUri: string, targetParentUri: string , callback: AsyncCallback<string>) : void;
       
         /**
-         * Rname the selected file ot directory.
+         * Rename the selected file or directory.
          * 
          * @since 9
          * @param sourceFileUri Indicates the selected file or directory
