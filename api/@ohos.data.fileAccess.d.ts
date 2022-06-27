@@ -36,7 +36,7 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-	 * @systemapi
+	  * @systemapi
      */
     interface FileIterator {
         uri : string;
@@ -54,7 +54,7 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-	 * @systemapi
+	  * @systemapi
      */
     interface Root {
         deviceId : string;
@@ -63,14 +63,14 @@ declare namespace fileaccess {
         flags : number;
         listFile() : FileIterator;
     }
-
+    
     /**
      * FileAccessHelper
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-	 * @systemapi
-	 * @permission ohos.permission.FILE_ACCESS_MANAGER
+	  * @systemapi
+	  * @permission ohos.permission.FILE_ACCESS_MANAGER
      */
     interface FileAccessHelper {
         /**
@@ -84,6 +84,7 @@ declare namespace fileaccess {
          */
         openFile(uri:string, flags:number) : Promise<number>;
         openFile(uri:string, flags:number, callback:AsyncCallback<number>) : void;
+      
         /**
          * Create a file in a specified path
          * 
@@ -94,6 +95,7 @@ declare namespace fileaccess {
          */
         createFile(parentUri: string, displayName: string) : Promise<string>;
         createFile(parentUri: string, displayName: string ,callback:AsyncCallback<string>) : void;
+      
         /**
          * 
          * @since 9
@@ -103,6 +105,7 @@ declare namespace fileaccess {
          */
         mkdir(parentUri: string , displayName: string) : Promise<string>;
         mkdir(parentUri: string , displayName: string , callback:AsyncCallback<string>) : void;
+      
         /**
          * Delete a file or delete a directory recursively
          * 
@@ -113,6 +116,7 @@ declare namespace fileaccess {
          */
         delete(selectFileUri: string) : Promise<number>;
         delete(selectFileUri: string , callback:AsyncCallback<string>) : void;
+      
         /**
          * Move a file or move a directory recursively
          * 
@@ -121,9 +125,9 @@ declare namespace fileaccess {
          * @param targetParentUri Represents the destonation folder.
          * @return URI of the generated new file or directory.
          */
- 
         move(sourceFileUri: string, targetParentUri: string) : Promise<string>;
         move(sourceFileUri: string, targetParentUri: string , callback:AsyncCallback<string>) : void;
+      
         /**
          * Rname the selected file ot directory.
          * 
@@ -132,16 +136,15 @@ declare namespace fileaccess {
          * @param displayName Indicates the new directory or file name.
          * @return URI of the generated new file or directory
          */
-
         rename(sourceFileUri: string , displayName: string) : Promise<string>;
         rename(sourceFileUri: string , displayName: string , callback:AsyncCallback<string>) : void;
+       
         /**
          * Get root object from all data providers
          * 
          * @since 9
          * @return Array of root objects
          */
- 
         getRoots(): Promise<Array<Root>>;
         getRoots(callback:AsyncCallback<Array<Root>>) : void;
     }
