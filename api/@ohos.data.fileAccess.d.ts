@@ -12,11 +12,12 @@
 *See the License for the specific language governing permissions and
 *limitations under the License
 */
+
 import {AsyncCallback , Callback} from "./basic";
 import {Want } from './ability/want';
 import Context from './application/Context';
 
-declare namespace fileeaccess{
+declare namespace fileaccess {
     /**
      * Obtains the fileAccessHelper.
      * @since 9
@@ -27,14 +28,15 @@ declare namespace fileeaccess{
      * @StageModelOnly
      * @systemapi
      */
-    function createFileAccessHelper(Context: Context, want:Want , callback:AsyncCallback<FileAccessHelper>) : void ;
-    function createFileAccessHelper(Context: Context, want:Want ): Promise<FileAccessHelper>;
+    function createFileAccessHelper(context: Context, want: Want, callback: AsyncCallback<FileAccessHelper>): void; 
+    function createFileAccessHelper(context: Context, want: Want): Promise<FileAccessHelper>; 
+
     /**
      * File Object
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-     * @systemapi
+	 * @systemapi
      */
     interface FileIterator {
         uri : string;
@@ -46,30 +48,31 @@ declare namespace fileeaccess{
         [Symbol.iterator]() : IterableIterator<FileIterator>;
         listFile() : FileIterator;
     }
+   
     /**
      * Root Object
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-     * @systemapi
+	 * @systemapi
      */
-    interface Root{
+    interface Root {
         deviceId : string;
         uri : string;
         displayName :string;
         flags : number;
         listFile() : FileIterator;
     }
+
     /**
      * FileAccessHelper
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-     * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+	 * @systemapi
+	 * @permission ohos.permission.FILE_ACCESS_MANAGER
      */
-    
-    interface FileAccessHelper{
+    interface FileAccessHelper {
         /**
          * Opens a file in a specified path.
          *
@@ -118,7 +121,7 @@ declare namespace fileeaccess{
          * @param targetParentUri Represents the destonation folder.
          * @return URI of the generated new file or directory.
          */
-
+ 
         move(sourceFileUri: string, targetParentUri: string) : Promise<string>;
         move(sourceFileUri: string, targetParentUri: string , callback:AsyncCallback<string>) : void;
         /**
@@ -138,7 +141,7 @@ declare namespace fileeaccess{
          * @since 9
          * @return Array of root objects
          */
-
+ 
         getRoots(): Promise<Array<Root>>;
         getRoots(callback:AsyncCallback<Array<Root>>) : void;
     }
