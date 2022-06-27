@@ -36,7 +36,7 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-	  * @systemapi
+     * @systemapi
      */
     interface FileIterator {
         uri: string;
@@ -54,7 +54,7 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-	  * @systemapi
+     * @systemapi
      */
     interface Root {
         deviceId: string;
@@ -69,8 +69,8 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
-	  * @systemapi
-	  * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @systemapi
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      */
     interface FileAccessHelper {
         /**
