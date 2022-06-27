@@ -66,6 +66,7 @@ declare namespace fileaccess {
 
     /**
      * FileAccessHelper
+     * 
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @StageModelOnly
