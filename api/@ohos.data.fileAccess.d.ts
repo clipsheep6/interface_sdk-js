@@ -23,7 +23,7 @@ declare namespace fileaccess {
      * @since 9
      * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
      * @param context Indicates the application context.
-     * @param want Represents the connected data provider
+     * @param want Represents the connected data provider.
      * @return Returns the fileAccessHelper.
      * @StageModelOnly
      * @systemapi
@@ -142,7 +142,7 @@ declare namespace fileaccess {
         rename(sourceFileUri: string , displayName: string , callback: AsyncCallback<string>) : void;
        
         /**
-         * Get root object from all data providers.
+         * Get root objects from all data providers.
          * 
          * @since 9
          * @return Array of root objects.
