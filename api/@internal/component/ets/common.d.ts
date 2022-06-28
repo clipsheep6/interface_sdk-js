@@ -1159,6 +1159,23 @@ declare class CommonMethod<T> {
   backgroundImagePosition(value: Position | Alignment): T;
 
   /**
+   * enum Blur style
+   * @since 9
+   */
+  enum BlurStyle {
+    Thin,
+    Regular,
+    Thick,
+  }
+
+  /**
+   * Background blur style
+   * blurStyle:BlurStyle Blur style type.
+   * @since 9
+   */
+  backgroundBlurStyle(blurStyle: BlurStyle);
+
+  /**
    * Opacity
    * @since 7
    */
