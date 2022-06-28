@@ -21,7 +21,7 @@ declare namespace fileaccess {
     /**
      * Obtains the fileAccessHelper.
      * @since 9
-     * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
+     * @syscap SystemCapability.FileManagement.UserFileService
      * @param context Indicates the application context.
      * @param want Represents the connected data provider.
      * @return Returns the fileAccessHelper.
@@ -32,9 +32,20 @@ declare namespace fileaccess {
     function createFileAccessHelper(context: Context, want: Want): Promise<FileAccessHelper>; 
 
     /**
+     * Obtains the HAP Information for Registering FileAccessExtensionAbility in the System.
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @return Returns the want information of configuring FileAccess in the package.
+     * @StageModelOnly
+     * @systemapi 
+     */
+    function getFileAccessAbilityInfo(): Promise<Array<Want>>;
+    function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
+
+    /**
      * File Object
      * @since 9
-     * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
+     * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
      */
@@ -52,7 +63,7 @@ declare namespace fileaccess {
     /**
      * Root Object
      * @since 9
-     * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
+     * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
      */
@@ -68,7 +79,7 @@ declare namespace fileaccess {
      * FileAccessHelper
      * 
      * @since 9
-     * @syscap SystemCapability.FileAccessExtensionAbility.FileAccessFramework
+     * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
      * @permission ohos.permission.FILE_ACCESS_MANAGER
