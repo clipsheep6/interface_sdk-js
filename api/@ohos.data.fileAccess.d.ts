@@ -76,6 +76,22 @@ declare namespace fileaccess {
     }
 
     /**
+     * Flags enum
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi 
+     */
+    enum FLAGS {
+        /** file is opened only_read */
+        ONLY_READ = 0,
+        /** file is opened only_write */
+        ONLY_WRITE = 1,
+        /** file is opened write_read */
+        WRITE_READ = 2
+    }
+
+    /**
      * FileAccessHelper
      * 
      * @since 9
@@ -94,8 +110,8 @@ declare namespace fileaccess {
          * @param callback Indicate the callback when openfile success.
          * @return Returns the file descriptor.
          */
-        openFile(uri: string, flags: number) : Promise<number>;
-        openFile(uri: string, flags: number, callback: AsyncCallback<number>) : void;
+        openFile(uri: string, flags: FLAGS) : Promise<number>;
+        openFile(uri: string, flags: FLAGS, callback: AsyncCallback<number>) : void;
       
         /**
          * Create a file in a specified path.
