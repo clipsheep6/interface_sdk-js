@@ -106,7 +106,7 @@ declare namespace fileaccess {
          * @return Returns the new file's URI.
          */
         createFile(parentUri: string, displayName: string) : Promise<string>;
-        createFile(parentUri: string, displayName: string ,callback: AsyncCallback<string>) : void;
+        createFile(parentUri: string, displayName: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Create a Directory in a specified path.
@@ -116,8 +116,8 @@ declare namespace fileaccess {
          * @param displayName displayName Indicates the new file name.
          * @return Returns the new directory's URI.
          */
-        mkdir(parentUri: string , displayName: string) : Promise<string>;
-        mkdir(parentUri: string , displayName: string , callback: AsyncCallback<string>) : void;
+        mkdir(parentUri: string, displayName: string) : Promise<string>;
+        mkdir(parentUri: string, displayName: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Delete a file or delete a directory recursively.
@@ -128,7 +128,7 @@ declare namespace fileaccess {
          * @StageModelOnly 
          */
         delete(selectFileUri: string) : Promise<number>;
-        delete(selectFileUri: string , callback: AsyncCallback<string>) : void;
+        delete(selectFileUri: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Move a file or move a directory recursively.
@@ -139,7 +139,7 @@ declare namespace fileaccess {
          * @return URI of the generated new file or directory.
          */
         move(sourceFileUri: string, targetParentUri: string) : Promise<string>;
-        move(sourceFileUri: string, targetParentUri: string , callback: AsyncCallback<string>) : void;
+        move(sourceFileUri: string, targetParentUri: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Rename the selected file or directory.
@@ -149,8 +149,8 @@ declare namespace fileaccess {
          * @param displayName Indicates the new directory or file name.
          * @return URI of the generated new file or directory.
          */
-        rename(sourceFileUri: string , displayName: string) : Promise<string>;
-        rename(sourceFileUri: string , displayName: string , callback: AsyncCallback<string>) : void;
+        rename(sourceFileUri: string, displayName: string) : Promise<string>;
+        rename(sourceFileUri: string, displayName: string, callback: AsyncCallback<string>) : void;
        
         /**
          * Get root objects from all data providers.
