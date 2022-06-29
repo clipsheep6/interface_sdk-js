@@ -21,7 +21,7 @@ import { AsyncCallback, Callback } from "./basic";
  * @syscap SystemCapability.Sensors.Sensor
  * @import import sensor from '@ohos.sensor'
  * @permission ohos.permission.ACCELEROMETER, ohos.permission.GYROSCOPE,
- *             ohos.permission.ACTIVITY_MOTION, ohos.permission.HEALTH_DATA
+ *             ohos.permission.ACTIVITY_MOTION, ohos.permission.READ_HEALTH_DATA
  */
 declare namespace sensor {
     /**
