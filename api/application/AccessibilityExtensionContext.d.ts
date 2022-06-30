@@ -16,9 +16,6 @@
 import { Callback, AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import accessibility from "../@ohos.accessibility";
-import { Rect } from './@componet/rect'
-import { GridInfo, GridItemInfo } from "./@componet/gridInfo"
-import { RangeInfo } from "./@componet/progress"
 
 export default class AccessibilityExtensionContext extends ExtensionContext {
     setEventTypeFilter(type: Array<accessibility.EventType>, callback: AsyncCallback<boolean>): boolean;
@@ -93,11 +90,9 @@ type ElementAttributeValues = {
     'currentIndex': number; //The index of the current item on the screen.
     'startIndex': number; ///The start index of listed items on the screen.
     'endIndex': number; //The end index of listed items on the screen.
-    // progress
-    'rangeInfo': RangeInfo; //Range info of the progress node.
-    //grid
-    'grid': GridInfo; //It is used when the node is collection.
-    'gridItem': GridItemInfo; //collection item info.
+    'valueMax': number;
+    'valueMin': number;
+    'valueNow': number;
     'activeRegion': number; //The live range of the node.
     'isContentInvalid': boolean;  //Whether the content is invalid.
     'error': string; //error information.
@@ -139,6 +134,13 @@ interface GesturePath {
 interface GesturePos {
     posX: number;
     posY: number;
+}
+
+interface Rect {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
 }
 
 type WindowType = 'application' | 'system';
