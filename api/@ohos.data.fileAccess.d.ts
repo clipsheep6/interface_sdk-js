@@ -150,12 +150,12 @@ declare namespace fileaccess {
          * Move a file or move a directory recursively.
          * 
          * @since 9
-         * @param sourceFileUri Indicates the file or directory to be moved.
-         * @param targetParentUri Represents the destonation folder.
+         * @param sourceUri Indicates the file or directory to be moved.
+         * @param destUri Represents the destonation folder.
          * @return URI of the generated new file or directory.
          */
-        move(sourceFileUri: string, targetParentUri: string) : Promise<string>;
-        move(sourceFileUri: string, targetParentUri: string, callback: AsyncCallback<string>) : void;
+        move(sourceUri: string, destUri: string) : Promise<string>;
+        move(sourceUri: string, destUri: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Rename the selected file or directory.
