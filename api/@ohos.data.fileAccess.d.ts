@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (C) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -76,18 +76,18 @@ declare namespace fileaccess {
     }
 
     /**
-     * Flags enum
+     * flags is the parameter in openfile
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi 
      */
     enum FLAGS {
-        /** file is opened only_read */
-        ONLY_READ = 0o0,
-        /** file is opened only_write */
-        ONLY_WRITE = 0o1,
-        /** file is opened write_read */
+        /** file is openFile only_read */
+        READ = 0o0,
+        /** file is openFile only_write */
+        WRITE = 0o1,
+        /** file is openFile write_read */
         WRITE_READ = 0o2
     }
 
@@ -117,34 +117,34 @@ declare namespace fileaccess {
          * Create a file in a specified path.
          * 
          * @since 9
-         * @param parentUri Represents a specific parent directory.
+         * @param uri Represents a specific parent directory.
          * @param displayName Indicates the new file name.
          * @return Returns the new file's URI.
          */
-        createFile(parentUri: string, displayName: string) : Promise<string>;
-        createFile(parentUri: string, displayName: string, callback: AsyncCallback<string>) : void;
+        createFile(uri: string, displayName: string) : Promise<string>;
+        createFile(uri: string, displayName: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Create a Directory in a specified path.
          * 
          * @since 9
-         * @param parentUri parentUri Represents a specific parent directory.
+         * @param uri parentUri Represents a specific parent directory.
          * @param displayName displayName Indicates the new file name.
          * @return Returns the new directory's URI.
          */
-        mkdir(parentUri: string, displayName: string) : Promise<string>;
-        mkdir(parentUri: string, displayName: string, callback: AsyncCallback<string>) : void;
+        mkdir(uri: string, displayName: string) : Promise<string>;
+        mkdir(uri: string, displayName: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Delete a file or delete a directory recursively.
          * 
          * @since 9
-         * @param selectFileUri Indicates the file or directory to be deleted.
+         * @param uri Indicates the file or directory to be deleted.
          * @return Returns Exections Success or Failure.
          * @StageModelOnly 
          */
-        delete(selectFileUri: string) : Promise<number>;
-        delete(selectFileUri: string, callback: AsyncCallback<string>) : void;
+        delete(uri: string) : Promise<number>;
+        delete(uri: string, callback: AsyncCallback<string>) : void;
       
         /**
          * Move a file or move a directory recursively.
@@ -161,12 +161,12 @@ declare namespace fileaccess {
          * Rename the selected file or directory.
          * 
          * @since 9
-         * @param sourceFileUri Indicates the selected file or directory.
+         * @param uri Indicates the selected file or directory.
          * @param displayName Indicates the new directory or file name.
          * @return URI of the generated new file or directory.
          */
-        rename(sourceFileUri: string, displayName: string) : Promise<string>;
-        rename(sourceFileUri: string, displayName: string, callback: AsyncCallback<string>) : void;
+        rename(uri: string, displayName: string) : Promise<string>;
+        rename(uri: string, displayName: string, callback: AsyncCallback<string>) : void;
        
         /**
          * Get root objects from all data providers.
