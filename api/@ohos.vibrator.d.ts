@@ -86,15 +86,13 @@ declare namespace vibrator {
 
     interface VibrateTime {
         type: "time",
-        duration: number, /** 单位ms */
-        id?: number /** 预留，马达id */
+        duration: number /** 单位ms */
     }
 
     interface VibratePreset {
         type: "preset";
         effectId?: number | string, /** 预置类型振动 */
-        repeat?: boolean,
-        id?: number /** 预留，马达id */
+        repeat?: boolean
     }
 
     type VibrateEffect = VibrateTime | VibratePreset;
