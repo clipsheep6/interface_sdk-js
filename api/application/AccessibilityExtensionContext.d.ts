@@ -65,7 +65,6 @@ type ElementAttributeValues = {
     'hintText': string;   //The hint text of the node.
     'description': string; // The description of the node.
     'resourceName': string; //The resource name of the node.
-    'childNodeIds': Array<number>;  //The list of the children node.
     'textLengthLimit': number;  //The max text length of the node.
     'rect': Rect;       //The rect of the node.
     'checkable': boolean; //Whether the node can be check.
@@ -80,11 +79,8 @@ type ElementAttributeValues = {
     'isPassword': boolean;  //Whether the node is password.
     'scrollable': boolean;  // Whether the node can be scrollable.
     'editable': boolean;  // Whether the node can be editable.
-    'popupSupported': boolean;  //Whether the node can popup.
     'pluralLineSupported': boolean; //Whether the node is multiline.
-    'deleteable': boolean;  //Whether the node can be delete.
     'isHint': boolean;  //Whether the node is displaying hint.
-    'isEssential': boolean; //Whether the node is important.
     // list
     'itemCount': number;  //The total of the items.
     'currentIndex': number; //The index of the current item on the screen.
@@ -93,19 +89,9 @@ type ElementAttributeValues = {
     'valueMax': number;
     'valueMin': number;
     'valueNow': number;
-    'activeRegion': number; //The live range of the node.
-    'isContentInvalid': boolean;  //Whether the content is invalid.
     'error': string; //error information.
-    'label': number;  // The label of the node.
-    'beginSelected': number;  //The start position of text selected.
-    'endSelected': number;  //The end position of text selected.
-    // text move
-    'textMoveUnit': accessibility.TextMoveUnit; //The movement step used for reading texts.
     'parent': AccessibilityElement;
     'children': Array<AccessibilityElement>;
-    'triggerAction': accessibility.Action;
-    'contents': Array<string>;
-    'lastContent': string;
     /************************/
     /*     window info      */
     /************************/
@@ -113,7 +99,6 @@ type ElementAttributeValues = {
     'screenRect': Rect;
     'layer': number;
     'type': WindowType;
-
     'rootElement': AccessibilityElement;
     /************************/
     /*        common        */
