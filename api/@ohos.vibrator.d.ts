@@ -74,6 +74,36 @@ declare namespace vibrator {
         /* Indicates the mode of stopping a preset vibration effect.*/
         VIBRATOR_STOP_MODE_PRESET = "preset",
     }
+
+    type Intention = "unknown" | "alarm" | "ring" | "notification" | "communication" |
+                     "touch" | "media" | "physical_feedback" | "simulate_reality";
+
+    interface VibrateAttribute {
+        id?: number, /** 马达id，预留，默认为0 */
+        intention: Intention, /** 振动意图 */
+        [propName: string]: any;
+    }
+
+    interface VibrateTime {
+        type: "time",
+        duration: number, /** 单位ms */
+        id?: number /** 预留，马达id */
+    }
+
+    interface VibratePreset {
+        type: "preset";
+        effectId?: number | string, /** 预置类型振动 */
+        repeat?: boolean,
+        id?: number /** 预留，马达id */
+    }
+
+    type VibrateEffect = VibrateTime | VibratePreset;
+
+    function vibrate(effect: VibrateEffect, intention: Intention, callback?: AsyncCallback<void>): void;
+    function vibrate(effect: VibrateEffect, intention: Intention): Promise<void>;
+
+    function isSupportvibrate(callback?: AsyncCallback<boolean>): void;
+    function isSupportvibrate(): Promise<boolean>;
 }
 
 export default vibrator;
