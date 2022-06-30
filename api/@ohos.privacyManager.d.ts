@@ -47,25 +47,23 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Starts listening the change of permission active state.
      * @param type activeStateChange.
-     * @param tokenIDLists The tokenId lists of specified applications to be listened.
      * @param permissionNameLists The permission lists to be listened.
      * @param callback The permission used change callback to be registered.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
-     function on(type: 'activeStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, isActive: boolean}>): void;
+     function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, isActive: boolean}>): void;
 
     /**
      * Stops listening the change of permission active state.
      * @param type activeStateChange.
-     * @param tokenIDLists The tokenId lists of specified applications to be listened.
      * @param permissionNameLists The permission lists to be listened.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
-     function off(type: 'activeStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>): void;
+     function off(type: 'activeStateChange', permissionNameList: Array<string>): void;
 
     /**
      * PermissionUsageFlag.
