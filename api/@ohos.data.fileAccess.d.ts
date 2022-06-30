@@ -84,11 +84,11 @@ declare namespace fileaccess {
      */
     enum FLAGS {
         /** file is opened only_read */
-        ONLY_READ = 0,
+        ONLY_READ = 0o0,
         /** file is opened only_write */
-        ONLY_WRITE = 1,
+        ONLY_WRITE = 0o1,
         /** file is opened write_read */
-        WRITE_READ = 2
+        WRITE_READ = 0o2
     }
 
     /**
