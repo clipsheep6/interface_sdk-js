@@ -38,7 +38,7 @@ declare namespace Statfs {
   function getTotalBytes(path: string): Promise<number>;
   /**
    * Get the number of available bytes of the specified path.
-   *
+   * @param path The path is a sandbox path: /data/storage/el2/base/haps/entry/files
    * @since 9
    */
    function getAvailableBytes(path: string, callback: AsyncCallback<number>): void;
