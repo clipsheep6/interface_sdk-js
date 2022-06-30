@@ -55,7 +55,6 @@ type ElementAttributeValues = {
     /*     element info     */
     /************************/
     'componentId': number;  //The id of the view which the node in.
-    'pageId': number;
     'parentId': number; 
     'inspectorKey': string
     'bundleName': string; //The bundle name.
@@ -63,7 +62,6 @@ type ElementAttributeValues = {
     'inputType': number;  //The type of the input text.
     'text': string;       //The text of the node.
     'hintText': string;   //The hint text of the node.
-    'description': string; // The description of the node.
     'resourceName': string; //The resource name of the node.
     'textLengthLimit': number;  //The max text length of the node.
     'rect': Rect;       //The rect of the node.
@@ -71,7 +69,6 @@ type ElementAttributeValues = {
     'checked': boolean;   // Whether the node is checked.
     'focusable': boolean; //Whether the node can be focused.
     'isVisible': boolean; //Whether the node is visible.
-    'accessibilityFocused': boolean;  //Whether the node is accessibility focused.
     'selected': boolean;  //Whether the node is selected.
     'clickable': boolean; //Whether the node can be click.
     'longClickable': boolean; //Whether the node can be long click.
@@ -80,16 +77,6 @@ type ElementAttributeValues = {
     'scrollable': boolean;  // Whether the node can be scrollable.
     'editable': boolean;  // Whether the node can be editable.
     'pluralLineSupported': boolean; //Whether the node is multiline.
-    'isHint': boolean;  //Whether the node is displaying hint.
-    // list
-    'itemCount': number;  //The total of the items.
-    'currentIndex': number; //The index of the current item on the screen.
-    'startIndex': number; ///The start index of listed items on the screen.
-    'endIndex': number; //The end index of listed items on the screen.
-    'valueMax': number;
-    'valueMin': number;
-    'valueNow': number;
-    'error': string; //error information.
     'parent': AccessibilityElement;
     'children': Array<AccessibilityElement>;
     /************************/
@@ -103,7 +90,6 @@ type ElementAttributeValues = {
     /************************/
     /*        common        */
     /************************/
-    'windowId': number; //The id of the window which the node in.
     'isFocused': boolean;
 }
 
