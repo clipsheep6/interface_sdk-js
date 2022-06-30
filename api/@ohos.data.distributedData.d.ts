@@ -375,7 +375,7 @@ declare namespace distributedData {
         /** 
          * Device-collaborated database, as specified by {@code DeviceKVStore} 
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DeviceKVStore
          * @import N/A
          */
         DEVICE_COLLABORATION = 0,
@@ -391,7 +391,7 @@ declare namespace distributedData {
         /** 
          * Multi-version database, as specified by {@code MultiKVStore} 
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DeviceKVStore
          * @import N/A
          */
         MULTI_VERSION = 2,
@@ -409,7 +409,7 @@ declare namespace distributedData {
          * NO_LEVEL: mains not set the security level.
          *
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          */
         NO_LEVEL = 0,
@@ -522,7 +522,7 @@ declare namespace distributedData {
         /**
          * Indicates schema object 
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          */
         schema?: Schema;
