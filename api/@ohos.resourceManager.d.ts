@@ -185,14 +185,6 @@ export class DeviceCapability {
 }
 
 /**
- * The ResourceManager callback.
- * @since 6
- */
-export interface AsyncCallback<T> {
-    (err: Error, data: T): void;
-}
-
-/**
  * Obtains the ResourceManager object of the current application.
  *
  * @param callback Indicates the callback containing the ResourceManager object.
