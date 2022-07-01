@@ -96,6 +96,67 @@ declare namespace rdb {
     }
 
     /**
+     * Describes the {@code RdbStore} type.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     */
+    enum SecurityLevel {
+        /**
+         * NO_LEVEL: mains not set the security level.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        NO_LEVEL = 0,
+
+        /**
+         * S0: mains the db is public.
+         * There is no impact even if the data is leaked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        S0 = 1,
+
+        /**
+         * S1: mains the db is low level security
+         * There are some low impact, when the data is leaked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        S1 = 2,
+
+        /**
+         * S2: mains the db is middle level security
+         * There are some major impact, when the data is leaked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        S2 = 3,
+
+        /**
+         * S3: mains the db is high level security
+         * There are some severity impact, when the data is leaked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        S3 = 5,
+
+        /**
+         * S4: mains the db is critical level security
+         * There are some critical impact, when the data is leaked.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        S4 = 6,
+    }
+
+    /**
      * Provides methods for managing the relational database (RDB).
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
@@ -258,6 +319,25 @@ declare namespace rdb {
         restore(srcName:string): Promise<void>;
 
         /**
+         * Set the database version.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param version Indicates the database version for upgrade or downgrade.
+         */
+        setVersion(version: number, callback: AsyncCallback<void>):void;
+        setVersion(version: number): Promise<void>;
+
+        /**
+         * Get the current database version.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        getVersion(callback: AsyncCallback<number>):void;
+        getVersion(): Promise<number>;
+
+        /**
          * Set table to be distributed table.
          *
          * @since 8
@@ -348,6 +428,12 @@ declare namespace rdb {
      */
     interface StoreConfig {
         name: string;
+        /**
+         * Indicates setting the database security level
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        securityLevel?: SecurityLevel;
     }
 
     /**
