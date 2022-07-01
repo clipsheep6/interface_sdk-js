@@ -367,6 +367,17 @@ declare namespace dataSharePredicates {
      * @return Returns the query object.
      */
     inKeys(keys: Array<string>): DataSharePredicates;
+
+    /**
+     * Configures {@code DataSharePredicates} Specify remote devices when syncing distributed database.
+     * when syncing distributed database.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @param devices The remote device ID within the specified network.
+     * @return Returns DataSharePredicates that matches the specified devices.
+     */
+    inDevices(devices: Array<string>): DataSharePredicates;
     }
 }
 
