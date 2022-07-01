@@ -503,6 +503,48 @@ declare class WebResourceRequest {
    * @since 8
    */
   getResponseCode(): number;
+
+  /**
+   * Sets the response data.
+   *
+   * @since 9
+   */
+  setResponseData(data: string): void;
+
+  /**
+   * Sets the response encoding.
+   *
+   * @since 9
+   */
+  setResponseEncoding(encoding: string): void;
+
+  /**
+   * Sets the response MIME type.
+   *
+   * @since 9
+   */
+  setResponseMimeType(mimeType: string): void;
+
+  /**
+   * Sets the reason message.
+   *
+   * @since 9
+   */
+  setReasonMessage(reason: string): void;
+
+  /**
+   * Sets the response headers.
+   *
+   * @since 9
+   */
+  setResponseHeader(header: Array<Header>): void;
+
+  /**
+   * Sets the response code.
+   *
+   * @since 9
+   */
+  setResponseCode(code: number): void;
 }
 
 /**
@@ -549,6 +591,67 @@ declare class WebResourceError {
    * @since 8
    */
   getErrorCode(): number;
+}
+
+/**
+ * Defines HTML5 message event.
+ * @since 9
+ */
+declare class WebMessageEvent {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Gets the data of the Web message event.
+   * @return Return the data of the Web message event.
+   *
+   * @since 9
+   */
+  getData(): string;
+
+  /**
+   * Gets the message ports related to the Web message event.
+   * @return Return the message ports related to the Web message event.
+   *
+   * @since 9
+   */
+  getPorts(): Array<WebMessagePort>;
+}
+
+/**
+ * Defines HTML5 message port.
+ * @since 9
+ */
+declare class WebMessagePort {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Close the message port.
+   *
+   * @since 9
+   */
+  close(): void;
+
+  /**
+   * Post a Web message event.
+   *
+   * @since 9
+   */
+  postMessageEvent(message: WebMessageEvent);
+
+  /**
+   * Handle a Web message event.
+   *
+   * @since 9
+   */
+  onMessageEvent(message: WebMessageEvent);
 }
 
 /**
@@ -883,6 +986,12 @@ declare class WebCookie {
    * @since 9
    */
   getCookieManager() : WebCookie
+
+  /**
+   * create dual web messageports
+   * @since 9
+   */
+  createWebMessagePorts(): Array <WebMessagePort>;
 }
 
 /**
