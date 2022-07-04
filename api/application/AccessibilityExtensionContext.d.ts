@@ -124,11 +124,11 @@ type FocusType = 'accessibility' | 'normal';
 
 declare class GesturePath {
     constructor(durationTime: number)
-    positions: Array<GesturePosition>;
+    positions: Array<GesturePoint>;
     durationTime: number;
 }
 
-declare class GesturePosition {
+declare class GesturePoint {
     constructor(positionX: number, positionY: number)
     positionX: number;
     positionY: number;
