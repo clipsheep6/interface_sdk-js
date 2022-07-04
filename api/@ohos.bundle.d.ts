@@ -18,10 +18,12 @@ import { ApplicationInfo } from './bundle/applicationInfo';
 import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { PermissionDef } from  './bundle/PermissionDef';
+import { DispatchInfo } from './bundle/dispatchInfo';
 import image from './@ohos.multimedia.image';
+import pack from './bundle/packInfo';
 
 /**
  * bundle.
@@ -55,6 +57,10 @@ declare namespace bundle {
      * @since 9
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
+     /**
+     * @since 9
+     */
+      GET_BUNDLE_WITH_HASH_VALUE = 0x00000030,
     /**
      * @since 8
      */
@@ -71,6 +77,10 @@ declare namespace bundle {
      * @since 8
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
+    /**
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_CERTIFICATE_FINGERPRINT = 0x00000400,
   }
 
 /**
@@ -196,6 +206,69 @@ declare namespace bundle {
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
     FOLLOW_RECENT,
+
+    /**
+     * @default Indicates the inverted landscape orientation
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    LANDSCAPE_INVERTED,
+
+    /**
+     * @default Indicates the inverted portrait orientation
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    PORTRAIT_INVERTED,
+
+    /**
+     * @default Indicates the orientation can be auto-rotated
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION,
+
+    /**
+     * @default Indicates the landscape orientation rotated with sensor
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_LANDSCAPE,
+
+    /**
+     * @default Indicates the portrait orientation rotated with sensor
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_PORTRAIT,
+
+    /**
+     * @default Indicates the sensor restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_RESTRICTED,
+
+    /**
+     * @default Indicates the sensor landscape restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED,
+
+    /**
+     * @default Indicates the sensor portrait restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_PORTRAIT_RESTRICTED,
+
+    /**
+     * @default Indicates the locked orientation mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    LOCKED,
   }
 
   /**
@@ -290,6 +363,18 @@ declare namespace bundle {
      */
     BACKUP = 9,
     /**
+     * @default Indicates extension info with type of window
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    WINDOW = 10,
+    /**
+     * @default Indicates extension info with type of enterprise admin
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    ENTERPRISE_ADMIN = 11,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
@@ -365,6 +450,61 @@ declare namespace bundle {
   }
 
   /**
+   * @name UpgradeFlag
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   */
+  export enum UpgradeFlag {
+    /**
+     * @default Indicates module not need to be upgraded
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+     NOT_UPGRADE = 0,
+    /**
+     * @default Indicates single module need to be upgraded
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+     SINGLE_UPGRADE = 1,
+    /**
+     * @default Indicates relation module need to be upgraded
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+     RELATION_UPGRADE = 2,
+  }
+
+  /**
+  * @name SupportWindowMode
+  * @since 9
+  * @syscap SystemCapability.BundleManager.BundleFramework
+  * @import NA
+  * @permission NA
+  */
+  export enum SupportWindowMode {
+    /**
+     * @default Indicates supported window mode of full screen mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    FULL_SCREEN = 0,
+    /**
+     * @default Indicates supported window mode of split mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    SPLIT = 1,
+    /**
+     * @default Indicates supported window mode of floating mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    FLOATING = 2,
+  }
+
+  /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
    *
    * @since 7
@@ -390,7 +530,7 @@ declare namespace bundle {
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
-   
+
   /**
    * Obtains information about the current ability.
    *
@@ -488,7 +628,6 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
    * @return Returns the BundleInfo object.
-   * @systemapi Hide this for inner system use
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
@@ -562,9 +701,9 @@ declare namespace bundle {
    * @return Returns a list of ExtensionInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    */
-  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Get the permission details by permissionName.
@@ -626,6 +765,151 @@ declare namespace bundle {
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
+
+  /**
+    * Set the module wether need upgrade
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @param moduleName Indicates the module name of the application.
+    * @param isNeedUpdate Indicates isNeedUpdate of the application.
+    * @systemapi Hide this for inner system use
+    */
+  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
+  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
+
+  /**
+    * Checks whether a specified module is removable.
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @param moduleName Indicates the module name of the application.
+    * @returns Returns true if the module is removable; returns false otherwise.
+    * @systemapi Hide this for inner system use
+    */
+  function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
+  function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
+
+  /**
+   * Obtains bundlePackInfo based on bundleName and bundleFlags.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param bundlePackFlag Indicates the application bundle pack flag to be queried.
+   * @return Returns the BundlePackInfo object.
+   * @systemapi hide this for inner system use
+   */
+  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag, callback: AsyncCallback<pack.BundlePackInfo>): void;
+  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag): Promise<pack.BundlePackInfo>;
+
+  /**   
+   * Obtains information about the current ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the AbilityInfo object for the current ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
+  function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
+
+  /**   
+   * Obtains information about the dispatcher version.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @return Returns the DispatchInfo object for the current ability.
+   * @systemapi hide this for inner system use
+   */
+  function getDispatcherVersion(callback: AsyncCallback<DispatchInfo>): void;
+  function getDispatcherVersion(): Promise<DispatchInfo>;
+
+  /**
+   * Obtains the label of a specified ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @return Returns the label representing the label of the specified ability.
+   */
+  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
+
+  /**
+   * Obtains the icon of a specified ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the PixelMap object representing the icon of the specified ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
+   * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param abilityName Indicates the abilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
+
+  /**
+   * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param extensionAbilityName Indicates the extensionAbilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
+
+  /**
+   * Set the disposed status of a specified bundle.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application.
+   * @param status Indicates the disposed status.
+   * @return Returns the disposed status of a specified bundle.
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @systemapi Hide this for inner system use
+   */
+  function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
+  function setDisposedStatus(bundleName: string, status: number,): Promise<void>;
+
+  /**
+   * Obtains the disposed status of a specified bundle.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application.
+   * @return Returns the disposed status of a specified bundle.
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @systemapi Hide this for inner system use
+   */
+  function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
+  function getDisposedStatus(bundleName: string): Promise<number>;
 }
 
 export default bundle;

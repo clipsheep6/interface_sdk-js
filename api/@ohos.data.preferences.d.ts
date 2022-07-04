@@ -100,6 +100,16 @@ declare namespace preferences {
         get(key: string, defValue: ValueType): Promise<ValueType>;
 
         /**
+        * Obtains all the keys and values of a preferences in an object.
+        *
+        * @return Returns the values and keys in an object.
+        * @throws BusinessError if invoked failed
+        * @since 9
+        */
+        getAll(callback: AsyncCallback<Object>): void;
+        getAll(): Promise<Object>;
+
+        /**
          * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
          *
          * @param key Indicates the key of the preferences to check for.
@@ -108,7 +118,7 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        has(key: string, callback: AsyncCallback<boolean>): boolean;
+        has(key: string, callback: AsyncCallback<boolean>): void;
         has(key: string): Promise<boolean>;
 
         /**
@@ -177,13 +187,13 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        off(type: 'change', callback: Callback<{ key: string }>): void;
+        off(type: 'change', callback?: Callback<{ key: string }>): void;
     }
 
     /**
      * Indicates possible value types
      */
-    type ValueType = number | string | boolean;
+    type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean>;
 
     /**
      * Indicates the maximum length of a key (80 characters).

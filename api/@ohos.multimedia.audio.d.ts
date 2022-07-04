@@ -146,6 +146,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     VOICE_ASSISTANT = 9,
+    /**
+     * Audio stream for all common.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    ALL = 100,
   }
 
   /**
@@ -338,6 +345,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     SAMPLE_FORMAT_S32LE = 3,
+    /**
+     * Signed 32 bit float, little endian.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    SAMPLE_FORMAT_F32LE = 4,
   }
 
   /**
@@ -531,6 +544,20 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the focus type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum FocusType {
+    /**
+     * Recording type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    FOCUS_TYPE_RECORDING = 0,
+  }
+
+  /**
    * Describes audio stream information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -606,6 +633,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     rendererInfo: AudioRendererInfo;
+  }
+
+  /**
+   * Enumerates the interrupt modes.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum InterruptMode {
+      SHARE_MODE = 0,
+      INDEPENDENT_MODE = 1
   }
 
   /**
@@ -1198,6 +1235,258 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
+
+    /**
+     * Request independent interrupt event.
+     * @param focusType The focus type.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    requestIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Request independent interrupt event.
+     * @param focusType The focus type.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    requestIndependentInterrupt(focusType: FocusType): Promise<boolean>;
+
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param focusType The focus type.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param focusType The focus type.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(focusType: FocusType): Promise<boolean>;
+
+    /**
+     * Listens for independent interruption events. When the audio of an application is interrupted by another application,
+     * the callback is invoked to notify the former application.
+     * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    on(type: 'independentInterrupt', callback: Callback<InterruptEvent>): void;
+    
+    /**
+     * Cancels the listening of independent interruption events.
+     * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    off(type: 'independentInterrupt', callback?: Callback<InterruptEvent>): void;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(callback: AsyncCallback<AudioStreamManager>): void;
+
+    /**
+     * Obtains an AudioStreamManager instance. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    getStreamManager(): Promise<AudioStreamManager>;
+  }
+
+  /**
+   * Implements audio stream management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface AudioStreamManager {
+    /**
+     * Get information of current existing audio renderers.
+     * @param callback Callback used to return the information of current existing audio renderers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
+
+    /**
+     * Get information of current existing audio renderers.
+     * @return Promise used to return the information of current existing audio renderers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>;
+
+    /**
+     * Get information of current existing audio capturers.
+     * @param callback Callback used to return the information of current existing audio capturers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
+
+    /**
+     * Get information of current existing audio capturers.
+     * @return Promise used to return the information of current existing audio capturers.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>;
+
+    /**
+     * Listens for audio renderer change events. When there is any audio renderer change,
+     * registered clients will receive the callback.
+     * @param type Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param callback Callback invoked for the audio renderer change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    on(type: "audioRendererChange", callback: Callback<AudioRendererChangeInfoArray>): void;
+
+    /**
+     * UnSubscribes to audio renderer change events.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    off(type: "audioRendererChange");
+
+    /**
+     * Listens for audio capturer change events. When there is any audio capturer change,
+     * registered clients will receive the callback.
+     * @param type Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param callback Callback invoked for the audio capturer change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    on(type: "audioCapturerChange", callback: Callback<AudioCapturerChangeInfoArray>): void;
+
+    /**
+     * UnSubscribes to audio capturer change events.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    off(type: "audioCapturerChange");
+  }
+
+  /**
+   * Array of AudioRendererChangeInfo, which is read-only.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  type AudioRendererChangeInfoArray = Array<Readonly<AudioRendererChangeInfo>>;
+
+  /**
+   * Describes audio renderer change information.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioRendererChangeInfo {
+    /**
+     * Audio stream unique id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    readonly streamId: number;
+
+    /**
+     * Uid for audio renderer client application.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    readonly clientUid: number;
+
+    /**
+     * Audio renderer information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    readonly rendererInfo: AudioRendererInfo;
+
+    /**
+     * Audio state.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    readonly rendererState: AudioState;
+
+    /**
+     * Audio output devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    readonly deviceDescriptors: AudioDeviceDescriptors;
+  }
+
+  /**
+   * Array of AudioCapturerChangeInfo, which is read-only.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  type AudioCapturerChangeInfoArray = Array<Readonly<AudioCapturerChangeInfo>>;
+
+  /**
+   * Describes audio capturer change information.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  interface AudioCapturerChangeInfo {
+    /**
+     * Audio stream unique id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    readonly streamId: number;
+
+    /**
+     * Uid for audio capturer client application.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     */
+    readonly clientUid: number;
+
+    /**
+     * Audio capturer information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    readonly capturerInfo: AudioCapturerInfo;
+
+    /**
+     * Audio state.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     */
+    readonly capturerState: AudioState;
+
+    /**
+     * Audio input devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    readonly deviceDescriptors: AudioDeviceDescriptors;
   }
 
   /**
@@ -1212,12 +1501,55 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceRole: DeviceRole;
+
     /**
      * Audio device type.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceType: DeviceType;
+
+    /**
+     * Audio device id.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly id: number;
+
+    /**
+     * Audio device name.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly name: string;
+
+    /**
+     * Audio device address.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly address: string;
+
+    /**
+     * Supported sampling rates.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly sampleRates: Array<number>;
+
+    /**
+     * Supported channel counts.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly channelCounts: Array<number>;
+
+    /**
+     * Supported channel masks.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly channelMasks: Array<number>;
   }
 
   /**
@@ -1534,6 +1866,22 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRenderRate(): Promise<AudioRendererRate>;
+    /**
+     * Set interrupt mode.
+     * @param mode The interrupt mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterruptMode(mode: InterruptMode, callback: AsyncCallback<void>): void;
+    /**
+     * Set interrupt mode.
+     * @param mode The interrupt mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterruptMode(mode: InterruptMode): Promise<void>;
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.

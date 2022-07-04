@@ -133,7 +133,13 @@ declare enum HitTestType {
  */
 declare enum CacheMode {
   /**
-   * load online and not cache.
+   * load cache when they are available and not expired, otherwise load online.
+   * @since 9
+   */
+  Default,
+
+  /**
+   * load cache when they are available, otherwise load online.
    * @since 8
    */
   None,
@@ -149,6 +155,115 @@ declare enum CacheMode {
    * @since 8
    */
   Only,
+}
+
+/**
+ * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
+ * @since 9
+ */
+declare enum RenderExitReason {
+  /**
+   * Render process non-zero exit status.
+   * @since 9
+   */
+  ProcessAbnormalTermination,
+
+  /**
+   * SIGKILL or task manager kill.
+   * @since 9
+   */
+  ProcessWasKilled,
+
+  /**
+   * Segmentation fault.
+   * @since 9
+   */
+  ProcessCrashed,
+
+  /**
+   * Out of memory.
+   * @since 9
+   */
+  ProcessOom,
+
+  /**
+   * Unknown reason.
+   * @since 9
+   */
+  ProcessExitUnknown,
+}
+
+/**
+ * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
+ * @since 9
+ */
+declare enum FileSelectorMode {
+  /**
+   * Allows single file to be selected.
+   * @since 9
+   */
+  FileOpenMode,
+
+  /**
+   * Allows multiple files to be selected.
+   * @since 9
+   */
+  FileOpenMultipleMode,
+
+  /**
+   * Allows file folders to be selected.
+   * @since 9
+   */
+  FileOpenFolderMode,
+
+  /**
+   * Allows select files to save.
+   * @since 9
+   */
+  FileSaveMode,
+}
+
+/**
+ * Encompassed message information as parameters to {@link onFileSelectorShow} method.
+ * @since 9
+ */
+declare class FileSelectorParam {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+    * Gets the title of this file selector.
+    * @return Return the title of this file selector.
+    *
+    * @since 9
+    */
+  getTitle(): string;
+
+  /**
+    * Gets the FileSelectorMode of this file selector.
+    * @return Return the FileSelectorMode of this file selector.
+    *
+    * @since 9
+    */
+  getMode(): FileSelectorMode;
+
+  /**
+    * Gets an array of acceptable MMIE type.
+    * @return Return an array of acceptable MMIE type.
+    *
+    * @since 9
+    */
+  getAcceptType(): Array<string>;
+
+  /**
+   * Gets whether this file selector use a live media captured value.
+   * @return Return {@code true} if captured media; return {@code false} otherwise.
+   * @since 9
+   */
+  isCapture(): boolean;
 }
 
 /**
@@ -173,6 +288,54 @@ declare class JsResult {
    * @since 8
    */
   handleConfirm(): void;
+
+  /**
+   * Handle the user's JavaScript result if confirm the prompt dialog.
+   * @since 9
+   */
+  handlePromptConfirm(result: string): void;
+}
+
+/**
+ * Defines the file selector result, related to {@link onFileSelectorShow} method.
+ * @since 9
+ */
+declare class FileSelectorResult {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+   /**
+    * select a list of files.
+    * @since 9
+    */
+  handleFileList(fileList: Array<string>): void;
+}
+
+/**
+ * Defines the hit test value, related to {@link getHitTestValue} method.
+ * @since 9
+ */
+declare class HitTestValue {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * get the hit test type.
+   * @since 9
+   */
+  getType(): HitTestType;
+
+  /**
+   * get the hit test extra data.
+   * @since 9
+   */
+  getExtra(): string;
 }
 
 /**
@@ -223,6 +386,11 @@ declare class ConsoleMessage {
    */
   getMessageLevel(): MessageLevel;
 }
+
+/**
+ * Encompassed message information as parameters to {@link onConsole} method.
+ * @since 8
+ */
 
 /**
  * Defines the Web resource request.
@@ -341,7 +509,7 @@ declare class WebResourceRequest {
  * Defines the Web's request/response header.
  * @since 8
  */
- declare interface Header {
+declare interface Header {
   /**
    * Gets the key of the request/response header.
    * @since 8
@@ -417,16 +585,116 @@ declare class WebCookie {
   constructor();
 
   /**
+   * Get whether cookies can be send or accepted.
+   * @return true if can send and accept cookies else false.
+   * 
+   * @since 9
+   */
+  isCookieAllowed(): boolean;
+
+  /**
+   * Get whether third party cookies can be send or accepted.
+   * @return true if can send and accept third party cookies else false.
+   * 
+   * @since 9
+   */
+  isThirdPartyCookieAllowed(): boolean;
+
+  /**
+   * Get whether file scheme cookies can be send or accepted.
+   * @return true if can send and accept else false.
+   * @since 9
+   */
+  isFileURICookieAllowed(): boolean;
+
+  /**
+   * Set whether cookies can be send or accepted.
+   * @param accept whether can send and accept cookies
+   * 
+   * @since 9
+   */
+  putAcceptCookieEnabled(accept: boolean): void;
+
+  /**
+   * Set whether third party cookies can be send or accepted.
+   * @param accept true if can send and accept else false.
+   *  
+   * @since 9
+   */
+  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+
+  /**
+   * Set whether file scheme cookies can be send or accepted.
+   * @param accept true if can send and accept else false.
+   * 
+   * @since 9
+   */
+  putAcceptFileURICookieEnabled(accept: boolean): void;  
+
+  /**
    * Sets the cookie.
    * @since 8
+   * @deprecated since 9
    */
   setCookie();
 
   /**
+   * Sets the cookie.
+   * @since 9
+   */
+  setCookie(url: string, value: string): boolean;
+
+  /**
    * Saves the cookies.
    * @since 8
+   * @deprecated since 9
    */
   saveCookie();
+
+  /**
+   * Saves the cookies.
+   * @since 9
+   */
+  saveCookieSync(): boolean;
+
+  /**
+   * Gets all cookies for the given URL.
+   * 
+   * @param url the URL for which the cookies are requested.
+   * @return the cookie value for the given URL.
+   * 
+   * @since 9
+   */
+  getCookie(url: string): string;
+
+  /**
+   * Check whether exists any cookies.
+   * 
+   * @return true if exists cookies else false;
+   * @since 9
+   */
+  existCookie(): boolean;
+
+  /**
+   * Delete all cookies.
+   * 
+   * @since 9
+   */
+  deleteEntireCookie(): void;
+
+  /**
+   * Delete session cookies.
+   * 
+   * @since 9
+   */
+  deleteSessionCookie(): void;
+
+  /**
+   * Delete all expired cookies.
+   * 
+   * @since 9
+   */
+  deleteExpiredCookie(): void;
 }
 
 /**
@@ -459,6 +727,18 @@ declare class WebCookie {
    * @since 8
    */
   zoom(factor: number): void;
+
+  /**
+   * Let the Web zoom in.
+   * @since 9
+   */
+   zoomIn(): boolean;
+
+  /**
+   * Let the Web zoom out.
+   * @since 9
+   */
+   zoomOut(): boolean;
 
   /**
    * Clears the history in the Web.
@@ -525,6 +805,36 @@ declare class WebCookie {
   getHitTest(): HitTestType;
 
   /**
+   * Gets the hit test value of HitTest.
+   * @since 9
+   */
+  getHitTestValue(): HitTestValue;
+
+  /**
+   * Gets the id for the current Web.
+   * @since 9
+   */
+  getWebId(): number;
+
+  /**
+   * Gets the default user agent.
+   * @since 9
+   */
+  getDefaultUserAgent(): string;
+
+  /**
+   * Gets the title of current Web page.
+   * @since 9
+   */
+  getTitle(): string;
+
+  /**
+   * Gets the content height of current Web page.
+   * @since 9
+   */
+  getPageHeight(): number;
+
+  /**
    * Gets the request focus.
    * @since 8
    */
@@ -561,6 +871,18 @@ declare class WebCookie {
    * @since 8
    */
   forward();
+
+  /**
+   * Goes forward or back backOrForward in the history of the web page.
+   * @since 9
+   */
+  backOrForward(step: number): void;
+
+  /**
+   * Gets network cookie manager
+   * @since 9
+   */
+  getCookieManager() : WebCookie
 }
 
 /**
@@ -612,6 +934,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   fileAccess(fileAccess: boolean): WebAttribute;
+
+  /**
+   * Sets whether javaScript running in the context of a file URL can access content from other file URLs.
+   * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
+   * {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
 
   /**
    * Sets whether to allow image resources to be loaded from the network.
@@ -728,12 +1059,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   databaseAccess(databaseAccess: boolean): WebAttribute;
 
   /**
+   * Sets the initial scale for the Web.
+   * @param percent the initial scale for the Web.
+   *
+   * @since 9
+   */
+  initialScale(percent: number): WebAttribute;
+
+  /**
    * Sets the Web's user agent.
    * @param userAgent The Web's user agent.
    *
    * @since 8
    */
   userAgent(userAgent: string): WebAttribute;
+
+  /**
+   * Enables debugging of web contents.
+   * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.
@@ -816,6 +1163,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
+   * Triggered when the web page wants to display a JavaScript prompt() dialog.
+   * @param callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   *
+   * @since 9
+   */
+  onPrompt(callback: (event?: {url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
+
+  /**
    * Triggered when the web page receives a JavaScript console message.
    * @param callback The triggered function when the web page receives a JavaScript console message.
    *
@@ -855,7 +1210,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    */
-  onRefreshAccessedHistory(callback: (event?: { url: string, refreshed: boolean }) => void): WebAttribute;
+  onRefreshAccessedHistory(callback: (event?: { url: string, isRefreshed: boolean }) => void): WebAttribute;
 
   /**
    * Triggered when the URL loading is intercepted.
@@ -870,6 +1225,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered callback when the Web page receives an ssl Error.
    *
    * @since 8
+   * @deprecated since 9
    */
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
@@ -877,7 +1233,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the render process exits.
    * @param callback The triggered when the render process exits.
    *
+   * @since 9
+   */
+  onRenderExited(callback: (event?: { renderExitReason: RenderExitReason }) => void): WebAttribute;
+
+  /**
+   * Triggered when the file selector shows.
+   * @param callback The triggered when the file selector shows.
+   *
+   * @since 9
+   */
+  onShowFileSelector(callback: (event?: { result: FileSelectorResult,
+    fileSelector: FileSelectorParam }) => boolean): WebAttribute;
+  
+  /**
+   * Triggered when the render process exits.
+   * @param callback The triggered when the render process exits.
+   *
    * @since 8
+   * @deprecated since 9
    */
   onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
 
@@ -886,8 +1260,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered when the file selector shows.
    *
    * @since 8
+   * @deprecated since 9
    */
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
+
+  /**
+   * Triggered when the url loading.
+   * @param callback The triggered when the url loading.
+   *
+   * @since 9
+   */
+  onResourceLoad(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Triggered when the scale of WebView changed.
+   * @param callback The triggered when the scale of WebView changed.
+   *
+   * @since 9
+   */
+  onScaleChange(callback: (event: {oldScale: number, newScale: number}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;

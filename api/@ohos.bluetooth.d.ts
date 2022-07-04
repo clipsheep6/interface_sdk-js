@@ -18,7 +18,7 @@ import { AsyncCallback, Callback } from "./basic";
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
- * @import import bluetooth frome '@ohos.bluetooth';
+ * @import import bluetooth from '@ohos.bluetooth'
  * @syscap SystemCapability.Communication.Bluetooth.Core
  */
 declare namespace bluetooth {
@@ -357,6 +357,15 @@ declare namespace bluetooth {
     function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
 
     /**
+     * Obtains the instance of profile.
+     *
+     * @param profileId The profile id..
+     * @return Returns instance of profile.
+     * @since 9
+     */
+    function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
+
+    /**
      * Base interface of profile.
      */
     interface BaseProfile {
@@ -427,7 +436,16 @@ declare namespace bluetooth {
          *
          * @param device The address of the remote device.
          * @return Returns {@link PlayingState} of the remote device.
+         * @deprecated since 9
+         * @since 8
+         */
+        /**
+         * Obtains the playing state of device.
          *
+         * @param device The address of the remote device.
+         * @return Returns {@link PlayingState} of the remote device.
+         * @since 9
+         * @permission ohos.permission.USE_BLUETOOTH
          */
         getPlayingState(device: string): PlayingState;
     }
@@ -473,6 +491,105 @@ declare namespace bluetooth {
          * @since 8
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+    }
+
+    /**
+     * Manager hid host profile.
+     */
+    interface HidHostProfile extends BaseProfile {
+        /**
+         * Connect to device with hid host.
+         *
+         * @param device The address of the remote device to connect.
+         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @since 9
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        connect(device: string): boolean;
+
+        /**
+         * Disconnect to device with hid host.
+         *
+         * @param device The address of the remote device to disconnect.
+         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @since 9
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        disconnect(device: string): boolean;
+
+        /**
+         * Subscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+
+        /**
+         * Unsubscribe the event reported when the profile connection state changes.
+         *
+         * @param type Type of the profile connection state changes event to listen for.
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+    }
+
+    /**
+     * Manager pan profile.
+     */
+    interface PanProfile extends BaseProfile {
+        /**
+         * Disconnect to device with pan.
+         *
+         * @param device The address of the remote device to disconnect.
+         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @since 9
+         * @permission permission ohos.permission.USE_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        disconnect(device: string): boolean;
+
+        /**
+         * Subscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+
+        /**
+         * Unsubscribe the event reported when the profile connection state changes.
+         *
+         * @param type Type of the profile connection state changes event to listen for.
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+
+        /**
+         * Enable bluetooth tethering.
+         *
+         * @param enable Specifies whether to enable tethering. The value {@code true} indicates
+         * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
+         * @since 9
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        setTethering(enable: boolean): void;
+
+        /**
+         * Obtains the tethering enable or disable.
+         *
+         * @return Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
+         * @since 9
+         * @systemapi Hide this for inner system use.
+         */
+        isTetheringOn(): boolean;
     }
 
     namespace BLE {
@@ -1156,15 +1273,73 @@ declare namespace bluetooth {
     /**
      * Describes the criteria for filtering scanning results can be set.
      *
-     * @since 7
      */
     interface ScanFilter {
-        /** The address of a BLE peripheral device */
+        /**
+         * The address of a BLE peripheral device
+         * @since 7
+         */
         deviceId?: string;
-        /** The name of a BLE peripheral device */
+
+        /**
+         * The name of a BLE peripheral device
+         * @since 7
+         */
         name?: string;
-        /** The service UUID of a BLE peripheral device */
+
+        /**
+         * The service UUID of a BLE peripheral device
+         * @since 7
+         */
         serviceUuid?: string;
+        
+        /**
+         * Service UUID mask.
+         * @since 9
+         */
+        serviceUuidMask?: string;
+        
+        /**
+         * Service solicitation UUID mask.
+         * @since 9
+         */
+        serviceSolicitationUuid?: string;
+
+        /**
+         * Service solicitation UUID mask.
+         * @since 9
+         */
+        serviceSolicitationUuidMask?: string;
+
+        /**
+         * Service data.
+         * @since 9
+         */
+        serviceData?: ArrayBuffer;
+
+        /**
+         * Service data mask.
+         * @since 9
+         */
+        serviceDataMask?: ArrayBuffer;
+
+        /**
+         * Manufacture id.
+         * @since 9
+         */
+        manufactureId?: number;
+
+        /**
+         * Manufacture data.
+         * @since 9
+         */
+        manufactureData?: ArrayBuffer;
+
+        /**
+         * Manufacture data mask.
+         * @since 9
+         */
+        manufactureDataMask?: ArrayBuffer;
     }
 
     /**
@@ -1470,12 +1645,27 @@ declare namespace bluetooth {
 
     /**
      * The enum of profile id.
-     *
-     * @since 8
      */
     enum ProfileId {
+        /**
+         * @since 8
+         */
         PROFILE_A2DP_SOURCE = 1,
+
+        /**
+         * @since 8
+         */
         PROFILE_HANDS_FREE_AUDIO_GATEWAY = 4,
+
+        /**
+         * @since 9
+         */
+        PROFILE_HID_HOST = 6,
+        
+        /**
+         * @since 9
+         */
+        PROFILE_PAN_NETWORK = 7,
     }
 }
 

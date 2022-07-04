@@ -156,6 +156,17 @@ export interface Util {
      * @since 8
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
+
+    /**
+     * Get the order of year, month, day in the specified locale. Year, month, day are separated by '-'.
+     * 'y' stands for year, 'L' stands for month, d stands for day.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Information of the locale
+     * @return Returns the string of 'y', 'L', 'd' joined by '-'.
+     * @since 9
+     */
+    getDateOrder(locale: string): string;
 }
 
 /**
@@ -225,6 +236,17 @@ export class PhoneNumberFormat {
      * @since 8
      */
     format(number: string): string;
+
+    /**
+     * Determine the location by phone number, and return it according to the specified regional language.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param number input phone number.
+     * @param locale locale ID.
+     * @return Returns a string represents phone number's location.
+     * @since 9
+     */
+    static getLocationName(number: string, locale: string): string;
 }
 
 /**
@@ -674,6 +696,15 @@ export function getPreferredLanguageList(): Array<string>;
 export function getFirstPreferredLanguage(): string;
 
 /**
+ * Get the preferred language of App.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @return Returns a string represent the preferred language of App.
+ * @since 9
+ */
+ export function getAppPreferredLanguage(): string;
+
+/**
  * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
  * 
  * @syscap SystemCapability.Global.I18n
@@ -728,6 +759,105 @@ export class TimeZone {
      * @since 7
      */
     getOffset(date?: number): number;
+
+    /**
+     * Get available TimeZone ID list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string array represents the available TimeZone ID list.
+     * @since 9
+     */
+    static getAvailableIDs(): Array<string>;
+
+     /**
+      * Get available Zone City ID list.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @return Returns a string array represents the available Zone City ID list.
+      * @since 9
+      */
+    static getAvailableZoneCityIDs(): Array<string>;
+ 
+     /**
+      * Get City display name in a certain locale.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @param cityID Zone City ID.
+      * @param locale locale used to display city name.
+      * @return Returns a string represents the display name of City in locale.
+      * @since 9
+      */
+    static getCityDisplayName(cityID: string, locale: string): string;
+ 
+     /**
+      * Get TimeZone Object from city ID.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @param cityID Zone City ID.
+      * @return Returns a TimeZone Object from city ID.
+      * @since 9
+      */
+    static getTimezoneFromCity(cityID: string): TimeZone;
 }
+
+/**
+ * Provides the API for transliterate text from one format to another.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 9
+ */
+export class Transliterator {
+    /**
+     * Get a string array of all available transliterator ids.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string array of all available transliterator ids.
+     * @since 9
+     */
+    static getAvailableIDs(): string[];
+
+    /**
+     * Get a Transliterator that is specified by id name.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param id specified the type of Transliterator. id is formed by source and dest. Transliterator will tranliste
+     *           the input string from source format to the dest format. For example, a Simplified Chinese to Latn
+     *           Transliterator will transform the text written in Chinese to Latn characters.
+     * @return Returns Transliterator that is specified by id name.
+     * @since 9
+     */
+    static getInstance(id: string): Transliterator;
+
+    /**
+     * Transform the input text.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param id text to be transliterated.
+     * @return Returns the output text that is tranlisterated from source format to the dest format.
+     * @since 9
+     */
+    transform(text: string): string;
+}
+
+/**
+ * Set whether to use local digit.
+ *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
+ * @syscap SystemCapability.Global.I18n
+ * @param flag a boolean variable represents whether to use local digit.
+ * @return Returns a boolean represents whether set successful.
+ * @since 9
+ * @systemapi Hide this for inner system use.
+ */
+export function setUsingLocalDigit(flag: boolean): boolean;
+
+ /**
+  * Get whether to use local digit.
+  *
+  * @syscap SystemCapability.Global.I18n
+  * @return Returns a boolean represents whether to use local digit.
+  * @since 9
+  */
+export function getUsingLocalDigit(): boolean;
 }
 export default i18n;

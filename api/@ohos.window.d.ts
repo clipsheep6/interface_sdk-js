@@ -13,8 +13,8 @@
 * limitations under the License.
 */
 import { AsyncCallback, Callback } from './basic' ;
-import { Context } from  './app/context';
-import { ContentStorage } from './@internal/component/ets/stateManagement'
+import { Context } from  './application/BaseContext';
+import { LocalStorage } from './@internal/component/ets/stateManagement'
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -28,12 +28,104 @@ declare namespace window {
   enum WindowType {
     /**
      * App.
+     * @FAModelOnly
      */
     TYPE_APP,
     /**
      * System alert.
      */
-    TYPE_SYSTEM_ALERT
+    TYPE_SYSTEM_ALERT,
+    /**
+     * input method.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_INPUT_METHOD,
+    /**
+     * status bar.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_STATUS_BAR,
+    /**
+     * panel.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_PANEL,
+    /**
+     * keyguard.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_KEYGUARD,
+    /**
+     * volume.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_VOLUME_OVERLAY,
+    /**
+     * navigation bar.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_NAVIGATION_BAR,
+    /**
+     * float.
+     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_FLOAT,
+    /**
+     * wallpaper.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_WALLPAPER,
+    /**
+     * desktop.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_DESKTOP,
+    /**
+     * recent.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_LAUNCHER_RECENT,
+    /**
+     * dock.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_LAUNCHER_DOCK,
+    /**
+     * voice interaction.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_VOICE_INTERACTION,
+    /**
+     * pointer.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_POINTER
   }
 
   /**
@@ -50,7 +142,19 @@ declare namespace window {
     /**
      * Notch
      */
-    TYPE_CUTOUT
+    TYPE_CUTOUT,
+
+    /**
+     * area for system gesture
+     * @since 9
+     */
+    TYPE_SYSTEM_GESTURE,
+
+    /**
+     * area for keyboard
+     * @since 9
+     */
+     TYPE_KEYBOARD
   }
   /**
    * Describes the window mode of an application
@@ -63,6 +167,27 @@ declare namespace window {
     PRIMARY,
     SECONDARY,
     FLOATING
+  }
+
+   /**
+   * Describes the mode of window layout
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  enum WindowLayoutMode {
+    /**
+     * CASCADE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_CASCADE,
+    /**
+     * TILE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_TILE
   }
 
   /**
@@ -180,6 +305,12 @@ declare namespace window {
    */
   interface AvoidArea {
     /**
+     * Whether avoidArea is visible on screen
+     * @since 9
+     */
+    visible: boolean;
+
+    /**
      * Rectangle on the left of the screen
      */
     leftRect: Rect;
@@ -266,6 +397,13 @@ declare namespace window {
     brightness: number
 
     /**
+     * The dimbehind value of window.
+     * @since 7
+     * @deprecated since 9
+     */
+    dimBehindValue: number
+
+    /**
      * Whether keep screen on.
      * @since 6
      */
@@ -310,6 +448,7 @@ declare namespace window {
    * @param id Indicates window id.
    * @param type Indicates window type.
    * @since 7
+   * @FAModelOnly
    */
   function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
@@ -318,6 +457,7 @@ declare namespace window {
    * @param id Indicates window id.
    * @param type Indicates window type.
    * @since 7
+   * @FAModelOnly
    */
   function create(id: string, type: WindowType): Promise<Window>;
 
@@ -357,12 +497,14 @@ declare namespace window {
    * Get the final show window.
    * @param id Indicates window id.
    * @since 6
+   * @FAModelOnly
    */
   function getTopWindow(callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
    * @since 6
+   * @FAModelOnly
    */
   function getTopWindow(): Promise<Window>;
 
@@ -381,6 +523,50 @@ declare namespace window {
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
 
   /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number): Promise<void>;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(): Promise<void>;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
+
+  /**
    * register the callback of systemBarTintChange
    * @param type: 'systemBarTintChange'
    * @systemapi Hide this for inner system use.
@@ -395,6 +581,26 @@ declare namespace window {
   * @since 8
   */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+
+  /**
+   * display orientation
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  enum Orientation {
+    UNSPECIFIED = 0,
+    PORTRAIT = 1,
+    LANDSCAPE = 2,
+    PORTRAIT_INVERTED = 3,
+    LANDSCAPE_INVERTED = 4,
+    AUTO_ROTATION = 5,
+    AUTO_ROTATION_PORTRAIT = 6,
+    AUTO_ROTATION_LANDSCAPE = 7,
+    AUTO_ROTATION_RESTRICTED = 8,
+    AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
+    LOCKED = 11,
+  }
 
   interface Window {
     /**
@@ -582,13 +788,30 @@ declare namespace window {
     setSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
+     * Set the preferred orientation config of the window
+     * @param orientation the orientation config of the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setPreferredOrientation(orientation: Orientation): Promise<void>;
+
+    /**
+     * Set the preferred orientation config of the window
+     * @param orientation the orientation config of the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+
+    /**
      * Loads content
      * @param path  path Path of the page to which the content will be loaded
      * @param storage storage The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     * @StageModelOnly
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
@@ -596,8 +819,9 @@ declare namespace window {
      * @param storage storage The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     * @StageModelOnly
      */
-    loadContent(path: string, storage: ContentStorage): Promise<void>;
+    loadContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
      * Loads content
@@ -650,6 +874,7 @@ declare namespace window {
      * @param type: 'systemAvoidAreaChange'
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 9, please use on_avoidAreaChange instead.
      */
     on(type: 'systemAvoidAreaChange', callback: Callback<AvoidArea>): void;
 
@@ -658,8 +883,25 @@ declare namespace window {
      * @param type: 'systemAvoidAreaChange'
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 9, please use off_avoidAreaChange instead.
      */
     off(type: 'systemAvoidAreaChange', callback?: Callback<AvoidArea>): void;
+
+    /**
+     * register the callback of avoidAreaChange
+     * @param type: 'avoidAreaChange'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    on(type: 'avoidAreaChange', callback: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
+
+    /**
+     * unregister the callback of avoidAreaChange
+     * @param type: 'avoidAreaChange'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    off(type: 'avoidAreaChange', callback?: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
 
     /**
      * register the callback of keyboardHeightChange
@@ -676,6 +918,20 @@ declare namespace window {
      * @since 7
      */
     off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
+
+    /**
+     * touch outside callback on.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    on(type: 'touchOutside', callback: Callback<void>): void;
+
+    /**
+     * touch outside callback off.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
      * Whether the window supports thr wide gamut setting.
@@ -748,6 +1004,24 @@ declare namespace window {
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
     /**
+    * Sets the dimBehind of window.
+    * @param dimBehindValue the specified dimBehind.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @since 7
+    * @deprecated since 9
+    */
+    setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the dimBehind of window.
+     * @param dimBehind the specified dimBehind.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     * @deprecated since 9
+     */
+    setDimBehind(dimBehindValue: number): Promise<void>;
+
+    /**
      * Sets whether focusable or not.
      * @param isFocusable can be focus if true, or can not be focus if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -780,6 +1054,24 @@ declare namespace window {
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
     /**
+    * Sets whether outside can be touch or not.
+    * @param touchable outside can be touch if true, or not if false.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @since 7
+    * @deprecated since 9
+    */
+    setOutsideTouchable(touchable: boolean): Promise<void>;
+
+    /**
+     * Sets whether outside can be touch or not.
+     * @param touchable outside can be touch if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     * @deprecated since 9
+     */
+    setOutsideTouchable(touchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
      * Sets whether is private mode or not.
      * @param isPrivacyMode in private mode if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -810,11 +1102,30 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+    
+    /**
+     * set the flag of the window is forbidden to move in split screen mode
+     * @param isForbidSplitMove the flag of the window is forbidden to move in split screen mode
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 9
+     */
+    setForbidSplitMove(isForbidSplitMove: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * set the flag of the window is forbidden to move in split screen mode
+     * @param isForbidSplitMove the flag of the window is forbidden to move in split screen mode
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 9
+     */
+    setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
   }
   /**
    * window stage callback event type
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
+   * @StageModelOnly
    */
   enum WindowStageEventType {
     FOREGROUND = 1,
@@ -831,33 +1142,39 @@ declare namespace window {
     /**
      * Get main window of the stage.
      * @since 9
+     * @StageModelOnly
      */
     getMainWindow(): Promise<Window>;
     /**
      * Get main window of the stage.
      * @since 9
+     * @StageModelOnly
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
      * Create sub window of the stage.
      * @param name window name of sub window
      * @since 9
+     * @StageModelOnly
      */
     createSubWindow(name: string): Promise<Window>;
     /**
      * Create sub window of the stage.
      * @param name window name of sub window
      * @since 9
+     * @StageModelOnly
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
      * Get sub window of the stage.
      * @since 9
+     * @StageModelOnly
      */
     getSubWindow(): Promise<Array<Window>>;
     /**
      * Get sub window of the stage.
      * @since 9
+     * @StageModelOnly
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
@@ -866,33 +1183,55 @@ declare namespace window {
      * @param storage storage The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     * @StageModelOnly
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @param storage storage The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     * @StageModelOnly
      */
-    loadContent(path: string, storage?: ContentStorage): Promise<void>;
+    loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     * @StageModelOnly
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
     /**
      * window stage event callback on.
      * @since 9
+     * @StageModelOnly
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
     /**
      * window stage event callback off.
      * @since 9
+     * @StageModelOnly
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * disable window decoration. It must be called before loadContent.
+     * @systemapi
+     * @since 9
+     * @StageModelOnly
+     */
+     disableWindowDecor(): void;
+
+    /**
+     * Sets whether can show on lock screen or not
+     * @param showOnLockScreen can show on lock screen if true, or not if false
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     * @StageModelOnly
+     */
+     setShowOnLockScreen(showOnLockScreen: boolean): void;
   }
 }
 

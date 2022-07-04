@@ -125,6 +125,15 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 8
+     * @deprecated since 9 (permission type error)
+     */
+    /**
+     * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.READ_HEALTH_DATA
+     * @since 9
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
         options?: Options): void;
@@ -324,6 +333,14 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA 
      * @since 8
+     * @deprecated since 9 (permission type error)
+     */
+    /**
+     * Subscribe to sensor data once.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.READ_HEALTH_DATA
+     * @since 9
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
@@ -341,6 +358,14 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
+     * @deprecated since 9 (permission type error)
+     */
+    /**
+     * Subscribe to sensor data once.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 9
      */
     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
 
@@ -501,6 +526,15 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 8
+     * @deprecated since 9 (permission type error)
+     */
+    /**
+     * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.READ_HEALTH_DATA
+     * @since 9
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
 
@@ -596,15 +630,37 @@ declare namespace sensor {
     function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
 
     /**
-     * Indicates geographic location.
+     * Indicates sensor information.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
+     * @since 9
      */
-    interface LocationOptions {
-        latitude: number;
-        longitude: number;
-        altitude: number;
+    interface Sensor {
+        sensorName:string; /**< Sensor name */
+        venderName:string; /**< Sensor vendor */
+        firmwareVersion:string; /**< Sensor firmware version */
+        hardwareVersion:string; /**< Sensor hardware version */
+        sensorTypeId:number; /**< Sensor type ID, {@code SensorType} */
+        maxRange:number; /**< Maximum measurement range of the sensor */
+        precision:number; /**< Sensor accuracy */
+        power:number; /**< Sensor power */
     }
+    
+    /**
+     * Obtains the sensor information of a specified type.
+     * @param type Indicate the sensor type, {@code SensorType}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
+    function getSingleSensor(type: SensorType, callback: AsyncCallback<Sensor>): void;
+    function getSingleSensor(type: SensorType): Promise<Sensor>;
+    
+    /**
+     * Obtains all sensor information on the device.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
+    function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
+    function getSensorLists(): Promise<Array<Sensor>>;
 
     /**
      * Indicates geomagnetic field data.
@@ -619,6 +675,17 @@ declare namespace sensor {
         deflectionAngle: number;
         levelIntensity: number;
         totalIntensity: number;
+    }
+
+    /**
+     * Indicates geographic location.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
+     */
+    interface LocationOptions {
+        latitude: number;
+        longitude: number;
+        altitude: number;
     }
 
    /**

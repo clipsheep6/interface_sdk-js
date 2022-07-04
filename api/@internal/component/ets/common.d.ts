@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,9 +20,10 @@ declare const Component: ClassDecorator;
 
 /**
  * Defining Entry ClassDecorator.
- * @since 7
+ * Only API 9 and later support parameters.
+ * @since 9
  */
-declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -121,6 +122,25 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const CustomDialog: ClassDecorator;
 
 /**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageLink: (value: string) => PropertyDecorator;
+
+/**
+ * Defining LocalStorageProp PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageProp: (value: string) => PropertyDecorator;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare function getContext(component?: Object): Object;
+ 
+/**
  * Defines the data type of the interface restriction.
  * @since 7
  */
@@ -169,13 +189,6 @@ declare interface Rectangle {
 }
 
 /**
- * Defining isSystemplugin Constants.
- * @since 7
- * @systemapi
- */
-declare const isSystemplugin: (...args: string[]) => any;
-
-/**
  * global $r function
  * @since 7
  */
@@ -205,9 +218,15 @@ declare interface AnimateParam {
   tempo?: number;
   /**
    * Animation curve.
+   * @type { string | Curve}
    * @since 7
    */
-  curve?: Curve | string;
+  /**
+   * Animation curve.
+   * @type { string | Curve | ICurve}
+   * @since 9
+   */
+  curve?: Curve | string | ICurve;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
@@ -228,6 +247,18 @@ declare interface AnimateParam {
    * @since 7
    */
   onFinish?: () => void;
+}
+
+/**
+ * Interface for curve object.
+ * @since 9
+ */
+interface ICurve {
+  /**
+   * Get curve value by fraction.
+   * @since 9
+   */ 
+  interpolate(fraction : number) : number;
 }
 
 /**
@@ -348,6 +379,43 @@ declare interface ScaleOptions {
   centerY?: number | string;
 }
 
+/**
+ * Defines the align rule options of relative container.
+ * @since 9
+ */
+declare interface AlignRuleOption {
+  /**
+   * The param of left align.
+   * @since 9
+   */
+  left?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of right align.
+   * @since 9
+   */
+  right?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of middle align.
+   * @since 9
+   */
+  middle?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of top align.
+   * @since 9
+   */
+  top?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of bottom align.
+   * @since 9
+   */
+  bottom?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of center align.
+   * @since 9
+   */
+  center?: { anchor: string, align: VerticalAlign };
+}
+
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -415,62 +483,52 @@ declare interface TransitionOptions {
 
 /**
  * Define Preview property
- * @since 8
- * @systemapi
+ * @since 9
  */
 interface PreviewParams {
   /**
    * Define Preview title
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   title?: string;
   /**
    * Define Preview width
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   width?: number;
   /**
    * Define Preview height
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   height?: number;
   /**
    * Define Preview locale
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   locale?: string;
   /**
    * Define Preview colorMode
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   colorMode?: string;
   /**
    * Define Preview deviceType
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   deviceType?: string;
   /**
    * Define Preview dpi
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   dpi?: number;
   /**
    * Define Preview orientation
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   orientation?: string;
   /**
    * Define Preview roundScreen
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   roundScreen?: boolean;
 }
@@ -596,6 +654,59 @@ declare enum SourceType {
 }
 
 /**
+ * Defines the Border Image Repeat Mode.
+ * @since 9
+ */
+declare enum RepeatMode {
+  /**
+   * Repeat mode.
+   * @since 9
+   */
+  Repeat,
+  
+  /**
+   * Stretch mode.
+   * @since 9
+   */
+  Stretch,
+
+  /**
+   * Round mode.
+   * @since 9
+   */
+  Round,
+
+  /**
+   * Space mode.
+   * @since 9
+   */
+  Space,
+}
+/**
+ * enum Blur style
+ * @since 9
+ */
+ declare enum BlurStyle {
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thin,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Regular,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thick,
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -617,6 +728,48 @@ declare interface BaseEvent {
    * @since 8
    */
   source: SourceType;
+}
+
+/**
+ * Border image option
+ * @since 9
+ */
+declare interface BorderImageOption {
+  /**
+   * Border image slice
+   * @since 9
+   */
+  slice?: Length | EdgeWidths,
+
+  /**
+   * Border image repeat
+   * @since 9
+   */
+  repeat?: RepeatMode,
+
+  /**
+   * Border image source
+   * @since 9
+   */
+  source?: string | Resource | linearGradient,
+
+  /**
+   * Border image width
+   * @since 9
+   */
+  width?: Length | EdgeWidths,
+
+  /**
+   * Border image outset
+   * @since 9
+   */
+  outset?: Length | EdgeWidths,
+
+  /**
+   * Border image center fill
+   * @since 9
+   */
+  fill?: boolean
 }
 
 /**
@@ -1101,6 +1254,13 @@ declare class CommonMethod<T> {
   backgroundImagePosition(value: Position | Alignment): T;
 
   /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * @since 9
+   */
+   backgroundBlurStyle(value: BlurStyle): T;
+  
+  /**
    * Opacity
    * @since 7
    */
@@ -1120,10 +1280,22 @@ declare class CommonMethod<T> {
   borderStyle(value: BorderStyle): T;
 
   /**
+   * Border style
+   * @since 9
+   */
+   borderStyle(value: EdgeStyles): T;
+
+  /**
    * Border width
    * @since 7
    */
   borderWidth(value: Length): T;
+
+  /**
+   * Border width
+   * @since 9
+   */
+   borderWidth(value: EdgeWidths): T;
 
   /**
    * Border color
@@ -1132,10 +1304,28 @@ declare class CommonMethod<T> {
   borderColor(value: ResourceColor): T;
 
   /**
+   * Border color
+   * @since 9
+   */
+   borderColor(value: EdgeColors): T;
+
+  /**
    * Border radius
    * @since 7
    */
   borderRadius(value: Length): T;
+
+  /**
+   * Border radius
+   * @since 9
+   */
+   borderRadius(value: BorderRadiuses): T;
+
+  /**
+   * Border image
+   * @since 9
+   */
+  borderImage(value: BorderImageOption): T;
 
   /**
    * Trigger a click event when a click is clicked.
@@ -1190,6 +1380,12 @@ declare class CommonMethod<T> {
    * @since 8
    */
   onBlur(event: () => void): T;
+
+  /**
+   * Set focus index by key tab.
+   * @since 9
+   */
+  tabIndex(index: number): T;
 
   /**
    * animation
@@ -1456,6 +1652,12 @@ declare class CommonMethod<T> {
   }): T;
 
   /**
+   * Specifies the alignRules of relative container
+   * @since 9
+   */
+  alignRules(value: AlignRuleOption): T;
+
+  /**
    * Specifies the aspect ratio of the current component.
    * @since 7
    */
@@ -1624,6 +1826,12 @@ declare class CommonMethod<T> {
    * @since 8
    */
   restoreId(value: number): T;
+
+  /**
+   * Trigger a visible area change event.
+   * @since 9
+   */
+   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 }
 
 /**
@@ -1741,7 +1949,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Custom Component
  * @since 7
  */
-declare class CustomComponent {
+/**
+ * Custom Component
+ * @extends CommonAttribute
+ * @since 9
+ */
+declare class CustomComponent extends CommonAttribute {
   /**
    * Customize the pop-up content constructor.
    * @since 7
