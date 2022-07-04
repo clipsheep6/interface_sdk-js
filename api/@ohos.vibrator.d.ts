@@ -75,13 +75,12 @@ declare namespace vibrator {
         VIBRATOR_STOP_MODE_PRESET = "preset",
     }
 
-    type Intention = "unknown" | "alarm" | "ring" | "notification" | "communication" |
-                     "touch" | "media" | "physical_feedback" | "simulate_reality";
+    type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
+                 "touch" | "media" | "physical_feedback" | "simulate_reality";
 
     interface VibrateAttribute {
         id?: number, /** 马达id，预留，默认为0 */
-        intention: Intention, /** 振动意图 */
-        [propName: string]: any;
+        usage: Usage, /** 振动意图 */
     }
 
     interface VibrateTime {
@@ -91,14 +90,14 @@ declare namespace vibrator {
 
     interface VibratePreset {
         type: "preset";
-        effectId?: number | string, /** 预置类型振动 */
-        repeat?: boolean
+        effectId: number | string, /** 预置类型振动 */
+        count: number /** 重复次数 */
     }
 
     type VibrateEffect = VibrateTime | VibratePreset;
 
-    function vibrate(effect: VibrateEffect, intention: Intention, callback?: AsyncCallback<void>): void;
-    function vibrate(effect: VibrateEffect, intention: Intention): Promise<void>;
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback?: AsyncCallback<void>): void;
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
     function isSupportvibrate(callback?: AsyncCallback<boolean>): void;
     function isSupportvibrate(): Promise<boolean>;
