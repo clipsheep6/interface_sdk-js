@@ -45,27 +45,6 @@ import {AsyncCallback, Callback} from './basic'
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
 
     /**
-     * Starts listening the change of permission active state.
-     * @param type activeStateChange.
-     * @param permissionNameLists The permission lists to be listened.
-     * @param callback The permission used change callback to be registered.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hide this for inner system use
-     * @since 9
-     */
-     function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, isActive: boolean}>): void;
-
-    /**
-     * Stops listening the change of permission active state.
-     * @param type activeStateChange.
-     * @param permissionNameLists The permission lists to be listened.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hide this for inner system use
-     * @since 9
-     */
-     function off(type: 'activeStateChange', permissionNameList: Array<string>): void;
-
-    /**
      * Sets the switch status for sensitive resource.
      * @param sensor The sensitive resource.
      * @param status The switch status.
