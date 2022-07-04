@@ -66,6 +66,44 @@ import {AsyncCallback, Callback} from './basic'
      function off(type: 'activeStateChange', permissionNameList: Array<string>): void;
 
     /**
+     * Sets the switch status for sensitive resource.
+     * @param sensor The sensitive resource.
+     * @param status The switch status.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function setSensitiveResourceSwitch(sensor: SensitiveResource, status: boolean): Promise<void>;
+    function setSensitiveResourceSwitch(sensor: SensitiveResource, status: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Gets the switch status for sensitive resource.
+     * @param sensor The sensitive resource.
+     * @return Return the switch status of specified resource.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function getSensitiveResourceSwitch(sensor: SensitiveResource): Promise<boolean>;
+    function getSensitiveResourceSwitch(sensor: SensitiveResource, callback: AsyncCallback<boolean>): void;
+ 
+    /**
+     * PermissionUsageFlag.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+     enum SensitiveResource {
+        /**
+         * camera resource
+         */
+        CAMERA = 0,
+        /**
+         * microphone resource
+         */
+        MICROPHONE = 1,
+    }
+
+    /**
      * PermissionUsageFlag.
      * @systemapi hide this for inner system use
      * @since 9
