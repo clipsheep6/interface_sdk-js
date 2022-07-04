@@ -21,18 +21,7 @@ import { AsyncCallback, Callback } from "./basic";
  * @syscap SystemCapability.Sensors.Sensor
  * @import import sensor from '@ohos.sensor'
  * @permission ohos.permission.ACCELEROMETER, ohos.permission.GYROSCOPE,
- *             ohos.permission.ACTIVITY_MOTION, ohos.permission.HEALTH_DATA
- * @deprecated since 9 (permission type error)
- */
-
-/**
- * This module provides the capability to subscribe to sensor data.
- *
- * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@ohos.sensor'
- * @permission ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
- *             ohos.permission.ACTIVITY_MOTION or ohos.permission.READ_HEALTH_DATA
- * @since 9
+ *             ohos.permission.ACTIVITY_MOTION, ohos.permission.READ_HEALTH_DATA
  */
 declare namespace sensor {
     /**
@@ -134,7 +123,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEALTH_DATA
+     * @permission ohos.permission.READ_HEALTH_DATA
      * @since 8
      * @deprecated since 9 (permission type error)
      */
@@ -342,7 +331,7 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEART_RATE
+     * @permission ohos.permission.READ_HEALTH_DATA 
      * @since 8
      * @deprecated since 9 (permission type error)
      */
@@ -367,7 +356,7 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.ACCELERATION
+     * @permission ohos.permission.ACCELEROMETER
      * @since 8
      * @deprecated since 9 (permission type error)
      */
@@ -535,7 +524,7 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEALTH_DATA
+     * @permission ohos.permission.READ_HEALTH_DATA
      * @since 8
      * @deprecated since 9 (permission type error)
      */
