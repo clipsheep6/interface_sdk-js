@@ -79,8 +79,8 @@ declare namespace vibrator {
                  "touch" | "media" | "physical_feedback" | "simulate_reality";
 
     interface VibrateAttribute {
-        id?: number, /** 马达id，预留，默认为0 */
-        usage: Usage, /** 振动意图 */
+        id?: number, /** 马达id，默认为0 */
+        usage: Usage, /** 振动用途 */
     }
 
     interface VibrateTime {
