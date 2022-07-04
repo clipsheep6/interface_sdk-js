@@ -32,6 +32,18 @@ declare interface AccessibilityEvent {
     timeStamp?: number;
 }
 
+declare class GesturePath {
+    constructor(durationTime: number)
+    positions: Array<GesturePoint>;
+    durationTime: number;
+}
+
+declare class GesturePoint {
+    constructor(positionX: number, positionY: number)
+    positionX: number;
+    positionY: number;
+}
+
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
     'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
     'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
