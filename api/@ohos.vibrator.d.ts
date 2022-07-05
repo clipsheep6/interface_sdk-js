@@ -99,7 +99,7 @@ declare namespace vibrator {
     function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback?: AsyncCallback<void>): void;
     function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
-    function isSupportvibrate(callback?: AsyncCallback<boolean>): void;
+    function isSupportvibrate(callback: AsyncCallback<boolean>): void;
     function isSupportvibrate(): Promise<boolean>;
 
     function isSupportEffectId(effectId: string, callback?: AsyncCallback<boolean>): void;
