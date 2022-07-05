@@ -410,9 +410,58 @@
           "name": "false"
         }
       ]
+    },
+    {
+      "name": "itemcenter",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "version": [
+        {
+          "name": "v9.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Whether there is always an item at the center of the cross axis of the list.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
+        }
+      ],
+      "type": "enum",
+      "options": [
+        {
+          "name": "true"
+        },
+        {
+          "name": "false"
+        }
+      ]
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "name": "scrollIndex",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "version": [
+        {
+          "name": "v9.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Triggered to indicate the index of list item when list is scrolling.",
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
+        }
+      ]
+    }
+  ],
   "supportedSubComponents": true,
   "supportedSubComponentsRestriction": [
     {
