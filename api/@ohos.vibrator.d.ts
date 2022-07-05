@@ -101,6 +101,9 @@ declare namespace vibrator {
 
     function isSupportvibrate(callback?: AsyncCallback<boolean>): void;
     function isSupportvibrate(): Promise<boolean>;
+
+    function isSupportEffectId(effectId: string, callback?: AsyncCallback<boolean>): void;
+    function isSupportEffectId(effectId: string): Promise<boolean>;
 }
 
 export default vibrator;
