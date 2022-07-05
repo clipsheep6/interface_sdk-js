@@ -34,7 +34,7 @@ declare interface AccessibilityEvent {
 
 declare class GesturePath {
     constructor(durationTime: number)
-    positions: Array<GesturePoint>;
+    points: Array<GesturePoint>;
     durationTime: number;
 }
 
