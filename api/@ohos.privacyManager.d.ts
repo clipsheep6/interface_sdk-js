@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic'
+import {AsyncCallback, Callback} from './basic'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -43,6 +43,24 @@ import {AsyncCallback} from './basic'
      */
     function getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
+
+    /**
+     * Subscribes to the change of  active state of the specified permission.
+     * @param permissionNameLists Indicated the permission lists, which are specified.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<ActiveChangeResponse>): void;
+
+    /**
+     * Unsubscribes from .
+     * @param permissionNameLists Indicated the permission lists, which are specified.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function off(type: 'activeStateChange', permissionNameList: Array<string>, callback?: Callback<ActiveChangeResponse>): void;
 
     /**
      * Sets the switch status for sensitive resource.
@@ -80,6 +98,22 @@ import {AsyncCallback} from './basic'
          * microphone resource
          */
         MICROPHONE = 1,
+    }
+
+    /**
+     * ActiveStatus.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    enum ActiveStatus {
+        /**
+         * camera resource
+         */
+        INACTIVE = 0,
+        /**
+         * microphone resource
+         */
+        ACTIVE = 1,
     }
 
     /**
@@ -266,6 +300,23 @@ import {AsyncCallback} from './basic'
          * Access duration, in milliseconds
          */
         accessDuration: number;
+    }
+
+    interface ActiveChangeResponse {
+        /**
+         * AccessTokenID
+         */
+        tokenId: number;
+
+        /**
+        * The permission name 
+        */
+        permissionName: string;
+
+        /**
+        * The active status name 
+        */
+        activeState: ActiveStatus
     }
 }
 
