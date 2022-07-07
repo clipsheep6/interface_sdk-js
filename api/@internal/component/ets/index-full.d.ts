@@ -53,6 +53,7 @@
 /// <reference path="./list_item.d.ts" />
 /// <reference path="./loading_progress.d.ts" />
 /// <reference path="./marquee.d.ts" />
+/// <reference path="./matrix2d.d.ts" />
 /// <reference path="./navigation.d.ts" />
 /// <reference path="./navigator.d.ts" />
 /// <reference path="./page_transition.d.ts" />
