@@ -98,6 +98,17 @@ declare namespace backgroundTaskManager {
     function stopBackgroundRunning(context: Context): Promise<void>;
 
     /**
+     * Apply efficency resources.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
+     * @param resourceTypes The set of types that app wants to apply.
+     * @param isApply True if the app begin to use, else false.
+     * @param timeOut The time that the resource can be used most.
+     */
+    function applyEfficencyResources(resourceTypes:number, isApply:bool, timeOut:number):bool;
+
+    /**
      * supported background mode.
      *
      * @since 8
@@ -178,6 +189,54 @@ declare namespace backgroundTaskManager {
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         TASK_KEEPING = 9,
+    }
+
+    /**
+     * The type of resource.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
+     */
+    export enum ResourceType {
+        /**
+         * The cpu resource for not being suspended.
+         */
+        CPU = 1,
+
+        /**
+         * The resource for not being proxyed common_event.
+         */
+        COMMON_EVENT = 1 << 2,
+
+        /**
+         * The resource for not being proxyed timer.
+         */
+        TIMER = 1 << 3,
+
+        /**
+         * The resource for not being proxyed workscheduler.
+         */
+        WORK_SCHEDULER = 1 << 4,
+
+        /**
+         * The resource for not being proxyed bluetooth.
+         */
+        BLUETOOTH = 1 << 5,
+
+        /**
+         * The resource for not being proxyed gps.
+         */
+        GPS = 1 << 6,
+
+        /**
+         * The resource for not being proxyed audio.
+         */
+        AUDIO = 1 << 7,
+
+        /**
+         * Appoint that the apply resource is persist.
+         */
+        PERSIST = 1 << 8
     }
 }
 
