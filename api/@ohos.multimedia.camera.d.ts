@@ -181,6 +181,60 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): Promise<CameraOutputCapability>;
 
     /**
+     * Determine wether camera is muted.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isCameraMuted(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Determine wether camera is muted.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isCameraMuted(): Promise<boolean>;
+
+    /**
+     * Determine wether camera mute is supported.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    isCameraMuteSupported(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Determine wether camera mute is supported.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    isCameraMuteSupported(): Promise<boolean>;
+
+    /**
+     * Mute camera.
+     * @param mute Mute camera if TRUE, otherwise unmute camera.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    muteCamera(mute: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Mute camera.
+     * @param mute Mute camera if TRUE, otherwise unmute camera.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    muteCamera(mute: boolean): Promise<void>;
+
+    /**
      * Creates a CameraInput instance by camera.
      * @param camera Camera device used to create the instance.
      * @param callback Callback used to return the CameraInput instance.
@@ -342,6 +396,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'cameraStatus', callback: AsyncCallback<CameraStatusInfo>): void;
+
+    /**
+     * Subscribes camera mute change event callback.
+     * @param type Event type.
+     * @param callback Callback used to get the camera mute change.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
   }
 
   /**
