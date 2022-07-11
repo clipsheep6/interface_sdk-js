@@ -25,7 +25,7 @@ import { Context } from './app/context';
 declare namespace camera {
 
   /**
-   * Creates a CameraManager instance.
+   * Create a CameraManager instance.
    * @param context Current application context.
    * @param callback Callback used to return the CameraManager instance.
    * @since 9
