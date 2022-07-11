@@ -83,6 +83,12 @@ declare enum Color {
    * @since 7
    */
   Yellow,
+
+  /**
+   * Yellow.
+   * @since 9
+   */
+  Transparent,
 }
 
 /**
