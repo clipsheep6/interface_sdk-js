@@ -34,6 +34,12 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * @since 7
    */
   alignContent(value: Alignment): StackAttribute;
+
+  /**
+   * Called to change the event transition to bottom child or not.
+   * @since 9
+   */
+  allowBottomEvent(value: boolean): StackAttribute;
 }
 
 declare const Stack: StackInterface;
