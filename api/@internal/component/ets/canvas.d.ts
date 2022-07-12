@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import image from '../../../@ohos.multimedia.image'
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
  *    two configurations are supported:
@@ -705,7 +705,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param sh The height of the rectangular area of the PixelMap to be extracted.
    * @since 8
    */
-  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap;
 
   /**
    * Draws the specified ImageData object onto the canvas
