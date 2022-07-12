@@ -17,6 +17,7 @@ import { AsyncCallback } from './basic';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AppStateData from './application/AppStateData';
 import { ProcessRunningInfo } from './application/ProcessRunningInfo';
+import ConnectionStateObserver from './application/ConnectionStateObserver';
 
 /**
  * This module provides the function of app manager service.
@@ -139,6 +140,32 @@ declare namespace appManager {
      */
     function getAppMemorySize(): Promise<number>;
     function getAppMemorySize(callback: AsyncCallback<number>): void;
+
+    /**
+     * Register application state observer.
+     *
+     * @default -
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param observer The connection state observer.
+     * @systemapi hide this for inner system use
+     * @return Returns the number code of the observer.
+     * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     */
+     function registerConnectionStateObserver(observer: ConnectionStateObserver): number;
+
+     /**
+      * Unregister connection state observer.
+      *
+      * @since 9
+      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+      * @param observerId Indicates the number code of the observer.
+      * @systemapi hide this for inner system use
+      * @return -
+      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+      */
+     function unregisterConnectionStateObserver(observerId: number,  callback: AsyncCallback<void>): void;
+     function unregisterConnectionStateObserver(observerId: number): Promise<void>;
 }
 
 export default appManager;
