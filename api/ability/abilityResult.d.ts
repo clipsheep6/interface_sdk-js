@@ -39,3 +39,16 @@ export interface AbilityResult {
    */
   want?: Want;
 }
+
+/**
+ * Result code of startAbilityForResult.
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ */
+ export enum ResultCode {
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    RESULT_CANCELED = -1
+}
