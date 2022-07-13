@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import rpc from "./@ohos.rpc";
-import Want from './@ohos.application.Want';
 import { Configuration } from './@ohos.application.Configuration';
 
 /**
@@ -25,65 +23,6 @@ import { Configuration } from './@ohos.application.Configuration';
  * @StageModelOnly
  */
 export default class Extension {
-    /**
-     * Called back when an extension is started for initialization.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want of created extension.
-     * @return -
-     * @StageModelOnly
-     */
-    onCreate(want: Want): void;
-
-    /**
-     * Called back before an extension is destroyed.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
-     */
-    onDestroy(): void;
-
-    /**
-     * Called back when an extension is started.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want of extension to start.
-     * @param startId Indicates the number of times the extension has been started. The {@code startId} is
-     *     incremented by 1 every time the extension is started. For example, if the extension
-     *     has been started for six times.
-     * @return -
-     * @StageModelOnly
-     */
-    onRequest(want: Want, startId: number): void;
-
-    /**
-     * Called back when an extension is first connected to an ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates connection information about the Extension.
-     * @systemapi hide for inner use.
-     * @return Returns the proxy of the extension.
-     * @StageModelOnly
-     */
-    onConnect(want: Want): rpc.RemoteObject;
-
-    /**
-     * Called back when all abilities connected to an extension are disconnected.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates disconnection information about the extension.
-     * @return -
-     * @StageModelOnly
-     */
-    onDisconnect(want: Want): void;
-
     /**
      * Called when the system configuration is updated.
      *

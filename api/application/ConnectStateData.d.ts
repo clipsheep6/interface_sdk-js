@@ -60,15 +60,6 @@ export default class ConnectStateData {
     extensionType: bundle.ExtensionAbilityType;
 
     /**
-     * The extension state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    extensionState: number;
-
-    /**
      * The caller pid.
      *
      * @since 9
