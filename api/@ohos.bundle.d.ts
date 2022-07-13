@@ -792,19 +792,6 @@ declare namespace bundle {
   function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
   function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
-  /**
-   * Obtains bundlePackInfo based on bundleName and bundleFlags.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the application bundle name to be queried.
-   * @param bundlePackFlag Indicates the application bundle pack flag to be queried.
-   * @return Returns the BundlePackInfo object.
-   * @systemapi hide this for inner system use
-   */
-  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag, callback: AsyncCallback<pack.BundlePackInfo>): void;
-  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag): Promise<pack.BundlePackInfo>;
-
   /**   
    * Obtains information about the current ability.
    *
