@@ -165,6 +165,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
+   * @deprecated since 9
    */
   export enum AbilitySubType {
     UNSPECIFIED = 0,
