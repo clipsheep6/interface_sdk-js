@@ -52,6 +52,7 @@ declare namespace innerBundleManager {
    * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9, use on(type:"bundleStatusChange", bundleStatusCallback : BundleStatusCallback)
    */
   function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback, callback: AsyncCallback<string>) : void;
   function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback): Promise<string>;
@@ -65,9 +66,37 @@ declare namespace innerBundleManager {
    * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9, use off(type:"bundleStatusChange")
    */
   function off(type:"BundleStatusChange", callback: AsyncCallback<string>) : void;
   function off(type:"BundleStatusChange"): Promise<string>;
+
+  /**
+   * Register Callback.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param type Indicates the command should be implement.
+   * @param LauncherStatusCallback Indicates the callback to be register.
+   * @return Returns the result or error maeeage.
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @systemapi Hide this for inner system use
+   */
+   function on(type:"bundleStatusChange", bundleStatusCallback : BundleStatusCallback, callback: Callback<string>) : void;
+   function on(type:"bundleStatusChange", bundleStatusCallback : BundleStatusCallback): Promise<string>;
+ 
+   /**
+    * UnRegister Callback.
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param type Indicates the command should be implement.
+    * @return Returns the result or error maeeage.
+    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+    * @systemapi Hide this for inner system use
+    */
+   function off(type:"bundleStatusChange", callback: Callback<string>) : void;
+   function off(type:"bundleStatusChange"): Promise<string>;
 
   /**
    * Obtains based on a given userId.

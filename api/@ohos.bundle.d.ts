@@ -116,11 +116,24 @@ declare namespace bundle {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
+ * @deprecated since 9, use PermissionGrantStatus
  */
   export enum GrantStatus {
     PERMISSION_DENIED = -1,
     PERMISSION_GRANTED = 0,
   }
+
+/**
+ * @name PermissionGrantStatus
+ * @since 9
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @import NA
+ * @permission NA
+ */
+ export enum PermissionGrantStatus {
+  PERMISSION_DENIED = -1,
+  PERMISSION_GRANTED = 0,
+}
 
   /**
    * @name AbilityType
