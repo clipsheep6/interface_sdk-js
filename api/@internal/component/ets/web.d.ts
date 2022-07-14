@@ -776,6 +776,53 @@ declare class WebCookie {
 }
 
 /**
+ * Defines the Web data base.
+ * @since 9
+ */
+ declare class WebDataBase {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Get whether instances holds any http authentication credentials.
+   * @return true if instances saved any http authentication credentials.
+   * 
+   * @since 9
+   */
+   existHttpAuthUsernamePassword(): boolean;
+
+  /**
+   * clear all saved authentication credentials..
+   * 
+   * @since 9
+   */
+   clearHttpAuthUsernamePassword(): void;
+
+  /**
+   * get username and password.
+   * @param host the host to which the credentials apply.
+   * @param realm the realm to which the credentials apply.
+   * @return Return an array containing username and password.
+   * @since 9
+   */
+   getHttpAuthUsernamePassword(host: string, realm: string, username): Array<string>;
+
+  /**
+   * save http authentication credentials.
+   * @param host the host to which the credentials apply.
+   * @param realm the realm to which the credentials apply.
+   * @param username the username.
+   * @param password the password.
+   * 
+   * @since 9
+   */
+   saveHttpAuthUsernamePassword(host: string, realm: string, username: string, password: string): void;
+}
+
+/**
  * Defines the Web controller.
  * @since 8
  */
