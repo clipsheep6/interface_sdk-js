@@ -1388,6 +1388,74 @@ declare namespace audio {
   }
 
   /**
+   * Implements audio router management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   */
+  interface AudioRoutingManager {
+    /**
+     * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param deviceFlag Audio device flag.
+     * @param callback Callback used to obtain the device update details.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Listens for system microphone state change events. This method uses a callback to get microphone change events.
+     * @param callback Callback used to get the system microphone state change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
+  }
+
+  /**
+   * Describes the microphone state change event received by the app when the microphone state is changed.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   */
+  interface MicStateChangeEvent {
+    /**
+     * Mic mute state.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    mute: boolean;
+  }
+
+  /**
+   * Implements audio communication management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Communication
+   */
+  interface AudioCommunicationManager {
+    /**
+     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
+     * @param mode Ringer mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @systemapi
+     */
+    setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the ringer mode. This method uses a promise to return the result.
+     * @param mode Ringer mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @systemapi
+     */
+    setRingerMode(mode: AudioRingMode): Promise<void>;
+  }
+
+  /**
    * Array of AudioRendererChangeInfo, which is read-only.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1889,7 +1957,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
+    on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
@@ -1927,6 +1995,32 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+  }
+
+  /**
+   * Describe data info.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+   interface AudioRendererDataInfo {
+    /**
+     * Buffer to fill.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    buffer: ArrayBuffer;
+    /**
+     * Data written length.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    dataLength: number;
+    /**
+     * Extend info with buffer.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    bufferFlags: number;
   }
 
   /**
