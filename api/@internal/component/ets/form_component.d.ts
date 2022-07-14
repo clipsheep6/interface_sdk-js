@@ -46,6 +46,20 @@ declare enum FormDimension {
    * @systemapi
    */
   Dimension_4_4,
+
+  /**
+   * 1 x 1 cards
+   * @since 7
+   * @systemapi
+   */
+   Dimension_1_1,
+
+  /**
+   * 2 x 1 cards
+   * @since 7
+   * @systemapi
+   */
+   Dimension_2_1,
 }
 
 /**
