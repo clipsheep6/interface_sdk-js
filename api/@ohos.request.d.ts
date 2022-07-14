@@ -340,6 +340,13 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     title?: string;
+    /**
+     * Whether to display the background
+     *
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     */
+    background?: boolean;
   }
 
   /**
@@ -713,6 +720,13 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     data: Array<RequestData>;
+    /**
+     * Whether to display the background
+     *
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     */
+    background?: boolean;
   }
 
   interface UploadTask {
