@@ -16,7 +16,7 @@
 import { AsyncCallback } from '../basic';
 import Ability from '../@ohos.application.Ability';
 import { AbilityMonitor } from './abilityMonitor';
-import { Context } from './Context';
+import { ApplicationContext } from "./ApplicationContext";
 import Want from "../@ohos.application.Want";
 import { ShellCmdResult } from './shellCmdResult';
 
@@ -67,9 +67,9 @@ export interface AbilityDelegator {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return App Context
+     * @return Returns the Application Context.
      */
-    getAppContext(): Context;
+    getAppContext(): ApplicationContext;
 
     /**
      * Obtain the lifecycle state of a specified ability.
