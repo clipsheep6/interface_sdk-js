@@ -442,6 +442,48 @@ declare namespace window {
      */
     WIDE_GAMUT,
   }
+  /**
+   * Configuration parameters for window creation.
+   * @since 9
+   */
+   interface Configuration {
+    /**
+     * Indicates window id.
+     */
+    id: string
+    /**
+     * Indicates display ID.
+     */
+    displayId: number
+    /**
+     * Indicates window type
+     */
+    windowType?: WindowType
+    /**
+     * In private mode if true, or not if false.
+     */
+    privacyMode?: boolean
+    /**
+     * Indicates Parent window id
+     */
+    parentId?: string
+  }
+
+  /**
+   * Create a window with a specific configuration
+   * @param ctx Indicates the context on which the window depends
+   * @param Configuration Configuration parameters for window creation.
+   * @since 9
+   */
+   function create(ctx: Context, { id, displayId, windowType = TYPE_APP, privacyMode = false, parentId = "" }: Configuration, callback: AsyncCallback<Window>): void;
+
+  /**
+   * Create a window with a specific configuration
+   * @param ctx Indicates the context on which the window depends
+   * @param Configuration Configuration parameters for window creation.
+   * @since 9
+   */
+  function create(ctx: Context, { id, displayId, windowType = TYPE_APP, privacyMode = false, parentId = "" }: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
