@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback, Callback } from './basic';
 import { BundleInfo } from './bundle/bundleInfo';
 import { ElementName } from './bundle/elementName';
 
@@ -38,49 +38,49 @@ declare namespace defaultAppManager {
      *
      * @since 9
      */
-    BROWSER = "BROWSER",
+    BROWSER = "Web Browser",
     /**
      * default image identifier.
      *
      * @since 9
      */
-    IMAGE = "IMAGE",
+    IMAGE = "Image Gallery",
     /**
      * default audio identifier.
      *
      * @since 9
      */
-    AUDIO = "AUDIO",
+    AUDIO = "Audio Player",
     /**
      * default video identifier.
      *
      * @since 9
      */
-    VIDEO = "VIDEO",
+    VIDEO = "Video Player",
     /**
      * default pdf identifier.
      *
      * @since 9
      */
-    PDF = "PDF",
+    PDF = "Pdf Viewer",
     /**
      * default word identifier.
      *
      * @since 9
      */
-    WORD = "WORD",
+    WORD = "Word Viewer",
     /**
      * default excel identifier.
      *
      * @since 9
      */
-    EXCEL = "EXCEL",
+    EXCEL = "Excel Viewer",
     /**
      * default ppt identifier.
      *
      * @since 9
      */
-    PPT = "PPT",
+    PPT = "Ppt Viewer",
   }
 
   /**
@@ -93,7 +93,7 @@ declare namespace defaultAppManager {
    * @permission N/A
    */
   function isDefaultApplication(type: string) : Promise<boolean>;
-  function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
+  function isDefaultApplication(type: string, callback: Callback<boolean>) : void;
 
   /**
    * get default application based on type.

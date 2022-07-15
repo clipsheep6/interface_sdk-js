@@ -84,17 +84,17 @@ declare namespace bundle {
   }
 
 /**
- * @name ExtensionFlag
+ * @name ExtensionAbilityFlag
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
  */
-  enum ExtensionFlag {
-    GET_EXTENSION_INFO_DEFAULT = 0x00000000,
-    GET_EXTENSION_INFO_WITH_PERMISSION = 0x00000002,
-    GET_EXTENSION_INFO_WITH_APPLICATION = 0x00000004,
-    GET_EXTENSION_INFO_WITH_METADATA = 0x00000020,
+  enum ExtensionAbilityFlag {
+    GET_EXTENSION_ABILITY_INFO_DEFAULT = 0x00000000,
+    GET_EXTENSION_ABILITY_INFO_WITH_PERMISSION = 0x00000002,
+    GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION = 0x00000004,
+    GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000020,
   }
 
 /**
@@ -776,11 +776,11 @@ declare namespace bundle {
     * @param upgradeFlag Indicates upgradeFlag of the application.
     * @systemapi Hide this for inner system use
     */
-  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
-  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
+  function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
+  function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
 
   /**
-    * Checks whether a specified module is removable.
+    * Checks whether a specified hap module is removable.
     *
     * @since 9
     * @syscap SystemCapability.BundleManager.BundleFramework
@@ -789,8 +789,8 @@ declare namespace bundle {
     * @returns Returns true if the module is removable; returns false otherwise.
     * @systemapi Hide this for inner system use
     */
-  function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
-  function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
+  function isHapModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
+  function isHapModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
   /**
    * Obtains bundlePackInfo based on bundleName and bundleFlags.
@@ -819,16 +819,16 @@ declare namespace bundle {
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
 
-  /**   
-   * Obtains information about the dispatcher version.
+  /**
+   * Obtains information about the dispatch info.
    *
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @return Returns the DispatchInfo object for the current ability.
    * @systemapi hide this for inner system use
    */
-  function getDispatcherVersion(callback: AsyncCallback<DispatchInfo>): void;
-  function getDispatcherVersion(): Promise<DispatchInfo>;
+  function getDispatchInfo(callback: AsyncCallback<DispatchInfo>): void;
+  function getDispatchInfo(): Promise<DispatchInfo>;
 
   /**
    * Obtains the label of a specified ability.
@@ -866,10 +866,10 @@ declare namespace bundle {
    * @param moduleName Indicates the moduleName of the application.
    * @param abilityName Indicates the abilityName of the application.
    * @param metadataName Indicates the name of metadata in ability.
-   * @return Returns string in json-format of the corresponding config file.
+   * @return Returns Object of the corresponding config file.
    */
-  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
-  function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<Object>>): void;
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<Object>>;
 
   /**
    * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
@@ -879,10 +879,10 @@ declare namespace bundle {
    * @param moduleName Indicates the moduleName of the application.
    * @param extensionAbilityName Indicates the extensionAbilityName of the application.
    * @param metadataName Indicates the name of metadata in ability.
-   * @return Returns string in json-format of the corresponding config file.
+   * @return Returns Object of the corresponding config file.
    */
-  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
-  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<Object>>): void;
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<Object>>;
 
   /**
    * Set the disposed status of a specified bundle.
