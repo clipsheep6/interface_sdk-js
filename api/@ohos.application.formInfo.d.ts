@@ -174,6 +174,14 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         customizeData: {[key: string]: [value: string]};
+
+        /**
+         * Whether support resize form
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+         resizable: boolean;
     }
 
     /**
@@ -388,11 +396,11 @@ declare namespace formInfo {
     }
 
     /**
-     * The optional options used as filters to ask 
+     * The optional options used as filters to ask
      * getFormsInfo to return formInfos from only forms that match the options.
      *
      * @name FormInfoFilter
-     * 
+     *
      * @since 9
      * @syscap SystemCapability.Ability.Form
      */
