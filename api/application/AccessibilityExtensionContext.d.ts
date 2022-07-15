@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { Callback, AsyncCallback } from "../basic";
+import { AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import accessibility from "../@ohos.accessibility";
-import { GesturePath, TouchGuideType, GestureType, PageUpdateType }
-    from "../@ohos.application.AccessibilityExtensionAbility";
+import { GesturePath } from "../@ohos.application.AccessibilityExtensionAbility";
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -26,15 +25,6 @@ import { GesturePath, TouchGuideType, GestureType, PageUpdateType }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 export default class AccessibilityExtensionContext extends ExtensionContext {
-    /**
-     * Set the accessibility event type which is wanted.
-     * @param type Indicates the type of event.
-     */
-    setEventTypeFilter(type: Array<accessibility.EventType | accessibility.WindowUpdateType |
-        TouchGuideType | GestureType | PageUpdateType>): Promise<void>;
-    setEventTypeFilter(type: Array<accessibility.EventType | accessibility.WindowUpdateType |
-        TouchGuideType | GestureType | PageUpdateType>, callback: AsyncCallback<void>): void;
-
     /**
      * Set the name of the bundle name that is interested in sending the event.
      * @param targetNames 
