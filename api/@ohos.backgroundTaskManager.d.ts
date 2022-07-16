@@ -102,10 +102,11 @@ declare namespace backgroundTaskManager {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
-     * @param resourceTypes The set of types that app wants to apply.
+     * @param resourceTypes The set of resource types that app wants to apply.
      * @param isApply True if the app begin to use, else false.
      * @param timeOut The time that the resource can be used most.
      * @return True if efficency resources apply success, else false.
+     * @systemapi Hide this for inner system use.
      */
     function applyEfficencyResources(resourceTypes:number, isApply:bool, timeOut:number):bool;
 
@@ -113,7 +114,8 @@ declare namespace backgroundTaskManager {
      * Reset all efficency resources apply.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
+     * @systemapi Hide this for inner system use.
      */
     function resetAllEfficencyResources():void;
 
@@ -204,7 +206,8 @@ declare namespace backgroundTaskManager {
      * The type of resource.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
+     * @systemapi Hide this for inner system use.
      */
     export enum ResourceType {
         /**
