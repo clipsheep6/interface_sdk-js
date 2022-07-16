@@ -219,32 +219,32 @@ declare namespace backgroundTaskManager {
         /**
          * The resource for not being proxyed common_event.
          */
-        COMMON_EVENT = 1 << 2,
+        COMMON_EVENT = 1 << 1,
 
         /**
          * The resource for not being proxyed timer.
          */
-        TIMER = 1 << 3,
+        TIMER = 1 << 2,
 
         /**
          * The resource for not being proxyed workscheduler.
          */
-        WORK_SCHEDULER = 1 << 4,
+        WORK_SCHEDULER = 1 << 3,
 
         /**
          * The resource for not being proxyed bluetooth.
          */
-        BLUETOOTH = 1 << 5,
+        BLUETOOTH = 1 << 4,
 
         /**
          * The resource for not being proxyed gps.
          */
-        GPS = 1 << 6,
+        GPS = 1 << 5,
 
         /**
          * The resource for not being proxyed audio.
          */
-        AUDIO = 1 << 7
+        AUDIO = 1 << 6
     }
 }
 
