@@ -98,7 +98,7 @@ declare namespace backgroundTaskManager {
     function stopBackgroundRunning(context: Context): Promise<void>;
 
     /**
-     * Apply efficency resources.
+     * Apply or unapply efficency resources.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
