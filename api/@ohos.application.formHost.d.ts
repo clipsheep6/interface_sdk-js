@@ -267,5 +267,18 @@ declare namespace formHost {
      */
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
+
+    /**
+     * notify form that privacy wether need to be protected.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param formIds Indicates the specify form id.
+     * @param isProtected Indicates whether enable update.
+     * @return -
+     * @permission ohos.permission.REQUIRE_FORM.
+     */
+     function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean, callback: AsyncCallback<void>): void;
+     function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 }
 export default formHost;
