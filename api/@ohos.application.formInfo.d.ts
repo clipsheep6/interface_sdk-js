@@ -174,6 +174,14 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         customizeData: {[key: string]: [value: string]};
+
+        /**
+         * Whether can be continued of this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        continuable: boolean;
     }
 
     /**
@@ -388,11 +396,11 @@ declare namespace formInfo {
     }
 
     /**
-     * The optional options used as filters to ask 
+     * The optional options used as filters to ask
      * getFormsInfo to return formInfos from only forms that match the options.
      *
      * @name FormInfoFilter
-     * 
+     *
      * @since 9
      * @syscap SystemCapability.Ability.Form
      */
@@ -405,6 +413,26 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         moduleName?: string;
+
+        /**
+         * optional deviceId that used to ask getFormsInfo to return
+         * form infos with the same deviceId.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         * @systemapi hide for inner use
+         */
+        deviceId?: string;
+
+        /**
+         * optional bundleName that used to ask getFormsInfo to return
+         * form infos with the same bundleName.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         * @systemapi hide for inner use
+         */
+        bundleName?: string;
     }
 }
 export default formInfo;

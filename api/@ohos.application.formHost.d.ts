@@ -267,5 +267,18 @@ declare namespace formHost {
      */
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
+
+    /**
+     * Obtains the FormInfo objects provided by specified requirements.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param filter Indicates the requirements the forms that the formInfos belong to have to meet.
+     * @systemapi hide for inner use.
+     * @return Infos of all forms.
+     * @permission ohos.permission.REQUIRE_FORM
+     */
+    function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 }
 export default formHost;
