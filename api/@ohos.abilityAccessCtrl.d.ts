@@ -14,6 +14,8 @@
  */
 
 import { AsyncCallback } from "./basic";
+import Context from "./application/Context";
+import PermissionRequestResult from "./application/PermissionRequestResult";
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -48,6 +50,18 @@ import { AsyncCallback } from "./basic";
          * @since 9
          */
          verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
+
+        /**
+         * Requests certain permissions from the user.
+         *
+         * @param context The context that initiates the permission request.
+         * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+         * @return Returns the {@link PermissionRequestResult}.
+         * @since 9
+         * @StageModelOnly
+         */
+        requestPermissionsFromUser(context: Context, permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
+        requestPermissionsFromUser(context: Context, permissions: Array<string>) : Promise<PermissionRequestResult>;
 
         /**
          * Grants a specified user_grant permission to the given application.
