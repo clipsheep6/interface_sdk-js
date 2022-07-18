@@ -267,5 +267,18 @@ declare namespace formHost {
      */
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
+
+    /**
+     * Obtains the remote form preview image.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param want Indicates want of the form.
+     * @systemapi hide for inner use.
+     * @return Returns the preview image fd.
+     * @permission ohos.permission.REQUIRE_FORM.
+     */
+    function getFormPreviewImage(want: Want, callback: AsyncCallback<number>): void;
+    function getFormPreviewImage(want: Want): Promise<number>;
 }
 export default formHost;
