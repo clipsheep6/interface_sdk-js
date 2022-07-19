@@ -1866,37 +1866,182 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Tone
    */
   enum ToneType {
-    TONE_TYPE_DIAL_0 = 0, // 0 key
-    TONE_TYPE_DIAL_1,     // 1 key
-    TONE_TYPE_DIAL_2,     // 2 key
-    TONE_TYPE_DIAL_3,     // 3 key
-    TONE_TYPE_DIAL_4,     // 4 key
-    TONE_TYPE_DIAL_5,     // 5 key
-    TONE_TYPE_DIAL_6,     // 6 key
-    TONE_TYPE_DIAL_7,     // 7 key
-    TONE_TYPE_DIAL_8,     // 8 key
-    TONE_TYPE_DIAL_9,     // 9 key
-    TONE_TYPE_DIAL_S,     // * key
-    TONE_TYPE_DIAL_P,     // # key
-    TONE_TYPE_DIAL_A,     // A key
-    TONE_TYPE_DIAL_B,     // B key
-    TONE_TYPE_DIAL_C,     // C key
-    TONE_TYPE_DIAL_D,     // D key
+    /**
+     * Dial tone for key 0.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_0 = 0,
+    /**
+     * Dial tone for key 1.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_1 = 1,
+    /**
+     * Dial tone for key 2.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_2 = 2,
+    /**
+     * Dial tone for key 3.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_3 = 3,
+    /**
+     * Dial tone for key 4.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_4 = 4,
+    /**
+     * Dial tone for key 5.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_5 = 5,
+    /**
+     * Dial tone for key 6.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_6 = 6,
+    /**
+     * Dial tone for key 7.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_7 = 7,
+    /**
+     * Dial tone for key 8.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_8 = 8,
+    /**
+     * Dial tone for key 9.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_9 = 9,
+    /**
+     * Dial tone for key *.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_S = 10,
+    /**
+     * Dial tone for key #.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_P = 11,
+    /**
+     * Dial tone for key A.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_A = 12,
+    /**
+     * Dial tone for key B.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_B = 13,
+    /**
+     * Dial tone for key C.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_C = 14,
+    /**
+     * Dial tone for key D.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_D = 15,
 
+    /**
+     * Supervisory tone for dial.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
     TONE_TYPE_COMMON_SUPERVISORY_DIAL = 100,
-    TONE_TYPE_COMMON_SUPERVISORY_BUSY,
-    TONE_TYPE_COMMON_SUPERVISORY_CONGESTION,
-    TONE_TYPE_COMMON_SUPERVISORY_RADIO_ACK,
-    TONE_TYPE_COMMON_SUPERVISORY_RADIO_NOTAVAIL,
-    TONE_TYPE_COMMON_SUPERVISORY_ERROR,
-    TONE_TYPE_COMMON_SUPERVISORY_CALL_WAITING,
-    TONE_TYPE_COMMON_SUPERVISORY_RINGTONE,
+    /**
+     * Supervisory tone for busy.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_BUSY = 101,
+    /**
+     * Supervisory tone for dial.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_CONGESTION = 102,
+    /**
+     * Supervisory tone for radio path acknowlegment.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_RADIO_ACK = 103,
+    /**
+     * Supervisory tone for radio path not available.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_RADIO_NOT_AVAILABLE = 104,
+    /**
+     * Supervisory tone for error.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_ERROR = 105,
+    /**
+     * Supervisory tone for call waiting.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_CALL_WAITING = 106,
+    /**
+     * Supervisory tone for ringtone.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_RINGTONE = 107,
 
+    /**
+     * Proprietary tone for beep.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
     TONE_TYPE_COMMON_PROPRIETARY_BEEP = 200,
-    TONE_TYPE_COMMON_PROPRIETARY_ACK,
-    TONE_TYPE_COMMON_PROPRIETARY_NACK,
-    TONE_TYPE_COMMON_PROPRIETARY_PROMPT,
-    TONE_TYPE_COMMON_PROPRIETARY_BEEP2,
+    /**
+     * Proprietary tone for positive acknowlegment.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_ACK = 201,
+    /**
+     * Proprietary tone for negative acknowlegment.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_NACK = 202,
+    /**
+     * Proprietary tone for prompt.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_PROMPT = 203,
+    /**
+     * Proprietary tone for double beep.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_DOUBLE_BEEP = 204,
   }
 
   /**
