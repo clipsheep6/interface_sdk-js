@@ -75,33 +75,74 @@ declare namespace vibrator {
         VIBRATOR_STOP_MODE_PRESET = "preset",
     }
 
+    /**
+     * 振动用途
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
                  "touch" | "media" | "physical_feedback" | "simulate_reality";
 
+    /**
+     * 振动属性
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     interface VibrateAttribute {
         id?: number, /** 马达id，默认为0 */
         usage: Usage, /** 振动用途 */
     }
 
+    /**
+     * 固定时长振动效果
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     interface VibrateTime {
         type: "time",
         duration: number /** 单位ms */
     }
 
+    /**
+     * 预置振动类型振动效果
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     interface VibratePreset {
         type: "preset";
-        effectId: number | string, /** 预置类型振动 */
+        effectId: string, /** 预置类型振动 */
         count: number /** 重复次数 */
     }
 
+    /**
+     * 振动效果
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     type VibrateEffect = VibrateTime | VibratePreset;
 
+    /**
+     * 触发振动
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 9
+     */
     function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback?: AsyncCallback<void>): void;
     function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
+    /**
+     * 是否支持马达振动
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     function isSupportvibrate(callback: AsyncCallback<boolean>): void;
     function isSupportvibrate(): Promise<boolean>;
 
+    /**
+     * 是否支持effectId
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     function isSupportEffectId(effectId: string, callback?: AsyncCallback<boolean>): void;
     function isSupportEffectId(effectId: string): Promise<boolean>;
 }
