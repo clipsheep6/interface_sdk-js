@@ -103,21 +103,13 @@ declare namespace rdb {
      */
     enum SecurityLevel {
         /**
-         * NO_LEVEL: mains not set the security level.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        NO_LEVEL = 0,
-
-        /**
          * S0: mains the db is public.
          * There is no impact even if the data is leaked.
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        S0 = 1,
+        S0,
 
         /**
          * S1: mains the db is low level security
@@ -126,7 +118,7 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        S1 = 2,
+        S1,
 
         /**
          * S2: mains the db is middle level security
@@ -135,7 +127,7 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        S2 = 3,
+        S2,
 
         /**
          * S3: mains the db is high level security
@@ -144,7 +136,7 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        S3 = 5,
+        S3,
 
         /**
          * S4: mains the db is critical level security
@@ -153,7 +145,7 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        S4 = 6,
+        S4,
     }
 
     /**
@@ -427,6 +419,11 @@ declare namespace rdb {
      * @import import data_rdb from '@ohos.data.rdb';
      */
     interface StoreConfig {
+        /**
+         * Indicates the database name
+         * @since 7
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
         name: string;
         /**
          * Indicates setting the database security level
