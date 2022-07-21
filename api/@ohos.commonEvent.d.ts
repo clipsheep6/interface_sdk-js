@@ -978,8 +978,43 @@ declare namespace commonEvent {
      * This common event can be triggered only by system.
      * @since 9
      */
-    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
-  }
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the net quota has arrived limit.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_NET_QUOTA_LIMIT = "usual.event.NET_QUOTA_LIMIT",
+
+    /**
+     * Indicates the action of a common event that the net quota has arrived reminded limit.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_NET_QUOTA_LIMIT_REMINDED = "usual.event.NET_QUOTA_LIMIT_REMINDED",
+
+    /**
+     * Indicates the action of a common event that the net quota has arrived warning limit.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_NET_QUOTA_WARNING = "usual.event.NET_QUOTA_WARNING",
+      
+    /**
+     * This will be triggered when the network connection state changes
+     * @since 9
+     */
+    COMMON_EVENT_CONNECTIVITY_CHANGE = "usual.event.CONNECTIVITY_CHANGE",
+     
+    /**
+     * Indicates the action of a common event that regularly according to the status of screen
+     * notify desktop apps the iface and uid stats updates.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_NETMANAGER_NETSTATES_UPDATED = "usual.event.NETMANAGER_NETSTATES_UPDATED"
+ }
 }
 
 export default commonEvent;
