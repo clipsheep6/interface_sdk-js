@@ -102,14 +102,10 @@ declare namespace backgroundTaskManager {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
-     * @param resourceTypes The set of resource types that app wants to apply.
-     * @param isApply True if the app begin to use, else false.
-     * @param timeOut The time that the resource can be used most.
-     * @param isPersist True if the apply action is persist, else false.
      * @return True if efficency resources apply success, else false.
      * @systemapi Hide this for inner system use.
      */
-    function applyEfficencyResources(resourceTypes:number, isApply:bool, timeOut:number, isPersist:bool):bool;
+    function applyEfficencyResources(request: EfficencyResourcesRequest): bool;
 
     /**
      * Reset all efficency resources apply.
@@ -118,7 +114,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
      * @systemapi Hide this for inner system use.
      */
-    function resetAllEfficencyResources():void;
+    function resetAllEfficencyResources(): void;
 
     /**
      * supported background mode.
@@ -245,6 +241,45 @@ declare namespace backgroundTaskManager {
          * The resource for not being proxyed audio.
          */
         AUDIO = 1 << 6
+    }
+
+    /**
+     * The request of efficency resources.
+     *
+     * @name EfficencyResourcesRequest
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
+     * @systemapi Hide this for inner system use.
+     */
+    export interface EfficencyResourcesRequest {
+        /**
+         * The set of resource types that app wants to apply.
+         */
+        resourceTypes: number;
+
+        /**
+         * True if the app begin to use, else false.
+         */
+        isApply: bool;
+
+        /**
+         * The duration that the resource can be used most.
+         */
+        timeOut: number;
+
+        /**
+         * True if the apply action is persist, else false. Default value is false.
+         */
+        isPersist?: bool;
+
+        /**
+         * True if apply action is for process, false is for package. Default value is false.
+         */
+        isProcess?: false;
+        /**
+         *  The apply reason.
+         */
+        reason: string;
     }
 }
 
