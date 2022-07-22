@@ -45,6 +45,24 @@ import {AsyncCallback} from './basic'
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
 
     /**
+     * Subscribes to the change of  active state of the specified permission.
+     * @param permissionNameLists Indicated the permission lists, which are specified.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<ActiveChangeResponse>): void;
+
+    /**
+     * Unsubscribes from .
+     * @param permissionNameLists Indicated the permission lists, which are specified.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    function off(type: 'activeStateChange', permissionNameList: Array<string>, callback?: Callback<ActiveChangeResponse>): void;
+
+    /**
      * PermissionUsageFlag.
      * @systemapi hide this for inner system use
      * @since 9
@@ -228,6 +246,49 @@ import {AsyncCallback} from './basic'
          * Access duration, in milliseconds
          */
         accessDuration: number;
+    }
+
+    /**
+     * PermissionActiveStatus.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+    enum PermissionActiveStatus {
+        /**
+         * permission is not used yet.
+         */
+        PERM_INACTIVE = 0,
+
+        /**
+         * permission is used in front_end.
+         */
+        PERM_ACTIVE_IN_FOREGROUND = 1,
+
+        /**
+         * permission is used in back_end.
+         */
+        PERM_ACTIVE_IN_BACKGRONGD = 2,
+    }
+
+    interface ActiveChangeResponse {
+        /**
+         * AccessTokenID
+         */
+        tokenId: number;
+
+        /**
+        * The permission name
+        */
+        permissionName: string;
+    
+        /**
+        * The device id
+        */
+        deviceId: string;
+        /**
+        * The active status name
+        */
+        activeStatus: PermissionActiveStatus;
     }
 }
 
