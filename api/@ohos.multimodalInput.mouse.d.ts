@@ -26,96 +26,202 @@ import AbilityContext from "./application/AbilityContext";
 
 declare namespace mouse {
   enum PointerStyle {
-    // 正常选择
-    NORMAL_SELECT,
+    // 默认
+    DEFAULT,
 
-    // 协助选择
-    HELP_SELECT,
+    // 向东箭头
+    EAST,
 
-    // 后台运行
-    WORKING_IN_BACKGROUND,
+    // 向西箭头
+    WEST,
 
-    // 忙碌
-    BUSY,
+    // 向南箭头
+    SOUTH,
 
-    // 精确选择
-    PRECISION_SELECT,
+    // 向北箭头
+    NORTH,
 
-    // 下一步
-    NEXT_SELECT,
+    // 东西箭头
+    WEST_EAST,
 
-    // 手写
-    HANDWRITING,
+    // 南北箭头
+    NORTH_SOUTH,
 
-    // 不可用
-    UNAVAILABLE,
+    // 东北箭头
+    NORTH_EAST,
 
-    // 垂直调整
-    VERTICAL_RESIZE,
+    // 西北箭头
+    NORTH_WEST,
 
-    // 水平调整
-    HORIZONTAL_RESIZE,
+    // 东南箭头
+    SOUTH_EAST,
 
-    // 正向对角线调整
-    DIAGONAL_RESIZE_1,
+    // 西南箭头
+    SOUTH_WEST,
 
-    // 负向对角线调整
-    DIAGONAL_RESIZE_2,
+    // 东北西南箭头
+    NORTH_EAST_SOUTH_WEST,
+
+    // 西北东南箭头
+    NORTH_WEST_SOUTH_EAST,
+
+    // 十字
+    CROSS,
+
+    // 拷贝光标
+    CURSOR_COPY,
+
+    // 禁止拷贝
+    CURSOR_FORBID,
+
+    // 吸管
+    COLOR_SUCKER,
+
+    // 手掌抓取
+    HAND_GRABBING,
+
+    // 手掌打开
+    HAND_OPEN,
+
+    // 手掌指向
+    HAND_POINTING,
+
+    // 帮助
+    HELP,
 
     // 移动
     MOVE,
 
-    // 备选
-    ALTERNATE_SELECT,
+    // 左右调整
+    RESIZE_LEFT_RIGHT,
 
-    // 链接
-    LINK_SELECT,
+    // 上下调整
+    RESIZE_UP_DOWN,
 
-    // 位置
-    LOCATION_SELECT,
+    // 截图选择
+    SCREENSHOT_CHOOSE,
 
-    // 人物
-    PERSON_SELECT,
+    // 截图光标
+    SCREENSHOT_CURSOR,
+
+    // 文本光标
+    TEXT_CURSOR,
+
+    // 缩小
+    ZOOM_IN,
+
+    // 放大
+    ZOOM_OUT,
+
+    // 鼠标向东箭头
+    MOUSE_EAST,
+
+    // 鼠标向西箭头
+    MOUSE_WEST,
+
+    // 鼠标向南箭头
+    MOUSE_SOUTH,
+
+    // 鼠标向北箭头
+    MOUSE_NORTH,
+
+    // 鼠标南北箭头
+    MOUSE_NORTH_SOUTH,
+
+    // 鼠标东北箭头
+    MOUSE_NORTH_EAST,
+
+    // 鼠标西北箭头
+    MOUSE_NORTH_WEST,
+
+    // 鼠标东南箭头
+    MOUSE_SOUTH_EAST,
+
+    // 鼠标西南箭头
+    MOUSE_SOUTH_WEST,
+
+    // 鼠标东西南北箭头
+    MOUSE_NORTH_SOUTH_WEST_EAST,
   }
 
   /**
    * 设置光标移动速度
-   *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param speed Speed of cursor movement.
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param speed 光标移动速度
+   * @param callback 回调函数，用于上报设置结果
    */
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * 设置光标移动速度
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param speed 光标移动速度
+   * @return 回调函数，用于上报设置结果
+   */
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
-   * 获取光标移动速度
-   *
+   * 查询光标移动速度
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param callback 回调函数，用于上报查询结果
    */
   function getPointerSpeed(callback: AsyncCallback<number>): void;
+
+  /**
+   * 查询光标移动速度
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @return 回调函数，用于上报查询结果
+   */
   function getPointerSpeed(): Promise<number>;
 
   /**
    * 设置光标样式
-   *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param pointerStyle 鼠标样式id。
-   * @return callback function, receive reported data
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param windowId 窗口id
+   * @param pointerStyle 鼠标样式
+   * @param callback 回调函数，用于上报设置结果
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+
+  /**
+   * 设置光标样式
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param windowId 窗口id
+   * @param pointerStyle 鼠标样式
+   * @return 回调函数，用于上报设置结果
+   */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
-     * 获取光标样式
-     *
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @return callback function, receive reported data
-     */
+   * 查询光标样式
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param windowId 窗口id
+   * @param callback 回调函数，用于上报查询结果
+   */
   function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
+
+  /**
+   * 查询光标样式
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @systemapi hide for inner use
+   * @param windowId 窗口id
+   * @return 回调函数，用于上报查询结果
+   */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
 }
