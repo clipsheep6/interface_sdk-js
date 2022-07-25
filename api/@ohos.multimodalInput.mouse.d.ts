@@ -105,8 +105,8 @@ declare namespace mouse {
    * @param pointerStyle 鼠标样式id。
    * @return callback function, receive reported data
    */
-  function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
-  function setPointerStyle(pointerStyle: PointerStyle): Promise<void>;
+  function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+  function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
      * 获取光标样式
@@ -115,8 +115,8 @@ declare namespace mouse {
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @return callback function, receive reported data
      */
-  function getPointerStyle(callback: AsyncCallback<PointerStyle>): void;
-  function getPointerStyle(): Promise<PointerStyle>;
+  function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
+  function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
 }
 
