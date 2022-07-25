@@ -15,6 +15,7 @@
 
 import { AsyncCallback, Callback } from "./basic";
 import { DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
+import { DeviceNetworkManager } from "./enterpriseDeviceManager/DeviceNetworkManager";
 import Want from "./@ohos.application.want";
 
 /**
@@ -151,6 +152,15 @@ declare namespace enterpriseDeviceManager {
   function getDeviceSettingsManager(callback: AsyncCallback<DeviceSettingsManager>): void;
   function getDeviceSettingsManager(): Promise<DeviceSettingsManager>;
 
+  /**
+   * Obtains the interface used to set device network policy.
+   *
+   * @since 10
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the DeviceNetworkManager interface.
+   */
+  function getDeviceNetworkManager(callback: AsyncCallback<DeviceNetworkManager>): void;
+  function getDeviceNetworkManager(): Promise<DeviceNetworkManager>;
 }
 
 export default enterpriseDeviceManager;
