@@ -142,7 +142,9 @@ declare namespace wifi {
      * <p>This method adds one configuration at a time. After this configuration is added,
      *     your device will determine whether to connect to the hotspot.
      *
+     * @param config - candidate config.
      * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
@@ -156,13 +158,15 @@ declare namespace wifi {
       *
       * <p>This method removes one configuration at a time.
       *
+      * @param networkId - Network ID which will be removed.
+      * @return Returns {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
+      *
       * @since 9
-      * @throws {TypedError | Error} when failed to remove the hotspot configuration.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
-     function removeCandidateConfig(networkId: number): Promise<void>;
-     function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
+     function removeCandidateConfig(networkId: number): Promise<boolean>;
+     function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
 
     /**
      * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
@@ -170,6 +174,7 @@ declare namespace wifi {
      * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -182,13 +187,15 @@ declare namespace wifi {
      *
      * <p>This method connect to a configuration at a time.
      *
-     * @param {number} networkId - Network ID which will be connected.
-     * @throws {TypedError | Error} when failed connect to the hotspot configuration
+     * @param networkId - Network ID which will be connected.
+     * Returns {@code true} if the operation is successful, returns {@code false} otherwise. The connect result
+     * will be indicated by the call back function of wifi connection change.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
-     function connectToCandidateConfig(networkId: number): void;
+     function connectToCandidateConfig(networkId: number): boolean;
 
     /**
      * Connects to Wi-Fi network.
@@ -1070,8 +1077,13 @@ declare namespace wifi {
         /* @systemapi */
         staticIp: IpConfig;
 
-        /** EAP config info */
-        /* @systemapi */
+        /**
+         * EAP config info.
+         *
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         eapConfig: WifiEapConfig;
     }
 
@@ -1149,13 +1161,28 @@ declare namespace wifi {
         /** Channel width */
         channelWidth: number;
 
-        /** Center frequency */
+        /**
+         * Center frequency 0.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         centerFrequency0: number;
 
-        /** Center frequency */
+        /**
+         * Center frequency 1.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         centerFrequency1: number;
 
-        /** Information elements */
+        /**
+         * Information elements.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         infoElems: Array<WifiInfoElem>;
 
         /** Time stamp */
@@ -1184,19 +1211,44 @@ declare namespace wifi {
         /** Simultaneous Authentication of Equals (SAE) */
         WIFI_SEC_TYPE_SAE = 4,
 
-        /** EAP authentication */
+        /**
+         * EAP authentication.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_EAP = 5,
 
-        /** SUITE_B_192 192 bit level */
+        /**
+         * SUITE_B_192 192 bit level.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_EAP_SUITE_B = 6,
 
-        /** Opportunististic Wireless Encryption */
+        /**
+         * Opportunististic Wireless Encryption.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_OWE = 7,
 
-        /** WAPI certificate to be specified */
+        /**
+         * WAPI certificate to be specified.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_WAPI_CERT = 8,
 
-        /** WAPI pre-shared key to be specified */
+        /**
+         * WAPI pre-shared key to be specified.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_WAPI_PSK = 9,
     }
 
@@ -1243,7 +1295,12 @@ declare namespace wifi {
         /* @systemapi */
         snr: number;
 
-        /** Type of macAddress: 0 - real mac, 1 - random mac. */
+        /**
+         * Type of macAddress: 0 - real mac, 1 - random mac.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         macType: number;
 
         /** The Wi-Fi MAC address of a device. */
