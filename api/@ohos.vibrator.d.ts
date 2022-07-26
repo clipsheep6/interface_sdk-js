@@ -76,7 +76,7 @@ declare namespace vibrator {
     }
 
     /**
-     * 振动用途
+     * The use of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
@@ -84,45 +84,45 @@ declare namespace vibrator {
                  "touch" | "media" | "physical_feedback" | "simulate_reality";
 
     /**
-     * 振动属性
+     * The attribute of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     interface VibrateAttribute {
-        id?: number, /** 马达id，默认为0 */
-        usage: Usage, /** 振动用途 */
+        id?: number, /** Vibrator id, default is 0. */
+        usage: Usage, /** The use of vibration. */
     }
 
     /**
-     * 固定时长振动效果
+     * Specifies the duration of the vibration effect.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     interface VibrateTime {
         type: "time",
-        duration: number /** 单位ms */
+        duration: number /** The duration of the vibration, in ms */
     }
 
     /**
-     * 预置振动类型振动效果
+     * Preset vibration type vibration effect.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     interface VibratePreset {
         type: "preset";
-        effectId: string, /** 预置类型振动 */
-        count: number /** 重复次数 */
+        effectId: string, /** Preset type vibration */
+        count: number /** The number of vibration repetitions */
     }
 
     /**
-     * 振动效果
+     * Describes the effect of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     type VibrateEffect = VibrateTime | VibratePreset;
 
     /**
-     * 触发振动
+     * Trigger vibrator vibration
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 9
@@ -131,15 +131,15 @@ declare namespace vibrator {
     function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
     /**
-     * 是否支持马达振动
+     * Whether vibration is supported.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
-    function isSupportvibrate(callback: AsyncCallback<boolean>): void;
-    function isSupportvibrate(): Promise<boolean>;
+    function isSupportVibrate(callback: AsyncCallback<boolean>): void;
+    function isSupportVibrate(): Promise<boolean>;
 
     /**
-     * 是否支持effectId
+     * Whether the effectId is supported.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
