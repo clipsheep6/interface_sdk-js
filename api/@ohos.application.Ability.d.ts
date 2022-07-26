@@ -302,4 +302,45 @@ export default class Ability {
      * @StageModelOnly
      */
     dump(params: Array<string>): Array<string>;
+
+    /**
+     * Called back when an ability prepares to restore.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param reason state type when restore.
+     * @param wantParam Indicates the want parameter.
+     * @StageModelOnly
+     */
+    onRestoreState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): void;
+
+    /**
+     * Called back when an ability prepares to save.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param reason state type when restore.
+     * @param wantParam Indicates the want parameter.
+     * @return 0 if ability agrees to continue and saves data successfully, otherwise errcode.
+     * @StageModelOnly
+     */
+    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): AbilityConstant.OnSaveResult;
+
+    /**
+     * save data for manual storage.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     */
+    SaveState(): void;
+
+    /**
+     * restore data for manual storage.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     */
+    RestoreState(): void;
 }
