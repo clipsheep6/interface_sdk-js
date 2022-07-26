@@ -83,10 +83,38 @@ declare namespace AbilityConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-     export enum OnContinueResult {
+    export enum OnContinueResult {
         AGREE = 0,
         REJECT = 1,
         MISMATCH = 2,
+    }
+
+    /**
+     * Type of onSave result.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export enum OnSaveResult {
+        ALL_AGREE = 0,
+        MIGRATION_REJECT = 1,
+        MIGRATION_MISMATCH = 2,
+        RECOVERY_AGREE = 3,
+        RECOVERY_REJECT = 4,
+        ALL_REJECT,
+    }
+
+    /**
+     * Type of state type.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export enum StateType {
+        MIGRATION = 0,
+        RECOVERY = 1,
     }
 }
 
