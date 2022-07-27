@@ -41,17 +41,17 @@ declare namespace screenshot {
 
     /**
      * Register the callback of save, can be used in a module different with 'save'
-     * @param type: 'screenshotEvent'
+     * @param type: 'screenshot'
      * @since 9
      */
-    function on(type: 'screenshotEvent', callback: Callback<ScreenshotCallbackParam>): void;
+    function on(type: 'screenshot', callback: Callback<ScreenshotCallbackParam>): void;
 
     /**
      * Unregister the callback of save, can be used in a module different with 'save'
-     * @param type: 'screenshotEvent'
+     * @param type: 'screenshot'
      * @since 9
      */
-    function off(type: 'screenshotEvent', callback?: Callback<ScreenshotCallbackParam>): void;
+    function off(type: 'screenshot', callback?: Callback<ScreenshotCallbackParam>): void;
 
     /**
      * Describes the region of the screen to capture.
