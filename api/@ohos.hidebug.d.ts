@@ -130,6 +130,7 @@ declare namespace hidebug {
      * @return - sa dumped file name return.
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @systemapi hide this for inner system use
      */
     function getServiceDump(serviceid : number) : string;
 }
