@@ -426,8 +426,16 @@ declare namespace sim {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function SendCallSetupRequestResult(slotId: number, accept: boolean, callback: AsyncCallback<void>): void;
-   function SendCallSetupRequestResult(slotId: number, accept: boolean): Promise<void>;
+  function acceptCallSetupRequest(slotId: number, callback: AsyncCallback<void>): void;
+  function acceptCallSetupRequest(slotId: number): Promise<void>;
+
+  /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function rejectCallSetupRequest(slotId: number, callback: AsyncCallback<void>): void;
+  function rejectCallSetupRequest(slotId: number): Promise<void>;
 
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
