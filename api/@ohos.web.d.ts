@@ -122,6 +122,52 @@ declare namespace web {
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
       }
+
+      /**
+       * Provides asynchronous methods for manage the NWeb.
+       *
+       * @since 9
+       */
+      class WebAsyncController {
+          /**
+           * Constructor.
+           *
+           * @param controller WebAsyncController needs a WebController to associate with corresponding nweb.
+           *
+           * @since 9
+           */
+          constructor(controller: WebController);
+
+          /**
+           * Saves the current view as a web archive.
+           *
+           * @param baseName the filename where the archive should be placed，This value cannot be null.
+           * @param autoName if false, takes basename to be a file. If true, basename is assumed to be
+           *                 a directory in which a filename will be chosen according to the URL of the
+           *                 current page.
+           * @returns a promise resolved after the web archive has been saved. The parameter will either
+           *          be the filename under which the file was saved, or empty if saving the file failed.
+           *
+           * @since 9
+           */
+          saveWebArchive(baseName: string, autoName: boolean): Promise<string>;
+
+          /**
+           * Saves the current view as a web archive.
+           *
+           * @param baseName the filename where the archive should be placed，This value cannot be null.
+           * @param autoName if false, takes basename to be a file. If true, basename is assumed to be
+           *                 a directory in which a filename will be chosen according to the URL of the
+           *                 current page.
+           * @param callback called after the web archive has been saved. The parameter will either be
+           *                 the filename under which the file was saved, or empty if saving
+           *                 the file failed.
+           *
+           * @since 9
+           */
+          saveWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
+      }
+
 }
 
 export default web;
