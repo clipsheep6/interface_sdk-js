@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
+import { AsyncCallback, Callback, ErrorCallback } from './basic';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -38,6 +38,20 @@ declare namespace screenshot {
      * @since 7
      */
     function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
+
+    /**
+     * Register the callback of save, can be used in a module different with 'save'
+     * @param type: 'screenshot'
+     * @since 9
+     */
+    function on(type: 'screenshot', callback: Callback<ScreenshotCallbackParam>): void;
+
+    /**
+     * Unregister the callback of save, can be used in a module different with 'save'
+     * @param type: 'screenshot'
+     * @since 9
+     */
+    function off(type: 'screenshot', callback?: Callback<ScreenshotCallbackParam>): void;
 
     /**
      * Describes the region of the screen to capture.
@@ -81,6 +95,17 @@ declare namespace screenshot {
          * @since 8
          */
         displayId?: number;
+    }
+
+    /**
+     * Describes screenshot callback parameters.
+     * @since 9
+     */
+    interface ScreenshotCallbackParam {
+        /**
+         * Package name of the caller of 'save'
+         */
+        packageName: string;
     }
 }
 

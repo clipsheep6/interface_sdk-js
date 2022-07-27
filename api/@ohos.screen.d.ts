@@ -44,6 +44,20 @@ declare namespace screen {
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
 
   /**
+   * Register the callback for virtual screen operations.
+   * @param eventType: 'virtualScreenAction'
+   * @since 9
+   */
+  function on(eventType: 'virtualScreenAction', callback: Callback<VirtualScreenActionCallbackParam>): void;
+
+  /**
+   * Unregister the callback for virtual screen operations
+   * @param eventType: 'virtualScreenAction'
+   * @since 9
+   */
+  function off(eventType: 'virtualScreenAction', callback?: Callback<VirtualScreenActionCallbackParam>): void;
+
+  /**
    * make screens as expand-screen
    * @since 9
    */
@@ -65,6 +79,14 @@ declare namespace screen {
    */
   function createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>): void;
   function createVirtualScreen(options:VirtualScreenOption): Promise<Screen>;
+
+  /**
+   * Remove virtual screen
+   * @param screenId Indicates the screen id of the virtual screen.
+   * @since 9
+   */
+  function removeVirtualScreen(screenId:number, callback: AsyncCallback<void>): void;
+  function removeVirtualScreen(screenId:number): Promise<void>;
 
   /**
    * Destroy virtual screen.
@@ -229,6 +251,55 @@ declare namespace screen {
     width: number;
     height: number;
     refreshRate: number;
+  }
+
+  /**
+   * The virtual screen operations
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  enum VirtualScreenAction {
+    /**
+     * When createVirtualScreen called
+     */
+    CREATE,
+    /**
+     * When makeExpand called
+     */
+    EXPAND_MAKE,
+    /**
+     * When removeVirtualScreen called on the expand screen
+     */
+    EXPAND_REMOVE,
+    /**
+     * When destroyVirtualScreen called on the expand screen
+     */
+    EXPAND_DESTORY,
+    /**
+     * When makeMirror called
+     */
+    MIRROR_MAKE,
+    /**
+     * When removeVirtualScreen called on the mirror screen
+     */
+    MIRROR_REMOVE,
+    /**
+     * When destroyVirtualScreen called on the mirror screen
+     */
+    MIRROR_DESTORY
+  }
+
+  /**
+   * The callback paramters of virtual screen action
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface VirtualScreenActionCallbackParam {
+    action: VirtualScreenAction;
+    /**
+     * Package name of action trigger
+     */
+    packageName: string;
   }
 }
 
