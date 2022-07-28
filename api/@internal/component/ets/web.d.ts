@@ -369,6 +369,78 @@ declare class HttpAuthHandler {
 }
 
 /**
+ * Defines the http auth request result, related to {@link WebContextMenuParam} method.
+ * @since 9
+ */
+ declare class WebContextMenuParam {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * x.
+   * @since 9
+   */
+  x(): number;
+
+  /**
+   * y.
+   * @since 9
+   */
+  y(): number;
+
+  /**
+   * getLinkUrl.
+   * @since 9
+   */
+   getLinkUrl(): string;
+
+  /**
+   * getUnfilterendLinkUrl.
+   * @since 9
+   */
+   getUnfilterendLinkUrl(): string;
+
+  /**
+   * getSourceUrl.
+   * @since 9
+   */
+   getSourceUrl(): string;
+
+  /**
+   * existsImageContents.
+   * @since 9
+   */
+   existsImageContents(): boolean;
+ }
+
+ /**
+ * Defines the http auth request result, related to {@link WebContextMenuResult} method.
+ * @since 9
+ */
+  declare class WebContextMenuResult {
+  /**
+   * Constructor.
+   * @since 9
+   */
+   constructor();
+
+  /**
+   * closeContextMenu.
+   * @since 9
+   */
+   closeContextMenu(): void;
+
+  /**
+   * copyImage.
+   * @since 9
+   */
+   copyImage(): void;
+}
+
+/**
  * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
@@ -1374,6 +1446,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
+
+  /**
+   * Triggered when the resouces loading is intercepted.
+   * @param callback The triggered callback when the resouces loading is intercepted.
+   *
+   * @since 9
+   */
+   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
