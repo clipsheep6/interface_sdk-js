@@ -81,6 +81,7 @@ declare namespace wantAgent {
    * @param callback Indicates the callback method to be called after the {@link WantAgent} is triggered.
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
+  function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
   /**
    * Checks whether two WantAgent objects are equal.
