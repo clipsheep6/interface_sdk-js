@@ -13,29 +13,26 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from "./basic";
+import Want from "./@ohos.application.Want";
+
 /**
- * Class of the enterprise admin extension ability.
- *
+ * @name Offers set control polices on the devices.
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @StageModelOnly
  */
-export default class EnterpriseAdminExtensionAbility {
-    /**
-     * Called back when an application is enabled.
-     *
-     * @since 9
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @StageModelOnly
-     */
-    onAdminEnabled(): void;
-	
-    /**
-     * Called back when an application is disabled.
-     *
-     * @since 9
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @StageModelOnly
-     */
-    onAdminDisabled(): void;
+declare namespace deviceControl {
+  /**
+   * Resets the device factory.
+   * This function can be called by a super administrator.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @param admin Indicates the administrator ability information.
+   * @permission ohos.permission.EDM_CONTROL_DEVICE 
+   */
+  function resetFactory(admin: Want, callback: AsyncCallback<void>): void;
+  function resetFactory(admin: Want): Promise<void>;
 }
+
+export default deviceControl;

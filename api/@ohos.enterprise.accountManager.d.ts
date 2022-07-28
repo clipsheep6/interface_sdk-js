@@ -13,26 +13,27 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./../basic";
-import Want from "./../@ohos.application.want";
+import { AsyncCallback } from "./basic";
+import Want from "./@ohos.application.Want";
 
 /**
- * @name Offers set settings policies on the devices.
+ * @name Offers set account policies on the devices.
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  */
-export interface DeviceSettingsManager {
-
+declare namespace accountManager {
   /**
-   * Sets the system time.This function can be called by a super administrator.
+   * Disallow add local account.
+   * This function can be called by a super administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @return {@code true} if success.
-   * @permission ohos.permission.EDM_MANAGE_DATETIME
+   * @param disallow True if disallow add local account, otherwise false.
+   * @permission ohos.permission.EDM_MANAGE_ACCOUNT
    */
-  setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
-  setDateTime(admin: Want, time: number): Promise<void>;
+  function disalloweAddLocalAccount(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
+  function disalloweAddLocalAccount(admin: Want, disallow: boolean): Promise<void>;
 }
+
+export default accountManager;
