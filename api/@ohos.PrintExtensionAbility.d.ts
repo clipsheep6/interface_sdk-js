@@ -14,14 +14,18 @@
  */
 
 /**
-* class of print extension.
-*
-* @systemapi Hide this for inner system use.
-* @since 9
-* @sysCap SystemCapability.Print.print
-* @StageModelOnly
-*/
-declare class PrintExtensionAbility {
+ * class of print extension.
+ *
+ * @systemapi Hide this for inner system use.
+ * @since 9
+ * @sysCap SystemCapability.Print.print
+ * @StageModelOnly
+ */
+import Want from './@ohos.application.Want';
+import print from "./@ohos.print";
+
+
+export default class PrintExtensionAbility {
 
     /**
      * Called once to initialize the extension.
@@ -32,7 +36,7 @@ declare class PrintExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-	onCreated(want: Want): void;
+    onCreated(want: Want): void;
 
     /**
      * Called once to start to discover the printers connected with the device.
@@ -44,7 +48,7 @@ declare class PrintExtensionAbility {
      * @StageModelOnly
      */
     onStartDiscoverPrinter(): void;
-	
+
     /**
      * Called once to stop discovering the printer.
      *
@@ -53,8 +57,8 @@ declare class PrintExtensionAbility {
      * @sysCap SystemCapability.Print.print
      * @return -
      * @StageModelOnly
-     */	
-	onStopDiscoverPrinter(): void;	
+     */
+    onStopDiscoverPrinter(): void;
 
     /**
      * Called once to connect to the specific printer.
@@ -64,9 +68,9 @@ declare class PrintExtensionAbility {
      * @sysCap SystemCapability.Print.print
      * @return -
      * @StageModelOnly
-     */	
-	onConnectPrinter(printerId: number): void;
-	
+     */
+    onConnectPrinter(printerId: number): void;
+
     /**
      * Called once to disconnect the specific printer.
      *
@@ -87,8 +91,8 @@ declare class PrintExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-    onStartPrintJob(jobInfo: PrintJob): void;
-	
+    onStartPrintJob(jobInfo: print.PrintJob): void;
+
     /**
      * Called once to remove the print job has been started.
      *
@@ -97,8 +101,8 @@ declare class PrintExtensionAbility {
      * @sysCap SystemCapability.Print.print
      * @return -
      * @StageModelOnly
-     */	
-	onCancelPrintJob(jobInfo: PrintJob): void;
+     */
+    onCancelPrintJob(jobInfo: print.PrintJob): void;
 
     /**
      * Called once to request the capability of the printer.
@@ -109,8 +113,8 @@ declare class PrintExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-	onRequestPrinterCapability(printerId: number): PrinterCapability;
-	
+    onRequestPrinterCapability(printerId: number): print.PrinterCapability;
+
     /**
      * Called once to request preview and send result to Print SA.
      *
@@ -119,9 +123,9 @@ declare class PrintExtensionAbility {
      * @sysCap SystemCapability.Print.print
      * @return -
      * @StageModelOnly
-     */	
-	onRequestPreview(jobInfo: PrintJob): Uri;
-	
+     */
+    onRequestPreview(jobInfo: print.PrintJob): string;
+
     /**
      * Called once to finalize the extension.
      *
@@ -130,8 +134,6 @@ declare class PrintExtensionAbility {
      * @sysCap SystemCapability.Print.print
      * @return -
      * @StageModelOnly
-     */	
+     */
     onDestroy(): void;
 }
-
-export default PrintExtensionAbility;
