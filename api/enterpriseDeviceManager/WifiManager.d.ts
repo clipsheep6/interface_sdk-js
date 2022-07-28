@@ -15,51 +15,52 @@
 
 import { AsyncCallback } from "./../basic";
 import Want from "./../@ohos.application.Want";
+import wifi from "../@ohos.wifi";
 
 /**
- * @name Offers set settings policies on the devices.
+ * @name Offers set wifi policies on the devices.
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  */
-export interface DeviceSettingsManager {
+export interface WifiManager {
 
   /**
-   * Sets the system time.
+   * Disables the wifi of the device.
    * This function can be called by a super administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @permission ohos.permission.EDM_MANAGE_DATETIME
+   * @param isDisabled True if disable the wifi of the device, otherwise false.
+   * @return {@code true} if disables success.
+   * @permission ohos.permission.EDM_MANAGE_WIFI
    */
-  setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
-  setDateTime(admin: Want, time: number): Promise<void>;
+  setWifiDisabled(admin: Want, isDisabled: boolean, callback: AsyncCallback<boolean>): void;
+  setWifiDisabled(admin: Want, isDisabled: boolean): Promise<boolean>;
 
   /**
-   * Sets the screen off time.
+   * Gets state of whether the wifi is disabled.
    * This function can be called by a super administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @permission ohos.permission.EDM_SET_RESTRICTION
+   * @return {@code true} if disabled.
+   * @permission ohos.permission.EDM_MANAGE_WIFI
    */
-  setScreenOffTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
-  setScreenOffTime(admin: Want, time: number): Promise<void>;
+  isWifiDisabled(admin: Want, callback: AsyncCallback<boolean>): void;
+  isWifiDisabled(admin: Want): Promise<boolean>;
 
   /**
-   * Gets the screen off time.
-   * This function can be called by a super administrator.
+   * Sets the wifi profile.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @return Returns the screen off time. 
-   * @permission ohos.permission.EDM_SET_RESTRICTION
+   * @param config Indicates the configuration of wifi.
+   * @return {@code true} if set success.
+   * @permission ohos.permission.EDM_MANAGE_WIFI
    */
-  getScreenOffTime(admin: Want, callback: AsyncCallback<number>): void;
-  getScreenOffTime(admin: Want): Promise<number>;
+  setWifiProfile(admin: Want, config: wifi.WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+  setWifiProfile(admin: Want, config: wifi.WifiDeviceConfig): Promise<boolean>;
 }
