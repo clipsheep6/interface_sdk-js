@@ -81,7 +81,7 @@ declare namespace vibrator {
      * @since 9
      */
     type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
-                 "touch" | "media" | "physical_feedback" | "simulate_reality";
+                 "touch" | "media" | "physicalFeedback" | "simulateReality";
 
     /**
      * The attribute of vibration.
