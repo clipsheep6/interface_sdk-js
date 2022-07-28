@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (C) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -51,6 +51,54 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     RGBA_8888 = 3,
+
+    /**
+     * Indicates that each pixel is stored on 32 bits. Components B, G, R, and A each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    BGRA_8888 = 4,
+
+    /**
+     * Indicates that each pixel is stored on 24 bits. Only the R, G, and B each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    RGB_888 = 5,
+
+    /**
+     * Indicates that each pixel is stored on 8 bits. Only the ALPHA which occupies 8 bits
+     * and is stored from the higher-order to the lower-order bits.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    ALPHA_8 = 6,
+
+    /**
+     * Indicates that each pixel is stored on 32 bits. Components B, G, R, and A each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits in F16.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    RGBA_F16 = 7,
+
+    /**
+     * Indicates that The storage order is to store Y first and then V U alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    NV21 = 8,
+
+    /**
+     * Indicates that The storage order is to store Y first and then U V alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    NV12 = 9, 
   }
 
   /**
@@ -134,7 +182,42 @@ declare namespace image {
      * @since 7
      * @syscap SystemCapability.Multimedia.Image.Core
      */
-    GPS_LONGITUDE_REF = "GPSLongitudeRef"
+    GPS_LONGITUDE_REF = "GPSLongitudeRef",
+
+    /**
+     * Shooting time
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    DATE_TIME_ORIGINAL = "DateTimeOriginal",
+
+    /**
+     * Exposure time
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    EXPOSURE_TIME = "ExposureTime",
+
+    /**
+     * Scene type
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    SCENE_TYPE = "SceneType",
+
+    /**
+     * ISO speedratings
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    ISO_SPEED_RATINGS = "ISOSpeedRatings",
+
+    /**
+     * Aperture value
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    F_NUMBER = "FNumber",
   }
 
   /**
@@ -324,6 +407,13 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     size: Size;
+
+    /**
+     * Indicates image defalt density.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    density: number;
   }
 
   /**
@@ -346,6 +436,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      */
     quality: number;
+
+    /**
+     * BufferSize of the target image. The value is an integer which better not be too big.
+     * if this bufferSize is less than or equal to 0, it will be converted to 10MB.
+     * image quality but larger space occupied.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     */
+    bufferSize?: number;
   }
 
   /**
@@ -424,6 +523,13 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      */
     desiredPixelFormat?: PixelMapFormat;
+
+    /**
+     * The density for image pixel map.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     */
+    fitDensity?: number;
   }
 
   /**
@@ -643,9 +749,22 @@ declare namespace image {
   function createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver;
 
   /**
+   * Creates an ImageCreator instance.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.ImageCreator
+   * @param width The default width in pixels of the Images that this creator will produce.
+   * @param height The default height in pixels of the Images that this creator will produce.
+   * @param format The format of the Image that this creator will produce. This must be one of the
+   *            {@link ImageFormat} constants. Note that not all formats are supported, like ImageFormat.NV21.
+   * @param capacity The maximum number of images the user will want to access simultaneously.
+   * @return Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   */
+  function createImageCreator(width: number, height: number, format: number, capacity: number): ImageCreator;
+
+  /**
    * PixelMap instance.
    * @since 7
-   * @syscap SystemCapability.Multimedia.Image.Core
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
    */
   interface PixelMap {
     /**
