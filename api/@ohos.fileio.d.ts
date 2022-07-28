@@ -66,6 +66,8 @@ declare namespace fileIO {
     export { opendirSync };
     export { read };
     export { readSync };
+    export { readdir };
+    export { readdirSync };
     export { readText };
     export { readTextSync };
     export { rename };
@@ -670,6 +672,29 @@ declare function opendir(path: string, callback: AsyncCallback<Dir>): void;
  * @throws {TypedError | Error} opendir fail
  */
 declare function opendirSync(path: string): Dir;
+/**
+ * readdir.
+ *
+ * @note N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 6
+ * @permission N/A
+ * @function readdir
+ * @param {string} path - directory name.
+ * @param {AsyncCallback<Array<string>>} [callback] - callback.
+ * @returns {void | Promise<Array<string>>} no callback return Promise otherwise return void
+ * @throws {TypedError} Parameter check failed
+ */
+ declare function readdir(path: string): Promise<Array<string>>;
+ declare function readdir(path: string, callback: AsyncCallback<Array<string>>): void;
+ /**
+  * readdirSync.
+  *
+  * @param {string} path - directory name.
+  * @returns {Array<string>} readdir Array<string> Object
+  * @throws {TypedError | Error} readdir fail
+  */
+ declare function readdirSync(path: string): Array<string>;
 /**
  * readText.
  *
