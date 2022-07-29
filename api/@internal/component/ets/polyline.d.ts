@@ -12,35 +12,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides an interface for drawing polylines.
  * @since 7
  */
 interface PolylineInterface {
-  /**
-   * Uses new to create Polyline.
-   * @since 7
-   */
-  new (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
-
-  /**
-   * Called when using the draw fold.
-   * @since 7
-   */
-  (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
+    /**
+     * Uses new to create Polyline.
+     * @since 7
+     */
+    new (value?: {
+        width?: string | number;
+        height?: string | number;
+    }): PolylineAttribute;
+    /**
+     * Called when using the draw fold.
+     * @since 7
+     */
+    (value?: {
+        width?: string | number;
+        height?: string | number;
+    }): PolylineAttribute;
 }
-
 /**
  * @since 7
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
-  /**
-   * Called when the polyline is set to pass through the coordinate point list.
-   * @since 7
-   */
-  points(value: Array<any>): PolylineAttribute;
+    /**
+     * Called when the polyline is set to pass through the coordinate point list.
+     * @since 7
+     */
+    points(value: Array<any>): PolylineAttribute;
 }
-
 declare const Polyline: PolylineInterface;
 declare const PolylineInstance: PolylineAttribute;

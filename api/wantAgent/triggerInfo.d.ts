@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import Want from '../@ohos.application.want';
-
 /**
  * Provides the information required for triggering a WantAgent.
  *
@@ -24,30 +22,29 @@ import Want from '../@ohos.application.want';
  * @permission N/A
  */
 export interface TriggerInfo {
-  /**
-   * Result code.
-   */
-  code: number;
-
-  /**
-   * Extra Want.
-   * If flags in WantAgentInfo contain CONSTANT_FLAG, this parameter is invalid.
-   * If flags contain REPLACE_ELEMENT, REPLACE_ACTION, REPLACE_URI, REPLACE_ENTITIES, and REPLACE_BUNDLE,
-   * the element, action, uri, entities, and bundleName attributes of the Want specified in this parameter
-   * will be used to replace the corresponding attributes in the original Want, respectively.
-   * If this parameter is null, the original Want remains unchanged.
-   */
-  want?: Want;
-
-  /**
-   * Permission required for a WantAgent recipient.
-   * This parameter is valid only when the WantAgent is triggered to send common events.
-   * If permission is null, no permission is required on the recipient.
-   */
-  permission?: string;
-
-  /**
-   * Custom extra data you want to add for triggering a WantAgent.
-   */
-  extraInfo?: {[key: string]: any};
+    /**
+     * Result code.
+     */
+    code: number;
+    /**
+     * Extra Want.
+     * If flags in WantAgentInfo contain CONSTANT_FLAG, this parameter is invalid.
+     * If flags contain REPLACE_ELEMENT, REPLACE_ACTION, REPLACE_URI, REPLACE_ENTITIES, and REPLACE_BUNDLE,
+     * the element, action, uri, entities, and bundleName attributes of the Want specified in this parameter
+     * will be used to replace the corresponding attributes in the original Want, respectively.
+     * If this parameter is null, the original Want remains unchanged.
+     */
+    want?: Want;
+    /**
+     * Permission required for a WantAgent recipient.
+     * This parameter is valid only when the WantAgent is triggered to send common events.
+     * If permission is null, no permission is required on the recipient.
+     */
+    permission?: string;
+    /**
+     * Custom extra data you want to add for triggering a WantAgent.
+     */
+    extraInfo?: {
+        [key: string]: any;
+    };
 }

@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/

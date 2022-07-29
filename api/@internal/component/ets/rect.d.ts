@@ -12,73 +12,59 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides an interface for drawing rectangles.
  * @since 7
  */
 interface RectInterface {
-  /**
-   * Use new function to create Rect.
-   * @since 7
-   */
-  new (
-    value?:
-      {
+    /**
+     * Use new function to create Rect.
+     * @since 7
+     */
+    new (value?: {
         width?: number | string;
         height?: number | string;
         radius?: number | string | Array<any>;
-      }
-      | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
-  ): RectAttribute;
-
-  /**
-   * Called when a rectangle is created.
-   * @since 7
-   */
-  (
-    value?:
-      {
+    } | {
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+    }): RectAttribute;
+    /**
+     * Called when a rectangle is created.
+     * @since 7
+     */
+    (value?: {
         width?: number | string;
         height?: number | string;
         radius?: number | string | Array<any>;
-      }
-      | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
-  ): RectAttribute;
+    } | {
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+    }): RectAttribute;
 }
-
 /**
  * @since 7
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
-  /**
-   * Called when the fillet width is set.
-   * @since 7
-   */
-  radiusWidth(value: number | string): RectAttribute;
-
-  /**
-   * Called when the fillet height is set.
-   * @since 7
-   */
-  radiusHeight(value: number | string): RectAttribute;
-
-  /**
-   * Called when the fillet size is set.
-   * @since 7
-   */
-  radius(value: number | string | Array<any>): RectAttribute;
+    /**
+     * Called when the fillet width is set.
+     * @since 7
+     */
+    radiusWidth(value: number | string): RectAttribute;
+    /**
+     * Called when the fillet height is set.
+     * @since 7
+     */
+    radiusHeight(value: number | string): RectAttribute;
+    /**
+     * Called when the fillet size is set.
+     * @since 7
+     */
+    radius(value: number | string | Array<any>): RectAttribute;
 }
-
 declare const Rect: RectInterface;
 declare const RectInStance: RectAttribute;

@@ -12,12 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.application.AbilityLifecycleCallback";
 import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
-
 /**
  * The context of an application. It allows access to application-specific resources.
  *
@@ -37,7 +35,6 @@ export default class ApplicationContext extends Context {
      * @StageModelOnly
      */
     registerAbilityLifecycleCallback(callback: AbilityLifecycleCallback): number;
-
     /**
      * Unregister ability lifecycle callback.
      *
@@ -47,9 +44,8 @@ export default class ApplicationContext extends Context {
      * @return -
      * @StageModelOnly
      */
-    unregisterAbilityLifecycleCallback(callbackId: number,  callback: AsyncCallback<void>): void;
+    unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
     unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
-
     /**
      * Register environment callback.
      *
@@ -60,7 +56,6 @@ export default class ApplicationContext extends Context {
      * @StageModelOnly
      */
     registerEnvironmentCallback(callback: EnvironmentCallback): number;
-
     /**
      * Unregister environment callback.
      *
@@ -70,6 +65,6 @@ export default class ApplicationContext extends Context {
      * @return -
      * @StageModelOnly
      */
-    unregisterEnvironmentCallback(callbackId: number,  callback: AsyncCallback<void>): void;
+    unregisterEnvironmentCallback(callbackId: number, callback: AsyncCallback<void>): void;
     unregisterEnvironmentCallback(callbackId: number): Promise<void>;
 }

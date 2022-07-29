@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * interface of formBindingData.
  *
@@ -30,14 +29,13 @@ declare namespace formBindingData {
      * @return Returns the {@link FormBindingData} instance.
      */
     function createFormBindingData(obj?: Object | string): FormBindingData;
-
     /**
      * Defines the createFormBindingData result interface.
      * @syscap SystemCapability.Ability.Form
      * @since 8
      */
     interface FormBindingData {
-        data: Object
+        data: Object;
     }
 }
 export default formBindingData;

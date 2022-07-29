@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic'
-
+import { AsyncCallback } from './basic';
 export default document;
-
 /**
  * document
  * @syscap SystemCapability.FileManagement.UserFileService
@@ -27,7 +25,6 @@ declare namespace document {
     export { choose };
     export { show };
 }
-
 /**
  * choose.
  *
@@ -44,7 +41,6 @@ declare namespace document {
 declare function choose(types?: string[]): Promise<string>;
 declare function choose(callback: AsyncCallback<string>): void;
 declare function choose(types: string[], callback: AsyncCallback<string>): void;
-
 /**
  * show.
  *

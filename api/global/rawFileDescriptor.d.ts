@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Contains rawFile descriptor information.
  * @name Contains rawFile descriptor information
@@ -20,25 +19,23 @@
  * @syscap SystemCapability.Global.ResourceManager
  *
  */
- export interface RawFileDescriptor {
-  /**
-   * rawfile descriptor
-   *
-   * @since 8
-   */
-  fd: number;
-
-  /**
-   * the offset from where the raw file starts in the HAP
-   *
-   * @since 8
-   */
-  offset: number;
-
-  /**
-   * the length of the raw file in the HAP
-   *
-   * @since 8
-   */
-  length: number;
+export interface RawFileDescriptor {
+    /**
+     * rawfile descriptor
+     *
+     * @since 8
+     */
+    fd: number;
+    /**
+     * the offset from where the raw file starts in the HAP
+     *
+     * @since 8
+     */
+    offset: number;
+    /**
+     * the length of the raw file in the HAP
+     *
+     * @since 8
+     */
+    length: number;
 }

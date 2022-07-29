@@ -12,169 +12,147 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines the option of Progress.
  * @since 7
  */
- declare interface ProgressOptions {
-  /**
-   * Sets the value of Progress.
-   * @since 7
-   */
-  value: number;
-
-  /**
-   * Sets the total of Progress.
-   * @since 7
-   */
-  total?: number;
-
-  /**
-   * Sets the style of Progress.
-   * @since 7
-   * @deprecated since 8
-   */
-  style?: ProgressStyle
-
-  /**
-   * Sets the type of Progress.
-   * @since 8
-   */
-  type?: ProgressType
+declare interface ProgressOptions {
+    /**
+     * Sets the value of Progress.
+     * @since 7
+     */
+    value: number;
+    /**
+     * Sets the total of Progress.
+     * @since 7
+     */
+    total?: number;
+    /**
+     * Sets the style of Progress.
+     * @since 7
+     * @deprecated since 8
+     */
+    style?: ProgressStyle;
+    /**
+     * Sets the type of Progress.
+     * @since 8
+     */
+    type?: ProgressType;
 }
-
 /**
  * Type of progress bar
  * @since 8
  */
 declare enum ProgressType {
-  /**
-   * Linear progress bar style.
-   * @since 8
-   */
-  Linear,
-
-  /**
-   * Ring progress bar.
-   * @since 8
-   */
-  Ring,
-
-  /**
-   * Eclipse progress bar.
-   * @since 8
-   */
-  Eclipse,
-
-  /**
-   * ScaleRing progress bar.
-   * @since 8
-   */
-  ScaleRing,
-
-  /**
-   * Capsule progress bar.
-   * @since 8
-   */
-  Capsule,
+    /**
+     * Linear progress bar style.
+     * @since 8
+     */
+    Linear,
+    /**
+     * Ring progress bar.
+     * @since 8
+     */
+    Ring,
+    /**
+     * Eclipse progress bar.
+     * @since 8
+     */
+    Eclipse,
+    /**
+     * ScaleRing progress bar.
+     * @since 8
+     */
+    ScaleRing,
+    /**
+     * Capsule progress bar.
+     * @since 8
+     */
+    Capsule
 }
-
 /**
  * Defines style options for progress component.
  * @since 8
  */
 declare interface ProgressStyleOptions {
-  /**
-   * Defines the strokeWidth property.
-   * @since 8
-   */
-  strokeWidth?: Length;
-
-  /**
-   * Defines the scaleCoun property.
-   * @since 8
-   */
-  scaleCount?: number;
-
-  /**
-   * Defines the scaleWidth property.
-   * @since 8
-   */
-  scaleWidth?: Length;
+    /**
+     * Defines the strokeWidth property.
+     * @since 8
+     */
+    strokeWidth?: Length;
+    /**
+     * Defines the scaleCoun property.
+     * @since 8
+     */
+    scaleCount?: number;
+    /**
+     * Defines the scaleWidth property.
+     * @since 8
+     */
+    scaleWidth?: Length;
 }
-
 /**
  * Type of progress bar
  * @since 7
  */
 declare enum ProgressStyle {
-  /**
-   * Linear progress bar style.
-   * @since 7
-   */
-  Linear,
-
-  /**
-   * Ring progress bar.
-   * @since 8
-   */
-  Ring,
-
-  /**
-   * Eclipse progress bar.
-   * @since 7
-   */
-  Eclipse,
-
-  /**
-   * ScaleRing progress bar.
-   * @since 8
-   */
-  ScaleRing,
-
-  /**
-   * Capsule progress bar.
-   * @since 8
-   */
-  Capsule,
+    /**
+     * Linear progress bar style.
+     * @since 7
+     */
+    Linear,
+    /**
+     * Ring progress bar.
+     * @since 8
+     */
+    Ring,
+    /**
+     * Eclipse progress bar.
+     * @since 7
+     */
+    Eclipse,
+    /**
+     * ScaleRing progress bar.
+     * @since 8
+     */
+    ScaleRing,
+    /**
+     * Capsule progress bar.
+     * @since 8
+     */
+    Capsule
 }
-
 /**
  * Provides the progress bar interface.
  * @since 7
  */
 interface ProgressInterface {
-  /**
-   * Called when the progress bar is set.
-   * @since 7
-   */
-  (options: ProgressOptions): ProgressAttribute;
+    /**
+     * Called when the progress bar is set.
+     * @since 7
+     */
+    (options: ProgressOptions): ProgressAttribute;
 }
-
 /**
  * Defines the progress attibute functions.
  * @since 7
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
-  /**
-   * Called when the current progress value is set.
-   * @since 7
-   */
-  value(value: number): ProgressAttribute;
-
-  /**
-   * Called when the progress bar foreground is set.
-   * @since 7
-   */
-  color(value: ResourceColor): ProgressAttribute;
-
-  /**
-   * Called when the style of progress bar is set.
-   * @since 8
-   */
-  style(value: ProgressStyleOptions): ProgressAttribute;
+    /**
+     * Called when the current progress value is set.
+     * @since 7
+     */
+    value(value: number): ProgressAttribute;
+    /**
+     * Called when the progress bar foreground is set.
+     * @since 7
+     */
+    color(value: ResourceColor): ProgressAttribute;
+    /**
+     * Called when the style of progress bar is set.
+     * @since 8
+     */
+    style(value: ProgressStyleOptions): ProgressAttribute;
 }
-
 declare const Progress: ProgressInterface;
 declare const ProgressInstance: ProgressAttribute;

@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import workScheduler from "./@ohos.workScheduler";
-
 /**
  * Class of the work scheduler extension ability.
  *
@@ -32,7 +30,6 @@ export default class WorkSchedulerExtensionAbility {
      * @param work The info of work.
      */
     onWorkStart(work: workScheduler.WorkInfo): void;
-
     /**
      * Called back when a work is stopped.
      *

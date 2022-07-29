@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import continuationManager from "../@ohos.continuation.continuationManager";
-
 /**
  * Indicates the description of additional parameters for continuation.
  *
@@ -29,7 +27,6 @@ export interface ContinuationExtraParams {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     deviceType?: Array<string>;
-
     /**
      * Indicates the bundle name of the target application where the ability will be hopped.
      *
@@ -37,7 +34,6 @@ export interface ContinuationExtraParams {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     targetBundle?: string;
-
     /**
      * Indicates the description used for device filtering.
      *
@@ -45,7 +41,6 @@ export interface ContinuationExtraParams {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     description?: string;
-
     /**
      * Parameters used for filtering devices, type must be { [key: string]: any }.
      *
@@ -53,7 +48,6 @@ export interface ContinuationExtraParams {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     filter?: any;
-
     /**
      * Mode of continuation.
      *
@@ -61,12 +55,13 @@ export interface ContinuationExtraParams {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     continuationMode?: continuationManager.ContinuationMode;
-
     /**
      * Authentication extra infos.
      *
      * @since 8
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
-    authInfo?: { [key: string]: any }
+    authInfo?: {
+        [key: string]: any;
+    };
 }

@@ -12,8 +12,8 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import { InputEvent } from "./@ohos.multimodalInput.inputEvent"
-import { KeyCode } from "./@ohos.multimodalInput.keyCode"
+import { InputEvent } from "./@ohos.multimodalInput.inputEvent";
+import { KeyCode } from "./@ohos.multimodalInput.keyCode";
 /**
 * Action
 *
@@ -22,22 +22,19 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 * @import import {Action} from '@ohos.multimodalInput.keyEvent';
 */
 export declare enum Action {
-  /**
-   * Cancel key
-   */
-  CANCEL = 0,
-
-  /**
-   * Down key
-   */
-  DOWN = 1,
-
-  /**
-   * Up key
-   */
-  UP = 2,
+    /**
+     * Cancel key
+     */
+    CANCEL = 0,
+    /**
+     * Down key
+     */
+    DOWN = 1,
+    /**
+     * Up key
+     */
+    UP = 2
 }
-
 /**
 * Key
 *
@@ -46,22 +43,19 @@ export declare enum Action {
 * @import import {Key} from '@ohos.multimodalInput.keyEvent';
 */
 export declare interface Key {
-  /**
-   * Key code
-   */
-  code: KeyCode;
-
-  /**
-   * Time when the key is pressed
-   */
-  pressedTime: number;
-
-  /**
-   * Device to which the key belongs
-   */
-  deviceId: number;
+    /**
+     * Key code
+     */
+    code: KeyCode;
+    /**
+     * Time when the key is pressed
+     */
+    pressedTime: number;
+    /**
+     * Device to which the key belongs
+     */
+    deviceId: number;
 }
-
 /**
 * KeyEvent
 *
@@ -70,63 +64,52 @@ export declare interface Key {
 * @import import {KeyEvent} from '@ohos.multimodalInput.keyEvent';
 */
 export declare interface KeyEvent extends InputEvent {
-  /**
-   * Key action
-   */
-  action: Action;
-
-  /**
-   * Key that has changed
-   */
-  key: Key;
-
-  /**
-   * Unicode character corresponding to the key
-   */
-  unicodeChar: number;
-
-  /**
-   * List of pressed keys
-   */
-  keys: Key[];
-
-  /**
-   * Whether ctrlKey is being pressed
-   */
-  ctrlKey: boolean;
-
-  /**
-   * Whether altKey is being pressed
-   */
-  altKey: boolean;
-
-  /**
-   * Whether shiftKey is being pressed
-   */
-  shiftKey: boolean;
-
-  /**
-   * Whether logoKey is being pressed
-   */
-  logoKey: boolean;
-
-  /**
-   * Whether fnKey is being pressed
-   */
-  fnKey: boolean;
-
-  /**
-   * Whether capsLock is active
-   */
-  capsLock: boolean;
-
-  /**
-   * Whether numLock is active
-   */
-  numLock: boolean;
-
-  /**
-   * Whether scrollLock is active
-   */
-  scrollLock: boolean;
+    /**
+     * Key action
+     */
+    action: Action;
+    /**
+     * Key that has changed
+     */
+    key: Key;
+    /**
+     * Unicode character corresponding to the key
+     */
+    unicodeChar: number;
+    /**
+     * List of pressed keys
+     */
+    keys: Key[];
+    /**
+     * Whether ctrlKey is being pressed
+     */
+    ctrlKey: boolean;
+    /**
+     * Whether altKey is being pressed
+     */
+    altKey: boolean;
+    /**
+     * Whether shiftKey is being pressed
+     */
+    shiftKey: boolean;
+    /**
+     * Whether logoKey is being pressed
+     */
+    logoKey: boolean;
+    /**
+     * Whether fnKey is being pressed
+     */
+    fnKey: boolean;
+    /**
+     * Whether capsLock is active
+     */
+    capsLock: boolean;
+    /**
+     * Whether numLock is active
+     */
+    numLock: boolean;
+    /**
+     * Whether scrollLock is active
+     */
+    scrollLock: boolean;
 }

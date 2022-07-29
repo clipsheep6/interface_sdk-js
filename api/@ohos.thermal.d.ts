@@ -12,11 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AsyncCallback, Callback } from './basic';
-
+import { AsyncCallback } from './basic';
 /**
- * Provides thermal level-related callback and query APIs to obtain the information required for 
+ * Provides thermal level-related callback and query APIs to obtain the information required for
  * temperature control. The APIs are as follows:
  * {@link subscribeThermalLevel}: subscribes to callbacks of thermal level changes.
  * {@link getThermalLevel}: obtains the thermal level of the system in real time.
@@ -44,25 +42,25 @@ declare namespace thermal {
          */
         WARM = 2,
         /**
-         * The device is heating up. You need to stop all imperceptible services and downgrade 
+         * The device is heating up. You need to stop all imperceptible services and downgrade
          * or reduce the load of other services.
          */
         HOT = 3,
         /**
-         * The device is overheated. You need to stop all imperceptible services and downgrade 
+         * The device is overheated. You need to stop all imperceptible services and downgrade
          * or reduce the load of major services.
          */
         OVERHEATED = 4,
         /**
-         * The device is overheated and is about to enter the emergency state. You need to stop 
+         * The device is overheated and is about to enter the emergency state. You need to stop
          * all imperceptible services and downgrade major services to the maximum extent.
          */
         WARNING = 5,
         /**
-         * The device has entered the emergency state. You need to stop all services except those 
+         * The device has entered the emergency state. You need to stop all services except those
          * for the emergency help purposes.
          */
-        EMERGENCY = 6,
+        EMERGENCY = 6
     }
     /**
      * Subscribes to callbacks of thermal level changes.
@@ -72,7 +70,6 @@ declare namespace thermal {
      * @since 8
      */
     function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
-
     /**
      * Unsubscribes from the callbacks of thermal level changes.
      *
@@ -81,7 +78,6 @@ declare namespace thermal {
      * @since 8
      */
     function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
-
     /**
      * Obtains the current thermal level.
      *

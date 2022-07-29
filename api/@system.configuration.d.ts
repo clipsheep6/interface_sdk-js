@@ -12,45 +12,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export interface LocaleResponse {
-  /**
-   * Current language of the application. Example: zh.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
-   */
-  language: string;
-
-  /**
-   * Country or region. Example: CN.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
-   */
-  countryOrRegion: string;
-
-  /**
-   * Text layout direction. Available values are as follows:
-   * ltr: The text direction is from left to right.
-   * rtl: The text direction is from right to left.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
-   */
-  dir: "ltr" | "rtl";
+    /**
+     * Current language of the application. Example: zh.
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 3
+     */
+    language: string;
+    /**
+     * Country or region. Example: CN.
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 3
+     */
+    countryOrRegion: string;
+    /**
+     * Text layout direction. Available values are as follows:
+     * ltr: The text direction is from left to right.
+     * rtl: The text direction is from right to left.
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 3
+     */
+    dir: "ltr" | "rtl";
 }
-
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3
  */
 export default class Configuration {
-  /**
-   * Obtains the current locale of the application, which is the same as the system locale.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
-   */
-  static getLocale(): LocaleResponse;
+    /**
+     * Obtains the current locale of the application, which is the same as the system locale.
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @since 3
+     */
+    static getLocale(): LocaleResponse;
 }

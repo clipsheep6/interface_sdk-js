@@ -12,65 +12,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
  */
 interface GridItemInterface {
-  /**
-   * Return to get GridItem.
-   * @since 7
-   */
-  (): GridItemAttribute;
+    /**
+     * Return to get GridItem.
+     * @since 7
+     */
+    (): GridItemAttribute;
 }
-
 /**
  * @since 7
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
-  /**
-   * This parameter specifies the start line number of the current element.
-   * @since 7
-   */
-  rowStart(value: number): GridItemAttribute;
-
-  /**
-   * Specifies the end line number of the current element.
-   * @since 7
-   */
-  rowEnd(value: number): GridItemAttribute;
-
-  /**
-   * This parameter specifies the start column number of the current element.
-   * @since 7
-   */
-  columnStart(value: number): GridItemAttribute;
-
-  /**
-   * This parameter specifies the end column number of the current element.
-   * @since 7
-   */
-  columnEnd(value: number): GridItemAttribute;
-
-  /**
-   * This parameter specifies whether to recreate the node when the component build is triggered.
-   * @since 7
-   */
-  forceRebuild(value: boolean): GridItemAttribute;
-
-  /**
-   * Called when judging whether it is selectable.
-   * @since 8
-   */
-  selectable(value: boolean): GridItemAttribute;
-
-  /**
-   * Called when the gridItem is selected.
-   * @since 8
-   */
-  onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
+    /**
+     * This parameter specifies the start line number of the current element.
+     * @since 7
+     */
+    rowStart(value: number): GridItemAttribute;
+    /**
+     * Specifies the end line number of the current element.
+     * @since 7
+     */
+    rowEnd(value: number): GridItemAttribute;
+    /**
+     * This parameter specifies the start column number of the current element.
+     * @since 7
+     */
+    columnStart(value: number): GridItemAttribute;
+    /**
+     * This parameter specifies the end column number of the current element.
+     * @since 7
+     */
+    columnEnd(value: number): GridItemAttribute;
+    /**
+     * This parameter specifies whether to recreate the node when the component build is triggered.
+     * @since 7
+     */
+    forceRebuild(value: boolean): GridItemAttribute;
+    /**
+     * Called when judging whether it is selectable.
+     * @since 8
+     */
+    selectable(value: boolean): GridItemAttribute;
+    /**
+     * Called when the gridItem is selected.
+     * @since 8
+     */
+    onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
 }
-
-declare const GridItem: GridItemInterface
+declare const GridItem: GridItemInterface;
 declare const GridItemInstance: GridItemAttribute;

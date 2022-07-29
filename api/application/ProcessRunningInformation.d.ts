@@ -12,39 +12,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The class of an process running information.
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
- export interface ProcessRunningInformation {
+export interface ProcessRunningInformation {
     /**
      * @default process id
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-     pid: number;
-
-     /**
-      * @default user id
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      */
-     uid: number;
-
-     /**
-      * @default the name of the process
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      */
-     processName: string;
-
-     /**
-      * @default an array of the bundleNames running in the process
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      */
-     bundleNames: Array<string>;
+    pid: number;
+    /**
+     * @default user id
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    uid: number;
+    /**
+     * @default the name of the process
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    processName: string;
+    /**
+     * @default an array of the bundleNames running in the process
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    bundleNames: Array<string>;
 }

@@ -12,9 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 import { AsyncCallback, Callback } from './basic';
-
 /**
  * Provides interfaces to obtain and modify storage data.
  *
@@ -37,11 +35,9 @@ declare namespace storage {
      * @since 6
      * @deprecated since 9, please use @ohos.data.preferences instead.
      */
-
     function getStorageSync(path: string): Storage;
     function getStorage(path: string, callback: AsyncCallback<Storage>): void;
     function getStorage(path: string): Promise<Storage>;
-
     /**
      * Deletes a {@link Storage} instance matching a specified storage file name
      * from the cache which is performed by removeStorageFromCache and deletes the
@@ -59,7 +55,6 @@ declare namespace storage {
     function deleteStorageSync(path: string): void;
     function deleteStorage(path: string, callback: AsyncCallback<void>): void;
     function deleteStorage(path: string): Promise<void>;
-
     /**
      * Deletes a {@link Storage} instance matching a specified storage file name
      * from the cache.
@@ -76,7 +71,6 @@ declare namespace storage {
     function removeStorageFromCacheSync(path: string): void;
     function removeStorageFromCache(path: string, callback: AsyncCallback<void>): void;
     function removeStorageFromCache(path: string): Promise<void>;
-
     /**
      * Provides interfaces to obtain and modify storage data.
      *
@@ -106,7 +100,6 @@ declare namespace storage {
         getSync(key: string, defValue: ValueType): ValueType;
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
         get(key: string, defValue: ValueType): Promise<ValueType>;
-
         /**
          * Checks whether the {@link Storage} object contains a storage matching a specified key.
          *
@@ -120,7 +113,6 @@ declare namespace storage {
         hasSync(key: string): boolean;
         has(key: string, callback: AsyncCallback<boolean>): boolean;
         has(key: string): Promise<boolean>;
-
         /**
          * Sets an int value for the key in the {@link Storage} object.
          *
@@ -137,7 +129,6 @@ declare namespace storage {
         putSync(key: string, value: ValueType): void;
         put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
         put(key: string, value: ValueType): Promise<void>;
-
         /**
          * Deletes the storage with a specified key from the {@link Storage} object.
          *
@@ -153,7 +144,6 @@ declare namespace storage {
         deleteSync(key: string): void;
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
-
         /**
          * Clears all storage from the {@link Storage} object.
          *
@@ -167,7 +157,6 @@ declare namespace storage {
         clearSync(): void;
         clear(callback: AsyncCallback<void>): void;
         clear(): Promise<void>;
-
         /**
          * Asynchronously saves the {@link Storage} object to the file.
          *
@@ -178,7 +167,6 @@ declare namespace storage {
         flushSync(): void;
         flush(callback: AsyncCallback<void>): void;
         flush(): Promise<void>;
-
         /**
          * Registers an observer to listen for the change of a {@link Storage} object.
          *
@@ -188,7 +176,6 @@ declare namespace storage {
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         on(type: 'change', callback: Callback<StorageObserver>): void;
-
         /**
          * Unregisters an existing observer.
          *
@@ -199,12 +186,10 @@ declare namespace storage {
          */
         off(type: 'change', callback: Callback<StorageObserver>): void;
     }
-
     /**
      * Indicates possible value types
      */
     type ValueType = number | string | boolean;
-
     /**
      * Define the change data information object.
      *
@@ -219,16 +204,13 @@ declare namespace storage {
          */
         key: string;
     }
-
     /**
      * Indicates the maximum length of a key (80 characters).
      */
     const MAX_KEY_LENGTH: 80;
-
     /**
      * Indicates the maximum length of a string (8192 characters).
      */
     const MAX_VALUE_LENGTH: 8192;
 }
-
 export default storage;

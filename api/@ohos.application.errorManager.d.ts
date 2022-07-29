@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback } from './basic';
 import ErrorObserver from './application/ErrorObserver';
-
 /**
  * This module provides the function of error manager.
  *
@@ -35,7 +33,6 @@ declare namespace errorManager {
      * @return Returns the number code of the observer.
      */
     function registerErrorObserver(observer: ErrorObserver): number;
-
     /**
      * Unregister error observer.
      *
@@ -44,8 +41,7 @@ declare namespace errorManager {
      * @param observerId Indicates the number code of the observer.
      * @return -
      */
-    function unregisterErrorObserver(observerId: number,  callback: AsyncCallback<void>): void;
+    function unregisterErrorObserver(observerId: number, callback: AsyncCallback<void>): void;
     function unregisterErrorObserver(observerId: number): Promise<void>;
 }
-
 export default errorManager;

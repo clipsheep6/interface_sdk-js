@@ -12,11 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import { Configuration } from '../@ohos.application.Configuration';
 import Context from "./Context";
-
 /**
  * The context of an abilityStage. It allows access to abilityStage-specific resources.
  *
@@ -26,7 +24,6 @@ import Context from "./Context";
  * @StageModelOnly
  */
 export default class AbilityStageContext extends Context {
-
     /**
      * Indicates configuration information about an module.
      *
@@ -35,7 +32,6 @@ export default class AbilityStageContext extends Context {
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
-
     /**
      * Indicates configuration information.
      *

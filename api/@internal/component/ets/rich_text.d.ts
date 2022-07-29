@@ -12,36 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides an interface for RichText component.
  * @since 8
  */
 interface RichTextInterface {
-  /**
-   * Set value.
-   * @since 8
-   */
-  (content: string): RichTextAttribute;
+    /**
+     * Set value.
+     * @since 8
+     */
+    (content: string): RichTextAttribute;
 }
-
 /**
  * Defines the RichText attribute functions.
  * @since 8
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
-  /**
-   * Triggered when the RichText loading starts.
-   * @since 8
-   */
-  onStart(callback: () => void): RichTextAttribute;
-
-  /**
-   * Triggered when the RichText loading ends.
-   * @since 8
-   */
-  onComplete(callback: () => void): RichTextAttribute;
+    /**
+     * Triggered when the RichText loading starts.
+     * @since 8
+     */
+    onStart(callback: () => void): RichTextAttribute;
+    /**
+     * Triggered when the RichText loading ends.
+     * @since 8
+     */
+    onComplete(callback: () => void): RichTextAttribute;
 }
-
 declare const RichText: RichTextInterface;
 declare const RichTextInstance: RichTextAttribute;

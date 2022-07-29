@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
  * @since 8
@@ -30,7 +29,6 @@ declare namespace xml {
          * The input parameter is an encoding format of string type.
          */
         constructor(buffer: ArrayBuffer | DataView, encoding?: string);
-
         /**
          * Write an attribute.
          * @since 8
@@ -39,7 +37,6 @@ declare namespace xml {
          * @param value Values of attribute.
          */
         setAttributes(name: string, value: string): void;
-
         /**
          * Add an empty element.
          * @since 8
@@ -48,14 +45,12 @@ declare namespace xml {
          * @param value Values of element.
          */
         addEmptyElement(name: string): void;
-
         /**
          * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         setDeclaration(): void;
-
         /**
          * Writes a elemnet start tag with the given name.
          * @since 8
@@ -63,14 +58,12 @@ declare namespace xml {
          * @param name name of the element.
          */
         startElement(name: string): void;
-
         /**
          * Writes end tag of the element.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         endElement(): void;
-
         /**
          * Writes the namespace of the current element tag.
          * @since 8
@@ -79,7 +72,6 @@ declare namespace xml {
          * @param namespace Values of namespace.
          */
         setNamespace(prefix: string, namespace: string): void;
-
         /**
          * Writes the comment.
          * @since 8
@@ -87,7 +79,6 @@ declare namespace xml {
          * @param text Values of comment.
          */
         setComment(text: string): void;
-
         /**
          * Writes the CDATA.
          * @since 8
@@ -95,7 +86,6 @@ declare namespace xml {
          * @param text Values of CDATA.
          */
         setCDATA(text: string): void;
-
         /**
          * Writes the text.
          * @since 8
@@ -103,7 +93,6 @@ declare namespace xml {
          * @param text Values of text.
          */
         setText(text: string): void;
-
         /**
          * Writes the DOCTYPE.
          * @since 8
@@ -112,7 +101,6 @@ declare namespace xml {
          */
         setDocType(text: string): void;
     }
-
     enum EventType {
         /**
           * Start a document.
@@ -181,7 +169,6 @@ declare namespace xml {
           */
         WHITESPACE
     }
-
     /** The current parse info.  */
     interface ParseInfo {
         /**
@@ -245,24 +232,20 @@ declare namespace xml {
           */
         getAttributeCount(): number;
     }
-
     /** parse options for XmlPullParser. */
     interface ParseOptions {
-
         /**
          * Whether to parsing Doctype of the elements.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         supportDoctype?: boolean;
-
         /**
          * Whether to ignore parsing texts of the elements.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreNameSpace?: boolean;
-
         /**
          * tag value callback function.
          * @since 8
@@ -272,7 +255,6 @@ declare namespace xml {
          * @return Returns a Boolean variable for whether parse continually.
          */
         tagValueCallbackFunction?: (name: string, value: string) => boolean;
-
         /**
          * attribute value callback function.
          * @since 8
@@ -282,7 +264,6 @@ declare namespace xml {
          * @return Returns a Boolean variable for whether parse continually.
          */
         attributeValueCallbackFunction?: (name: string, value: string) => boolean;
-
         /**
          * token value callback function.
          * @since 8
@@ -293,13 +274,11 @@ declare namespace xml {
          */
         tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
     }
-
     class XmlPullParser {
         /**
           * A constructor used to create a new XmlPullParser instance.
           */
         constructor(buffer: ArrayBuffer | DataView, encoding?: string);
-
         /**
          * Starts parsing the XML file.
          * @since 8

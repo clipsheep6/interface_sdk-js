@@ -12,166 +12,143 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 import { AsyncCallback, Callback } from './basic';
-
 /**
  * Interface of display manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @since 7
  */
 declare namespace display {
-  /**
-   * Obtain the default display.
-   * @since 7
-   */
-  function getDefaultDisplay(callback: AsyncCallback<Display>): void;
-
-  /**
-   * Obtain the default display.
-   * @since 7
-   */
-  function getDefaultDisplay(): Promise<Display>;
-
-  /**
-   * Obtain the default display.
-   * @since 9
-   */
-  function getDefaultDisplaySync(): Display;
-
-  /**
-   * Obtain all displays.
-   * @since 7
-   */
-  function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
-
-  /**
-   * Obtain all displays.
-   * @since 7
-   */
-  function getAllDisplay(): Promise<Array<Display>>;
-
-  /**
-   * Register the callback for display changes.
-   * @param type: type of callback
-   * @since 7
-   */
-  function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
-
-  /**
-   * Unregister the callback for display changes.
-   * @param type: type of callback
-   * @since 7
-   */
-  function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
-
-  /**
-   * Enumerates the display states.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
-   */
-  enum DisplayState {
     /**
-     * Unknown.
+     * Obtain the default display.
+     * @since 7
      */
-    STATE_UNKNOWN = 0,
+    function getDefaultDisplay(callback: AsyncCallback<Display>): void;
     /**
-     * Screen off.
+     * Obtain the default display.
+     * @since 7
      */
-    STATE_OFF,
+    function getDefaultDisplay(): Promise<Display>;
     /**
-     * Screen on.
+     * Obtain the default display.
+     * @since 9
      */
-    STATE_ON,
+    function getDefaultDisplaySync(): Display;
     /**
-     * Doze, but it will update for some important system messages.
+     * Obtain all displays.
+     * @since 7
      */
-    STATE_DOZE,
+    function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
     /**
-     * Doze and not update.
+     * Obtain all displays.
+     * @since 7
      */
-    STATE_DOZE_SUSPEND,
+    function getAllDisplay(): Promise<Array<Display>>;
     /**
-     * VR node.
+     * Register the callback for display changes.
+     * @param type: type of callback
+     * @since 7
      */
-    STATE_VR,
+    function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
     /**
-     * Screen on and not update.
+     * Unregister the callback for display changes.
+     * @param type: type of callback
+     * @since 7
      */
-    STATE_ON_SUSPEND,
-  }
-
-  /**
-   * Define properties of the display. They cannot be updated automatically.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
-   */
-  interface Display {
+    function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
     /**
-     * Display ID.
+     * Enumerates the display states.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
      */
-    id: number;
-
+    enum DisplayState {
+        /**
+         * Unknown.
+         */
+        STATE_UNKNOWN = 0,
+        /**
+         * Screen off.
+         */
+        STATE_OFF,
+        /**
+         * Screen on.
+         */
+        STATE_ON,
+        /**
+         * Doze, but it will update for some important system messages.
+         */
+        STATE_DOZE,
+        /**
+         * Doze and not update.
+         */
+        STATE_DOZE_SUSPEND,
+        /**
+         * VR node.
+         */
+        STATE_VR,
+        /**
+         * Screen on and not update.
+         */
+        STATE_ON_SUSPEND
+    }
     /**
-     * Display name.
+     * Define properties of the display. They cannot be updated automatically.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
      */
-    name: string;
-
-    /**
-     * The display is alive.
-     */
-    alive: boolean;
-
-    /**
-     * The state of display.
-     */
-    state: DisplayState;
-
-    /**
-     * Refresh rate, in Hz.
-     */
-    refreshRate: number;
-
-    /**
-     * Rotation degrees of the display.
-     */
-    rotation: number;
-
-    /**
-     * Display width, in pixels.
-     */
-    width: number;
-
-    /**
-     * Display height, in pixels.
-     */
-    height: number;
-
-    /**
-     * Display resolution.
-     */
-    densityDPI: number;
-
-    /**
-     * Display density, in pixels. The value for a low-resolution display is 1.0.
-     */
-    densityPixels: number;
-
-    /**
-     * Text scale density of the display.
-     */
-    scaledDensity: number;
-
-    /**
-     * DPI on the x-axis.
-     */
-    xDPI: number;
-
-    /**
-     * DPI on the y-axis.
-     */
-    yDPI: number;
-  }
+    interface Display {
+        /**
+         * Display ID.
+         */
+        id: number;
+        /**
+         * Display name.
+         */
+        name: string;
+        /**
+         * The display is alive.
+         */
+        alive: boolean;
+        /**
+         * The state of display.
+         */
+        state: DisplayState;
+        /**
+         * Refresh rate, in Hz.
+         */
+        refreshRate: number;
+        /**
+         * Rotation degrees of the display.
+         */
+        rotation: number;
+        /**
+         * Display width, in pixels.
+         */
+        width: number;
+        /**
+         * Display height, in pixels.
+         */
+        height: number;
+        /**
+         * Display resolution.
+         */
+        densityDPI: number;
+        /**
+         * Display density, in pixels. The value for a low-resolution display is 1.0.
+         */
+        densityPixels: number;
+        /**
+         * Text scale density of the display.
+         */
+        scaledDensity: number;
+        /**
+         * DPI on the x-axis.
+         */
+        xDPI: number;
+        /**
+         * DPI on the y-axis.
+         */
+        yDPI: number;
+    }
 }
-
 export default display;

@@ -12,66 +12,59 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Content scroll direction.
  * @since 8
  */
 declare enum ScrollBarDirection {
-  /**
-   * Vertical scrolling is supported.
-   * @since 8
-   */
-  Vertical,
-
-  /**
-   * Horizontal scrolling is supported.
-   * @since 8
-   */
-  Horizontal,
+    /**
+     * Vertical scrolling is supported.
+     * @since 8
+     */
+    Vertical,
+    /**
+     * Horizontal scrolling is supported.
+     * @since 8
+     */
+    Horizontal
 }
-
 /**
  * Defines the options of ScrollBar.
  * @since 8
  */
 declare interface ScrollBarOptions {
-  /**
-   * Sets the scroller of scroll bar.
-   * @since 8
-   */
-  scroller: Scroller;
-
-  /**
-   * Sets the direction of scroll bar.
-   * @since 8
-   */
-  direction?: ScrollBarDirection;
-
-  /**
-   * Sets the state of scroll bar.
-   * @since 8
-   */
-  state?: BarState;
+    /**
+     * Sets the scroller of scroll bar.
+     * @since 8
+     */
+    scroller: Scroller;
+    /**
+     * Sets the direction of scroll bar.
+     * @since 8
+     */
+    direction?: ScrollBarDirection;
+    /**
+     * Sets the state of scroll bar.
+     * @since 8
+     */
+    state?: BarState;
 }
-
 /**
  * Provides interfaces for scroll bar.
  * @since 8
  */
 interface ScrollBarInterface {
-  /**
-   * Called when a ScrollBar container is set.
-   * @since 8
-   */
-  (value: ScrollBarOptions): ScrollBarAttribute;
+    /**
+     * Called when a ScrollBar container is set.
+     * @since 8
+     */
+    (value: ScrollBarOptions): ScrollBarAttribute;
 }
-
 /**
  * Defines the scrollbar attibute functions.
  * @since 8
  */
-declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
-
+declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
+}
 declare const ScrollBar: ScrollBarInterface;
 declare const ScrollBarInstance: ScrollBarAttribute;

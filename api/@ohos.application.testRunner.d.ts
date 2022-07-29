@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
@@ -30,7 +29,6 @@ export interface TestRunner {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     onPrepare(): void;
-
     /**
      * Run all test cases.
      *
@@ -39,5 +37,4 @@ export interface TestRunner {
      */
     onRun(): void;
 }
-
 export default TestRunner;

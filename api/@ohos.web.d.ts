@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {AsyncCallback} from "./basic";
-
+import { AsyncCallback } from "./basic";
 /**
  * This module provides the capability to manage web modules.
  *
@@ -33,7 +31,6 @@ declare namespace web {
         usage: number;
         quota: number;
     }
-
     /**
      * Provides methods for managing web storage.
      * @name WebStorage
@@ -46,40 +43,35 @@ declare namespace web {
          *
          * @since 9
          */
-        static deleteAllData() : void;
-    
+        static deleteAllData(): void;
         /**
          * delete the storage data with the origin.
          * @param origin the origin which to be deleted.
          * @since 9
          */
-        static deleteOrigin(origin : string): void;
-
+        static deleteOrigin(origin: string): void;
         /**
          * Get current all the web storage origins.
          *
          * @since 9
          */
-        static getOrigins() : Promise<Array<WebStorageOrigin>>;
-        static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>) : void;
-
+        static getOrigins(): Promise<Array<WebStorageOrigin>>;
+        static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
         /**
          *  Get the web storage quota with the origin.
          * @param origin the origin which to be inquired.
          * @since 9
          */
-        static getOriginQuota(origin : string) : Promise<number>;
-        static getOriginQuota(origin : string, callback : AsyncCallback<number>) : void;
-
+        static getOriginQuota(origin: string): Promise<number>;
+        static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
         /**
          *  Get the web storage quota with the origin.
          * @param origin the origin which to be inquired.
          * @since 9
          */
-        static getOriginUsage(origin : string) : Promise<number> ;
-        static getOriginUsage(origin : string, callback : AsyncCallback<number>) : void;
+        static getOriginUsage(origin: string): Promise<number>;
+        static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
     }
-
     /**
      * Provides methods for managing web database.
      * @name WebDataBase
@@ -94,14 +86,12 @@ declare namespace web {
         * @since 9
         */
         static existHttpAuthCredentials(): boolean;
-      
         /**
          * delete all http authentication credentials.
          *
          * @since 9
          */
         static deleteHttpAuthCredentials(): void;
-      
         /**
          * get http authentication credentials.
          * @param host the host to which the credentials apply.
@@ -110,7 +100,6 @@ declare namespace web {
          * @since 9
          */
         static getHttpAuthCredentials(host: string, realm: string): Array<string>;
-      
         /**
          * save http authentication credentials.
          * @param host the host to which the credentials apply.
@@ -121,7 +110,6 @@ declare namespace web {
          * @since 9
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
-      }
+    }
 }
-
 export default web;

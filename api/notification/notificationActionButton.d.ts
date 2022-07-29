@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { NotificationUserInput } from './notificationUserInput';
 import { WantAgent } from '../@ohos.wantAgent';
-
 /**
  * Describes an action button displayed in a notification.
  * @name NotificationActionButton
@@ -24,25 +22,24 @@ import { WantAgent } from '../@ohos.wantAgent';
  * @syscap SystemCapability.Notification.Notification
  */
 export interface NotificationActionButton {
-  /**
-   * Button title.
-   */
-  title: string;
-
-  /**
-   * WantAgent of the button.
-   */
-  wantAgent: WantAgent;
-
-  /**
-   * Extra information of the button.
-   */
-  extras?: {[key: string]: any};
-
-  /**
-   * User input
-   *
-   * @since 8
-   */
-  userInput?: NotificationUserInput;
+    /**
+     * Button title.
+     */
+    title: string;
+    /**
+     * WantAgent of the button.
+     */
+    wantAgent: WantAgent;
+    /**
+     * Extra information of the button.
+     */
+    extras?: {
+        [key: string]: any;
+    };
+    /**
+     * User input
+     *
+     * @since 8
+     */
+    userInput?: NotificationUserInput;
 }

@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The class of an process running information.
  *
@@ -31,7 +30,6 @@ export interface ProcessRunningInfo {
      * @useinstead ProcessRunningInformation.pid
      */
     pid: number;
-
     /**
      * @default user id
      * @since 8
@@ -40,7 +38,6 @@ export interface ProcessRunningInfo {
      * @useinstead ProcessRunningInformation.uid
      */
     uid: number;
-
     /**
      * @default the name of the process
      * @since 8
@@ -49,7 +46,6 @@ export interface ProcessRunningInfo {
      * @useinstead ProcessRunningInformation.processName
      */
     processName: string;
-
     /**
      * @default an array of the bundleNames running in the process
      * @since 8

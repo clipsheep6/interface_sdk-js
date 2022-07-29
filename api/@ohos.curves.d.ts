@@ -12,7 +12,6 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 /**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
  * @import import Curves from '@ohos.curves'
@@ -20,90 +19,79 @@
  * @since 7
  */
 declare namespace curves {
-  /**
-   * enum Curve.
-   * @since 7
-   */
-  enum Curve {
-    Linear,
-    Ease,
-    EaseIn,
-    EaseOut,
-    EaseInOut,
-    FastOutSlowIn,
-    LinearOutSlowIn,
-    FastOutLinearIn,
-    ExtremeDeceleration,
-    Sharp,
-    Rhythm,
-    Smooth,
-    Friction,
-  }
-
-  /**
-   * Interface for curve object.
-   * @since 9
-   */
-  interface ICurve {
     /**
-    * Get curve value by fraction.
-    * @since 9
-    */ 
-     interpolate(fraction : number) : number;
-  }
-
-  /**
-   * Initializes the interpolator curve when called.
-   * @since 9
-   */
-  function initCurve(curve?: Curve): ICurve;
-
-  /**
-   * Initializes the interpolator curve when called.
-   * @since 7
-   * @deprecated since 9
-   */
-  function init(curve?: Curve): string;
- 
-  /**
-   * Constructs a step curve when called.
-   * @since 9
-   */
-   function stepsCurve(count: number, end: boolean): ICurve;
- 
-  /**
-   * Constructs a step curve when called.
-   * @since 7
-   * @deprecated since 9
-   */
-  function steps(count: number, end: boolean): string;
- 
-  /**
-   * Constructs a third-order Bezier curve when called.
-   * @since 9
-   */
-  function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
- 
-  /**
-   * Constructs a third-order Bezier curve when called.
-   * @since 7
-   * @deprecated since 9
-   */
-  function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
- 
-  /**
-   * Constructs a spring curve when called.
-   * @since 9
-   */
-  function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
- 
-  /**
-   * Constructs a spring curve when called.
-   * @since 7
-   * @deprecated since 9
-   */
-  function spring(velocity: number, mass: number, stiffness: number, damping: number): string;
-
+     * enum Curve.
+     * @since 7
+     */
+    enum Curve {
+        Linear,
+        Ease,
+        EaseIn,
+        EaseOut,
+        EaseInOut,
+        FastOutSlowIn,
+        LinearOutSlowIn,
+        FastOutLinearIn,
+        ExtremeDeceleration,
+        Sharp,
+        Rhythm,
+        Smooth,
+        Friction
+    }
+    /**
+     * Interface for curve object.
+     * @since 9
+     */
+    interface ICurve {
+        /**
+        * Get curve value by fraction.
+        * @since 9
+        */
+        interpolate(fraction: number): number;
+    }
+    /**
+     * Initializes the interpolator curve when called.
+     * @since 9
+     */
+    function initCurve(curve?: Curve): ICurve;
+    /**
+     * Initializes the interpolator curve when called.
+     * @since 7
+     * @deprecated since 9
+     */
+    function init(curve?: Curve): string;
+    /**
+     * Constructs a step curve when called.
+     * @since 9
+     */
+    function stepsCurve(count: number, end: boolean): ICurve;
+    /**
+     * Constructs a step curve when called.
+     * @since 7
+     * @deprecated since 9
+     */
+    function steps(count: number, end: boolean): string;
+    /**
+     * Constructs a third-order Bezier curve when called.
+     * @since 9
+     */
+    function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
+    /**
+     * Constructs a third-order Bezier curve when called.
+     * @since 7
+     * @deprecated since 9
+     */
+    function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
+    /**
+     * Constructs a spring curve when called.
+     * @since 9
+     */
+    function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
+    /**
+     * Constructs a spring curve when called.
+     * @since 7
+     * @deprecated since 9
+     */
+    function spring(velocity: number, mass: number, stiffness: number, damping: number): string;
 }
-
 export default curves;

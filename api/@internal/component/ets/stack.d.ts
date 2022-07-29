@@ -12,29 +12,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides ports for stacking containers.
  * @since 7
  */
 interface StackInterface {
-  /**
-   * Set the value.
-   * @since 7
-   */
-  (value?: { alignContent?: Alignment }): StackAttribute;
+    /**
+     * Set the value.
+     * @since 7
+     */
+    (value?: {
+        alignContent?: Alignment;
+    }): StackAttribute;
 }
-
 /**
  * @since 7
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
-  /**
-   * Called when the occupancy of items in the container is set.
-   * @since 7
-   */
-  alignContent(value: Alignment): StackAttribute;
+    /**
+     * Called when the occupancy of items in the container is set.
+     * @since 7
+     */
+    alignContent(value: Alignment): StackAttribute;
 }
-
 declare const Stack: StackInterface;
 declare const StackInstance: StackAttribute;

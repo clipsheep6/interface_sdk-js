@@ -12,36 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides an interface for generating QR codes.
  * @since 7
  */
 interface QRCodeInterface {
-  /**
-   * Called when a QR code is set.
-   * @since 7
-   */
-  (value: string): QRCodeAttribute;
+    /**
+     * Called when a QR code is set.
+     * @since 7
+     */
+    (value: string): QRCodeAttribute;
 }
-
 /**
  * Defines the qrcode attibute functions.
  * @since 7
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
-  /**
-   * Called when the QR code color is set.
-   * @since 7
-   */
-  color(value: ResourceColor): QRCodeAttribute;
-
-  /**
-   * Called when setting the QR code background color.
-   * @since 7
-   */
-  backgroundColor(value: ResourceColor): QRCodeAttribute;
+    /**
+     * Called when the QR code color is set.
+     * @since 7
+     */
+    color(value: ResourceColor): QRCodeAttribute;
+    /**
+     * Called when setting the QR code background color.
+     * @since 7
+     */
+    backgroundColor(value: ResourceColor): QRCodeAttribute;
 }
-
 declare const QRCode: QRCodeInterface;
 declare const QRCodeInstance: QRCodeAttribute;

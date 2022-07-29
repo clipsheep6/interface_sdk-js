@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Indicates possible value types
  *
@@ -20,7 +19,6 @@
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  */
 export type ValueType = number | string | boolean;
-
 /**
  * Values in buckets are stored in key-value pairs
  *
@@ -29,4 +27,4 @@ export type ValueType = number | string | boolean;
  */
 export type ValuesBucket = {
     [key: string]: ValueType | Uint8Array | null;
-}
+};

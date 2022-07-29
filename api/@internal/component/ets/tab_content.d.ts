@@ -12,31 +12,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides an interface for switching the content view on a tab page.
  * @since 7
  */
 interface TabContentInterface {
-  /**
-   * Called when the content view of the switch tab is set.
-   * @since 7
-   */
-  (): TabContentAttribute;
+    /**
+     * Called when the content view of the switch tab is set.
+     * @since 7
+     */
+    (): TabContentAttribute;
 }
-
 /**
  * Defines the attribute functions of TabContent.
  * @since 7
  */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
-  /**
-   * Called when tabbar is entered.
-   * @since 7
-   */
-  tabBar(value: string | Resource | CustomBuilder |
-    { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+    /**
+     * Called when tabbar is entered.
+     * @since 7
+     */
+    tabBar(value: string | Resource | CustomBuilder | {
+        icon?: string | Resource;
+        text?: string | Resource;
+    }): TabContentAttribute;
 }
-
 declare const TabContent: TabContentInterface;
 declare const TabContentInstance: TabContentAttribute;

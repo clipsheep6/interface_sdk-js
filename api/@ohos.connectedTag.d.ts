@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback, Callback } from './basic';
-
 /**
  * Provides methods to operate or manage Connected Tag.
  *
@@ -32,7 +30,6 @@ declare namespace connectedTag {
      * @since 8
      */
     function init(): boolean;
-
     /**
      * UnInitializes Connected Tag.
      *
@@ -42,7 +39,6 @@ declare namespace connectedTag {
      * @since 8
      */
     function uninit(): boolean;
-
     /**
      * Reads the NDEF Data.
      *
@@ -53,7 +49,6 @@ declare namespace connectedTag {
      */
     function readNdefTag(): Promise<string>;
     function readNdefTag(callback: AsyncCallback<string>): void;
-
     /**
      * Writes the NDEF Data.
      *
@@ -65,7 +60,6 @@ declare namespace connectedTag {
      */
     function writeNdefTag(data: string): Promise<void>;
     function writeNdefTag(data: string, callback: AsyncCallback<void>): void;
-
     /**
      * Subscribes NFC RF status change events.
      *
@@ -77,7 +71,6 @@ declare namespace connectedTag {
      * @since 8
      */
     function on(type: "notify", callback: Callback<number>): void;
-
     /**
      * Unsubscribes NFC RF status change events.
      *
@@ -89,8 +82,7 @@ declare namespace connectedTag {
      *
      * @since 8
      */
-    function off(type: "notify", callback?:Callback<number>): void;
-
+    function off(type: "notify", callback?: Callback<number>): void;
     /**
      * Describes the NFC RF type.
      *
@@ -99,10 +91,8 @@ declare namespace connectedTag {
     enum NfcRfType {
         /** NFC RF LEAVE */
         NFC_RF_LEAVE = 0,
-
         /** NFC RF ENTER */
-        NFC_RF_ENTER = 1,
+        NFC_RF_ENTER = 1
     }
 }
-
 export default connectedTag;

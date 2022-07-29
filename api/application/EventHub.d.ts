@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The event center of a context, support the subscription and publication of events.
  *
@@ -22,39 +21,37 @@
  * @StageModelOnly
  */
 export default class EventHub {
-   /**
-    * Subscribe to an event.
-    *
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @param event Indicates the event.
-    * @param callback Indicates the callback.
-    * @return -
-    * @StageModelOnly
-    */
-   on(event: string, callback: Function): void
-
-   /**
-    * Unsubscribe from an event.
-    *
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @param event Indicates the event.
-    * @param callback Indicates the callback.
-    * @return -
-    * @StageModelOnly
-    */
-   off(event: string, callback?: Function): void
-
-   /**
-    * Trigger the event callbacks.
-    *
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @param event Indicates the event.
-    * @param args Indicates the callback arguments.
-    * @return -
-    * @StageModelOnly
-    */
-   emit(event: string, ...args: Object[]): void
+    /**
+     * Subscribe to an event.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param event Indicates the event.
+     * @param callback Indicates the callback.
+     * @return -
+     * @StageModelOnly
+     */
+    on(event: string, callback: Function): void;
+    /**
+     * Unsubscribe from an event.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param event Indicates the event.
+     * @param callback Indicates the callback.
+     * @return -
+     * @StageModelOnly
+     */
+    off(event: string, callback?: Function): void;
+    /**
+     * Trigger the event callbacks.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param event Indicates the event.
+     * @param args Indicates the callback arguments.
+     * @return -
+     * @StageModelOnly
+     */
+    emit(event: string, ...args: Object[]): void;
 }

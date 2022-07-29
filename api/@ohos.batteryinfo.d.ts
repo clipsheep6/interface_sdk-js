@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Obtains battery information of a device.
  *
@@ -28,82 +27,51 @@ declare namespace batteryInfo {
      * @since 6
      */
     const batterySOC: number;
-
     /**
      * Battery charging status of the current device.
      * @since 6
      */
     const chargingStatus: BatteryChargeState;
-
     /**
      * Battery health state of the current device.
      * @since 6
      */
     const healthStatus: BatteryHealthState;
-
     /**
      * Charger type of the current device.
      * @since 6
      */
     const pluggedType: BatteryPluggedType;
-
     /**
      * Battery voltage of the current device, in µV.
      * @since 6
      */
     const voltage: number;
-
     /**
      * Battery technology of the current device.
      * @since 6
      */
     const technology: string;
-
     /**
      * Battery temperature of the current device, in 0.1℃.
      * @since 6
      */
     const batteryTemperature: number;
-
     /**
      * Battery present state of the current device.
      * @since 7
      */
     const isBatteryPresent: boolean;
-
     /**
      * Battery capacity level of the current device.
      * @since 9
      */
     const batteryCapacityLevel: BatteryCapacityLevel;
-
     /**
      * Estimated remaining time for the current device to be fully charged, in ms.
      * @since 9
      */
     const estimatedRemainingChargeTime: number;
-
-    /**
-     * Battery total energy of the current device, in mAh.
-     * @since 9
-     * @systemapi
-     */
-    const totalEnergy: number;
-
-    /**
-     * Battery immediate current of the current device, in mA.
-     * @since 9
-     * @systemapi
-     */
-    const nowCurrent: number;
-
-    /**
-     * Battery remaining energy of the current device, in mAh.
-     * @since 9
-     * @systemapi
-     */
-    const remainingEnergy: number;
-
     /**
      * Charger type of a device.
      *
@@ -132,7 +100,6 @@ declare namespace batteryInfo {
          */
         WIRELESS
     }
-
     /**
      * Battery charging status of a device.
      *
@@ -161,7 +128,6 @@ declare namespace batteryInfo {
          */
         FULL
     }
-
     /**
      * Battery health status of a device.
      *
@@ -200,7 +166,6 @@ declare namespace batteryInfo {
          */
         DEAD
     }
-
     /**
      * Battery capacity level of a device.
      *
@@ -239,7 +204,6 @@ declare namespace batteryInfo {
          */
         LEVEL_CRITICAL
     }
-
     /**
      * Etra key code of common event COMMON_EVENT_BATTERY_CHANGED.
      *

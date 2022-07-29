@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Describes a NotificationUserInput instance.
  *
@@ -22,8 +21,8 @@
  * @syscap SystemCapability.Notification.Notification
  */
 export interface NotificationUserInput {
-  /**
-   * Obtains the key used to identify this input when the input is collected from the user.
-   */
-  inputKey: string;
+    /**
+     * Obtains the key used to identify this input when the input is collected from the user.
+     */
+    inputKey: string;
 }

@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * StartOptions is the basic communication component of the system.
  *
@@ -30,8 +29,7 @@ export default class StartOptions {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-     windowMode?: number;
-
+    windowMode?: number;
     /**
      * displayId
      * @default -

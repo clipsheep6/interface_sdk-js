@@ -12,30 +12,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import Want from '../@ohos.application.Want';
-
 /**
  * @since 7
  * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 export interface AbilityResult {
-  /**
-   * Indicates the result code returned after the ability is destroyed. You can define the result
-   * code to identify an error.
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityBase
-   */
-  resultCode: number;
-
-  /**
-   * Indicates the data returned after the ability is destroyed. You can define the data returned.
-   * This parameter can be null.
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityBase
-   */
-  want?: Want;
+    /**
+     * Indicates the result code returned after the ability is destroyed. You can define the result
+     * code to identify an error.
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    resultCode: number;
+    /**
+     * Indicates the data returned after the ability is destroyed. You can define the data returned.
+     * This parameter can be null.
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    want?: Want;
 }

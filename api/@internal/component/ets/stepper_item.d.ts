@@ -12,72 +12,63 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * ItemState
  * @since 8
  */
 declare enum ItemState {
-  /**
-   * Default State
-   * @since 8
-   */
-  Normal,
-
-  /**
-   * Disabled State
-   * @since 8
-   */
-  Disabled,
-
-  /**
-   * Waiting State
-   * @since 8
-   */
-  Waiting,
-
-  /**
-   * Skip State
-   * @since 8
-   */
-  Skip,
+    /**
+     * Default State
+     * @since 8
+     */
+    Normal,
+    /**
+     * Disabled State
+     * @since 8
+     */
+    Disabled,
+    /**
+     * Waiting State
+     * @since 8
+     */
+    Waiting,
+    /**
+     * Skip State
+     * @since 8
+     */
+    Skip
 }
-
 /**
  * Provides an interface for switching the stepperItem view on stepper container.
  * @since 8
  */
 interface StepperItemInterface {
-  /**
-   * Called when the stepperItem component is used.
-   * @since 8
-   */
-  (): StepperItemAttribute;
+    /**
+     * Called when the stepperItem component is used.
+     * @since 8
+     */
+    (): StepperItemAttribute;
 }
-
 /**
  * Defines the stepper item attrbute functions.
  * @since 8
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
-  /**
-   * Called when the value of stepperItem prevLabel is set
-   * @since 8
-   */
-  prevLabel(value: string): StepperItemAttribute;
-
-  /**
-   * Called when the value of stepperItem nextLabel is set
-   * @since 8
-   */
-  nextLabel(value: string): StepperItemAttribute;
-
-  /**
-   * Called when the value of stepperItem status is set
-   * @since 8
-   */
-  status(value?: ItemState): StepperItemAttribute;
+    /**
+     * Called when the value of stepperItem prevLabel is set
+     * @since 8
+     */
+    prevLabel(value: string): StepperItemAttribute;
+    /**
+     * Called when the value of stepperItem nextLabel is set
+     * @since 8
+     */
+    nextLabel(value: string): StepperItemAttribute;
+    /**
+     * Called when the value of stepperItem status is set
+     * @since 8
+     */
+    status(value?: ItemState): StepperItemAttribute;
 }
-
 declare const StepperItemInstance: StepperItemAttribute;
 declare const StepperItem: StepperItemInterface;

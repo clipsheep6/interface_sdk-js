@@ -12,33 +12,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
- /**
- * @name Indicates the custom metadata
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
- *
- */
-  export interface CustomizeData {
+/**
+* @name Indicates the custom metadata
+* @since 7
+* @syscap SystemCapability.BundleManager.BundleFramework
+* @permission NA
+*
+*/
+export interface CustomizeData {
     /**
       * @default Indicates the custom metadata name
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     name: string;
-  
     /**
       * @default Indicates the custom metadata value
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     value: string;
-  
     /**
     * @default Indicates the custom metadata resource
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
     extra: string;
-  }
+}

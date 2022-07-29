@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
 * This module provides the capability to check bad code usage.
 *
@@ -21,60 +20,51 @@
 * @syscap SystemCapability.HiviewDFX.HiChecker
 */
 declare namespace hichecker {
-
-
     /**
     * The caution rule print log.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CAUTION_PRINT_LOG: 9223372036854775808n; // 1 << 63
-
     /**
     * The caution rule trigger crash.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CAUTION_TRIGGER_CRASH: 4611686018427387904n; // 1 << 62
-
     /**
     * The thread rule check slow process.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
-
     /**
     * The process rule check ability connection leak.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
-
     /**
     * add one or more rule.
-    * @param rule 
+    * @param rule
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    function addRule(rule: bigint) : void;
-
+    function addRule(rule: bigint): void;
     /**
     * remove one or more rule.
-    * @param rule 
+    * @param rule
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    function removeRule(rule: bigint) : void;
-
+    function removeRule(rule: bigint): void;
     /**
     * get added rule
     * @return all added thread rule and process rule.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    function getRule() : bigint;
-
+    function getRule(): bigint;
     /**
     * whether the query rule is added
     * @param rule
@@ -82,6 +72,6 @@ declare namespace hichecker {
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    function contains(rule: bigint) : boolean;
+    function contains(rule: bigint): boolean;
 }
 export default hichecker;

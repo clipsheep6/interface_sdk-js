@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {AsyncCallback} from './basic';
-
+import { AsyncCallback } from './basic';
 /**
  * Work scheduler interface.
  *
@@ -93,7 +91,6 @@ declare namespace workScheduler {
          */
         idleWaitTime?: number;
     }
-
     /**
      * Add a work to the queue. A work can be executed only when it meets the preset triggering condition
      * and complies with the rules of work scheduler manager.
@@ -105,7 +102,6 @@ declare namespace workScheduler {
      * @return true if success, otherwise false.
      */
     function startWork(work: WorkInfo): boolean;
-
     /**
      * Stop a work.
      *
@@ -117,7 +113,6 @@ declare namespace workScheduler {
      * @return true if success, otherwise false.
      */
     function stopWork(work: WorkInfo, needCancel?: boolean): boolean;
-
     /**
      * Obtains the work info of the wordId.
      *
@@ -128,7 +123,6 @@ declare namespace workScheduler {
      */
     function getWorkStatus(workId: number, callback: AsyncCallback<WorkInfo>): void;
     function getWorkStatus(workId: number): Promise<WorkInfo>;
-
     /**
      * Get all works of the calling application.
      *
@@ -139,7 +133,6 @@ declare namespace workScheduler {
      */
     function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
     function obtainAllWorks(): Promise<Array<WorkInfo>>;
-
     /**
      * Stop all and clear all works of the calling application.
      *
@@ -149,7 +142,6 @@ declare namespace workScheduler {
      * @return true if success, otherwise false.
      */
     function stopAndClearWorks(): boolean;
-
     /**
      * Check whether last work running is timeout. The interface is for repeating work.
      *
@@ -161,7 +153,6 @@ declare namespace workScheduler {
      */
     function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
     function isLastWorkTimeOut(workId: number): Promise<boolean>;
-
     /**
      * Describes network type.
      *
@@ -196,7 +187,6 @@ declare namespace workScheduler {
          */
         NETWORK_TYPE_ETHERNET
     }
-
     /**
      * Describes charging type.
      *
@@ -223,7 +213,6 @@ declare namespace workScheduler {
          */
         CHARGING_PLUGGED_WIRELESS
     }
-
     /**
      * Describes the battery status.
      *
@@ -246,7 +235,6 @@ declare namespace workScheduler {
          */
         BATTERY_STATUS_LOW_OR_OKAY
     }
-
     /**
      * Describes the storage request.
      *

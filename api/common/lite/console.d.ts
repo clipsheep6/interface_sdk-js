@@ -12,35 +12,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 export declare class console {
-  /**
-   * Prints "debug" logs.
-   * @param message Text to print
-   */
-  static debug(message: string): void;
-
-  /**
-   * Prints "log" logs.
-   * @param message Text to print
-   */
-  static log(message: string): void;
-
-  /**
-   * Prints "info" logs.
-   * @param message Text to print
-   */
-  static info(message: string): void;
-
-  /**
-   * Prints "warn" logs.
-   * @param message Text to print
-   */
-  static warn(message: string): void;
-
-  /**
-   * Prints "error" logs.
-   * @param message Text to print
-   */
-  static error(message: string): void;
+    /**
+     * Prints "debug" logs.
+     * @param message Text to print
+     */
+    static debug(message: string): void;
+    /**
+     * Prints "log" logs.
+     * @param message Text to print
+     */
+    static log(message: string): void;
+    /**
+     * Prints "info" logs.
+     * @param message Text to print
+     */
+    static info(message: string): void;
+    /**
+     * Prints "warn" logs.
+     * @param message Text to print
+     */
+    static warn(message: string): void;
+    /**
+     * Prints "error" logs.
+     * @param message Text to print
+     */
+    static error(message: string): void;
 }

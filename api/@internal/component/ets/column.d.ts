@@ -12,38 +12,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines the Column Component.
  * @since 7
  */
 interface ColumnInterface {
-  /**
-   * Set the value.
-   * useAlign:Use a custom alignment.
-   * space: Vertical layout element spacing.
-   * @since 7
-   */
-  (value?: { space?: string | number }): ColumnAttribute;
+    /**
+     * Set the value.
+     * useAlign:Use a custom alignment.
+     * space: Vertical layout element spacing.
+     * @since 7
+     */
+    (value?: {
+        space?: string | number;
+    }): ColumnAttribute;
 }
-
 /**
  * Defines the Column component attribute functions.
  * @since 7
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
-  /**
-   * Sets the alignment format of the subassembly in the horizontal direction.
-   * @since 7
-   */
-  alignItems(value: HorizontalAlign): ColumnAttribute;
-
-  /**
-   * Sets the alignment format of the subassembly in the vertical direction.
-   * @since 8
-   */
-  justifyContent(value: FlexAlign): ColumnAttribute;
+    /**
+     * Sets the alignment format of the subassembly in the horizontal direction.
+     * @since 7
+     */
+    alignItems(value: HorizontalAlign): ColumnAttribute;
+    /**
+     * Sets the alignment format of the subassembly in the vertical direction.
+     * @since 8
+     */
+    justifyContent(value: FlexAlign): ColumnAttribute;
 }
-
 declare const Column: ColumnInterface;
 declare const ColumnInstance: ColumnAttribute;

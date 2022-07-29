@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AsyncCallback, ErrorCallback } from './basic';
-
+import { AsyncCallback } from './basic';
 /**
  * System time and timezone.
  * @since 7
@@ -28,30 +26,26 @@ declare namespace systemTime {
      * @param time Target time stamp (ms)
      * @since 7
      */
-    function setTime(time : number, callback : AsyncCallback<void>) : void;
-    function setTime(time : number) : Promise<void>;
-
+    function setTime(time: number, callback: AsyncCallback<void>): void;
+    function setTime(time: number): Promise<void>;
     /**
      * Obtains the number of milliseconds that have elapsed since the Unix epoch.
      * @since 8
      */
     function getCurrentTime(isNano?: boolean, callback: AsyncCallback<number>): void;
     function getCurrentTime(isNano?: boolean): Promise<number>;
-
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
      * @since 8
      */
     function getRealActiveTime(isNano?: boolean, callback: AsyncCallback<number>): void;
     function getRealActiveTime(isNano?: boolean): Promise<number>;
-
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      * @since 8
      */
     function getRealTime(isNano?: boolean, callback: AsyncCallback<number>): void;
     function getRealTime(isNano?: boolean): Promise<number>;
-
     /**
      * Sets the system time.
      * @permission ohos.permission.SET_TIME
@@ -60,14 +54,12 @@ declare namespace systemTime {
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
     function setDate(date: Date): Promise<void>;
-
     /**
      * Obtains the system date.
      * @since 8
      */
     function getDate(callback: AsyncCallback<Date>): void;
     function getDate(): Promise<Date>;
-
     /**
      * Sets the system time zone.
      * @permission ohos.permission.SET_TIME_ZONE
@@ -76,13 +68,11 @@ declare namespace systemTime {
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
     function setTimezone(timezone: string): Promise<void>;
-
-      /**
-     * Obtains the system time zone.
-     * @since 8
-     */  
+    /**
+   * Obtains the system time zone.
+   * @since 8
+   */
     function getTimezone(callback: AsyncCallback<string>): void;
     function getTimezone(): Promise<string>;
 }
-
 export default systemTime;

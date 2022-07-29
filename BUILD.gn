@@ -30,15 +30,12 @@ ohos_copy("ets_internal_api") {
 
 ohos_copy("ets_component") {
   sources = [
-    "api/@internal/component/ets/ability_component.d.ts",
     "api/@internal/component/ets/action_sheet.d.ts",
     "api/@internal/component/ets/alert_dialog.d.ts",
     "api/@internal/component/ets/alphabet_indexer.d.ts",
-    "api/@internal/component/ets/animator.d.ts",
     "api/@internal/component/ets/badge.d.ts",
     "api/@internal/component/ets/blank.d.ts",
     "api/@internal/component/ets/button.d.ts",
-    "api/@internal/component/ets/calendar.d.ts",
     "api/@internal/component/ets/canvas.d.ts",
     "api/@internal/component/ets/checkbox.d.ts",
     "api/@internal/component/ets/checkboxgroup.d.ts",
@@ -57,7 +54,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/enums.d.ts",
     "api/@internal/component/ets/flex.d.ts",
     "api/@internal/component/ets/for_each.d.ts",
-    "api/@internal/component/ets/form_component.d.ts",
     "api/@internal/component/ets/gauge.d.ts",
     "api/@internal/component/ets/gesture.d.ts",
     "api/@internal/component/ets/grid.d.ts",
@@ -81,7 +77,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/panel.d.ts",
     "api/@internal/component/ets/path.d.ts",
     "api/@internal/component/ets/pattern_lock.d.ts",
-    "api/@internal/component/ets/plugin_component.d.ts",
     "api/@internal/component/ets/polygon.d.ts",
     "api/@internal/component/ets/polyline.d.ts",
     "api/@internal/component/ets/progress.d.ts",
@@ -91,7 +86,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/rect.d.ts",
     "api/@internal/component/ets/refresh.d.ts",
     "api/@internal/component/ets/relative_container.d.ts",
-    "api/@internal/component/ets/remote_window.d.ts",
     "api/@internal/component/ets/rich_text.d.ts",
     "api/@internal/component/ets/row.d.ts",
     "api/@internal/component/ets/row_split.d.ts",
@@ -130,13 +124,6 @@ ohos_copy("ets_component") {
 
 ohos_copy("common_api") {
   sources = common_api_src
-  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
-  module_source_dir = target_out_dir + "/$target_name"
-  module_install_name = ""
-}
-
-ohos_copy("bundle_api") {
-  sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
@@ -188,7 +175,6 @@ ohos_copy("internal_full") {
 ohos_copy("internal_lite") {
   sources = [
     "api/common/lite/console.d.ts",
-    "api/common/lite/featureability.d.ts",
     "api/common/lite/global.d.ts",
     "api/common/lite/index.d.ts",
     "api/common/lite/viewmodel.d.ts",

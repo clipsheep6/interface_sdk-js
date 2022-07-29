@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { Callback } from './basic';
-
 /**
  * Provides methods for sending and processing in-process events.
  *
@@ -24,95 +22,86 @@ import { Callback } from './basic';
  * @permission N/A
  */
 declare namespace emitter {
-  /**
-   * Subscribes to a certain event in persistent manner and receives the event callback.
-   *
-   * @since 7
-   * @param event indicate event to subscribe to.
-   * @param callback indicate callback used to receive the event.
-   * @return -
-   */
-  function on(event: InnerEvent, callback: Callback<EventData>): void;
-
-  /**
-   * Subscribes to a certain event in one-shot manner and unsubscribes from it
-   * after the event callback is received.
-   *
-   * @since 7
-   * @param event indicate event to subscribe to in one shot.
-   * @param callback indicate callback used to receive the event.
-   * @return -
-   */
-  function once(event: InnerEvent, callback: Callback<EventData>): void;
-
-  /**
-   * Unsubscribes from an event.
-   *
-   * @since 7
-   * @param eventId indicate ID of the event to unsubscribe from.
-   * @return -
-   */
-  function off(eventId: number): void;
-
-  /**
-   * Emits an event to the event queue.
-   *
-   * @since 7
-   * @param event indicate event to emit.
-   * @param data indicate data carried by the event.
-   * @return -
-   */
-  function emit(event: InnerEvent, data?: EventData): void;
-
-  /**
-   * Describes data passed in the event.
-   */
-  export interface EventData {
     /**
-     * Data carried by the event.
+     * Subscribes to a certain event in persistent manner and receives the event callback.
+     *
+     * @since 7
+     * @param event indicate event to subscribe to.
+     * @param callback indicate callback used to receive the event.
+     * @return -
      */
-    data?: {[key: string]: any};
-  }
-
-  /**
-   * Describes an intra-process event.
-   */
-  export interface InnerEvent {
+    function on(event: InnerEvent, callback: Callback<EventData>): void;
     /**
-     * Event ID, which is used to identify an event.
+     * Subscribes to a certain event in one-shot manner and unsubscribes from it
+     * after the event callback is received.
+     *
+     * @since 7
+     * @param event indicate event to subscribe to in one shot.
+     * @param callback indicate callback used to receive the event.
+     * @return -
      */
-    eventId: number;
-
+    function once(event: InnerEvent, callback: Callback<EventData>): void;
     /**
-     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     * Unsubscribes from an event.
+     *
+     * @since 7
+     * @param eventId indicate ID of the event to unsubscribe from.
+     * @return -
      */
-    priority?: EventPriority;
-  }
-
-  /**
-   * Indicates the emit priority of the event.
-   */
-  export enum EventPriority {
+    function off(eventId: number): void;
     /**
-     * Indicates that the event will be emitted immediately.
+     * Emits an event to the event queue.
+     *
+     * @since 7
+     * @param event indicate event to emit.
+     * @param data indicate data carried by the event.
+     * @return -
      */
-    IMMEDIATE = 0,
-
+    function emit(event: InnerEvent, data?: EventData): void;
     /**
-     * Indicates that the event will be emitted before low-priority events.
+     * Describes data passed in the event.
      */
-    HIGH,
-
+    export interface EventData {
+        /**
+         * Data carried by the event.
+         */
+        data?: {
+            [key: string]: any;
+        };
+    }
     /**
-     * Indicates that the event will be emitted before idle-priority events. By default, an event is in LOW priority.
+     * Describes an intra-process event.
      */
-    LOW,
-
+    export interface InnerEvent {
+        /**
+         * Event ID, which is used to identify an event.
+         */
+        eventId: number;
+        /**
+         * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+         */
+        priority?: EventPriority;
+    }
     /**
-     * Indicates that the event will be emitted after all the other events.
+     * Indicates the emit priority of the event.
      */
-    IDLE,
-  }
+    export enum EventPriority {
+        /**
+         * Indicates that the event will be emitted immediately.
+         */
+        IMMEDIATE = 0,
+        /**
+         * Indicates that the event will be emitted before low-priority events.
+         */
+        HIGH,
+        /**
+         * Indicates that the event will be emitted before idle-priority events. By default, an event is in LOW priority.
+         */
+        LOW,
+        /**
+         * Indicates that the event will be emitted after all the other events.
+         */
+        IDLE
+    }
 }
-
 export default emitter;

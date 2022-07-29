@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Indicates the description of transfer results for continuation.
  *
@@ -27,7 +26,6 @@ export interface ContinuationResult {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     id: string;
-
     /**
      * the information about the selected device type.
      *
@@ -35,7 +33,6 @@ export interface ContinuationResult {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     type: string;
-
     /**
      * Indicates the name of the selected device.
      *

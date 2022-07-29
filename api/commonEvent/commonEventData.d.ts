@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * the data of the commonEvent
  * @name CommonEventData
@@ -21,41 +20,39 @@
  * @permission N/A
  */
 export interface CommonEventData {
-  /**
-   * event type
-   * @default -
-   * @since 7
-   */
-  event: string
-
-  /**
-   * bundle name
-   * @default -
-   * @since 7
-   */
-  bundleName?: string;
-
-  /**
-   * The custom result code of the common event.
-   *
-   * @default 0
-   * @since 7
-   */
-  code?: number;
-
-  /**
-   * The custom result data of the common event.
-   *
-   * @default ""
-   * @since 7
-   */
-  data?: string;
-
-  /**
-   * The description of the parameters in a common event.
-   *
-   * @default -
-   * @since 7
-   */
-  parameters?: {[key: string]: any};
+    /**
+     * event type
+     * @default -
+     * @since 7
+     */
+    event: string;
+    /**
+     * bundle name
+     * @default -
+     * @since 7
+     */
+    bundleName?: string;
+    /**
+     * The custom result code of the common event.
+     *
+     * @default 0
+     * @since 7
+     */
+    code?: number;
+    /**
+     * The custom result data of the common event.
+     *
+     * @default ""
+     * @since 7
+     */
+    data?: string;
+    /**
+     * The description of the parameters in a common event.
+     *
+     * @default -
+     * @since 7
+     */
+    parameters?: {
+        [key: string]: any;
+    };
 }

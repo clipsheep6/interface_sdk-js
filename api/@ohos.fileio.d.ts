@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic'
-
+import { AsyncCallback } from './basic';
 export default fileIO;
-
 /**
  * fileio
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -89,7 +87,6 @@ declare namespace fileIO {
     export { Stream };
     export { Watcher };
 }
-
 /**
  * access.
  *
@@ -478,20 +475,20 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @throws {TypedError | Error} open fail
  */
 declare function fdopenStreamSync(fd: number, mode: string): Stream;
- /**
- * hash.
- * @static
- * @note N/A
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 6
- * @permission N/A
- * @function hash
- * @param {string} path - path.
- * @param {string} algorithm - algorithm md5 sha1 sha256.
- * @param {AsyncCallback<string>} [callback] - callback.
- * @returns {void | Promise<string>} no callback return Promise otherwise return void
- * @throws {TypedError} Parameter check failed
- */
+/**
+* hash.
+* @static
+* @note N/A
+* @syscap SystemCapability.FileManagement.File.FileIO
+* @since 6
+* @permission N/A
+* @function hash
+* @param {string} path - path.
+* @param {string} algorithm - algorithm md5 sha1 sha256.
+* @param {AsyncCallback<string>} [callback] - callback.
+* @returns {void | Promise<string>} no callback return Promise otherwise return void
+* @throws {TypedError} Parameter check failed
+*/
 declare function hash(path: string, algorithm: string): Promise<string>;
 declare function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 /**
@@ -697,7 +694,6 @@ declare function readText(filePath: string, options: {
     length?: number;
     encoding?: string;
 }, callback: AsyncCallback<string>): void;
-
 /**
  * readTextSync.
  *
@@ -719,7 +715,6 @@ declare function readTextSync(filePath: string, options?: {
     length?: number;
     encoding?: string;
 }): string;
-
 /**
  * read.
  *
@@ -742,7 +737,7 @@ declare function read(fd: number, buffer: ArrayBuffer, options?: {
     offset?: number;
     length?: number;
     position?: number;
-}): Promise<ReadOut>
+}): Promise<ReadOut>;
 declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<ReadOut>): void;
 declare function read(fd: number, buffer: ArrayBuffer, options: {
     offset?: number;
@@ -884,21 +879,21 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * @returns {void} symlink success
  * @throws {TypedError | Error} symlink fail
  */
- declare function symlinkSync(target: string, srcPath: string): void;
- /**
- * truncate.
- *
- * @note N/A
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 7
- * @permission N/A
- * @function truncate
- * @param {string} path - path.
- * @param {number} [len = 0] - len.
- * @param {AsyncCallback<void>} [callback] - callback.
- * @returns {void | Promise<void>} no callback return Promise otherwise return void
- * @throws {TypedError} Parameter check failed
- */
+declare function symlinkSync(target: string, srcPath: string): void;
+/**
+* truncate.
+*
+* @note N/A
+* @syscap SystemCapability.FileManagement.File.FileIO
+* @since 7
+* @permission N/A
+* @function truncate
+* @param {string} path - path.
+* @param {number} [len = 0] - len.
+* @param {AsyncCallback<void>} [callback] - callback.
+* @returns {void | Promise<void>} no callback return Promise otherwise return void
+* @throws {TypedError} Parameter check failed
+*/
 declare function truncate(path: string, len?: number): Promise<void>;
 declare function truncate(path: string, callback: AsyncCallback<void>): void;
 declare function truncate(path: string, len: number, callback: AsyncCallback<void>): void;
@@ -1000,7 +995,6 @@ declare function writeSync(fd: number, buffer: ArrayBuffer | string, options?: {
     position?: number;
     encoding?: string;
 }): number;
-
 /**
  * createWatcher.
  *
@@ -1073,7 +1067,6 @@ declare interface Dir {
      */
     closeSync(): void;
 }
-
 /**
  * Dirent
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1154,7 +1147,6 @@ declare interface Dirent {
      */
     isSymbolicLink(): boolean;
 }
-
 /**
  * Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1334,7 +1326,6 @@ declare interface Stat {
      */
     isSymbolicLink(): boolean;
 }
-
 /**
  * Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1488,7 +1479,6 @@ declare interface Stream {
         length?: number;
     }): number;
 }
-
 /**
  * ReadOut
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1524,7 +1514,6 @@ declare interface ReadOut {
      */
     buffer: ArrayBuffer;
 }
-
 /**
  * Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO

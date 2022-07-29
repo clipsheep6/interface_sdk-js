@@ -14,9 +14,8 @@
  */
 import { Callback } from './basic';
 import { AsyncCallback } from './basic';
-import { ContinuationResult } from './continuation/continuationResult'
-import { ContinuationExtraParams } from './continuation/continuationExtraParams'
-
+import { ContinuationResult } from './continuation/continuationResult';
+import { ContinuationExtraParams } from './continuation/continuationExtraParams';
 /**
  * Provides methods for interacting with the continuation manager servcie, including methods for registering and
  * unregistering the ability to hop, updating the device connection state, and showing the list of devices
@@ -36,21 +35,19 @@ declare namespace continuationManager {
      * @param type deviceConnect.
      * @return callback Indicates the information about the selected devices.
      */
-     function on(type: "deviceConnect", token: number, callback: Callback<Array<ContinuationResult>>): void;
-     function off(type: "deviceConnect", token: number): void;
- 
-     /**
-      * Called when devices is disconnected from the continuation manager servcie.
-      * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
-      *
-      * @since 9
-      * @syscap SystemCapability.Ability.DistributedAbilityManager
-      * @param type deviceDisconnect.
-      * @return callback Indicates the ID of the disconnected devices.
-      */
-     function on(type: "deviceDisconnect", token: number, callback: Callback<Array<string>>): void;
-     function off(type: "deviceDisconnect", token: number): void;
-
+    function on(type: "deviceConnect", token: number, callback: Callback<Array<ContinuationResult>>): void;
+    function off(type: "deviceConnect", token: number): void;
+    /**
+     * Called when devices is disconnected from the continuation manager servcie.
+     * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @param type deviceDisconnect.
+     * @return callback Indicates the ID of the disconnected devices.
+     */
+    function on(type: "deviceDisconnect", token: number, callback: Callback<Array<string>>): void;
+    function off(type: "deviceDisconnect", token: number): void;
     /**
      * Called when the user selects a device from the candidate device list.
      * You can implement your own processing logic in this callback to initiate the hop process.
@@ -63,7 +60,6 @@ declare namespace continuationManager {
      */
     function on(type: "deviceConnect", callback: Callback<ContinuationResult>): void;
     function off(type: "deviceConnect", callback?: Callback<ContinuationResult>): void;
-
     /**
      * Called when a device is disconnected from the continuation manager servcie.
      * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
@@ -76,7 +72,6 @@ declare namespace continuationManager {
      */
     function on(type: "deviceDisconnect", callback: Callback<string>): void;
     function off(type: "deviceDisconnect", callback?: Callback<string>): void;
-
     /**
      * Registers an ability to be hopped with the continuation manager servcie and obtains the registration token
      * assigned to the ability.
@@ -90,7 +85,6 @@ declare namespace continuationManager {
     function register(callback: AsyncCallback<number>): void;
     function register(options: ContinuationExtraParams, callback: AsyncCallback<number>): void;
     function register(options?: ContinuationExtraParams): Promise<number>;
-
     /**
      * Unregisters a specified ability from the continuation manager servcie based on the token obtained during ability
      * registration.
@@ -102,7 +96,6 @@ declare namespace continuationManager {
      */
     function unregister(token: number, callback: AsyncCallback<void>): void;
     function unregister(token: number): Promise<void>;
-
     /**
      * Updates the connection state of the device where the specified ability is successfully hopped.
      *
@@ -115,7 +108,6 @@ declare namespace continuationManager {
      */
     function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback<void>): void;
     function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise<void>;
-
     /**
      * Start to manage the devices that can be selected for continuation on the distributed network.
      *
@@ -129,7 +121,6 @@ declare namespace continuationManager {
     function startDeviceManager(token: number, callback: AsyncCallback<void>): void;
     function startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback<void>): void;
     function startDeviceManager(token: number, options?: ContinuationExtraParams): Promise<void>;
-
     /**
      * Device connection status data structure.
      *
@@ -142,25 +133,21 @@ declare namespace continuationManager {
         CONNECTED = 2,
         DISCONNECTING = 3
     }
-
     /**
      * Indicates the description of additional parameters for continuation.
-     * 
+     *
      * @since 8
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      */
     export enum ContinuationMode {
-
         /**
          * Collaboration with a single device.
          */
         COLLABORATION_SINGLE = 0,
-
         /**
          * Collaboration with multiple devices.
          */
-        COLLABORATION_MULTIPLE = 1,
+        COLLABORATION_MULTIPLE = 1
     }
-
 }
 export default continuationManager;

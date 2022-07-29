@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
@@ -25,7 +24,6 @@ export interface CheckPackageHasInstalledResponse {
      */
     result: boolean;
 }
-
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
@@ -37,21 +35,18 @@ export interface CheckPackageHasInstalledOptions {
      * @since 3
      */
     bundleName: string;
-
     /**
      * Called when native applications are installed.
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 3
      */
     success?: (data: CheckPackageHasInstalledResponse) => void;
-
     /**
      * Called when native applications fail to be installed.
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 3
      */
     fail?: (data: any, code: number) => void;
-
     /**
      * Called when the excution is completed.
      * @syscap SystemCapability.BundleManager.BundleFramework
@@ -59,7 +54,6 @@ export interface CheckPackageHasInstalledOptions {
      */
     complete?: () => void;
 }
-
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3

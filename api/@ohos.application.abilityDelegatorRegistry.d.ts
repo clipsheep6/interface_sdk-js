@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AbilityDelegator } from './application/abilityDelegator';
 import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
-
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
@@ -34,7 +32,6 @@ declare namespace abilityDelegatorRegistry {
      * @return the AbilityDelegator object initialized when the application is started.
      */
     function getAbilityDelegator(): AbilityDelegator;
-
     /**
      * Get unit test parameters stored in the AbilityDelegatorArgs object.
      *
@@ -43,7 +40,6 @@ declare namespace abilityDelegatorRegistry {
      * @return the previously registered AbilityDelegatorArgs object.
      */
     function getArguments(): AbilityDelegatorArgs;
-
     /**
      * Describes all lifecycle states of an ability.
      *
@@ -55,8 +51,7 @@ declare namespace abilityDelegatorRegistry {
         CREATE,
         FOREGROUND,
         BACKGROUND,
-        DESTROY,
+        DESTROY
     }
 }
-
 export default abilityDelegatorRegistry;

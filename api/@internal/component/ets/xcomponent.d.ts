@@ -12,71 +12,53 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines XComponentController
  * @since 8
  */
 declare class XComponentController {
-  /**
-   * constructor.
-   * @since 8
-   */
-  constructor();
-
-  /**
-   * get the id of surface created by XComponent.
-   * @since 8
-   * @systemapi
-   */
-  getXComponentSurfaceId();
-
-  /**
-   * get the context of native XComponent.
-   * @since 8
-   */
-  getXComponentContext();
-
-  /**
-   * set the surface size created by XComponent.
-   * @since 8
-   * @systemapi
-   */
-  setXComponentSurfaceSize(value: {
-    surfaceWidth: number;
-    surfaceHeight: number;
-  });
+    /**
+     * constructor.
+     * @since 8
+     */
+    constructor();
+    /**
+     * get the context of native XComponent.
+     * @since 8
+     */
+    getXComponentContext();
 }
-
 /**
  * Defines XComponent.
  * @since 8
  */
 interface XComponentInterface {
-  /**
-   * Constructor parameters
-   * @since 8
-   */
-  (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
+    /**
+     * Constructor parameters
+     * @since 8
+     */
+    (value: {
+        id: string;
+        type: string;
+        libraryname?: string;
+        controller?: XComponentController;
+    }): XComponentAttribute;
 }
-
 /**
  * Defines XComponentAttribute.
  * @since 8
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
-  /**
-   * Called when judging whether the xcomponent surface is created.
-   * @since 8
-   */
-  onLoad(callback: (event?: object) => void): XComponentAttribute;
-
-  /**
-   * Called when judging whether the xcomponent is destroyed.
-   * @since 8
-   */
-  onDestroy(event: () => void): XComponentAttribute;
+    /**
+     * Called when judging whether the xcomponent surface is created.
+     * @since 8
+     */
+    onLoad(callback: (event?: object) => void): XComponentAttribute;
+    /**
+     * Called when judging whether the xcomponent is destroyed.
+     * @since 8
+     */
+    onDestroy(event: () => void): XComponentAttribute;
 }
-
 declare const XComponent: XComponentInterface;
 declare const XComponentInstance: XComponentAttribute;

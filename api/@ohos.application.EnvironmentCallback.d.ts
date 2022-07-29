@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { Configuration } from './@ohos.application.Configuration';
-
 /**
  * The environment callback.
  *
@@ -31,5 +29,5 @@ export default class EnvironmentCallback {
      * @param config: Indicates the updated configuration.
      * @StageModelOnly
      */
-     onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdated(config: Configuration): void;
 }

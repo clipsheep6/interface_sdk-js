@@ -12,30 +12,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Create Blank.
  * @since 7
  */
 interface BlankInterface {
-  /**
-   * The minimum size of the blank fill assembly on the container spindle.
-   * @since 7
-   */
-  (min?: number | string): BlankAttribute;
+    /**
+     * The minimum size of the blank fill assembly on the container spindle.
+     * @since 7
+     */
+    (min?: number | string): BlankAttribute;
 }
-
 /**
  * Inheritance CommonMethod Set Styles
  * @since 7
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
-  /**
-   * color: set color.
-   * @since 7
-   */
-  color(value: ResourceColor): BlankAttribute;
+    /**
+     * color: set color.
+     * @since 7
+     */
+    color(value: ResourceColor): BlankAttribute;
 }
-
 declare const Blank: BlankInterface;
 declare const BlankInstance: BlankAttribute;

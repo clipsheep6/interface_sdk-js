@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Contains resource descriptor information.
  * @name Contains resource descriptor information
@@ -20,25 +19,23 @@
  * @syscap SystemCapability.Global.ResourceManager
  *
  */
- export interface Resource {
-  /**
-   * bundle name in hap
-   *
-   * @since 9
-   */
-  bundleName: string;
-
-  /**
-   * module name in hap
-   *
-   * @since 9
-   */
-  moduleName: string;
-
-  /**
-   * resource id in hap
-   *
-   * @since 9
-   */
-  id: number;
+export interface Resource {
+    /**
+     * bundle name in hap
+     *
+     * @since 9
+     */
+    bundleName: string;
+    /**
+     * module name in hap
+     *
+     * @since 9
+     */
+    moduleName: string;
+    /**
+     * resource id in hap
+     *
+     * @since 9
+     */
+    id: number;
 }

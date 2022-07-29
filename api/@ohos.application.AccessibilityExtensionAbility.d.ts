@@ -12,11 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import accessibility from './@ohos.accessibility'
-import AccessibilityExtensionContext, { AccessibilityElement } from './application/AccessibilityExtensionContext'
-import inputEventClient from './@ohos.multimodalInput.inputEventClient'
-
+import accessibility from './@ohos.accessibility';
+import AccessibilityExtensionContext, { AccessibilityElement } from './application/AccessibilityExtensionContext';
 /**
  * class of accessibility extension ability.
  *
@@ -28,50 +25,38 @@ export default class AccessibilityExtensionAbility {
      * Indicates accessibility extension ability context.
      */
     context: AccessibilityExtensionContext;
-
     /**
      * Called when extension ability is connected.
      */
     onConnect(): void;
-
     /**
      * Called when extension ability is disconnected.
      */
     onDisconnect(): void;
-
     /**
      * Called when an accessibility event occurs, such as when the user touches the application interface.
      * @param event Indicates an accessibility event.
      */
     onAccessibilityEvent(event: AccessibilityEvent): void;
-
-    /**
-     * Called when a physical key is pressed, such as when the user presses the volume button .
-     * @param keyEvent Indicates the physical key event.
-     */
-    onKeyEvent(keyEvent: inputEventClient.KeyEvent): boolean;
 }
-
 /**
  * Indicates the accessibility event.
- * 
+ *
  * It provides the event type and the target element of the event if any.
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 declare interface AccessibilityEvent {
-    eventType: accessibility.EventType | accessibility.WindowUpdateType |
-        TouchGuideType | GestureType | PageUpdateType;
+    eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
     target?: AccessibilityElement;
     timeStamp?: number;
 }
-
 /**
  * Indicates the path of the gesture.
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
- declare interface GesturePath {
+declare interface GesturePath {
     /**
      * Indicates the position of the points that make up the gesture.
      */
@@ -81,7 +66,6 @@ declare interface AccessibilityEvent {
      */
     durationTime: number;
 }
-
 /**
  * Indicates the point of the gesture.
  * @since 9
@@ -97,24 +81,18 @@ declare interface GesturePoint {
      */
     positionY: number;
 }
-
 /**
  * Indicates the gusture type.
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
-type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
-    'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
-    'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-    'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
-
+type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' | 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' | 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
 /**
  * Indicates the page update type.
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
-
 /**
  * Indicates the type of touch event during touch browsing.
  * @since 9

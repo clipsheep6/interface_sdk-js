@@ -12,33 +12,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import Want from '../@ohos.application.Want';
-
- /**
- * @since 6
- * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
- */
+/**
+* @since 6
+* @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+* @permission N/A
+*/
 export interface StartAbilityParameter {
-  /**
-   * Indicates the Want containing information about the target ability to start.
-   *
-   * @default -
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   */
-  want: Want;
-
-  /**
-   * Indicates the special start setting used in starting ability.
-   *
-   * @default -
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
-   */
-  abilityStartSetting?: {[key: string]: any};
-
+    /**
+     * Indicates the Want containing information about the target ability to start.
+     *
+     * @default -
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
+     */
+    want: Want;
+    /**
+     * Indicates the special start setting used in starting ability.
+     *
+     * @default -
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
+     */
+    abilityStartSetting?: {
+        [key: string]: any;
+    };
 }

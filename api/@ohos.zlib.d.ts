@@ -13,96 +13,88 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-
 declare namespace zlib {
-/**
- * @name ErrorCode
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- * @import NA
- * @permission NA
- */
-  export enum ErrorCode {
-    ERROR_CODE_OK = 0,
-    ERROR_CODE_ERRNO = -1
-  }
-
-/**
- * @name CompressLevel
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- * @import NA
- * @permission NA
- */
-  export enum CompressLevel {
-    COMPRESS_LEVEL_NO_COMPRESSION = 0,
-    COMPRESS_LEVEL_BEST_SPEED = 1,
-    COMPRESS_LEVEL_BEST_COMPRESSION = 9,
-    COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
-  }
-
-/**
- * @name CompressStrategy
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- * @import NA
- * @permission NA
- */
-  export enum CompressStrategy {
-    COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
-    COMPRESS_STRATEGY_FILTERED = 1,
-    COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
-    COMPRESS_STRATEGY_RLE = 3,
-    COMPRESS_STRATEGY_FIXED = 4
-  }
-
-/**
- * @name MemLevel
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- * @import NA
- * @permission NA
- */
-  export enum MemLevel {
-    MEM_LEVEL_MIN = 1,
-    MEM_LEVEL_MAX = 9,
-    MEM_LEVEL_DEFAULT = 8
-  }
-
-/**
- * @name Options
- * @since 7
- * @syscap SystemCapability.BundleManager.Zlib
- * @import NA
- * @permission NA
- */
-  interface Options {
-    level?: CompressLevel;
-    memLevel?: MemLevel;
-    strategy?: CompressStrategy;
-  }
-
-  /**
-   * Compress the specified file.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @param inFile Indicates the path of the file to be compressed.
-   * @param outFile Indicates the path of the output compressed file.
-   * @return Returns error code.
-   */
-  function zipFile(inFile:string, outFile:string, options: Options): Promise<void>;
-
-  /**
-   * Decompress the specified file.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @param inFile Indicates the path of the file to be decompressed.
-   * @param outFile Indicates the path of the decompressed file.
-   * @return Returns error code.
-   */
-  function unzipFile(inFile:string, outFile:string, options: Options): Promise<void>;
+    /**
+     * @name ErrorCode
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @import NA
+     * @permission NA
+     */
+    export enum ErrorCode {
+        ERROR_CODE_OK = 0,
+        ERROR_CODE_ERRNO = -1
+    }
+    /**
+     * @name CompressLevel
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @import NA
+     * @permission NA
+     */
+    export enum CompressLevel {
+        COMPRESS_LEVEL_NO_COMPRESSION = 0,
+        COMPRESS_LEVEL_BEST_SPEED = 1,
+        COMPRESS_LEVEL_BEST_COMPRESSION = 9,
+        COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
+    }
+    /**
+     * @name CompressStrategy
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @import NA
+     * @permission NA
+     */
+    export enum CompressStrategy {
+        COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
+        COMPRESS_STRATEGY_FILTERED = 1,
+        COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
+        COMPRESS_STRATEGY_RLE = 3,
+        COMPRESS_STRATEGY_FIXED = 4
+    }
+    /**
+     * @name MemLevel
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @import NA
+     * @permission NA
+     */
+    export enum MemLevel {
+        MEM_LEVEL_MIN = 1,
+        MEM_LEVEL_MAX = 9,
+        MEM_LEVEL_DEFAULT = 8
+    }
+    /**
+     * @name Options
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @import NA
+     * @permission NA
+     */
+    interface Options {
+        level?: CompressLevel;
+        memLevel?: MemLevel;
+        strategy?: CompressStrategy;
+    }
+    /**
+     * Compress the specified file.
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @param inFile Indicates the path of the file to be compressed.
+     * @param outFile Indicates the path of the output compressed file.
+     * @return Returns error code.
+     */
+    function zipFile(inFile: string, outFile: string, options: Options): Promise<void>;
+    /**
+     * Decompress the specified file.
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @param inFile Indicates the path of the file to be decompressed.
+     * @param outFile Indicates the path of the decompressed file.
+     * @return Returns error code.
+     */
+    function unzipFile(inFile: string, outFile: string, options: Options): Promise<void>;
 }
 export default zlib;

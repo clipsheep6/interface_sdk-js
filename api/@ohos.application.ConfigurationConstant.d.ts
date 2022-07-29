@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The definition of ConfigurationConstant.
  *
@@ -20,7 +19,7 @@
  * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
- declare namespace ConfigurationConstant {
+declare namespace ConfigurationConstant {
     /**
      * @name ColorMode
      * @since 8
@@ -30,9 +29,8 @@
     export enum ColorMode {
         COLOR_MODE_NOT_SET = -1,
         COLOR_MODE_DARK = 0,
-        COLOR_MODE_LIGHT = 1,
+        COLOR_MODE_LIGHT = 1
     }
-
     /**
      * @name Direction
      * @since 9
@@ -42,9 +40,8 @@
     export enum Direction {
         DIRECTION_NOT_SET = -1,
         DIRECTION_VERTICAL = 0,
-        DIRECTION_HORIZONTAL = 1,
+        DIRECTION_HORIZONTAL = 1
     }
-
     /**
      * @name ScreenDensity
      * @since 9
@@ -58,8 +55,7 @@
         SCREEN_DENSITY_LDPI = 240,
         SCREEN_DENSITY_XLDPI = 320,
         SCREEN_DENSITY_XXLDPI = 480,
-        SCREEN_DENSITY_XXXLDPI = 640,
+        SCREEN_DENSITY_XXXLDPI = 640
     }
 }
-
-export default ConfigurationConstant
+export default ConfigurationConstant;

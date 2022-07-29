@@ -13,14 +13,6 @@
  * limitations under the License.
  */
 
-import * as _AbilityContext  from './application/AbilityContext';
-import * as _AbilityStageContext  from './application/AbilityStageContext';
-import * as _ApplicationContext  from './application/ApplicationContext';
-import * as _BaseContext  from './application/BaseContext';
-import * as _Context  from './application/Context';
-import * as _ExtensionContext  from './application/ExtensionContext';
-import * as _FormExtensionContext  from './application/FormExtensionContext';
-
 /**
  * The context of an application. It allows access to application-specific resources.
  *
@@ -29,7 +21,6 @@ import * as _FormExtensionContext  from './application/FormExtensionContext';
  * @StageModelOnly
  */
 declare namespace context {
-
     /**
      * The context of an ability. It allows access to ability-specific resources.
      *
@@ -37,8 +28,7 @@ declare namespace context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    export type AbilityContext = _AbilityContext.default
-
+    export type AbilityContext = _AbilityContext.default;
     /**
      * The context of an abilityStage. It allows access to abilityStage-specific resources.
      *
@@ -46,8 +36,7 @@ declare namespace context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    export type AbilityStageContext = _AbilityStageContext.default
-
+    export type AbilityStageContext = _AbilityStageContext.default;
     /**
      * The context of an application. It allows access to application-specific resources.
      *
@@ -55,8 +44,7 @@ declare namespace context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    export type ApplicationContext = _ApplicationContext.default
-
+    export type ApplicationContext = _ApplicationContext.default;
     /**
      * The base context of 'app.Context' for FA Mode or
      * 'application.Context' for Stage Mode.
@@ -64,8 +52,7 @@ declare namespace context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    export type BaseContext = _BaseContext.default
-
+    export type BaseContext = _BaseContext.default;
     /**
      * The base context of an ability or an application. It allows access to
      * application-specific resources.
@@ -74,8 +61,7 @@ declare namespace context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    export type Context = _Context.default
-
+    export type Context = _Context.default;
     /**
      * The context of an extension. It allows access to extension-specific resources.
      *
@@ -83,8 +69,7 @@ declare namespace context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    export type ExtensionContext = _ExtensionContext.default
-
+    export type ExtensionContext = _ExtensionContext.default;
     /**
      * The context of form extension. It allows access to
      * formExtension-specific resources.
@@ -93,7 +78,6 @@ declare namespace context {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      */
-    export type FormExtensionContext = _FormExtensionContext.default
+    export type FormExtensionContext = _FormExtensionContext.default;
 }
-
 export default context;

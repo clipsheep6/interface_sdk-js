@@ -12,12 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {AsyncCallback, Callback} from './basic';
+import { AsyncCallback, Callback } from './basic';
 import { ResultSet as _ResultSet } from './data/rdb/resultSet';
 import Context from "./application/BaseContext";
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
-
 /**
  * Provides methods for rdbStore create and delete.
  *
@@ -42,7 +40,6 @@ declare namespace rdb {
      */
     function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
     function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
-
     /**
      * Deletes the database with a specified name.
      *
@@ -54,7 +51,6 @@ declare namespace rdb {
      */
     function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
     function deleteRdbStore(context: Context, name: string): Promise<void>;
-
     /**
      * Indicates the database synchronization mode.
      *
@@ -69,16 +65,14 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         SYNC_MODE_PUSH = 0,
-
         /**
          * Indicates the data is pulled from remote device to local device.
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        SYNC_MODE_PULL = 1,
+        SYNC_MODE_PULL = 1
     }
-
     /**
      * Describes the subscription type.
      *
@@ -92,9 +86,8 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        SUBSCRIBE_TYPE_REMOTE = 0,
+        SUBSCRIBE_TYPE_REMOTE = 0
     }
-
     /**
      * Provides methods for managing the relational database (RDB).
      *
@@ -116,7 +109,6 @@ declare namespace rdb {
          */
         insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
         insert(table: string, values: ValuesBucket): Promise<number>;
-
         /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
          *
@@ -128,7 +120,6 @@ declare namespace rdb {
          */
         update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
-
         /**
          * Updates data in the database based on a a specified instance object of DataSharePredicates.
          *
@@ -141,7 +132,6 @@ declare namespace rdb {
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
- 
         /**
          * Deletes data from the database based on a specified instance object of rdbPredicates.
          *
@@ -152,7 +142,6 @@ declare namespace rdb {
          */
         delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
         delete(predicates: RdbPredicates): Promise<number>;
-
         /**
          * Deletes data from the database based on a specified instance object of DataSharePredicates.
          *
@@ -164,7 +153,6 @@ declare namespace rdb {
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
-
         /**
          * Queries data in the database based on specified conditions.
          *
@@ -176,7 +164,6 @@ declare namespace rdb {
          */
         query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
-
         /**
          * Queries data in the database based on specified conditions.
          *
@@ -189,7 +176,6 @@ declare namespace rdb {
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
-
         /**
          * Queries data in the database based on SQL statement.
          *
@@ -201,7 +187,6 @@ declare namespace rdb {
          */
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
         querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
-
         /**
          * Executes an SQL statement that contains specified parameters but returns no value.
          *
@@ -212,31 +197,27 @@ declare namespace rdb {
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
         executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
-
         /**
          * beginTransaction before excute your sql
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        beginTransaction():void;
-
+        beginTransaction(): void;
         /**
          * commit the the sql you have excuted.
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        commit():void;
-
+        commit(): void;
         /**
          * roll back the sql you have already excuted
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        rollBack():void;
-
+        rollBack(): void;
         /**
          * Backs up a database in a specified name.
          *
@@ -244,9 +225,8 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param destName Indicates the name that saves the database backup.
          */
-        backup(destName:string, callback: AsyncCallback<void>):void;
-        backup(destName:string): Promise<void>;
-
+        backup(destName: string, callback: AsyncCallback<void>): void;
+        backup(destName: string): Promise<void>;
         /**
          * Restores a database from a specified database file.
          *
@@ -254,9 +234,8 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param srcName Indicates the name that saves the database file.
          */
-        restore(srcName:string, callback: AsyncCallback<void>):void;
-        restore(srcName:string): Promise<void>;
-
+        restore(srcName: string, callback: AsyncCallback<void>): void;
+        restore(srcName: string): Promise<void>;
         /**
          * Set table to be distributed table.
          *
@@ -267,7 +246,6 @@ declare namespace rdb {
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
         setDistributedTables(tables: Array<string>): Promise<void>;
-
         /**
          * Obtain distributed table name of specified remote device according to local table name.
          * When query remote device database, distributed table name is needed.
@@ -281,7 +259,6 @@ declare namespace rdb {
          */
         obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
         obtainDistributedTableName(device: string, table: string): Promise<string>;
-
         /**
          * Sync data between devices
          *
@@ -292,9 +269,14 @@ declare namespace rdb {
          * @param callback Indicates the callback used to send the synchronization result to the caller.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
-        sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
-        sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
-
+        sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[
+            string,
+            number
+        ]>>): void;
+        sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[
+            string,
+            number
+        ]>>;
         /**
          * Registers an observer for the database. When data in the distributed database changes,
          * the callback will be invoked.
@@ -306,7 +288,6 @@ declare namespace rdb {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
         /**
          * Remove specified observer of specified type from the database.
          *
@@ -316,9 +297,8 @@ declare namespace rdb {
          * @param observer Indicates the data change observer already registered.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
-        off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+        off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
     }
-
     /**
      * Indicates possible value types
      *
@@ -327,7 +307,6 @@ declare namespace rdb {
      * @import import data_rdb from '@ohos.data.rdb';
      */
     type ValueType = number | string | boolean;
-
     /**
      * Values in buckets are stored in key-value pairs
      *
@@ -337,8 +316,7 @@ declare namespace rdb {
      */
     type ValuesBucket = {
         [key: string]: ValueType | Uint8Array | null;
-    }
-
+    };
     /**
      * Manages relational database configurations.
      *
@@ -349,7 +327,6 @@ declare namespace rdb {
     interface StoreConfig {
         name: string;
     }
-
     /**
      * Manages relational database configurations.
      *
@@ -365,8 +342,7 @@ declare namespace rdb {
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        constructor(name: string)
-
+        constructor(name: string);
         /**
          * Specify remote devices when syncing distributed database.
          *
@@ -377,7 +353,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates self.
          */
         inDevices(devices: Array<string>): RdbPredicates;
-
         /**
          * Specify all remote devices which connect to local device when syncing distributed database.
          *
@@ -387,7 +362,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates self.
          */
         inAllDevices(): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the field whose data type is ValueType and value is equal
          * to a specified value.
@@ -400,7 +374,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         equalTo(field: string, value: ValueType): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the field whose data type is ValueType and value is unequal to
          * a specified value.
@@ -413,7 +386,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         notEqualTo(field: string, value: ValueType): RdbPredicates;
-
         /**
          * Adds a left parenthesis to the RdbPredicates.
          *
@@ -423,7 +395,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates with the left parenthesis.
          */
         beginWrap(): RdbPredicates;
-
         /**
          * Adds a right parenthesis to the RdbPredicates.
          *
@@ -434,7 +405,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates with the right parenthesis.
          */
         endWrap(): RdbPredicates;
-
         /**
          * Adds an or condition to the RdbPredicates.
          *
@@ -444,7 +414,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates with the or condition.
          */
         or(): RdbPredicates;
-
         /**
          * Adds an and condition to the RdbPredicates.
          *
@@ -454,7 +423,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates with the and condition.
          */
         and(): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the field whose data type is string and value
          * contains a specified value.
@@ -467,7 +435,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         contains(field: string, value: string): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the field whose data type is string and value starts
          * with a specified string.
@@ -480,7 +447,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         beginsWith(field: string, value: string): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the field whose data type is string and value
          * ends with a specified string.
@@ -493,7 +459,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         endsWith(field: string, value: string): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the fields whose value is null.
          *
@@ -504,7 +469,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         isNull(field: string): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the specified fields whose value is not null.
          *
@@ -515,7 +479,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         isNotNull(field: string): RdbPredicates;
-
         /**
          * Configures the RdbPredicates to match the fields whose data type is string and value is
          * similar to a specified string.
@@ -529,7 +492,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates that match the specified field.
          */
         like(field: string, value: string): RdbPredicates;
-
         /**
          * Configures RdbPredicates to match the specified field whose data type is string and the value contains
          * a wildcard.
@@ -542,7 +504,6 @@ declare namespace rdb {
          * @return Returns the SQL statement with the specified RdbPredicates.
          */
         glob(field: string, value: string): RdbPredicates;
-
         /**
          * Restricts the value of the field to the range between low value and high value.
          *
@@ -554,7 +515,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         between(field: string, low: ValueType, high: ValueType): RdbPredicates;
-
         /**
          * Configures RdbPredicates to match the specified field whose data type is int and value is
          * out of a given range.
@@ -567,7 +527,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
-
         /**
          * Restricts the value of the field to be greater than the specified value.
          *
@@ -578,7 +537,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         greaterThan(field: string, value: ValueType): RdbPredicates;
-
         /**
          * Restricts the value of the field to be smaller than the specified value.
          *
@@ -589,7 +547,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         lessThan(field: string, value: ValueType): RdbPredicates;
-
         /**
          * Restricts the value of the field to be greater than or equal to the specified value.
          *
@@ -600,7 +557,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
-
         /**
          * Restricts the value of the field to be smaller than or equal to the specified value.
          *
@@ -611,7 +567,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
-
         /**
          * Restricts the ascending order of the return list. When there are several orders,
          * the one close to the head has the highest priority.
@@ -622,7 +577,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         orderByAsc(field: string): RdbPredicates;
-
         /**
          * Restricts the descending order of the return list. When there are several orders,
          * the one close to the head has the highest priority.
@@ -633,7 +587,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         orderByDesc(field: string): RdbPredicates;
-
         /**
          * Restricts each row of the query result to be unique.
          *
@@ -642,7 +595,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         distinct(): RdbPredicates;
-
         /**
          * Restricts the max number of return records.
          *
@@ -652,7 +604,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified RdbPredicates.
          */
         limitAs(value: number): RdbPredicates;
-
         /**
          * Configures RdbPredicates to specify the start position of the returned result.
          *
@@ -663,7 +614,6 @@ declare namespace rdb {
          * @return Returns the SQL query statement with the specified AbsPredicates.
          */
         offsetAs(rowOffset: number): RdbPredicates;
-
         /**
          * Configures RdbPredicates to group query results by specified columns.
          *
@@ -673,7 +623,6 @@ declare namespace rdb {
          * @return Returns the RdbPredicates with the specified columns by which query results are grouped.
          */
         groupBy(fields: Array<string>): RdbPredicates;
-
         /**
          * Configures RdbPredicates to specify the index column.
          *
@@ -684,7 +633,6 @@ declare namespace rdb {
          * @return Returns RdbPredicates with the specified index column.
          */
         indexedBy(field: string): RdbPredicates;
-
         /**
          * Configures RdbPredicates to match the specified field whose data type is ValueType array and values
          * are within a given range.
@@ -696,7 +644,6 @@ declare namespace rdb {
          * @return Returns RdbPredicates that matches the specified field.
          */
         in(field: string, value: Array<ValueType>): RdbPredicates;
-
         /**
          * Configures RdbPredicates to match the specified field whose data type is ValueType array and values
          * are out of a given range.
@@ -709,8 +656,6 @@ declare namespace rdb {
          */
         notIn(field: string, value: Array<ValueType>): RdbPredicates;
     }
-
-    export type ResultSet = _ResultSet
+    export type ResultSet = _ResultSet;
 }
-
 export default rdb;

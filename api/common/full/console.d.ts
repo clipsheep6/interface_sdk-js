@@ -12,39 +12,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
- /**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
+/**
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @since 3
+*/
 export declare class console {
-  /**
-   * Prints "debug" logs.
-   * @param message Text to print.
-   */
-  static debug(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "log" logs.
-   * @param message Text to print.
-   */
-  static log(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "info" logs.
-   * @param message Text to print.
-   */
-  static info(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "warn" logs.
-   * @param message Text to print.
-   */
-  static warn(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "error" logs.
-   * @param message Text to print.
-   */
-  static error(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "debug" logs.
+     * @param message Text to print.
+     */
+    static debug(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "log" logs.
+     * @param message Text to print.
+     */
+    static log(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "info" logs.
+     * @param message Text to print.
+     */
+    static info(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "warn" logs.
+     * @param message Text to print.
+     */
+    static warn(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "error" logs.
+     * @param message Text to print.
+     */
+    static error(message: string, ...arguments: any[]): void;
 }

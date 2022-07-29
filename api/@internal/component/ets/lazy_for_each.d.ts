@@ -12,115 +12,96 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Data Change Listener.
  * @since 7
  */
 declare interface DataChangeListener {
-  /**
-   * Data ready.
-   * @since 7
-   */
-  onDataReloaded(): void;
-
-  /**
-   * Data added.
-   * @since 7
-   * @deprecated since 8
-   */
-  onDataAdded(index: number): void;
-
-  /**
-   * Data added.
-   * @since 8
-   */
-  onDataAdd(index: number): void;
-
-  /**
-   * Data moved.
-   * @since 7
-   * @deprecated since 8
-   */
-  onDataMoved(from: number, to: number): void;
-
-  /**
-   * Data moved.
-   * @since 8
-   */
-  onDataMove(from: number, to: number): void;
-
-  /**
-   * Data deleted.
-   * @since 7
-   * @deprecated since 8
-   */
-  onDataDeleted(index: number): void;
-
-  /**
-   * Data deleted.
-   * @since 8
-   */
-  onDataDelete(index: number): void;
-
-  /**
-   * Call when has data change.
-   * @since 7
-   * @deprecated since 8
-   */
-  onDataChanged(index: number): void;
-
-  /**
-   * Call when has data change.
-   * @since 8
-   */
-  onDataChange(index: number): void;
+    /**
+     * Data ready.
+     * @since 7
+     */
+    onDataReloaded(): void;
+    /**
+     * Data added.
+     * @since 7
+     * @deprecated since 8
+     */
+    onDataAdded(index: number): void;
+    /**
+     * Data added.
+     * @since 8
+     */
+    onDataAdd(index: number): void;
+    /**
+     * Data moved.
+     * @since 7
+     * @deprecated since 8
+     */
+    onDataMoved(from: number, to: number): void;
+    /**
+     * Data moved.
+     * @since 8
+     */
+    onDataMove(from: number, to: number): void;
+    /**
+     * Data deleted.
+     * @since 7
+     * @deprecated since 8
+     */
+    onDataDeleted(index: number): void;
+    /**
+     * Data deleted.
+     * @since 8
+     */
+    onDataDelete(index: number): void;
+    /**
+     * Call when has data change.
+     * @since 7
+     * @deprecated since 8
+     */
+    onDataChanged(index: number): void;
+    /**
+     * Call when has data change.
+     * @since 8
+     */
+    onDataChange(index: number): void;
 }
-
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
  * @since 7
  */
 declare interface IDataSource {
-  /**
-   * Total data count.
-   * @since 7
-   */
-  totalCount(): number;
-
-  /**
-   * Return the data of index.
-   * @since 7
-   */
-  getData(index: number): any;
-
-  /**
-   * Register data change listener.
-   * @since 7
-   */
-  registerDataChangeListener(listener: DataChangeListener): void;
-
-  /**
-   * Unregister data change listener.
-   * @since 7
-   */
-  unregisterDataChangeListener(listener: DataChangeListener): void;
+    /**
+     * Total data count.
+     * @since 7
+     */
+    totalCount(): number;
+    /**
+     * Return the data of index.
+     * @since 7
+     */
+    getData(index: number): any;
+    /**
+     * Register data change listener.
+     * @since 7
+     */
+    registerDataChangeListener(listener: DataChangeListener): void;
+    /**
+     * Unregister data change listener.
+     * @since 7
+     */
+    unregisterDataChangeListener(listener: DataChangeListener): void;
 }
-
 /**
  * Lazy loading.
  * @since 7
  */
 interface LazyForEachInterface {
-  /**
-   * Enter the value to obtain the LazyForEach.
-   * @since 7
-   */
-  (
-    dataSource: IDataSource,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
-  ): LazyForEachInterface;
+    /**
+     * Enter the value to obtain the LazyForEach.
+     * @since 7
+     */
+    (dataSource: IDataSource, itemGenerator: (item: any, index?: number) => void, keyGenerator?: (item: any, index?: number) => string): LazyForEachInterface;
 }
-
 declare const LazyForEach: LazyForEachInterface;
