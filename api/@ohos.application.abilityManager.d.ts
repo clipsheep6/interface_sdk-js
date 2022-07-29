@@ -22,6 +22,7 @@ import { ElementName }  from './bundle/elementName';
 /**
  * The class of an ability manager.
  *
+ * @systemapi
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A

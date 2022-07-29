@@ -564,6 +564,7 @@ declare namespace osAccount {
 
     /**
      * Provides the abilities for user authentication.
+     * @systemapi
      * @name UserAuth
      * @since 8
      * @syscap SystemCapability.Account.OsAccount
@@ -667,6 +668,7 @@ declare namespace osAccount {
     /**
      * Provides the abilities for Pin code authentication.
      *
+     * @systemapi
      * @name PINAuth
      * @since 8
      * @syscap SystemCapability.Account.OsAccount
@@ -703,6 +705,7 @@ declare namespace osAccount {
     /**
      * Provides the abilities for managing user identity.
      *
+     * @systemapi
      * @name UserIdentityManager
      * @since 8
      * @syscap SystemCapability.Account.OsAccount

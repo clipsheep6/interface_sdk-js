@@ -16,6 +16,7 @@
 /**
  * This module provides the capability to manage face auth.
  *
+ * @systemapi
  * @since 9
  */
 declare namespace faceAuth {

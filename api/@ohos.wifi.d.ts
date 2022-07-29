@@ -1155,7 +1155,10 @@ declare namespace wifi {
         /** Center frequency */
         centerFrequency1: number;
 
-        /** Information elements */
+        /**
+         * Information elements
+         * @systemapi
+         */
         infoElems: Array<WifiInfoElem>;
 
         /** Time stamp */

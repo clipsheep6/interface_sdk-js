@@ -187,6 +187,11 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    */
   onFrame(event: (value: number) => void): AnimatorAttribute;
 }
-
+/**
+ * @systemapi
+ */
 declare const Animator: AnimatorInterface;
+/**
+ * @systemapi
+ */
 declare const AnimatorInstance: AnimatorAttribute;

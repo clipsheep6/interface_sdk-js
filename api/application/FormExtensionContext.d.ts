@@ -22,6 +22,7 @@ import Want from '../@ohos.application.Want';
  * The context of form extension. It allows access to
  * formExtension-specific resources.
  *
+ * @systemapi
  * @since 9
  * @syscap SystemCapability.Ability.Form
  * @permission N/A

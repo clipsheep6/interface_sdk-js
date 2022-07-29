@@ -22,7 +22,9 @@
 */
 
 declare namespace process {
-
+    /**
+     * @systemapi
+     */
     export interface ChildProcess {
         /**
         * return pid is the pid of the current process

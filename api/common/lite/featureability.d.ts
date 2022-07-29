@@ -115,6 +115,7 @@ export interface SubscribeMessageOptions {
 }
 
 /**
+ * @systemapi
  * @since 5
  * @deprecated since 8
  */

@@ -68,6 +68,11 @@ interface RemoteWindowInterface {
  * @since 9
  */
 declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {}
-
+/**
+ * @systemapi
+ */
 declare const RemoteWindow: RemoteWindowInterface;
+/**
+ * @systemapi
+ */
 declare const RemoteWindowInstance: RemoteWindowAttribute;

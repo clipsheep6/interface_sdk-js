@@ -99,6 +99,7 @@
       */
     readonly disableMessage: string;
     /**
+     * @systemapi
       * @default Indicates the wants of the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework

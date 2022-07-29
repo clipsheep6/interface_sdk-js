@@ -25,6 +25,7 @@ declare class AppStorage {
   static Link(propName: string): any;
 
   /**
+   * @systemapi
    * Called when a hyperlink is set.
    * @since 7
    */
@@ -37,6 +38,7 @@ declare class AppStorage {
   static Prop(propName: string): any;
 
   /**
+   * @systemapi
    * Called when dynamic properties are set.
    * @since 7
    */
