@@ -431,6 +431,19 @@ declare namespace window {
   }
 
   /**
+   * frame statistics of window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  interface FrameStatistics {
+    /**
+     * frame rate of window
+     */
+    frameRate: number;
+  }
+
+  /**
    * Type of allowing the specified of color space.
    * @since 8
    */
@@ -1120,6 +1133,22 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * get the frame statistics of window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    getFrameStatistics(callback: AsyncCallback<FrameStatistics>): void;
+
+    /**
+     * get the frame statistics of window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    getFrameStatistics(): Promise<FrameStatistics>;
     
     /**
      * set the flag of the window is forbidden to move in split screen mode
