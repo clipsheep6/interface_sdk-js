@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AsyncCallback , Callback} from './basic';
-
+import { AsyncCallback } from './basic';
 /**
  * Provides methods for managing bundle usage statistics,
  * including the methods for querying bundle usage information and state data.
@@ -27,7 +25,6 @@ import { AsyncCallback , Callback} from './basic';
  * @since 7
  */
 declare namespace bundleState {
-
     /**
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -75,7 +72,6 @@ declare namespace bundleState {
          * in milliseconds.
          */
         infosEndTime?: number;
-
         /**
          * Merges a specified {@link BundleActiveInfo} object with this {@link BundleActiveInfo} object.
          * The bundle name of both objects must be the same.
@@ -87,7 +83,6 @@ declare namespace bundleState {
          */
         merge(toMerge: BundleStateInfo): void;
     }
-
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -114,7 +109,6 @@ declare namespace bundleState {
          */
         count: number;
     }
-
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -173,34 +167,11 @@ declare namespace bundleState {
          */
         formRecords: Array<BundleActiveFormInfo>;
     }
-
-    /**
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @systemapi Hide this for inner system use.
-     */
-    interface BundleActiveEventState {
-        /**
-         * the bundle name or system event name.
-         */
-        name: string;
-
-        /**
-         * the event id.
-         */
-        eventId: number;
-
-        /**
-         * the the event occurrence number.
-         */
-        count: number;
-    }
-
     /**
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
-     interface BundleActiveState {
+    interface BundleActiveState {
         /**
          * the usage priority group of the application.
          */
@@ -252,7 +223,6 @@ declare namespace bundleState {
          */
         bundleName: string;
     }
-
     /**
      * Checks whether the application with a specified bundle name is in the idle state.
      *
@@ -265,7 +235,6 @@ declare namespace bundleState {
      */
     function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
     function isIdleState(bundleName: string): Promise<boolean>;
-
     /**
      * Queries the usage priority group of the calling application.
      *
@@ -278,31 +247,13 @@ declare namespace bundleState {
      */
     function queryAppUsagePriorityGroup(callback: AsyncCallback<number>): void;
     function queryAppUsagePriorityGroup(): Promise<number>;
-
     /**
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
-     interface BundleActiveInfoResponse {
+    interface BundleActiveInfoResponse {
         [key: string]: BundleStateInfo;
     }
-
-    /**
-     * Queries usage information about each bundle within a specified period.
-     *
-     * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.
-     */
-    function queryBundleStateInfos(begin: number, end: number, callback: AsyncCallback<BundleActiveInfoResponse>): void;
-    function queryBundleStateInfos(begin: number, end: number): Promise<BundleActiveInfoResponse>;
-
     /**
      * Declares interval type.
      *
@@ -314,59 +265,23 @@ declare namespace bundleState {
          * Indicates the interval type that will determine the optimal interval based on the start and end time.
          */
         BY_OPTIMIZED = 0,
-
         /**
          * Indicates the daily interval.
          */
         BY_DAILY = 1,
-
         /**
          * Indicates the weekly interval.
          */
         BY_WEEKLY = 2,
-
         /**
          * Indicates the monthly interval.
          */
         BY_MONTHLY = 3,
-
         /**
          * Indicates the annually interval.
          */
         BY_ANNUALLY = 4
     }
-
-    /**
-     * Queries usage information about each bundle within a specified period at a specified interval.
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param byInterval Indicates the interval at which the usage statistics are queried.
-     * The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-     * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the list of {@link BundleStateInfo} objects containing the usage information about each bundle.
-     */
-    function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStateInfo>>): void;
-    function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStateInfo>>;
-
-    /**
-     * Queries state data of all bundles within a specified period identified by the start and end time.
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the list of {@link BundleActiveState} objects containing the state data of all bundles.
-     */
-    function queryBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
-    function queryBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
-
     /**
      * Queries state data of the current bundle within a specified period.
      *
@@ -378,141 +293,37 @@ declare namespace bundleState {
      */
     function queryCurrentBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
     function queryCurrentBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
-
     /**
-     * Queries recently module usage records.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param maxNum Indicates max record number in result, max value is 1000, default value is 1000.
-     * @return Returns the {@link BundleActiveModuleInfo} object Array containing the usage data of the modules.
-     */
-    function getRecentlyUsedModules(maxNum?: number, callback: AsyncCallback<Array<BundleActiveModuleInfo>>): void;
-    function getRecentlyUsedModules(maxNum?: number): Promise<Array<BundleActiveModuleInfo>>;
-
-    /**
-     * Queries the usage priority group of the calling application.
-     *
-     * <p>The priority defined in a priority group restricts the resource usage of an application,
-     * for example, restricting the running of background tasks. </p>
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param bundleName, name of the application.
-     * @return Returns the usage priority group of the calling application.
-     */
-     function queryAppUsagePriorityGroup(bundleName? : string, callback: AsyncCallback<number>): void;
-     function queryAppUsagePriorityGroup(bundleName? : string): Promise<number>;
-
-     /**
-     * Declares group type.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-     */
-      export enum GroupType {
+    * Declares group type.
+    *
+    * @since 9
+    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+    */
+    export enum GroupType {
         /**
          * Indicates the alive group.
          */
         ACTIVE_GROUP_ALIVE = 10,
-
         /**
          * Indicates the daily group.
          */
         ACTIVE_GROUP_DAILY = 20,
-
         /**
          * Indicates the fixed group.
          */
         ACTIVE_GROUP_FIXED = 30,
-
         /**
          * Indicates the rare group.
          */
         ACTIVE_GROUP_RARE = 40,
-
         /**
          * Indicates the limit group.
          */
-         ACTIVE_GROUP_LIMIT = 50,
-
-         /**
-         * Indicates the never group.
-         */
-         ACTIVE_GROUP_NEVER = 60
+        ACTIVE_GROUP_LIMIT = 50,
+        /**
+        * Indicates the never group.
+        */
+        ACTIVE_GROUP_NEVER = 60
     }
-
-    /**
-     * set bundle group by bundleName and number.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param bundleName, name of the application.
-     * @param newGroup,the group of the application whose name is bundleName.
-     * @return Returns the result of setBundleGroup, true of false.
-     */
-    function setBundleGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
-    function setBundleGroup(bundleName: string, newGroup: GroupType): Promise<void>;
-
-    /**
-     * register callback to service.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param Callback<BundleActiveGroupCallbackInfo>, callback when application group change,return the BundleActiveGroupCallbackInfo.
-     * @return Returns BundleActiveGroupCallbackInfo when the group of bundle changed. the result of AsyncCallback is true or false.
-     */
-    function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>, callback: AsyncCallback<void>): void;
-    function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>): Promise<void>;
-
-    /**
-     * unRegister callback from service.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @return Returns the result of unRegisterGroupCallBack, true of false.
-     */
-    function unRegisterGroupCallBack(callback: AsyncCallback<void>): void;
-    function unRegisterGroupCallBack(): Promise<void>;
-
-    /*
-     * Queries system event states data within a specified period identified by the start and end time.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
-     */
-    function queryBundleActiveEventStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
-    function queryBundleActiveEventStates(begin: number, end: number): Promise<Array<BundleActiveEventState>>;
-
-    /**
-     * Queries app notification number within a specified period identified by the start and end time.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
-     */
-    function queryAppNotificationNumber(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
-    function queryAppNotificationNumber(begin: number, end: number): Promise<Array<BundleActiveEventState>>;
 }
-
 export default bundleState;
-

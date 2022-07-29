@@ -12,8 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 /**
  * Store unit testing-related parameters, including test case names, and test runner name.
  *
@@ -30,15 +28,15 @@ export interface AbilityDelegatorArgs {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     bundleName: string;
-
     /**
      * the parameters used for unit testing.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    parameters: {[key: string]: string};
-
+    parameters: {
+        [key: string]: string;
+    };
     /**
      * the class names of all test cases.
      *
@@ -46,7 +44,6 @@ export interface AbilityDelegatorArgs {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     testCaseNames: string;
-
     /**
      * the class name of the test runner used to execute test cases.
      *
@@ -55,5 +52,4 @@ export interface AbilityDelegatorArgs {
      */
     testRunnerClassName: string;
 }
-
 export default AbilityDelegatorArgs;

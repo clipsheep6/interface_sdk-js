@@ -14,7 +14,6 @@
 */
 import { AsyncCallback, Callback } from './basic';
 import Context from "./application/Context";
-
 /**
  * Provides interfaces to obtain and modify preferences data.
  *
@@ -38,7 +37,6 @@ declare namespace preferences {
      */
     function getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
     function getPreferences(context: Context, name: string): Promise<Preferences>;
-
     /**
      * Deletes a {@link Preferences} instance matching a specified preferences file name
      * from the cache which is performed by removePreferencesFromCache and deletes the
@@ -55,7 +53,6 @@ declare namespace preferences {
      */
     function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
     function deletePreferences(context: Context, name: string): Promise<void>;
-
     /**
      * Deletes a {@link Preferences} instance matching a specified preferences file name
      * from the cache.
@@ -71,7 +68,6 @@ declare namespace preferences {
      */
     function removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback<void>): void;
     function removePreferencesFromCache(context: Context, name: string): Promise<void>;
-
     /**
      * Provides interfaces to obtain and modify preferences data.
      *
@@ -98,7 +94,6 @@ declare namespace preferences {
         */
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
         get(key: string, defValue: ValueType): Promise<ValueType>;
-
         /**
         * Obtains all the keys and values of a preferences in an object.
         *
@@ -108,7 +103,6 @@ declare namespace preferences {
         */
         getAll(callback: AsyncCallback<Object>): void;
         getAll(): Promise<Object>;
-
         /**
          * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
          *
@@ -120,7 +114,6 @@ declare namespace preferences {
          */
         has(key: string, callback: AsyncCallback<boolean>): void;
         has(key: string): Promise<boolean>;
-
         /**
          * Sets an int value for the key in the {@link Preferences} object.
          *
@@ -135,7 +128,6 @@ declare namespace preferences {
          */
         put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
         put(key: string, value: ValueType): Promise<void>;
-
         /**
          * Deletes the preferences with a specified key from the {@link Preferences} object.
          *
@@ -149,7 +141,6 @@ declare namespace preferences {
          */
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
-
         /**
          * Clears all preferences from the {@link Preferences} object.
          *
@@ -161,7 +152,6 @@ declare namespace preferences {
          */
         clear(callback: AsyncCallback<void>): void;
         clear(): Promise<void>;
-
         /**
          * Asynchronously saves the {@link Preferences} object to the file.
          *
@@ -170,7 +160,6 @@ declare namespace preferences {
          */
         flush(callback: AsyncCallback<void>): void;
         flush(): Promise<void>;
-
         /**
          * Registers an observer to listen for the change of a {@link Preferences} object.
          *
@@ -178,8 +167,9 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        on(type: 'change', callback: Callback<{ key: string }>): void;
-
+        on(type: 'change', callback: Callback<{
+            key: string;
+        }>): void;
         /**
          * Unregisters an existing observer.
          *
@@ -187,23 +177,21 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        off(type: 'change', callback?: Callback<{ key: string }>): void;
+        off(type: 'change', callback?: Callback<{
+            key: string;
+        }>): void;
     }
-
     /**
      * Indicates possible value types
      */
     type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean>;
-
     /**
      * Indicates the maximum length of a key (80 characters).
      */
     const MAX_KEY_LENGTH: 80;
-
     /**
      * Indicates the maximum length of a string (8192 characters).
      */
     const MAX_VALUE_LENGTH: 8192;
 }
-
 export default preferences;

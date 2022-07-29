@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Class of the enterprise admin extension ability.
  *
@@ -29,7 +28,6 @@ export default class EnterpriseAdminExtensionAbility {
      * @StageModelOnly
      */
     onAdminEnabled(): void;
-	
     /**
      * Called back when an application is disabled.
      *

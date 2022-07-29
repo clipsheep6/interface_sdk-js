@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AsyncCallback } from './basic'
-
+import { AsyncCallback } from './basic';
 declare namespace rpc {
     /**
      * A data object used for reomote procedure call (RPC).
@@ -43,13 +41,11 @@ declare namespace rpc {
          * @since 7
          */
         static create(): MessageParcel;
-
         /**
          * Reclaims the {@link MessageParcel} object.
          * @since 7
          */
         reclaim(): void;
-
         /**
          * Serializes a remote object and writes it to the {@link MessageParcel} object.
          * @param object Remote object to serialize.
@@ -57,14 +53,12 @@ declare namespace rpc {
          * @since 7
          */
         writeRemoteObject(object: IRemoteObject): boolean;
-
         /**
          * Reads a remote object from {@link MessageParcel} object.
          * @return Returns the remote object.
          * @since 7
          */
         readRemoteObject(): IRemoteObject;
-
         /**
          * Writes an interface token into the {@link MessageParcel} object.
          * @param token Interface descriptor to write.
@@ -73,28 +67,24 @@ declare namespace rpc {
          * @since 7
          */
         writeInterfaceToken(token: string): boolean;
-
         /**
          * Reads an interface token from the {@link MessageParcel} object.
          * @return Returns a string value.
          * @since 7
          */
         readInterfaceToken(): string;
-
         /**
          * Obtains the size of data (in bytes) contained in the {@link MessageParcel} object.
          * @return Returns the size of data contained in the {@link MessageParcel} object.
          * @since 7
          */
         getSize(): number;
-
         /**
          * Obtains the storage capacity (in bytes) of the {@link MessageParcel} object.
          * @return Returns the storage capacity of the {@link MessageParcel} object.
          * @since 7
          */
         getCapacity(): number;
-
         /**
          * Sets the size of data (in bytes) contained in the {@link MessageParcel} object.
          * <p>{@code false} is returned if the data size set in this method is greater
@@ -105,7 +95,6 @@ declare namespace rpc {
          * @since 7
          */
         setSize(size: number): boolean;
-
         /**
          * Sets the storage capacity (in bytes) of the {@link MessageParcel} object.
          * <p>{@code false} is returned if the capacity set in this method is less than
@@ -116,7 +105,6 @@ declare namespace rpc {
          * @since 7
          */
         setCapacity(size: number): boolean;
-
         /**
          * Obtains the writable data space (in bytes) in the {@link MessageParcel} object.
          * <p>Writable data space = Storage capacity of the {@link MessageParcel} – Size of data contained in the {@link MessageParcel}.
@@ -125,7 +113,6 @@ declare namespace rpc {
          * @since 7
          */
         getWritableBytes(): number;
-
         /**
          * Obtains the readable data space (in bytes) in the {@link MessageParcel} object.
          * <p>Readable data space = Size of data contained in the {@link MessageParcel} – Size of data that has been read.
@@ -134,21 +121,18 @@ declare namespace rpc {
          * @since 7
          */
         getReadableBytes(): number;
-
         /**
          * Obtains the current read position in the {@link MessageParcel} object.
          * @return Returns the current read position in the {@link MessageParcel} object.
          * @since 7
          */
         getReadPosition(): number;
-
         /**
          * Obtains the current write position in the {@link MessageParcel} object.
          * @return Returns the current write position in the {@link MessageParcel} object.
          * @since 7
          */
         getWritePosition(): number;
-
         /**
          * Changes the current read position in the {@link MessageParcel} object.
          * <p>Generally, you are advised not to change the current read position. If you must
@@ -159,7 +143,6 @@ declare namespace rpc {
          * @since 7
          */
         rewindRead(pos: number): boolean;
-
         /**
          * Changes the current write position in the {@link MessageParcel} object.
          * <p>Generally, you are advised not to change the current write position. If you must
@@ -170,14 +153,12 @@ declare namespace rpc {
          * @since 7
          */
         rewindWrite(pos: number): boolean;
-
         /**
          * Writes information to this MessageParcel object indicating that no exception occurred.
          * <p>After handling requests, you should call this method before writing any data to reply {@link MessageParcel}.
          * @since 8
          */
         writeNoException(): void;
-
         /**
          * Reads the exception information from this MessageParcel object.
          * <p>If exception was thrown in server side, it will be thrown here.
@@ -187,7 +168,6 @@ declare namespace rpc {
          * @since 8
          */
         readException(): void;
-
         /**
          * Writes a byte value into the {@link MessageParcel} object.
          * @param val Indicates the byte value to write.
@@ -198,7 +178,6 @@ declare namespace rpc {
          * @since 7
          */
         writeByte(val: number): boolean;
-
         /**
          * Writes a short integer value into the {@link MessageParcel} object.
          * @param val Indicates the short integer value to write.
@@ -209,7 +188,6 @@ declare namespace rpc {
          * @since 7
          */
         writeShort(val: number): boolean;
-
         /**
          * Writes an integer value into the {@link MessageParcel} object.
          * @param val Indicates the integer value to write.
@@ -220,7 +198,6 @@ declare namespace rpc {
          * @since 7
          */
         writeInt(val: number): boolean;
-
         /**
          * Writes a long integer value into the {@link MessageParcel} object.
          * @param val Indicates the long integer value to write.
@@ -231,7 +208,6 @@ declare namespace rpc {
          * @since 7
          */
         writeLong(val: number): boolean;
-
         /**
          * Writes a floating point value into the {@link MessageParcel} object.
          * @param val Indicates the floating point value to write.
@@ -242,7 +218,6 @@ declare namespace rpc {
          * @since 7
          */
         writeFloat(val: number): boolean;
-
         /**
          * Writes a double-precision floating point value into the {@link MessageParcel} object.
          * @param val Indicates the double-precision floating point value to write.
@@ -253,7 +228,6 @@ declare namespace rpc {
          * @since 7
          */
         writeDouble(val: number): boolean;
-
         /**
          * Writes a boolean value into the {@link MessageParcel} object.
          * @param val Indicates the boolean value to write.
@@ -264,7 +238,6 @@ declare namespace rpc {
          * @since 7
          */
         writeBoolean(val: boolean): boolean;
-
         /**
          * Writes a single character value into the {@link MessageParcel} object.
          * @param val Indicates the single character value to write.
@@ -275,7 +248,6 @@ declare namespace rpc {
          * @since 7
          */
         writeChar(val: number): boolean;
-
         /**
          * Writes a string value into the {@link MessageParcel} object.
          * @param val Indicates the string value to write.
@@ -286,7 +258,6 @@ declare namespace rpc {
          * @since 7
          */
         writeString(val: string): boolean;
-
         /**
          * Writes a {@link Sequenceable} object into the {@link MessageParcel} object.
          * @param val Indicates the {@link Sequenceable} object to write.
@@ -295,7 +266,6 @@ declare namespace rpc {
          * @since 7
          */
         writeSequenceable(val: Sequenceable): boolean;
-
         /**
          * Writes a byte array into the {@link MessageParcel} object.
          * @param byteArray Indicates the byte array to write.
@@ -306,7 +276,6 @@ declare namespace rpc {
          * @since 7
          */
         writeByteArray(byteArray: number[]): boolean;
-
         /**
          * Writes a short integer array into the {@link MessageParcel} object.
          * @param shortArray Indicates the short integer array to write.
@@ -319,7 +288,6 @@ declare namespace rpc {
          * @since 7
          */
         writeShortArray(shortArray: number[]): boolean;
-
         /**
          * Writes an integer array into the {@link MessageParcel} object.
          * @param intArray Indicates the integer array to write.
@@ -332,7 +300,6 @@ declare namespace rpc {
          * @since 7
          */
         writeIntArray(intArray: number[]): boolean;
-
         /**
          * Writes a long integer array into the {@link MessageParcel} object.
          * @param longArray Indicates the long integer array to write.
@@ -345,7 +312,6 @@ declare namespace rpc {
          * @since 7
          */
         writeLongArray(longArray: number[]): boolean;
-
         /**
          * Writes a floating point array into the {@link MessageParcel} object.
          * @param floatArray Indicates the floating point array to write.
@@ -358,7 +324,6 @@ declare namespace rpc {
          * @since 7
          */
         writeFloatArray(floatArray: number[]): boolean;
-
         /**
          * Writes a double-precision floating point array into the {@link MessageParcel} object.
          * @param doubleArray Indicates the double-precision floating point array to write.
@@ -371,7 +336,6 @@ declare namespace rpc {
          * @since 7
          */
         writeDoubleArray(doubleArray: number[]): boolean;
-
         /**
          * Writes a boolean array into the {@link MessageParcel} object.
          * @param booleanArray Indicates the boolean array to write.
@@ -384,7 +348,6 @@ declare namespace rpc {
          * @since 7
          */
         writeBooleanArray(booleanArray: boolean[]): boolean;
-
         /**
          * Writes a single character array into the {@link MessageParcel} object.
          * @param charArray Indicates the single character array to write.
@@ -397,7 +360,6 @@ declare namespace rpc {
          * @since 7
          */
         writeCharArray(charArray: number[]): boolean;
-
         /**
          * Writes a string array into the {@link MessageParcel} object.
          * @param stringArray Indicates the string array to write.
@@ -410,7 +372,6 @@ declare namespace rpc {
          * @since 7
          */
         writeStringArray(stringArray: string[]): boolean;
-
         /**
          * Writes a {@link Sequenceable} object array into the {@link MessageParcel} object.
          * @param sequenceableArray Indicates the {@link Sequenceable} object array to write.
@@ -421,7 +382,6 @@ declare namespace rpc {
          * @since 7
          */
         writeSequenceableArray(sequenceableArray: Sequenceable[]): boolean;
-
         /**
          * Writes an array of {@link IRemoteObject} objects to this {@link MessageParcel} object.
          * @param objectArray Array of {@link IRemoteObject} objects to write.
@@ -430,70 +390,60 @@ declare namespace rpc {
          * @since 8
          */
         writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean;
-
         /**
          * Reads a byte value from the {@link MessageParcel} object.
          * @return Returns a byte value.
          * @since 7
          */
         readByte(): number;
-
         /**
          * Reads a short integer value from the {@link MessageParcel} object.
          * @return Returns a short integer value.
          * @since 7
          */
         readShort(): number;
-
         /**
          * Reads an integer value from the {@link MessageParcel} object.
          * @return Returns an integer value.
          * @since 7
          */
         readInt(): number;
-
         /**
          * Reads a long integer value from the {@link MessageParcel} object.
          * @return Returns a long integer value.
          * @since 7
          */
         readLong(): number;
-
         /**
          * Reads a floating point value from the {@link MessageParcel} object.
          * @return Returns a floating point value.
          * @since 7
          */
         readFloat(): number;
-
         /**
          * Reads a double-precision floating point value from the {@link MessageParcel} object.
          * @return Returns a double-precision floating point value.
          * @since 7
          */
         readDouble(): number;
-
         /**
          * Reads a boolean value from the {@link MessageParcel} object.
          * @return Returns a boolean value.
          * @since 7
          */
         readBoolean(): boolean;
-
         /**
          * Reads a single character value from the {@link MessageParcel} object.
          * @return Returns a single character value.
          * @since 7
          */
         readChar(): number;
-
         /**
          * Reads a string value from the {@link MessageParcel} object.
          * @return Returns a string value.
          * @since 7
          */
         readString(): string;
-
         /**
          * Reads a {@link Sequenceable} object from the {@link MessageParcel} instance.
          * @param dataIn Indicates the {@link Sequenceable} object that needs to perform the {@code unmarshalling} operation
@@ -501,8 +451,7 @@ declare namespace rpc {
          * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
          * @since 7
          */
-        readSequenceable(dataIn: Sequenceable) : boolean;
-
+        readSequenceable(dataIn: Sequenceable): boolean;
         /**
          * Writes a byte array into the {@link MessageParcel} object.
          * @param dataIn Indicates the byte array read from MessageParcel.
@@ -512,170 +461,147 @@ declare namespace rpc {
          *         exception message: {@link *MessageParcelException#NO_CAPACITY_ERROR}.
          * @since 7
          */
-        readByteArray(dataIn: number[]) : void;
-
+        readByteArray(dataIn: number[]): void;
         /**
          * Reads a byte array from the {@link MessageParcel} object.
          * @return Returns a byte array.
          * @since 7
          */
         readByteArray(): number[];
-
         /**
          * Reads a short integer array from the {@link MessageParcel} object.
          * @param dataIn Indicates the short integer array read from MessageParcel.
          * @since 7
          */
-        readShortArray(dataIn: number[]) : void;
-
+        readShortArray(dataIn: number[]): void;
         /**
          * Reads a short integer array from the {@link MessageParcel} object.
          * @return Returns a short integer array.
          * @since 7
          */
         readShortArray(): number[];
-
         /**
          * Reads an integer array from the {@link MessageParcel} object.
          * @param dataIn Indicates the integer array to read.
          * @throws ParcelException Throws this exception if reading the integer array fails.
          * @since 7
          */
-        readIntArray(dataIn: number[]) : void;
-
+        readIntArray(dataIn: number[]): void;
         /**
          * Reads an integer array from the {@link MessageParcel} object.
          * @return Returns an integer array.
          * @since 7
          */
         readIntArray(): number[];
-
         /**
          * Reads a long integer array from the {@link MessageParcel} object.
          * @param dataIn Indicates the long integer array to read.
          * @throws ParcelException Throws this exception if reading the long array fails.
          * @since 7
          */
-        readLongArray(dataIn: number[]) : void;
-
+        readLongArray(dataIn: number[]): void;
         /**
          * Reads a long integer array from the {@link MessageParcel} object.
          * @return Returns a long integer array.
          * @since 7
          */
         readLongArray(): number[];
-
         /**
          * Reads a floating point array from the {@link MessageParcel} object.
          * @param dataIn Indicates the floating point array to read.
          * @throws ParcelException Throws this exception if reading the float array fails.
          * @since 7
          */
-        readFloatArray(dataIn: number[]) : void;
-
+        readFloatArray(dataIn: number[]): void;
         /**
          * Reads a floating point array from the {@link MessageParcel} object.
          * @return Returns a floating point array.
          * @since 7
          */
         readFloatArray(): number[];
-
         /**
          * Reads a double-precision floating point array from the {@link MessageParcel} object.
          * @param dataIn Indicates the double-precision floating point array to read.
          * @throws ParcelException Throws this exception if reading the double array fails.
          * @since 7
          */
-        readDoubleArray(dataIn: number[]) : void;
-
+        readDoubleArray(dataIn: number[]): void;
         /**
          * Reads a double-precision floating point array from the {@link MessageParcel} object.
          * @return Returns a double-precision floating point array.
          * @since 7
          */
         readDoubleArray(): number[];
-
         /**
          * Reads a boolean array from the {@link MessageParcel} object.
          * @param dataIn Indicates the boolean array to read.
          * @throws ParcelException Throws this exception if reading the boolean array fails.
          * @since 7
          */
-        readBooleanArray(dataIn: boolean[]) : void;
-
+        readBooleanArray(dataIn: boolean[]): void;
         /**
          * Reads a boolean array from the {@link MessageParcel} object.
          * @return Returns a boolean array.
          * @since 7
          */
         readBooleanArray(): boolean[];
-
         /**
          * Reads a single character array from the {@link MessageParcel} object.
          * @param dataIn Indicates the single character array to read.
          * @throws ParcelException Throws this exception if reading the char array fails.
          * @since 7
          */
-        readCharArray(dataIn: number[]) : void;
-
+        readCharArray(dataIn: number[]): void;
         /**
          * Reads a single character array from the {@link MessageParcel} object.
          * @return Returns a single character array.
          * @since 7
          */
         readCharArray(): number[];
-
         /**
          * Reads a string array from the {@link MessageParcel} object.
          * @param dataIn Indicates the string array to read.
          * @throws ParcelException Throws this exception if reading the string array fails.
          * @since 7
          */
-        readStringArray(dataIn: string[]) : void;
-
+        readStringArray(dataIn: string[]): void;
         /**
          * Reads a string array from the {@link MessageParcel} object.
          * @return Returns a string array.
          * @since 7
          */
         readStringArray(): string[];
-
         /**
          * Reads the specified {@link Sequenceable} array from this {@link MessageParcel} object.
          * @param sequenceableArray Sequenceable array to read.
          * @since 8
          */
         readSequenceableArray(sequenceableArray: Sequenceable[]): void;
-
         /**
          * Reads the specified {@link IRemoteObject} array from this {@link MessageParcel} object.
          * @param objects Reads data from this {@link MessageParcel} object to the specified {@link IRemoteObject} array.
          * @since 8
          */
         readRemoteObjectArray(objects: IRemoteObject[]): void;
-
         /**
          * Reads {@link IRemoteObject} objects from this {@link MessageParcel} object.
          * @return An array of {@link IRemoteObject} objects obtained.
          * @since 8
          */
         readRemoteObjectArray(): IRemoteObject[];
-
         /**
          * Closes the specified file descriptor.
          * @param fd File descriptor to be closed.
          * @since 8
          */
         static closeFileDescriptor(fd: number): void;
-
         /**
          * Duplicates the specified file descriptor.
          * @param fd File descriptor to be duplicated.
          * @return A duplicated file descriptor.
          * @since 8
          */
-        static dupFileDescriptor(fd: number) :number;
-
+        static dupFileDescriptor(fd: number): number;
         /**
          * Checks whether this {@link MessageParcel} object contains a file descriptor.
          * @return Returns true if the {@link MessageParcel} object contains a file descriptor;
@@ -683,7 +609,6 @@ declare namespace rpc {
          * @since 8
          */
         containFileDescriptors(): boolean;
-
         /**
          * Writes a file descriptor to this {@link MessageParcel} object.
          * @param fd File descriptor to wrote.
@@ -691,14 +616,12 @@ declare namespace rpc {
          * @since 8
          */
         writeFileDescriptor(fd: number): boolean;
-
         /**
          * Reads a file descriptor from this {@link MessageParcel} object.
          * @return File descriptor obtained.
          * @since 8
          */
         readFileDescriptor(): number;
-
         /**
          * Writes an anonymous shared memory object to this {@link MessageParcel} object.
          * @param ashmem Anonymous shared memory object to wrote.
@@ -706,21 +629,18 @@ declare namespace rpc {
          * @since 8
          */
         writeAshmem(ashmem: Ashmem): boolean;
-
         /**
          * Reads the anonymous shared memory object from this {@link MessageParcel} object.
          * @return Anonymous share object obtained.
          * @since 8
          */
         readAshmem(): Ashmem;
-
         /**
          * Obtains the maximum amount of raw data that can be sent in a time.
          * @return 128 MB.
          * @since 8
          */
         getRawDataCapacity(): number;
-
         /**
          * Writes raw data to this {@link MessageParcel} object.
          * @param rawData Raw data to wrote.
@@ -729,7 +649,6 @@ declare namespace rpc {
          * @since 8
          */
         writeRawData(rawData: number[], size: number): boolean;
-
         /**
          * Reads raw data from this {@link MessageParcel} object.
          * @param size Size of the raw data to read.
@@ -738,9 +657,7 @@ declare namespace rpc {
          */
         readRawData(size: number): number[];
     }
-
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -756,7 +673,6 @@ declare namespace rpc {
          * @since 7
          */
         marshalling(dataOut: MessageParcel): boolean;
-
         /**
          * Unmarshals this {@code Sequenceable} object from a {@link MessageParcel}.
          *
@@ -766,9 +682,8 @@ declare namespace rpc {
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 7
          */
-        unmarshalling(dataIn: MessageParcel) : boolean;
+        unmarshalling(dataIn: MessageParcel): boolean;
     }
-
     /**
      * Defines the response to the request.
      * <p> SendRequestResult object contains four members,
@@ -784,20 +699,17 @@ declare namespace rpc {
          * @since 8
          */
         errCode: number;
-
         /**
          * Message code. It is same as the code in {@link SendRequest} method.
          * @since 8
          */
         code: number;
-
         /**
          * MessageParcel object sent to the peer process.
          * It is the same object in {@link SendRequest} method.
          * @since 8
          */
         data: MessageParcel;
-
         /**
          * MessageParcel object returned by the peer process.
          * It is the same object in {@link SendRequest} method.
@@ -805,8 +717,7 @@ declare namespace rpc {
          */
         reply: MessageParcel;
     }
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -824,7 +735,6 @@ declare namespace rpc {
          * @since 7
          */
         queryLocalInterface(descriptor: string): IRemoteBroker;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -844,7 +754,6 @@ declare namespace rpc {
          * @since 7
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -863,7 +772,6 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process asynchronously.
          *
@@ -881,7 +789,6 @@ declare namespace rpc {
          * @since 9
          */
         sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -898,7 +805,6 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
-
         /**
          * Registers a callback used to receive notifications of the death of a remote object.
          *
@@ -908,7 +814,6 @@ declare namespace rpc {
          * @since 7
          */
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
-
         /**
          * Deregisters a callback used to receive notifications of the death of a remote object.
          *
@@ -918,7 +823,6 @@ declare namespace rpc {
          * @since 7
          */
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
-
         /**
          * Obtains the interface descriptor of an object.
          *
@@ -928,7 +832,6 @@ declare namespace rpc {
          * @since 7
          */
         getInterfaceDescriptor(): string;
-
         /**
          * Checks whether an object is dead.
          *
@@ -937,8 +840,7 @@ declare namespace rpc {
          */
         isObjectDead(): boolean;
     }
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -953,8 +855,7 @@ declare namespace rpc {
          */
         asObject(): IRemoteObject;
     }
-
-    /** 
+    /**
      * @since 7
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
@@ -967,8 +868,7 @@ declare namespace rpc {
          */
         onRemoteDied(): void;
     }
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -979,25 +879,21 @@ declare namespace rpc {
          * @since 7
          */
         TF_SYNC = 0;
-
         /**
          * Indicates asynchronous call.
          * @since 7
          */
         TF_ASYNC = 1;
-
         /**
          * Indicates the sendRequest API for returning the file descriptor.
          * @since 7
          */
         TF_ACCEPT_FDS = 0x10;
-
         /**
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
          * @since 7
          */
-        TF_WAIT_TIME  = 4;
-
+        TF_WAIT_TIME = 4;
         /**
          * A constructor used to create a MessageOption instance.
          *
@@ -1006,7 +902,6 @@ declare namespace rpc {
          * @since 7
          */
         constructor(syncFlags?: number, waitTime = TF_WAIT_TIME);
-
         /**
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
@@ -1014,7 +909,6 @@ declare namespace rpc {
          * @since 7
          */
         getFlags(): number;
-
         /**
          * Sets the SendRequest call flag, which can be synchronous or asynchronous.
          *
@@ -1022,7 +916,6 @@ declare namespace rpc {
          * @since 7
          */
         setFlags(flags: number): void;
-
         /**
          * Obtains the maximum wait time for this RPC call.
          *
@@ -1030,7 +923,6 @@ declare namespace rpc {
          * @since 7
          */
         getWaitTime(): number;
-
         /**
          * Sets the maximum wait time for this RPC call.
          *
@@ -1039,8 +931,7 @@ declare namespace rpc {
          */
         setWaitTime(waitTime: number): void;
     }
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1053,7 +944,6 @@ declare namespace rpc {
          * @since 7
          */
         constructor(descriptor: string);
-
         /**
          * Queries a remote object using an interface descriptor.
          *
@@ -1063,7 +953,6 @@ declare namespace rpc {
          * @since 7
          */
         queryLocalInterface(descriptor: string): IRemoteBroker;
-
         /**
          * Queries an interface descriptor.
          *
@@ -1071,7 +960,6 @@ declare namespace rpc {
          * @since 7
          */
         getInterfaceDescriptor(): string;
-
         /**
          * Sets an entry for receiving requests.
          *
@@ -1088,7 +976,6 @@ declare namespace rpc {
          * @since 7
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
-
         /**
          * Sends a request to the peer object.
          *
@@ -1104,7 +991,6 @@ declare namespace rpc {
          * @since 7
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -1123,7 +1009,6 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -1141,7 +1026,6 @@ declare namespace rpc {
          * @since 9
          */
         sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -1158,7 +1042,6 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
-
         /**
          * Obtains the PID of the {@link RemoteProxy} object.
          *
@@ -1166,7 +1049,6 @@ declare namespace rpc {
          * @since 7
          */
         getCallingPid(): number;
-
         /**
          * Obtains the UID of the {@link RemoteProxy} object.
          *
@@ -1174,7 +1056,6 @@ declare namespace rpc {
          * @since 7
          */
         getCallingUid(): number;
-
         /**
          * Modifies the description of the current {@code RemoteObject}.
          *
@@ -1186,8 +1067,7 @@ declare namespace rpc {
          */
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1198,19 +1078,16 @@ declare namespace rpc {
          * @since 7
          */
         PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
-
         /**
          * Indicates the message code for a dump operation.
          * @since 7
          */
         DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
-
         /**
          * Indicates the message code for a transmission.
          * @since 7
          */
         INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
-
         /**
          * Indicates the minimum value of a valid message code.
          *
@@ -1218,7 +1095,6 @@ declare namespace rpc {
          * @since 7
          */
         MIN_TRANSACTION_ID = 0x1;
-
         /**
          * Indicates the maximum value of a valid message code.
          *
@@ -1226,7 +1102,6 @@ declare namespace rpc {
          * @since 7
          */
         MAX_TRANSACTION_ID = 0x00FFFFFF;
-
         /**
          * Queries a local interface with a specified descriptor.
          *
@@ -1235,7 +1110,6 @@ declare namespace rpc {
          * @since 7
          */
         queryLocalInterface(interface: string): IRemoteBroker;
-
         /**
          * Registers a callback used to receive death notifications of a remote object.
          *
@@ -1245,7 +1119,6 @@ declare namespace rpc {
          * @since 7
          */
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
-
         /**
          * Deregisters a callback used to receive death notifications of a remote object.
          *
@@ -1255,7 +1128,6 @@ declare namespace rpc {
          * @since 7
          */
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
-
         /**
          * Queries the interface descriptor of remote object.
          *
@@ -1263,7 +1135,6 @@ declare namespace rpc {
          * @since 7
          */
         getInterfaceDescriptor(): string;
-
         /**
          * Sends a request to the peer object.
          *
@@ -1280,7 +1151,6 @@ declare namespace rpc {
          * @since 7
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -1299,7 +1169,6 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -1317,7 +1186,6 @@ declare namespace rpc {
          * @since 9
          */
         sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
@@ -1334,7 +1202,6 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
-
         /**
          * Checks whether the {@code RemoteObject} corresponding to a {@code RemoteProxy} is dead.
          *
@@ -1343,8 +1210,7 @@ declare namespace rpc {
          */
         isObjectDead(): boolean;
     }
-
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1359,7 +1225,6 @@ declare namespace rpc {
          * @since 7
          */
         static getContextObject(): IRemoteObject;
-
         /**
          * Obtains the PID of a proxy.
          *
@@ -1373,7 +1238,6 @@ declare namespace rpc {
          * @since 7
          */
         static getCallingPid(): number;
-
         /**
          * Obtains the UID of a proxy.
          *
@@ -1387,7 +1251,6 @@ declare namespace rpc {
          * @since 7
          */
         static getCallingUid(): number;
-
         /**
          * Obtains the TOKENID.
          *
@@ -1396,8 +1259,7 @@ declare namespace rpc {
          * @return Returns the TOKENID.
          * @since 8
          */
-         static getCallingTokenId(): number;
-
+        static getCallingTokenId(): number;
         /**
          * Obtains the ID of the device where the peer process resides.
          *
@@ -1407,7 +1269,6 @@ declare namespace rpc {
          * @since 7
          */
         static getCallingDeviceID(): string;
-
         /**
          * Obtains the ID of the local device.
          *
@@ -1417,7 +1278,6 @@ declare namespace rpc {
          * @since 7
          */
         static getLocalDeviceID(): string;
-
         /**
          * Checks whether a call is made on the same device.
          *
@@ -1427,7 +1287,6 @@ declare namespace rpc {
          * @since 7
          */
         static isLocalCalling(): boolean;
-
         /**
          * Flushes all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
@@ -1439,7 +1298,6 @@ declare namespace rpc {
          * @since 7
          */
         static flushCommands(object: IRemoteObject): number;
-
         /**
          * Replaces the UID and PID of the remote user with those of the local user.
          *
@@ -1449,7 +1307,6 @@ declare namespace rpc {
          * @since 7
          */
         static resetCallingIdentity(): string;
-
         /**
          * Restores the UID and PID to those of the remote user.
          *
@@ -1463,7 +1320,6 @@ declare namespace rpc {
          */
         static setCallingIdentity(identity: string): boolean;
     }
-
     /**
      * Provides methods related to anonymous shared memory objects,
      * including creating, closing, mapping, and unmapping an Ashmem object,
@@ -1479,25 +1335,21 @@ declare namespace rpc {
          * @since 8
          */
         PROT_EXEC = 4;
-
         /**
          * The mapped memory is inaccessible.
          * @since 8
          */
         PROT_NONE = 0;
-
         /**
          * The mapped memory is readable.
          * @since 8
          */
         PROT_READ = 1;
-
         /**
          * The mapped memory is writable.
          * @since 8
          */
         PROT_WRITE = 2;
-
         /**
          * Creates an Ashmem object with the specified name and size.
          * @param name Name of the Ashmem object to create.
@@ -1506,7 +1358,6 @@ declare namespace rpc {
          * @since 8
          */
         static createAshmem(name: string, size: number): Ashmem;
-
         /**
          * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
          * The two Ashmem objects point to the same shared memory region.
@@ -1515,26 +1366,22 @@ declare namespace rpc {
          * @since 8
          */
         static createAshmemFromExisting(ashmem: Ashmem): Ashmem;
-
         /**
          * Closes this Ashmem object.
          * @since 8
          */
         closeAshmem(): void;
-
         /**
          * Deletes the mappings for the specified address range of this Ashmem object.
          * @since 8
          */
         unmapAshmem(): void;
-
         /**
          * Obtains the mapped memory size of this Ashmem object.
          * @return Memory size mapped.
          * @since 8
          */
         getAshmemSize(): number;
-
         /**
          * Creates the shared file mapping on the virtual address space of this process.
          * The size of the mapping region is specified by this Ashmem object.
@@ -1543,21 +1390,18 @@ declare namespace rpc {
          * @since 8
          */
         mapAshmem(mapType: number): boolean;
-
         /**
          * Maps the shared file to the readable and writable virtual address space of the process.
          * @return Returns true if the operation is successful; returns false otherwise.
          * @since 8
          */
         mapReadAndWriteAshmem(): boolean;
-
         /**
          * Maps the shared file to the read-only virtual address space of the process.
          * @return Returns true if the operation is successful; returns false otherwise.
          * @since 8
          */
         mapReadOnlyAshmem(): boolean;
-
         /**
          * Sets the protection level of the memory region to which the shared file is mapped.
          * @param protectionType Protection type to set.
@@ -1565,7 +1409,6 @@ declare namespace rpc {
          * @since 8
          */
         setProtection(protectionType: number): boolean;
-
         /**
          * Writes data to the shared file associated with this Ashmem object.
          * @param buf Data to write
@@ -1575,7 +1418,6 @@ declare namespace rpc {
          * @since 8
          */
         writeToAshmem(buf: number[], size: number, offset: number): boolean;
-
         /**
          * Reads data from the shared file associated with this Ashmem object.
          * @param size Size of the data to read.
@@ -1586,5 +1428,4 @@ declare namespace rpc {
         readFromAshmem(size: number, offset: number): number[];
     }
 }
-
 export default rpc;

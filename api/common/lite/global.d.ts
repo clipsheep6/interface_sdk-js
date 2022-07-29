@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Sets the interval for repeatedly calling a function.
  * @param handler Indicates the function to be called repeatedly at the interval.
@@ -20,12 +19,7 @@
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
  */
-export declare function setInterval(
-  handler: Function,
-  delay: number,
-  ...arguments: any[]
-): number;
-
+export declare function setInterval(handler: Function, delay: number, ...arguments: any[]): number;
 /**
  * Sets a timer after which a function will be executed.
  * @param handler Indicates the function to be called after the timer goes off.
@@ -33,24 +27,17 @@ export declare function setInterval(
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
  */
-export declare function setTimeout(
-  handler: Function,
-  delay?: number,
-  ...arguments: any[]
-): number;
-
+export declare function setTimeout(handler: Function, delay?: number, ...arguments: any[]): number;
 /**
  * Cancels the interval set by " setInterval()".
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  */
 export declare function clearInterval(intervalID?: number): void;
-
 /**
  * Cancels the timer set by " setTimeout()".
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  */
 export declare function clearTimeout(timeoutID?: number): void;
-
 /**
  * Get the java interface instance. The java instance needs to register, otherwise it cannot be obtained.
  * After obtaining the instance, you can call the function with the same name on the Java side.
@@ -60,17 +47,14 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @deprecated since 8
  */
 export declare function createLocalParticleAbility(name?: string): any;
-
 /**
  * Conditional compilation for rich equipment
  */
 export declare const STANDARD: string;
-
 /**
  * Conditional compilation for lite equipment
  */
 export declare const LITE: string;
-
 /**
  * Defining syscap function.
  * @since 8

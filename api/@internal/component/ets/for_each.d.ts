@@ -12,21 +12,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * looping function.
  * @since 7
  */
 interface ForEachInterface {
-  /**
-   * Set the value, array, and key.
-   * @since 7
-   */
-  (
-    arr: Array<any>,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
-  ): ForEachInterface;
+    /**
+     * Set the value, array, and key.
+     * @since 7
+     */
+    (arr: Array<any>, itemGenerator: (item: any, index?: number) => void, keyGenerator?: (item: any, index?: number) => string): ForEachInterface;
 }
-
 declare const ForEach: ForEachInterface;

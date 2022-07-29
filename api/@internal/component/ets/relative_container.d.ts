@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides ports for relative containers.
  * @since 9
@@ -20,18 +19,15 @@
 interface RelativeContainerInterface {
     (): RelativeContainerAttribute;
 }
-  
 /**
 * @since 9
 */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
 }
-
 /**
  * @since 9
  */
-declare const RelativeContainer : RelativeContainerInterface;
-
+declare const RelativeContainer: RelativeContainerInterface;
 /**
  * @since 9
  */

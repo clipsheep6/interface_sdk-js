@@ -12,29 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Ellipse drawing.
  * @since 7
  */
 interface EllipseInterface {
-  /**
-   * use new function to set the value.
-   * @since 7
-   */
-  new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
-
-  /**
-   * Set the value.
-   * @since 7
-   */
-  (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+    /**
+     * use new function to set the value.
+     * @since 7
+     */
+    new (value?: {
+        width?: string | number;
+        height?: string | number;
+    }): EllipseAttribute;
+    /**
+     * Set the value.
+     * @since 7
+     */
+    (value?: {
+        width?: string | number;
+        height?: string | number;
+    }): EllipseAttribute;
 }
-
 /**
  * @since 7
  */
-declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
-
+declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {
+}
 declare const Ellipse: EllipseInterface;
 declare const EllipseInstance: EllipseAttribute;

@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @import import storage from '@system.storage';
  * @since 3
@@ -21,49 +20,44 @@
  * @FAModelOnly
  */
 export interface GetStorageOptions {
-  /**
-   * Content index.
-   * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  key: string;
-
-  /**
-   * Default value returned when the key does not exist.
-   * If this parameter is not specified, an empty string is returned.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  default?: string;
-
-  /**
-   * Called when the stored content is read successfully.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  success?: (data: any) => void;
-
-  /**
-   * Called when the stored content fails to be read.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  fail?: (data: string, code: number) => void;
-
-  /**
-   * Called when the execution is completed.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  complete?: () => void;
+    /**
+     * Content index.
+     * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    key: string;
+    /**
+     * Default value returned when the key does not exist.
+     * If this parameter is not specified, an empty string is returned.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    default?: string;
+    /**
+     * Called when the stored content is read successfully.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    success?: (data: any) => void;
+    /**
+     * Called when the stored content fails to be read.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    fail?: (data: string, code: number) => void;
+    /**
+     * Called when the execution is completed.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    complete?: () => void;
 }
-
 /**
  * @import import storage from '@system.storage';
  * @since 3
@@ -72,48 +66,43 @@ export interface GetStorageOptions {
  * @FAModelOnly
  */
 export interface SetStorageOptions {
-  /**
-   * Index of the stored content to be modified.
-   * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  key: string;
-
-  /**
-   * Target storage content.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  value: string;
-
-  /**
-   * Called when the stored content is modified successfully.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  success?: () => void;
-
-  /**
-   * Called when the stored content fails to be modified.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  fail?: (data: string, code: number) => void;
-
-  /**
-   * Called when the execution is completed.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  complete?: () => void;
+    /**
+     * Index of the stored content to be modified.
+     * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    key: string;
+    /**
+     * Target storage content.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    value: string;
+    /**
+     * Called when the stored content is modified successfully.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    success?: () => void;
+    /**
+     * Called when the stored content fails to be modified.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    fail?: (data: string, code: number) => void;
+    /**
+     * Called when the execution is completed.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    complete?: () => void;
 }
-
 /**
  * @import import storage from '@system.storage';
  * @since 3
@@ -122,31 +111,28 @@ export interface SetStorageOptions {
  * @FAModelOnly
  */
 export interface ClearStorageOptions {
-  /**
-   * Called when the stored content is cleared successfully.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  success?: () => void;
-
-  /**
-   * Called when the stored content fails to be cleared.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  fail?: (data: string, code: number) => void;
-
-  /**
-   * Called when the execution is completed.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  complete?: () => void;
+    /**
+     * Called when the stored content is cleared successfully.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    success?: () => void;
+    /**
+     * Called when the stored content fails to be cleared.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    fail?: (data: string, code: number) => void;
+    /**
+     * Called when the execution is completed.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    complete?: () => void;
 }
-
 /**
  * @import import storage from '@system.storage';
  * @since 3
@@ -155,40 +141,36 @@ export interface ClearStorageOptions {
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  */
 export interface DeleteStorageOptions {
-  /**
-   * Content index.
-   * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  key: string;
-
-  /**
-   * Called when the stored content is deleted successfully.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  success?: () => void;
-
-  /**
-   * Called when the stored content fails to be deleted.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  fail?: (data: string, code: number) => void;
-
-  /**
-   * Called when the execution is completed.
-   * @since 3
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  complete?: () => void;
+    /**
+     * Content index.
+     * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    key: string;
+    /**
+     * Called when the stored content is deleted successfully.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    success?: () => void;
+    /**
+     * Called when the stored content fails to be deleted.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    fail?: (data: string, code: number) => void;
+    /**
+     * Called when the execution is completed.
+     * @since 3
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    complete?: () => void;
 }
-
 /**
  * @import import storage from '@system.storage';
  * @since 3
@@ -197,35 +179,32 @@ export interface DeleteStorageOptions {
  * @FAModelOnly
  */
 export default class Storage {
-  /**
-   * Reads the stored content.
-   * @param options Options.
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  static get(options: GetStorageOptions): void;
-
-  /**
-   * Modifies the stored content.
-   * @param options Options.
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  static set(options: SetStorageOptions): void;
-
-  /**
-   * Clears the stored content.
-   * @param options Options.
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  static clear(options?: ClearStorageOptions): void;
-
-  /**
-   * Deletes the stored content.
-   * @param options Options.
-   * @deprecated since 6
-   * @FAModelOnly
-   */
-  static delete(options: DeleteStorageOptions): void;
+    /**
+     * Reads the stored content.
+     * @param options Options.
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    static get(options: GetStorageOptions): void;
+    /**
+     * Modifies the stored content.
+     * @param options Options.
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    static set(options: SetStorageOptions): void;
+    /**
+     * Clears the stored content.
+     * @param options Options.
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    static clear(options?: ClearStorageOptions): void;
+    /**
+     * Deletes the stored content.
+     * @param options Options.
+     * @deprecated since 6
+     * @FAModelOnly
+     */
+    static delete(options: DeleteStorageOptions): void;
 }

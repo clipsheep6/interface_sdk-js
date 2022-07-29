@@ -12,48 +12,40 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-import {AsyncCallback, Callback} from "./basic";
-
+import { AsyncCallback } from "./basic";
 /**
  * Provides securityLabel APIs
  *
  * @since 9
  * @syscap  SystemCapability.FileManagement.File.FileIO
  */
-
 declare namespace securityLabel {
-
-  type dataLevel = 's0'|'s1'|'s2'|'s3'|'s4';
-  /**
-   * set the SecurityLabel.
-   *
-   * @since 9
-   */
-  function setSecurityLabel(path:string, type:dataLevel, callback: AsyncCallback<void>): void;
-  function setSecurityLabel(path:string, type:dataLevel): Promise<void>;
-
-  /**
-   * set the SecurityLabelSync.
-   *
-   * @since 9
-   */
-   function setSecurityLabelSync(path:string, type:dataLevel): void;
-
+    type dataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
+    /**
+     * set the SecurityLabel.
+     *
+     * @since 9
+     */
+    function setSecurityLabel(path: string, type: dataLevel, callback: AsyncCallback<void>): void;
+    function setSecurityLabel(path: string, type: dataLevel): Promise<void>;
+    /**
+     * set the SecurityLabelSync.
+     *
+     * @since 9
+     */
+    function setSecurityLabelSync(path: string, type: dataLevel): void;
     /**
    * get the SecurityLabel.
    *
    * @since 9
    */
-  function getSecurityLabel(path:string, callback: AsyncCallback<string>): void;
-  function getSecurityLabel(path:string): Promise<string>;
-
-  /**
-   * get the SecurityLabelSync.
-   *
-   * @since 9
-   */
-   function getSecurityLabelSync(path:string): string;
+    function getSecurityLabel(path: string, callback: AsyncCallback<string>): void;
+    function getSecurityLabel(path: string): Promise<string>;
+    /**
+     * get the SecurityLabelSync.
+     *
+     * @since 9
+     */
+    function getSecurityLabelSync(path: string): string;
 }
-
 export default securityLabel;

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-
 /**
  * This module provides the capability to control motor vibration.
  *
@@ -39,7 +38,6 @@ declare namespace vibrator {
      */
     function vibrate(duration: number, callback?: AsyncCallback<void>): void;
     function vibrate(duration: number): Promise<void>;
-
     /**
      * The trigger motor vibrates for the specified effect of the preset.
      * @param effectId Indicate the specified effect of the preset, {@code EffectId}.
@@ -49,7 +47,6 @@ declare namespace vibrator {
      */
     function vibrate(effectId: EffectId): Promise<void>;
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
-
     /**
      * Stop the motor from vibrating.
      * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
@@ -59,7 +56,6 @@ declare namespace vibrator {
      */
     function stop(stopMode: VibratorStopMode): Promise<void>;
     function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;
-
     /**
      * Preset vibration effect string.
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -67,9 +63,8 @@ declare namespace vibrator {
      */
     enum EffectId {
         /* Describes the vibration effect of the vibrator when a user adjusts the timer.*/
-        EFFECT_CLOCK_TIMER = "haptic.clock.timer",
+        EFFECT_CLOCK_TIMER = "haptic.clock.timer"
     }
-
     /**
      * Vibrator vibration stop mode.
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -79,8 +74,7 @@ declare namespace vibrator {
         /* Indicates the mode of stopping a one-shot vibration effect.*/
         VIBRATOR_STOP_MODE_TIME = "time",
         /* Indicates the mode of stopping a preset vibration effect.*/
-        VIBRATOR_STOP_MODE_PRESET = "preset",
+        VIBRATOR_STOP_MODE_PRESET = "preset"
     }
 }
-
 export default vibrator;

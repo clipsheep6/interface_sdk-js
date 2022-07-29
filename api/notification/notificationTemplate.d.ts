@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Describes a NotificationTemplate instance.
  *
@@ -22,13 +21,14 @@
  * @syscap SystemCapability.Notification.Notification
  */
 export interface NotificationTemplate {
-  /**
-   * Obtains the type of a notification template.
-   */
-  name: string;
-
-  /**
-   * Obtains the data of a notification template.
-   */
-  data: {[key: string]: Object};
+    /**
+     * Obtains the type of a notification template.
+     */
+    name: string;
+    /**
+     * Obtains the data of a notification template.
+     */
+    data: {
+        [key: string]: Object;
+    };
 }

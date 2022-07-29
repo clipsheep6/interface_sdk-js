@@ -12,30 +12,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines the ColumnSplit component.
  * @since 7
  */
 interface ColumnSplitInterface {
-  /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
-   * @since 7
-   */
-  (): ColumnSplitAttribute;
+    /**
+     * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+     * @since 7
+     */
+    (): ColumnSplitAttribute;
 }
-
 /**
  * Defines the ColumnSplit component attribute functions.
  * @since 7
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
-  /**
-   * Indicates whether the split line can be dragged. The default value is false.
-   * @since 7
-   */
-  resizeable(value: boolean): ColumnSplitAttribute;
+    /**
+     * Indicates whether the split line can be dragged. The default value is false.
+     * @since 7
+     */
+    resizeable(value: boolean): ColumnSplitAttribute;
 }
-
 declare const ColumnSplitInstance: ColumnSplitAttribute;
 declare const ColumnSplit: ColumnSplitInterface;

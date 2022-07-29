@@ -12,49 +12,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines the console info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 export declare class console {
-  /**
-   * Prints "debug" logs.
-   * @param message Text to print.
-   * @since 7
-   */
-  static debug(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "log" logs.
-   * @param message Text to print.
-   * @since 7
-   */
-  static log(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "info" logs.
-   * @param message Text to print.
-   * @since 7
-   */
-  static info(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "warn" logs.
-   * @param message Text to print.
-   * @since 7
-   */
-  static warn(message: string, ...arguments: any[]): void;
-
-  /**
-   * Prints "error" logs.
-   * @param message Text to print.
-   * @since 7
-   */
-  static error(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "debug" logs.
+     * @param message Text to print.
+     * @since 7
+     */
+    static debug(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "log" logs.
+     * @param message Text to print.
+     * @since 7
+     */
+    static log(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "info" logs.
+     * @param message Text to print.
+     * @since 7
+     */
+    static info(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "warn" logs.
+     * @param message Text to print.
+     * @since 7
+     */
+    static warn(message: string, ...arguments: any[]): void;
+    /**
+     * Prints "error" logs.
+     * @param message Text to print.
+     * @since 7
+     */
+    static error(message: string, ...arguments: any[]): void;
 }
-
 /**
  * Sets the interval for repeatedly calling a function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -65,7 +59,6 @@ export declare class console {
  * @since 7
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
-
 /**
  * Sets a timer after which a function will be executed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -76,7 +69,6 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @since 7
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
-
 /**
  * Cancels the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -84,7 +76,6 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @since 7
  */
 export declare function clearInterval(intervalID?: number): void;
-
 /**
  * Cancels the timer set by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -92,14 +83,12 @@ export declare function clearInterval(intervalID?: number): void;
  * @since 7
  */
 export declare function clearTimeout(timeoutID?: number): void;
-
 /**
  * Defining syscap function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 export declare function canIUse(syscap: string): boolean;
-
 /**
  * Obtains all attributes of the component with the specified ID.
  * @param id ID of the component whose attributes are to be obtained.
@@ -107,44 +96,39 @@ export declare function canIUse(syscap: string): boolean;
  * @test
  */
 export declare function getInspectorByKey(id: string): string;
-
- /**
-  * Get components tree.
-  * @since 9
-  * @test
-  */
+/**
+ * Get components tree.
+ * @since 9
+ * @test
+ */
 export declare function getInspectorTree(): string;
- 
- /**
-  * Sends an event to the component with the specified ID.
-  * @param id ID of the component for which the event is to be sent.
-  * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
-  * @param params Event parameters. If there is no parameter, pass an empty string "".
-  * @since 9
-  * @test
-  */
+/**
+ * Sends an event to the component with the specified ID.
+ * @param id ID of the component for which the event is to be sent.
+ * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param params Event parameters. If there is no parameter, pass an empty string "".
+ * @since 9
+ * @test
+ */
 export declare function sendEventByKey(id: string, action: number, params: string): boolean;
- 
- /**
-  * Send touch event.
-  * @param event TouchObject to be sent.
-  * @since 9
-  * @test
-  */
+/**
+ * Send touch event.
+ * @param event TouchObject to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendTouchEvent(event: TouchObject): boolean;
- 
- /**
-  * Send key event.
-  * @param event KeyEvent to be sent.
-  * @since 9
-  * @test
-  */
+/**
+ * Send key event.
+ * @param event KeyEvent to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendKeyEvent(event: KeyEvent): boolean;
- 
- /**
-  * Send mouse event.
-  * @param event MouseEvent to be sent.
-  * @since 9
-  * @test
-  */
+/**
+ * Send mouse event.
+ * @param event MouseEvent to be sent.
+ * @since 9
+ * @test
+ */
 export declare function sendMouseEvent(event: MouseEvent): boolean;

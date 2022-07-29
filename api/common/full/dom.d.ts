@@ -12,18 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 export { Element } from './viewmodel';
-
 /**
  * global dom
  * @since 8
  */
 export declare class dom {
-  /**
-   * create a dynamic dom by tag, rturn element
-   * @param tag dom tag
-   * @since 8
-   */
-  static createElement(tag: string): Element
+    /**
+     * create a dynamic dom by tag, rturn element
+     * @param tag dom tag
+     * @since 8
+     */
+    static createElement(tag: string): Element;
 }

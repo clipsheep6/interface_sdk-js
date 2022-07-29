@@ -12,12 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import { Configuration } from '../@ohos.application.Configuration';
 import Context from "./Context";
 import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
-
 /**
  * The context of an extension. It allows access to extension-specific resources.
  *
@@ -27,7 +25,6 @@ import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
  * @StageModelOnly
  */
 export default class ExtensionContext extends Context {
-
     /**
      * Indicates configuration information about an module.
      *
@@ -36,7 +33,6 @@ export default class ExtensionContext extends Context {
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
-
     /**
      * Indicates configuration information.
      *
@@ -45,7 +41,6 @@ export default class ExtensionContext extends Context {
      * @StageModelOnly
      */
     config: Configuration;
-
     /**
      * Extension information.
      *

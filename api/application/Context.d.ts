@@ -12,13 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { ApplicationInfo } from "../bundle/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";
 import ApplicationContext from "./ApplicationContext";
-
 /**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
@@ -37,7 +35,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     resourceManager: resmgr.ResourceManager;
-
     /**
      * Indicates configuration information about an application.
      *
@@ -46,7 +43,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     applicationInfo: ApplicationInfo;
-
     /**
      * Indicates app cache dir.
      *
@@ -55,7 +51,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     cacheDir: string;
-
     /**
      * Indicates app temp dir.
      *
@@ -64,7 +59,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     tempDir: string;
-
     /**
      * Indicates app files dir.
      *
@@ -72,8 +66,7 @@ export default class Context extends BaseContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    filesDir : string;
-
+    filesDir: string;
     /**
      * Indicates app database dir.
      *
@@ -81,8 +74,7 @@ export default class Context extends BaseContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    databaseDir : string;
-
+    databaseDir: string;
     /**
      * Indicates app preferences dir.
      *
@@ -90,8 +82,7 @@ export default class Context extends BaseContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    preferencesDir : string;
-
+    preferencesDir: string;
     /**
      * Indicates app bundle code dir.
      *
@@ -99,8 +90,7 @@ export default class Context extends BaseContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    bundleCodeDir : string;
-
+    bundleCodeDir: string;
     /**
      * Indicates app distributed files dir.
      *
@@ -109,7 +99,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     distributedFilesDir: string;
-
     /**
      * Indicates event hub.
      *
@@ -118,7 +107,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     eventHub: EventHub;
-
     /**
      * Indicates file area.
      *
@@ -127,20 +115,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     area: AreaMode;
-
-    /**
-     * Create a bundle context
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @param bundleName Indicates the bundle name.
-     * @return application context
-     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-     * @StageModelOnly
-     */
-    createBundleContext(bundleName: string): Context;
-
     /**
      * Create a module context
      *
@@ -151,20 +125,6 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     createModuleContext(moduleName: string): Context;
-
-    /**
-     * Create a module context
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @param bundleName Indicates the bundle name.
-     * @param moduleName Indicates the module name.
-     * @return application context
-     * @StageModelOnly
-     */
-    createModuleContext(bundleName: string, moduleName: string): Context;
-
     /**
      * Get application context
      *
@@ -175,7 +135,6 @@ export default class Context extends BaseContext {
      */
     getApplicationContext(): ApplicationContext;
 }
-
 /**
  * File area mode
  *

@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -24,7 +23,6 @@ export interface BrightnessResponse {
      */
     value: number;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -35,20 +33,17 @@ export interface GetBrightnessOptions {
      * @since 3
      */
     success?: (data: BrightnessResponse) => void;
-
     /**
      * Called when the current screen brightness fails to be obtained.
      * @since 3
      */
     fail?: (data: string, code: number) => void;
-
     /**
      * Called when the execution is completed.
      * @since 3
      */
     complete?: () => void;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -63,26 +58,22 @@ export interface SetBrightnessOptions {
      * @since 3
      */
     value: number;
-
     /**
      * Called when the setting is successful.
      * @since 3
      */
     success?: () => void;
-
     /**
      * Called when the setting fails.
      * @since 3
      */
     fail?: (data: string, code: number) => void;
-
     /**
      * Called when the execution is completed.
      * @since 3
      */
-    complete?: () => void
+    complete?: () => void;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -96,7 +87,6 @@ export interface BrightnessModeResponse {
      */
     mode: number;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -107,20 +97,17 @@ export interface GetBrightnessModeOptions {
      * @since 3
      */
     success?: (data: BrightnessModeResponse) => void;
-
     /**
      * Called when the screen brightness adjustment mode fails to be obtained.
      * @since 3
      */
     fail?: (data: string, code: number) => void;
-
     /**
      * Called when the execution is completed.
      * @since 3
      */
     complete?: () => void;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -133,26 +120,22 @@ export interface SetBrightnessModeOptions {
      * @since 3
      */
     mode: number;
-
     /**
      * Called when the setting is successful.
      * @since 3
      */
     success?: () => void;
-
     /**
      * Called when the setting fails.
      * @since 3
      */
     fail?: (data: string, code: number) => void;
-
     /**
      * Called when the execution is completed.
      * @since 3
      */
-    complete?: () => void
+    complete?: () => void;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -163,26 +146,22 @@ export interface SetKeepScreenOnOptions {
      * @since 3
      */
     keepScreenOn: boolean;
-
     /**
      * Called when the setting is successful.
      * @since 3
      */
     success?: () => void;
-
     /**
      * Called when the setting fails.
      * @since 3
      */
     fail?: (data: string, code: number) => void;
-
     /**
      * Called when the execution is completed.
      * @since 3
      */
-    complete?: () => void
+    complete?: () => void;
 }
-
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3
@@ -195,28 +174,24 @@ export default class Brightness {
      * @since 3
      */
     static getValue(options?: GetBrightnessOptions): void;
-
     /**
      * Sets the screen brightness.
      * @param options Options.
      * @since 3
      */
     static setValue(options?: SetBrightnessOptions): void;
-
     /**
      * Obtains the screen brightness adjustment mode.
      * @param options Options.
      * @since 3
      */
     static getMode(options?: GetBrightnessModeOptions): void;
-
     /**
      * Sets the screen brightness adjustment mode.
      * @param options Options.
      * @since 3
      */
     static setMode(options?: SetBrightnessModeOptions): void;
-
     /**
      * Sets whether to always keey the screen on.
      * @param options Options.

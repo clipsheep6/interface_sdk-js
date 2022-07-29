@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @name This class saves process information about an application
  * @since 7
@@ -21,21 +20,20 @@
  * @permission N/A
  */
 export interface ProcessInfo {
-  /**
-   * The id of the current process
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  pid: number;
-
-  /**
-   * The name of the current process
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  processName: string;
+    /**
+     * The id of the current process
+     *
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    pid: number;
+    /**
+     * The name of the current process
+     *
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    processName: string;
 }

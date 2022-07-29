@@ -12,35 +12,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides the path drawing interface.
  * @since 7
  */
 interface PathInterface {
-  /**
-   * Use new to create Path.
-   * @since 7
-   */
-  new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
-
-  /**
-   * Called when drawing path.
-   * @since 7
-   */
-  (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
+    /**
+     * Use new to create Path.
+     * @since 7
+     */
+    new (value?: {
+        width?: number | string;
+        height?: number | string;
+        commands?: string;
+    }): PathAttribute;
+    /**
+     * Called when drawing path.
+     * @since 7
+     */
+    (value?: {
+        width?: number | string;
+        height?: number | string;
+        commands?: string;
+    }): PathAttribute;
 }
-
 /**
  * @since 7
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
-  /**
-   * Called when the command string drawn by the path is set.
-   * @since 7
-   */
-  commands(value: string): PathAttribute;
+    /**
+     * Called when the command string drawn by the path is set.
+     * @since 7
+     */
+    commands(value: string): PathAttribute;
 }
-
 declare const Path: PathInterface;
 declare const PathInstance: PathAttribute;

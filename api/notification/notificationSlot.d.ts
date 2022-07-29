@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import notification from '../@ohos.notification';
-
 /**
  * Describes a NotificationSlot instance.
  *
@@ -24,65 +22,54 @@ import notification from '../@ohos.notification';
  * @syscap SystemCapability.Notification.Notification
  */
 export interface NotificationSlot {
-  /**
-   * Obtains the type of a notification slot.
-   */
-  type: notification.SlotType;
-
-  /**
-   * Obtains the level of a notification slot
-   */
-  level?: notification.SlotLevel;
-
-  /**
-   * Obtains the description of a notification slot.
-   */
-  desc?: string;
-
-  /**
-   * Obtains the application icon badge status of a notification slot.
-   */
-  badgeFlag?: boolean;
-
-  /**
-   * Obtains whether DND mode is bypassed for a notification slot.
-   */
-  bypassDnd?: boolean;
-
-  /**
-   * Whether and how to display notifications on the lock screen.
-   */
-  lockscreenVisibility?: number;
-
-  /**
-   * Obtains the vibration status of the notification slot.
-   */
-  vibrationEnabled?: boolean;
-
-  /**
-   * Obtains the prompt tone of the notification slot.
-   */
-  sound?: string;
-
-  /**
-   * Obtains whether the notification light is enabled in a notification slot.
-   */
-  lightEnabled?: boolean;
-
-  /**
-   * Obtains the color of the notification light in a notification slot.
-   */
-  lightColor?: number;
-
-  /**
-   * Obtains the vibration style of notifications in this notification slot.
-   */
-  vibrationValues?: Array<number>;
-
-  /**
-   * Read-only enabled status in this notification slot.
-   *
-   * @since 9
-   */
-  readonly enabled?: boolean;
+    /**
+     * Obtains the type of a notification slot.
+     */
+    type: notification.SlotType;
+    /**
+     * Obtains the level of a notification slot
+     */
+    level?: notification.SlotLevel;
+    /**
+     * Obtains the description of a notification slot.
+     */
+    desc?: string;
+    /**
+     * Obtains the application icon badge status of a notification slot.
+     */
+    badgeFlag?: boolean;
+    /**
+     * Obtains whether DND mode is bypassed for a notification slot.
+     */
+    bypassDnd?: boolean;
+    /**
+     * Whether and how to display notifications on the lock screen.
+     */
+    lockscreenVisibility?: number;
+    /**
+     * Obtains the vibration status of the notification slot.
+     */
+    vibrationEnabled?: boolean;
+    /**
+     * Obtains the prompt tone of the notification slot.
+     */
+    sound?: string;
+    /**
+     * Obtains whether the notification light is enabled in a notification slot.
+     */
+    lightEnabled?: boolean;
+    /**
+     * Obtains the color of the notification light in a notification slot.
+     */
+    lightColor?: number;
+    /**
+     * Obtains the vibration style of notifications in this notification slot.
+     */
+    vibrationValues?: Array<number>;
+    /**
+     * Read-only enabled status in this notification slot.
+     *
+     * @since 9
+     */
+    readonly enabled?: boolean;
 }

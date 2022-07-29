@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
   * Want is the basic communication component of the system.
   * @name Want
@@ -21,75 +20,69 @@
   * @permission N/A
   */
 export declare interface Want {
-  /**
-   * device id
-   * @default -
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   */
-  deviceId?: string;
-
-  /**
-   * bundle name
-   * @default -
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   */
-  bundleName?: string;
-
-  /**
-   * ability name
-   * @default -
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   */
-  abilityName?: string;
-
-  /**
-   * The description of a URI in a Want.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  uri?: string;
-
-  /**
-   * The description of the type in this Want.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  type?: string;
-
-  /**
-   * The options of the flags in this Want.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  flags?: number;
-
-  /**
-   * The description of an action in an want.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  action?: string;
-
-  /**
-   * The description of the WantParams object in an Want
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  parameters?: {[key: string]: any};
-
-  /**
-   * The description of a entities in a Want.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  entities?: Array<string>;
+    /**
+     * device id
+     * @default -
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    deviceId?: string;
+    /**
+     * bundle name
+     * @default -
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    bundleName?: string;
+    /**
+     * ability name
+     * @default -
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    abilityName?: string;
+    /**
+     * The description of a URI in a Want.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    uri?: string;
+    /**
+     * The description of the type in this Want.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    type?: string;
+    /**
+     * The options of the flags in this Want.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    flags?: number;
+    /**
+     * The description of an action in an want.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    action?: string;
+    /**
+     * The description of the WantParams object in an Want
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    parameters?: {
+        [key: string]: any;
+    };
+    /**
+     * The description of a entities in a Want.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    entities?: Array<string>;
 }

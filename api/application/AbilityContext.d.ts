@@ -12,11 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AbilityInfo } from "../bundle/abilityInfo";
 import { AbilityResult } from "../ability/abilityResult";
 import { AsyncCallback } from "../basic";
-import { ConnectOptions } from "../ability/connectOptions";
 import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.application.Want";
@@ -24,9 +22,6 @@ import StartOptions from "../@ohos.application.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
 import Caller from '../@ohos.application.Ability';
-import { LocalStorage } from '../@internal/component/ets/stateManagement';
-import image from '../@ohos.multimedia.image';
-
 /**
  * The context of an ability. It allows access to ability-specific resources.
  *
@@ -44,7 +39,6 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     abilityInfo: AbilityInfo;
-
     /**
      * Indicates configuration information about an module.
      *
@@ -53,7 +47,6 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
-
     /**
      * Indicates configuration information.
      *
@@ -62,7 +55,6 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     config: Configuration;
-
     /**
      * Starts a new ability.
      *
@@ -76,7 +68,6 @@ export default class AbilityContext extends Context {
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options?: StartOptions): Promise<void>;
-
     /**
      * Get the caller object of the startup capability
      *
@@ -87,24 +78,6 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     startAbilityByCall(want: Want): Promise<Caller>;
-
-    /**
-     * Starts a new ability with account.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info to start.
-     * @param accountId Indicates the account to start.
-     * @param options Indicates the start options.
-     * @systemapi hide for inner use.
-     * @return -
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @StageModelOnly
-     */
-    startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
-    startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
-    startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
-
     /**
      * Starts an ability and returns the execution result when the ability is destroyed.
      *
@@ -118,80 +91,6 @@ export default class AbilityContext extends Context {
     startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
     startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
     startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
-
-    /**
-     * Starts an ability and returns the execution result when the ability is destroyed with account.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info to start.
-     * @param accountId Indicates the account to start.
-     * @param options Indicates the start options.
-     * @systemapi hide for inner use.
-     * @return Returns the {@link AbilityResult}.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @StageModelOnly
-     */
-    startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
-    startAbilityForResultWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
-    startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
-
-    /**
-     * Starts a new service extension ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info to start.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
-     */
-    startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
-    startServiceExtensionAbility(want: Want): Promise<void>;
-
-    /**
-     * Starts a new service extension ability with account.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info to start.
-     * @param accountId Indicates the account to start.
-     * @systemapi hide for inner use.
-     * @return -
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
-     * @StageModelOnly
-     */
-    startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
-    startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
-
-    /**
-     * Stops a service within the same application.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info to start.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
-     */
-    stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
-    stopServiceExtensionAbility(want: Want): Promise<void>;
-
-    /**
-     * Stops a service within the same application with account.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info to start.
-     * @param accountId Indicates the accountId to start.
-     * @systemapi hide for inner use.
-     * @return -
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
-     * @StageModelOnly
-     */
-    stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
-    stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
-
     /**
      * Destroys this Page ability.
      *
@@ -202,7 +101,6 @@ export default class AbilityContext extends Context {
      */
     terminateSelf(callback: AsyncCallback<void>): void;
     terminateSelf(): Promise<void>;
-
     /**
      * Sets the result code and data to be returned by this Page ability to the caller
      * and destroys this Page ability.
@@ -215,47 +113,6 @@ export default class AbilityContext extends Context {
      */
     terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
     terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
-
-    /**
-     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want The element name of the service ability
-     * @param options The remote object instance
-     * @systemapi Hide this for inner system use.
-     * @return Returns the number code of the ability connected
-     * @StageModelOnly
-     */
-    connectAbility(want: Want, options: ConnectOptions): number;
-
-    /**
-     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want The element name of the service ability
-     * @param accountId The account to connect
-     * @param options The remote object instance
-     * @systemapi hide for inner use.
-     * @return Returns the number code of the ability connected
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @StageModelOnly
-     */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
-
-    /**
-     * The callback interface was connect successfully.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param connection The number code of the ability connected
-     * @systemapi Hide this for inner system use.
-     * @StageModelOnly
-     */
-    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-    disconnectAbility(connection: number): Promise<void>;
-
     /**
      * Set mission label of current ability.
      *
@@ -264,34 +121,19 @@ export default class AbilityContext extends Context {
      * @param label The label of ability that showed in recent missions.
      * @StageModelOnly
      */
-     setMissionLabel(label: string, callback:AsyncCallback<void>): void;
-     setMissionLabel(label: string): Promise<void>;
-
+    setMissionLabel(label: string, callback: AsyncCallback<void>): void;
+    setMissionLabel(label: string): Promise<void>;
     /**
-     * Set mission icon of current ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param icon The icon of ability that showed in recent missions.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
-     */
-      setMissionIcon(icon: image.PixelMap, callback:AsyncCallback<void>): void;
-      setMissionIcon(icon: image.PixelMap): Promise<void>;
-
-     /**
-     * Requests certain permissions from the system.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
-     * @return Returns the {@link PermissionRequestResult}.
-     * @StageModelOnly
-     */
-    requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
-    requestPermissionsFromUser(permissions: Array<string>) : Promise<PermissionRequestResult>;
-
+    * Requests certain permissions from the system.
+    *
+    * @since 9
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+    * @return Returns the {@link PermissionRequestResult}.
+    * @StageModelOnly
+    */
+    requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>): void;
+    requestPermissionsFromUser(permissions: Array<string>): Promise<PermissionRequestResult>;
     /**
      * Restore window stage data in ability continuation
      *
@@ -300,8 +142,7 @@ export default class AbilityContext extends Context {
      * @param LocalStorage the storage data used to restore window stage
      * @StageModelOnly
      */
-    restoreWindowStage(localStorage: LocalStorage) : void;
-
+    restoreWindowStage(localStorage: LocalStorage): void;
     /**
      * check to see ability is in terminating state.
      *
@@ -311,5 +152,4 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     isTerminating(): boolean;
-
 }

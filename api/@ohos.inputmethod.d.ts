@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {AsyncCallback} from './basic';
-
+import { AsyncCallback } from './basic';
 /**
  * inputmethod
  *
@@ -25,20 +23,17 @@ declare namespace inputMethod {
      * keyboard max number
      * @since 8
      */
-    const MAX_TYPE_NUM: number
-
+    const MAX_TYPE_NUM: number;
     /**
      * input method setting
      * @since 8
      */
     function getInputMethodSetting(): InputMethodSetting;
-
     /**
      * input method controller
      * @since 6
      */
     function getInputMethodController(): InputMethodController;
-
     /**
      * Switch input method
      * @since 9
@@ -48,7 +43,6 @@ declare namespace inputMethod {
      * @StageModelOnly
      */
     function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
-
     /**
      * Switch input method
      * @since 9
@@ -58,7 +52,6 @@ declare namespace inputMethod {
      * @StageModelOnly
      */
     function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
-
     /**
      * @since 8
      */
@@ -71,21 +64,16 @@ declare namespace inputMethod {
          * @since 8
          */
         listInputMethod(): Promise<Array<InputMethodProperty>>;
-
         displayOptionalInputMethod(callback: AsyncCallback<void>): void;
-
         displayOptionalInputMethod(): Promise<void>;
     }
-
     /**
      * @since 6
      */
     interface InputMethodController {
         stopInput(callback: AsyncCallback<boolean>): void;
-
         stopInput(): Promise<boolean>;
     }
-
     /**
      * input method info
      * @since 8
@@ -95,5 +83,4 @@ declare namespace inputMethod {
         readonly methodId: string;
     }
 }
-
 export default inputMethod;

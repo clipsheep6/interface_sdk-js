@@ -12,9 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {AsyncCallback} from './basic';
-import image from './@ohos.multimedia.image'
-
+import { AsyncCallback } from './basic';
+import image from './@ohos.multimedia.image';
 /**
  * System wallpaper
  * @syscap SystemCapability.MiscServices.Wallpaper
@@ -32,7 +31,6 @@ declare namespace wallpaper {
          */
         WALLPAPER_LOCKSCREEN
     }
-
     /**
      * Obtains the wallpaper colors for the wallpaper of the specified type.
      * @param wallpaperType Indicates the wallpaper type.
@@ -40,7 +38,6 @@ declare namespace wallpaper {
      */
     function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
     function getColors(wallpaperType: WallpaperType): Promise<Array<RgbaColor>>;
-
     /**
      * Obtains the ID of the wallpaper of the specified type.
      * @param wallpaperType Indicates the wallpaper type.
@@ -50,7 +47,6 @@ declare namespace wallpaper {
      */
     function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
     function getId(wallpaperType: WallpaperType): Promise<number>;
-
     /**
      * Obtains a file of the wallpaper of the specified type.
      * @param wallpaperType Indicates the wallpaper type.
@@ -59,37 +55,32 @@ declare namespace wallpaper {
      * @return the file descriptor.
      * @since 8
      */
-     function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
-     function getFile(wallpaperType: WallpaperType): Promise<number>;
-
+    function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
+    function getFile(wallpaperType: WallpaperType): Promise<number>;
     /**
      * Obtains the minimum height of the wallpaper.
      * @return the minimum height, in pixels; returns {@code 0} if no wallpaper has been set.
      */
     function getMinHeight(callback: AsyncCallback<number>): void;
     function getMinHeight(): Promise<number>;
-
     /**
      * Obtains the minimum width of the wallpaper.
      * @return the minimum width, in pixels; returns {@code 0} if no wallpaper has been set.
      */
     function getMinWidth(callback: AsyncCallback<number>): void;
     function getMinWidth(): Promise<number>;
-
     /**
      * Checks whether to allow the application to change the wallpaper for the current user.
      * @return true if the application is allowed to set a wallpaper for the current user;
      */
     function isChangePermitted(callback: AsyncCallback<boolean>): void;
     function isChangePermitted(): Promise<boolean>;
-
     /**
      * Checks whether a user is allowed to set wallpapers.
      * @return true if a user is allowed to set wallpapers; returns false otherwise.
      */
     function isOperationAllowed(callback: AsyncCallback<boolean>): void;
     function isOperationAllowed(): Promise<boolean>;
-
     /**
      * Removes a wallpaper of the specified type and restores the default one.
      * @param wallpaperType Indicates the wallpaper type.
@@ -97,7 +88,6 @@ declare namespace wallpaper {
      */
     function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function reset(wallpaperType: WallpaperType): Promise<void>;
-
     /**
      * Sets a wallpaper of the specified type based on the uri path from a JPEG or PNG file or the pixel map of a PNG file.
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
@@ -106,43 +96,18 @@ declare namespace wallpaper {
      */
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
-
-    /**
-     * Obtains the default pixel map of a wallpaper of the specified type.
-     * @param wallpaperType Indicates the wallpaper type.
-     * @return the default pixel map.
-     * @permission ohos.permission.GET_WALLPAPER
-     * @permission ohos.permission.READ_USER_STORAGE
-     * @systemapi Hide this for inner system use.
-     */
-    function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
-    function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
-
-    /**
-     * Screen shot live wallpaper
-     * @param scale scale the PixelMap
-     * @param pixelFormat pixel format
-     * @return the pixel map of wallpaper.
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @systemapi Hide this for inner system use.
-     */
-    function screenshotLiveWallpaper(scale: number, pixelFormat: image.PixelMapFormat, callback: AsyncCallback<image.PixelMap>): void;
-    function screenshotLiveWallpaper(scale: number, pixelFormat: image.PixelMapFormat): Promise<image.PixelMap>;
-
     /**
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
      * @param type The incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
      */
     function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
-
     /**
      * Unregisters a listener for wallpaper color changes.
      * @param type Incoming 'colorChange' table delete receiver to pick up a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
      */
     function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
-
     interface RgbaColor {
         /**
          * Said the red value, the range is 0 to 255.
@@ -162,5 +127,4 @@ declare namespace wallpaper {
         alpha: number;
     }
 }
-
 export default wallpaper;

@@ -12,101 +12,87 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 /**
  * Declare item ceiling attribute.
  * @since 7
  */
 declare enum Sticky {
-  /**
-   * No sticky.
-   * @since 7
-   */
-  None,
-
-  /**
-   * Normal mode
-   * @since 7
-   */
-  Normal,
-
-  /**
-   * Set opacity.
-   * @since 7
-   */
-  Opacity,
+    /**
+     * No sticky.
+     * @since 7
+     */
+    None,
+    /**
+     * Normal mode
+     * @since 7
+     */
+    Normal,
+    /**
+     * Set opacity.
+     * @since 7
+     */
+    Opacity
 }
-
 /**
  * Declare whether the ListItem element is editable.
  * @since 7
  */
 declare enum EditMode {
-  /**
-   * Unrestricted operations.
-   * @since 7
-   */
-  None,
-
-  /**
-   * Deleteable.
-   * @since 7
-   */
-  Deletable,
-
-  /**
-   * Movable.
-   * @since 7
-   */
-  Movable,
+    /**
+     * Unrestricted operations.
+     * @since 7
+     */
+    None,
+    /**
+     * Deleteable.
+     * @since 7
+     */
+    Deletable,
+    /**
+     * Movable.
+     * @since 7
+     */
+    Movable
 }
-
 /**
  * @since 7
  */
-
 /**
  * Values in the list
  * @since 7
  */
 interface ListItemInterface {
-  /**
-   * Called when an interface is used.
-   * @since 7
-   */
-  (value?: string): ListItemAttribute;
+    /**
+     * Called when an interface is used.
+     * @since 7
+     */
+    (value?: string): ListItemAttribute;
 }
-
 /**
  * @since 7
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
-  /**
-   * Called when setting whether item is ceiling effect.
-   * @since 7
-   */
-  sticky(value: Sticky): ListItemAttribute;
-
-  /**
-   * Called when judging whether it is editable.
-   * @since 7
-   */
-  editable(value: boolean | EditMode): ListItemAttribute;
-
-  /**
-   * Called when judging whether it is selectable.
-   * @since 8
-   */
-  selectable(value: boolean): ListItemAttribute;
-
-  /**
-   * Called when the listItem is selected.
-   * @since 8
-   */
-  onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
+    /**
+     * Called when setting whether item is ceiling effect.
+     * @since 7
+     */
+    sticky(value: Sticky): ListItemAttribute;
+    /**
+     * Called when judging whether it is editable.
+     * @since 7
+     */
+    editable(value: boolean | EditMode): ListItemAttribute;
+    /**
+     * Called when judging whether it is selectable.
+     * @since 8
+     */
+    selectable(value: boolean): ListItemAttribute;
+    /**
+     * Called when the listItem is selected.
+     * @since 8
+     */
+    onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
-
 /**
  * @since 7
  */

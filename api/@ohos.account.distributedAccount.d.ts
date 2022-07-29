@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {AsyncCallback} from './basic'
-
+import { AsyncCallback } from './basic';
 /**
  * This module provides the capability to manage distributed accounts.
  *
@@ -30,7 +28,6 @@ declare namespace distributedAccount {
      * @return Ability to manage operations of distributed account.
      */
     function getDistributedAccountAbility(): DistributedAccountAbility;
-
     /**
      * Defines distributed account functions and interfaces.
      *
@@ -49,7 +46,6 @@ declare namespace distributedAccount {
          */
         queryOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
         queryOsAccountDistributedInfo(): Promise<DistributedInfo>;
-
         /**
          * Updates the distributed information of the OS account.
          *
@@ -61,7 +57,6 @@ declare namespace distributedAccount {
         updateOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
         updateOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
     }
-
     /**
      * Provides the distributed information of the OS account.
      *
@@ -75,22 +70,18 @@ declare namespace distributedAccount {
          * The name in the distributed information of the OS account.
          */
         name: string;
-
         /**
          * The ID in the distributed information of the OS account.
          */
         id: string;
-
         /**
          * The event string in the distributed information of the OS account.
          */
         event: string;
-
         /**
          * The scalable data in the distributed information of the OS account.
          */
         scalableData?: object;
     }
 }
-
 export default distributedAccount;

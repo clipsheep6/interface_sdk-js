@@ -12,7 +12,6 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 import { AsyncCallback } from '../basic';
 import { ApplicationInfo } from '../bundle/applicationInfo';
 import { ProcessInfo } from './processInfo';
@@ -22,8 +21,6 @@ import { HapModuleInfo } from '../bundle/hapModuleInfo';
 import { AppVersionInfo } from './appVersionInfo';
 import { AbilityInfo } from '../bundle/abilityInfo';
 import bundle from '../@ohos.bundle';
-
-
 /**
  * The context of an ability or an application.  It allows access to
  * application-specific resources, request and verification permissions.
@@ -36,7 +33,6 @@ import bundle from '../@ohos.bundle';
  * @FAModelOnly
  */
 export interface Context extends BaseContext {
-
     /**
     * Get the local root dir of an app. If it is the first call, the dir
     * will be created.
@@ -67,7 +63,6 @@ export interface Context extends BaseContext {
     verifyPermission(permission: string, options?: PermissionOptions): Promise<number>;
     verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback<number>): void;
     verifyPermission(permission: string, callback: AsyncCallback<number>): void;
-
     /**
     * Requests certain permissions from the system.
     * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null.
@@ -78,96 +73,85 @@ export interface Context extends BaseContext {
     */
     requestPermissionsFromUser(permissions: Array<string>, requestCode: number, resultCallback: AsyncCallback<PermissionRequestResult>): void;
     requestPermissionsFromUser(permissions: Array<string>, requestCode: number): Promise<PermissionRequestResult>;
-
     /**
     * Obtains information about the current application.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getApplicationInfo(callback: AsyncCallback<ApplicationInfo>): void
+    getApplicationInfo(callback: AsyncCallback<ApplicationInfo>): void;
     getApplicationInfo(): Promise<ApplicationInfo>;
-
     /**
     * Obtains the bundle name of the current ability.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getBundleName(callback: AsyncCallback<string>): void
+    getBundleName(callback: AsyncCallback<string>): void;
     getBundleName(): Promise<string>;
-
     /**
     * Obtains the current display orientation of this ability.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
-    getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void
+    getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void;
     getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
-    
     /**
     * Sets the display orientation of the current ability.
     * @param orientation Indicates the new orientation for the current ability.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
-    setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void
+    setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void;
     setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise<void>;
-    
     /**
     * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state.
     * @param show Specifies whether to show this ability on top of the lock screen. The value true means to show it on the lock screen, and the value false means not.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
-    setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void
+    setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void;
     setShowOnLockScreen(show: boolean): Promise<void>;
-    
     /**
     * Sets whether to wake up the screen when this ability is restored.
     * @param wakeUp Specifies whether to wake up the screen. The value true means to wake it up, and the value false means not.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
-    setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void
-    setWakeUpScreen(wakeUp: boolean): Promise<void>;  
-
+    setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void;
+    setWakeUpScreen(wakeUp: boolean): Promise<void>;
     /**
     * Obtains information about the current process, including the process ID and name.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getProcessInfo(callback: AsyncCallback<ProcessInfo>): void
+    getProcessInfo(callback: AsyncCallback<ProcessInfo>): void;
     getProcessInfo(): Promise<ProcessInfo>;
-
     /**
     * Obtains the ohos.bundle.ElementName object of the current ability. This method is available only to Page abilities.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getElementName(callback: AsyncCallback<ElementName>): void
+    getElementName(callback: AsyncCallback<ElementName>): void;
     getElementName(): Promise<ElementName>;
-
     /**
     * Obtains the name of the current process.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getProcessName(callback: AsyncCallback<string>): void
+    getProcessName(callback: AsyncCallback<string>): void;
     getProcessName(): Promise<string>;
-
     /**
     * Obtains the bundle name of the ability that called the current ability.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getCallingBundle(callback: AsyncCallback<string>): void
+    getCallingBundle(callback: AsyncCallback<string>): void;
     getCallingBundle(): Promise<string>;
-
     /**
     * Obtains the file directory of this application on the internal storage.
     * @since 6
@@ -176,7 +160,6 @@ export interface Context extends BaseContext {
     */
     getFilesDir(callback: AsyncCallback<string>): void;
     getFilesDir(): Promise<string>;
-
     /**
     * Obtains the cache directory of this application on the internal storage.
     * @since 6
@@ -185,7 +168,6 @@ export interface Context extends BaseContext {
     */
     getCacheDir(callback: AsyncCallback<string>): void;
     getCacheDir(): Promise<string>;
-
     /**
     * Obtains the distributed file path for storing ability or application data files.
     * If the distributed file path does not exist, the system will create a path and return the created path.
@@ -195,34 +177,30 @@ export interface Context extends BaseContext {
     */
     getOrCreateDistributedDir(): Promise<string>;
     getOrCreateDistributedDir(callback: AsyncCallback<string>): void;
-
     /**
     * Obtains the application type.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getAppType(callback: AsyncCallback<string>): void
+    getAppType(callback: AsyncCallback<string>): void;
     getAppType(): Promise<string>;
-
     /**
     * Obtains the ModuleInfo object for this application.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getHapModuleInfo(callback: AsyncCallback<HapModuleInfo>): void
+    getHapModuleInfo(callback: AsyncCallback<HapModuleInfo>): void;
     getHapModuleInfo(): Promise<HapModuleInfo>;
-
     /**
     * Obtains the application version information.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getAppVersionInfo(callback: AsyncCallback<AppVersionInfo>): void
+    getAppVersionInfo(callback: AsyncCallback<AppVersionInfo>): void;
     getAppVersionInfo(): Promise<AppVersionInfo>;
-
     /**
     * Obtains the context of this application.
     * @since 7
@@ -230,16 +208,14 @@ export interface Context extends BaseContext {
     * @FAModelOnly
     */
     getApplicationContext(): Context;
-
     /**
     * Checks the detailed information of this ability.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void
+    getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void;
     getAbilityInfo(): Promise<AbilityInfo>;
-
     /**
     * Checks whether the configuration of this ability is changing.
     * @since 7
@@ -249,7 +225,6 @@ export interface Context extends BaseContext {
     */
     isUpdatingConfigurations(callback: AsyncCallback<boolean>): void;
     isUpdatingConfigurations(): Promise<boolean>;
-
     /**
     * Informs the system of the time required for drawing this Page ability.
     * @since 7
@@ -259,7 +234,6 @@ export interface Context extends BaseContext {
     printDrawnCompleted(callback: AsyncCallback<void>): void;
     printDrawnCompleted(): Promise<void>;
 }
-
 /**
  * @name the result of requestPermissionsFromUser with asynchronous callback
  * @since 7
@@ -275,7 +249,6 @@ interface PermissionRequestResult {
     * @FAModelOnly
     */
     requestCode: number;
-
     /**
     * @default The permissions passed in by the user
     * @since 7
@@ -283,7 +256,6 @@ interface PermissionRequestResult {
     * @FAModelOnly
     */
     permissions: Array<string>;
-
     /**
     * @default The results for the corresponding request permissions
     * @since 7
@@ -292,7 +264,6 @@ interface PermissionRequestResult {
     */
     authResults: Array<number>;
 }
-
 /**
  * @name PermissionOptions
  * @since 7
@@ -301,19 +272,18 @@ interface PermissionRequestResult {
  * @FAModelOnly
  */
 interface PermissionOptions {
- /**
-  * @default The process id
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @FAModelOnly
-  */
- pid?: number;
-
- /**
-  * @default The user id
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @FAModelOnly
-  */
- uid?: number;
+    /**
+     * @default The process id
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @FAModelOnly
+     */
+    pid?: number;
+    /**
+     * @default The user id
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @FAModelOnly
+     */
+    uid?: number;
 }

@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
@@ -30,7 +29,6 @@ export default class PermissionRequestResult {
      * @StageModelOnly
      */
     permissions: Array<string>;
-
     /**
      * The results for the corresponding request permissions. The value 0 indicates that a
      * permission is granted, and the value -1 indicates not.

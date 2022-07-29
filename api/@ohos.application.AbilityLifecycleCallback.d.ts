@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import Ability from "./@ohos.application.Ability";
-
 /**
  * The ability lifecycle callback.
  *
@@ -32,7 +30,6 @@ export default class AbilityLifecycleCallback {
      * @StageModelOnly
      */
     onAbilityCreate(ability: Ability): void;
-
     /**
      * Called back when an ability window stage is created.
      *
@@ -42,7 +39,6 @@ export default class AbilityLifecycleCallback {
      * @StageModelOnly
      */
     onAbilityWindowStageCreate(ability: Ability): void;
- 
     /**
      * Called back when an ability window stage is destroyed.
      *
@@ -52,7 +48,6 @@ export default class AbilityLifecycleCallback {
      * @StageModelOnly
      */
     onAbilityWindowStageDestroy(ability: Ability): void;
- 
     /**
      * Called back when an ability is destroyed.
      *
@@ -62,7 +57,6 @@ export default class AbilityLifecycleCallback {
      * @StageModelOnly
      */
     onAbilityDestroy(ability: Ability): void;
- 
     /**
      * Called back when the state of an ability changes to foreground.
      *
@@ -72,7 +66,6 @@ export default class AbilityLifecycleCallback {
      * @StageModelOnly
      */
     onAbilityForeground(ability: Ability): void;
- 
     /**
      * Called back when the state of an ability changes to background.
      *
@@ -82,7 +75,6 @@ export default class AbilityLifecycleCallback {
      * @StageModelOnly
      */
     onAbilityBackground(ability: Ability): void;
- 
     /**
      * Called back when an ability prepares to continue.
      *

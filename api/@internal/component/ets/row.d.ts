@@ -12,36 +12,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The components are laid out horizontally
  * @since 7
  */
 interface RowInterface {
-  /**
-   * Called when the layout is set in the horizontal direction.
-   * @since 7
-   */
-  (value?: { space?: string | number }): RowAttribute;
+    /**
+     * Called when the layout is set in the horizontal direction.
+     * @since 7
+     */
+    (value?: {
+        space?: string | number;
+    }): RowAttribute;
 }
-
 /**
  * Defines the row attribute functions.
  * @since 7
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
-  /**
-   * Called when the vertical alignment is set.
-   * @since 7
-   */
-  alignItems(value: VerticalAlign): RowAttribute;
-
-  /**
-   * Called when the horizontal alignment is set.
-   * @since 8
-   */
-  justifyContent(value: FlexAlign): RowAttribute;
+    /**
+     * Called when the vertical alignment is set.
+     * @since 7
+     */
+    alignItems(value: VerticalAlign): RowAttribute;
+    /**
+     * Called when the horizontal alignment is set.
+     * @since 8
+     */
+    justifyContent(value: FlexAlign): RowAttribute;
 }
-
 declare const Row: RowInterface;
 declare const RowInstance: RowAttribute;

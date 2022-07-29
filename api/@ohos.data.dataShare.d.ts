@@ -12,13 +12,11 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 import { AsyncCallback } from './basic';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
-
 declare namespace dataShare {
     /**
      * Obtains the dataShareHelper.
@@ -30,7 +28,6 @@ declare namespace dataShare {
      */
     function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
     function createDataShareHelper(context: Context, uri: string): Promise<DataShareHelper>;
-
     /**
      * DataShareHelper
      * @since 9
@@ -38,23 +35,22 @@ declare namespace dataShare {
      * @StageModelOnly
      */
     interface DataShareHelper {
-         /**
-         * Opens a file in a specified remote path.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-         * @param uri Indicates the path of the file to open.
-         * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
-         *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
-         *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
-         *             any existing data, or "rwt" for read and write access that truncates any existing file.
-         * @param callback Indicates the callback when openfile success
-         * @return Returns the file descriptor.
-         * @StageModelOnly
-         */
+        /**
+        * Opens a file in a specified remote path.
+        *
+        * @since 9
+        * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+        * @param uri Indicates the path of the file to open.
+        * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
+        *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
+        *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
+        *             any existing data, or "rwt" for read and write access that truncates any existing file.
+        * @param callback Indicates the callback when openfile success
+        * @return Returns the file descriptor.
+        * @StageModelOnly
+        */
         openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
         openFile(uri: string, mode: string): Promise<number>;
-
         /**
          * Registers an observer to observe data specified by the given uri.
          * @since 9
@@ -66,7 +62,6 @@ declare namespace dataShare {
          * @StageModelOnly
          */
         on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
-
         /**
          * Deregisters an observer used for monitoring data specified by the given uri.
          * @since 9
@@ -78,7 +73,6 @@ declare namespace dataShare {
          * @StageModelOnly
          */
         off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
-
         /**
          * Inserts a single data record into the database.
          * @since 9
@@ -90,7 +84,6 @@ declare namespace dataShare {
          */
         insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
         insert(uri: string, value: ValuesBucket): Promise<number>;
-
         /**
          * Deletes one or more data records from the database.
          * @since 9
@@ -102,7 +95,6 @@ declare namespace dataShare {
          */
         delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
         delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
-
         /**
          * Queries data in the database.
          * @since 9
@@ -115,7 +107,6 @@ declare namespace dataShare {
          */
         query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
         query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>): Promise<DataShareResultSet>;
-
         /**
          * Updates data records in the database.
          * @since 9
@@ -128,7 +119,6 @@ declare namespace dataShare {
          */
         update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
         update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
-
         /**
          * Inserts multiple data records into the database.
          * @since 9
@@ -140,7 +130,6 @@ declare namespace dataShare {
          */
         batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
         batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
-
         /**
          * Obtains the MIME type of the date specified by the given uri.
          * @since 9
@@ -151,7 +140,6 @@ declare namespace dataShare {
          */
         getType(uri: string, callback: AsyncCallback<string>): void;
         getType(uri: string): Promise<string>;
-
         /**
          * Obtains the MIME types of files supported.
          * @since 9
@@ -164,9 +152,8 @@ declare namespace dataShare {
          * @return Returns the matched MIME types. If there is no match, {@code null} is returned.
          * @StageModelOnly
          */
-        getFileTypes(uri: string,  mimeTypeFilter:string, callback: AsyncCallback<Array<string>>): void;
-        getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
-
+        getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
+        getFileTypes(uri: string, mimeTypeFilter: string): Promise<Array<string>>;
         /**
          * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
          * A normalized uri can be used across devices, persisted, backed up, and restored.
@@ -185,7 +172,6 @@ declare namespace dataShare {
          */
         normalizeUri(uri: string, callback: AsyncCallback<string>): void;
         normalizeUri(uri: string): Promise<string>;
-
         /**
          * Converts the given normalized {@code uri} generated by {@link #normalizeUri(Uri)} into a denormalized one.
          * @since 9
@@ -201,7 +187,6 @@ declare namespace dataShare {
          */
         denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
         denormalizeUri(uri: string): Promise<string>;
-
         /**
          * Notifies the registered observers of a change to the data resource specified by Uri.
          * @since 9
@@ -214,5 +199,4 @@ declare namespace dataShare {
         notifyChange(uri: string): Promise<void>;
     }
 }
-
 export default dataShare;

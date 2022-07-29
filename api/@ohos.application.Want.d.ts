@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Want is the basic communication component of the system.
  *
@@ -29,7 +28,6 @@ export default class Want {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     deviceId?: string;
-
     /**
      * bundle name
      * @default -
@@ -37,7 +35,6 @@ export default class Want {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     bundleName?: string;
-
     /**
      * ability name
      * @default -
@@ -45,7 +42,6 @@ export default class Want {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     abilityName?: string;
-
     /**
      * The description of a URI in a Want.
      * @since 8
@@ -53,7 +49,6 @@ export default class Want {
      * @default -
      */
     uri?: string;
-
     /**
      * The description of the type in this Want.
      * @since 8
@@ -61,7 +56,6 @@ export default class Want {
      * @default -
      */
     type?: string;
-
     /**
      * The options of the flags in this Want.
      * @since 8
@@ -69,7 +63,6 @@ export default class Want {
      * @default -
      */
     flags?: number;
-
     /**
      * The description of an action in an want.
      * @since 8
@@ -77,15 +70,15 @@ export default class Want {
      * @default -
      */
     action?: string;
-
     /**
      * The description of the WantParams object in an Want
      * @since 8
      * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
-    parameters?: {[key: string]: any};
-
+    parameters?: {
+        [key: string]: any;
+    };
     /**
      * The description of a entities in a Want.
      * @since 8
@@ -93,7 +86,6 @@ export default class Want {
      * @default -
      */
     entities?: Array<string>;
-
     /**
      * The description of an module name in an want.
      * @since 9

@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback, Callback } from "./basic";
-
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
@@ -33,7 +31,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getState(): BluetoothState;
-
     /**
      * Get the local device connection state to any profile of any remote device.
      *
@@ -44,7 +41,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getBtConnectionState(): ProfileConnectionState;
-
     /**
      * Starts pairing with a remote Bluetooth device.
      *
@@ -54,18 +50,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function pairDevice(deviceId: string): boolean;
-
-    /**
-     * Remove a paired remote device.
-     *
-     * @param deviceId The address of the remote device to be removed.
-     * @return Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
-     * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
-     * @systemapi Hide this for inner system use
-     */
-    function cancelPairedDevice(deviceId: string): boolean;
-
     /**
      * Obtains the name of a peer Bluetooth device.
      *
@@ -75,7 +59,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getRemoteDeviceName(deviceId: string): string;
-
     /**
      * Obtains the class of a peer Bluetooth device.
      *
@@ -85,7 +68,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getRemoteDeviceClass(deviceId: string): DeviceClass;
-
     /**
      * Enables Bluetooth on a device.
      *
@@ -94,7 +76,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function enableBluetooth(): boolean;
-
     /**
      * Disables Bluetooth on a device.
      *
@@ -103,7 +84,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function disableBluetooth(): boolean;
-
     /**
      * Obtains the Bluetooth local name of a device.
      *
@@ -112,7 +92,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getLocalName(): string;
-
     /**
      * Obtains the list of Bluetooth devices that have been paired with the current device.
      *
@@ -121,7 +100,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getPairedDevices(): Array<string>;
-
     /**
      * Obtains the connection state of profile.
      *
@@ -131,7 +109,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getProfileConnState(profileId: ProfileId): ProfileConnectionState;
-
     /**
      * Sets the confirmation of pairing with a certain device.
      *
@@ -142,7 +119,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.MANAGE_BLUETOOTH
      */
     function setDevicePairingConfirmation(device: string, accept: boolean): boolean;
-
     /**
      * Sets the Bluetooth friendly name of a device.
      *
@@ -152,7 +128,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function setLocalName(name: string): boolean;
-
     /**
      * Sets the Bluetooth scan mode for a device.
      *
@@ -163,7 +138,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function setBluetoothScanMode(mode: ScanMode, duration: number): boolean;
-
     /**
      * Obtains the Bluetooth scanning mode of a device.
      *
@@ -172,7 +146,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getBluetoothScanMode(): ScanMode;
-
     /**
      * Starts scanning Bluetooth devices.
      *
@@ -181,7 +154,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
      */
     function startBluetoothDiscovery(): boolean;
-
     /**
      * Stops Bluetooth device scanning.
      *
@@ -190,7 +162,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function stopBluetoothDiscovery(): boolean;
-
     /**
      * Subscribe the event reported when a remote Bluetooth device is discovered.
      *
@@ -200,7 +171,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function on(type: "bluetoothDeviceFind", callback: Callback<Array<string>>): void;
-
     /**
      * Unsubscribe the event reported when a remote Bluetooth device is discovered.
      *
@@ -210,7 +180,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function off(type: "bluetoothDeviceFind", callback?: Callback<Array<string>>): void;
-
     /**
      * Subscribe the event reported when a remote Bluetooth device is bonded.
      *
@@ -220,7 +189,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function on(type: "bondStateChange", callback: Callback<BondStateParam>): void;
-
     /**
      * Unsubscribe the event reported when a remote Bluetooth device is bonded.
      *
@@ -230,7 +198,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function off(type: "bondStateChange", callback?: Callback<BondStateParam>): void;
-
     /**
      * Subscribe the event of a pairing request from a remote Bluetooth device.
      *
@@ -240,7 +207,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function on(type: "pinRequired", callback: Callback<PinRequiredParam>): void;
-
     /**
      * Unsubscribe the event of a pairing request from a remote Bluetooth device.
      *
@@ -250,7 +216,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function off(type: "pinRequired", callback?: Callback<PinRequiredParam>): void;
-
     /**
      * Subscribe the event reported when the Bluetooth state changes.
      *
@@ -260,7 +225,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function on(type: "stateChange", callback: Callback<BluetoothState>): void;
-
     /**
      * Unsubscribe the event reported when the Bluetooth state changes.
      *
@@ -270,7 +234,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function off(type: "stateChange", callback?: Callback<BluetoothState>): void;
-
     /**
      * Creates a Bluetooth server listening socket.
      *
@@ -281,7 +244,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function sppListen(name: string, option: SppOption, callback: AsyncCallback<number>): void;
-
     /**
      * Waits for a remote device to connect.
      *
@@ -290,7 +252,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function sppAccept(serverSocket: number, callback: AsyncCallback<number>): void;
-
     /**
      * Connects to a remote device over the socket.
      *
@@ -301,7 +262,6 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function sppConnect(device: string, option: SppOption, callback: AsyncCallback<number>): void;
-
     /**
      * Disables an spp server socket and releases related resources.
      *
@@ -309,7 +269,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function sppCloseServerSocket(socket: number): void;
-
     /**
      * Disables an spp client socket and releases related resources.
      *
@@ -317,7 +276,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function sppCloseClientSocket(socket: number): void;
-
     /**
      * Write data through the socket.
      *
@@ -327,7 +285,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function sppWrite(clientSocket: number, data: ArrayBuffer): boolean;
-
     /**
      * Subscribe the event reported when data is read from the socket.
      *
@@ -336,7 +293,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function on(type: "sppRead", clientSocket: number, callback: Callback<ArrayBuffer>): void;
-
     /**
      * Unsubscribe the event reported when data is read from the socket.
      *
@@ -345,7 +301,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function off(type: "sppRead", clientSocket: number, callback?: Callback<ArrayBuffer>): void;
-
     /**
      * Obtains the instance of profile.
      *
@@ -354,7 +309,6 @@ declare namespace bluetooth {
      * @since 8
      */
     function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
-
     /**
      * Obtains the instance of profile.
      *
@@ -363,7 +317,6 @@ declare namespace bluetooth {
      * @since 9
      */
     function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
-
     /**
      * Base interface of profile.
      */
@@ -376,7 +329,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         getConnectionDevices(): Array<string>;
-
         /**
          * Obtains the profile state of device.
          *
@@ -387,7 +339,6 @@ declare namespace bluetooth {
          */
         getDeviceState(device: string): ProfileConnectionState;
     }
-
     /**
      * Manager a2dp source profile.
      */
@@ -401,7 +352,6 @@ declare namespace bluetooth {
          * @permission permission ohos.permission.DISCOVER_BLUETOOTH
          */
         connect(device: string): boolean;
-
         /**
          * Disconnect to device with a2dp.
          *
@@ -411,7 +361,6 @@ declare namespace bluetooth {
          * @permission permission ohos.permission.DISCOVER_BLUETOOTH
          */
         disconnect(device: string): boolean;
-
         /**
          * Subscribe the event reported when the profile connection state changes .
          *
@@ -420,7 +369,6 @@ declare namespace bluetooth {
          * @since 8
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
-
         /**
          * Unsubscribe the event reported when the profile connection state changes .
          *
@@ -429,7 +377,6 @@ declare namespace bluetooth {
          * @since 8
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
-
         /**
          * Obtains the playing state of device.
          *
@@ -439,7 +386,6 @@ declare namespace bluetooth {
          */
         getPlayingState(device: string): PlayingState;
     }
-
     /**
      * Manager handsfree AG profile.
      */
@@ -453,7 +399,6 @@ declare namespace bluetooth {
          * @permission permission ohos.permission.DISCOVER_BLUETOOTH
          */
         connect(device: string): boolean;
-
         /**
          * Disconnect to device with hfp.
          *
@@ -463,7 +408,6 @@ declare namespace bluetooth {
          * @permission permission ohos.permission.DISCOVER_BLUETOOTH
          */
         disconnect(device: string): boolean;
-
         /**
          * Subscribe the event reported when the profile connection state changes .
          *
@@ -472,7 +416,6 @@ declare namespace bluetooth {
          * @since 8
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
-
         /**
          * Unsubscribe the event reported when the profile connection state changes .
          *
@@ -482,34 +425,11 @@ declare namespace bluetooth {
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
     }
-
     /**
      * Manager hid host profile.
      */
     interface HidHostProfile extends BaseProfile {
         /**
-         * Connect to device with hid host.
-         *
-         * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
-         * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         */
-        connect(device: string): boolean;
-
-        /**
-         * Disconnect to device with hid host.
-         *
-         * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
-         * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         */
-        disconnect(device: string): boolean;
-
-        /**
          * Subscribe the event reported when the profile connection state changes .
          *
          * @param type Type of the profile connection state changes event to listen for .
@@ -517,7 +437,6 @@ declare namespace bluetooth {
          * @since 9
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
-
         /**
          * Unsubscribe the event reported when the profile connection state changes.
          *
@@ -527,23 +446,11 @@ declare namespace bluetooth {
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
     }
-
     /**
      * Manager pan profile.
      */
     interface PanProfile extends BaseProfile {
         /**
-         * Disconnect to device with pan.
-         *
-         * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
-         * @since 9
-         * @permission permission ohos.permission.USE_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         */
-        disconnect(device: string): boolean;
-
-        /**
          * Subscribe the event reported when the profile connection state changes .
          *
          * @param type Type of the profile connection state changes event to listen for .
@@ -551,7 +458,6 @@ declare namespace bluetooth {
          * @since 9
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
-
         /**
          * Unsubscribe the event reported when the profile connection state changes.
          *
@@ -560,28 +466,7 @@ declare namespace bluetooth {
          * @since 9
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
-
-        /**
-         * Enable bluetooth tethering.
-         *
-         * @param enable Specifies whether to enable tethering. The value {@code true} indicates
-         * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
-         * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
-         * @systemapi Hide this for inner system use.
-         */
-        setTethering(enable: boolean): void;
-
-        /**
-         * Obtains the tethering enable or disable.
-         *
-         * @return Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
-         * @since 9
-         * @systemapi Hide this for inner system use.
-         */
-        isTetheringOn(): boolean;
     }
-
     namespace BLE {
         /**
          * create a JavaScript Gatt server instance.
@@ -590,7 +475,6 @@ declare namespace bluetooth {
          * @since 7
          */
         function createGattServer(): GattServer;
-
         /**
          * create a JavaScript Gatt client device instance.
          *
@@ -599,7 +483,6 @@ declare namespace bluetooth {
          * @since 7
          */
         function createGattClientDevice(deviceId: string): GattClientDevice;
-
         /**
          * Obtains the list of devices in the connected status.
          *
@@ -608,7 +491,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         function getConnectedBLEDevices(): Array<string>;
-
         /**
          * Starts scanning for specified BLE devices with filters.
          *
@@ -621,7 +503,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH and ohos.permission.LOCATION
          */
         function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
-
         /**
          * Stops BLE scanning.
          *
@@ -629,7 +510,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         function stopBLEScan(): void;
-
         /**
          * Subscribe BLE scan result.
          *
@@ -639,7 +519,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         function on(type: "BLEDeviceFind", callback: Callback<Array<ScanResult>>): void;
-
         /**
          * Unsubscribe BLE scan result.
          *
@@ -650,7 +529,6 @@ declare namespace bluetooth {
          */
         function off(type: "BLEDeviceFind", callback?: Callback<Array<ScanResult>>): void;
     }
-
     /**
      * Manages GATT server. Before calling an Gatt server method, you must use {@link createGattServer} to create an GattServer instance.
      */
@@ -666,7 +544,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
-
         /**
          * Stops BLE advertising.
          *
@@ -674,7 +551,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         stopAdvertising(): void;
-
         /**
          * Adds a specified service to be hosted.
          *
@@ -686,7 +562,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         addService(service: GattService): boolean;
-
         /**
          * Removes a specified service from the list of GATT services provided by this device.
          *
@@ -696,7 +571,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         removeService(serviceUuid: string): boolean;
-
         /**
          * Closes this {@code GattServer} object and unregisters its callbacks.
          *
@@ -704,7 +578,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         close(): void;
-
         /**
          * Sends a notification of a change in a specified local characteristic.
          *
@@ -717,7 +590,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): boolean;
-
         /**
          * Sends a response to a specified read or write request to a given BLE peripheral device.
          *
@@ -727,7 +599,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         sendResponse(serverResponse: ServerResponse): boolean;
-
         /**
          * Subscribe characteristic read event.
          *
@@ -737,7 +608,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "characteristicRead", callback: Callback<CharacteristicReadReq>): void;
-
         /**
          * Unsubscribe characteristic read event.
          *
@@ -747,7 +617,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         off(type: "characteristicRead", callback?: Callback<CharacteristicReadReq>): void;
-
         /**
          * Subscribe characteristic write event.
          *
@@ -757,7 +626,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "characteristicWrite", callback: Callback<CharacteristicWriteReq>): void;
-
         /**
          * Unsubscribe characteristic write event.
          *
@@ -767,7 +635,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         off(type: "characteristicWrite", callback?: Callback<CharacteristicWriteReq>): void;
-
         /**
          * Subscribe descriptor read event.
          *
@@ -777,7 +644,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "descriptorRead", callback: Callback<DescriptorReadReq>): void;
-
         /**
          * Unsubscribe descriptor read event.
          *
@@ -787,7 +653,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         off(type: "descriptorRead", callback?: Callback<DescriptorReadReq>): void;
-
         /**
          * Subscribe descriptor write event.
          *
@@ -797,7 +662,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "descriptorWrite", callback: Callback<DescriptorWriteReq>): void;
-
         /**
          * Unsubscribe descriptor write event.
          *
@@ -807,7 +671,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         off(type: "descriptorWrite", callback?: Callback<DescriptorWriteReq>): void;
-
         /**
          * Subscribe server connection state changed event.
          *
@@ -817,7 +680,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "connectStateChange", callback: Callback<BLEConnectChangedState>): void;
-
         /**
          * Unsubscribe server connection state changed event.
          *
@@ -828,12 +690,10 @@ declare namespace bluetooth {
          */
         off(type: "connectStateChange", callback?: Callback<BLEConnectChangedState>): void;
     }
-
     /**
      * Manages GATT client. Before calling an Gatt client method, you must use {@link createGattClientDevice} to create an GattClientDevice instance.
      */
     interface GattClientDevice {
-
         /**
          * Connects to a BLE peripheral device.
          *
@@ -844,7 +704,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         connect(): boolean;
-
         /**
          * Disconnects from or stops an ongoing connection to a BLE peripheral device.
          *
@@ -853,7 +712,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         disconnect(): boolean;
-
         /**
          * Disables a BLE peripheral device.
          *
@@ -864,7 +722,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         close(): boolean;
-
         /**
          * Obtains the name of BLE peripheral device.
          *
@@ -875,7 +732,6 @@ declare namespace bluetooth {
          */
         getDeviceName(callback: AsyncCallback<string>): void;
         getDeviceName(): Promise<string>;
-
         /**
          * Starts discovering services.
          *
@@ -885,7 +741,6 @@ declare namespace bluetooth {
          */
         getServices(callback: AsyncCallback<Array<GattService>>): void;
         getServices(): Promise<Array<GattService>>;
-
         /**
          * Reads the characteristic of a BLE peripheral device.
          *
@@ -895,7 +750,6 @@ declare namespace bluetooth {
          */
         readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
         readCharacteristicValue(characteristic: BLECharacteristic): Promise<BLECharacteristic>;
-
         /**
          * Reads the descriptor of a BLE peripheral device.
          *
@@ -905,7 +759,6 @@ declare namespace bluetooth {
          */
         readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback<BLEDescriptor>): void;
         readDescriptorValue(descriptor: BLEDescriptor): Promise<BLEDescriptor>;
-
         /**
          * Writes the characteristic of a BLE peripheral device.
          *
@@ -915,7 +768,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         writeCharacteristicValue(characteristic: BLECharacteristic): boolean;
-
         /**
          * Writes the descriptor of a BLE peripheral device.
          *
@@ -925,7 +777,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         writeDescriptorValue(descriptor: BLEDescriptor): boolean;
-
         /**
          * Get the RSSI value of this BLE peripheral device.
          *
@@ -935,7 +786,6 @@ declare namespace bluetooth {
          */
         getRssiValue(callback: AsyncCallback<number>): void;
         getRssiValue(): Promise<number>;
-
         /**
          * Set the mtu size of a BLE peripheral device.
          *
@@ -945,7 +795,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         setBLEMtuSize(mtu: number): boolean;
-
         /**
          * Enables or disables notification of a characteristic when value changed.
          *
@@ -957,7 +806,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         setNotifyCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean): boolean;
-
         /**
          * Subscribe characteristic value changed event.
          *
@@ -967,7 +815,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "BLECharacteristicChange", callback: Callback<BLECharacteristic>): void;
-
         /**
          * Unsubscribe characteristic value changed event.
          *
@@ -977,7 +824,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         off(type: "BLECharacteristicChange", callback?: Callback<BLECharacteristic>): void;
-
         /**
          * Subscribe client connection state changed event.
          *
@@ -987,7 +833,6 @@ declare namespace bluetooth {
          * @permission ohos.permission.USE_BLUETOOTH
          */
         on(type: "BLEConnectionStateChange", callback: Callback<BLEConnectChangedState>): void;
-
         /**
          * Unsubscribe client connection state changed event.
          *
@@ -998,7 +843,6 @@ declare namespace bluetooth {
          */
         off(type: "BLEConnectionStateChange", callback?: Callback<BLEConnectChangedState>): void;
     }
-
     /**
      * Describes the Gatt service.
      *
@@ -1014,7 +858,6 @@ declare namespace bluetooth {
         /** The list of GATT services contained in the service */
         includeServices?: Array<GattService>;
     }
-
     /**
      * Describes the Gatt characteristic.
      *
@@ -1030,7 +873,6 @@ declare namespace bluetooth {
         /** The list of {@link BLEDescriptor} contained in the characteristic */
         descriptors: Array<BLEDescriptor>;
     }
-
     /**
      * Describes the Gatt descriptor.
      *
@@ -1046,7 +888,6 @@ declare namespace bluetooth {
         /** The value of the BLEDescriptor instance */
         descriptorValue: ArrayBuffer;
     }
-
     /**
      * Describes the value of the indication or notification sent by the Gatt server.
      *
@@ -1065,7 +906,6 @@ declare namespace bluetooth {
          */
         confirm: boolean;
     }
-
     /**
      * Describes the parameters of the Gatt client's characteristic read request.
      *
@@ -1083,7 +923,6 @@ declare namespace bluetooth {
         /** The UUID of the service to which the characteristic belongs */
         serviceUuid: string;
     }
-
     /**
      * Describes the parameters of the of the Gatt client's characteristic write request.
      *
@@ -1107,7 +946,6 @@ declare namespace bluetooth {
         /** The UUID of the service to which the characteristic belongs */
         serviceUuid: string;
     }
-
     /**
      * Describes the parameters of the Gatt client's descriptor read request.
      *
@@ -1127,7 +965,6 @@ declare namespace bluetooth {
         /** The UUID of the service to which the descriptor belongs */
         serviceUuid: string;
     }
-
     /**
      * Describes the parameters of the Gatt client's characteristic write request.
      *
@@ -1153,7 +990,6 @@ declare namespace bluetooth {
         /** The UUID of the service to which the descriptor belongs */
         serviceUuid: string;
     }
-
     /**
      * Describes the parameters of a response send by the server to a specified read or write request.
      *
@@ -1171,7 +1007,6 @@ declare namespace bluetooth {
         /** Indicates the value to be sent */
         value: ArrayBuffer;
     }
-
     /**
      * Describes the Gatt profile connection state.
      *
@@ -1183,7 +1018,6 @@ declare namespace bluetooth {
         /** Connection state of the Gatt profile */
         state: ProfileConnectionState;
     }
-
     /**
      * Describes the contents of the scan results.
      *
@@ -1197,7 +1031,6 @@ declare namespace bluetooth {
         /** The raw data of broadcast packet */
         data: ArrayBuffer;
     }
-
     /**
      * Describes the settings for BLE advertising.
      *
@@ -1219,7 +1052,6 @@ declare namespace bluetooth {
         /** Indicates whether the BLE is connectable, default is {@code true} */
         connectable?: boolean;
     }
-
     /**
      * Describes the advertising data.
      *
@@ -1233,7 +1065,6 @@ declare namespace bluetooth {
         /** The specified service data list to this advertisement */
         serviceData: Array<ServiceData>;
     }
-
     /**
      * Describes the manufacturer data.
      *
@@ -1245,7 +1076,6 @@ declare namespace bluetooth {
         /** Indicates the manufacturer data to add */
         manufactureValue: ArrayBuffer;
     }
-
     /**
      * Describes the service data.
      *
@@ -1257,7 +1087,6 @@ declare namespace bluetooth {
         /** Indicates the service data to add */
         serviceValue: ArrayBuffer;
     }
-
     /**
      * Describes the criteria for filtering scanning results can be set.
      *
@@ -1268,68 +1097,57 @@ declare namespace bluetooth {
          * @since 7
          */
         deviceId?: string;
-
         /**
          * The name of a BLE peripheral device
          * @since 7
          */
         name?: string;
-
         /**
          * The service UUID of a BLE peripheral device
          * @since 7
          */
         serviceUuid?: string;
-        
         /**
          * Service UUID mask.
          * @since 9
          */
         serviceUuidMask?: string;
-        
         /**
          * Service solicitation UUID mask.
          * @since 9
          */
         serviceSolicitationUuid?: string;
-
         /**
          * Service solicitation UUID mask.
          * @since 9
          */
         serviceSolicitationUuidMask?: string;
-
         /**
          * Service data.
          * @since 9
          */
         serviceData?: ArrayBuffer;
-
         /**
          * Service data mask.
          * @since 9
          */
         serviceDataMask?: ArrayBuffer;
-
         /**
          * Manufacture id.
          * @since 9
          */
         manufactureId?: number;
-
         /**
          * Manufacture data.
          * @since 9
          */
         manufactureData?: ArrayBuffer;
-
         /**
          * Manufacture data mask.
          * @since 9
          */
         manufactureDataMask?: ArrayBuffer;
     }
-
     /**
      * Describes the parameters for scan.
      *
@@ -1343,7 +1161,6 @@ declare namespace bluetooth {
         /** Match mode for Bluetooth LE scan filters hardware match */
         matchMode?: MatchMode;
     }
-
     /**
      * Describes the spp parameters.
      *
@@ -1357,7 +1174,6 @@ declare namespace bluetooth {
         /** Spp link type {@link SppType}*/
         type: SppType;
     }
-
     /**
      * Describes the bond key param.
      *
@@ -1367,7 +1183,6 @@ declare namespace bluetooth {
         deviceId: string;
         pinCode: string;
     }
-
     /**
      * Describes the class of a bluetooth device.
      *
@@ -1378,7 +1193,6 @@ declare namespace bluetooth {
         majorMinorClass: MajorMinorClass;
         classOfDevice: number;
     }
-
     /**
      * Describes the class of a bluetooth device.
      *
@@ -1388,7 +1202,6 @@ declare namespace bluetooth {
         deviceId: string;
         state: BondState;
     }
-
     enum ScanDuty {
         /** low power mode */
         SCAN_MODE_LOW_POWER = 0,
@@ -1397,14 +1210,12 @@ declare namespace bluetooth {
         /** Scan using highest duty cycle */
         SCAN_MODE_LOW_LATENCY = 2
     }
-
     enum MatchMode {
         /** aggressive mode */
         MATCH_MODE_AGGRESSIVE = 1,
         /** sticky mode */
         MATCH_MODE_STICKY = 2
     }
-
     enum ProfileConnectionState {
         /** the current profile is disconnected */
         STATE_DISCONNECTED = 0,
@@ -1415,7 +1226,6 @@ declare namespace bluetooth {
         /** the current profile is being disconnected */
         STATE_DISCONNECTING = 3
     }
-
     enum BluetoothState {
         /** Indicates the local Bluetooth is off */
         STATE_OFF = 0,
@@ -1432,7 +1242,6 @@ declare namespace bluetooth {
         /** Indicates the local Bluetooth is turning off LE only mode */
         STATE_BLE_TURNING_OFF = 6
     }
-
     /**
      * The enum of SPP type.
      *
@@ -1442,7 +1251,6 @@ declare namespace bluetooth {
         /** RFCOMM */
         SPP_RFCOMM
     }
-
     /**
      * The enum of BR scan mode.
      *
@@ -1462,7 +1270,6 @@ declare namespace bluetooth {
         /** Indicates the scan mode is connectable and limited discoverable */
         SCAN_MODE_CONNECTABLE_LIMITED_DISCOVERABLE = 5
     }
-
     /**
      * The enum of bond state.
      *
@@ -1476,7 +1283,6 @@ declare namespace bluetooth {
         /** Indicate the bond state is bonded*/
         BOND_STATE_BONDED = 2
     }
-
     /**
      * The enum of major class of a bluetooth device.
      *
@@ -1495,7 +1301,6 @@ declare namespace bluetooth {
         MAJOR_HEALTH = 0x0900,
         MAJOR_UNCATEGORIZED = 0x1F00
     }
-
     /**
      * The enum of major minor class of a bluetooth device.
      *
@@ -1512,7 +1317,6 @@ declare namespace bluetooth {
         COMPUTER_PALM_SIZE_PC_PDA = 0x0114,
         COMPUTER_WEARABLE = 0x0118,
         COMPUTER_TABLET = 0x011C,
-
         // Phone Major Class
         PHONE_UNCATEGORIZED = 0x0200,
         PHONE_CELLULAR = 0x0204,
@@ -1520,7 +1324,6 @@ declare namespace bluetooth {
         PHONE_SMART = 0x020C,
         PHONE_MODEM_OR_GATEWAY = 0x0210,
         PHONE_ISDN = 0x0214,
-
         // LAN/Network Access Point Major Class
         NETWORK_FULLY_AVAILABLE = 0x0300,
         NETWORK_1_TO_17_UTILIZED = 0x0320,
@@ -1530,7 +1333,6 @@ declare namespace bluetooth {
         NETWORK_67_TO_83_UTILIZED = 0x03A0,
         NETWORK_83_TO_99_UTILIZED = 0x03C0,
         NETWORK_NO_SERVICE = 0x03E0,
-
         // Audio/Video Major Class
         AUDIO_VIDEO_UNCATEGORIZED = 0x0400,
         AUDIO_VIDEO_WEARABLE_HEADSET = 0x0404,
@@ -1549,7 +1351,6 @@ declare namespace bluetooth {
         AUDIO_VIDEO_VIDEO_DISPLAY_AND_LOUDSPEAKER = 0x043C,
         AUDIO_VIDEO_VIDEO_CONFERENCING = 0x0440,
         AUDIO_VIDEO_VIDEO_GAMING_TOY = 0x0448,
-
         // Peripheral Major Class
         PERIPHERAL_NON_KEYBOARD_NON_POINTING = 0x0500,
         PERIPHERAL_KEYBOARD = 0x0540,
@@ -1565,14 +1366,12 @@ declare namespace bluetooth {
         PERIPHERAL_DIGITAL_PEN = 0x051C,
         PERIPHERAL_SCANNER_RFID = 0x0520,
         PERIPHERAL_GESTURAL_INPUT = 0x0522,
-
         // Imaging Major Class
         IMAGING_UNCATEGORIZED = 0x0600,
         IMAGING_DISPLAY = 0x0610,
         IMAGING_CAMERA = 0x0620,
         IMAGING_SCANNER = 0x0640,
         IMAGING_PRINTER = 0x0680,
-
         // Wearable Major Class
         WEARABLE_UNCATEGORIZED = 0x0700,
         WEARABLE_WRIST_WATCH = 0x0704,
@@ -1580,7 +1379,6 @@ declare namespace bluetooth {
         WEARABLE_JACKET = 0x070C,
         WEARABLE_HELMET = 0x0710,
         WEARABLE_GLASSES = 0x0714,
-
         // Minor Device Class field - Toy Major Class
         TOY_UNCATEGORIZED = 0x0800,
         TOY_ROBOT = 0x0804,
@@ -1588,7 +1386,6 @@ declare namespace bluetooth {
         TOY_DOLL_ACTION_FIGURE = 0x080C,
         TOY_CONTROLLER = 0x0810,
         TOY_GAME = 0x0814,
-
         // Minor Device Class field - Health
         HEALTH_UNCATEGORIZED = 0x0900,
         HEALTH_BLOOD_PRESSURE = 0x0904,
@@ -1605,9 +1402,8 @@ declare namespace bluetooth {
         HEALTH_KNEE_PROSTHESIS = 0x0930,
         HEALTH_ANKLE_PROSTHESIS = 0x0934,
         HEALTH_GENERIC_HEALTH_MANAGER = 0x0938,
-        HEALTH_PERSONAL_MOBILITY_DEVICE = 0x093C,
+        HEALTH_PERSONAL_MOBILITY_DEVICE = 0x093C
     }
-
     /**
      * Profile state change parameters.
      *
@@ -1616,11 +1412,9 @@ declare namespace bluetooth {
     interface StateChangeParam {
         /** The address of device */
         deviceId: string;
-
         /** Profile state value */
         state: ProfileConnectionState;
     }
-
     /**
      * The enum of a2dp playing state.
      *
@@ -1628,9 +1422,8 @@ declare namespace bluetooth {
      */
     enum PlayingState {
         STATE_NOT_PLAYING,
-        STATE_PLAYING,
+        STATE_PLAYING
     }
-
     /**
      * The enum of profile id.
      */
@@ -1639,22 +1432,18 @@ declare namespace bluetooth {
          * @since 8
          */
         PROFILE_A2DP_SOURCE = 1,
-
         /**
          * @since 8
          */
         PROFILE_HANDS_FREE_AUDIO_GATEWAY = 4,
-
         /**
          * @since 9
          */
         PROFILE_HID_HOST = 6,
-        
         /**
          * @since 9
          */
-        PROFILE_PAN_NETWORK = 7,
+        PROFILE_PAN_NETWORK = 7
     }
 }
-
 export default bluetooth;

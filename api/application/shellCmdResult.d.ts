@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * A object that records the result of shell command executes.
  *
@@ -29,7 +28,6 @@ export interface ShellCmdResult {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     stdResult: string;
-
     /**
      * shell cmd exec result.
      *
@@ -38,5 +36,4 @@ export interface ShellCmdResult {
      */
     exitCode: number;
 }
-
 export default ShellCmdResult;

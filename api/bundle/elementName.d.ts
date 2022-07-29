@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Contains basic Ability information, which uniquely identifies an ability.
  * You can use this class to obtain values of the fields set in an element,
@@ -23,58 +22,53 @@
  *
  * @permission N/A
  */
- export interface ElementName {
-  /**
-   * device id
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   */
-  deviceId?: string;
-
-  /**
-   * bundle name
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   */
-  bundleName: string;
-
-  /**
-   * ability name
-   * @default ability class name.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   */
-  abilityName: string;
-
-  /**
-   * uri
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   */
-  uri?: string;
-
-  /**
-   * shortName
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   */
-  shortName?: string;
-
- /**
-  * module name
-  * @default -
-  *
-  * @since 9
-  * @syscap SystemCapability.BundleManager.BundleFramework
-  */
-  moduleName?: string;
+export interface ElementName {
+    /**
+     * device id
+     * @default -
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    deviceId?: string;
+    /**
+     * bundle name
+     * @default -
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    bundleName: string;
+    /**
+     * ability name
+     * @default ability class name.
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    abilityName: string;
+    /**
+     * uri
+     * @default -
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    uri?: string;
+    /**
+     * shortName
+     * @default -
+     *
+     * @since 7
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    shortName?: string;
+    /**
+     * module name
+     * @default -
+     *
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    moduleName?: string;
 }

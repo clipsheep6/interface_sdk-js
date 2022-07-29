@@ -13,19 +13,16 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
-
 /**
  * @syscap SystemCapability.Security.AccessToken
  */
- declare namespace abilityAccessCtrl {
+declare namespace abilityAccessCtrl {
     /**
      * Obtains the AtManager instance.
      * @return returns the instance of the AtManager.
      * @since 8
      */
     function createAtManager(): AtManager;
-  
     /**
      * Provides methods for managing access_token.
      * @name AtManager
@@ -39,7 +36,6 @@ import { AsyncCallback } from "./basic";
          * @since 8
          */
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
-
         /**
          * Checks whether a specified application has been granted the given permission synchronously.
          * @param tokenID The tokenId of specified application.
@@ -47,44 +43,8 @@ import { AsyncCallback } from "./basic";
          * @return Returns permission verify result
          * @since 9
          */
-         verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
-
-        /**
-         * Grants a specified user_grant permission to the given application.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be granted.
-         * @param permissionFlag Flag of permission state.
-         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
-         * @systemapi hid this for inner system use
-         * @since 8
-         */
-        grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
-        grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
-
-        /**
-         * Revokes a specified user_grant permission to the given application.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be revoked.
-         * @param permissionFlag Flag of permission state.
-         * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
-         * @systemapi hid this for inner system use
-         * @since 8
-         */
-        revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
-        revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
-
-        /**
-         * Queries specified permission flag of the given application.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be granted.
-         * @return Return permission flag.
-         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
-         * @systemapi hid this for inner system use
-         * @since 8
-         */
-        getPermissionFlags(tokenID: number, permissionName: string): Promise<number>;
+        verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
     }
-  
     /**
      * GrantStatus.
      * @since 8
@@ -97,8 +57,7 @@ import { AsyncCallback } from "./basic";
         /**
          * access_token permission check success
          */
-        PERMISSION_GRANTED = 0,
+        PERMISSION_GRANTED = 0
     }
-  }
-
-  export default abilityAccessCtrl;
+}
+export default abilityAccessCtrl;

@@ -12,27 +12,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AsyncCallback, Callback } from "./../basic";
+import { AsyncCallback } from "./../basic";
 import Want from "./../@ohos.application.want";
-
 /**
  * @name Offers set settings policies on the devices.
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  */
 export interface DeviceSettingsManager {
-
-  /**
-   * Sets the system time.This function can be called by a super administrator.
-   *
-   * @since 9
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @return {@code true} if success.
-   * @permission ohos.permission.EDM_MANAGE_DATETIME
-   */
-  setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
-  setDateTime(admin: Want, time: number): Promise<void>;
+    /**
+     * Sets the system time.This function can be called by a super administrator.
+     *
+     * @since 9
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @param admin Indicates the administrator ability information.
+     * @param time Target time stamp (ms)
+     * @return {@code true} if success.
+     * @permission ohos.permission.EDM_MANAGE_DATETIME
+     */
+    setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
+    setDateTime(admin: Want, time: number): Promise<void>;
 }

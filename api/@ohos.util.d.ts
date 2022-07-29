@@ -45,7 +45,6 @@ declare namespace util {
      * @return Return the character string formatted in a specific format
      */
     function printf(format: string, ...args: Object[]): string;
-
     /**
      * Get the string name of the system errno.
      * @since 7
@@ -54,7 +53,6 @@ declare namespace util {
      * @return return the string name of a system errno
      */
     function getErrorString(errno: number): string;
-
     /**
      * Takes an async function (or a function that returns a Promise) and returns a function following the
      * error-first callback style.
@@ -63,7 +61,6 @@ declare namespace util {
      * @param original asynchronous function
      */
     function callbackWrapper(original: Function): (err: Object, value: Object) => void;
-
     /**
      * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
      * callback as the last argument, and return a function that returns promises.
@@ -72,8 +69,7 @@ declare namespace util {
      * @param original asynchronous function
      * @return return a function that returns promises
      */
-     function promisify(original: (err: Object, value: Object) => void): Function;
-
+    function promisify(original: (err: Object, value: Object) => void): Function;
     /**
      * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
      * callback as the last argument, and return a version that returns promises.
@@ -84,7 +80,6 @@ declare namespace util {
      * @return return a version that returns promises
      */
     function promiseWrapper(original: (err: Object, value: Object) => void): Object;
-
     class TextDecoder {
         /**
          * the source encoding's name, lowercased.
@@ -92,32 +87,28 @@ declare namespace util {
          * @syscap SystemCapability.Utils.Lang
          */
         readonly encoding: string;
-
         /**
          * Returns `true` if error mode is "fatal", and `false` otherwise.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
          */
         readonly fatal: boolean;
-
         /**
          * Returns `true` if ignore BOM flag is set, and `false` otherwise.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
          */
         readonly ignoreBOM = false;
-
         /**
          * the textEncoder constructor.
          * @param 7
          * @syscap SystemCapability.Utils.Lang
          * @param encoding decoding format
          */
-        constructor(
-            encoding?: string,
-            options?: { fatal?: boolean; ignoreBOM?: boolean },
-        );
-
+        constructor(encoding?: string, options?: {
+            fatal?: boolean;
+            ignoreBOM?: boolean;
+        });
         /**
          * Returns the result of running encoding's decoder.
          * @since 7
@@ -125,9 +116,10 @@ declare namespace util {
          * @param input decoded numbers in accordance with the format
          * @return return decoded text
          */
-        decode(input: Uint8Array, options?: { stream?: false }): string;
+        decode(input: Uint8Array, options?: {
+            stream?: false;
+        }): string;
     }
-
     class TextEncoder {
         /**
          * Encoding format.
@@ -135,14 +127,12 @@ declare namespace util {
          * @syscap SystemCapability.Utils.Lang
          */
         readonly encoding = "utf-8";
-
         /**
          * the textEncoder constructor.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
          */
         constructor();
-
         /**
          * the textEncoder constructor.
          * @since 9
@@ -150,7 +140,6 @@ declare namespace util {
          * @param encoding The string for encoding format.
          */
         constructor(encoding?: string);
-
         /**
          * Returns the result of encoder.
          * @since 7
@@ -159,7 +148,6 @@ declare namespace util {
          * @return returns the encoded text.
          */
         encode(input?: string): Uint8Array;
-
         /**
          * encode string, write the result to dest array.
          * @since 7
@@ -170,12 +158,11 @@ declare namespace util {
          * the number of characters that have been encoded, and written
          * represents the number of bytes occupied by the encoded characters.
          */
-        encodeInto(
-            input: string,
-            dest: Uint8Array,
-        ): { read: number; written: number };
+        encodeInto(input: string, dest: Uint8Array): {
+            read: number;
+            written: number;
+        };
     }
-
     class RationalNumber {
         /**
          * A constructor used to create a RationalNumber instance with a given numerator and denominator.
@@ -192,7 +179,7 @@ declare namespace util {
          * @param String Expression of Rational Numbers
          * @return Returns a RationalNumber object generated based on the given string.
          */
-        static createRationalFromString(rationalString: string): RationalNumber​;
+        static createRationalFromString(rationalString: string): RationalNumber;
         /**
          * Compares the current RationalNumber object to the given object.
          * @since 8
@@ -200,7 +187,7 @@ declare namespace util {
          * @param An object of other rational numbers
          * @return Returns 0 or 1, or -1, depending on the comparison.
          */
-        compareTo(another :RationalNumber): number;
+        compareTo(another: RationalNumber): number;
         /**
          * Compares two objects for equality.
          * @since 8
@@ -245,7 +232,7 @@ declare namespace util {
          * @syscap SystemCapability.Utils.Lang
          * @return If the denominator is not 0, true is returned. Otherwise, false is returned.
          */
-        isFinite() : boolean;
+        isFinite(): boolean;
         /**
          * Checks whether the current RationalNumber object represents a Not-a-Number (NaN) value.
          * @since 8
@@ -268,7 +255,6 @@ declare namespace util {
          */
         toString(): string;
     }
-
     class LruBuffer {
         /**
          * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
@@ -276,28 +262,28 @@ declare namespace util {
          * @syscap SystemCapability.Utils.Lang
          * @param capacity Indicates the capacity to customize for the buffer.
          */
-        constructor(capacity?:number);
+        constructor(capacity?: number);
         /**
          * Updates the buffer capacity to a specified capacity.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param newCapacity Indicates the new capacity to set.
          */
-        updateCapacity(newCapacity: number):void
+        updateCapacity(newCapacity: number): void;
         /**
          *Returns a string representation of the object.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @return Returns the string representation of the object and outputs the string representation of the object.
          */
-        toString():string
+        toString(): string;
         /**
          * Obtains a list of all values in the current buffer.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @return Returns the total number of values in the current buffer.
          */
-        length:number
+        length: number;
         /**
          * Obtains the capacity of the current buffer.
          * @since 8
@@ -424,14 +410,20 @@ declare namespace util {
          * @syscap SystemCapability.Utils.Lang
          * @return Returns an array of key-value pairs for the enumeratable properties of the given object itself.
          */
-        entries(): IterableIterator<[K, V]>;
+        entries(): IterableIterator<[
+            K,
+            V
+        ]>;
         /**
          * Specifies the default iterator for an object.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @return Returns a two - dimensional array in the form of key - value pairs.
          */
-        [Symbol.iterator](): IterableIterator<[K, V]>;
+        [Symbol.iterator](): IterableIterator<[
+            K,
+            V
+        ]>;
     }
     interface ScopeComparable {
         /**
@@ -448,8 +440,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      */
     type ScopeType = ScopeComparable | number;
-
-    class Scope{
+    class Scope {
         /**
          * A constructor used to create a Scope instance with the lower and upper bounds specified.
          * @since 8
@@ -546,8 +537,7 @@ declare namespace util {
          */
         clamp(value: ScopeType): ScopeType;
     }
-
-    class Base64{
+    class Base64 {
         /**
          * Constructor for creating base64 encoding and decoding
          * @since 8
@@ -595,7 +585,7 @@ declare namespace util {
          * @param value A Uint8Array value
          * @return Returns the encoded asynchronous string.
          */
-         encodeToString(src: Uint8Array): Promise<string>;
+        encodeToString(src: Uint8Array): Promise<string>;
         /**
          * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or input u8 array into a newly allocated u8 array.
          * @since 8
@@ -605,8 +595,7 @@ declare namespace util {
          */
         decode(src: Uint8Array | string): Promise<Uint8Array>;
     }
-
-    class types{
+    class types {
         /**
          * The types constructor
          * @since 8

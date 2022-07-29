@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
-
 /**
  * Provide APIs to set system uiAppearance.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30,28 +28,10 @@ declare namespace uiAppearance {
          * Always display with dark mode.
          */
         ALWAYS_DARK = 0,
-
         /**
          * Always display with light mode.
          */
         ALWAYS_LIGHT = 1
     }
-
-    /**
-     * Set the system dark-mode.
-     * @param mode Indicates the dark-mode to set
-     * @permission ohos.permission.UPDATE_CONFIGRATION
-     * @systemapi Hide this for inner system use
-     */
-    function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
-    function setDarkMode(mode: DarkMode): Promise<void>;
-
-    /**
-     * Acquire the current dark-mode.
-     * @return current dark-mode.
-     * @permission ohos.permission.UPDATE_CONFIGRATION
-     * @systemapi Hide this for inner system use
-     */
-    function getDarkMode(): DarkMode;
 }
 export default uiAppearance;

@@ -12,36 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
  * @since 7
  */
 interface CounterInterface {
-  /**
-   * Return Counter.
-   * @since 7
-   */
-  (): CounterAttribute;
+    /**
+     * Return Counter.
+     * @since 7
+     */
+    (): CounterAttribute;
 }
-
 /**
  * Defines the Counter attribute functions.
  * @since 7
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
-  /**
-   * Listen to the event that the value increases.
-   * @since 7
-   */
-  onInc(event: () => void): CounterAttribute;
-
-  /**
-   * Listens to the number decrease event.
-   * @since 7
-   */
-  onDec(event: () => void): CounterAttribute;
+    /**
+     * Listen to the event that the value increases.
+     * @since 7
+     */
+    onInc(event: () => void): CounterAttribute;
+    /**
+     * Listens to the number decrease event.
+     * @since 7
+     */
+    onDec(event: () => void): CounterAttribute;
 }
-
 declare const CounterInstance: CounterAttribute;
 declare const Counter: CounterInterface;

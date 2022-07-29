@@ -12,11 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import AbilityStageContext from "./application/AbilityStageContext";
 import Want from './@ohos.application.Want';
 import { Configuration } from './@ohos.application.Configuration';
-
 /**
  * The class of an ability stage.
  *
@@ -34,7 +32,6 @@ export default class AbilityStage {
      * @StageModelOnly
      */
     context: AbilityStageContext;
-
     /**
      * Called back when an ability stage is started for initialization.
      *
@@ -44,7 +41,6 @@ export default class AbilityStage {
      * @StageModelOnly
      */
     onCreate(): void;
-
     /**
      * Called back when start specified ability.
      *
@@ -57,7 +53,6 @@ export default class AbilityStage {
      * @StageModelOnly
      */
     onAcceptWant(want: Want): string;
-
     /**
      * Called when the system configuration is updated.
      *

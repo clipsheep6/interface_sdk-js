@@ -12,9 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-import {AsyncCallback, Callback} from "./basic";
-
+import { AsyncCallback } from "./basic";
 /**
  * Provides filesystem statistics APIs
  *
@@ -22,20 +20,19 @@ import {AsyncCallback, Callback} from "./basic";
  * @syscap SystemCapability.FileManagement.File.FileIO
  */
 declare namespace Statfs {
-  /**
-   * Get the number of free bytes on the specified path.
-   *
-   * @since 8
-   */
-  function getFreeBytes(path: string, callback: AsyncCallback<number>): void;
-  function getFreeBytes(path: string): Promise<number>;
-  /**
-   * Get the total number of bytes of the specified path.
-   *
-   * @since 8
-   */
-  function getTotalBytes(path: string, callback: AsyncCallback<number>): void;
-  function getTotalBytes(path: string): Promise<number>;
+    /**
+     * Get the number of free bytes on the specified path.
+     *
+     * @since 8
+     */
+    function getFreeBytes(path: string, callback: AsyncCallback<number>): void;
+    function getFreeBytes(path: string): Promise<number>;
+    /**
+     * Get the total number of bytes of the specified path.
+     *
+     * @since 8
+     */
+    function getTotalBytes(path: string, callback: AsyncCallback<number>): void;
+    function getTotalBytes(path: string): Promise<number>;
 }
-
 export default Statfs;

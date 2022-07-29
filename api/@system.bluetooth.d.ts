@@ -12,48 +12,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
 export interface StartBLEScanOptions {
-  interval: number;
-  success: () => void;
-  fail: (data: string, code: number) => void;
-  complete: () => void;
+    interval: number;
+    success: () => void;
+    fail: (data: string, code: number) => void;
+    complete: () => void;
 }
-
 /**
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
 export interface StopBLEScanOptions {
-  success: () => void;
-  fail: (data: string, code: number) => void;
-  complete: () => void;
+    success: () => void;
+    fail: (data: string, code: number) => void;
+    complete: () => void;
 }
-
 /**
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
 export interface BluetoothDevice {
-  addrType: "public" | "random";
-  addr: string;
-  rssi: number;
-  txpower: string;
-  data: string;
+    addrType: "public" | "random";
+    addr: string;
+    rssi: number;
+    txpower: string;
+    data: string;
 }
-
 /**
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
  */
 export interface BLEFoundResponse {
-  devices: Array<BluetoothDevice>;
+    devices: Array<BluetoothDevice>;
 }
-
 /**
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  * @since 6
@@ -62,7 +57,6 @@ export interface SubscribeBLEFoundOptions {
     success: (data: BLEFoundResponse) => void;
     fail: (data: string, code: number) => void;
 }
-
 /**
  * Provides methods to manage BLE scan.
  * @since 6
@@ -70,26 +64,23 @@ export interface SubscribeBLEFoundOptions {
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  */
 export default class Bluetooth {
-  /**
-   * Start BLE scan
-   * @param options Options
-   */
-  static startBLEScan(options: StartBLEScanOptions): void;
-
-  /**
-   * Stop BLE scan
-   * @param options Options
-   */
-  static stopBLEScan(options: StopBLEScanOptions): void;
-
-  /**
-   * Subscribe BLE found
-   * @param options Options
-   */
-  static subscribeBLEFound(options: SubscribeBLEFoundOptions): void;
-
-  /**
-   * Stop the subscription of BLE found
-   */
-  static unsubscribeBLEFound(): void;
+    /**
+     * Start BLE scan
+     * @param options Options
+     */
+    static startBLEScan(options: StartBLEScanOptions): void;
+    /**
+     * Stop BLE scan
+     * @param options Options
+     */
+    static stopBLEScan(options: StopBLEScanOptions): void;
+    /**
+     * Subscribe BLE found
+     * @param options Options
+     */
+    static subscribeBLEFound(options: SubscribeBLEFoundOptions): void;
+    /**
+     * Stop the subscription of BLE found
+     */
+    static unsubscribeBLEFound(): void;
 }

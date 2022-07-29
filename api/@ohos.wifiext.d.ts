@@ -12,14 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { AsyncCallback, Callback } from './basic';
-
+import { AsyncCallback } from './basic';
 /**
  * Provides extended methods to operate or manage Wi-Fi.
  *
  * <p>The APIs involved in this file are non-general APIs.
- * These extended APIs are only used by some product types, such as routers. 
+ * These extended APIs are only used by some product types, such as routers.
  * Common products should not use these APIs.</p>
  *
  * @since 8
@@ -34,18 +32,16 @@ declare namespace wifiext {
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-     function enableHotspot(): boolean;
-
-     /**
-      * Disables a Wi-Fi hotspot.
-      *
-      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-      * @since 8
-      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-      */
-     function disableHotspot(): boolean;
-
+    function enableHotspot(): boolean;
+    /**
+     * Disables a Wi-Fi hotspot.
+     *
+     * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+     * @since 8
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
+     */
+    function disableHotspot(): boolean;
     /**
      * Obtains the supported power model.
      *
@@ -55,9 +51,8 @@ declare namespace wifiext {
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-     function getSupportedPowerModel(): Promise<Array<PowerModel>>;
-     function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
-
+    function getSupportedPowerModel(): Promise<Array<PowerModel>>;
+    function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
     /**
      * Obtains the current Wi-Fi power mode.
      *
@@ -67,9 +62,8 @@ declare namespace wifiext {
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-    function getPowerModel (): Promise<PowerModel>;
-    function getPowerModel (callback: AsyncCallback<PowerModel>): void;
-
+    function getPowerModel(): Promise<PowerModel>;
+    function getPowerModel(callback: AsyncCallback<PowerModel>): void;
     /**
      * Set the current Wi-Fi power mode.
      *
@@ -79,24 +73,20 @@ declare namespace wifiext {
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-    function setPowerModel(model: PowerModel) : boolean
-
+    function setPowerModel(model: PowerModel): boolean;
     /**
      * The power model enumeration.
      *
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-     export enum PowerModel {
+    export enum PowerModel {
         /** Sleeping model. */
         SLEEPING = 0,
-
         /** General model. */
         GENERAL = 1,
-
         /** Through wall model. */
-        THROUGH_WALL = 2,
+        THROUGH_WALL = 2
     }
 }
-
 export default wifiext;

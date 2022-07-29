@@ -12,61 +12,54 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines the options of Checkbox.
  * @since 8
  */
 declare interface CheckboxOptions {
-  /**
-   * Current name of Checkbox.
-   * @since 8
-   */
-  name?: string;
-
-  /**
-   * Sets the group of Checkbox.
-   * @since 8
-   */
-  group?: string;
+    /**
+     * Current name of Checkbox.
+     * @since 8
+     */
+    name?: string;
+    /**
+     * Sets the group of Checkbox.
+     * @since 8
+     */
+    group?: string;
 }
-
 /**
  * Provides an interface for the Checkbox component.
  * @since 8
  */
 interface CheckboxInterface {
-  /**
-   * Construct the Checkbox component.
-   * Called when the Checkbox component is used.
-   * @since 8
-   */
-  (options?: CheckboxOptions): CheckboxAttribute;
+    /**
+     * Construct the Checkbox component.
+     * Called when the Checkbox component is used.
+     * @since 8
+     */
+    (options?: CheckboxOptions): CheckboxAttribute;
 }
-
 /**
  * Defines the attribute functions of Checkbox.
  * @since 8
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
-  /**
-   * setting whether checkbox is selected.
-   * @since 8
-   */
-  select(value: boolean): CheckboxAttribute;
-
-  /**
-   * setting the display color of checkbox.
-   * @since 8
-   */
-  selectedColor(value: ResourceColor): CheckboxAttribute;
-
-  /**
-   * Called when the selection status changes.
-   * @since 8
-   */
-  onChange(callback: (value: boolean) => void): CheckboxAttribute;
+    /**
+     * setting whether checkbox is selected.
+     * @since 8
+     */
+    select(value: boolean): CheckboxAttribute;
+    /**
+     * setting the display color of checkbox.
+     * @since 8
+     */
+    selectedColor(value: ResourceColor): CheckboxAttribute;
+    /**
+     * Called when the selection status changes.
+     * @since 8
+     */
+    onChange(callback: (value: boolean) => void): CheckboxAttribute;
 }
-
 declare const Checkbox: CheckboxInterface;
 declare const CheckboxInstance: CheckboxAttribute;

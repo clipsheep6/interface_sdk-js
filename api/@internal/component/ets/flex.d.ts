@@ -12,60 +12,53 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines the options of Flex.
  * @since 7
  */
 declare interface FlexOptions {
-  /**
-   * Sets the horizontal layout of elements.
-   * @since 7
-   */
-  direction?: FlexDirection;
-
-  /**
-   * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
-   * @since 7
-   */
-  wrap?: FlexWrap;
-
-  /**
-   * The alignment format of the subassembly on the Flex container spindle.
-   * @since 7
-   */
-  justifyContent?: FlexAlign;
-
-  /**
-   * Alignment Format for Subassembly on Flex Container Cross Axis.
-   * @since 7
-   */
-  alignItems?: ItemAlign;
-
-  /**
-   * The alignment of multiple lines of content when there is extra space in the cross axis.
-   * @since 7
-   */
-  alignContent?: FlexAlign;
+    /**
+     * Sets the horizontal layout of elements.
+     * @since 7
+     */
+    direction?: FlexDirection;
+    /**
+     * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+     * @since 7
+     */
+    wrap?: FlexWrap;
+    /**
+     * The alignment format of the subassembly on the Flex container spindle.
+     * @since 7
+     */
+    justifyContent?: FlexAlign;
+    /**
+     * Alignment Format for Subassembly on Flex Container Cross Axis.
+     * @since 7
+     */
+    alignItems?: ItemAlign;
+    /**
+     * The alignment of multiple lines of content when there is extra space in the cross axis.
+     * @since 7
+     */
+    alignContent?: FlexAlign;
 }
-
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  * @since 7
  */
 interface FlexInterface {
-  /**
-   * Defines the constructor of Flex.
-   * @since 7
-   */
-  (value?: FlexOptions): FlexAttribute;
+    /**
+     * Defines the constructor of Flex.
+     * @since 7
+     */
+    (value?: FlexOptions): FlexAttribute;
 }
-
 /**
  * Defines the Flex attribute functions.
  * @since 7
  */
-declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
-
+declare class FlexAttribute extends CommonMethod<FlexAttribute> {
+}
 declare const Flex: FlexInterface;
 declare const FlexInstance: FlexAttribute;

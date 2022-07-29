@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * The convertxml module provides utilities for converting XML text to Javascript object.
  * @since 8
@@ -137,7 +136,6 @@ declare namespace xml {
          */
         elementsKey: string;
     }
-
     class ConvertXML {
         /**
          * To convert XML text to JavaScript object.
@@ -147,7 +145,7 @@ declare namespace xml {
          * @param option Option Inputted by user to set.
          * @return Returns a JavaScript object converting from XML text.
          */
-        convert(xml: string, options?: ConvertOptions) : Object;
+        convert(xml: string, options?: ConvertOptions): Object;
     }
 }
 export default xml;

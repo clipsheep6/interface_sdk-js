@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines an AppVersionInfo object.
  * @since 7
@@ -20,28 +19,25 @@
  * @permission NA
  */
 export interface AppVersionInfo {
-
-  /**
-  * Application name.
-  * @default appName
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
-  readonly appName: string;
-
-  /**
-  * Application version number.
-  * @default versionCode
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
-  readonly versionCode: number;
-
-  /**
-  * Application version name.
-  * @default versionName
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
-  readonly versionName: string;
+    /**
+    * Application name.
+    * @default appName
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    readonly appName: string;
+    /**
+    * Application version number.
+    * @default versionCode
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    readonly versionCode: number;
+    /**
+    * Application version name.
+    * @default versionName
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    readonly versionName: string;
 }

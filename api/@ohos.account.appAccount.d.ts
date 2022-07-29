@@ -12,11 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {AsyncCallback} from "./basic";
+import { AsyncCallback } from "./basic";
 import Want from "./@ohos.application.want";
-import rpc from "./@ohos.rpc"
-
+import rpc from "./@ohos.rpc";
 /**
  * This module provides the capability to manage application accounts.
  *
@@ -31,7 +29,6 @@ declare namespace appAccount {
      * @return Returns the instance of the AppAccountManager.
      */
     function createAppAccountManager(): AppAccountManager;
-
     /**
      * Provides methods for managing application accounts.
      * @name AppAccountManager
@@ -53,7 +50,6 @@ declare namespace appAccount {
         addAccount(name: string, callback: AsyncCallback<void>): void;
         addAccount(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
         addAccount(name: string, extraInfo?: string): Promise<void>;
-
         /**
          * Adds an application account of a specified owner implicitly.
          *
@@ -64,8 +60,9 @@ declare namespace appAccount {
          * @param callback Indicates the authenticator callback.
          * @return void.
          */
-        addAccountImplicitly(owner: string, authType: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
-
+        addAccountImplicitly(owner: string, authType: string, options: {
+            [key: string]: any;
+        }, callback: AuthenticatorCallback): void;
         /**
          * Deletes an application account from the account management service.
          * <p>
@@ -77,7 +74,6 @@ declare namespace appAccount {
          */
         deleteAccount(name: string, callback: AsyncCallback<void>): void;
         deleteAccount(name: string): Promise<void>;
-
         /**
          * Disables a third-party application with the specified bundle name from
          * accessing the given application account.
@@ -90,7 +86,6 @@ declare namespace appAccount {
          */
         disableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void;
         disableAppAccess(name: string, bundleName: string): Promise<void>;
-
         /**
          * Enables a third-party application with the specified bundle name to access the given application
          * account for data query and listening.
@@ -102,7 +97,6 @@ declare namespace appAccount {
          */
         enableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void;
         enableAppAccess(name: string, bundleName: string): Promise<void>;
-
         /**
          * Checks whether a third-party application with the specified bundle name is allowed to access
          * the given application account for data query and listening.
@@ -114,7 +108,6 @@ declare namespace appAccount {
          */
         checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void;
         checkAppAccess(name: string, bundleName: string): Promise<boolean>;
-
         /**
          * Checks whether a specified application account allows application data synchronization.
          * <p>
@@ -130,7 +123,6 @@ declare namespace appAccount {
          */
         checkAppAccountSyncEnable(name: string, callback: AsyncCallback<boolean>): void;
         checkAppAccountSyncEnable(name: string): Promise<boolean>;
-
         /**
          * Sets the credential for this application account.
          *
@@ -140,10 +132,8 @@ declare namespace appAccount {
          * @param credential Indicates the credential to set.
          * @return void.
          */
-        setAccountCredential(name: string, credentialType: string, credential: string,
-                             callback: AsyncCallback<void>): void;
+        setAccountCredential(name: string, credentialType: string, credential: string, callback: AsyncCallback<void>): void;
         setAccountCredential(name: string, credentialType: string, credential: string): Promise<void>;
-
         /**
          * Sets extra information for this application account.
          * <p>
@@ -157,7 +147,6 @@ declare namespace appAccount {
          */
         setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
         setAccountExtraInfo(name: string, extraInfo: string): Promise<void>;
-
         /**
          * Sets whether a specified application account allows application data synchronization.
          * <p>
@@ -182,7 +171,6 @@ declare namespace appAccount {
          */
         setAppAccountSyncEnable(name: string, isEnable: boolean, callback: AsyncCallback<void>): void;
         setAppAccountSyncEnable(name: string, isEnable: boolean): Promise<void>;
-
         /**
          * Sets data associated with this application account.
          *
@@ -194,7 +182,6 @@ declare namespace appAccount {
          */
         setAssociatedData(name: string, key: string, value: string, callback: AsyncCallback<void>): void;
         setAssociatedData(name: string, key: string, value: string): Promise<void>;
-
         /**
          * Obtains information about all accessible accounts.
          * <p>
@@ -211,7 +198,6 @@ declare namespace appAccount {
          */
         getAllAccessibleAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void;
         getAllAccessibleAccounts(): Promise<Array<AppAccountInfo>>;
-
         /**
          * Obtains information about all accounts of a specified account owner.
          * <p>
@@ -229,7 +215,6 @@ declare namespace appAccount {
          */
         getAllAccounts(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
         getAllAccounts(owner: string): Promise<Array<AppAccountInfo>>;
-
         /**
          * Obtains the credential of this application account.
          *
@@ -240,7 +225,6 @@ declare namespace appAccount {
          */
         getAccountCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void;
         getAccountCredential(name: string, credentialType: string): Promise<string>;
-
         /**
          * Obtains extra information of this application account.
          *
@@ -251,7 +235,6 @@ declare namespace appAccount {
          */
         getAccountExtraInfo(name: string, callback: AsyncCallback<string>): void;
         getAccountExtraInfo(name: string): Promise<string>;
-
         /**
          * Obtains data associated with this application account.
          *
@@ -262,7 +245,6 @@ declare namespace appAccount {
          */
         getAssociatedData(name: string, key: string, callback: AsyncCallback<string>): void;
         getAssociatedData(name: string, key: string): Promise<string>;
-
         /**
          * Subscribes to the change events of accounts of the specified owners.
          * <p>
@@ -275,7 +257,6 @@ declare namespace appAccount {
          * @return void
          */
         on(type: 'change', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
-
         /**
          * Unsubscribes from account events.
          *
@@ -283,7 +264,6 @@ declare namespace appAccount {
          * @return void
          */
         off(type: 'change', callback?: Callback<Array<AppAccountInfo>>): void;
-
         /**
          * Authenticates an application account to get an oauth token.
          *
@@ -295,8 +275,9 @@ declare namespace appAccount {
          * @param callback Indicates the authenticator callback.
          * @return void.
          */
-        authenticate(name: string, owner: string, authType: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
-
+        authenticate(name: string, owner: string, authType: string, options: {
+            [key: string]: any;
+        }, callback: AuthenticatorCallback): void;
         /**
          * Gets an oauth token with the specified authentication type from a particular application account.
          *
@@ -308,7 +289,6 @@ declare namespace appAccount {
          */
         getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
         getOAuthToken(name: string, owner: string, authType: string): Promise<string>;
-
         /**
          * Sets an oauth token with the specified authentication type for a particular account.
          * <p>
@@ -322,7 +302,6 @@ declare namespace appAccount {
          */
         setOAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
         setOAuthToken(name: string, authType: string, token: string): Promise<void>;
-
         /**
          * Deletes an oauth token for the specified application account.
          * <p>
@@ -337,7 +316,6 @@ declare namespace appAccount {
          */
         deleteOAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
         deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
-
         /**
          * Sets the oauth token visibility of the specified authentication type to a third-party application.
          * <p>
@@ -352,7 +330,6 @@ declare namespace appAccount {
          */
         setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void>): void;
         setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
-
         /**
          * Checks the oauth token visibility of the specified authentication type for a third-party application.
          * <p>
@@ -366,7 +343,6 @@ declare namespace appAccount {
          */
         checkOAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void;
         checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>;
-
         /**
          * Gets all oauth tokens visible to the caller application.
          *
@@ -377,7 +353,6 @@ declare namespace appAccount {
          */
         getAllOAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<OAuthTokenInfo>>): void;
         getAllOAuthTokens(name: string, owner: string): Promise<Array<OAuthTokenInfo>>;
-
         /**
          * Gets the open authorization list with a specified authentication type for a paticular application account.
          * <p>
@@ -390,7 +365,6 @@ declare namespace appAccount {
          */
         getOAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
         getOAuthList(name: string, authType: string): Promise<Array<string>>;
-
         /**
          * Gets the authenticator callback with the specified session id.
          * <p>
@@ -402,7 +376,6 @@ declare namespace appAccount {
          */
         getAuthenticatorCallback(sessionId: string, callback: AsyncCallback<AuthenticatorCallback>): void;
         getAuthenticatorCallback(sessionId: string): Promise<AuthenticatorCallback>;
-
         /**
          * Gets the authenticator information of an application account.
          *
@@ -412,7 +385,6 @@ declare namespace appAccount {
          */
         getAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
         getAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
-
         /**
          * Checks whether a paticular account has all specified labels.
          *
@@ -424,7 +396,6 @@ declare namespace appAccount {
          */
         checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void;
         checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<boolean>;
-
         /**
          * Deletes the credential of the specified application account.
          *
@@ -435,7 +406,6 @@ declare namespace appAccount {
          */
         deleteAccountCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void;
         deleteAccountCredential(name: string, credentialType: string): Promise<void>;
-
         /**
          * Selects a list of accounts that satisfied with the specified options.
          *
@@ -445,7 +415,6 @@ declare namespace appAccount {
          */
         selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>);
         selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>;
-
         /**
          * Verifies the credential to ensure the user is the owner of the specified account.
          *
@@ -458,11 +427,10 @@ declare namespace appAccount {
          */
         verifyCredential(name: string, owner: string, callback: AuthenticatorCallback): void;
         verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthenticatorCallback): void;
-
         /**
          * Sets properties for the specified account authenticator.
          * <p>
-         * If the authenticator supports setting its properties, 
+         * If the authenticator supports setting its properties,
          * the caller will normally be redirected to an Ability specified by Want for property setting.
          *
          * @since 9
@@ -473,7 +441,6 @@ declare namespace appAccount {
         setAuthenticatorProperties(owner: string, callback: AuthenticatorCallback): void;
         setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callback: AuthenticatorCallback): void;
     }
-
     /**
      * Provides basic information of an application account, including the account owner and name.
      * @name AppAccountInfo
@@ -485,13 +452,11 @@ declare namespace appAccount {
          * The owner an application account.
          */
         owner: string;
-
         /**
          * The name an application account.
          */
         name: string;
     }
-
     /**
      * Provides basic information of an oauth token, including the authentication type and token value.
      * @name OAuthTokenInfo
@@ -505,22 +470,19 @@ declare namespace appAccount {
          * @since 8
          */
         authType: string;
-
         /**
          * The token value.
          *
          * @since 8
          */
         token: string;
-
         /**
          * The account to which the token belongs.
          *
          * @since 9
          */
         account?: AppAccountInfo;
-    }   
-
+    }
     /**
      * Provides basic information of an authenticator, including the authenticator owner, icon id and label id.
      * @name AuthenticatorInfo
@@ -532,18 +494,15 @@ declare namespace appAccount {
          * The owner of an authenticator.
          */
         owner: string;
-
         /**
          * The icon id of an authenticator.
          */
         iconId: number;
-
         /**
          * The label id of an authenticator.
          */
         labelId: number;
     }
-
     /**
      * Provides the available options for selecting accounts.
      * @name SelectAccountsOptions
@@ -554,19 +513,16 @@ declare namespace appAccount {
         /**
          * The list of accounts allowed to be selected.
          */
-        allowedAccounts?: Array<AppAccountInfo>,
-
+        allowedAccounts?: Array<AppAccountInfo>;
         /**
          * The list of account owners, whose accounts allowed to be selected.
          */
-        allowedOwners?: Array<string>,
-
+        allowedOwners?: Array<string>;
         /**
          * The labels required for the selected accounts.
          */
-        requiredLabels?: Array<string>
+        requiredLabels?: Array<string>;
     }
-
     /**
      * Provides the available options for verifying credential.
      * @name VerifyCredentialOptions
@@ -577,37 +533,38 @@ declare namespace appAccount {
         /**
          * The credentail type to be verified.
          */
-        credentialType?: string,
-
+        credentialType?: string;
         /**
          * The credential to be verified.
          */
-        credential?: string,
-
+        credential?: string;
         /**
          * The authenticator-specific parameters.
          */
-        parameters?: {[key:string]: Object}
+        parameters?: {
+            [key: string]: Object;
+        };
     }
-
     /**
      * Provides the available options for setting properties.
      * @name SetPropertiesOptions
      * @since 9
      * @syscap SystemCapability.Account.AppAccount
      */
-     interface SetPropertiesOptions {
+    interface SetPropertiesOptions {
         /**
          * The properties to be set.
          */
-        properties?: {[key: string]: Object},
-
+        properties?: {
+            [key: string]: Object;
+        };
         /**
          * The authenticator-specific parameters.
          */
-        parameters?: {[key: string]: Object}
+        parameters?: {
+            [key: string]: Object;
+        };
     }
-
     /**
      * Provides constants definition.
      * @name Constants
@@ -621,84 +578,72 @@ declare namespace appAccount {
          * @since 8
          */
         ACTION_ADD_ACCOUNT_IMPLICITLY = "addAccountImplicitly",
-
         /**
          * Indicates the action for authenticating.
          *
          * @since 8
          */
         ACTION_AUTHENTICATE = "authenticate",
-
         /**
          * Indicates the key of name.
          *
          * @since 8
          */
         KEY_NAME = "name",
-
         /**
          * Indicates the key of owner.
          *
          * @since 8
          */
         KEY_OWNER = "owner",
-
         /**
          * Indicates the key of token.
          *
          * @since 8
          */
         KEY_TOKEN = "token",
-
         /**
          * Indicates the key of action.
          *
          * @since 8
          */
         KEY_ACTION = "action",
-
         /**
          * Indicates the key of authentiaction type.
          *
          * @since 8
          */
         KEY_AUTH_TYPE = "authType",
-
         /**
          * Indicates the key of session id.
          *
          * @since 8
          */
         KEY_SESSION_ID = "sessionId",
-
         /**
          * Indicates the key of caller pid.
          *
          * @since 8
          */
         KEY_CALLER_PID = "callerPid",
-
         /**
          * Indicates the key of caller uid.
          *
          * @since 8
          */
         KEY_CALLER_UID = "callerUid",
-
         /**
          * Indicates the key of caller bundle name.
          *
          * @since 8
          */
         KEY_CALLER_BUNDLE_NAME = "callerBundleName",
-
         /**
          * Indicates the key of required labels.
          *
          * @since 9
          */
         KEY_REQUIRED_LABELS = "requiredLabels",
-
         /**
          * Indicates the key of boolean result.
          *
@@ -706,7 +651,6 @@ declare namespace appAccount {
          */
         KEY_BOOLEAN_RESULT = "booleanResult"
     }
-
     /**
      * Provides result code definition.
      * @name ResultCode
@@ -734,7 +678,6 @@ declare namespace appAccount {
         ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
         ERROR_PERMISSION_DENIED = 10018
     }
-
     /**
      * Provides methods for authenticator callback.
      * @name AuthenticatorCallback
@@ -750,8 +693,9 @@ declare namespace appAccount {
          * @param result Indicates the authentication result.
          * @return void.
          */
-        onResult: (code: number, result: {[key: string]: any}) => void;
-
+        onResult: (code: number, result: {
+            [key: string]: any;
+        }) => void;
         /**
          * Notifies the client that the authentication request need to be redirected.
          *
@@ -760,7 +704,6 @@ declare namespace appAccount {
          * @return void.
          */
         onRequestRedirected: (request: Want) => void;
-
         /**
          * Notifies the client that the request is continued.
          *
@@ -769,7 +712,6 @@ declare namespace appAccount {
          */
         onRequestContinued?: () => void;
     }
-
     /**
      * Provides methods for authenticator.
      * @name Authenticator
@@ -787,8 +729,9 @@ declare namespace appAccount {
          * @param callback Indicates the authenticator callback.
          * @return void.
          */
-        addAccountImplicitly(authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
-
+        addAccountImplicitly(authType: string, callerBundleName: string, options: {
+            [key: string]: any;
+        }, callback: AuthenticatorCallback): void;
         /**
          * Authenticates an application account to get an oauth token.
          *
@@ -800,8 +743,9 @@ declare namespace appAccount {
          * @param callback Indicates the authenticator callback.
          * @return void.
          */
-        authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
-
+        authenticate(name: string, authType: string, callerBundleName: string, options: {
+            [key: string]: any;
+        }, callback: AuthenticatorCallback): void;
         /**
          * Verifies the credential to ensure the user is the owner of the specified application account.
          * <p>
@@ -815,7 +759,6 @@ declare namespace appAccount {
          * @return void.
          */
         verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthenticatorCallback): void;
-
         /**
          * Sets properties for the authenticator.
          *
@@ -825,7 +768,6 @@ declare namespace appAccount {
          * @return void.
          */
         setProperties(options: SetPropertiesOptions, callback: AuthenticatorCallback): void;
-
         /**
          * Checks whether a paticular account has all specified labels.
          *
@@ -836,7 +778,6 @@ declare namespace appAccount {
          * @return void.
          */
         checkAccountLabels(name: string, labels: Array<string>, callback: AuthenticatorCallback): void;
-
         /**
          * Checks whether the specified account can be removed.
          *
@@ -846,7 +787,6 @@ declare namespace appAccount {
          * @return void.
          */
         isAccountRemovable(name: string, callback: AuthenticatorCallback): void;
-
         /**
          * Gets the remote object of the authenticator for remote procedure call.
          *
@@ -856,5 +796,4 @@ declare namespace appAccount {
         getRemoteObject(): rpc.RemoteObject;
     }
 }
-
 export default appAccount;

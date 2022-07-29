@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 import { AsyncCallback, Callback } from "./basic";
-
 /**
  * This module provides the capability to subscribe to sensor data.
  *
@@ -30,9 +29,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
@@ -41,9 +38,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
@@ -51,9 +46,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
@@ -61,9 +54,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
@@ -71,9 +62,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
@@ -81,9 +70,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
@@ -92,9 +79,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
@@ -103,9 +88,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
@@ -113,9 +96,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
@@ -126,9 +107,7 @@ declare namespace sensor {
      * @deprecated since 9
      * @useinstead SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>, options?: Options): void;
     /**
      * Subscribe to heart rate sensor data.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
@@ -137,9 +116,7 @@ declare namespace sensor {
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
@@ -147,9 +124,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
@@ -160,9 +135,7 @@ declare namespace sensor {
      * @deprecated since 9
      * @useinstead SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>, options?: Options): void;
     /**
      * Subscribe to linear accelerometer data.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER}.
@@ -171,9 +144,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 9
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
@@ -181,9 +152,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
@@ -191,9 +160,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
@@ -201,9 +168,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
@@ -212,9 +177,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
@@ -223,9 +186,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
@@ -233,9 +194,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
@@ -243,9 +202,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
@@ -253,9 +210,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
@@ -263,9 +218,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
-        options?: Options): void;
-
+    function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options): void;
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
@@ -274,7 +227,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
@@ -283,7 +235,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
@@ -291,7 +242,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
@@ -299,7 +249,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
@@ -307,7 +256,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
@@ -315,7 +263,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
@@ -324,7 +271,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
@@ -333,7 +279,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
@@ -341,7 +286,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
@@ -352,7 +296,6 @@ declare namespace sensor {
      * @useinstead SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
-
     /**
      * Subscribe to heart rate sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
@@ -360,8 +303,7 @@ declare namespace sensor {
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-     function once(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>): void;
-
+    function once(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>): void;
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
@@ -369,7 +311,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
@@ -380,7 +321,6 @@ declare namespace sensor {
      * @useinstead SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER
      */
     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER}.
@@ -389,7 +329,6 @@ declare namespace sensor {
      * @since 9
      */
     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
@@ -397,7 +336,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
@@ -405,7 +343,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
@@ -413,7 +350,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
@@ -422,7 +358,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
@@ -431,7 +366,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
@@ -439,7 +373,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
@@ -447,7 +380,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
@@ -455,7 +387,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
-
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
@@ -463,7 +394,6 @@ declare namespace sensor {
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
@@ -471,8 +401,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-     function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
-
+    function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
@@ -480,9 +409,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,
-        callback?: Callback<AccelerometerUncalibratedResponse>): void;
-
+    function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback?: Callback<AccelerometerUncalibratedResponse>): void;
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
@@ -490,7 +417,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
@@ -498,7 +424,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
@@ -506,7 +431,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
@@ -514,7 +438,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback<GravityResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
@@ -523,7 +446,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
@@ -532,7 +454,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HALL}.
@@ -540,7 +461,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback<HallResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
@@ -551,7 +471,6 @@ declare namespace sensor {
      * @useinstead SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
-
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
@@ -561,7 +480,6 @@ declare namespace sensor {
      * @since 9
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback?: Callback<HeartRateResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
@@ -569,7 +487,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback<HumidityResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
@@ -580,7 +497,6 @@ declare namespace sensor {
      * @useinstead SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER
      */
     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback<LinearAccelerometerResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER}.
@@ -589,7 +505,6 @@ declare namespace sensor {
      * @since 9
      */
     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
@@ -597,7 +512,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
@@ -605,7 +519,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
@@ -613,7 +526,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
@@ -622,7 +534,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback<PedometerResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
@@ -631,7 +542,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
@@ -639,7 +549,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
@@ -647,7 +556,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
@@ -655,7 +563,6 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
-
     /**
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
@@ -663,23 +570,21 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
-
     /**
      * Indicates sensor information.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     interface Sensor {
-        sensorName:string; /**< Sensor name */
-        venderName:string; /**< Sensor vendor */
-        firmwareVersion:string; /**< Sensor firmware version */
-        hardwareVersion:string; /**< Sensor hardware version */
-        sensorTypeId:number; /**< Sensor type ID, {@code SensorType} */
-        maxRange:number; /**< Maximum measurement range of the sensor */
-        precision:number; /**< Sensor accuracy */
-        power:number; /**< Sensor power */
+        sensorName: string; /**< Sensor name */
+        venderName: string; /**< Sensor vendor */
+        firmwareVersion: string; /**< Sensor firmware version */
+        hardwareVersion: string; /**< Sensor hardware version */
+        sensorTypeId: number; /**< Sensor type ID, {@code SensorType} */
+        maxRange: number; /**< Maximum measurement range of the sensor */
+        precision: number; /**< Sensor accuracy */
+        power: number; /**< Sensor power */
     }
-    
     /**
      * Obtains the sensor information of a specified type.
      * @param type Indicate the sensor type, {@code SensorType}.
@@ -688,7 +593,6 @@ declare namespace sensor {
      */
     function getSingleSensor(type: SensorType, callback: AsyncCallback<Sensor>): void;
     function getSingleSensor(type: SensorType): Promise<Sensor>;
-    
     /**
      * Obtains all sensor information on the device.
      * @syscap SystemCapability.Sensors.Sensor
@@ -696,7 +600,6 @@ declare namespace sensor {
      */
     function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
     function getSensorLists(): Promise<Array<Sensor>>;
-
     /**
      * Indicates geomagnetic field data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -711,7 +614,6 @@ declare namespace sensor {
         levelIntensity: number;
         totalIntensity: number;
     }
-
     /**
      * Indicates geographic location.
      * @syscap SystemCapability.Sensors.Sensor
@@ -722,32 +624,29 @@ declare namespace sensor {
         longitude: number;
         altitude: number;
     }
-
-   /**
-     * Implements the calculation of the geomagnetic field at a specific location on Earth.
-     *
-     * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
-     * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
-     * since the Unix epoch.
-     * @return Returns the geomagnetic field data, {@code GeomagneticResponse}.
-     * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
+    /**
+      * Implements the calculation of the geomagnetic field at a specific location on Earth.
+      *
+      * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
+      * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
+      * since the Unix epoch.
+      * @return Returns the geomagnetic field data, {@code GeomagneticResponse}.
+      * @syscap SystemCapability.Sensors.Sensor
+      * @since 8
+      */
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
-
-   /**
-     * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-     *
-     * @param seaPressure Indicates the sea level pressure, in hPa.
-     * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-     * @return Returns the altitude in meters at which the device is located.
-     * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
-     */
+    /**
+      * Obtains the altitude at which the device is located based on the current atmospheric pressure.
+      *
+      * @param seaPressure Indicates the sea level pressure, in hPa.
+      * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
+      * @return Returns the altitude in meters at which the device is located.
+      * @syscap SystemCapability.Sensors.Sensor
+      * @since 8
+      */
     function getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
     function getAltitude(seaPressure: number, currentPressure: number): Promise<number>;
-
     /**
      * Computes the geomagnetic inclination angle in radians from the inclination matrix.
      *
@@ -758,7 +657,6 @@ declare namespace sensor {
      */
     function getGeomagneticDip(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
     function getGeomagneticDip(inclinationMatrix: Array<number>): Promise<number>;
-
     /**
      * Get the angle change between two rotation matrices
      *
@@ -768,10 +666,8 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
-        callback: AsyncCallback<Array<number>>): void;
+    function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
-
     /**
      * Convert rotation vector to rotation matrix.
      *
@@ -782,7 +678,6 @@ declare namespace sensor {
      */
     function createRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function createRotationMatrix(rotationVector: Array<number>): Promise<Array<number>>;
-
     /**
      * Indicates the axis of the new coordinate system that coincides with the XY axis of the
      * original coordinate system.
@@ -791,15 +686,14 @@ declare namespace sensor {
      */
     interface CoordinatesOptions {
         /** Indicates the axis of the new coordinate system that coincides with the X axis of
-         * the original coordinate system. 
+         * the original coordinate system.
          */
         x: number;
         /** Indicates the axis of the new coordinate system that coincides with the Z axis of
-         * the original coordinate system. 
+         * the original coordinate system.
          */
         y: number;
     }
-
     /**
      * Rotate the provided rotation matrix so that it can be represented in a different way
      * Coordinate System
@@ -809,10 +703,8 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
-        callback: AsyncCallback<Array<number>>): void;
+    function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions, callback: AsyncCallback<Array<number>>): void;
     function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
-
     /**
      * convert a rotation vector to a normalized quaternion.
      *
@@ -823,7 +715,6 @@ declare namespace sensor {
      */
     function createQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function createQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
-
     /**
      * Computes the device's orientation based on the rotation matrix.
      *
@@ -834,7 +725,6 @@ declare namespace sensor {
      */
     function getDirection(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function getDirection(rotationMatrix: Array<number>): Promise<Array<number>>;
-
     /**
      * Indicates the response of rotation matrix.
      * @syscap SystemCapability.Sensors.Sensor
@@ -842,9 +732,8 @@ declare namespace sensor {
      */
     interface RotationMatrixResponse {
         rotation: Array<number>;
-        inclination: Array<number>
+        inclination: Array<number>;
     }
-
     /**
      * Calculate rotation matrix based on gravity vector and geomagnetic vector.
      *
@@ -855,8 +744,7 @@ declare namespace sensor {
      * @since 8
      */
     function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
-    function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
-
+    function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>): Promise<RotationMatrixResponse>;
     /**
      * Subscribe to the sensor's optional parameters.
      * @syscap SystemCapability.Sensors.Sensor
@@ -865,60 +753,58 @@ declare namespace sensor {
     interface Options {
         interval?: number; /**< Sensor event reporting event interval */
     }
-
     /**
      * The type of number.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     enum SensorType {
-        SENSOR_TYPE_ID_ACCELEROMETER = 1,          /**< Acceleration sensor */
-        SENSOR_TYPE_ID_GYROSCOPE = 2,              /**< Gyroscope sensor */
-        SENSOR_TYPE_ID_AMBIENT_LIGHT = 5,          /**< Ambient light sensor */
-        SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,         /**< Magnetic field sensor */
-        SENSOR_TYPE_ID_BAROMETER = 8,              /**< Barometric pressure sensor */
-        SENSOR_TYPE_ID_HALL = 10,                  /**< Hall effect sensor */
-        SENSOR_TYPE_ID_PROXIMITY = 12,             /**< Proximity sensor */
-        SENSOR_TYPE_ID_HUMIDITY = 13,              /**< Humidity sensor */
-        SENSOR_TYPE_ID_ORIENTATION = 256,          /**< Orientation sensor */
-        SENSOR_TYPE_ID_GRAVITY = 257,              /**< Gravity sensor */
+        SENSOR_TYPE_ID_ACCELEROMETER = 1,
+        SENSOR_TYPE_ID_GYROSCOPE = 2,
+        SENSOR_TYPE_ID_AMBIENT_LIGHT = 5,
+        SENSOR_TYPE_ID_MAGNETIC_FIELD = 6,
+        SENSOR_TYPE_ID_BAROMETER = 8,
+        SENSOR_TYPE_ID_HALL = 10,
+        SENSOR_TYPE_ID_PROXIMITY = 12,
+        SENSOR_TYPE_ID_HUMIDITY = 13,
+        SENSOR_TYPE_ID_ORIENTATION = 256,
+        SENSOR_TYPE_ID_GRAVITY = 257,
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
          * @deprecated since 9
          * @useinstead SENSOR_TYPE_ID_LINEAR_ACCELEROMETER
          */
-        SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,  /**< Linear acceleration sensor */
+        SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        SENSOR_TYPE_ID_LINEAR_ACCELEROMETER = 258, /**< Linear acceleration sensor */
-        SENSOR_TYPE_ID_ROTATION_VECTOR = 259,      /**< Rotation vector sensor */
-        SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,  /**< Ambient temperature sensor */
-        SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,  /**< Uncalibrated magnetic field sensor */
-        SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED = 263,  /**< Uncalibrated gyroscope sensor */
-        SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,    /**< Significant motion sensor */
-        SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,   /**< Pedometer detection sensor */
-        SENSOR_TYPE_ID_PEDOMETER = 266,             /**< Pedometer sensor */
+        SENSOR_TYPE_ID_LINEAR_ACCELEROMETER = 258,
+        SENSOR_TYPE_ID_ROTATION_VECTOR = 259,
+        SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,
+        SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,
+        SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED = 263,
+        SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,
+        SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,
+        SENSOR_TYPE_ID_PEDOMETER = 266,
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
          * @deprecated since 9
          * @useinstead SENSOR_TYPE_ID_HEART_BEAT_RATE
          */
-        SENSOR_TYPE_ID_HEART_RATE = 278,            /**< Heart rate sensor */
+        SENSOR_TYPE_ID_HEART_RATE = 278,
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
          * @since 9
          */
-        SENSOR_TYPE_ID_HEART_BEAT_RATE = 278, /**< Heart rate sensor */
-        SENSOR_TYPE_ID_WEAR_DETECTION = 280,        /**< Wear detection sensor */
-        SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281   /**< Uncalibrated acceleration sensor */
+        SENSOR_TYPE_ID_HEART_BEAT_RATE = 278,
+        SENSOR_TYPE_ID_WEAR_DETECTION = 280,
+        SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281 /**< Uncalibrated acceleration sensor */
     }
-
     /**
      * The basic data structure of the sensor event.
      * @syscap SystemCapability.Sensors.Sensor
@@ -927,7 +813,6 @@ declare namespace sensor {
     interface Response {
         timestamp: number; /**< The timestamp of the reported sensor data */
     }
-
     /**
      * Acceleration sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -938,18 +823,16 @@ declare namespace sensor {
         y: number; /**< Acceleration y-axis component */
         z: number; /**< Acceleration z-axis component */
     }
-
     /**
      * Linear acceleration sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    interface LinearAccelerometerResponse extends Response{
+    interface LinearAccelerometerResponse extends Response {
         x: number; /**< Linear acceleration x-axis component */
         y: number; /**< Linear acceleration y-axis component */
         z: number; /**< Linear acceleration z-axis component */
     }
-
     /**
      * Acceleration uncalibrated sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -963,7 +846,6 @@ declare namespace sensor {
         biasY: number; /**< Acceleration uncalibrated y-axis offset */
         biasZ: number; /**< Acceleration uncalibrated z-axis offset */
     }
-
     /**
      * Gravity sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -974,7 +856,6 @@ declare namespace sensor {
         y: number; /**< Gravity y-axis component */
         z: number; /**< Gravity z-axis component */
     }
-
     /**
      * Orientation sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -985,7 +866,6 @@ declare namespace sensor {
         beta: number; /**< The device rotates at an angle around the X axis */
         gamma: number; /**< The device rotates at an angle around the Y axis */
     }
-
     /**
      * Rotation vector sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -997,7 +877,6 @@ declare namespace sensor {
         z: number; /**< Rotation vector z-axis component */
         w: number; /**< Scalar quantity */
     }
-
     /**
      * Gyroscope sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1008,7 +887,6 @@ declare namespace sensor {
         y: number; /**< Gyroscope y-axis component */
         z: number; /**< Gyroscope z-axis component */
     }
-
     /**
      * Gyroscope uncalibrated sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1022,7 +900,6 @@ declare namespace sensor {
         biasY: number; /**< Gyroscope uncalibrated y-axis offset */
         biasZ: number; /**< Gyroscope uncalibrated z-axis offset */
     }
-
     /**
      * Significant motion sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1031,7 +908,6 @@ declare namespace sensor {
     interface SignificantMotionResponse extends Response {
         scalar: number; /**< The degree of significant motion */
     }
-
     /**
      * Proximity sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1040,7 +916,6 @@ declare namespace sensor {
     interface ProximityResponse extends Response {
         distance: number; /**< Indicates the degree of proximity, event 0 indicates proximity, while 1 indicates distance */
     }
-
     /**
      * Light sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1049,7 +924,6 @@ declare namespace sensor {
     interface LightResponse extends Response {
         intensity: number; /**< Indicates light intensity, in lux */
     }
-
     /**
      * Hall sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1058,7 +932,6 @@ declare namespace sensor {
     interface HallResponse extends Response {
         status: number; /**< Indicates hall status, event 0 indicates open, while 1 indicates close*/
     }
-
     /**
      * Magnetic field sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1069,7 +942,6 @@ declare namespace sensor {
         y: number; /**< Magnetic field y-axis component */
         z: number; /**< Magnetic field z-axis component */
     }
-
     /**
      * Magnetic field uncalibrated sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1083,7 +955,6 @@ declare namespace sensor {
         biasY: number; /**< Magnetic field uncalibrated y-axis offset */
         biasZ: number; /**< Magnetic field uncalibrated z-axis offset */
     }
-
     /**
      * Pedometer sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1092,7 +963,6 @@ declare namespace sensor {
     interface PedometerResponse extends Response {
         steps: number; /**< Indicates the number of steps */
     }
-
     /**
      * Humidity sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1101,7 +971,6 @@ declare namespace sensor {
     interface HumidityResponse extends Response {
         humidity: number; /**< Indicates the number of humidity */
     }
-
     /**
      * Pedometer detection sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1110,7 +979,6 @@ declare namespace sensor {
     interface PedometerDetectionResponse extends Response {
         scalar: number; /**< Indicates the pedometer detection status, 1 indicates that a walking action has occurred, and 0 indicates that no movement has occurred */
     }
-
     /**
      * Ambient temperature sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1119,7 +987,6 @@ declare namespace sensor {
     interface AmbientTemperatureResponse extends Response {
         temperature: number; /**< Indicates ambient temperature, in celsius */
     }
-
     /**
      * Barometer sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1128,7 +995,6 @@ declare namespace sensor {
     interface BarometerResponse extends Response {
         pressure: number; /**< Indicates the number of barometer, in pascal */
     }
-
     /**
      * Heart rate sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1137,7 +1003,6 @@ declare namespace sensor {
     interface HeartRateResponse extends Response {
         heartRate: number; /**< Indicates the number of heart rate */
     }
-
     /**
      * Wear detection sensor event data.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1146,6 +1011,5 @@ declare namespace sensor {
     interface WearDetectionResponse extends Response {
         value: number; /**< Indicates the status of wear detection, 1 for wearing, 0 for wearing not */
     }
- }
-
- export default sensor;
+}
+export default sensor;

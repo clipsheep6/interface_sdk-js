@@ -12,14 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback } from '../basic';
 import Ability from '../@ohos.application.Ability';
 import { AbilityMonitor } from './abilityMonitor';
 import { Context } from './Context';
 import Want from "../@ohos.application.Want";
 import { ShellCmdResult } from './shellCmdResult';
-
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
  *
@@ -38,7 +36,6 @@ export interface AbilityDelegator {
      */
     addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
     addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
-
     /**
      * Remove a specified AbilityMonitor object from the application memory.
      *
@@ -48,7 +45,6 @@ export interface AbilityDelegator {
      */
     removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
     removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
-
     /**
      * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
      *
@@ -61,7 +57,6 @@ export interface AbilityDelegator {
     waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<Ability>): void;
     waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<Ability>): void;
     waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<Ability>;
-
     /**
      * Obtain the application context.
      *
@@ -70,7 +65,6 @@ export interface AbilityDelegator {
      * @return App Context
      */
     getAppContext(): Context;
-
     /**
      * Obtain the lifecycle state of a specified ability.
      *
@@ -80,7 +74,6 @@ export interface AbilityDelegator {
      * @return The state of the Ability object. enum AbilityLifecycleState
      */
     getAbilityState(ability: Ability): number;
-
     /**
      * Obtain the ability that is currently being displayed.
      *
@@ -89,8 +82,7 @@ export interface AbilityDelegator {
      * @return The top ability of the current application
      */
     getCurrentTopAbility(callback: AsyncCallback<Ability>): void;
-    getCurrentTopAbility(): Promise<Ability>
-
+    getCurrentTopAbility(): Promise<Ability>;
     /**
      * Start a new ability.
      *
@@ -101,7 +93,6 @@ export interface AbilityDelegator {
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want): Promise<void>;
-
     /**
      * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
      *
@@ -112,7 +103,6 @@ export interface AbilityDelegator {
      */
     doAbilityForeground(ability: Ability, callback: AsyncCallback<boolean>): void;
     doAbilityForeground(ability: Ability): Promise<boolean>;
-
     /**
      * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
      *
@@ -123,7 +113,6 @@ export interface AbilityDelegator {
      */
     doAbilityBackground(ability: Ability, callback: AsyncCallback<boolean>): void;
     doAbilityBackground(ability: Ability): Promise<boolean>;
-
     /**
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
@@ -134,7 +123,6 @@ export interface AbilityDelegator {
      */
     print(msg: string, callback: AsyncCallback<void>): void;
     print(msg: string): Promise<void>;
-
     /**
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
@@ -143,8 +131,7 @@ export interface AbilityDelegator {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param msg Log information
      */
-     printSync(msg: string): void;
-
+    printSync(msg: string): void;
     /**
      * Execute the given command in the aa tools side.
      *
@@ -157,7 +144,6 @@ export interface AbilityDelegator {
     executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
-
     /**
      * Finish the test and print log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
@@ -170,5 +156,4 @@ export interface AbilityDelegator {
     finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
     finishTest(msg: string, code: number): Promise<void>;
 }
-
 export default AbilityDelegator;

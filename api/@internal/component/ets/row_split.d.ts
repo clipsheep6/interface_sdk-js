@@ -12,30 +12,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 /**
  * Provides interfaces for layout in the vertical direction.
  * @since 7
  */
 interface RowSplitInterface {
-  /**
-   * Called when the layout along the vertical direction is set.
-   * @since 7
-   */
-  (): RowSplitAttribute;
+    /**
+     * Called when the layout along the vertical direction is set.
+     * @since 7
+     */
+    (): RowSplitAttribute;
 }
-
 /**
  * @since 7
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
-  /**
-   * Called when judging whether the split line can be dragged.
-   * @since 7
-   */
-  resizeable(value: boolean): RowSplitAttribute;
+    /**
+     * Called when judging whether the split line can be dragged.
+     * @since 7
+     */
+    resizeable(value: boolean): RowSplitAttribute;
 }
-
 declare const RowSplit: RowSplitInterface;
 declare const RowSplitInstance: RowSplitAttribute;

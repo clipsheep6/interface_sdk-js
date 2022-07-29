@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides interfaces to trace a task for performance measure, the logs can be capture by the
  * bytrace cmdline available on the device.
@@ -52,7 +51,6 @@ declare namespace hiTraceMeter {
      * @param taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
      */
     function startTrace(name: string, taskId: number): void;
-  
     /**
      * Records a trace and marks it as the end of a task.
      *
@@ -66,7 +64,6 @@ declare namespace hiTraceMeter {
      * {@code taskId} of startTrace.
      */
     function finishTrace(name: string, taskId: number): void;
-  
     /**
      * Records a trace for generating a count, such as clock pulse and the number of layers.
      *
@@ -77,5 +74,4 @@ declare namespace hiTraceMeter {
      */
     function traceByValue(name: string, count: number): void;
 }
-
 export default hiTraceMeter;

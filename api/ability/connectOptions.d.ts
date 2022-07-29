@@ -12,44 +12,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { ElementName } from '../bundle/elementName';
 import rpc from './../@ohos.rpc';
-
 /**
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface ConnectOptions {
-  /**
-   * The callback interface was connect successfully.
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param elementName The element name of the service ability
-   * @param remote The remote object instance
-   */
-  onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
-
-  /**
-   * The callback interface was disconnect successfully.
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param elementName The element name of the service ability
-   */
-  onDisconnect(elementName: ElementName): void;
-
-  /**
-   * The callback interface was connect failed.
-   *
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param code The error code of the failed.
-   */
-  onFailed(code: number): void;
+    /**
+     * The callback interface was connect successfully.
+     *
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param elementName The element name of the service ability
+     * @param remote The remote object instance
+     */
+    onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
+    /**
+     * The callback interface was disconnect successfully.
+     *
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param elementName The element name of the service ability
+     */
+    onDisconnect(elementName: ElementName): void;
+    /**
+     * The callback interface was connect failed.
+     *
+     * @default -
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param code The error code of the failed.
+     */
+    onFailed(code: number): void;
 }

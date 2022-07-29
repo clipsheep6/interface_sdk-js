@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
@@ -234,7 +233,6 @@ interface WebGLShaderPrecisionFormat {
     readonly rangeMax: GLint;
     readonly precision: GLint;
 }
-
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/

@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback } from './basic';
-
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,
  * and user behavior events reported during running. Based on event information,
@@ -38,7 +36,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         FAULT = 1,
-
         /**
          * Statistic event.
          *
@@ -46,7 +43,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         STATISTIC = 2,
-
         /**
          * Security event.
          *
@@ -54,7 +50,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         SECURITY = 3,
-
         /**
          * User behavior event.
          *
@@ -63,7 +58,6 @@ declare namespace hiAppEvent {
          */
         BEHAVIOR = 4
     }
-
     /**
      * Preset event.
      *
@@ -78,7 +72,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const USER_LOGIN: string;
-
         /**
          * user logout event.
          *
@@ -86,7 +79,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const USER_LOGOUT: string;
-
         /**
          * distributed service event.
          *
@@ -95,7 +87,6 @@ declare namespace hiAppEvent {
          */
         const DISTRIBUTED_SERVICE_START: string;
     }
-
     /**
      * Preset param.
      *
@@ -110,7 +101,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const USER_ID: string;
-
         /**
          * distributed service name.
          *
@@ -118,7 +108,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const DISTRIBUTED_SERVICE_NAME: string;
-
         /**
          * distributed service instance id.
          *
@@ -127,7 +116,6 @@ declare namespace hiAppEvent {
          */
         const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
     }
-
     /**
      * write application event.
      *
@@ -142,7 +130,6 @@ declare namespace hiAppEvent {
      */
     function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>;
     function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void;
-
     /**
      * application event logging configuration interface.
      *
@@ -153,7 +140,6 @@ declare namespace hiAppEvent {
      * @return {boolean} configuration result.
      */
     function configure(config: ConfigOption): boolean;
-
     /**
      * Describe the options for the configuration.
      *
@@ -168,7 +154,6 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         disable?: boolean;
-
         /**
          * configuration item: event file directory storage quota size.
          *
@@ -178,5 +163,4 @@ declare namespace hiAppEvent {
         maxStorage?: string;
     }
 }
-
 export default hiAppEvent;

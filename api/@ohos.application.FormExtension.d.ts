@@ -12,13 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import formBindingData from './@ohos.application.formBindingData';
 import formInfo from "./@ohos.application.formInfo";
 import FormExtensionContext from "./application/FormExtensionContext";
 import Want from './@ohos.application.Want';
 import { Configuration } from './@ohos.application.Configuration';
-
 /**
  * class of form extension.
  *
@@ -35,7 +33,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     context: FormExtensionContext;
-
     /**
      * Called to return a {@link formBindingData#FormBindingData} object.
      *
@@ -49,7 +46,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onCreate(want: Want): formBindingData.FormBindingData;
-
     /**
      * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
      *
@@ -60,7 +56,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onCastToNormal(formId: string): void;
-
     /**
      * Called to notify the form provider to update a specified form.
      *
@@ -71,7 +66,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onUpdate(formId: string): void;
-
     /**
      * Called when the form provider receives form events from the system.
      *
@@ -85,8 +79,9 @@ export default class FormExtension {
      * @return -
      * @StageModelOnly
      */
-    onVisibilityChange(newStatus: { [key: string]: number }): void;
-
+    onVisibilityChange(newStatus: {
+        [key: string]: number;
+    }): void;
     /**
      * Called when a specified message event defined by the form provider is triggered. This method is valid only for
      * JS forms.
@@ -101,7 +96,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onEvent(formId: string, message: string): void;
-
     /**
      * Called to notify the form provider that a specified form has been destroyed. Override this method if
      * you want your application, as the form provider, to be notified of form deletion.
@@ -113,7 +107,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onDestroy(formId: string): void;
-
     /**
      * Called when the system configuration is updated.
      *
@@ -124,7 +117,6 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
-
     /**
      * Called to return a {@link FormState} object.
      *

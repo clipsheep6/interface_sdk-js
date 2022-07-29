@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic.d.ts';
-
 /**
  * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
  * when the screen is off.
@@ -39,7 +37,6 @@ declare namespace runningLock {
          * @since 7
          */
         lock(timeout: number): void;
-
         /**
          * Checks whether a lock is held or in use.
          *
@@ -47,7 +44,6 @@ declare namespace runningLock {
          * @since 7
          */
         isUsed(): boolean;
-
         /**
          * Release the {@link RunningLock} that prevents the system from hibernating.
          * This method requires the ohos.permission.RUNNING_LOCK permission.
@@ -57,7 +53,6 @@ declare namespace runningLock {
          */
         unlock(): void;
     }
-
     /**
      * Enumerates the {@link RunningLock} types.
      *
@@ -80,7 +75,6 @@ declare namespace runningLock {
          */
         PROXIMITY_SCREEN_CONTROL
     }
-
     /**
      * Checks whether the specified {@link RunningLockType} is supported.
      *

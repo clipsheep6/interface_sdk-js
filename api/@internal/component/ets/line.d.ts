@@ -12,46 +12,47 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Line drawing component.
  * @since 7
  */
 interface LineInterface {
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   * @since 7
-   */
-  new (value?: { width?: string | number; height?: string | number }): LineAttribute;
-
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   * @since 7
-   */
-  (value?: { width?: string | number; height?: string | number }): LineAttribute;
+    /**
+     * Uses new to create the line.
+     * width: Width of the rectangle where the line resides..
+     * height: Height of the rectangle where the line resides.
+     * @since 7
+     */
+    new (value?: {
+        width?: string | number;
+        height?: string | number;
+    }): LineAttribute;
+    /**
+     * The return value of the parameter is Line.
+     * width: Width of the rectangle where the line resides..
+     * height: Height of the rectangle where the line resides.
+     * @since 7
+     */
+    (value?: {
+        width?: string | number;
+        height?: string | number;
+    }): LineAttribute;
 }
-
 /**
  * inheritance CommonShapeMethod.
  * @since 7
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
-  /**
-   * Coordinate of the start point of the line (relative coordinate).
-   * @since 7
-   */
-  startPoint(value: Array<any>): LineAttribute;
-
-  /**
-   * Line end coordinates (relative coordinates).
-   * @since 7
-   */
-  endPoint(value: Array<any>): LineAttribute;
+    /**
+     * Coordinate of the start point of the line (relative coordinate).
+     * @since 7
+     */
+    startPoint(value: Array<any>): LineAttribute;
+    /**
+     * Line end coordinates (relative coordinates).
+     * @since 7
+     */
+    endPoint(value: Array<any>): LineAttribute;
 }
-
 declare const Line: LineInterface;
 declare const LineInstance: LineAttribute;

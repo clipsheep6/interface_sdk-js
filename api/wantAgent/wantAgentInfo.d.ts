@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import Want from '../@ohos.application.want';
-import wantAgent from '../@ohos.wantAgent'
-
+import wantAgent from '../@ohos.wantAgent';
 /**
  * Provides the information required for triggering a WantAgent.
  *
@@ -25,29 +23,27 @@ import wantAgent from '../@ohos.wantAgent'
  * @permission N/A
  */
 export interface WantAgentInfo {
-  /**
-   * An array of all Wants for starting abilities or sending common events. Only Wants can be displayed.
-   */
-  wants: Array<Want>;
-
-  /**
-   * Type of the action specified in a Want.
-   */
-  operationType: wantAgent.OperationType;
-
-  /**
-   * Request code defined by the user.
-   */
-  requestCode: number;
-
-  /**
-   * An array of flags for using the WantAgent.
-   */
-  wantAgentFlags?: Array<wantAgent.WantAgentFlags>;
-
-  /**
-   * Extra information about how the Want starts an ability.
-   * If there is no extra information to set, this constant can be left empty.
-   */
-  extraInfo?: {[key: string]: any};
+    /**
+     * An array of all Wants for starting abilities or sending common events. Only Wants can be displayed.
+     */
+    wants: Array<Want>;
+    /**
+     * Type of the action specified in a Want.
+     */
+    operationType: wantAgent.OperationType;
+    /**
+     * Request code defined by the user.
+     */
+    requestCode: number;
+    /**
+     * An array of flags for using the WantAgent.
+     */
+    wantAgentFlags?: Array<wantAgent.WantAgentFlags>;
+    /**
+     * Extra information about how the Want starts an ability.
+     * If there is no extra information to set, this constant can be left empty.
+     */
+    extraInfo?: {
+        [key: string]: any;
+    };
 }

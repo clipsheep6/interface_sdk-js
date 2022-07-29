@@ -12,8 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 /**
 * Defines the option in length unit of grid-container component.
 * @since 9
@@ -23,39 +21,33 @@ declare interface GridRowSizeOption {
     * Grid Row Size Option xs
     * @since 9
     */
-    xs?: Length,
-
+    xs?: Length;
     /**
     * Grid Row Size Option sm
     * @since 9
     */
-    sm?: Length,
-
+    sm?: Length;
     /**
     * Grid Row Size Option md
     * @since 9
     */
-    md?: Length,
-
+    md?: Length;
     /**
     * Grid Row Size Option lg
     * @since 9
     */
-    lg?: Length,
-
+    lg?: Length;
     /**
     * Grid Row Size Option xl
     * @since 9
     */
-    xl?: Length,
-
+    xl?: Length;
     /**
     * Grid Row Size Option xxl
     * @since 9
     */
-    xxl?: Length,
+    xxl?: Length;
 }
-
 /**
 * Defines the option in number unit of grid-container component.
 * @since 9
@@ -65,39 +57,33 @@ declare interface GridRowColumnOption {
     * Grid Row Column Option xs
     * @since 9
     */
-    xs?: number,
-
+    xs?: number;
     /**
     * Grid Row Column Option sm
     * @since 9
     */
-    sm?: number,
-    
+    sm?: number;
     /**
     * Grid Row Column Option md
     * @since 9
     */
-    md?: number,
-    
+    md?: number;
     /**
     * Grid Row Column Option lg
     * @since 9
     */
-    lg?: number,
-    
+    lg?: number;
     /**
     * Grid Row Column Option xl
     * @since 9
     */
-    xl?: number,
-    
+    xl?: number;
     /**
     * Grid Row Column Option xxl
     * @since 9
     */
-    xxl?: number,
+    xxl?: number;
 }
-
 /**
 * Defines the getter of grid-container component.
 * @since 9
@@ -107,15 +93,13 @@ declare interface GetterOption {
     * Define x in getteroption
     * @since 9
     */
-    x?: Length | GridRowSizeOption,
-    
+    x?: Length | GridRowSizeOption;
     /**
     * Define y in getteroption
     * @since 9
     */
-    y?: Length | GridRowSizeOption
+    y?: Length | GridRowSizeOption;
 }
-
 /**
 * Defines the breakpoint reference of grid-container component.
 * @since 9
@@ -126,14 +110,12 @@ declare enum BreakpointsReference {
     * @since 9
     */
     WindowSize,
-
     /**
     * Respond to breakpoint changes according to component width
     * @since 9
     */
-    ComponentSize,
+    ComponentSize
 }
-
 /**
 * Defines the direction of grid-container component.
 * @since 9
@@ -144,14 +126,12 @@ declare enum GridRowDirection {
     * @since 9
     */
     Row,
-
     /**
     * The elements in the grid component are arranged in reverse order of rows
     * @since 9
     */
-    RowReverse,
+    RowReverse
 }
-
 /**
 * Defines the breakpoints of grid-container component.
 * @since 9
@@ -161,15 +141,13 @@ declare interface BreakPoints {
     * Breakpoint array
     * @since 9
     */
-    value?: Array<string>,
-
+    value?: Array<string>;
     /**
     * Set breakpoint reference
     * @since 9
     */
-    reference?: BreakpointsReference,
+    reference?: BreakpointsReference;
 }
-
 /**
  * Defines the options of grid-container component.
  * @since 9
@@ -180,27 +158,22 @@ declare interface GridRowOptions {
      * @since 9
      */
     gutter?: Length | GetterOption;
-
     /**
      * Sets the total number of columns in the current layout.
      * @since 9
      */
     columns?: number | GridRowColumnOption;
-
     /**
      * grid-container layout breakpoints.
      * @since 9
      */
     breakpoints?: BreakPoints;
-
     /**
      * grid-container layout direction.
      * @since 9
      */
     direction?: GridRowDirection;
 }
-
-
 /**
  * Defines the the new version of grid-container component.
  * @since 9
@@ -212,7 +185,6 @@ interface GridRowInterface {
      */
     (optiion?: GridRowOptions): GridRowAttribute;
 }
-
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
     /**
     * Callback triggered when the breakpoint changes
@@ -220,6 +192,5 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
     */
     onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 }
-
 declare const GridRow: GridRowInterface;
 declare const GridRowInstance: GridRowAttribute;

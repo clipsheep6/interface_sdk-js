@@ -12,9 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
-
 /**
  * configuration item.
  *
@@ -31,7 +29,6 @@ export interface Configuration {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     language?: string;
-
     /**
      * Indicates the current colorMode of the application.
      *
@@ -39,15 +36,13 @@ export interface Configuration {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     colorMode?: ConfigurationConstant.ColorMode;
-
     /**
      * Indicates the screen direction of the current device.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
-     direction?: ConfigurationConstant.Direction;
-
+    direction?: ConfigurationConstant.Direction;
     /**
      * Indicates the screen density of the current device.
      *
@@ -55,7 +50,6 @@ export interface Configuration {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     screenDensity?: ConfigurationConstant.ScreenDensity;
-
     /**
      * Indicates the displayId of the current device.
      *

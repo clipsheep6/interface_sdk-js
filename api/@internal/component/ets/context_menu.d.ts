@@ -12,15 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Defines Close contextMenu.
  * @since 8
  */
 declare class ContextMenu {
-  /**
-   * Invoking method close.
-   * @since 8
-   */
-  static close();
+    /**
+     * Invoking method close.
+     * @since 8
+     */
+    static close();
 }

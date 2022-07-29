@@ -12,49 +12,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * Provides a divider component to separate different content blocks/content elements.
  * @since 7
  */
 interface DividerInterface {
-  /**
-   * Return Divider.
-   * @since 7
-   */
-  (): DividerAttribute;
+    /**
+     * Return Divider.
+     * @since 7
+     */
+    (): DividerAttribute;
 }
-
 /**
  * Defines the Divider attribute functions.
  * @since 7
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
-  /**
-   * Indicates whether to use a horizontal splitter or a vertical splitter.
-   * The options are as follows: false: horizontal splitter; true: vertical splitter.
-   * @since 7
-   */
-  vertical(value: boolean): DividerAttribute;
-
-  /**
-   * Sets the color of the divider line.
-   * @since 7
-   */
-  color(value: ResourceColor): DividerAttribute;
-
-  /**
-   * Sets the width of the dividing line.
-   * @since 7
-   */
-  strokeWidth(value: number | string): DividerAttribute;
-
-  /**
-   * Sets the end style of the split line. The default value is Butt.
-   * @since 7
-   */
-  lineCap(value: LineCapStyle): DividerAttribute;
+    /**
+     * Indicates whether to use a horizontal splitter or a vertical splitter.
+     * The options are as follows: false: horizontal splitter; true: vertical splitter.
+     * @since 7
+     */
+    vertical(value: boolean): DividerAttribute;
+    /**
+     * Sets the color of the divider line.
+     * @since 7
+     */
+    color(value: ResourceColor): DividerAttribute;
+    /**
+     * Sets the width of the dividing line.
+     * @since 7
+     */
+    strokeWidth(value: number | string): DividerAttribute;
+    /**
+     * Sets the end style of the split line. The default value is Butt.
+     * @since 7
+     */
+    lineCap(value: LineCapStyle): DividerAttribute;
 }
-
 declare const Divider: DividerInterface;
 declare const DividerInstance: DividerAttribute;

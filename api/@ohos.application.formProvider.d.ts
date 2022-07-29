@@ -12,11 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.application.formBindingData";
 import formInfo from "./@ohos.application.formInfo";
-
 /**
  * interface of formProvider.
  *
@@ -36,7 +34,6 @@ declare namespace formProvider {
      */
     function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
     function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
-
     /**
      * Update a specified form.
      *
@@ -48,10 +45,8 @@ declare namespace formProvider {
      * @param formBindingData Indicates the form data
      * @return -
      */
-    function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
-        callback: AsyncCallback<void>): void;
+    function updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback<void>): void;
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
-
     /**
      * Get infos of all forms belonging to current bundle.
      *
@@ -65,32 +60,5 @@ declare namespace formProvider {
     function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
-
-    /**
-     * Request to publish a form to the form host.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @param want The want of the form to publish
-     * @param formBindingData Indicates the form data
-     * @systemapi hide for inner use
-     * @return Returns form id
-     */
-     function requestPublishForm(want: Want, formBindingData: formBindingData.FormBindingData,
-        callback: AsyncCallback<string>): void;
-     function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
-     function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
-
-    /**
-     * Check if the request of publishing a form is supported by the host
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @systemapi hide for inner use
-     * @return Returns true if the request is supported and false otherwise
-     */
-    function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
-    function isRequestPublishFormSupported(): Promise<boolean>;
-
 }
 export default formProvider;
