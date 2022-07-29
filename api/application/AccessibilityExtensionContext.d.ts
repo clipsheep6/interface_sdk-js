@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback, AsyncCallback } from "../basic";
+import { AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import accessibility from "../@ohos.accessibility";
 import { GesturePath } from "../@ohos.application.AccessibilityExtensionAbility";
@@ -29,15 +29,15 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
      * Set the accessibility event type which is wanted.
      * @param type Indicates the type of event.
      */
-    setEventTypeFilter(type: Array<accessibility.EventType>): Promise<boolean>;
-    setEventTypeFilter(type: Array<accessibility.EventType>, callback: AsyncCallback<boolean>): boolean;
+    setEventTypeFilter(type: Array<accessibility.EventType>): Promise<void>;
+    setEventTypeFilter(type: Array<accessibility.EventType>, callback: AsyncCallback<void>): void;
 
     /**
      * Set the name of the bundle name that is interested in sending the event.
      * @param targetNames 
      */
-    setTargetBundleName(targetNames: Array<string>): Promise<boolean>;
-    setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<boolean>): boolean;
+    setTargetBundleName(targetNames: Array<string>): Promise<void>;
+    setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Get focus element.
@@ -69,8 +69,8 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
      * @param listener It is used to receive the result of gesture injection,
      * true means success, otherwise means failure.
      */
-    gestureInject(gesturePath: GesturePath, listener: Callback<boolean>): Promise<boolean>;
-    gestureInject(gesturePath: GesturePath, listener: Callback<boolean>, callback: AsyncCallback<boolean>): void;
+    injectGesture(gesturePath: GesturePath): Promise<void>;
+    injectGesture(gesturePath: GesturePath, callback: AsyncCallback<void>): void;
 }
 
 /**
