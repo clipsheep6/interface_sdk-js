@@ -134,6 +134,11 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
 /**
+ * Defining Layout ClassDecorator * @since 9
+ */
+declare const Layout: ClassDecorator;
+
+/**
  * Get context.
  * @StageModelOnly
  * @since 9
