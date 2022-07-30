@@ -222,7 +222,15 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload"
+    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload",
+
+    /**
+     * Indicates the param of ability token or extension token.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+     ABILITY_PARAMS_TOKEN = "ohos.ability.params.token"
   }
 
   /**

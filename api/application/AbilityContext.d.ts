@@ -21,7 +21,6 @@ import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
-import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
 import Caller from '../@ohos.application.Ability';
 import { LocalStorage } from '../@internal/component/ets/stateManagement';
@@ -279,18 +278,6 @@ export default class AbilityContext extends Context {
      */
       setMissionIcon(icon: image.PixelMap, callback:AsyncCallback<void>): void;
       setMissionIcon(icon: image.PixelMap): Promise<void>;
-
-     /**
-     * Requests certain permissions from the system.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
-     * @return Returns the {@link PermissionRequestResult}.
-     * @StageModelOnly
-     */
-    requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
-    requestPermissionsFromUser(permissions: Array<string>) : Promise<PermissionRequestResult>;
 
     /**
      * Restore window stage data in ability continuation
