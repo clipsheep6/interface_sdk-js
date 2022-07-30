@@ -127,7 +127,7 @@ declare namespace vibrator {
      * @permission ohos.permission.VIBRATE
      * @since 9
      */
-    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback?: AsyncCallback<void>): void;
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
     function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
     /**
@@ -143,7 +143,7 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
-    function isSupportEffectId(effectId: string, callback?: AsyncCallback<boolean>): void;
+    function isSupportEffectId(effectId: string, callback: AsyncCallback<boolean>): void;
     function isSupportEffectId(effectId: string): Promise<boolean>;
 }
 
