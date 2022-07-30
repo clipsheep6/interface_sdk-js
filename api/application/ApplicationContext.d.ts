@@ -17,6 +17,7 @@ import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.application.AbilityLifecycleCallback";
 import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
+import AbilityStage from "../@ohos.application.AbilityStage";
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -72,4 +73,15 @@ export default class ApplicationContext extends Context {
      */
     unregisterEnvironmentCallback(callbackId: number,  callback: AsyncCallback<void>): void;
     unregisterEnvironmentCallback(callbackId: number): Promise<void>;
+
+    /**
+     * Obtains the Ability Stage.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param moduleName Indicates the module name.
+     * @return Returns the Ability Stage.
+     * @since 9
+     * @StageModelOnly
+     */
+    getAbilityStage(moduleName: string): AbilityStage;
 }

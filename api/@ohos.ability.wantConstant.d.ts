@@ -130,14 +130,14 @@ declare namespace wantConstant {
      *
      * @since 8
      */
-     ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
+    ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
 
     /**
      * Indicates the action of starting a Page ability for Take a video.
      *
      * @since 8
      */
-     ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
+    ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
 
     /**
      * Indicates the action of showing the application selection dialog box.
@@ -217,17 +217,33 @@ declare namespace wantConstant {
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
 
     /**
-     * Indicates the action of downloading application from application market.
+     * Indicates the action of an application downloaded from the application market.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload"
+    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
+
+    /**
+     * Indicates the action of an application disposed from the application market.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    ACTION_MARKET_DISPOSED = "ohos.want.action.marketDisposed",
+
+    /**
+     * Indicates the action of an application crowdtested from the application market.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+     ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest"
   }
 
   /**
    * the constant for Entity of the want
-   * @name Action
+   * @name Entity
    * @since 6
    * @syscap SystemCapability.Ability.AbilityBase
    * @permission N/A
@@ -265,6 +281,86 @@ declare namespace wantConstant {
      * Indicates the video category.
      */
     ENTITY_VIDEO = "entity.system.video"
+  }
+
+  /**
+   * the constant for Param of the want
+   * @name Param
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityBase
+   */
+  export enum Param {
+    /**
+     * Indicates the key of the window mode parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_WINDOW_MODE = "ohos.ability.param.windowMode",
+
+    /**
+     * Indicates the key of the display id parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_DISPLAY_ID = "ohos.ability.param.displayId",
+
+    /**
+     * Indicates the key of the caller token parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_CALLER_TOKEN = "ohos.ability.param.callerToken",
+
+    /**
+     * Indicates the key of the caller uid parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_CALLER_UID = "ohos.ability.param.callerUid",
+
+    /**
+     * Indicates the key of the caller pid parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_CALLER_PID = "ohos.ability.param.callerPid",
+
+    /**
+     * Indicates the key of the start ability for result parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_FOR_RESULT = "ohos.ability.param.startAbilityForResult",
+
+    /**
+     * Indicates the key of the free install calling appId parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_FREEINSTALL_APPID = "ohos.freeinstall.params.callingAppId",
+
+    /**
+     * Indicates the key of the free install calling bundleNames parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_FREEINSTALL_BUNDLENAMES = "ohos.freeinstall.params.callingBundleNames",
+
+    /**
+     * Indicates the key of the free install calling uid parameter.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    PARAM_FREEINSTALL_UID = "ohos.freeinstall.params.callingUid"
   }
 
   export enum Flags {
