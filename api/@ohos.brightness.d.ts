@@ -18,6 +18,7 @@ import { AsyncCallback } from './basic';
 /**
  * Provides interfaces to control the power of display.
  *
+ * @systemapi
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 7
  */

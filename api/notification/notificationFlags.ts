@@ -40,6 +40,7 @@
 /**
  * Describes a NotificationFlags instance.
  *
+ * @systemapi
  * @name NotificationFlags
  * @since 8
  * @permission N/A

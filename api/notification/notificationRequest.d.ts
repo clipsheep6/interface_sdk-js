@@ -222,6 +222,7 @@ export interface NotificationRequest {
   /**
    * Obtains the set of identifiers for the notification.
    *
+   * @systemapi
    * @since 8
    */
    readonly notificationFlags?: NotificationFlags;

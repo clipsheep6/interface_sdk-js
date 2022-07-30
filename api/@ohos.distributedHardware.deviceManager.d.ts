@@ -302,6 +302,7 @@ declare namespace deviceManager {
 
   /**
    * Provides methods for managing devices.
+   * @systemapi
    */
   interface DeviceManager {
     /**

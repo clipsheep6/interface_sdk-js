@@ -630,6 +630,11 @@ declare class CalendarAttribute {
     }) => void,
   ): CalendarAttribute;
 }
-
+/**
+ * @systemapi
+ */
 declare const Calendar: CalendarInterface;
+/**
+ * @systemapi
+ */
 declare const CalendarInstance: CalendarAttribute;

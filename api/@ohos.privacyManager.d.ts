@@ -16,6 +16,7 @@
 import {AsyncCallback} from './basic'
 
 /**
+ * @systemapi
  * @syscap SystemCapability.Security.AccessToken
  */
  declare namespace privacyManager {

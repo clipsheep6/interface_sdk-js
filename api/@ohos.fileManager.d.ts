@@ -16,7 +16,9 @@
 import { AsyncCallback } from './basic'
 
 export default filemanager;
-
+/**
+ * @systemapi
+ */
 declare namespace filemanager {
     export { listFile };
     export { getRoot };

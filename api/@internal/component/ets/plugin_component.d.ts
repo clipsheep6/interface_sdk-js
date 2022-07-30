@@ -67,6 +67,11 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
-
+/**
+ * @systemapi
+ */
 declare const PluginComponent: PluginComponentInterface;
+/**
+ * @systemapi
+ */
 declare const PluginComponentInstance: PluginComponentAttribute;
