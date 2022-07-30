@@ -22,7 +22,7 @@
    * constructor.
    * @since 9
    */
-   constructor(): NavigationDestinationAttribute;
+  constructor(): NavigationDestinationAttribute;
 }
 
 /**
@@ -52,7 +52,7 @@ declare class NavigationDestinationAttribute extends CommonMethod<NavigationDest
    * Navigation title bar's menus
    * @since 9
    */
-   menus(value: CustomBuilder): NavigationDestinationAttribute;
+  menus(value: CustomBuilder): NavigationDestinationAttribute;
 }
 
 declare const NavigationDestination: NavigationDestinationInterface;

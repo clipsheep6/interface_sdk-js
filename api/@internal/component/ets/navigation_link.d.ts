@@ -22,7 +22,7 @@ interface NavigationLinkInterface {
    * constructor.
    * @since 9
    */
-   constructor(): NavigationLinkAttribute;
+  constructor(): NavigationLinkAttribute;
 }
 
 /**

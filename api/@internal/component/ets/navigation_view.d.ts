@@ -38,7 +38,6 @@ declare enum SideBarMode {
    * @since 9
    */
   Auto,
-  
 }
 
 /**
@@ -95,12 +94,12 @@ declare class NavigationViewAttribute extends CommonMethod<NavigationViewAttribu
    * Sets the mode of sidebar.
    * @since 9
    */
-   sideBarMode(value: SideBarMode): NavigationViewAttribute;
+  sideBarMode(value: SideBarMode): NavigationViewAttribute;
   /**
    * Sets the icon of back button.
    * @since 9
    */
-   backButtonIcon(value: string | PixelMap | Resource): NavigationViewAttribute;
+  backButtonIcon(value: string | PixelMap | Resource): NavigationViewAttribute;
 }
 
 declare const NavigationView: NavigationViewInterface;
