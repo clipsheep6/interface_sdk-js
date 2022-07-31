@@ -14,6 +14,28 @@
  */
 
 /**
+ * Nativation mode
+ * @since 9
+ */
+ declare enum NavigationMode {
+  /**
+   * The navigation is displayed in single column.
+   * @since 9
+   */
+  SingleColumn,
+  /**
+   * The navigation is displayed in double column.
+   * @since 9
+   */
+   DoubleColumn,
+   /**
+   * The navigation is displayed automatically.
+   * @since 9
+   */
+  Auto,
+}
+
+/**
  * Naivagtion title mode.
  * @since 8
  */
@@ -64,7 +86,7 @@ interface NavigationInterface {
    * Called when the navigator view interface is used.
    * @since 8
    */
-  (): NavigationAttribute;
+  (value?: { type?: NavigationMode }): NavigationAttribute;
 }
 
 /**
@@ -72,6 +94,12 @@ interface NavigationInterface {
  * @since 8
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
+  /**
+   * Sets the width of leading column in DoubleColumn mode.
+   * @since 9
+   */
+  leadingColumnWidth(value: Length): NavigationAttribute;
+
   /**
    * Navigation title
    * @since 8

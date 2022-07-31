@@ -14,28 +14,28 @@
  */
 
 /**
- * The construct function of NavigationLink.
+ * The construct function of NavRouter.
  * @since 9
  */
-interface NavigationLinkInterface {
+interface NavRouterInterface {
   /**
    * constructor.
    * @since 9
    */
-  constructor(): NavigationLinkAttribute;
+  constructor(): NavRouterAttribute;
 }
 
 /**
- * The attribute function of NavigationLink
+ * The attribute function of NavRouter
  * @since 9
  */
-declare class NavigationLinkAttribute extends CommonMethod<NavigationLinkAttribute> {
+declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
    * Trigger callback when NavigationView state change.
    * @since 9
    */
-  onStateChange(callback: (isActivated: boolean) => void): NavigationLinkAttribute;
+  onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
 }
 
-declare const NavigationLink: NavigationLinkInterface;
-declare const NavigationLinkInstance: NavigationLinkAttribute;
+declare const NavRouter: NavRouterInterface;
+declare const NavRouterInstance: NavRouterAttribute;

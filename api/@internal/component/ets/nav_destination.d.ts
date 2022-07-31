@@ -14,46 +14,40 @@
  */
 
 /**
- * The construct function of NavigationDestination.
+ * The construct function of NavDestination.
  * @since 9
  */
- interface NavigationDestinationInterface {
+ interface NavDestinationInterface {
   /**
    * constructor.
    * @since 9
    */
-  constructor(): NavigationDestinationAttribute;
+  constructor(): NavDestinationAttribute;
 }
 
 /**
- * The attribute function of NavigationDestination
+ * The attribute function of NavDestination
  * @since 9
  */
-declare class NavigationDestinationAttribute extends CommonMethod<NavigationDestinationAttribute> {
+declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribute> {
   /**
    * Navigation title bar
    * @since 9
    */
-  title(value: string | CustomBuilder): NavigationDestinationAttribute;
+  title(value: string | CustomBuilder): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
    * @since 9
    */
-  hideTitleBar(value: boolean): NavigationDestinationAttribute;
-
-  /**
-   * Sets background color of navigation title bar
-   * @since 9
-   */
-  titleBarBackgroundColor(value: boolean): NavigationDestinationAttribute;
+  hideTitleBar(value: boolean): NavDestinationAttribute;
 
   /**
    * Navigation title bar's menus
    * @since 9
    */
-  menus(value: CustomBuilder): NavigationDestinationAttribute;
+  menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
 }
 
-declare const NavigationDestination: NavigationDestinationInterface;
-declare const NavigationDestinationInstance: NavigationDestinationAttribute;
+declare const NavDestination: NavDestinationInterface;
+declare const NavDestinationInstance: NavDestinationAttribute;
