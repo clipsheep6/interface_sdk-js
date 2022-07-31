@@ -2188,6 +2188,9 @@
         },
         {
           "name": "cubic-bezier"
+        },
+        {
+          "name": "steps"
         }
       ],
       "version": [
@@ -2518,6 +2521,90 @@
       "restrictions": [
         {
           "name": ["enum"]
+        }
+      ]
+    },
+    {
+      "name": "animation-direction",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "syntax": [
+        {
+          "name": "normal | reverse | alternate | alternate-reverse"
+        }
+      ],
+      "values": [
+        {
+          "name": "normal",
+          "description": "The animation is looped forward."
+        },
+        {
+          "name": "reverse",
+          "description": "Animation reverse loop"
+        },
+        {
+          "name": "alternate",
+          "description": "The animation is played alternately and cyclically, with odd times playing forward and even times playing backward."
+        },
+        {
+          "name": "alternate-reverse",
+          "description": "The animation is played alternately in reverse rotation, odd times of reverse playback, even times of forward playback."
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifying the Playback Mode of the Animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "animation-play-state",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "syntax": [
+        {
+          "name": "paused | running"
+        }
+      ],
+      "values": [
+        {
+          "name": "paused",
+          "description": "The animation status is paused."
+        },
+        {
+          "name": "running",
+          "description": "The animation status is Play."
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifies the current state of the animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
         }
       ]
     },
