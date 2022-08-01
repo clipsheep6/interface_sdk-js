@@ -14,25 +14,37 @@
  */
 
 /**
- * Nativation mode
+ * Nativation bar mode
  * @since 9
  */
- declare enum NavigationMode {
+ declare enum NavBarMode {
   /**
-   * The navigation is displayed in single column.
+   * The navigation bar and content are displayed in stack.
    * @since 9
    */
-  SingleColumn,
+  Stack,
   /**
-   * The navigation is displayed in double column.
+   * The navigation bar is displayed as an overlay above the content area.
    * @since 9
    */
-   DoubleColumn,
-   /**
-   * The navigation is displayed automatically.
+  Overlay,
+}
+
+/**
+ * Navigation bar position
+ * @since 9
+ */
+ declare enum NavBarPosition {
+  /**
+   * The navigation bar is on the Start of the container
    * @since 9
    */
-  Auto,
+  Start,
+  /**
+   * The navigation bar is on the End of the container
+   * @since 9
+   */
+  End,
 }
 
 /**
@@ -86,7 +98,7 @@ interface NavigationInterface {
    * Called when the navigator view interface is used.
    * @since 8
    */
-  (value?: { mode?: NavigationMode }): NavigationAttribute;
+  (): NavigationAttribute;
 }
 
 /**
@@ -95,10 +107,56 @@ interface NavigationInterface {
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
-   * Sets the width of leading column in DoubleColumn mode.
+   * Sets the width of navigation bar.
    * @since 9
    */
-  leadingColumnWidth(value: Length): NavigationAttribute;
+  navBarWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the minimum width of navigation bar.
+   * @since 9
+   */
+   minNavBarWidth(value: Length): NavigationAttribute;
+
+   /**
+   * Sets the maximum width of navigation bar.
+   * @since 9
+   */
+  maxNavBarWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the minimum width of content area.
+   * @since 9
+   */
+  minContentWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the position of navigation bar.
+   * @since 9
+   */
+  navBarPosition(value: NavBarPosition): NavigationAttribute;
+
+  /**
+   * Sets the mode of navigation bar.
+   * @since 9
+   */
+  navBarMode(value: NavBarMode): NavigationAttribute;
+
+  /**
+   * Sets the icon of button which controls navigation bar show or hide.
+   * @since 9
+   */
+  controlButtonIcon(value: {
+    shown: string | PixelMap | Resource;
+    hidden: string | PixelMap | Resource;
+    switching?: string | PixelMap | Resource;
+  }): NavigationAttribute;
+
+  /**
+   * Sets the back button icon.
+   * @since 9
+   */
+  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
 
   /**
    * Navigation title
