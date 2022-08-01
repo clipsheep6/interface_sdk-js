@@ -62,6 +62,74 @@ declare enum SwiperDisplayMode {
 }
 
 /**
+ * The info that indicates number of children to display according to the grid breakpoint rules.
+ * @since 9
+ */
+declare interface DisplayCountInfo {
+  /**
+   * The number of children to display in xs size.
+   * @since 9
+   */
+  xs?: number;
+
+  /**
+   * The number of children to display in sm size.
+   * @since 9
+   */
+  sm?: number;
+
+  /**
+   * The number of children to display in md size.
+   * @since 9
+   */
+  md?: number;
+
+  /**
+   * The number of children to display in lg size.
+   * @since 9
+   */
+  lg?: number;
+
+  /**
+   * The number of children to display in xl size.
+   * @since 9
+   */
+  xl?: number;
+
+  /**
+   * The number of children to display in xxl size.
+   * @since 9
+   */
+  xxl?: number;
+}
+
+/**
+ * Set the alignment style of the children display in the Swiper, such as left alignment, center alignment.
+ * @since 9
+ */
+declare enum ItemDisplayMode {
+  /**
+   * When swiper slide stops, the first child are aligned to the left of the Swiper.
+   * @since 9
+   */
+  Left,
+
+  /**
+   * When swiper slide stops, one child are aligned to the center of the Swiper.
+   * If there are no children left or right of the center item, blank will be display.
+   * @since 9
+   */
+  Center,
+
+  /**
+   * When swiper slide stops, one child are aligned to the center of the Swiper.
+   * There will be no blank on either side of the center item.
+   * @since 9
+   */
+  CenterWithBounds,
+}
+
+/**
  * Provides an interface for sliding containers.
  * @since 7
  */
@@ -193,10 +261,23 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   cachedCount(value: number): SwiperAttribute;
 
   /**
-   * This command is invoked when the number of subcomponents is set.
+   * Set the number of children to display,
+   * when you set "auto", it will be displayed in order according to the actual size of the children like a list.
    * @since 8
    */
-  displayCount(value: number | string): SwiperAttribute;
+  /**
+   * Set the number of children to display according to the grid breakpoint rules.
+   * @param DisplayCountInfo the info in grid breakpoint rules.
+   * @since 9
+   */
+  displayCount(value: number | string | DisplayCountInfo): SwiperAttribute;
+
+  /**
+   * Sets the style of alignment when the children are displayed.
+   * @param value the display alignment info.
+   * @since 9
+   */
+  itemDisplayMode(value: ItemDisplayMode): SwiperAttribute;
 
   /**
    * Invoked when setting the sliding effect

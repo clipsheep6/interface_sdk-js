@@ -139,7 +139,7 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @since 9
  */
 declare function getContext(component?: Object): Object;
- 
+
 /**
  * Defines the data type of the interface restriction.
  * @since 7
@@ -257,8 +257,8 @@ interface ICurve {
   /**
    * Get curve value by fraction.
    * @since 9
-   */ 
-  interpolate(fraction : number) : number;
+   */
+  interpolate(fraction: number): number;
 }
 
 /**
@@ -388,32 +388,32 @@ declare interface AlignRuleOption {
    * The param of left align.
    * @since 9
    */
-  left?: { anchor: string, align: HorizontalAlign };
+  left?: { anchor: string; align: HorizontalAlign };
   /**
    * The param of right align.
    * @since 9
    */
-  right?: { anchor: string, align: HorizontalAlign };
+  right?: { anchor: string; align: HorizontalAlign };
   /**
    * The param of middle align.
    * @since 9
    */
-  middle?: { anchor: string, align: HorizontalAlign };
+  middle?: { anchor: string; align: HorizontalAlign };
   /**
    * The param of top align.
    * @since 9
    */
-  top?: { anchor: string, align: VerticalAlign };
+  top?: { anchor: string; align: VerticalAlign };
   /**
    * The param of bottom align.
    * @since 9
    */
-  bottom?: { anchor: string, align: VerticalAlign };
+  bottom?: { anchor: string; align: VerticalAlign };
   /**
    * The param of center align.
    * @since 9
    */
-  center?: { anchor: string, align: VerticalAlign };
+  center?: { anchor: string; align: VerticalAlign };
 }
 
 declare interface RotateOptions {
@@ -651,6 +651,18 @@ declare enum SourceType {
    * @since 8
    */
   TouchScreen,
+
+  /**
+   * The pen device.
+   * @since 9
+   */
+  Pen,
+
+  /**
+   * The touchpad device.
+   * @Since 9
+   */
+  TouchPad,
 }
 
 /**
@@ -663,7 +675,7 @@ declare enum RepeatMode {
    * @since 9
    */
   Repeat,
-  
+
   /**
    * Stretch mode.
    * @since 9
@@ -686,7 +698,7 @@ declare enum RepeatMode {
  * enum Blur style
  * @since 9
  */
- declare enum BlurStyle {
+declare enum BlurStyle {
   /**
    * Defines the fuzzy scale.
    * @since 9
@@ -739,37 +751,37 @@ declare interface BorderImageOption {
    * Border image slice
    * @since 9
    */
-  slice?: Length | EdgeWidths,
+  slice?: Length | EdgeWidths;
 
   /**
    * Border image repeat
    * @since 9
    */
-  repeat?: RepeatMode,
+  repeat?: RepeatMode;
 
   /**
    * Border image source
    * @since 9
    */
-  source?: string | Resource | linearGradient,
+  source?: string | Resource | linearGradient;
 
   /**
    * Border image width
    * @since 9
    */
-  width?: Length | EdgeWidths,
+  width?: Length | EdgeWidths;
 
   /**
    * Border image outset
    * @since 9
    */
-  outset?: Length | EdgeWidths,
+  outset?: Length | EdgeWidths;
 
   /**
    * Border image center fill
    * @since 9
    */
-  fill?: boolean
+  fill?: boolean;
 }
 
 /**
@@ -1210,6 +1222,13 @@ declare class CommonMethod<T> {
   touchable(value: boolean): T;
 
   /**
+   * Defines the component's hit test behavior in touch events.
+   * @param value the hit test mode.
+   * @since 9
+   */
+  hitTestBehavior(value: HitTestMode): T;
+
+  /**
    * layout Weight
    * @since 7
    */
@@ -1258,8 +1277,8 @@ declare class CommonMethod<T> {
    * blurStyle:Blur style type.
    * @since 9
    */
-   backgroundBlurStyle(value: BlurStyle): T;
-  
+  backgroundBlurStyle(value: BlurStyle): T;
+
   /**
    * Opacity
    * @since 7
@@ -1283,7 +1302,7 @@ declare class CommonMethod<T> {
    * Border style
    * @since 9
    */
-   borderStyle(value: EdgeStyles): T;
+  borderStyle(value: EdgeStyles): T;
 
   /**
    * Border width
@@ -1295,7 +1314,7 @@ declare class CommonMethod<T> {
    * Border width
    * @since 9
    */
-   borderWidth(value: EdgeWidths): T;
+  borderWidth(value: EdgeWidths): T;
 
   /**
    * Border color
@@ -1307,7 +1326,7 @@ declare class CommonMethod<T> {
    * Border color
    * @since 9
    */
-   borderColor(value: EdgeColors): T;
+  borderColor(value: EdgeColors): T;
 
   /**
    * Border radius
@@ -1319,7 +1338,7 @@ declare class CommonMethod<T> {
    * Border radius
    * @since 9
    */
-   borderRadius(value: BorderRadiuses): T;
+  borderRadius(value: BorderRadiuses): T;
 
   /**
    * Border image
@@ -1831,7 +1850,7 @@ declare class CommonMethod<T> {
    * Trigger a visible area change event.
    * @since 9
    */
-   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 }
 
 /**
@@ -1990,6 +2009,13 @@ declare class CustomComponent extends CommonAttribute {
    * @since 7
    */
   onBackPress?(): void;
+
+  /**
+   * Called when page reloaded due to config has changed.
+   * @param config the app changed configuration info. {import configuration from '@ohos.application.Configuration'}
+   * @since 9
+   */
+  onReload(config: Configuration): void;
 }
 
 /**

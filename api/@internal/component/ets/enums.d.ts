@@ -274,7 +274,7 @@ declare enum MouseAction {
    * Triggered when the mouse is Hovered.
    * @since 8
    */
-  Hover
+  Hover,
 }
 
 /**
@@ -1463,4 +1463,31 @@ declare enum CopyOption {
    * @since 9
    */
   CrossDevice = 2,
+}
+
+/**
+ * Defines the hit test mode of this child.
+ * @since 9
+ */
+declare enum HitTestMode {
+  /**
+   * Both self and child nodes respond to the hit test for touch events,
+   * but block hit test of the other nodes which is masked by this node.
+   * @since 9
+   */
+  Default,
+
+  /**
+   * self respond to the hit test for touch events,
+   * but block hit test of children and other nodes which is masked by this node.
+   * @since 9
+   */
+  Block,
+
+  /**
+   * self and child respond to the hit test for touch events,
+   * and allow hit test of other nodes which is masked by this node.
+   * @since 9
+   */
+  Transparent,
 }

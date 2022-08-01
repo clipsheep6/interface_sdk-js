@@ -97,7 +97,7 @@ declare type Margin = Padding;
  * Defines the border width property.
  * @since 9
  */
- declare type EdgeWidths = {
+declare type EdgeWidths = {
   /**
    * top property.
    * @since 9
@@ -417,4 +417,17 @@ declare interface BorderOptions {
    * @since 9
    */
   style?: EdgeStyles | BorderStyle;
+}
+
+/**
+ * Defines the ColorFilter object.
+ * @since 9
+ */
+declare class ColorFilter {
+  /**
+   * Creates ColorFilter with 4*5 matrix.
+   * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column.
+   * @since 9
+   */
+  constructor(value: number[]);
 }
