@@ -86,7 +86,7 @@ interface NavigationInterface {
    * Called when the navigator view interface is used.
    * @since 8
    */
-  (value?: { type?: NavigationMode }): NavigationAttribute;
+  (value?: { mode?: NavigationMode }): NavigationAttribute;
 }
 
 /**
