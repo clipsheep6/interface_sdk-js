@@ -66,8 +66,6 @@ declare namespace fileIO {
     export { opendirSync };
     export { read };
     export { readSync };
-    export { readdir };
-    export { readdirSync };
     export { readText };
     export { readTextSync };
     export { rename };
@@ -1097,6 +1095,33 @@ declare interface Dir {
      * @throws {TypedError | Error} close fail
      */
     closeSync(): void;
+    /**
+     * listfile.
+     *
+     * @note N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 7
+     * @permission N/A
+     * @function listfile
+     * @param {number} n - list n dirents.
+     * @param {AsyncCallback<Array<Dirent>>} [callback] - callback.
+     * @returns {void | Promise<Array<Dirent>>} no callback return Promise otherwise return void
+     * @throws {TypedError} Parameter check failed if read to end, Error.msg = "NoMore"
+     */
+     listfile(n: number): Promise<Array<Dirent>>;
+     listfile(n: number, callback: AsyncCallback<Array<Dirent>>): void;
+     /**
+      * listfileSync.
+      * @note N/A
+      * @syscap SystemCapability.FileManagement.File.FileIO
+      * @since 7
+      * @permission N/A
+      * @function listfileSync
+      * @param {number} n - list n dirents.
+      * @returns {Array<Dirent>} Array<Dirent> Object
+      * @throws {TypedError | Error} read fail if read to end, Error.msg = "NoMore"
+      */
+     listfileSync(n: number): Array<Dirent>;
 }
 
 /**
