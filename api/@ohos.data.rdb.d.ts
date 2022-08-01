@@ -96,6 +96,51 @@ declare namespace rdb {
     }
 
     /**
+     * Describes the conflictResolution type.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     */
+    enum ConflictResolution {
+        /**
+         * Performs no operation when a conflict occurs.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        ON_CONFLICT_NONE,
+        /**
+         * Aborts the current SQL statement and rolls back the current transaction when a constraint violation occurs.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        ON_CONFLICT_ROLLBACK,
+        /**
+         * Aborts the current SQL statement and discards any changes made by the current SQL statement when a constraint violation occurs.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        ON_CONFLICT_ABORT,
+        /**
+         * Aborts the current SQL statement when a constraint violation occurs.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        ON_CONFLICT_FAIL,
+        /**
+         * Skips the one row that encounters a constraint violation and continues processing subsequent rows of the SQL statement.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        ON_CONFLICT_IGNORE,
+        /**
+         * Deletes pre-existing rows that encounter a UNIQUE or PRIMARY KEY constraint violation prior to inserting or updating of the current row and continues command execution.
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         */
+        ON_CONFLICT_REPLACE,
+    }
+
+    /**
      * Provides methods for managing the relational database (RDB).
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
@@ -118,6 +163,19 @@ declare namespace rdb {
         insert(table: string, values: ValuesBucket): Promise<number>;
 
         /**
+         * Inserts a row of data into the target table with conflictResolution.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param table Indicates the target table.
+         * @param values Indicates the row of data to be inserted into the table.
+         * @param conflictResolution Indicates the type of the method for resolving conflict.
+         * @return Returns the row ID if the operation is successful; returns -1 otherwise.
+         */
+        insert(table: string, values: ValuesBucket, conflictResolution: ConflictResolution, callback: AsyncCallback<number>): void;
+        insert(table: string, values: ValuesBucket, conflictResolution: ConflictResolution): Promise<number>;
+
+        /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
          *
          * @since 7
@@ -128,6 +186,19 @@ declare namespace rdb {
          */
         update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
+
+        /**
+         * Updates data in the database based on a specified instance object of rdbPredicates and conflictResolution.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param predicates Indicates the specified update condition by the instance object of RdbPredicates.
+         * @param conflictResolution Indicates the type of the method for resolving conflict.
+         * @return Returns the number of affected rows.
+         */
+        update(values: ValuesBucket, predicates: RdbPredicates, conflictResolution: ConflictResolution, callback: AsyncCallback<number>): void;
+        update(values: ValuesBucket, predicates: RdbPredicates, conflictResolution: ConflictResolution): Promise<number>;
 
         /**
          * Updates data in the database based on a a specified instance object of DataSharePredicates.
