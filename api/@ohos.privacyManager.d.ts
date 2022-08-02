@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic'
+import {AsyncCallback, Callback} from './basic'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
  */
  declare namespace privacyManager {
     /**
-     * Add access record of sensitive permission.
+     * Adds access record of sensitive permission.
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be added.
      * @param successCount Access count.
@@ -36,13 +36,34 @@ import {AsyncCallback} from './basic'
     /**
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
-     * @return Return the reponse of permission used records.
+     * @return Return the response of permission used records.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hide this for inner system use
      * @since 9
      */
     function getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
+
+    /**
+     * Starts listening the change of permission active state.
+     * @param type activeStateChange.
+     * @param permissionNameLists The permission lists to be listened.
+     * @param callback The permission used change callback to be registered.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+     function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<{tokenID: number, permissionName: string, isActive: boolean}>): void;
+
+    /**
+     * Stops listening the change of permission active state.
+     * @param type activeStateChange.
+     * @param permissionNameLists The permission lists to be listened.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi hide this for inner system use
+     * @since 9
+     */
+     function off(type: 'activeStateChange', permissionNameList: Array<string>): void;
 
     /**
      * PermissionUsageFlag.
