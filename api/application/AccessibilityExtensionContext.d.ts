@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback, AsyncCallback } from "../basic";
+import { AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import accessibility from "../@ohos.accessibility";
 import { GesturePath } from "../@ohos.application.AccessibilityExtensionAbility";
@@ -26,18 +26,11 @@ import { GesturePath } from "../@ohos.application.AccessibilityExtensionAbility"
  */
 export default class AccessibilityExtensionContext extends ExtensionContext {
     /**
-     * Set the accessibility event type which is wanted.
-     * @param type Indicates the type of event.
-     */
-    setEventTypeFilter(type: Array<accessibility.EventType>): Promise<boolean>;
-    setEventTypeFilter(type: Array<accessibility.EventType>, callback: AsyncCallback<boolean>): boolean;
-
-    /**
      * Set the name of the bundle name that is interested in sending the event.
      * @param targetNames 
      */
-    setTargetBundleName(targetNames: Array<string>): Promise<boolean>;
-    setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<boolean>): boolean;
+    setTargetBundleName(targetNames: Array<string>): Promise<void>;
+    setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Get focus element.
@@ -69,8 +62,8 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
      * @param listener It is used to receive the result of gesture injection,
      * true means success, otherwise means failure.
      */
-    gestureInject(gesturePath: GesturePath, listener: Callback<boolean>): Promise<boolean>;
-    gestureInject(gesturePath: GesturePath, listener: Callback<boolean>, callback: AsyncCallback<boolean>): void;
+    injectGesture(gesturePath: GesturePath): Promise<void>;
+    injectGesture(gesturePath: GesturePath, callback: AsyncCallback<void>): void;
 }
 
 /**
@@ -141,6 +134,7 @@ declare interface AccessibilityElement {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 type ElementAttributeValues = {
+    'accessibilityFocused': boolean;
     /**
      * Indicates the bundle name to which it belongs.
      */
@@ -189,6 +183,7 @@ type ElementAttributeValues = {
      * Indicates the list index of the last item displayed on the screen.
      */
     'endIndex': number;
+    'error': string;
     /**
      * Indicates whether the element is focusable.
      */
@@ -213,6 +208,7 @@ type ElementAttributeValues = {
      * Indicates whether the element is enable or not.
      */
     'isEnable': boolean;
+    'isHint': boolean;
     /**
      * Indicates whether the element is focused or not.
      */
@@ -241,6 +237,8 @@ type ElementAttributeValues = {
      * Indicates whether the element is long clickable.
      */
     'longClickable': boolean;
+
+    'pageId': number;
     /**
      * Indicates the parent of the element.
      */
@@ -297,6 +295,10 @@ type ElementAttributeValues = {
      * Indicates the window type of the element.
      */
     'type': WindowType;
+    'valueMax': number;
+    'valueMin': number;
+    'valueNow': number;
+    'windowId': number;
 }
 
 /**
