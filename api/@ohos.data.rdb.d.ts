@@ -118,6 +118,18 @@ declare namespace rdb {
         insert(table: string, values: ValuesBucket): Promise<number>;
 
         /**
+         * Inserts a batch of data into the target table.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param table Indicates the target table.
+         * @param values Indicates the rows of data to be inserted into the table.
+         * @return Returns the number of values that were inserted if the operation is successful; returns -1 otherwise.
+         */
+        batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+        batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+
+        /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
          *
          * @since 7
@@ -192,6 +204,21 @@ declare namespace rdb {
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
+		
+		/**
+         * Queries remote data in the database based on specified conditions before Synchronizing Data.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param device Indicates specified remote device.
+         * @param table Indicates the target table.
+         * @param predicates Indicates the specified remote query condition by the instance object of RdbPredicates.
+         * @param columns Indicates the columns to remote query. If the value is null, the remote query applies to all columns.
+         * @return Returns a ResultSet object if the operation is successful;
+         */
+        remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+        remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
+
 
         /**
          * Queries data in the database based on SQL statement.
