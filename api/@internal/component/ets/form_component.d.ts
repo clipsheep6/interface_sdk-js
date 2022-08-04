@@ -147,5 +147,16 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
 }
 
+/**
+ * Define the interface of FormComponent.
+ * @since 7
+ * @systemapi
+ */
 declare const FormComponent: FormComponentInterface;
+
+/**
+ * Define the attribute functions of FormComponent.
+ * @since 7
+ * @systemapi
+ */
 declare const FormComponentInstance: FormComponentAttribute;

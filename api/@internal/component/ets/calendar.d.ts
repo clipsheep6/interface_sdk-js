@@ -631,5 +631,16 @@ declare class CalendarAttribute {
   ): CalendarAttribute;
 }
 
+/**
+ * Define the interface of Calendar.
+ * @since 7
+ * @systemapi
+ */
 declare const Calendar: CalendarInterface;
+
+/**
+ * Define the attribute functions of Calendar.
+ * @since 7
+ * @systemapi
+ */
 declare const CalendarInstance: CalendarAttribute;
