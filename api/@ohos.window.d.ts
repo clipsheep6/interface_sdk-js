@@ -450,6 +450,12 @@ declare namespace window {
      * @since 7
      */
     isTransparent: boolean
+
+    /**
+     * window id
+     * @since 9
+     */
+    id: number
   }
 
   /**
