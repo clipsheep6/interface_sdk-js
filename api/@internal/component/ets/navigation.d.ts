@@ -14,12 +14,12 @@
  */
 
 /**
- * Nativation bar mode
+ * Nativation mode
  * @since 9
  */
- declare enum NavBarMode {
+ declare enum NavigationMode {
   /**
-   * The navigation bar and content are displayed in stack.
+   * The navigation bar and the content area are displayed in stack.
    * @since 9
    */
   Stack,
@@ -28,6 +28,23 @@
    * @since 9
    */
   Overlay,
+  /**
+   * The navigation bar and the content area are displayed side by side.
+   * @since 9
+   */
+  Split,
+   /**
+   * If the width of navigation component is less than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in stack mode. Otherwise it's displayed in split mode. 
+   * @since 9
+   */
+  AutoStackSplit,
+  /**
+   * If the width of navigation component is less than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in overlay mode. Otherwise it's displayed in split mode. 
+   * @since 9
+   */
+  AutoOverlaySplit,
 }
 
 /**
@@ -137,10 +154,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   navBarPosition(value: NavBarPosition): NavigationAttribute;
 
   /**
-   * Sets the mode of navigation bar.
+   * Sets the mode of navigation.
    * @since 9
    */
-  navBarMode(value: NavBarMode): NavigationAttribute;
+  mode(value: NavigationMode): NavigationAttribute;
 
   /**
    * Sets the icon of button which controls navigation bar show or hide.
@@ -159,6 +176,18 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
 
   /**
+   * Hide the button which controls the navigation bar show or hide.
+   * @since 9
+   */
+  hideControlButton(value: boolean): NavigationAttribute;
+
+  /**
+   * Hide the navigation bar.
+   * @since 9
+   */
+   hideNavBar(value: boolean): NavigationAttribute;
+
+  /**
    * Navigation title
    * @since 8
    */
@@ -171,7 +200,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   subTitle(value: string): NavigationAttribute;
 
   /**
-   * Hide navigation bar
+   * Hide navigation title bar
    * @since 8
    */
   hideTitleBar(value: boolean): NavigationAttribute;
@@ -211,6 +240,12 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 8
    */
   onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
+
+  /**
+   * Trigger callback when the visibility of navigation bar change in overlay or split mode.
+   * @since 9
+   */
+   onNavBarVisibilityChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
 declare const Navigation: NavigationInterface;
