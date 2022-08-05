@@ -86,6 +86,14 @@ declare namespace screen {
   function setVirtualScreenSurface(screenId:number, surfaceId: string): Promise<void>;
 
   /**
+   * Set rotation for the virtual screen.
+   * @param screenId Indicates the screen id of the virtual screen.
+   * @param rotation Indicates the expected rotation.
+   */
+  function setVirtualScreenRotation(screenId:number, rotation: Rotation, callback: AsyncCallback<void>): void;
+  function setVirtualScreenRotation(screenId:number, rotation: Rotation): Promise<void>;
+ 
+  /**
    * Get screen rotation lock status.
    * @since 9
    */
@@ -100,6 +108,13 @@ declare namespace screen {
   function setScreenRotationLocked(isLocked:boolean, callback: AsyncCallback<void>): void;
   function setScreenRotationLocked(isLocked:boolean): Promise<void>;
 
+  /**
+   * Set whether to enable layout for the area of the waterfall curved surface in landscape display mode.
+   * @param isEnable Indicates whether to enable layout for waterfall display area.
+   * @since 9
+   */
+  function setWaterfallAreaLayoutEnable(isEnable: boolean): void;
+  
   /**
    * the parameter of making expand screen
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -216,6 +231,13 @@ declare namespace screen {
     HORIZONTAL = 2,
     REVERSE_VERTICAL = 3,
     REVERSE_HORIZONTAL = 4,
+  }
+
+  enum Rotation {
+    ROTATION_0 = 0,
+    ROTATION_90,
+    ROTATION_180,
+    ROTATION_270,
   }
 
   /**
