@@ -124,11 +124,11 @@ declare namespace hidebug {
 
     /**
      * Get a debugging dump of a system service by service id.
-     * Not for use by third-party applications for permission.
      * 
      * @param serviceid Indicates the id of the service ability.
      * @return - sa dumped file name return.
      * @since 9
+     * @permission ohos.permission.DUMP
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function getServiceDump(serviceid : number) : string;
