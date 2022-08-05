@@ -16,188 +16,100 @@
 import { Callback } from "./basic";
 
 /**
- * Subscribe to user move status notifications
+ * 提供移动状态上报功能，可上报走、跑、骑、乘等事件。
  *
  * @since 9
  * @syscap SystemCapability.Msdp.Movement
- * @import import sensor from '@ohos.movement'
- * @permission N/A
+ * @import import movement from '@ohos.movement'
  */
 declare namespace movement {
     /**
-     * The basic data structure of a move state event。
+     * 用于接收移动状态。
      * @syscap SystemCapability.Msdp.Movement
+     * @since 9
      */
-    export interface MovementResponse {
-        movementValue: MovementValue
+    interface MovementResponse {
+        state: MovementState;
     }
 	
     /**
-     * Data on ride events。
+     * 移动状态类型。
      * @syscap SystemCapability.Msdp.Movement
+     * @since 9
      */
-    export interface InAutoResponse extends MovementResponse {}
-
-     /**
-     * Data on cycling events。
-     * @syscap SystemCapability.Msdp.Movement
-     */
-    export interface OnBicycleResponse extends MovementResponse {}
-
-    /**
-     * Walk the data of the event。
-     * @syscap SystemCapability.Msdp.Movement
-     */
-    export interface WalkingResponse extends MovementResponse {}
-
-    /**
-     * Data for running events。
-     * @syscap SystemCapability.Msdp.Movement
-     */
-    export interface RuningResponse extends MovementResponse {}
+    type MovementType = 'inAuto' | 'inBicycle' | 'walking' | 'running';
 	
     /**
-     * The move state type。
+     * 移动状态事件。
      * @syscap SystemCapability.Msdp.Movement
+     * @since 9
      */
-    export enum MovementType {
-        TYPE_IN_AUTO = "inAuto",
-        TYPE_ON_BICYCLE = "inBicycle",
-        TYPE_WALKING = "walking",
-        TYPE_RUNNING = "running",
-    }
-	
-    /**
-     * The move status value。
-     * @syscap SystemCapability.Msdp.Movement
-     */
-    export enum MovementValue {
+    enum MovementEvent {
+        /**
+         * 进入移动状态。
+         */ 
         ENTER = 1,
+		
+        /**
+         * 退出移动状态。
+         */
         EXIT = 2,
+		
+        /**
+         * 进入和退出移动状态。
+         */
         ENTER_EXIT = 3
     }
 	
-    /**
-     * Subscribe to notifications of the mobility status of your ride。
-     *
+	/**
+     * 移动状态。
+     * @syscap SystemCapability.Msdp.Movement
      * @since 9
-     * @param type Subscribe to notifications of the mobility status of your ride, {@code type: MovementType.TYPE_IN_AUTO}.
-     * @param eventType enter and exit event.
-     * @param reportLatencyNs report event latency.
-     * @param callback callback function, receive reported data.
      */
-    function on(type: MovementType.TYPE_IN_AUTO, eventType: MovementValue, reportLatencyNs: number, callback: Callback<InAutoResponse>): void;
-
-    /**
-     * Subscribe to notifications of the movement status of your bike。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_ON_BICYCLE}.
-     * @param eventType enter and exit event.
-     * @param reportLatencyNs report event latency.
-     * @param callback callback function, receive reported data.
-     */
-    function on(type: MovementType.TYPE_ON_BICYCLE, eventType: MovementValue, reportLatencyNs: number, callback: Callback<OnBicycleResponse>): void;
-
-    /**
-     * Subscribe to mobile status notifications for walks。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_WALKING}.
-     * @param eventType enter and exit event.
-     * @param reportLatencyNs report event latency.
-     * @param callback callback function, receive reported data.
-     */
-    function on(type: MovementType.TYPE_WALKING, eventType: MovementValue, reportLatencyNs: number, callback: Callback<WalkingResponse>): void;
-
-    /**
-     * Subscribe to notifications of the movement status of your run。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_RUNNING}.
-     * @param eventType enter and exit event.
-     * @param reportLatencyNs report event latency.
-     * @param callback callback function, receive reported data.
-     */
-    function on(type: MovementType.TYPE_RUNNING, eventType: MovementValue, reportLatencyNs: number, callback: Callback<RuningResponse>): void;
-
-    /**
-     * Check if you are in the car。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code MovementType.TYPE_IN_AUTO}.
-     * @param callback callback function, receive reported data.
-     */
-    function once(type: MovementType.TYPE_IN_AUTO, callback: Callback<InAutoResponse>): void;
-
-
-    /**
-     * Check if you're riding a bike。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code MovementType.TYPE_ON_BICYCLE}.
-     * @param callback callback function, receive reported data.
-     */
-    function once(type: MovementType.TYPE_ON_BICYCLE, callback: Callback<OnBicycleResponse>): void;
-
-
-    /**
-     * Query whether it is the status of walking。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code MovementType.TYPE_WALKING}.
-     * @param callback callback function, receive reported data.
-     */
-    function once(type: MovementType.TYPE_WALKING, callback: Callback<WalkingResponse>): void;
-
-    /**
-     * Query whether it is the status of running。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code MovementType.TYPE_RUNNING}.
-     * @param callback callback function, receive reported data.
-     */
-    function once(type: MovementType.TYPE_RUNNING, callback: Callback<RuningResponse>): void;
-
-    /**
-     * Unsubscribe from the ride's mobile status notification。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_IN_AUTO}.
-     * @param eventType enter and exit event.
-     * @param callback callback function, receive reported data.
-     */
-    function off(type: MovementType.TYPE_IN_AUTO, eventType: MovementValue, callback?: Callback<InAutoResponse>): void;
+    enum MovementState {
+        /**
+         * 进入移动状态。
+         */
+        ENTER = 1,
+		
+        /**
+         * 退出移动状态。
+         */
+        EXIT = 2
+    }
 	
     /**
-     * Unsubscribe from the bike's mobile status notification。
+     * 订阅移动状态。
      *
+     * @param movement 移动状态类型，{@code movement: MovementType}。
+     * @param event 移动状态事件。
+     * @param reportLatencyNs 事件上报周期。
+     * @param callback 用于接收上报数据的回调。
+     * @syscap SystemCapability.Msdp.Movement
      * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_ON_BICYCLE}.
-     * @param eventType enter and exit event.
-     * @param callback callback function, receive reported data.
      */
-    function off(type: MovementType.TYPE_ON_BICYCLE, eventType: MovementValue, callback?: Callback<OnBicycleResponse>): void;
-	
-    /**
-     * Unsubscribe from mobile status notifications for walks。
-     *
-     * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_WALKING}.
-     * @param eventType enter and exit event.
-     * @param callback callback function, receive reported data.
-     */
-    function off(type: MovementType.TYPE_WALKING, eventType: MovementValue, callback?: Callback<WalkingResponse>): void;
+    function on(movement: MovementType, event: MovementEvent, reportLatencyNs: number, callback: Callback<MovementResponse>): void;
 
     /**
-     * Unsubscribe from the run's motion status notification。
+     * 查询当前移动状态。
      *
+     * @param movement 移动状态类型，{@code MovementType}。
+     * @param callback 用于接收上报数据的回调。
+     * @syscap SystemCapability.Msdp.Movement
      * @since 9
-     * @param type The mobile state type of the subscription, {@code type: MovementType.TYPE_RUNNING}.
-     * @param eventType enter and exit event.
-     * @param callback callback function, receive reported data.
      */
-    function off(type: MovementType.TYPE_RUNNING, eventType: MovementValue, callback?: Callback<RuningResponse>): void;
+    function once(movement: MovementType, callback: Callback<MovementResponse>): void;
+
+    /**
+     * 取消订阅移动状态。
+     *
+     * @param movement 移动状态类型，{@code movement: MovementType}。
+     * @param event 移动状态事件。
+     * @param callback 用于接收上报数据的回调。
+     * @syscap SystemCapability.Msdp.Movement
+     * @since 9
+     */
+    function off(movement: MovementType, event: MovementEvent, callback?: Callback<MovementResponse>): void;
 }
 
 export default movement;

@@ -16,223 +16,191 @@
 import { Callback } from './basic';
 
 /**
- * Provides registration and deregistration interfaces for spatial location
-       relationships between multiple devices, which are defined as follows:
- * {@link on}: Subscribe to location relationships between devices
- * {@link off}: Unsubscribe from the inter-device location relationship
- *
+ * 提供设备空间感知数据上报功能，可上报方位关系、接近关系等事件。
+ *    
  * @since 9
  * @syscap SystemCapability.Msdp.SpatialAwareness
- * @permission N/A
+ * @import import spatialAwareness from '@ohos.spatialAwareness'
  */
 declare namespace spatialAwareness {
    /**
-     * Bearing relationship definition。
-     * @name DirectionResponse
+     * 用于接收方位数据。
+     * @syscap SystemCapability.Msdp.SpatialAwareness
+     * @since 9
      */
-     export interface DirectionResponse {
+    interface DirectionResponse {
         direction : Direction
     }
-
-    /**
-     * Approach the relationship definition。
-     * @name NearByResponse
-     */
-    export interface NearByResponse {
-        nearby : boolean;
-    }
 	
     /**
-     * Distance relationship definition。
-     * @name DistanceResponse
+     * 设备信息定义。
+     *	 
+     * @syscap SystemCapability.Msdp.SpatialAwareness
+     * @since 9
      */
-    export interface DistanceBTResponse {
-        distance : number;
-    }
-	
-    /**
-     * Device information definition。
-     */
-    export interface DeviceInfo {
+    interface DeviceInfo {
         /**
-         * Device ID。
+         * 设备ID。
          */
         deviceId: string;
 
         /**
-         * Device name。
+         * 设备名称。
          */
         deviceName: string;
 
         /**
-         * Device type。
+         * 设备类型。
          */
         deviceType: DeviceType;
     }
 
     /**
-     * Location information definition。
-     * @name PositionRelation
+     * 位置关系类型。
+     *
+     * @syscap SystemCapability.Msdp.SpatialAwareness
+     * @since 9
      */
-    export enum PositionRelation {
+    enum PositionRelation {
         /**
-         * Represents an azimuth relationship。
+         * 方位关系。
          */
         DIRECTION = "direction",
+		
         /**
-         * Represents a distance relationship。
-         */
-        DISTANCE_BT = "distanceBT",
-        /**
-         * Represents a proximity relationship。
+         * 接近关系。
          */
         NEARBY = "nearby"
     }
 
     /**
-     * Device type definition。
-     * @name DeviceType
+     * 设备类型。
+     *
+     * @syscap SystemCapability.Msdp.SpatialAwareness
+     * @since 9
      */
-    export enum DeviceType {
+    enum DeviceType {
         /**
-         * Represents an unknown device type。
+         * 表示未知的设备类型。
          */
         UNKNOWN_TYPE = 1,
 
         /**
-         * Represents a speaker。
+         * 表示音响。
          */
         SPEAKER = 2,
 
         /**
-         * Represents a smartphone。
+         * 表示智能手机。
          */
         PHONE = 3,
 
         /**
-         * Represents a tablet。
+         * 表示平板电脑。
          */
         TABLET = 4,
 
         /**
-         * Represents a smart wearable device。
+         * 表示穿戴设备。
          */
         WEARABLE = 5,
 
         /**
-         * Represents a car。
+         * 表示汽车。
          */
         CAR = 6,
 
         /**
-         * Represents a Smart TV。
+         * 表示智能电视。
          */
         TV = 7
     }
 
     /**
-     * Azimuth relationship pattern definition。
-     * @name Direction
+     * 方位关系定义。
+     *	 
+     * @syscap SystemCapability.Msdp.SpatialAwareness
+     * @since 9
      */
-    export enum Direction {
+    enum Direction {
         /**
-         * Represents the left side of the requesting device。
+         * 表示在请求设备的左边。
          */
         LEFT = 1,
+		
         /**
-         * Represents the right side of the requesting device。
+         * 表示在请求设备的右边。
          */
         RIGHT = 2,
+		
         /**
-         * Represented in front of the requesting device。
+         * 表示在请求设备的前面。
          */
         FRONT = 3,
+		
         /**
-         * Represented after the requested device。
+         * 表示在请求设备的后面。
          */
         BACK = 4,
+		
         /**
-         * Represented above the requesting device。
+         * 表示在请求设备的上面。
          */
         UP = 5,
+		
         /**
-         * Represented below the requesting device。
+         * 表示在请求设备的下面。
          */
         DOWN = 6
     }
 	
     /**
-     * Spatial azimuth relationships between subscription devices。
+     * 订阅设备间方位关系。
      *
-     * @since 9
+     * @param type 方位关系，{@code PositionRelation}。
+     * @param deviceInfo 目标设备信息，{@code DeviceInfo}。
+     * @param callback 用于接收上报数据的回调。
      * @syscap SystemCapability.Msdp.SpatialAwareness
-     * @param type Represents the device-to-device relationship type for a subscription {@code PositionRelation}.
-     * @param deviceInfo Represents the device information to subscribe to {@code DeviceInfo}.
-     * @param callback callback function, receive reported data
+     * @since 9
      */
      function on(type: PositionRelation.DIRECTION, deviceInfo : DeviceInfo,
-        callback: Callback<{ directionRes : DirectionResponse }>): void;
+        callback: Callback<DirectionResponse>): void;
 
     /**
-     * Spatial proximity between subscription devices。
+     * 订阅设备间接近关系。
      *
-     * @since 9
+     * @param type 方位关系，{@code PositionRelation}。
+     * @param deviceInfo 目标设备信息，{@code DeviceInfo}。
+     * @param callback 用于接收上报数据的回调。
      * @syscap SystemCapability.Msdp.SpatialAwareness
-     * @param type Represents the device-to-device relationship type for a subscription {@code PositionRelation}.
-     * @param deviceInfo Represents the device information to subscribe to {@code DeviceInfo}.
-     * @param callback callback function, receive reported data
+     * @since 9
      */
     function on(type: PositionRelation.NEARBY, deviceInfo : DeviceInfo,
-        callback: Callback<{ nearbyRes: NearByResponse }>): void;
+        callback: Callback<NearByResponse>): void;
 		
     /**
-     * Spatial distance relationship between subscription devices。
+     * 取消订阅设备间方位关系。
      *
-     * @since 9
+     * @param type 方位关系，{@code PositionRelation}。
+     * @param deviceInfo 目标设备信息，{@code DeviceInfo}。
+     * @param callback 用于接收上报数据的回调。
      * @syscap SystemCapability.Msdp.SpatialAwareness
-     * @param type Represents the device-to-device relationship type for a subscription {@code PositionRelation}.
-     * @param deviceInfo Represents the device information to subscribe to {@code DeviceInfo}.
-     * @param callback callback function, receive reported data
-     */
-    function on(type: PositionRelation.DISTANCE_BT, deviceInfo : DeviceInfo,
-        callback: Callback<{ distanceRes : DistanceBTResponse }>): void;
-
-		
-	/**
-     * Unsubscribe from spatial azimuth relationships between devices。
-     *
      * @since 9
-     * @syscap SystemCapability.Msdp.SpatialAwareness
-     * @param type Unsubscribe from spatial azimuth relationships between devices {@code PositionRelation}.
-     * @param deviceInfo Represents device information for unsubscribed {@code DeviceInfo}.
-     * @param callback callback function, receive reported data
      */
     function off(type: PositionRelation.DIRECTION, deviceInfo : DeviceInfo, 
-        callback?: Callback<{ directionRes : DirectionResponse }>): void;
+        callback?: Callback<DirectionResponse>): void;
 
     /**
-     * Unsubscribe from the space proximity relationship between devices。
+     * 取消订阅设备间接近关系。
      *
-     * @since 9
+     * @param type 方位关系，{@code PositionRelation}。
+     * @param deviceInfo 目标设备信息，{@code DeviceInfo}。
+     * @param callback 用于接收上报数据的回调。
      * @syscap SystemCapability.Msdp.SpatialAwareness
-     * @param type Represents the device-to-device relationship type for a subscription {@code PositionRelation}.
-     * @param deviceInfo Represents device information for unsubscribed {@code DeviceInfo}.
-     * @param callback callback function, receive reported data
+     * @since 9
      */
     function off(type: PositionRelation.NEARBY, deviceInfo : DeviceInfo,
-        callback?: Callback<{ nearbyRes: NearByResponse }>): void;
-		
-    /**
-     * Unsubscribe from the spatial distance relationship between devices。
-     *
-     * @since 9
-     * @syscap SystemCapability.Msdp.SpatialAwareness
-     * @param type Represents the device-to-device relationship type for a subscription {@code PositionRelation}.
-     * @param deviceInfo Represents device information for unsubscribed {@code DeviceInfo}.
-     * @param callback callback function, receive reported data
-     */
-    function off(type: PositionRelation.DISTANCE_BT, deviceInfo : DeviceInfo,
-        callback?: Callback<{ distanceRes : DistanceBTResponse }>): void;
+        callback?: Callback<NearByResponse>): void;
 }
 
 export default spatialAwareness;
