@@ -27,6 +27,7 @@ declare class AppStorage {
   /**
    * Called when a hyperlink is set.
    * @since 7
+   * @systemapi
    */
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
@@ -38,6 +39,7 @@ declare class AppStorage {
 
   /**
    * Called when dynamic properties are set.
+   * @systemapi
    * @since 7
    */
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
