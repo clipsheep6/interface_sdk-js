@@ -14,12 +14,13 @@
  */
 
 /**
+ * Defines the hyperlink interface.
  * @since 7
  */
 interface HyperlinkInterface {
   /**
    * Return to get Hyperlink.
-   * address: Web page redirected by the hyperlink component.
+   * adress: Web page redirected by the hyperlink component.
    * content: Hyperlinks in the hyperlink component display text.
    * @since 7
    */
@@ -27,7 +28,7 @@ interface HyperlinkInterface {
 }
 
 /**
- * inheritance CommonMethod
+ * Defines the hyperlink attibute functions
  * @since 7
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
@@ -35,8 +36,8 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * Set Color
    * @since 7
    */
-  color(value: ResourceColor): HyperlinkAttribute;
+  color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
 
 declare const Hyperlink: HyperlinkInterface;
-declare const HyperlinkInstance: HyperlinkAttribute;
+declare const HyperlinkInterface: HyperlinkAttribute;

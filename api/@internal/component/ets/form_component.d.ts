@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Defines the FormDimension enum.
  * @since 7
@@ -47,6 +46,13 @@ declare enum FormDimension {
    * @systemapi
    */
   Dimension_4_4,
+
+  /**
+   * 2 x 1 cards
+   * @since 9
+   * @systemapi
+   */
+  Dimension_2_1,
 }
 
 /**
@@ -132,6 +138,13 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    */
   onRouter(callback: (info: any) => void): FormComponentAttribute;
+
+  /**
+   * Uninstall Card.
+   * @since 7
+   * @systemapi
+   */
+  onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
 }
 
 declare const FormComponent: FormComponentInterface;

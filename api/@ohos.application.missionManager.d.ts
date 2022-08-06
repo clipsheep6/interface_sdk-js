@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,27 +14,27 @@
  */
 
 import { AsyncCallback } from './basic';
-import { MissionInfo } from './application/MissionInfo';
-import { MissionListener } from './application/MissionListener';
-import { MissionSnapshot } from './application/MissionSnapshot';
+import { MissionInfo as _MissionInfo } from './application/MissionInfo';
+import { MissionListener as _MissionListener } from './application/MissionListener';
+import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
+import StartOptions from "./@ohos.application.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
  *
  * @name missionManager
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet
- * @permission N/A
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
  */
 declare namespace missionManager {
     /**
      * Register the missionListener to ams.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param listener Indicates the MissionListener to be registered.
      * @return The index number of the MissionListener.
      */
     function registerMissionListener(listener: MissionListener): number;
@@ -42,9 +42,9 @@ declare namespace missionManager {
     /**
      * Unrgister the missionListener to ams.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param listenerId Indicates the listener id to be unregistered.
      * @return -
      */
     function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
@@ -53,9 +53,10 @@ declare namespace missionManager {
     /**
      * Get the missionInfo with the given missionId.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param missionId Indicates mission id to be queried.
      * @return the {@link MissionInfo} of the given id.
      */
     function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
@@ -64,9 +65,10 @@ declare namespace missionManager {
     /**
      * Get the missionInfo with the given missionId.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param numMax Indicates the maximum number of returned missions.
      * @return The array of the {@link MissionInfo}.
      */
     function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
@@ -75,20 +77,33 @@ declare namespace missionManager {
     /**
      * Get the mission snapshot with the given missionId.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param missionId Indicates mission id to be queried.
      * @return The {@link MissionSnapshot} of the given id.
      */
     function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
     function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
+     * Get the mission low resolution snapshot with the given missionId.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param missionId Indicates mission id to be queried.
+     * @return The {@link MissionSnapshot} of the given id.
+     */
+     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
+     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
+
+    /**
      * Lock the mission.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be locked.
      * @return -
      */
     function lockMission(missionId: number, callback: AsyncCallback<void>): void;
@@ -97,9 +112,9 @@ declare namespace missionManager {
     /**
      * Unlock the mission.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be unlocked.
      * @return -
      */
     function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
@@ -108,9 +123,9 @@ declare namespace missionManager {
     /**
      * Clear the given mission in the ability manager service.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be cleared.
      * @return -
      */
     function clearMission(missionId: number, callback: AsyncCallback<void>): void;
@@ -119,9 +134,8 @@ declare namespace missionManager {
     /**
      * Clear all missions in the ability manager service.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     function clearAllMissions(callback: AsyncCallback<void>): void;
@@ -130,13 +144,43 @@ declare namespace missionManager {
     /**
      * Schedule the given mission to foreground.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be moved to foreground.
+     * @param options Indicates the start options.
      * @return -
      */
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
-    function moveMissionToFront(missionId: number): Promise<void>;
+    function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+    function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
+
+    /**
+     * Mission information corresponding to ability.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi hide for inner use.
+     */
+    export type MissionInfo = _MissionInfo
+
+    /**
+     * MissionListener registered by app.
+     *
+     * @name MissionListener
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi hide for inner use.
+     */
+    export type MissionListener = _MissionListener
+
+    /**
+     * Mission snapshot corresponding to mission.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi hide for inner use.
+     */
+    export type MissionSnapshot = _MissionSnapshot
 }
 
 export default missionManager;

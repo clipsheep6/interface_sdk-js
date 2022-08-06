@@ -18,8 +18,7 @@ import { AsyncCallback } from './basic';
 /**
  * Provides interfaces to control the power of display.
  *
- * @SysCap SystemCapability.PowerMgr.DisplayManager
- * @devices phone, tablet
+ * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 7
  */
 declare namespace brightness {
@@ -27,8 +26,6 @@ declare namespace brightness {
    * Sets the screen brightness.
    *
    * @param value Brightness value, ranging from 0 to 255.
-   * @SysCap SystemCapability.PowerMgr.DisplayManager
-   * @devices phone, tablet
    * @systemapi
    * @since 7
    */

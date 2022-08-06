@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from './basic';
 import rdb from './@ohos.data.rdb';
 
@@ -19,10 +20,8 @@ import rdb from './@ohos.data.rdb';
  * Provides predicates for implementing diverse query methods.
  *
  * @since 7
- * @sysCap SystemCapability.Data.DATA_APPDATAMGR
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @import import data_dataAbility from '@ohos.data.dataAbility';
- * @permission N/A
  */
 declare namespace dataAbility {
     /**
@@ -30,8 +29,7 @@ declare namespace dataAbility {
      *
      * @note This method is similar to = of the SQL statement.
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param name Indicates the table name.
      * @param dataAbilityPredicates Indicates the dataAbility predicates.
      * @return Returns an RdbPredicates.
@@ -42,10 +40,8 @@ declare namespace dataAbility {
      * Manages relational database configurations.
      *
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @import import data_dataAbility from '@ohos.data.dataAbility';
-     * @permission N/A
      */
     class DataAbilityPredicates {
         /**
@@ -54,8 +50,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to = of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the DataAbilityPredicates.
          * @return Returns the DataAbilityPredicates that match the specified field.
@@ -68,8 +63,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to != of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the DataAbilityPredicates.
          * @return Returns the DataAbilityPredicates that match the specified field.
@@ -81,8 +75,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to ( of the SQL statement and needs to be used together with endWrap().
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @return Returns the DataAbilityPredicates with the left parenthesis.
          */
         beginWrap(): DataAbilityPredicates;
@@ -93,8 +86,7 @@ declare namespace dataAbility {
          * @note This method is similar to ) of the SQL statement and needs to be used together
          * with beginWrap().
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @return Returns the DataAbilityPredicates with the right parenthesis.
          */
         endWrap(): DataAbilityPredicates;
@@ -104,8 +96,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to or of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @return Returns the DataAbilityPredicates with the or condition.
          */
         or(): DataAbilityPredicates;
@@ -115,8 +106,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to and of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @return Returns the DataAbilityPredicates with the and condition.
          */
         and(): DataAbilityPredicates;
@@ -127,8 +117,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to contains of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the DataAbilityPredicates.
          * @return Returns the DataAbilityPredicates that match the specified field.
@@ -141,8 +130,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to value% of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the DataAbilityPredicates.
          * @return Returns the DataAbilityPredicates that match the specified field.
@@ -155,8 +143,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to %value of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the DataAbilityPredicates.
          * @return Returns the DataAbilityPredicates that match the specified field.
@@ -168,8 +155,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to is null of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @return Returns the DataAbilityPredicates that match the specified field.
          */
@@ -180,8 +166,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to is not null of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @return Returns the DataAbilityPredicates that match the specified field.
          */
@@ -193,8 +178,7 @@ declare namespace dataAbility {
          *
          * @note This method is similar to like of the SQL statement.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with the DataAbilityPredicates. The percent sign (%) in the value
          * is a wildcard (like * in a regular expression).
@@ -208,8 +192,7 @@ declare namespace dataAbility {
          *
          * @note Different from like, the input parameters of this method are case-sensitive.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param value Indicates the value to match with DataAbilityPredicates.
          * @return Returns the SQL statement with the specified DataAbilityPredicates.
@@ -221,8 +204,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name.
          * @param low Indicates the minimum value.
          * @param high Indicates the maximum value.
@@ -236,8 +218,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param low Indicates the minimum value to match with DataAbilityPredicates}.
          * @param high Indicates the maximum value to match with DataAbilityPredicates}.
@@ -250,8 +231,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
@@ -263,8 +243,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
@@ -276,8 +255,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
@@ -289,8 +267,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name.
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
@@ -303,8 +280,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name for sorting the return list.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
          */
@@ -316,8 +292,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name for sorting the return list.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
          */
@@ -328,8 +303,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
          */
         distinct(): DataAbilityPredicates;
@@ -339,8 +313,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param value Indicates the max length of the return list.
          * @return Returns the SQL query statement with the specified DataAbilityPredicates.
          * @throws IllegalPredicateException Throws this exception if DataAbilityPredicates are added to a wrong position.
@@ -352,8 +325,7 @@ declare namespace dataAbility {
          *
          * @note Use this method together with limit(int).
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param rowOffset Indicates the start position of the returned result. The value is a positive integer.
          * @return Returns the SQL query statement with the specified AbsPredicates.
          */
@@ -364,8 +336,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param fields Indicates the specified columns by which query results are grouped.
          * @return Returns the DataAbilityPredicates with the specified columns by which query results are grouped.
          */
@@ -376,8 +347,7 @@ declare namespace dataAbility {
          *
          * @note Before using this method, you need to create an index column.
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param indexName Indicates the name of the index column.
          * @return Returns DataAbilityPredicates with the specified index column.
          */
@@ -389,8 +359,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param values Indicates the values to match with DataAbilityPredicates.
          * @return Returns DataAbilityPredicates that matches the specified field.
@@ -403,8 +372,7 @@ declare namespace dataAbility {
          *
          * @note N/A
          * @since 7
-         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Core
          * @param field Indicates the column name in the database table.
          * @param values Indicates the values to match with DataAbilityPredicates.
          * @return Returns DataAbilityPredicates that matches the specified field.
@@ -414,10 +382,8 @@ declare namespace dataAbility {
     /**
      * Indicates possible value types
      * @since 7
-     * @sysCap SystemCapability.Data.DATA_APPDATAMGR
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValueType = number | string | boolean;
 }

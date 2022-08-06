@@ -17,55 +17,92 @@ import { AsyncCallback } from './../basic';
 import bundle from './../@ohos.bundle';
 
 /**
+ * @name Provides parameters required for hashParam.
+ * @since 9
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
+ * @systemapi Hide this for inner system use
+ */
+ export interface HashParam {
+  /**
+    * @default Indicates the moduleName
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  moduleName: string;
+
+  /**
+    * @default Indicates the hash value
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  hashValue: string;
+}
+
+/**
  * @name Provides parameters required for installing or uninstalling an application.
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ * @systemapi Hide this for inner system use
  */
 export interface InstallParam {
   /**
     * @default Indicates the user id
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   userId: number;
 
   /**
     * @default Indicates the install flag
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   installFlag: number;
 
   /**
     * @default Indicates whether the param has data
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   isKeepData: boolean;
+
+  /**
+    * @default Indicates the hash params
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   hashParams?: Array<HashParam>;
+
+  /**
+    * @default Indicates the deadline of the crowdtesting bundle
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  crowdtestDeadline?: number;
 }
 
 /**
  * @name Indicates the install or uninstall status
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ * @systemapi Hide this for inner system use
  */
 export interface InstallStatus {
 
   /**
     * @default Indicates the install or uninstall error code
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   status: bundle.InstallErrorCode;
 
   /**
     * @default Indicates the install or uninstall result string message
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   statusMessage: string;
 }
@@ -73,17 +110,17 @@ export interface InstallStatus {
 /**
  * @name Offers install, upgrade, and remove bundles on the devices.
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ * @systemapi Hide this for inner system use
  */
 export interface BundleInstaller {
   /**
    * Install an application in a HAP.
    *
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
-   * @devices phone, tablet, tv, wearable, car
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   *
    * @param bundleFilePaths Indicates the path where the bundle of the application is stored. The path should be the
    *                        relative path to the data directory of the current application.
    * @param installParam Indicates other parameters required for the installation.
@@ -96,8 +133,8 @@ export interface BundleInstaller {
    * Uninstall an application.
    *
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
-   * @devices phone, tablet, tv, wearable, car
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   *
    * @param bundleName Indicates the bundle name of the application to be uninstalled.
    * @param installParam Indicates other parameters required for the uninstallation.
    * @return InstallStatus
@@ -109,8 +146,8 @@ export interface BundleInstaller {
    * recover an application.
    *
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
-   * @devices phone, tablet, tv, wearable, car
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   *
    * @param bundleName Indicates the bundle name of the application to be recovered.
    * @param installParam Indicates other parameters required for the recover.
    * @return InstallStatus

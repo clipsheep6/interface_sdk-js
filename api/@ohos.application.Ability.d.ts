@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,154 +13,305 @@
  * limitations under the License.
  */
 
+import AbilityConstant from "./@ohos.application.AbilityConstant";
 import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
+import { Configuration } from './@ohos.application.Configuration';
+import rpc from './@ohos.rpc';
+
+/**
+ * The prototype of the listener function interface registered by the Caller.
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @permission N/A
+ * @param msg Monitor status notification information.
+ * @return -
+ * @StageModelOnly
+ */
+export interface OnReleaseCallBack {
+    (msg: string): void;
+}
+
+/**
+ * The prototype of the message listener function interface registered by the Callee.
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @permission N/A
+ * @param indata Notification data notified from the caller.
+ * @return rpc.Sequenceable
+ * @StageModelOnly
+ */
+export interface CalleeCallBack {
+    (indata: rpc.MessageParcel): rpc.Sequenceable;
+}
+
+/**
+ * The interface of a Caller.
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @permission N/A
+ * @StageModelOnly
+ */
+export interface Caller {
+     /**
+     * Notify the server of Sequenceable type data.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method The notification event string listened to by the callee.
+     * @param data Notification data to the callee.
+     * @return -
+     * @StageModelOnly
+     */
+     call(method: string, data: rpc.Sequenceable): Promise<void>;
+
+    /**
+     * Notify the server of Sequenceable type data and return the notification result.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method The notification event string listened to by the callee.
+     * @param data Notification data to the callee.
+     * @return Returns the callee's notification result data on success, and returns undefined on failure.
+     * @StageModelOnly
+     */
+     callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
+
+    /**
+     * Clear service records.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @return -
+     * @StageModelOnly
+     */
+     release(): void;
+
+    /**
+     * Register death listener notification callback.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param callback Register a callback function for listening for notifications.
+     * @return -
+     * @StageModelOnly
+     */
+     onRelease(callback: OnReleaseCallBack): void;
+ }
+
+ /**
+ * The interface of a Callee.
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @permission N/A
+ * @StageModelOnly
+ */
+export interface Callee {
+
+     /**
+     * Register data listener callback.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method A string registered to listen for notification events.
+     * @param callback Register a callback function that listens for notification events.
+     * @return -
+     * @StageModelOnly
+     */
+     on(method: string, callback: CalleeCallBack): void;
+
+     /**
+     * Unregister data listener callback.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method A string registered to listen for notification events.
+     * @return -
+     * @StageModelOnly
+     */
+     off(method: string): void;
+ }
 
 /**
  * The class of an ability.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
+ * @StageModelOnly
  */
 export default class Ability {
     /**
      * Indicates configuration information about an ability context.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      */
     context: AbilityContext;
 
     /**
      * Indicates ability launch want.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      */
     launchWant: Want;
 
     /**
      * Indicates ability last request want.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      */
     lastRequestWant: Want;
 
     /**
+     * Call Service Stub Object.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     */
+     callee: Callee;
+
+    /**
      * Called back when an ability is started for initialization.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param want Indicates the want info of the created ability.
+     * @param param Indicates the launch param.
      * @return -
+     * @StageModelOnly
      */
-    onCreate(want: Want, param: LaunchParam): void;
+    onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
 
     /**
      * Called back when an ability window stage is created.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param windowStage Indicates the created WindowStage.
      * @return -
+     * @StageModelOnly
      */
     onWindowStageCreate(windowStage: window.WindowStage): void;
 
     /**
      * Called back when an ability window stage is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onWindowStageDestroy(): void;
 
     /**
+     * Called back when an ability window stage is restored.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param windowStage window stage to restore
+     * @return -
+     * @StageModelOnly
+     */
+    onWindowStageRestore(windowStage: window.WindowStage): void;
+
+    /**
      * Called back before an ability is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onDestroy(): void;
 
     /**
      * Called back when the state of an ability changes to foreground.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onForeground(): void;
 
     /**
      * Called back when the state of an ability changes to background.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onBackground(): void;
 
     /**
-     * Called back when an ability prepares to migrate.
+     * Called back when an ability prepares to continue.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
-     * @return true if ability agrees to migrate and saves data successfully, otherwise false.
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param wantParam Indicates the want parameter.
+     * @return 0 if ability agrees to continue and saves data successfully, otherwise errcode.
+     * @StageModelOnly
      */
-     onContinue(wantParam : {[key: string]: any}): boolean;
-}
-
-export interface LaunchParam {
-    /**
-     * Indicates launch reason.
-     *
-     * @since 8
-     * @sysCap AAFwk
-     */
-    launchReason: LaunchReason;
+     onContinue(wantParam : {[key: string]: any}): AbilityConstant.OnContinueResult;
 
     /**
-     * Indicates last exit reason.
+     * Called when the launch mode of an ability is set to singleton.
+     * This happens when you re-launch an ability that has been at the top of the ability stack.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param want Indicates the want info of ability.
+     * @param launchParams Indicates the launch parameters.
+     * @return -
+     * @StageModelOnly
      */
-    lastExitReason: LastExitReason;
-}
+    onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;
 
-/**
- * Type of launch reason.
- *
- * @since 8
- * @sysCap AAFwk
- */
-export enum LaunchReason {
-    UNKNOWN = 0,
-    START_ABILITY = 1,
-    CALL = 2,
-    CONTINUATION = 3,
-}
+    /**
+     * Called when the system configuration is updated.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param config Indicates the updated configuration.
+     * @return -
+     * @StageModelOnly
+     */
+    onConfigurationUpdated(config: Configuration): void;
 
-/**
- * Type of last exit reason.
- *
- * @since 8
- * @sysCap AAFwk
- */
-export enum LastExitReason {
-    UNKNOWN = 0,
-    ABILITY_NOT_RESPONDING = 1,
-    NORMAL = 2,
-}
+    /**
+     * Called when dump client information is required.
+     * It is recommended that developers don't DUMP sensitive information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param params Indicates the params from command.
+     * @return The dump info array.
+     * @StageModelOnly
+     */
+    dump(params: Array<string>): Array<string>;
 
+    /**
+     * Called when the system has determined to trim the memory, for example, when the ability is running in the
+     * background and there is no enough memory for running as many background processes as possible.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param level Indicates the memory trim level, which shows the current memory usage status.
+     * @return -
+     * @StageModelOnly
+     */
+     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
+}

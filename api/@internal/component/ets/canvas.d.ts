@@ -174,7 +174,7 @@ declare class CanvasPath {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    counterclockwise?: number,
+    counterclockwise?: boolean,
   ): void;
 
   /**
@@ -348,6 +348,12 @@ declare interface TextMetrics {
    * @since 8
    */
   readonly width: number;
+
+  /**
+   * Indicates the height of a character string. The value is of the double type.
+   * @since 8
+   */
+  readonly height: number;
 }
 
 /**
@@ -427,12 +433,6 @@ declare class ImageData {
  */
 declare class RenderingContextSettings {
   /**
-   * Indicates whether the canvas contains an alpha channel. The default value is false.
-   * @since 8
-   */
-  alpha?: boolean;
-
-  /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
    * @since 8
    */
@@ -441,10 +441,9 @@ declare class RenderingContextSettings {
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
    * @param antialias Indicates whether anti-aliasing is enabled for canvas
-   * @param alpha Indicates whether the canvas contains an alpha channel
    * @since 8
    */
-  constructor(antialias?: boolean, alpha?: boolean);
+  constructor(antialias?: boolean);
 }
 
 /**
@@ -503,7 +502,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
    * @since 8
    */
-  drawImage(image: ImageBitmap, dx: number, dy: number): void;
+  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
    * Draw an image on a canvas
@@ -514,7 +513,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @since 8
    */
-  drawImage(image: ImageBitmap, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    *Draw an image on a canvas
@@ -530,7 +529,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @since 8
    */
   drawImage(
-    image: ImageBitmap,
+    image: ImageBitmap | PixelMap,
     sx: number,
     sy: number,
     sw: number,
@@ -697,6 +696,16 @@ declare class CanvasRenderer extends CanvasPath {
    * @since 8
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
+
+  /**
+   * Obtains the PixelMap of a specified area on the current canvas.
+   * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sw The width of the rectangular area of the PixelMap to be extracted.
+   * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   * @since 8
+   */
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
 
   /**
    * Draws the specified ImageData object onto the canvas
@@ -1052,7 +1061,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @since 8
    */
-  constructor(width: number, height: number,settings?: RenderingContextSettings);
+  constructor(width: number, height: number, settings?: RenderingContextSettings);
 }
 
 /**
@@ -1107,5 +1116,6 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    */
   onReady(event: () => void): CanvasAttribute;
 }
+
 declare const Canvas: CanvasInterface;
 declare const CanvasInstance: CanvasAttribute;

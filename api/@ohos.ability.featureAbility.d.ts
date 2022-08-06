@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,32 +12,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from './basic';
-import { Want } from './ability/want';
+import { Callback } from './basic';
+import Want from './@ohos.application.want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
-import { Context } from './app/context';
+import { AppVersionInfo as _AppVersionInfo } from './app/appVersionInfo';
+import { Context as _Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
-import { ContinueAbilityOptions } from './ability/continueAbilityOptions';
+import { ProcessInfo as _ProcessInfo } from './app/processInfo';
+import window from './@ohos.window';
 
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
  * @name featureAbility
  * @since 6
- * @sysCap AAFwk
- * @devices phone, tablet
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
+ * @FAModelOnly
  */
 declare namespace featureAbility {
   /**
    * Obtain the want sended from the source ability.
    *
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
+   * @FAModelOnly
    */
   function getWant(callback: AsyncCallback<Want>): void;
   function getWant(): Promise<Want>;
@@ -45,11 +49,11 @@ declare namespace featureAbility {
   /**
    * Starts a new ability.
    *
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
+   * @FAModelOnly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>): void;
   function startAbility(parameter: StartAbilityParameter): Promise<number>;
@@ -57,19 +61,21 @@ declare namespace featureAbility {
   /**
    * Obtains the application context.
    *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns the application context.
    * @since 6
+   * @FAModelOnly
    */
   function getContext(): Context;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return Returns the {@link AbilityResult}.
+   * @FAModelOnly
    */
   function startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void;
   function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
@@ -78,11 +84,11 @@ declare namespace featureAbility {
    * Sets the result code and data to be returned by this Page ability to the caller
    * and destroys this Page ability.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the result to return.
    * @return -
+   * @FAModelOnly
    */
   function terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
   function terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -90,10 +96,10 @@ declare namespace featureAbility {
   /**
    * Destroys this Page ability.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
+   * @FAModelOnly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
   function terminateSelf(): Promise<void>;
@@ -101,21 +107,21 @@ declare namespace featureAbility {
   /**
    * Obtains the dataAbilityHelper.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
+   * @FAModelOnly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
    /**
    * Checks whether the main window of this ability has window focus.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
+   * @FAModelOnly
    */
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
   function hasWindowFocus(): Promise<boolean>;
@@ -123,37 +129,44 @@ declare namespace featureAbility {
   /**
    * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @SysCap aafwk
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param request The element name of the service ability
    * @param options The remote object instance
    * @return Returns the number code of the ability connected
+   * @FAModelOnly
    */
   function connectAbility(request: Want, options:ConnectOptions ): number;
 
   /**
   * The callback interface was connect successfully.
   * @default -
-  * @devices phone, tablet
   * @since 7
-  * @SysCap aafwk
+  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
   * @param connection The number code of the ability connected
+  * @FAModelOnly
   */
   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
   function disconnectAbility(connection: number): Promise<void>;
 
   /**
-   * Migrates this ability to the given device on the same distributed network.
-   * @default -
-   * @devices phone, tablet
+   * Obtains the window corresponding to the current ability.
+   *
    * @since 7
-   * @sysCap AAFwk
-   * @return -
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return Returns the window corresponding to the current ability.
+   * @FAModelOnly
    */
-   function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
-   function continueAbility(options: ContinueAbilityOptions): Promise<void>;
+  function getWindow(callback: AsyncCallback<window.Window>): void;
+  function getWindow(): Promise<window.Window>;
 
+  /**
+   * Obtain the window configuration.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum AbilityWindowConfiguration {
     WINDOW_MODE_UNDEFINED = 0,
     WINDOW_MODE_FULLSCREEN = 1,
@@ -162,12 +175,26 @@ declare namespace featureAbility {
     WINDOW_MODE_FLOATING = 102
   }
 
+  /**
+   * Obtain the window properties.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum AbilityStartSetting {
     BOUNDS_KEY = "abilityBounds",
     WINDOW_MODE_KEY = "windowMode",
     DISPLAY_ID_KEY = "displayId"
   }
 
+  /**
+   * Obtain the errorCode.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum ErrorCode {
     NO_ERROR = 0,
     INVALID_PARAMETER = -1,
@@ -175,17 +202,45 @@ declare namespace featureAbility {
     PERMISSION_DENY = -3
   }
 
-  export enum ContinuationState {
-    LOCAL_RUNNING = 0,
-    REMOTE_RUNNING = 1,
-    REPLICA_RUNNING = 2
-  }
-
+  /**
+   * Indicates the operation type of data.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum DataAbilityOperationType {
     TYPE_INSERT = 1,
     TYPE_UPDATE = 2,
     TYPE_DELETE = 3,
     TYPE_ASSERT = 4,
   }
+
+  /**
+   * The context of an ability or an application.  It allows access to
+   * application-specific resources, request and verification permissions.
+   * Can only be obtained through the ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @import import abilityManager from 'app/context'
+   * @FAModelOnly
+   */
+  export type Context = _Context
+
+  /**
+   * Defines an AppVersionInfo object.
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  export type AppVersionInfo = _AppVersionInfo
+
+  /**
+   * @name This class saves process information about an application
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @import import ProcessInfo from 'app/processInfo'
+   */
+  export type ProcessInfo = _ProcessInfo
 }
 export default featureAbility;

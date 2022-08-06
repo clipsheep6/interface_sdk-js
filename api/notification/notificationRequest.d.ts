@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http?://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,14 +19,14 @@ import { WantAgent } from '../@ohos.wantAgent';
 import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
+import { NotificationFlags } from './notificationFlags';
 
 /**
  * Defines a NotificationRequest instance.
  *
  * @name NotificationRequest
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationRequest {
@@ -163,6 +163,12 @@ export interface NotificationRequest {
   readonly creatorPid?: number;
 
   /**
+   * @since 8
+   * Read-only UserId of the notification creator.
+   */
+  readonly creatorUserId?: number;
+
+  /**
    * Obtains the classification of this notification.
    *
    * @systemapi Hide this for inner system use.
@@ -197,4 +203,75 @@ export interface NotificationRequest {
    * @since 8
    */
   template?: NotificationTemplate;
+
+  /**
+   * The options to distributed notification.
+   *
+   * @since 8
+   */
+  distributedOption?: DistributedOptions;
+
+  /**
+   * The device ID of the notification source.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  readonly deviceId?: string;
+
+  /**
+   * Obtains the set of identifiers for the notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+   readonly notificationFlags?: NotificationFlags;
+
+  /**
+   * WantAgent instance to which the notification will be redirected when removing notification.
+   *
+   * @since 9
+   */
+  removalWantAgent?: WantAgent;
+
+  /**
+   * Number of notifications displayed on the app icon.
+   *
+   * @since 9
+   */
+  badgeNumber?: number;
+}
+
+/**
+ * Describes distributed options.
+ *
+ * @name DistributedOptions
+ * @since 8
+ * @syscap SystemCapability.Notification.Notification
+ * @permission N/A
+ */
+export interface DistributedOptions {
+  /**
+   * Obtains whether is the distributed notification.
+   *
+   * @default true
+   */
+  isDistributed?: boolean;
+
+  /**
+   * Obtains the types of devices to which the notification can be synchronized.
+   */
+  supportDisplayDevices?: Array<string>;
+
+  /**
+   * Obtains the devices on which notifications can be open.
+   */
+  supportOperateDevices?: Array<string>;
+
+  /**
+   * Obtains the remind mode of the notification. enum DeviceRemindType.
+
+   * @systemapi Hide this for inner system use.
+   */
+  readonly remindType?: number;
 }

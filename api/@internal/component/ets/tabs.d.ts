@@ -79,6 +79,7 @@ interface TabsInterface {
 }
 
 /**
+ * Defines the tabs attribute functions.
  * @since 7
  */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
@@ -87,6 +88,12 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 7
    */
   vertical(value: boolean): TabsAttribute;
+
+  /**
+   * Called when determining the location of the bar chart.
+   * @since 9
+   */
+  barPosition(value: BarPosition): TabsAttribute;
 
   /**
    * Called when judging whether page switching can be performed by sliding left and right.
@@ -102,15 +109,17 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
 
   /**
    * Called when the width of the bar graph is set.
-   * @since 7
+   * Notice: barWidth only supports Number type on 7, supports Length type since 8.
+   * @since 8
    */
-  barWidth(value: number): TabsAttribute;
+  barWidth(value: Length): TabsAttribute;
 
   /**
    * Called when the height of the bar graph is set.
-   * @since 7
+   * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+   * @since 8
    */
-  barHeight(value: number): TabsAttribute;
+  barHeight(value: Length): TabsAttribute;
 
   /**
    * Called when the animation duration of the bar graph is set.

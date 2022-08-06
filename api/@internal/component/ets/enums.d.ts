@@ -274,13 +274,7 @@ declare enum MouseAction {
    * Triggered when the mouse is Hovered.
    * @since 8
    */
-  Hover,
-
-  /**
-   * Triggered when the mouse status is None.
-   * @since 8
-   */
-  None,
+  Hover
 }
 
 /**
@@ -458,60 +452,6 @@ declare enum PlayMode {
 }
 
 /**
- * This style allows you to set the window blurring degree and blurring style of the current component layout range,
- * @since 7
- */
-declare enum BlurStyle {
-  /**
-   * Small range glow effect.
-   * @since 7
-   */
-  SmallLight,
-
-  /**
-   * Medium range glow effect.
-   * @since 7
-   */
-  MediumLight,
-
-  /**
-   * Wide range of luminous effects.
-   * @since 7
-   */
-  LargeLight,
-
-  /**
-   * Super-range luminous effect.
-   * @since 7
-   */
-  XlargeLight,
-
-  /**
-   * Small range of dark effects.
-   * @since 7
-   */
-  SmallDark,
-
-  /**
-   * Medium range dark effect.
-   * @since 7
-   */
-  MediumDark,
-
-  /**
-   * Wide range of dark effects.
-   * @since 7
-   */
-  LargeDark,
-
-  /**
-   * Extra large range of dark effects.
-   * @since 7
-   */
-  XlargeDark,
-}
-
-/**
  * Type of a key.
  * @since 7
  */
@@ -665,42 +605,6 @@ declare enum Direction {
    * @since 7
    */
   Auto,
-}
-
-/**
- * Sets the horizontal layout of elements.
- * @since 8
- */
-declare enum FocusDirection {
-  /**
-   * From the key up.
-   * @since 8
-   */
-  Up,
-
-  /**
-   * From the key down.
-   * @since 8
-   */
-  Down,
-
-  /**
-   * From the key left.
-   * @since 8
-   */
-  Left,
-
-  /**
-   * From the key right.
-   * @since 8
-   */
-  Right,
-
-  /**
-   * From the key tab.
-   * @since 8
-   */
-  Tab,
 }
 
 /**
@@ -1449,7 +1353,7 @@ declare enum HoverEffect {
    * Highlight effect
    * @since 8
    */
-  Board,
+  Highlight,
 
   /**
    * None effect
@@ -1510,4 +1414,53 @@ declare enum Placement {
    * @since 8
    */
   BottomRight,
+
+  /**
+   * LeftTop placement
+   * @since 9
+   */
+  LeftTop,
+
+  /**
+   * LeftBottom placement
+   * @since 9
+   */
+  LeftBottom,
+
+  /**
+   * RightTop placement
+   * @since 9
+   */
+  RightTop,
+
+  /**
+   * RightBottom placement
+   * @since 9
+   */
+  RightBottom,
+}
+
+/**
+ * Indicates the share option.
+ *
+ * @since 9
+ */
+declare enum CopyOption {
+  /**
+   * Share in app.
+   * @since 9
+   */
+  InApp = 0,
+
+  /**
+   * Share in local device.
+   * @since 9
+   */
+  LocalDevice = 1,
+
+  /**
+   * Share cross device.
+   * @since 9
+   */
+  CrossDevice = 2,
 }

@@ -20,9 +20,8 @@ import notification from '../@ohos.notification';
  *
  * @name NotificationSlot
  * @since 7
- * @devices phone, tablet, tv, wearable, car
  * @permission N/A
- * @sysCap SystemCapability.Notification.ANS
+ * @syscap SystemCapability.Notification.Notification
  */
 export interface NotificationSlot {
   /**
@@ -79,4 +78,11 @@ export interface NotificationSlot {
    * Obtains the vibration style of notifications in this notification slot.
    */
   vibrationValues?: Array<number>;
+
+  /**
+   * Read-only enabled status in this notification slot.
+   *
+   * @since 9
+   */
+  readonly enabled?: boolean;
 }

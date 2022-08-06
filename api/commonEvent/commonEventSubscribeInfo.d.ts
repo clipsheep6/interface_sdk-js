@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,12 +17,12 @@
  * the information of the subscriber
  * @name CommonEventSubscribeInfo
  * @since 7
+ * @syscap SystemCapability.Notification.CommonEvent
  * @permission N/A
  */
 export interface CommonEventSubscribeInfo {
   /**
-   * The permission that the publisher must have in order to send a common event to this subscriber.
-   * This subscriber receives only common events sent by publishers granted with this permission.
+   * Indicates the subscribed events.
    *
    * @default ""
    * @since 7

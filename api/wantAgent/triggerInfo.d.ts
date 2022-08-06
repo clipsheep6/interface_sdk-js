@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { Want } from '../ability/want';
+import Want from '../@ohos.application.want';
 
 /**
  * Provides the information required for triggering a WantAgent.
  *
  * @name TriggerInfo
  * @since 7
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface TriggerInfo {

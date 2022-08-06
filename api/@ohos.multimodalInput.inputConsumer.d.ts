@@ -13,23 +13,23 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { Callback } from './basic';
 
  /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
  *
  * @since 8
- * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
- * @devices phone, tablet, tv, wearable
+ * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
- * @permission N/A
+ * @systemapi hide for inner use
  */
 
 declare namespace inputConsumer {
     /**
      * Defines event of key that user want to subscribe or unsubscribe.
      *
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
      * @param preKeys The pre-keys that want to subscribe or unsubscribe.
      * @param finalKey The post position key that want to subscribe or unsubscribe.
      * @param isFinalKeyDown The final key press down or up.
@@ -46,27 +46,25 @@ declare namespace inputConsumer {
      * Subscribe system keys.
      *
      * @since 8
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
-     * @permission N/A
-     * @param type type of the keyevent about input which is to be subscribed.
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
      */
-    function on(type: string, keyOption: KeyOptions, callback: AsyncCallback<KeyOptions>): void;
+    function on(type: "key", keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
     /**
      * Subscribe system keys.
      *
      * @since 8
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
-     * @permission N/A
-     * @param type type of the keyevent about input which is to be subscribed.
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
      */
-    function off(type: string, keyOption: KeyOptions, callback: AsyncCallback<KeyOptions>): void;
+    function off(type: "key", keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 }
 
 export default inputConsumer;

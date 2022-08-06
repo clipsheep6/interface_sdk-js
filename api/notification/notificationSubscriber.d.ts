@@ -22,8 +22,7 @@ import notification from '../@ohos.notification';
  * a notification is canceled.
  *
  * @name NotificationSubscriber
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  * @systemapi Hide this for inner system use.
  * @since 7
@@ -35,14 +34,20 @@ export interface NotificationSubscriber {
   onConnect?:() => void;
   onDisconnect?:() => void;
   onDestroy?:() => void;
-  onDisturbModeChange?:(mode: notification.DoNotDisturbMode) => void;
 
   /**
    * Callback when the Do Not Disturb setting changed.
-   *
+   * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
   onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
+
+  /**
+   * Callback when the notificaition permission is changed.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 8
+   */
+  onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
 }
 
 /**
@@ -50,8 +55,7 @@ export interface NotificationSubscriber {
  * a notification is canceled.
  *
  * @name SubscribeCallbackData
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  * @systemapi Hide this for inner system use.
  * @since 7
@@ -62,4 +66,18 @@ export interface SubscribeCallbackData {
   readonly reason?: number;
   readonly sound?: string;
   readonly vibrationValues?: Array<number>;
+}
+
+/**
+ * Describes the properties of the application that the permission to send notifications has changed.
+ *
+ * @name EnabledNotificationCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi Hide this for inner system use.
+ * @since 8
+ */
+export interface EnabledNotificationCallbackData {
+  readonly bundle: string;
+  readonly uid: number;
+  readonly enable: boolean;
 }

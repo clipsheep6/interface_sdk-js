@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides an interface for writing texts.
  * @since 7
@@ -119,13 +118,13 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 7
    */
   baselineOffset(value: number | string): TextAttribute;
+
+  /**
+   * Allow replication.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): TextAttribute;
 }
 
-/**
- * @since 7
- */
 declare const TextInstance: TextAttribute;
-/**
- * @since 7
- */
 declare const Text: TextInterface;

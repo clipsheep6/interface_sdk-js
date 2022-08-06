@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from './basic';
 import { CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
@@ -19,9 +20,10 @@ import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo
 import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * the defination for commonevent
+ * Common event defination
  * @name commonEvent
  * @since 7
+ * @syscap SystemCapability.Notification.CommonEvent
  * @permission N/A
  */
 declare namespace commonEvent {
@@ -29,7 +31,7 @@ declare namespace commonEvent {
    * Publishes an ordered, sticky, or standard common event.
    *
    * @since 7
-   * @param data Indicate the CommonEventPublishData containing the common event content and attributes.
+   * @param event name of the common event.
    * @param callback Specified callback method.
    * @return -
    */
@@ -39,17 +41,45 @@ declare namespace commonEvent {
    * Publishes an ordered, sticky, or standard common event.
    *
    * @since 7
-   * @param data Indicate the CommonEventPublishData containing the common event content and attributes.
+   * @param event name of the common event.
+   * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
    * @return -
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
-   * create the CommonEventSubscriber for the SubscriberInfo.
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @since 8
+   * @param event Specified the names of the common events.
+   * @param userId Specified the user to receive the common events.
+   * @param callback Specified callback method.
+   * @return -
+   *
+   * @systemapi Hide this for inner system use.
+   */
+   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @since 8
+   * @param event Specified the names of the common events.
+   * @param userId Specified the user to receive the common events.
+   * @param options Indicates the CommonEventPublishData containing the common event content and attributes.
+   * @param callback Specified callback method.
+   * @return -
+   *
+   * @systemapi Hide this for inner system use.
+   */
+  function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
+
+  /**
+   * creates a CommonEventSubscriber for the SubscriberInfo.
    *
    * @since 7
-   * @param subscribeInfo Indicate the information of the subscriber.
+   * @param subscribeInfo Indicates the information of the subscriber.
    * @param callback Specified callback method.
    * @return -
    */
@@ -59,9 +89,8 @@ declare namespace commonEvent {
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
    * @since 7
-   * @param subscribeInfo Indicate the information of the subscriber.
-   * @param callback Specified callback method.
-   * @return -
+   * @param subscribeInfo Indicates the information of the subscriber.
+   * @return Returns common event subscriber object
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
@@ -76,7 +105,7 @@ declare namespace commonEvent {
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
-   * unsubscribe an ordered, sticky, or standard common event.
+   * unsubscribe from an ordered, sticky, or standard common event.
    *
    * @since 7
    * @param subscriber Indicate the subscriber of the common event.
@@ -141,6 +170,12 @@ declare namespace commonEvent {
      * this commonEvent means when the device is waked up and interactive.
      */
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
+
+    /**
+     * this commonEvent means when the thermal state level change
+     * @since 8
+     */
+     COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
      * this commonEvent means when the user is present after the device waked up.
@@ -218,6 +253,12 @@ declare namespace commonEvent {
      * this commonEvent means the user has cleared the package data.
      */
     COMMON_EVENT_PACKAGE_DATA_CLEARED = "usual.event.PACKAGE_DATA_CLEARED",
+
+    /**
+     * this commonEvent means the user has cleared the package cache.
+     * @since 9
+     */
+     COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
 
     /**
      * this commonEvent means the packages have been suspended.
@@ -860,6 +901,41 @@ declare namespace commonEvent {
     COMMON_EVENT_DISK_EJECT = "usual.event.data.DISK_EJECT",
 
     /**
+     * The external storage was removed.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_VOLUME_REMOVED = "usual.event.data.VOLUME_REMOVED",
+
+    /**
+     * The external storage was unmounted.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_VOLUME_UNMOUNTED = "usual.event.data.VOLUME_UNMOUNTED",
+
+    /**
+     * The external storage was mounted.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_VOLUME_MOUNTED = "usual.event.data.VOLUME_MOUNTED",
+
+    /**
+     * The external storage was bad removal.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_VOLUME_BAD_REMOVAL = "usual.event.data.VOLUME_BAD_REMOVAL",
+
+    /**
+     * The external storage was eject.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+    COMMON_EVENT_VOLUME_EJECT = "usual.event.data.VOLUME_EJECT",
+
+    /**
      * The visible of account was updated.
      * This is a protected common event that can only be sent by system.
      */
@@ -882,7 +958,27 @@ declare namespace commonEvent {
      * Indicates the common event Action indicating that the airplane mode status of the device changes.
      * Users can register this event to listen to the change of the airplane mode status of the device.
      */
-    COMMON_EVENT_AIRPLANE_MODE_CHANGED = "usual.event.AIRPLANE_MODE"
+    COMMON_EVENT_AIRPLANE_MODE_CHANGED = "usual.event.AIRPLANE_MODE",
+
+    /**
+     * sent by the window manager service when the window mode is split.
+     * @since 8
+     */
+    COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN",
+
+    /**
+     * The notification slot has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
+
+    /**
+     * Indicate the action of a common event that the spn display information has been updated.
+     * This common event can be triggered only by system.
+     * @since 9
+     */
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
   }
 }
 

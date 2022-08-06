@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-
 /**
+ * Defines the grid interface.
  * @since 7
  */
 interface GridInterface {
@@ -30,13 +30,30 @@ interface GridInterface {
  * @since 8
  */
 declare enum GridDirection {
+  /**
+   * The row direction.
+   * @since 8
+   */
   Row,
+  /**
+   * The column direction.
+   * @since 8
+   */
   Column,
+  /**
+   * The row reverse direction.
+   * @since 8
+   */
   RowReverse,
-  ColumnReverse
+  /**
+   * The column reverse direction.
+   * @since 8
+   */
+  ColumnReverse,
 }
 
 /**
+ * Defines the grid attibute functions.
  * @since 7
  */
 declare class GridAttribute extends CommonMethod<GridAttribute> {
@@ -101,15 +118,21 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   editMode(value: boolean): GridAttribute;
 
   /**
+   * Called when judging whether it is multiSelectable.
+   * @since 8
+   */
+  multiSelectable(value: boolean): GridAttribute;
+
+  /**
    * maxCount
    * @since 8
    */
   maxCount(value: number): GridAttribute;
 
-   /**
-    * minCount
-    * @since 8
-    */
+  /**
+   * minCount
+   * @since 8
+   */
   minCount(value: number): GridAttribute;
 
   /**
@@ -160,8 +183,9 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
    */
-  onItemDrop(event:
-    (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): GridAttribute;
+  onItemDrop(
+    event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void,
+  ): GridAttribute;
 }
 
 declare const Grid: GridInterface;

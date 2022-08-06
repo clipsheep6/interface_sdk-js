@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides an interface for drawing rectangles.
  * @since 7
@@ -25,11 +24,11 @@ interface RectInterface {
    */
   new (
     value?:
-      | {
-          width?: number | string;
-          height?: number | string;
-          radius?: number | string | Array<any>;
-        }
+      {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
       | {
           width?: number | string;
           height?: number | string;
@@ -44,11 +43,11 @@ interface RectInterface {
    */
   (
     value?:
-      | {
-          width?: number | string;
-          height?: number | string;
-          radius?: number | string | Array<any>;
-        }
+      {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
       | {
           width?: number | string;
           height?: number | string;

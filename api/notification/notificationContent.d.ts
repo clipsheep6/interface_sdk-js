@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,14 +14,14 @@
  */
 
 import notification from '../@ohos.notification';
-import image from './@ohos.multimedia.image';
+import image from '../@ohos.multimedia.image';
+
 /**
  * Describes a normal text notification.
  *
  * @name NotificationBasicContent
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationBasicContent {
@@ -46,8 +46,7 @@ export interface NotificationBasicContent {
  *
  * @name NotificationLongTextContent
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
@@ -72,8 +71,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
  *
  * @name NotificationMultiLineContent
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
@@ -98,8 +96,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  *
  * @name NotificationPictureContent
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
@@ -124,8 +121,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
  *
  * @name NotificationContent
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationContent {

@@ -16,6 +16,7 @@
 import {AsyncCallback} from './basic';
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  * @import prompt from '@ohos.prompt';
  */
@@ -28,9 +29,15 @@ declare namespace prompt {
 
     /**
      * Text to display.
+     * @type { string }
      * @since 8
      */
-    message: string;
+    /**
+     * Text to display.
+     * @type { string | Resource }
+     * @since 9
+     */
+    message: string | Resource;
 
     /**
      * Duration of toast dialog box. The default value is 1500.
@@ -53,14 +60,24 @@ declare namespace prompt {
   interface Button {
 
     /**
+     * @type { string }
      * @since 8
      */
-    text: string;
+    /**
+     * @type { string | Resource }
+     * @since 9
+     */
+    text: string | Resource;
 
     /**
+     * @type { string }
      * @since 8
      */
-    color: string;
+    /**
+     * @type { string | Resource }
+     * @since 9
+     */
+    color: string | Resource;
   }
 
   /**
@@ -81,15 +98,27 @@ declare namespace prompt {
 
     /**
      * Title of the text to display.
+     * @type { string }
      * @since 8
      */
-    title?: string;
+    /**
+     * Title of the text to display.
+     * @type { string | Resource }
+     * @since 9
+     */
+    title?: string | Resource;
 
     /**
      * Text body.
+     * @type { string }
      * @since 8
      */
-    message?: string;
+    /**
+     * Text body.
+     * @type { string | Resource }
+     * @since 9
+     */
+    message?: string | Resource;
 
     /**
      * Array of buttons in the dialog box.
@@ -112,16 +141,21 @@ declare namespace prompt {
   }
 
   /**
-   * @devices tv, phone, tablet, wearable
    * @since 8
    */
   interface ActionMenuOptions {
 
     /**
      * Title of the text to display.
+     * @type { string }
      * @since 8
      */
-    title?: string;
+    /**
+     * Title of the text to display.
+     * @type { string | Resource }
+     * @since 9
+     */
+    title?: string | Resource;
 
     /**
      * Array of buttons in the dialog box.

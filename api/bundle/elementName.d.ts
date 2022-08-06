@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,53 +19,62 @@
  * such as the device ID, bundle name, and ability name.
  * @name Contains basic Ability information, which uniquely identifies an ability
  * @since 7
- * @sysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ *
  * @permission N/A
  */
  export interface ElementName {
   /**
    * device id
    * @default -
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @sysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   deviceId?: string;
 
   /**
    * bundle name
    * @default -
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @sysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   bundleName: string;
 
   /**
    * ability name
    * @default ability class name.
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @sysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   abilityName: string;
 
   /**
    * uri
    * @default -
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @sysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   uri?: string;
 
   /**
    * shortName
    * @default -
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @sysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   shortName?: string;
+
+ /**
+  * module name
+  * @default -
+  *
+  * @since 9
+  * @syscap SystemCapability.BundleManager.BundleFramework
+  */
+  moduleName?: string;
 }

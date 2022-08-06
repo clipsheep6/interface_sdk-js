@@ -37,7 +37,29 @@ declare enum ScrollState {
   Fling,
 }
 
+/**
+ * Declare list item alignment status
+ * @since 9
+ */
+declare enum ListItemAlign {
+  /**
+   * Start position in the direction of cross axis.
+   * @since 9
+   */
+  Start,
 
+  /**
+   * Center position in the direction of cross axis.
+   * @since 9
+   */
+  Center,
+
+  /**
+   * End position in the direction of cross axis
+   * @since 9
+   */
+  End,
+}
 
 /**
  * The list interface is extended.
@@ -55,6 +77,18 @@ interface ListInterface {
  * @since 7
  */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
+  /**
+   * Called when need to decide how much lanes the list will show.
+   * @since 9
+   */
+  lanes(value: number | LengthConstrain): ListAttribute;
+
+  /**
+   * Called when need to decide how to align lanes in the direction of the cross axis.
+   * @since 9
+   */
+  alignListItem(value: ListItemAlign): ListAttribute;
+
   /**
    * Called when the arrangement direction of the list component is set.
    * @since 7
@@ -93,6 +127,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   editMode(value: boolean): ListAttribute;
 
   /**
+   * Called when judging whether it is multiSelectable.
+   * @since 8
+   */
+  multiSelectable(value: boolean): ListAttribute;
+
+  /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    * @since 7
    */
@@ -100,7 +140,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
-   * @since 8
+   * @since 7
    */
   chainAnimation(value: boolean): ListAttribute;
 
@@ -177,10 +217,13 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 8
    */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
+
+  /**
+   * Event called when list will scroll.
+   * @since 9
+   */
+  onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ListAttribute;
 }
 
-/**
- * @since 7
- */
 declare const List: ListInterface;
 declare const ListInstance: ListAttribute;

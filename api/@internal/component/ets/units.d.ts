@@ -35,6 +35,18 @@ declare interface Resource {
    * @since 7
    */
   readonly params?: any[];
+
+  /**
+   * Set bundleName.
+   * @since 9
+   */
+  readonly bundleName: string;
+
+  /**
+   * Set moduleName.
+   * @since 9
+   */
+  readonly moduleName: string;
 }
 
 /**
@@ -82,6 +94,126 @@ declare type Padding = {
 declare type Margin = Padding;
 
 /**
+ * Defines the border width property.
+ * @since 9
+ */
+ declare type EdgeWidths = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: Length;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: Length;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: Length;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: Length;
+};
+
+/**
+ * Defines the border radius property.
+ * @since 9
+ */
+declare type BorderRadiuses = {
+  /**
+   * top-left property.
+   * @since 9
+   */
+  topLeft?: Length;
+
+  /**
+   * top-right property.
+   * @since 9
+   */
+  topRight?: Length;
+
+  /**
+   * bottom-left property.
+   * @since 9
+   */
+  bottomLeft?: Length;
+
+  /**
+   * bottom-right property.
+   * @since 9
+   */
+  bottomRight?: Length;
+};
+
+/**
+ * Defines the border color property.
+ * @since 9
+ */
+declare type EdgeColors = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: ResourceColor;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: ResourceColor;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: ResourceColor;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: ResourceColor;
+};
+
+/**
+ * Defines the border style property.
+ * @since 9
+ */
+declare type EdgeStyles = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: BorderStyle;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: BorderStyle;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: BorderStyle;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: BorderStyle;
+};
+
+/**
  * Defines the offset property.
  * @since 7
  */
@@ -102,6 +234,22 @@ declare type Offset = {
  * @since 7
  */
 declare type ResourceColor = Color | number | string | Resource;
+
+/**
+ * Defines the length constrain property.
+ * @since 9
+ */
+declare type LengthConstrain = {
+  /**
+   * minimum length.
+   */
+  minLength: Length;
+
+  /**
+   * maximum length.
+   */
+  maxLength: Length;
+};
 
 /**
  * Defines the font used for text.
@@ -150,28 +298,123 @@ declare interface Area {
    * Defines the local position.
    * @since 8
    */
-  pos: Position;
+  position: Position;
 
   /**
    * Defines the global position.
    * @since 8
    */
-  globalPos: Position;
+  globalPosition: Position;
 }
 
 /**
  * Defines the position.
- * @since 8
+ * @since 7
  */
 declare interface Position {
   /**
    * Coordinate x of the Position.
-   * @since 8
+   * @since 7
    */
-  x: Length;
+  x?: Length;
   /**
    * Coordinate y of the Position.
-   * @since 8
+   * @since 7
    */
-  y: Length;
+  y?: Length;
+}
+
+/**
+ * Defines the constrain size options.
+ * @since 7
+ */
+declare interface ConstraintSizeOptions {
+  /**
+   * Defines the min width.
+   * @since 7
+   */
+  minWidth?: Length;
+  /**
+   * Defines the max width.
+   * @since 7
+   */
+  maxWidth?: Length;
+  /**
+   * Defines the min height.
+   * @since 7
+   */
+  minHeight?: Length;
+  /**
+   * Defines the max height.
+   * @since 7
+   */
+  maxHeight?: Length;
+}
+
+/**
+ * Defines the size options.
+ * @since 7
+ */
+declare interface SizeOptions {
+  /**
+   * Defines the width.
+   * @since 7
+   */
+  width?: Length;
+  /**
+   * Defines the height.
+   * @since 7
+   */
+  height?: Length;
+}
+
+/**
+ * Defines the options of border.
+ * @since 7
+ */
+declare interface BorderOptions {
+  /**
+   * Defines the border width.
+   * @type { Length }
+   * @since 7
+   */
+  /**
+   * Defines the border width.
+   * @type { EdgeWidths | Length }
+   * @since 9
+   */
+  width?: EdgeWidths | Length;
+  /**
+   * Defines the border color.
+   * @type { ResourceColor }
+   * @since 7
+   */
+  /**
+   * Defines the border color.
+   * @type { EdgeColors | ResourceColor }
+   * @since 9
+   */
+  color?: EdgeColors | ResourceColor;
+  /**
+   * Defines the border radius.
+   * @type { Length }
+   * @since 7
+   */
+  /**
+   * Defines the border radius.
+   * @type { BorderRadiuses | Length }
+   * @since 9
+   */
+  radius?: BorderRadiuses | Length;
+  /**
+   * Defines the border style.
+   * @type { BorderStyle }
+   * @since 7
+   */
+  /**
+   * Defines the border style.
+   * @type { EdgeStyles | BorderStyle }
+   * @since 9
+   */
+  style?: EdgeStyles | BorderStyle;
 }

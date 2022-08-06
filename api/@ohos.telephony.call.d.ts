@@ -1,17 +1,17 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import {AsyncCallback, Callback} from "./basic";
 
@@ -19,13 +19,11 @@ import {AsyncCallback, Callback} from "./basic";
  * Provides methods related to call management.
  *
  * @since 6
- * @sysCap SystemCapability.Telephony.DCall
+ * @syscap SystemCapability.Telephony.CallManager
  */
 declare namespace call {
   /**
    * Makes a call.
-   *
-   * <p>Applications must have the {@code ohos.permission.PLACE_CALL} permission to call this method.
    *
    * @param phoneNumber Indicates the called number.
    * @param options Indicates additional information carried in the call.
@@ -37,6 +35,16 @@ declare namespace call {
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options?: DialOptions): Promise<boolean>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param phoneNumber Indicates the called number.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 7
+   */
+  function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function makeCall(phoneNumber: string): Promise<void>;
 
   /**
    * Checks whether a call is ongoing.
@@ -59,6 +67,30 @@ declare namespace call {
    */
   function getCallState(callback: AsyncCallback<CallState>): void;
   function getCallState(): Promise<CallState>;
+
+  /**
+   * Stops the ringtone.
+   *
+   * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function muteRinger(callback: AsyncCallback<void>): void;
+  function muteRinger(): Promise<void>;
+
+  /**
+   * Checks whether a device supports voice calls.
+   *
+   * <p>The system checks whether the device has the capability to initiate a circuit switching (CS) or IP multimedia
+   * subsystem domain (IMS) call on a telephone service network. If the device supports only packet switching
+   * (even if the device supports OTT calls), {@code false} is returned.
+   *
+   * @return Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
+   * @since 7
+   */
+  function hasVoiceCapability(): boolean;
 
   /**
    * Checks whether a phone number is on the emergency number list.
@@ -100,6 +132,7 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.ANSWER_CALL
    * @since 7
    */
   function answer(callId: number, callback: AsyncCallback<void>): void;
@@ -122,18 +155,21 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function holdCall(callId: number, callback: AsyncCallback<void>): void;
   function holdCall(callId: number): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function unHoldCall(callId: number, callback: AsyncCallback<void>): void;
   function unHoldCall(callId: number): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function switchCall(callId: number, callback: AsyncCallback<void>): void;
   function switchCall(callId: number): Promise<void>;
@@ -207,23 +243,228 @@ declare namespace call {
    * @since 7
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function isNewCallAllowed(callback: AsyncCallback<boolean>): void;
+  function isNewCallAllowed(): Promise<boolean>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function separateConference(callId: number, callback: AsyncCallback<void>): void;
+  function separateConference(callId: number): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function getCallRestrictionStatus(slotId: number, type: CallRestrictionType, callback: AsyncCallback<RestrictionStatus>): void;
+  function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function setCallRestriction(slotId: number, info: CallRestrictionInfo, callback: AsyncCallback<void>): void;
+  function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function getCallTransferInfo(slotId: number, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
+  function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function setCallTransfer(slotId: number, info: CallTransferInfo, callback: AsyncCallback<void>): void;
+  function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
+
+  /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function isRinging(callback: AsyncCallback<boolean>): void;
+  function isRinging(): Promise<boolean>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function setMuted(callback: AsyncCallback<void>): void;
+  function setMuted(): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function cancelMuted(callback: AsyncCallback<void>): void;
+  function cancelMuted(): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
+  function setAudioDevice(device: AudioDevice): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function joinConference(mainCallId: number, callNumberList: Array<string>, callback: AsyncCallback<void>): void;
+  function joinConference(mainCallId: number, callNumberList: Array<string>): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function updateImsCallMode(callId: number, mode: ImsCallMode, callback: AsyncCallback<void>): void;
+  function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function enableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
+  function enableImsSwitch(slotId: number): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function disableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
+  function disableImsSwitch(slotId: number): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function isImsSwitchEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isImsSwitchEnabled(slotId: number): Promise<boolean>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum ImsCallMode {
+    CALL_MODE_AUDIO_ONLY = 0,
+    CALL_MODE_SEND_ONLY,
+    CALL_MODE_RECEIVE_ONLY,
+    CALL_MODE_SEND_RECEIVE,
+    CALL_MODE_VIDEO_PAUSED,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum AudioDevice {
+    DEVICE_MIC,
+    DEVICE_SPEAKER,
+    DEVICE_WIRED_HEADSET,
+    DEVICE_BLUETOOTH_SCO
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum CallRestrictionType {
+    RESTRICTION_TYPE_ALL_INCOMING = 0,
+    RESTRICTION_TYPE_ALL_OUTGOING,
+    RESTRICTION_TYPE_INTERNATIONAL,
+    RESTRICTION_TYPE_INTERNATIONAL_EXCLUDING_HOME,
+    RESTRICTION_TYPE_ROAMING_INCOMING,
+    RESTRICTION_TYPE_ALL_CALLS,
+    RESTRICTION_TYPE_OUTGOING_SERVICES,
+    RESTRICTION_TYPE_INCOMING_SERVICES,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export interface CallTransferInfo {
+    transferNum: string;
+    type: CallTransferType;
+    settingType: CallTransferSettingType;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum CallTransferType {
+    TRANSFER_TYPE_UNCONDITIONAL = 0,
+    TRANSFER_TYPE_BUSY,
+    TRANSFER_TYPE_NO_REPLY,
+    TRANSFER_TYPE_NOT_REACHABLE,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum CallTransferSettingType {
+    CALL_TRANSFER_DISABLE = 0,
+    CALL_TRANSFER_ENABLE = 1,
+    CALL_TRANSFER_REGISTRATION = 3,
+    CALL_TRANSFER_ERASURE = 4,
+  }
 
   /**
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   export interface CallAttributeOptions {
-    accountNumber: string,
-    speakerphoneOn: boolean,
-    accountId: number,
-    videoState: VideoStateType,
-    startTime: number,
-    isEcc: boolean,
-    callType: CallType,
-    callId: number,
-    callState: DetailedCallState,
-    conferenceState: ConferenceState,
+    accountNumber: string;
+    speakerphoneOn: boolean;
+    accountId: number;
+    videoState: VideoStateType;
+    startTime: number;
+    isEcc: boolean;
+    callType: CallType;
+    callId: number;
+    callState: DetailedCallState;
+    conferenceState: ConferenceState;
   }
 
   /**
@@ -273,6 +514,42 @@ declare namespace call {
     CALL_STATUS_IDLE,
   }
 
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export interface CallRestrictionInfo {
+    type: CallRestrictionType;
+    password: string;
+    mode: CallRestrictionMode;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum CallRestrictionMode {
+    RESTRICTION_MODE_DEACTIVATION = 0,
+    RESTRICTION_MODE_ACTIVATION,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export interface CallEventOptions {
+    eventId: CallAbilityEventId,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum CallAbilityEventId {
+    EVENT_DIAL_NO_CARRIER = 1,
+    EVENT_INVALID_FDN_NUMBER,
+  }
+
   export enum CallState {
     /**
      * Indicates an invalid state, which is used when the call state fails to be obtained.
@@ -301,6 +578,46 @@ declare namespace call {
      * boolean means whether the call to be made is a video call. The value {@code false} indicates a voice call.
      */
     extras?: boolean;
+    /**
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    accountId?: number;
+    /**
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    videoState?: VideoStateType;
+    /**
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    dialScene?: DialScene;
+    /**
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    dialType?: DialType;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum DialScene {
+    CALL_NORMAL = 0,
+    CALL_PRIVILEGED = 1,
+    CALL_EMERGENCY = 2,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum DialType {
+    DIAL_CARRIER_TYPE = 0,
+    DIAL_VOICE_MAIL_TYPE = 1,
+    DIAL_OTT_TYPE = 2,
   }
 
   /**
@@ -308,7 +625,16 @@ declare namespace call {
    * @since 7
    */
   export interface RejectMessageOptions {
-    messageContent: string,
+    messageContent: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export interface CallTransferResult {
+    status: TransferStatus;
+    number: string;
   }
 
   /**
@@ -318,6 +644,24 @@ declare namespace call {
   export enum CallWaitingStatus {
     CALL_WAITING_DISABLE = 0,
     CALL_WAITING_ENABLE = 1
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum RestrictionStatus {
+    RESTRICTION_DISABLE = 0,
+    RESTRICTION_ENABLE = 1
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum TransferStatus {
+    TRANSFER_DISABLE = 0,
+    TRANSFER_ENABLE = 1
   }
 
   /**
@@ -333,6 +677,33 @@ declare namespace call {
   export interface NumberFormatOptions {
     countryCode?: string;
   }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  export enum DisconnectedDetails {
+    UNASSIGNED_NUMBER = 1,
+    NO_ROUTE_TO_DESTINATION = 3,
+    CHANNEL_UNACCEPTABLE = 6,
+    OPERATOR_DETERMINED_BARRING = 8,
+    NORMAL_CALL_CLEARING = 16,
+    USER_BUSY = 17,
+    NO_USER_RESPONDING = 18,
+    USER_ALERTING_NO_ANSWER = 19,
+    CALL_REJECTED = 21,
+    NUMBER_CHANGED = 22,
+    DESTINATION_OUT_OF_ORDER = 27,
+    INVALID_NUMBER_FORMAT = 28,
+    NETWORK_OUT_OF_ORDER = 38,
+    TEMPORARY_FAILURE = 41,
+    INVALID_PARAMETER = 1025,
+    SIM_NOT_EXIT = 1026,
+    SIM_PIN_NEED = 1027,
+    CALL_NOT_ALLOW = 1029,
+    SIM_INVALID = 1045,
+    UNKNOWN = 1279,
+  };
 }
 
 export default call;

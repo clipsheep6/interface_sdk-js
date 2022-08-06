@@ -19,14 +19,15 @@ import {AsyncCallback, Callback} from "./basic";
  * Provides Environment APIs.
  *
  * @since 8
- * @sysCap N/A
- * @devices phone, tablet
+ * @syscap SystemCapability.FileManagement.File.Environment
+ * @systemapi
  */
 declare namespace Environment {
   /**
    * Get the user data path.
    *
    * @since 8
+   * @systemapi
    */
   function getStorageDataDir(callback: AsyncCallback<string>): void;
   function getStorageDataDir(): Promise<string>;
@@ -34,6 +35,7 @@ declare namespace Environment {
    * Get the User storage path.
    *
    * @since 8
+   * @systemapi
    */
   function getUserDataDir(callback: AsyncCallback<string>): void;
   function getUserDataDir(): Promise<string>;

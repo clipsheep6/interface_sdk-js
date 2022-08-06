@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Want } from '../ability/want';
+import Want from '../@ohos.application.want';
 import wantAgent from '../@ohos.wantAgent'
 
 /**
@@ -21,7 +21,7 @@ import wantAgent from '../@ohos.wantAgent'
  *
  * @name WantAgentInfo
  * @since 7
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface WantAgentInfo {

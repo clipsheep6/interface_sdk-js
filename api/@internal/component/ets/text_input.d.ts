@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare the type of input box
  * @since 7
@@ -26,10 +25,16 @@ declare enum InputType {
   Normal,
 
   /**
-   * Password entry mode.
+   * Pure digital input mode.
    * @since 7
    */
   Number,
+
+  /**
+   * Phone number entry mode.
+   * @since 9
+   */
+  PhoneNumber,
 
   /**
    * E-mail address input mode.
@@ -38,7 +43,7 @@ declare enum InputType {
   Email,
 
   /**
-   * Pure digital input mode.
+   * Password entry mode.
    * @since 7
    */
   Password,
@@ -98,10 +103,10 @@ declare class TextInputController {
 }
 
 /**
- * Defines the option of TextInput.
+ * Defines the options of TextInput.
  * @since 7
  */
-declare interface TextInputOption {
+declare interface TextInputOptions {
   /**
    * The place holder text string.
    * @since 7
@@ -130,10 +135,11 @@ interface TextInputInterface {
    * Called when writing a single line of text.
    * @since 7
    */
-  (value?: TextInputOption): TextInputAttribute;
+  (value?: TextInputOptions): TextInputAttribute;
 }
 
 /**
+ * Defines the TextInput attribute functions.
  * @since 7
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
@@ -168,10 +174,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * Called when judging whether the text editing has changed.
+   * Called when judging whether the text editing change finished.
    * @since 7
+   * @deprecated since 8
    */
   onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
+
+  /**
+   * Called when judging whether the text editing change finished.
+   * @since 8
+   */
+  onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when submitted.
@@ -229,21 +242,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Called when using the Clipboard menu
-   * @since 7
+   * @since 8
    */
   onCopy(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
-   * @since 7
+   * @since 8
    */
   onCut(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
-   * @since 7
+   * @since 8
    */
   onPaste(callback: (value: string) => void): TextInputAttribute;
+
+  /**
+   * Called when the copy option is set.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): TextInputAttribute;
+
+  /**
+   * Called when the password show/hide icon is set.
+   * @since 9
+   */
+  showPasswordIcon(value: boolean): TextInputAttribute;
+
+  /**
+   * Called when the text align is set.
+   * @since 9
+   */
+  textAlign(value: TextAlign): TextInputAttribute;
 }
 
 declare const TextInput: TextInputInterface;

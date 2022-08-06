@@ -14,24 +14,6 @@
  */
 
 /**
- * Defines the type of DatePicker.
- * @since 8
- */
-declare enum DatePickerType {
-  /**
-   * Application hour and second
-   * @since 8
-   */
-  Time,
-
-  /**
-   * Application data
-   * @since 8
-   */
-  Date,
-}
-
-/**
  * Defines the struct of DatePickerResult.
  * @since 8
  */
@@ -53,49 +35,29 @@ declare interface DatePickerResult {
    * @since 8
    */
   day?: number;
-
-  /**
-   * Application hour
-   * @since 8
-   */
-  hour?: number;
-
-  /**
-   * Application minute
-   * @since 8
-   */
-  minute?: number;
-
-  /**
-   * Application second
-   * @since 8
-   */
-  second?: number;
 }
 
 /**
- * Defines the option of DatePicker.
+ * Defines the options of DatePicker.
  * @since 8
  */
-declare interface DatePickerOption {
+declare interface DatePickerOptions {
   /**
    * Specifies the start date of the date selector.
+   * @since 8
    */
   start?: Date;
   /**
    * Specifies the end date for the date selector.
+   * @since 8
    */
   end?: Date;
 
   /**
    * Specifies the date selector check date or time selector check time.
+   * @since 8
    */
   selected?: Date;
-
-  /**
-   * Selector type, including date selector and time selector. By default, the date selector is used.
-   */
-  type?: DatePickerType;
 }
 
 /**
@@ -107,7 +69,7 @@ interface DatePickerInterface {
    * Defines the DatePicker constructor.
    * @since 8
    */
-  (options?: DatePickerOption): DatePickerAttribute;
+  (options?: DatePickerOptions): DatePickerAttribute;
 }
 
 /**
@@ -122,12 +84,6 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   lunar(value: boolean): DatePickerAttribute;
 
   /**
-   * Time Selector: indicates whether to display the 24-hour clock.
-   * @since 8
-   */
-  useMilitaryTime(value: boolean): DatePickerAttribute;
-
-  /**
    * This event is triggered when a DatePicker date or time is selected.
    * @since 8
    */
@@ -135,10 +91,10 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
 }
 
 /**
- * Defines the DatePickerDialogOption for Data Picker Dialog.
+ * Defines the DatePickerDialogOptions for Data Picker Dialog.
  * @since 8
  */
-declare interface DatePickerDialogOption extends DatePickerOption {
+declare interface DatePickerDialogOptions extends DatePickerOptions {
   /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
    * @since 8
@@ -146,46 +102,20 @@ declare interface DatePickerDialogOption extends DatePickerOption {
   lunar?: boolean;
 
   /**
-   * Time Selector: indicates whether to display the 24-hour clock.
+   * Called when the OK button in the dialog is clicked.
    * @since 8
    */
-  useMilitaryTime?: boolean;
-}
-
-/**
- * Defines the event callback status in the pop-up window state.
- * @since 8
- */
-declare enum DialogStatus {
+  onAccept?: (value: DatePickerResult) => void;
   /**
-   * Triggered when a user clicks the OK button.
+   * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
-  Accept,
-
+  onCancel?: () => void;
   /**
-   * Triggered when a user taps the Cancel button.
+   * This event is triggered when a DatePicker date or time is selected in dialog.
    * @since 8
    */
-  Cancel,
-
-  /**
-   * Triggered when a user performs scrolling selection.
-   * @since 8
-   */
-  Update,
-}
-
-/**
- * Defines the DatePickerDialogResult for DatePickerDialog.
- * @since 8
- */
-declare interface DatePickerDialogResult extends DatePickerResult {
-  /**
-   * Operation status of the current user.
-   * @since 8
-   */
-  status: DialogStatus;
+  onChange?: (value: DatePickerResult) => void;
 }
 
 /**
@@ -197,7 +127,7 @@ declare class DatePickerDialog {
    * Invoking method display.
    * @since 8
    */
-  static show(options?: DatePickerDialogOption, callback?: (value: DatePickerDialogResult) => void);
+  static show(options?: DatePickerDialogOptions);
 }
 
 declare const DatePicker: DatePickerInterface;

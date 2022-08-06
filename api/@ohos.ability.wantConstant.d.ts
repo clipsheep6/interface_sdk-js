@@ -17,8 +17,7 @@
  * the constant for action and entity in the want
  * @name wantConstant
  * @since 6
- * @sysCap aafwk
- * @devices phone, tablet
+ * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 declare namespace wantConstant {
@@ -26,15 +25,14 @@ declare namespace wantConstant {
    * the constant for action of the want
    * @name Action
    * @since 6
-   * @sysCap aafwk
-   * @devices phone, tablet
+   * @syscap SystemCapability.Ability.AbilityBase
    * @permission N/A
    */
   export enum Action {
     /**
      * Indicates the action of backing home.
      *
-     * @since 1
+     * @since 6
      */
     ACTION_HOME = "ohos.want.action.home",
 
@@ -132,14 +130,14 @@ declare namespace wantConstant {
      *
      * @since 8
      */
-     ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
+    ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
 
     /**
      * Indicates the action of starting a Page ability for Take a video.
      *
      * @since 8
      */
-     ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
+    ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
 
     /**
      * Indicates the action of showing the application selection dialog box.
@@ -210,14 +208,36 @@ declare namespace wantConstant {
      * @since 7
      */
     PARAMS_STREAM = "ability.params.stream",
+
+    /**
+     * Indicates the action of providing oauth service.
+     *
+     * @since 8
+     */
+    ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
+
+    /**
+     * Indicates the action of an application downloaded from the application market.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
+
+    /**
+     * Indicates the action of an application crowdtested from the application market.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest"
   }
 
   /**
    * the constant for Entity of the want
-   * @name Action
+   * @name Entity
    * @since 6
-   * @sysCap aafwk
-   * @devices phone, tablet
+   * @syscap SystemCapability.Ability.AbilityBase
    * @permission N/A
    */
   export enum Entity {
@@ -258,15 +278,11 @@ declare namespace wantConstant {
   export enum Flags {
     /**
      * Indicates the grant to perform read operations on the URI.
-     *
-     * @hide
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
     /**
      * Indicates the grant to perform write operations on the URI.
-     *
-     * @hide
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
@@ -293,14 +309,14 @@ declare namespace wantConstant {
     /**
      * Indicates the grant for possible persisting on the URI.
      *
-     * @hide
+     * @systemapi Hide this for inner system use.
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
     /**
      * Returns the result to the source ability slice.
      *
-     * @hide
+     * @systemapi Hide this for inner system use.
      */
     FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
 
@@ -318,7 +334,7 @@ declare namespace wantConstant {
     /**
      * Indicates the continuation is reversible.
      *
-     * @hide
+     * @systemapi Hide this for inner system use.
      */
     FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
 

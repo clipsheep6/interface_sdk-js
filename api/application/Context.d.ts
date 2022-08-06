@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,108 +15,181 @@
 
 import { ApplicationInfo } from "../bundle/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
+import BaseContext from "./BaseContext";
+import EventHub from "./EventHub";
+import ApplicationContext from "./ApplicationContext";
 
 /**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @StageModelOnly
  */
-export default class Context {
+export default class Context extends BaseContext {
     /**
      * Indicates the capability of accessing application resources.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     resourceManager: resmgr.ResourceManager;
 
     /**
      * Indicates configuration information about an application.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     applicationInfo: ApplicationInfo;
 
     /**
      * Indicates app cache dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     cacheDir: string;
 
     /**
      * Indicates app temp dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     tempDir: string;
 
     /**
      * Indicates app files dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     filesDir : string;
 
     /**
      * Indicates app database dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     databaseDir : string;
 
     /**
-     * Indicates app storage dir.
+     * Indicates app preferences dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
-    storageDir : string;
+    preferencesDir : string;
 
     /**
      * Indicates app bundle code dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     bundleCodeDir : string;
 
     /**
      * Indicates app distributed files dir.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     distributedFilesDir: string;
 
     /**
+     * Indicates event hub.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    eventHub: EventHub;
+
+    /**
+     * Indicates file area.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    area: AreaMode;
+
+    /**
      * Create a bundle context
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @param bundleName Indicates the bundle name.
      * @return application context
+     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+     * @StageModelOnly
      */
     createBundleContext(bundleName: string): Context;
 
-     /**
+    /**
+     * Create a module context
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param moduleName Indicates the module name.
+     * @return application context
+     * @StageModelOnly
+     */
+    createModuleContext(moduleName: string): Context;
+
+    /**
+     * Create a module context
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     * @param bundleName Indicates the bundle name.
+     * @param moduleName Indicates the module name.
+     * @return application context
+     * @StageModelOnly
+     */
+    createModuleContext(bundleName: string, moduleName: string): Context;
+
+    /**
      * Get application context
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return application context
+     * @StageModelOnly
      */
-    getApplicationContext(): Context;
+    getApplicationContext(): ApplicationContext;
+}
+
+/**
+ * File area mode
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ */
+export enum AreaMode {
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    EL1 = 0,
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    EL2 = 1
 }

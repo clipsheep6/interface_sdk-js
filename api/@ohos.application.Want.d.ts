@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,89 +18,87 @@
  *
  * @name Want
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 export default class Want {
     /**
      * device id
      * @default -
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     deviceId?: string;
 
     /**
      * bundle name
      * @default -
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     bundleName?: string;
 
     /**
      * ability name
      * @default -
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     abilityName?: string;
 
     /**
      * The description of a URI in a Want.
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     uri?: string;
 
     /**
      * The description of the type in this Want.
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     type?: string;
 
     /**
      * The options of the flags in this Want.
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     flags?: number;
 
     /**
      * The description of an action in an want.
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     action?: string;
 
     /**
      * The description of the WantParams object in an Want
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     parameters?: {[key: string]: any};
 
     /**
      * The description of a entities in a Want.
-     * @devices phone, tablet
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     entities?: Array<string>;
+
+    /**
+     * The description of an module name in an want.
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @default -
+     */
+    moduleName?: string;
 }

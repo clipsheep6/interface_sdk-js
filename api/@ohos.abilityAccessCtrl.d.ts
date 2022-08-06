@@ -16,8 +16,7 @@
 import { AsyncCallback } from "./basic";
 
 /**
- * @sysCap Systemcapability.Security.AccessToken
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Security.AccessToken
  */
  declare namespace abilityAccessCtrl {
     /**
@@ -42,11 +41,20 @@ import { AsyncCallback } from "./basic";
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
 
         /**
+         * Checks whether a specified application has been granted the given permission synchronously.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be verified.
+         * @return Returns permission verify result
+         * @since 9
+         */
+         verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
+
+        /**
          * Grants a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @param permissionFlag Flag of permission state.
-         * @oermission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
+         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
          * @systemapi hid this for inner system use
          * @since 8
          */
@@ -58,7 +66,7 @@ import { AsyncCallback } from "./basic";
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be revoked.
          * @param permissionFlag Flag of permission state.
-         * @oermission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
+         * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi hid this for inner system use
          * @since 8
          */
@@ -70,7 +78,7 @@ import { AsyncCallback } from "./basic";
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @return Return permission flag.
-         * @oermission ohos.permission.GET_SENSITIVE_PERMISSIONS/ohos.permission.GRANT_SENSITIVE_PERMISSIONS/ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
+         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi hid this for inner system use
          * @since 8
          */

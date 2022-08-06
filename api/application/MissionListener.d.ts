@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
+import image from "../@ohos.multimedia.image";
+
 /**
  * MissionListener registered by app.
  *
  * @name MissionListener
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
  * @systemapi hide for inner use.
  */
@@ -27,9 +28,9 @@
     /**
      * Called by system when mission created.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of created mission.
      * @return -
      */
     onMissionCreated(mission: number): void;
@@ -37,9 +38,9 @@
     /**
      * Called by system when mission destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of destroyed mission.
      * @return -
      */
     onMissionDestroyed(mission: number): void;
@@ -47,9 +48,9 @@
     /**
      * Called by system when mission shapshot changed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission which the snapshot changes
      * @return -
      */
     onMissionSnapshotChanged(mission: number): void;
@@ -57,10 +58,21 @@
     /**
      * Called by system when mission moved to fornt.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission being moved to the foreground.
      * @return -
      */
     onMissionMovedToFront(mission: number): void;
+
+    /**
+     * Called by system when mission icon has changed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission whose icon has changed.
+     * @param icon Indicates the icon of the mission whose icon has changed.
+     * @return -
+     */
+     onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
 }

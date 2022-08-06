@@ -59,8 +59,8 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * Sets the thickness of the ring chart.
    * @since 8
    */
-  strokeWidth(length: number): GaugeAttribute;
+  strokeWidth(length: Length): GaugeAttribute;
 }
 
-declare const Gauge: GaugeInterface
+declare const Gauge: GaugeInterface;
 declare const GaugeInstance: GaugeAttribute;
