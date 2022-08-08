@@ -74,6 +74,7 @@ interface FormComponentInterface {
     module: string;
     dimension?: FormDimension;
     temporary?: boolean;
+    device?: string;
   }): FormComponentAttribute;
 }
 
