@@ -174,6 +174,14 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         customizeData: {[key: string]: [value: string]};
+
+        /**
+         * Whether support resize form
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+         resizable: boolean;
     }
 
     /**

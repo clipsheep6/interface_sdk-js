@@ -129,6 +129,22 @@ export declare interface LifecycleForm {
    * @FAModelOnly
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
+
+  /**
+   * Called when the form provider is notified that a specified form has been resized.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param want Indicates the detailed information for creating a {@link formBindingData#FormBindingData}.
+   *               The {@code Want} object must include the form ID, form name, and grid style of the form,
+   *               which can be obtained from {@link formInfo#FormParam#IDENTITY_KEY},
+   *               {@link formInfo#FormParam#NAME_KEY}, and {@link formInfo#FormParam#DIMENSION_KEY},
+   *               respectively. Such form information must be managed as persistent data for further form
+   *               acquisition, update, and deletion.
+   * @return Returns the created {@link formBindingData#FormBindingData} object.
+   * @FAModelOnly
+   */
+  onResize?(want: Want): formBindingData.FormBindingData;
 }
 
 /**
