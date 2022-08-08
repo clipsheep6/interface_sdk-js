@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare item ceiling attribute.
  * @since 7
@@ -63,8 +62,29 @@ declare enum EditMode {
 }
 
 /**
- * @since 7
+ * Defines the SwipeActionOption of swipeAction attribute method.
+ * @since 9
  */
+declare interface SwipeActionOption {
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @since 9
+   */
+  start?: CustomBuilder;
+  /**
+   * An action item that appears when a list item slides left (when list direction is Vertical) or
+   * slides up (when list direction Horizontal).
+   * @since 9
+   */
+  end?: CustomBuilder;
+
+  /**
+   * Sets whether sliding to a boundary has a spring effect.
+   * @since 9
+   */
+  springEdgeEffect: boolean;
+}
 
 /**
  * Values in the list
@@ -99,6 +119,13 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 8
    */
   selectable(value: boolean): ListItemAttribute;
+
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   * @param value items defines in the SwipeActionOption.
+   * @since 9
+   */
+  swipeAction(value: SwipeActionOption): ListItemAttribute;
 
   /**
    * Called when the listItem is selected.
