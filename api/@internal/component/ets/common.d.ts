@@ -1109,6 +1109,13 @@ declare interface PopupOptions {
    * @since 7
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * Defines whether popup use gaussian blur.
+   * The defalut value is false.
+   * @since 8
+   */
+  useBlur?: boolean;
 }
 
 /**
@@ -1157,6 +1164,13 @@ declare interface CustomPopupOptions {
    * @since 8
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * Defines whether popup use gaussian blur.
+   * The defalut value is false.
+   * @since 8
+   */
+  useBlur?: boolean;
 }
 
 /**
