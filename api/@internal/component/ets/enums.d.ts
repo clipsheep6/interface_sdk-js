@@ -1470,3 +1470,33 @@ declare enum CopyOption {
    */
   CrossDevice = 2,
 }
+
+/**
+ * LayoutOrientation enumeration description
+ * @since 9
+ */
+declare enum LayoutOrientation {
+  /**
+   * The main axis is consistent with the row direction as the layout mode.
+   * @since 9
+   */
+  Row,
+
+  /**
+   * The main axis is consistent with the column direction as the layout mode.
+   * @since 9
+   */
+  Column,
+
+  /**
+   * The layout is in the opposite direction to the Row direction.
+   * @since 9
+   */
+  RowReverse,
+
+  /**
+   * Layout in the opposite direction to the column.
+   * @since 9
+   */
+  ColumnReverse,
+}
