@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -671,29 +671,6 @@ declare function opendir(path: string, callback: AsyncCallback<Dir>): void;
  */
 declare function opendirSync(path: string): Dir;
 /**
- * readdir.
- *
- * @note N/A
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 6
- * @permission N/A
- * @function readdir
- * @param {string} path - directory name.
- * @param {AsyncCallback<Array<string>>} [callback] - callback.
- * @returns {void | Promise<Array<string>>} no callback return Promise otherwise return void
- * @throws {TypedError} Parameter check failed
- */
- declare function readdir(path: string): Promise<Array<string>>;
- declare function readdir(path: string, callback: AsyncCallback<Array<string>>): void;
- /**
-  * readdirSync.
-  *
-  * @param {string} path - directory name.
-  * @returns {Array<string>} readdir Array<string> Object
-  * @throws {TypedError | Error} readdir fail
-  */
- declare function readdirSync(path: string): Array<string>;
-/**
  * readText.
  *
  * @note N/A
@@ -1100,7 +1077,7 @@ declare interface Dir {
      *
      * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 7
+     * @since 10
      * @permission N/A
      * @function listfile
      * @param {number} n - list n dirents.
@@ -1114,7 +1091,7 @@ declare interface Dir {
       * listfileSync.
       * @note N/A
       * @syscap SystemCapability.FileManagement.File.FileIO
-      * @since 7
+      * @since 10
       * @permission N/A
       * @function listfileSync
       * @param {number} n - list n dirents.
