@@ -1109,6 +1109,12 @@ declare interface PopupOptions {
    * @since 7
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?: Length;
 }
 
 /**
@@ -1157,6 +1163,12 @@ declare interface CustomPopupOptions {
    * @since 8
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?: Length;
 }
 
 /**
@@ -1206,8 +1218,16 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
+   * @deprecated since 9, instead of hitTestBehavior.
    */
   touchable(value: boolean): T;
+
+  /**
+   * Defines the component's hit test behavior in touch events.
+   * @param value the hit test mode.
+   * @since 9
+   */
+  hitTestBehavior(value: HitTestMode): T;
 
   /**
    * layout Weight
