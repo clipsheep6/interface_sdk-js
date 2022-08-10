@@ -18,7 +18,8 @@ import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
- * @syscap SystemCapability.MiscServices.Pasteboard
+ * @sysCap SystemCapability.Miscservices.Pasteboard
+ * @devices phone, tablet, tv, wearable, car
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
@@ -92,7 +93,16 @@ declare namespace pasteboard {
    * @since 9
    */
   function createPixelMapData(pixelMap: image.PixelMap): PasteData;
-
+  
+  /**
+   * Creates a PasteData object with mimeType and value.
+   * @param key Mimetype indicates the type of value.
+   * @param value Content to be saved.
+   * @return The clipboard content object with mimeType and value.
+   * @since 9
+   */
+  function createData(key:String, value: Object): PasteData;
+  
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param htmlText To save the Html text content.
@@ -132,6 +142,14 @@ declare namespace pasteboard {
    * @since 9
    */
   function createPixelMapRecord(pixelMap: image.PixelMap):PasteDataRecord;
+  /**
+   * Creates a Record object with mimeType and value.
+   * @param key Mimetype indicates the type of value.
+   * @param value Content to be saved.
+   * @return The content of a new record with mimeType and value.
+   * @since 9
+   */
+  function createRecord(key:String, value: Object):PasteDataRecord;
   
   /**
    * get SystemPasteboard
@@ -139,7 +157,19 @@ declare namespace pasteboard {
    * @since 6
    */
   function getSystemPasteboard(): SystemPasteboard;
-
+  /**
+   * Types of scope that PasteData can be pasted.
+   * InApp means that only in-app pasting is allowed.
+   * LocalDevice means that only paste in this device is allowed.
+   * CrossDevice means allow pasting in any app across devices.
+   * @since 9
+   */
+  enum ShareOption {
+      InApp,
+      LocalDevice,
+      CrossDevice
+  }
+  
   interface PasteDataProperty {
     /**
      * additional property data. key-value pairs.
@@ -168,6 +198,13 @@ declare namespace pasteboard {
      * @since 7
      */
     localOnly: boolean;
+        /**
+     * Scope that PasteData can be pasted. value is one of ShareOption#InApp,ShareOption#LocalDevice,
+     * ShareOption#CrossDevice.
+     * If shareOption is not one of ShareOption or not be set, it will be set to default value(ShareOption#CrossDevice).
+     * @since 9
+     */
+    shareOption: ShareOption;
   }
 
   interface PasteDataRecord {
@@ -201,6 +238,13 @@ declare namespace pasteboard {
      * @since 9
      */
     pixelMap: image.PixelMap;
+    /**
+     * data array in a record.
+     * @since 9
+     */
+    data: {
+        [mimeType: string]: ArrayBuffer
+    }
 
     /**
      * Will a PasteData cast to the content of text content
@@ -253,6 +297,15 @@ declare namespace pasteboard {
      * @since 9
      */
     addPixelMapRecord(pixelMap: image.PixelMap): void;
+
+    /**
+     * Adds a key-value Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_PIXELMAP in DataProperty.
+     * @param key Mimetype indicates the type of value.
+     * @param value Content to be saved.
+     * @return The content of a new record with mimeType and value.
+     * @since 9
+     */
+    addRecord(key: String,value: Object): void;
     
     /**
      * MIME types of all content on the pasteboard.
