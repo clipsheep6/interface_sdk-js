@@ -18,8 +18,7 @@ import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
- * @sysCap SystemCapability.Miscservices.Pasteboard
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Miscservices.Pasteboard
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
@@ -89,7 +88,7 @@ declare namespace pasteboard {
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_PIXELMAP.
    * @param { image.PixelMap } pixelMap - indicates the pixelMap to be created.
-   * @return { PasteData } Containing the contents of the clipboard content object.
+   * @returns { PasteData } Containing the contents of the clipboard content object.
    * @since 9
    */
   function createPixelMapData(pixelMap: image.PixelMap): PasteData;
@@ -98,7 +97,7 @@ declare namespace pasteboard {
    * Creates a PasteData object with MIME type and value.
    * @param { string } mimetype - indicates MIME type of value.
    * @param { ArrayBuffer } value - content to be saved.
-   * @return { PasteData } the clipboard content object with MIME type and value.
+   * @returns { PasteData } the clipboard content object with MIME type and value.
    * @since 9
    */
   function createData(mineType:string, value: ArrayBuffer): PasteData;
@@ -362,7 +361,7 @@ declare namespace pasteboard {
     getPrimaryUri(): string;
 
     /**
-     * get the primary PixelMap record in a PasteData object.
+     * Get the primary PixelMap record in a PasteData object.
      * @returns {image.PixelMap} pixelMap
      * @since 9
      */
@@ -376,7 +375,7 @@ declare namespace pasteboard {
     getProperty(): PasteDataProperty;
 
     /**
-     * set PasteDataProperty to a PasteData object.
+     * Set PasteDataProperty to a PasteData object.
      * @param { PasteDataProperty } property - save property to PasteData object.
      * @since 9
      */
