@@ -313,7 +313,7 @@ declare namespace pasteboard {
     /**
      * Adds a key-value record to a PasteData object.
      * @param { string } mimeType - indicates the MIME type of value.
-     * @return { ArrayBuffer } value - content to be saved.
+     * @returns { ArrayBuffer } value - content to be saved.
      * @since 9
      */
     addRecord(mineType: string, value: ArrayBuffer): void;
