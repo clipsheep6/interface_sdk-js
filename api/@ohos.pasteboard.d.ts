@@ -101,7 +101,7 @@ declare namespace pasteboard {
    * @return { PasteData } the clipboard content object with MIME type and value.
    * @since 9
    */
-  function createData(mineType:String, value: ArrayBuffer): PasteData;
+  function createData(mineType:string, value: ArrayBuffer): PasteData;
   
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
