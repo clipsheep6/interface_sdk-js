@@ -1099,7 +1099,8 @@ declare class WebCookie {
   getCookieManager() : WebCookie
 
   /**
-   * Search all instances of 'searchString' on the page and highlights them,
+   * starts a new search session, searches all string that matches
+   * 'searchString' and highlights them.
    * result will be notify through callback onSearchResultReceive.
    * @param searchString string to be search.
    * @since 9
@@ -1107,13 +1108,13 @@ declare class WebCookie {
   searchAllAsync(searchString: string): void;
 
   /**
-   * Clears the highlighting surrounding text matches created by searchAllAsync.
+   * Clears matching result and highlighting called by searchAllAsync.
    * @since 9
    */
   clearMatches(): void;
 
   /**
-   * Highlights and scrolls to the next match search.
+   * jumps to the next match search and Highlights it.
    * @param forward step of search is back or forward.
    * @since 9
    */
@@ -1551,7 +1552,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
 
   /**
-   * Notify search result to host application through onSearchResultReceive.
+   * Notifies search result to host application through onSearchResultReceive.
    * @param callback function Triggered when the host application call searchAllAsync
    * or searchNext api on WebController and the request is valid.
    *
