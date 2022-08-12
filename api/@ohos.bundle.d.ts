@@ -903,7 +903,7 @@ declare namespace bundle {
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 
   /**
-   * Set the disposed status of a specified bundle.
+   * Set the disposed status of a specified application.
    *
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -916,12 +916,12 @@ declare namespace bundle {
   function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
   /**
-   * Obtains the disposed status of a specified bundle.
+   * Obtains the disposed status of a specified application.
    *
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param appId Indicates the appId of the application.
-   * @return Returns the disposed status of a specified bundle.
+   * @return Returns the disposed status of a specified application.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
    */
@@ -929,12 +929,11 @@ declare namespace bundle {
   function getDisposedStatus(appId: string): Promise<number>;
 
   /**
-   * Delete the disposed status of a specified bundle.
+   * Delete the disposed status of a specified application.
    *
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param appId Indicates the appId of the application.
-   * @return Returns the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
    */

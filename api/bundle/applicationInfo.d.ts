@@ -220,11 +220,4 @@ export interface ApplicationInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
    readonly appProvisionType: string;
-
-  /**
-    * @default Indicates whether the application type is debug
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-   readonly debug: boolean;
 }
