@@ -121,7 +121,112 @@ declare namespace webview {
          * @since 9
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
-      }
+    }
+
+    /**
+     * Defines the Web cookie.
+     * @since 9
+     */
+    class WebCookieManager {
+
+        /**
+         * Get whether cookies can be send or accepted.
+         * @return true if can send and accept cookies else false.
+         * 
+         * @since 9
+         */
+        static isCookieAllowed(): boolean;
+
+        /**
+         * Get whether third party cookies can be send or accepted.
+         * @return true if can send and accept third party cookies else false.
+         * 
+         * @since 9
+         */
+        static isThirdPartyCookieAllowed(): boolean;
+
+        /**
+         * Get whether file scheme cookies can be send or accepted.
+         * @return true if can send and accept else false.
+         * @since 9
+         */
+        static isFileURICookieAllowed(): boolean;
+
+        /**
+         * Set whether cookies can be send or accepted.
+         * @param accept whether can send and accept cookies
+         * 
+         * @since 9
+         */
+        static putAcceptCookieEnabled(accept: boolean): void;
+
+        /**
+         * Set whether third party cookies can be send or accepted.
+         * @param accept true if can send and accept else false.
+         *  
+         * @since 9
+         */
+        static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+
+        /**
+         * Set whether file scheme cookies can be send or accepted.
+         * @param accept true if can send and accept else false.
+         * 
+         * @since 9
+         */
+        static putAcceptFileURICookieEnabled(accept: boolean): void;
+
+        /**
+         * Sets the cookie.
+         * @since 9
+         */
+        static setCookie(url: string, value: string): boolean;
+
+        /**
+         * Saves the cookies.
+         * @since 9
+         */
+        static saveCookieSync(): boolean;
+
+        /**
+         * Gets all cookies for the given URL.
+         * 
+         * @param url the URL for which the cookies are requested.
+         * @return the cookie value for the given URL.
+         * 
+         * @since 9
+         */
+        static getCookie(url: string): string;
+
+        /**
+         * Check whether exists any cookies.
+         * 
+         * @return true if exists cookies else false;
+         * @since 9
+         */
+        static existCookie(): boolean;
+
+        /**
+         * Delete all cookies.
+         * 
+         * @since 9
+         */
+        static deleteEntireCookie(): void;
+
+        /**
+         * Delete session cookies.
+         * 
+         * @since 9
+         */
+        static deleteSessionCookie(): void;
+
+        /**
+         * Delete all expired cookies.
+         * 
+         * @since 9
+         */
+        static deleteExpiredCookie(): void;
+    }
 
       /**
        * Provides asynchronous methods for manage the webview.

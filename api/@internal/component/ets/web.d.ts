@@ -158,73 +158,6 @@ declare enum CacheMode {
 }
 
 /**
- * Define html5 web message port.
- * @since 9
- */
-declare class WebMessagePort {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Close port.
-   * @since 9
-   */
-  close(): void;
-
-  /**
-   * Post a message to other port.
-   * @since 9
-   */
-  postMessageEvent(message: WebMessageEvent): void;
-
-  /**
-   * Receive message from other port.
-   * @since 9
-   */
-  onMessageEvent(callback: (result: string) => void): void;
-}
-
-
-/**
- * Define html5 web message, which include message and ports.
- * @since 9
- */
-declare class WebMessageEvent {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Get message.
-   * @since 9
-   */
-  getData(): string;
-
-  /**
-   * Set message.
-   * @since 9
-   */
-  setData(data: string): void;
-
-  /**
-   * Get ports.
-   * @since 9
-   */
-  getPorts(): Array<WebMessagePort>;
-
-  /**
-   * Set ports.
-   * @since 9
-   */
-  setPorts(ports: Array<WebMessagePort>): void;
-}
-
-/**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  * @since 9
  */
@@ -291,6 +224,18 @@ declare enum FileSelectorMode {
 }
 
 /**
+ * Enum type of protected resources.
+ * @since 9
+ */
+declare enum ProtectedResourceType {
+  /**
+   * Sysex messages to be sent to or received from MIDI devices.
+   * @since 9
+   */
+  MidiSysex = "TYPE_MIDI_SYSEX",
+}
+
+/**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  * @since 9
  */
@@ -332,6 +277,67 @@ declare class FileSelectorParam {
    */
   isCapture(): boolean;
 }
+
+/**
+ * Encompassed message information as parameters to {@link onFileSelectorShow} method.
+ * @since 9
+ */
+declare class WebContextMenuParam {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+    * Gets x offset in web page
+    *
+    * @since 9
+    */
+  x(): number;
+
+  /**
+    * Gets y offset in web page
+    *
+    * @since 9
+    */
+  y(): number;
+
+  /**
+    * Get the checked link url
+    *
+    * @since 9
+    */
+  getLinkUrl() :string;
+
+  /**
+   * Get the unchecked link url
+   * @since 9
+   */
+  getUnfilterendLinkUrl() : string;
+
+  /**
+    * Get the checked src url
+    *
+    * @since 9
+    */
+  getSourceUrl(): string;
+
+  /**
+    * Gets whether current element has image content
+    *
+    * @since 9
+    */
+  existsImageContents(): boolean;
+
+  /**
+   * Gets whether current element is a link
+   * @since 9
+   */
+  isLink(): boolean;
+}
+
+
 
 /**
  * Defines the js result.
@@ -403,172 +409,6 @@ declare class HitTestValue {
    * @since 9
    */
   getExtra(): string;
-}
-
-/**
- * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
- * @since 9
- */
-declare class HttpAuthHandler {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * confirm.
-   * @since 9
-   */
-  confirm(userName: string, password: string): boolean;
-
-  /**
-   * cancel.
-   * @since 9
-   */
-  cancel(): void;
-
-  /**
-   * isHttpAuthInfoSaved.
-   * @since 9
-   */
-  isHttpAuthInfoSaved(): boolean;
-}
-
-/**
- * Defines the accessible resource type, related to {@link onPermissionRequest} method.
- * @since 9
- */
-declare enum ProtectedResourceType {
-  /**
-   * The MidiSysex resource.
-   * @since 9
-   */
-  MidiSysex = "TYPE_MIDI_SYSEX"
-}
-
-/**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
- * @since 9
- */
-declare class PermissionRequest {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Reject the request.
-   * @since 9
-   */
-  deny(): void;
-
-  /**
-   * Gets the source if the webpage that attempted to access the restricted resource.
-   * @since 9
-   */
-  getOrigin(): string;
-
-  /**
-   * Gets the resource that the webpage is trying to access.
-   * @since 9
-   */
-  getAccessibleResource(): Array<string>;
-
-  /**
-   * Grant origin access to a given resource.
-   * @since 9
-   */
-  grant(resources: Array<string>): void;
-}
-
-/**
-* Defines the context menu param, related to {@link WebContextMenuParam} method.
-* @since 9
-*/
-declare class WebContextMenuParam {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Horizontal offset coordinates of the menu within the Web component.
-   * @return The context menu x coordinate.
-   * 
-   * @since 9
-   */
-  x(): number;
-
-  /**
-   * Vertical offset coordinates for the menu within the Web component.
-   * @return The context menu y coordinate.
-   * 
-   * @since 9
-   */
-  y(): number;
-
-  /**
-   * If the long-press location is the link returns the link's security-checked URL.
-   * @return If relate to a link return link url, else return null.
-   * 
-   * @since 9
-   */
-  getLinkUrl(): string;
-
-  /**
-   * If the long-press location is the link returns the link's original URL.
-   * @return If relate to a link return unfilterend link url, else return null.
-   * 
-   * @since 9
-   */
-  getUnfilterendLinkUrl(): string;
-
-  /**
-   * Returns the SRC URL if the selected element has a SRC attribute.
-   * @return If this context menu is "src" attribute, return link url, else return null.
-   * 
-   * @since 9
-   */
-  getSourceUrl(): string;
-
-  /**
-   * Long press menu location has image content.
-   * @return Return whether this context menu has image content.
-   * 
-   * @since 9
-   */
-  existsImageContents(): boolean;
-}
-
-/**
- * Defines the context menu result, related to {@link WebContextMenuResult} method.
- * @since 9
- */
-declare class WebContextMenuResult {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * When close context menu without other call in WebContextMenuResult,
-   * User should call this function to close menu
-   * 
-   * @since 9
-   */
-  closeContextMenu(): void;
-
-  /**
-   * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
-   * If WebContextMenuParam has not image content, this function will do nothing. 
-   * 
-   * @since 9
-   */
-  copyImage(): void;
 }
 
 /**
@@ -736,54 +576,6 @@ declare class WebResourceRequest {
    * @since 8
    */
   getResponseCode(): number;
-
-  /**
-   * Sets the response data.
-   * @param data the response data.
-   *
-   * @since 9
-   */
-  setResponseData(data: string);
-  
-  /**
-   * Sets the response encoding.
-   * @param encoding the response encoding.
-   *
-   * @since 9
-   */
-  setResponseEncoding(encoding: string);
-
- /**
-   * Sets the response MIME type.
-   * @param mimeType the response MIME type.
-   *
-   * @since 9
-   */
-  setResponseMimeType(mimeType: string);
-
-  /**
-   * Sets the reason message.
-   * @param reason the reason message.
-   *
-   * @since 9
-   */
-  setReasonMessage(reason: string);
-
-  /**
-   * Sets the response headers.
-   * @param header the response headers.
-   *
-   * @since 9
-   */
-  setResponseHeader(header: Array<Header>);
-
-  /**
-   * Sets the response code.
-   * @param code the response code.
-   *
-   * @since 9
-   */
-  setResponseCode(code: number);
 }
 
 /**
@@ -857,6 +649,7 @@ declare class JsGeolocation {
 /**
  * Defines the Web cookie.
  * @since 8
+ * @deprecated since 9
  */
 declare class WebCookie {
   /**
@@ -866,53 +659,6 @@ declare class WebCookie {
   constructor();
 
   /**
-   * Get whether cookies can be send or accepted.
-   * @return true if can send and accept cookies else false.
-   * 
-   * @since 9
-   */
-  isCookieAllowed(): boolean;
-
-  /**
-   * Get whether third party cookies can be send or accepted.
-   * @return true if can send and accept third party cookies else false.
-   * 
-   * @since 9
-   */
-  isThirdPartyCookieAllowed(): boolean;
-
-  /**
-   * Get whether file scheme cookies can be send or accepted.
-   * @return true if can send and accept else false.
-   * @since 9
-   */
-  isFileURICookieAllowed(): boolean;
-
-  /**
-   * Set whether cookies can be send or accepted.
-   * @param accept whether can send and accept cookies
-   * 
-   * @since 9
-   */
-  putAcceptCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether third party cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *  
-   * @since 9
-   */
-  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether file scheme cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   * 
-   * @since 9
-   */
-  putAcceptFileURICookieEnabled(accept: boolean): void;  
-
-  /**
    * Sets the cookie.
    * @since 8
    * @deprecated since 9
@@ -920,62 +666,11 @@ declare class WebCookie {
   setCookie();
 
   /**
-   * Sets the cookie.
-   * @since 9
-   */
-  setCookie(url: string, value: string): boolean;
-
-  /**
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
    */
   saveCookie();
-
-  /**
-   * Saves the cookies.
-   * @since 9
-   */
-  saveCookieSync(): boolean;
-
-  /**
-   * Gets all cookies for the given URL.
-   * 
-   * @param url the URL for which the cookies are requested.
-   * @return the cookie value for the given URL.
-   * 
-   * @since 9
-   */
-  getCookie(url: string): string;
-
-  /**
-   * Check whether exists any cookies.
-   * 
-   * @return true if exists cookies else false;
-   * @since 9
-   */
-  existCookie(): boolean;
-
-  /**
-   * Delete all cookies.
-   * 
-   * @since 9
-   */
-  deleteEntireCookie(): void;
-
-  /**
-   * Delete session cookies.
-   * 
-   * @since 9
-   */
-  deleteSessionCookie(): void;
-
-  /**
-   * Delete all expired cookies.
-   * 
-   * @since 9
-   */
-  deleteExpiredCookie(): void;
 }
 
 /**
@@ -1034,21 +729,6 @@ declare class WebCookie {
    * @since 8
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
-
-  /**
-   * Create web message ports
-   *
-   * @since 9
-   */
-  createWebMessagePorts(): Array<WebMessagePort>;
-
-  /**
-   * Post web message port to html5
-   * @param options The options with a message event and a uri.
-   *
-   * @since 9
-   */
-  postMessage(options: { message: WebMessageEvent, uri: string}): void;
 
   /**
    * Loads the data or URL.
@@ -1173,33 +853,6 @@ declare class WebCookie {
    * @since 9
    */
   backOrForward(step: number): void;
-
-  /**
-   * Gets network cookie manager
-   * @since 9
-   */
-  getCookieManager() : WebCookie
-
-  /**
-   * Search all instances of 'searchString' on the page and highlights them,
-   * result will be notify through callback onSearchResultReceive.
-   * @param searchString string to be search.
-   * @since 9
-   */
-  searchAllAsync(searchString: string): void;
-
-  /**
-   * Clears the highlighting surrounding text matches created by searchAllAsync.
-   * @since 9
-   */
-  clearMatches(): void;
-
-  /**
-   * Highlights and scrolls to the next match search.
-   * @param forward step of search is back or forward.
-   * @since 9
-   */
-  searchNext(forward: boolean): void;
 }
 
 /**
@@ -1596,50 +1249,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onScaleChange(callback: (event: {oldScale: number, newScale: number}) => void): WebAttribute;
-
-  /**
-   * Triggered when the browser needs credentials from the user.
-   * @param callback The triggered when the browser needs credentials from the user.
-   *
-   * @since 9
-   */
-   onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
-
-  /**
-   * Triggered when the resouces loading is intercepted.
-   * @param callback The triggered callback when the resouces loading is intercepted.
-   *
-   * @return If the response value is null, the Web will continue to load the resouces. Otherwise, the response value will be used
-   * @since 9
-   */
-  onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
-
-  /**
-   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
-   * @param callback The triggered callback when the host application that web content from the specified origin is
-   *     attempting to access the resources.
-   *
-   * @since 9
-   */
-  onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
-
-  /**
-   * Triggered when called to allow custom display of the context menu.
-   * @param callback The triggered callback when called to allow custom display of the context menu.
-   *
-   * @return If custom display return true.Otherwise, default display return false.
-   * @since 9
-   */
-  onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
-
-  /**
-   * Notify search result to host application through onSearchResultReceive.
-   * @param callback function Triggered when the host application call searchAllAsync
-   * or searchNext api on WebController and the request is valid.
-   *
-   * @since 9
-   */
-   onSearchResultReceive(callback: (event?: {activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean}) => void): WebAttribute
 }
 
 declare const Web: WebInterface;
