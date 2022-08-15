@@ -198,6 +198,13 @@ declare namespace mediaLibrary {
      */
     readonly dateAdded: number;
     /**
+     * Date (timestamp) when the file was trashed.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
+     * @since 9
+     */
+    readonly dateTrashed: number;
+    /**
      * Date (timestamp) when the file was modified.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
@@ -239,7 +246,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
-    orientation: number;
+    readonly orientation: number;
     /**
      * duration of the audio and video file.
      * @since 8
@@ -282,36 +289,76 @@ declare namespace mediaLibrary {
     isDirectory():Promise<boolean>;
     /**
      * Modify meta data where the file is located.
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback no value will be returned.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead commitModifyCheckType
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify meta data where the file is located.
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param callback no value will be returned.
+     * @since 9
+     */
+    commitModifyCheckType(callback: AsyncCallback<void>): void;
+    /**
+     * Modify meta data where the file is located.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @since 8
+     * @deprecated since 9
+     * @useinstead commitModifyCheckType
      */
     commitModify(): Promise<void>;
     /**
+     * Modify meta data where the file is located.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @since 9
+     */
+    commitModifyCheckType(): Promise<void>;
+    /**
      * Open the file is located.
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead openCheckType
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
      * Open the file is located.
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT or ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param mode mode for open, for example: rw, r, w.
+     * @param callback Callback return the fd of the file.
+     * @since 9
+     */
+    openCheckType(mode: string, callback: AsyncCallback<number>): void;
+    /**
+     * Open the file is located.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead openCheckType
      */
     open(mode: string): Promise<number>;
+    /**
+     * Open the file is located.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT or ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param mode mode for open, for example: rw, r, w.
+     * @since 9
+     */
+    openCheckType(mode: string): Promise<number>;
     /**
      * Close the file is located.
      * @since 8
@@ -331,46 +378,98 @@ declare namespace mediaLibrary {
     close(fd: number): Promise<void>;
     /**
      * Get thumbnail of the file when the file is located.
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return the thumbnail's pixelmap.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead getThumbnailCheckType
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
      * Get thumbnail of the file when the file is located.
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param callback Callback used to return the thumbnail's pixelmap.
+     * @since 9
+     */
+    getThumbnailCheckType(callback: AsyncCallback<image.PixelMap>): void;
+    /**
+     * Get thumbnail of the file when the file is located.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param size thumbnail's size
      * @param callback Callback used to return the thumbnail's pixelmap.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead getThumbnailCheckType
      */
     getThumbnail(size: Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
      * Get thumbnail of the file when the file is located.
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param size thumbnail's size
+     * @param callback Callback used to return the thumbnail's pixelmap.
+     * @since 9
+     */
+    getThumbnailCheckType(size: Size, callback: AsyncCallback<image.PixelMap>): void;
+    /**
+     * Get thumbnail of the file when the file is located.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param size thumbnail's size
+     * @since 8
+     * @deprecated since 9
+     * @useinstead getThumbnailCheckType
      */
     getThumbnail(size?: Size): Promise<image.PixelMap>;
     /**
+     * Get thumbnail of the file when the file is located.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param size thumbnail's size
+     * @since 9
+     */
+    getThumbnailCheckType(size?: Size): Promise<image.PixelMap>;
+    /**
      * Set favorite for the file when the file is located.
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite ture is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead favoriteAsset
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
      * Set favorite for the file when the file is located.
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param isFavorite ture is favorite file, false is not favorite file
+     * @param callback Callback used to return, No value is returned.
+     * @since 9
+     */
+    favoriteAsset(isFavorite: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set favorite for the file when the file is located.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite ture is favorite file, false is not favorite file
+     * @since 8
+     * @deprecated since 9
+     * @useinstead favoriteAsset
      */
     favorite(isFavorite: boolean): Promise<void>;
+    /**
+     * Set favorite for the file when the file is located.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param isFavorite ture is favorite file, false is not favorite file
+     * @since 9
+     */
+    favoriteAsset(isFavorite: boolean): Promise<void>;
     /**
      * If the file is favorite when the file is located.
      * @since 8
@@ -388,21 +487,42 @@ declare namespace mediaLibrary {
     isFavorite():Promise<boolean>;
     /**
      * Set trash for the file when the file is located.
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      * @param callback Callback used to return, No value is returned.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead trashAsset
      */
     trash(isTrash: boolean, callback: AsyncCallback<void>): void;
     /**
      * Set trash for the file when the file is located.
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param isTrash true is trashed file, false is not trashed file
+     * @param callback Callback used to return, No value is returned.
+     * @since 9
+     */
+    trashAsset(isTrash: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set trash for the file when the file is located.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
+     * @since 8
+     * @deprecated since 9
+     * @useinstead trashAsset
      */
     trash(isTrash: boolean): Promise<void>;
+    /**
+     * Set trash for the file when the file is located.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param isTrash true is trashed file, false is not trashed file
+     * @since 9
+     */
+    trashAsset(isTrash: boolean): Promise<void>;
     /**
      * If the file is in trash when the file is located.
      * @since 8
@@ -755,45 +875,96 @@ declare namespace mediaLibrary {
 
     /**
      * Modify the meta data for the album
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback, no value will be returned.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead commitModifyCheckType
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify the meta data for the album
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param callback, no value will be returned.
+     * @since 9
+     */
+    commitModifyCheckType(callback: AsyncCallback<void>): void;
+    /**
+     * Modify the meta data for the album
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @since 8
+     * @deprecated since 9
+     * @useinstead commitModifyCheckType
      */
     commitModify(): Promise<void>;
     /**
+     * Modify the meta data for the album
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @since 9
+     */
+    commitModifyCheckType(): Promise<void>;
+    /**
      * SObtains files in an album. This method uses an asynchronous callback to return the files.
-     * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getFileAssetsCheckType
      */
     getFileAssets(callback: AsyncCallback<FetchFileResult>): void;
     /**
      * SObtains files in an album. This method uses an asynchronous callback to return the files.
-     * @since 7
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @since 9
+     */
+    getFileAssetsCheckType(callback: AsyncCallback<FetchFileResult>): void;
+    /**
+     * SObtains files in an album. This method uses an asynchronous callback to return the files.
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getFileAssetsCheckType
      */
     getFileAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
     /**
+     * SObtains files in an album. This method uses an asynchronous callback to return the files.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param option Media retrieval options.
+     * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @since 9
+     */
+    getFileAssetsCheckType(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
+    /**
      * Obtains files in an album. This method uses a promise to return the files.
-     * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getFileAssetsCheckType
      */
     getFileAssets(options?: MediaFetchOptions): Promise<FetchFileResult>;
+    /**
+     * Obtains files in an album. This method uses a promise to return the files.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param option Media retrieval options.
+     * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @since 9
+     */
+    getFileAssetsCheckType(options?: MediaFetchOptions): Promise<FetchFileResult>;
   }
 
   /**
@@ -866,23 +1037,47 @@ declare namespace mediaLibrary {
     /**
      * query all assets just for count & first cover
      * if need all data, getAllObject from FetchFileResult
-     * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param options, Media retrieval options.
      * @param callback, Callback return the FetchFileResult.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getTypeAssets
      */
     getFileAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
     /**
      * query all assets just for count & first cover
      * if need all data, getAllObject from FetchFileResult
-     * @since 7
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param options, Media retrieval options.
+     * @param callback, Callback return the FetchFileResult.
+     * @since 9
+     */
+     getTypeAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
+    /**
+     * query all assets just for count & first cover
+     * if need all data, getAllObject from FetchFileResult
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param options Media retrieval options.
      * @return A promise instance used to return the files in the format of a FetchFileResult instance
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getTypeAssets
      */
     getFileAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
+    /**
+     * query all assets just for count & first cover
+     * if need all data, getAllObject from FetchFileResult
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param options Media retrieval options.
+     * @return A promise instance used to return the files in the format of a FetchFileResult instance
+     * @since 9
+     */
+     getTypeAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
     /**
      * Turn on mornitor the data changes by media type
      * @since 8
@@ -901,64 +1096,156 @@ declare namespace mediaLibrary {
      off(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Create File Asset
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
      * @param callback Callback used to return the FileAsset
+     * @since 8
+     * @deprecated since 9
+     * @useinstead createAssetCheckType
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string, callback: AsyncCallback<FileAsset>): void;
     /**
      * Create File Asset
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
+     * @param displayName file name
+     * @param relativePath relative path
+     * @param callback Callback used to return the FileAsset
+     * @since 9
+     */
+     createAssetCheckType(mediaType: MediaType, displayName: string, relativePath: string, callback: AsyncCallback<FileAsset>): void;
+    /**
+     * Create File Asset
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
      * @return A Promise instance used to return the FileAsset
+     * @since 8
+     * @deprecated since 9
+     * @useinstead createAssetCheckType
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
     /**
+     * Create File Asset
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
+     * @param displayName file name
+     * @param relativePath relative path
+     * @return A Promise instance used to return the FileAsset
+     * @since 9
+     */
+     createAssetCheckType(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
+    /**
      * Delete File Asset
-     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri FileAsset's URI
      * @param callback no value returned
      * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead deleteAssetCheckType
      */
     deleteAsset(uri: string, callback: AsyncCallback<void>): void;
     /**
      * Delete File Asset
-     * @since 8
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param uri FileAsset's URI
+     * @param callback no value returned
+     * @systemapi
+     * @since 9
+     */
+     deleteAssetCheckType(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Delete File Asset
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri, FileAsset's URI
      * @return A Promise instance, no value returned
      * @systemapi
+     * @since 8
+     * @deprecated since 9
+     * @useinstead deleteAssetCheckType
      */
     deleteAsset(uri: string): Promise<void>;
     /**
+     * Delete File Asset
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
+     * @param uri, FileAsset's URI
+     * @return A Promise instance, no value returned
+     * @systemapi
+     * @since 9
+     */
+     deleteAssetCheckType(uri: string): Promise<void>;
+    /**
      * Obtains albums based on the media retrieval options. This method uses an asynchronous callback to return.
-     * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @param callback Callback used to return an album array.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getAlbumsCheckType
      */
     getAlbums(options: MediaFetchOptions, callback: AsyncCallback<Array<Album>>): void;
     /**
+     * Obtains albums based on the media retrieval options. This method uses an asynchronous callback to return.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param option Media retrieval options.
+     * @param callback Callback used to return an album array.
+     * @since 9
+     */
+    getAlbumsCheckType(options: MediaFetchOptions, callback: AsyncCallback<Array<Album>>): void;
+    /**
      * Obtains albums based on the media retrieval options. This method uses a promise to return the albums.
-     * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @return A Promise instance used to return an album array.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead getAlbumsCheckType
      */
     getAlbums(options: MediaFetchOptions): Promise<Array<Album>>;
+    /**
+     * Obtains albums based on the media retrieval options. This method uses a promise to return the albums.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param option Media retrieval options.
+     * @return A Promise instance used to return an album array.
+     * @since 9
+     */
+    getAlbumsCheckType(options: MediaFetchOptions): Promise<Array<Album>>;
+    /**
+     * Obtains system private albums based on the virtual album type. This method uses an asynchronous callback to return.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param type virtual album type
+     * @param callback used to return a virtual album array.
+     * @systemapi
+     * @since 9
+     */
+    getPrivateAlbum(type: VirtualAlbumType, callback: AsyncCallback<Array<VirtualAlbum>>): void;
+    /**
+     * Obtains system private albums based on the virtual album type. This method uses a promise to return.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param type virtual album type
+     * @return A Promise instance used to return a virtual album array.
+     * @systemapi
+     * @since 9
+     */
+    getPrivateAlbum(type: VirtualAlbumType): Promise<Array<VirtualAlbum>>;
     /**
      * Stores media resources. This method uses an asynchronous callback to return the URI that stores
      * the media resources.
@@ -1193,6 +1480,57 @@ declare namespace mediaLibrary {
      * @systemapi
      */
     TYPE_TV
+  }
+  /**
+   * Virtual album type
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   * @systemapi
+   * @since 9
+   */
+  enum VirtualAlbumType {
+    /**
+     * System Private Album: Favorite album
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
+     * @since 9
+     */
+    TYPE_FAVORITE,
+    /**
+     * System Private Album: Trash album
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
+     * @since 9
+     */
+    TYPE_TRASH,
+  }
+  /**
+   * Defines the virtual album
+   *
+   * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+   * @systemapi
+   * @since 9
+   */
+  interface VirtualAlbum {
+    /**
+     * Obtains files in an virtual album. This method uses an asynchronous callback to return the files.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param option Media retrieval options.
+     * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @systemapi
+     * @since 9
+     */
+    getFileAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
+    /**
+     * Obtains files in an virtual album. This method uses a promise to return the files.
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param option Media retrieval options.
+     * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @systemapi
+     * @since 9
+     */
+    getFileAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
   }
 }
 
