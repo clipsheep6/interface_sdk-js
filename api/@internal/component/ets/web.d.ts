@@ -857,6 +857,7 @@ declare class JsGeolocation {
 /**
  * Defines the Web cookie.
  * @since 8
+ * @deprecated since 9
  */
 declare class WebCookie {
   /**
@@ -866,53 +867,6 @@ declare class WebCookie {
   constructor();
 
   /**
-   * Get whether cookies can be send or accepted.
-   * @return true if can send and accept cookies else false.
-   * 
-   * @since 9
-   */
-  isCookieAllowed(): boolean;
-
-  /**
-   * Get whether third party cookies can be send or accepted.
-   * @return true if can send and accept third party cookies else false.
-   * 
-   * @since 9
-   */
-  isThirdPartyCookieAllowed(): boolean;
-
-  /**
-   * Get whether file scheme cookies can be send or accepted.
-   * @return true if can send and accept else false.
-   * @since 9
-   */
-  isFileURICookieAllowed(): boolean;
-
-  /**
-   * Set whether cookies can be send or accepted.
-   * @param accept whether can send and accept cookies
-   * 
-   * @since 9
-   */
-  putAcceptCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether third party cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *  
-   * @since 9
-   */
-  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether file scheme cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   * 
-   * @since 9
-   */
-  putAcceptFileURICookieEnabled(accept: boolean): void;  
-
-  /**
    * Sets the cookie.
    * @since 8
    * @deprecated since 9
@@ -920,62 +874,11 @@ declare class WebCookie {
   setCookie();
 
   /**
-   * Sets the cookie.
-   * @since 9
-   */
-  setCookie(url: string, value: string): boolean;
-
-  /**
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
    */
   saveCookie();
-
-  /**
-   * Saves the cookies.
-   * @since 9
-   */
-  saveCookieSync(): boolean;
-
-  /**
-   * Gets all cookies for the given URL.
-   * 
-   * @param url the URL for which the cookies are requested.
-   * @return the cookie value for the given URL.
-   * 
-   * @since 9
-   */
-  getCookie(url: string): string;
-
-  /**
-   * Check whether exists any cookies.
-   * 
-   * @return true if exists cookies else false;
-   * @since 9
-   */
-  existCookie(): boolean;
-
-  /**
-   * Delete all cookies.
-   * 
-   * @since 9
-   */
-  deleteEntireCookie(): void;
-
-  /**
-   * Delete session cookies.
-   * 
-   * @since 9
-   */
-  deleteSessionCookie(): void;
-
-  /**
-   * Delete all expired cookies.
-   * 
-   * @since 9
-   */
-  deleteExpiredCookie(): void;
 }
 
 /**
