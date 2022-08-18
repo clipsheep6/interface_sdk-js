@@ -60,3 +60,52 @@ export interface BusinessError extends Error {
    */
   code: number;
 }
+
+/**
+ * Defines the basic ohos error callback.
+ * @interface
+ * @since 9
+ */
+export interface OHErrorCallback<T extends Error = OHBusinessError> {
+  /**
+   * Defines the OHErrorCallback info.
+   * @param { T } err - the error info.
+   * @since 9
+   */
+  (err: T): void; 
+}
+
+/**
+ * Defines the basic ohos async callback.
+ * @interface
+ * @since 9
+ */
+export interface OHAsyncCallback<T, E = void> {
+  /**
+   * Defines the basic ohos async callback info.
+   * @param { OHBusinessError } err - the error info.
+   * @param { T } data - the callback result.
+   * @since 9
+   */
+  (err: OHBusinessError<E>, data: T) : void;
+}
+
+/**
+ * Defines the basic ohos error interface.
+ * @interface
+ * @since 9
+ */
+export interface OHBusinessError<T = void> extends Error {
+  /**
+   * Defines the ohos error number.
+   * @type { number }
+   * @since 9
+   */
+  errorNumber: number;
+  /**
+   * Defines the extra error info.
+   * @type { T } [errorData]
+   * @since 9
+   */
+  errorData?: T;
+}
