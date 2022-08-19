@@ -57,9 +57,10 @@ declare namespace effectKit {
     * Gets the PixelMap where all filter effects have been added to the image.
     * @since 9
     * @syscap SystemCapability.Multimedia.Image.Core
+    * @param forceCPU Whether to force images to be rendered by CPU, default is false.
     * @return image.PixelMap.
     */
-    getPixelMap(): image.PixelMap;
+    getPixelMap(forceCPU?: boolean): image.PixelMap;
   }
 
   /**
