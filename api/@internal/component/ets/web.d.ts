@@ -1360,12 +1360,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
 
   /**
-   * Sets the atio of the text zoom.
-   * @param textZoomAtio The atio of the text zoom.
+   * Sets the ratio of the text zoom.
+   * @param textZoomRatio The ratio of the text zoom.
    *
    * @since 8
    */
-  textZoomAtio(textZoomAtio: number): WebAttribute;
+  textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
    * Sets whether the Web access the database.
