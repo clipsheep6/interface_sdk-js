@@ -1696,6 +1696,7 @@ declare class CommonMethod<T> {
   /**
    * Sets the number of occupied columns and offset columns for a specific device width type.
    * @since 7
+   * @deprecated since 9
    */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
