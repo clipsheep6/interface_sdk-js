@@ -76,136 +76,6 @@ declare namespace UserFileManager {
     AUDIO
   }
 
-  /**
-   * Enumeration types for member name
-   * @since 9
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   */
-  enum AssetMember {
-    /**
-     * MIME type, for example, video/mp4, audio/mp4, or audio/amr-wb, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    MEDIA_TYPE = 0,
-    /**
-     * Display name (with a file name extension) of the file, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DISPLAY_NAME,
-    /**
-     * File name title (without the file name extension).
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    TITLE,
-    /**
-     * member Relative Path
-     * Relative Path of the file.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH,
-    /**
-     * Parent folder's file_id of the file, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    PARENT,
-    /**
-     * Data size of the file, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    SIZE,
-    /**
-     * Date (timestamp) when the file was added, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_ADDED,
-    /**
-     * Date (timestamp) when the file was trashed, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_TRASHED,
-    /**
-     * Date (timestamp) when the file was modified, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_MODIFIED,
-    /**
-     * Date (timestamp) when the file was taken, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_TAKEN,
-    /**
-     * Artist of the audio file, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    ARTIST,
-    /**
-     * audioAlbum of the audio file, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    AUDIO_ALBUM,
-    /**
-     * Display width of the file. This is valid only for videos and images, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    WIDTH,
-    /**
-     * Display height of the file. This is valid only for videos and images, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    HEIGHT,
-    /**
-     * Rotation angle of the file, in degrees, readonly
-     * The rotation angle can be 0, 90, 180, or 270 degrees. This is valid only for videos.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    ORIENTATION,
-    /**
-     * duration of the audio and video file, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DURATION,
-    /**
-     * ID of the album where the file is located, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    ALBUM_ID,
-    /**
-     * URI of the album where the file is located, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    ALBUM_URI,
-    /**
-     * Name of the album where the file is located, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    ALBUM_NAME,
-    /**
-     * get the count number from the db, readonly
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    COUNT,
-  }
-
   type MemberType = number | string | boolean;
 
   /**
@@ -227,14 +97,19 @@ declare namespace UserFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     readonly mimeType: string;
-
+    /**
+     * Display name (with a file name extension) of the file.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+     displayName: string;
     /**
      * return the fileasset member parameter.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param member the name of the parameter.
      */
-    get(member: AssetMember): MemberType;
+    get(member: string): MemberType;
 
     /**
      * set the fileasset member parameter.
@@ -242,8 +117,7 @@ declare namespace UserFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param member the name of the parameter.
      */
-    set(member: AssetMember, value: string, callback: AsyncCallback<void>): void;
-    set(member: AssetMember, value: string): Promise<void>;
+    set(member: string, value: string): void;
 
     /**
      * If it is a directory where the file is located.
@@ -611,20 +485,19 @@ declare namespace UserFileManager {
    */
   interface MediaFetchOptions {
     /**
+     * Indicates the columns to query.
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param fetchColumns Indicates the columns to query. If this parameter is null, only uri, name, mediaType will query.
+     */
+     fetchColumns: Array<string>;
+    /**
      * predicate to query
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      */
     predicates: dataSharePredicates.DataSharePredicates;
-
-    /**
-     * Indicates the columns to query.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param columns Indicates the columns to query. If this parameter is null, only uri, mediaType will query.
-     */
-    columns: Array<string>;
   }
 
   /**
