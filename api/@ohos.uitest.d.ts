@@ -15,7 +15,7 @@
 
 /**
  * Resize direction for the window.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
  enum ResizeDirection{
@@ -30,7 +30,7 @@
  }
 /**
  * Enumerates the string value match pattern.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 8
  */
  enum MatchPattern{
@@ -66,7 +66,7 @@
 
 /**
  * Describes the window mode of the tested window
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
  enum WindowMode{
@@ -75,10 +75,22 @@
     SECONDARY,
     FLOATING
  }
+
+/**
+ * Describes the rotation of the device display
+ * @syscap SystemCapability.Test.UiTest
+ * @since 9
+ */
+enum DisplayRotation {
+    ROTATION_0,
+    ROTATION_90,
+    ROTATION_180,
+    ROTATION_270
+}
  
 /**
  * Represents the point on the device screen.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 declare interface Point {
@@ -88,7 +100,7 @@ declare interface Point {
 
 /**
  * Represents the rectangle area on the device screen.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 declare interface Rect {
@@ -100,7 +112,7 @@ declare interface Rect {
 
 /**
  * Represents filer condition to get the window .
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 declare interface WindowFilter {
@@ -420,7 +432,7 @@ class UiComponent{
       /**
        * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
        * @since 9
        * @test
        */
@@ -429,7 +441,7 @@ class UiComponent{
       /**
        * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
        * @since 9
        * @test
        */
@@ -471,6 +483,24 @@ class UiComponent{
        * @test
        */
       dragTo(target: UiComponent): Promise<void>;
+
+      /**
+       * Pinch enlarge this {@link UiComponent} to the target scale.
+       * @syscap SystemCapability.Test.UiTest
+       * @param scale the scale of the pinch enlarge this {@link UiComponent}'s size.
+       * @since 9
+       * @test
+       */
+      pinchOut(scale: number): Promise<void>;
+
+      /**
+       * Pinch shrink this {@link UiComponent} to the target scale.
+       * @syscap SystemCapability.Test.UiTest
+       * @param scale the scale of the pinch shrink this {@link UiComponent}'s size.
+       * @since 9
+       * @test
+       */
+      pinchIn(scale: number): Promise<void>;
 }
 
 /**
@@ -569,6 +599,17 @@ class UiComponent{
   triggerKey(keyCode:number):Promise<void>;
 
   /**
+   * Press two or three key combinations
+   * @syscap SystemCapability.Test.UiTest
+   * @param key0 the first keyCode.
+   * @param key1 the second keyCode.
+   * @param key2 the third keyCode.
+   * @since 9
+   * @test
+   */
+  triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
+
+  /**
    * Click on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
    * @param x the x-coordinate.
@@ -618,7 +659,7 @@ class UiComponent{
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -631,7 +672,7 @@ class UiComponent{
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -646,6 +687,100 @@ class UiComponent{
    * @test
    */
   screenCap(savePath:string):Promise<bool>;
+
+  /**
+   * Set the rotation of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param rotation the target rotation to set.
+   * @since 9
+   * @test
+   */
+  setDisplayRotation(rotation: DisplayRotation):Promise<void>;
+
+  /**
+   * Get the rotation of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the current display rotation.
+   * @since 9
+   * @test
+   */
+   getDisplayRotation():Promise<DisplayRotation>;
+
+  /**
+   * Enable/disable the rotation of device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param enabled enable the rotation or not.
+   * @since 9
+   * @test
+   */
+   setDisplayRotationEnabled(enabled:bool):Promise<void>;
+
+  /**
+   * Get the size of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the size of the device display.
+   * @since 9
+   * @test
+   */
+   getDisplaySize():Promise<Point>;
+
+  /**
+   * Get the density of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the density of the device display.
+   * @since 9
+   * @test
+   */
+   getDisplayDensity():Promise<Point>;
+
+  /**
+   * Wake up the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 9
+   * @test
+   */
+   wakeUpDisplay():Promise<void>;
+
+  /**
+   * Press the home key.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 9
+   * @test
+   */
+   pressHome():Promise<void>;
+
+  /**
+   * Wait for the UI become idle.
+   * @syscap SystemCapability.Test.UiTest
+   * @param idleTime the threshold of UI idle time, in millisecond.
+   * @param timeout the maximum time to wait for idle, in millisecond.
+   * @returns true if wait for idle succeed in the timeout, false otherwise.
+   * @since 9
+   * @test
+   */
+   waitForIdle(idleTime: number, timeout: number):Promise<bool>;
+
+  /**
+   * Inject fling on the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param from the coordinate point where the finger touches the screen.
+   * @param to the coordinate point where the finger leaves the screen.
+   * @param stepLen the length of each step, in pixels.
+   * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
+   * @since 9
+   * @test
+   */
+   fling(from: Point, to: Point, stepLen: number, speed: number):Promise<void>;
+
+  /**
+   * Inject multi-pointer action on the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param pointers the two-dimensional array of pointers to inject.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
+   * @since 9
+   * @test
+   */
+   injectMultiPointerAction(pointers: PointerMatrix, speed?: number):Promise<bool>;
 }
 
 /**
@@ -784,6 +919,38 @@ class UiComponent{
  }
 
 /**
+ * Represents a two-dimensional array of pointers on the device display, it's used to build a
+ * multi-finger trace which can be injected with UiDriver.
+ *
+ * @since 9
+ * @test
+ * @syscap SystemCapability.Test.UiTest
+ */
+class PointerMatrix {
+   /**
+   * Create an {@link PointerMatrix} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @param fingers the number of fingers.
+   * @param steps the number of steps of each finger trace.
+   * @returns the {@link PointerMatrix} object.
+   * @since 9
+   * @test
+   */
+    static create(fingers: number, steps: number):PointerMatrix;
+
+    /**
+    * Set the point value of an element in the PointerMatrix.
+    * @syscap SystemCapability.Test.UiTest
+    * @param finger the index of target finger to set.
+    * @param step the index of target step to set.
+    * @param point the coordinate of target step to set.
+    * @since 9
+    * @test
+    */
+    setPoint(finger: number, step: number, point: Point):void;
+}
+
+/**
  * The static builder for building {@link By}object conveniently,usage example:BY.text('txt').enabled(true).
  * @syscap SystemCapability.Test.UiTest
  * @since 8
@@ -791,4 +958,4 @@ class UiComponent{
  */
  const BY:By;
 
- export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,ResizeDirection,WindowMode};
+ export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,DisplayRotation,ResizeDirection,WindowMode,PointerMatrix};

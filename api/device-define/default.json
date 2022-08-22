@@ -4,6 +4,7 @@
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
+    "SystemCapability.ArkUI.UiAppearance",
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.BundleTool",
@@ -151,6 +152,8 @@
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.settings.Core",
-    "SystemCapability.Test.UiTest"
+    "SystemCapability.Test.UiTest",
+    "SystemCapability.Web.Webview.Core",
+    "SystemCapability.Developtools.Syscap"
   ]
 }

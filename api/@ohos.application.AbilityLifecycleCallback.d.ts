@@ -14,6 +14,8 @@
  */
 
 import Ability from "./@ohos.application.Ability";
+import dataAbility from "./@ohos.data.dataAbility";
+import window from './@ohos.window';
 
 /**
  * The ability lifecycle callback.
@@ -24,7 +26,7 @@ import Ability from "./@ohos.application.Ability";
  */
 export default class AbilityLifecycleCallback {
     /**
-     * Called back when the ability is started for initialization.
+     * Called back when an ability is started for initialization.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -34,27 +36,51 @@ export default class AbilityLifecycleCallback {
     onAbilityCreate(ability: Ability): void;
 
     /**
-     * Called back when the ability window stage is created.
+     * Called back when a window stage is created.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to create
      * @StageModelOnly
      */
-    onAbilityWindowStageCreate(ability: Ability): void;
+    onWindowStageCreate(ability: Ability, windowStage: window.WindowStage): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when a window stage is actived.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to active
      * @StageModelOnly
      */
-    onAbilityWindowStageDestroy(ability: Ability): void;
+    onWindowStageActive(ability: Ability, windowStage: window.WindowStage): void;
+
+    /**
+     * Called back when a window stage is inactived.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to inactive
+     * @StageModelOnly
+     */
+    onWindowStageInactive(ability: Ability, windowStage: window.WindowStage): void;
+
+    /**
+     * Called back when a window stage is destroyed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to destroy
+     * @StageModelOnly
+     */
+    onWindowStageDestroy(ability: Ability, windowStage: window.WindowStage): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when an ability is destroyed.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -64,7 +90,7 @@ export default class AbilityLifecycleCallback {
     onAbilityDestroy(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when the state of an ability changes to foreground.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -74,7 +100,7 @@ export default class AbilityLifecycleCallback {
     onAbilityForeground(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when the state of an ability changes to background.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -84,7 +110,7 @@ export default class AbilityLifecycleCallback {
     onAbilityBackground(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when an ability prepares to continue.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

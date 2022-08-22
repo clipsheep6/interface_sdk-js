@@ -150,6 +150,8 @@
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.settings.Core",
-    "SystemCapability.Test.UiTest"
+    "SystemCapability.Test.UiTest",
+    "SystemCapability.Web.Webview.Core",
+    "SystemCapability.Developtools.Syscap"
   ]
 }

@@ -255,6 +255,12 @@ declare namespace commonEvent {
     COMMON_EVENT_PACKAGE_DATA_CLEARED = "usual.event.PACKAGE_DATA_CLEARED",
 
     /**
+     * this commonEvent means the user has cleared the package cache.
+     * @since 9
+     */
+     COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
+
+    /**
      * this commonEvent means the packages have been suspended.
      */
     COMMON_EVENT_PACKAGES_SUSPENDED = "usual.event.PACKAGES_SUSPENDED",
@@ -831,6 +837,20 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_ACTIVE = "common.event.IVI_ACTIVE",
 
     /**
+     * @since 9
+     * The usb state change events.
+     * This is a protected common event that can only be sent by system.
+     */
+    COMMON_EVENT_USB_STATE = "usual.event.hardware.usb.action.USB_STATE",
+
+    /**
+     * @since 9
+     * The usb port changed.
+     * This is a protected common event that can only be sent by system.
+     */
+    COMMON_EVENT_USB_PORT_CHANGED = "usual.event.hardware.usb.action.USB_PORT_CHANGED",
+
+    /**
      * The usb device attached.
      * This is a protected common event that can only be sent by system.
      */
@@ -965,7 +985,14 @@ declare namespace commonEvent {
      * This is a protected common event that can only be sent by system.
      * @since 9
      */
-     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE"
+     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
+
+    /**
+     * Indicate the action of a common event that the spn display information has been updated.
+     * This common event can be triggered only by system.
+     * @since 9
+     */
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
   }
 }
 

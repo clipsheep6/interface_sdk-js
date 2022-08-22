@@ -60,42 +60,9 @@ declare namespace inputMethod {
     function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
     /**
-     * Get current input method
-     * @since 9
-     * @return The InputMethodProperty object of the current input method
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    function getCurrentInputMethod(): InputMethodProperty;
-
-    /**
      * @since 8
      */
     interface InputMethodSetting {
-        /**
-         * List input methods
-         * @since 9
-         * @param enable :
-         *     if true, collect enabled input methods.
-         *     if false, collect disabled input methods.
-         * @return -
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
-         */
-        listInputMethod(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
-
-        /**
-         * List input methods
-         * @since 9
-         * @param enable :
-         *     if true, collect enabled input methods.
-         *     if false, collect disabled input methods.
-         * @return -
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
-         */
-        listInputMethod(enable: boolean): Promise<Array<InputMethodProperty>>;
-
         /**
          * @since 8
          */
@@ -117,6 +84,40 @@ declare namespace inputMethod {
         stopInput(callback: AsyncCallback<boolean>): void;
 
         stopInput(): Promise<boolean>;
+
+        /**
+         * Show soft keyboard
+         * @since 9
+         * @param callback
+         * @return :-
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+        */
+        showSoftKeyboard(callback: AsyncCallback<void>): void;
+
+        /**
+         * Show soft keyboard
+         * @since 9
+         * @return :-
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        showSoftKeyboard():Promise<void>;
+         
+        /**
+         * Hide soft keyboard
+         * @since 9
+         * @param callback
+         * @return :-
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        hideSoftKeyboard(callback: AsyncCallback<void>): void;
+         
+        /**
+         * Hide soft keyboard
+         * @since 9
+         * @return :-
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        hideSoftKeyboard():Promise<void>;
     }
 
     /**
