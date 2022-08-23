@@ -422,7 +422,7 @@ declare namespace distributedData {
          * NO_LEVEL: mains not set the security level.
          *
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          */
         NO_LEVEL = 0,
