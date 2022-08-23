@@ -98,6 +98,25 @@ declare namespace backgroundTaskManager {
     function stopBackgroundRunning(context: Context): Promise<void>;
 
     /**
+     * Apply or unapply efficency resources.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply
+     * @return True if efficency resources apply success, else false.
+     * @systemapi Hide this for inner system use.
+     */
+    function applyEfficencyResources(request: EfficencyResourcesRequest): bool;
+
+    /**
+     * Reset all efficency resources apply.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
+     * @systemapi Hide this for inner system use.
+     */
+    function resetAllEfficencyResources(): void;
+
+    /**
      * supported background mode.
      *
      * @since 8
@@ -178,6 +197,89 @@ declare namespace backgroundTaskManager {
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         TASK_KEEPING = 9,
+    }
+
+    /**
+     * The type of resource.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
+     * @systemapi Hide this for inner system use.
+     */
+    export enum ResourceType {
+        /**
+         * The cpu resource for not being suspended.
+         */
+        CPU = 1,
+
+        /**
+         * The resource for not being proxyed common_event.
+         */
+        COMMON_EVENT = 1 << 1,
+
+        /**
+         * The resource for not being proxyed timer.
+         */
+        TIMER = 1 << 2,
+
+        /**
+         * The resource for not being proxyed workscheduler.
+         */
+        WORK_SCHEDULER = 1 << 3,
+
+        /**
+         * The resource for not being proxyed bluetooth.
+         */
+        BLUETOOTH = 1 << 4,
+
+        /**
+         * The resource for not being proxyed gps.
+         */
+        GPS = 1 << 5,
+
+        /**
+         * The resource for not being proxyed audio.
+         */
+        AUDIO = 1 << 6
+    }
+
+    /**
+     * The request of efficency resources.
+     *
+     * @name EfficencyResourcesRequest
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficencyResourcesApply.
+     * @systemapi Hide this for inner system use.
+     */
+    export interface EfficencyResourcesRequest {
+        /**
+         * The set of resource types that app wants to apply.
+         */
+        resourceTypes: number;
+
+        /**
+         * True if the app begin to use, else false.
+         */
+        isApply: bool;
+
+        /**
+         * The duration that the resource can be used most.
+         */
+        timeOut: number;
+
+        /**
+         * True if the apply action is persist, else false. Default value is false.
+         */
+        isPersist?: bool;
+
+        /**
+         * True if apply action is for process, false is for package. Default value is false.
+         */
+        isProcess?: false;
+        /**
+         *  The apply reason.
+         */
+        reason: string;
     }
 }
 
