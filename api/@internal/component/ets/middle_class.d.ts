@@ -880,6 +880,36 @@ declare class TSListItemAttribute extends CommonMethod<ListItemAttribute> {
  * Used for TS compiler.
  * @ignore
  * @systemapi
+ * @since 9
+ */
+ declare class TSListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  create(value?: { header?: CustomBuilder; footer?: CustomBuilder; space?: number | string }): ListItemGroupAttribute;
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  pop(): ListItemGroupAttribute;
+  /**
+   * Used for TS compiler.
+   * @ignore
+   * @systemapi
+   * @since 9
+   */
+  debugLine(value: string): ListItemGroupAttribute;
+}
+
+/**
+ * Used for TS compiler.
+ * @ignore
+ * @systemapi
  * @since 8
  */
 declare class TSLoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
