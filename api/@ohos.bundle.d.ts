@@ -913,8 +913,8 @@ declare namespace bundle {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
    */
-  function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
-  function setDisposedStatus(bundleName: string, status: number): Promise<void>;
+  // function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
+  // function setDisposedStatus(bundleName: string, status: number): Promise<void>;
 
   /**
    * Obtains the disposed status of a specified bundle.
@@ -926,8 +926,8 @@ declare namespace bundle {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
    */
-  function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
-  function getDisposedStatus(bundleName: string): Promise<number>;
+  // function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
+  // function getDisposedStatus(bundleName: string): Promise<number>;
 
   /**
    * Obtains configuration information about an application.
