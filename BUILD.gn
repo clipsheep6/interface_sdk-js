@@ -57,6 +57,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/ellipse.d.ts",
     "api/@internal/component/ets/enums.d.ts",
     "api/@internal/component/ets/flex.d.ts",
+    "api/@internal/component/ets/flow_item.d.ts",
     "api/@internal/component/ets/for_each.d.ts",
     "api/@internal/component/ets/form_component.d.ts",
     "api/@internal/component/ets/gauge.d.ts",
@@ -121,6 +122,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/units.d.ts",
     "api/@internal/component/ets/video.d.ts",
+    "api/@internal/component/ets/water_flow.d.ts",
     "api/@internal/component/ets/web.d.ts",
     "api/@internal/component/ets/xcomponent.d.ts",
   ]
