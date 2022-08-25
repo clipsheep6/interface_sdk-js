@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1072,6 +1072,33 @@ declare interface Dir {
      * @throws {TypedError | Error} close fail
      */
     closeSync(): void;
+    /**
+     * listfile.
+     *
+     * @note N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @permission N/A
+     * @function listfile
+     * @param {number} n - list n dirents.
+     * @param {AsyncCallback<Array<Dirent>>} [callback] - callback.
+     * @returns {void | Promise<Array<Dirent>>} no callback return Promise otherwise return void
+     * @throws {TypedError} Parameter check failed if read to end, Error.msg = "NoMore"
+     */
+     listfile(n: number): Promise<Array<Dirent>>;
+     listfile(n: number, callback: AsyncCallback<Array<Dirent>>): void;
+     /**
+      * listfileSync.
+      * @note N/A
+      * @syscap SystemCapability.FileManagement.File.FileIO
+      * @since 10
+      * @permission N/A
+      * @function listfileSync
+      * @param {number} n - list n dirents.
+      * @returns {Array<Dirent>} Array<Dirent> Object
+      * @throws {TypedError | Error} read fail if read to end, Error.msg = "NoMore"
+      */
+     listfileSync(n: number): Array<Dirent>;
 }
 
 /**
