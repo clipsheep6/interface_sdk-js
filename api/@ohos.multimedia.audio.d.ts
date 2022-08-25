@@ -687,6 +687,26 @@ declare namespace audio {
   }
 
   /**
+   * Audio renderer flags used to decide output strategy.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum AudioRendererFlag {
+    /**
+     * No special strategy.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    FLAG_NONE = 0,
+    /**
+     * Flag to use low latency process.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    FLAG_LOW_LATENCY = 1
+  }
+
+  /**
    * Describes audio renderer configuration options.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1665,6 +1685,27 @@ declare namespace audio {
   }
 
   /**
+   * Implements audio stream management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  interface AudioStreamManager {
+    /**
+     * Check if system support low latency configuration in audio renderer.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    isAudioRendererLowLatencySupported(streaminfo: AudioStreamInfo, callback: Callback<boolean>): void;
+
+    /**
+     * Check if system support low latency configuration in audio renderer.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    isAudioRendererLowLatencySupported(streaminfo: AudioStreamInfo): Promise<boolean>;
+  }
+
+  /**
    * Describes an audio device.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -2123,6 +2164,34 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+
+    /**
+     * Subscribes audio data requeset event callback.
+     * @param callback Callback invoked when need audio data.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    on(type: "dataRequest", callback: Callback<AudioRendererDataInfo>): void;
+  }
+
+  /**
+   * Describe data info.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioRendererDataInfo {
+    /**
+     * Buffer to fill.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    buffer: ArrayBuffer;
+    /**
+     * Extend info with buffer.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    flags: number;
   }
 
   /**
