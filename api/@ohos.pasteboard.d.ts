@@ -313,6 +313,7 @@ declare namespace pasteboard {
     /**
      * Set PasteDataProperty to a PasteData object.
      * @param { PasteDataProperty } property - save property to PasteData object.
+     * @throws { TypedError } if property not a PasteDataProperty object.
      * @since 9
      */
     setProperty(property: PasteDataProperty): void;
