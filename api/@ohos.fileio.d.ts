@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1059,6 +1059,39 @@ declare interface Dir {
      * @returns {void | Promise<void>} close success
      * @throws {TypedError | Error} close fail
      */
+    /**
+     * listFile.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @function listFile
+     * @param {AsyncCallback<Dirent>} [callback] - callback.
+     * @returns {void | Promise<Dirent>} no callback return Promise otherwise return void
+     * @throws {BusinessError} Parameter check failed if read to end, Error.msg = "NoMore"
+     */
+     listFile(): Promise<Dirent>;
+     listFile(callback: AsyncCallback<Dirent>): void;
+     /**
+      * listFileSync.
+      * @syscap SystemCapability.FileManagement.File.FileIO
+      * @since 10
+      * @function readSync
+      * @returns {Dirent} Dirent Object
+      * @throws {BusinessError | Error} read fail if read to end, Error.msg = "NoMore"
+      */
+     listFileSync(): Dirent;
+     /**
+      * close.
+      * @note N/A
+      * @syscap SystemCapability.FileManagement.File.FileIO
+      * @since 7
+      * @permission N/A
+      * @function close
+      * @param {AsyncCallback<void>} [callback] - callback.
+      * @returns {void | Promise<void>} close success
+      * @throws {TypedError | Error} close fail
+      */
+     
     close(): Promise<void>;
     close(callback: AsyncCallback<void>): void;
     /**
