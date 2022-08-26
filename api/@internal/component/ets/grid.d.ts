@@ -186,6 +186,18 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   onItemDrop(
     event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void,
   ): GridAttribute;
+
+  /**
+   * Lets you to specify the number of columns in the current grid layout for specific device width types.
+   * @since 9
+   */
+   columnsSizeTypes(value: {
+    xs?: string;
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+   }): GridAttribute;
 }
 
 declare const Grid: GridInterface;
