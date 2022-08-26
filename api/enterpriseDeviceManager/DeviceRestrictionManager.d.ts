@@ -17,49 +17,49 @@ import { AsyncCallback } from "./../basic";
 import Want from "./../@ohos.application.Want";
 
 /**
- * @name Offers set settings policies on the devices.
+ * @name Offers set restricted policies on the devices.
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  */
-export interface DeviceSettingsManager {
+export interface DeviceRestrictionManager {
 
   /**
-   * Sets the system time.
+   * Disables the modificationing of date time.
    * This function can be called by a super administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @permission ohos.permission.EDM_MANAGE_DATETIME
-   */
-  setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
-  setDateTime(admin: Want, time: number): Promise<void>;
-
-  /**
-   * Sets the screen off time.
-   * This function can be called by a super administrator.
-   *
-   * @since 9
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
+   * @param isDisabled True if set the modificationing of date time disabled, otherwise false.
    * @permission ohos.permission.EDM_SET_RESTRICTION
    */
-  setScreenOffTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
-  setScreenOffTime(admin: Want, time: number): Promise<void>;
+  setModifyDateTimeDisabled(admin: Want, isDisabled: boolean, callback: AsyncCallback<void>): void;
+  setModifyDateTimeDisabled(admin: Want, isDisabled: boolean): Promise<void>;
 
   /**
-   * Gets the screen off time.
+   * Gets state of whether the modificationing of date time is disabled.
    * This function can be called by a super administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @return Returns the screen off time. 
+   * @return {@code true} if disabled.
    * @permission ohos.permission.EDM_SET_RESTRICTION
    */
-  getScreenOffTime(admin: Want, callback: AsyncCallback<number>): void;
-  getScreenOffTime(admin: Want): Promise<number>;
+  isModifyDateTimeDisabled(admin: Want, callback: AsyncCallback<boolean>): void;
+  isModifyDateTimeDisabled(admin: Want): Promise<boolean>;
+
+  /**
+   * Disables creating local users.
+   * This function can be called by a super administrator.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @param admin Indicates the administrator ability information.
+   * @param isDisabled True if disable creating local users, otherwise false.
+   * @return {@code true} if disables success.
+   * @permission ohos.permission.EDM_SET_RESTRICTION
+   */
+  setAddLocalAccountDisabled(admin: Want, isDisabled: boolean, callback: AsyncCallback<boolean>): void;
+  setAddLocalAccountDisabled(admin: Want, isDisabled: boolean): Promise<boolean>;
 }

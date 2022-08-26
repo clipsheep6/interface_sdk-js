@@ -13,9 +13,15 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import { AsyncCallback } from "./basic";
+import { ApplicationManager } from "./enterpriseDeviceManager/ApplicationManager";
+import { DeviceControlManager } from "./enterpriseDeviceManager/DeviceControlManager";
+import { DeviceInfo } from "./enterpriseDeviceManager/DeviceInfo";
+import { DeviceRestrictionManager } from "./enterpriseDeviceManager/DeviceRestrictionManager";
 import { DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
-import Want from "./@ohos.application.want";
+import { NetworkManager } from "./enterpriseDeviceManager/NetworkManager";
+import { WifiManager } from "./enterpriseDeviceManager/WifiManager";
+import Want from "./@ohos.application.Want";
 
 /**
  * enterprise device manager.
@@ -43,6 +49,23 @@ declare namespace enterpriseDeviceManager {
   export enum AdminType {
     ADMIN_TYPE_NORMAL = 0x00,
     ADMIN_TYPE_SUPER = 0x01
+  }
+
+  /**
+   * @name ManagedEvent
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   */
+  export enum ManagedEvent {
+    MANAGED_EVENT_BUNDLE_ADDED = 0,
+    MANAGED_EVENT_BUNDLE_REMOVED = 1,
+    MANAGED_EVENT_APP_START = 2,
+    MANAGED_EVENT_APP_STOP = 3,
+    MANAGED_EVENT_PASTE_BOARD_GET = 4,
+    MANAGED_EVENT_PASTE_BOARD_SET = 5,
+    MANAGED_EVENT_PASTE_SCREENSHOT = 6,
+    MANAGED_EVENT_SHARE_SCREEN_START = 7,
+    MANAGED_EVENT_SHARE_SCREEN_STOP = 8
   }
 
   /**
@@ -151,6 +174,87 @@ declare namespace enterpriseDeviceManager {
   function getDeviceSettingsManager(callback: AsyncCallback<DeviceSettingsManager>): void;
   function getDeviceSettingsManager(): Promise<DeviceSettingsManager>;
 
+  /**
+   * Obtains the interface used to set device network policy.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the NetworkManager interface.
+   */
+  function getNetworkManager(callback: AsyncCallback<NetworkManager>): void;
+  function getNetworkManager(): Promise<NetworkManager>;
+  
+  /**
+   * Obtains the interface used to set device info policy.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the DeviceInfo interface.
+   */
+  function getDeviceInfo(callback: AsyncCallback<DeviceInfo>): void;
+  function getDeviceInfo(): Promise<DeviceInfo>;
+
+  /**
+   * Obtains the interface used to manage application.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the ApplicationManager interface.
+   */
+  function getApplicationManager(callback: AsyncCallback<ApplicationManager>): void;
+  function getApplicationManager(): Promise<ApplicationManager>;
+
+  /**
+   * Obtains the interface used to control devices.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the DeviceControlManager interface.
+   */
+  function getDeviceControlManager(callback: AsyncCallback<DeviceControlManager>): void;
+  function getDeviceControlManager(): Promise<DeviceControlManager>;
+
+  /**
+   * Obtains the interface used to restrict devices.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the DeviceRestrictionManager interface.
+   */
+  function getDeviceRestrictionManager(callback: AsyncCallback<DeviceRestrictionManager>): void;
+  function getDeviceRestrictionManager(): Promise<DeviceRestrictionManager>;
+
+  /**
+   * Obtains the interface used to set wifi policies.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @return Returns the WifiManager interface.
+   */
+  function getWifiManager(callback: AsyncCallback<WifiManager>): void;
+  function getWifiManager(): Promise<WifiManager>;
+
+  /**
+   * Subscribes the managed event of admin.
+   *
+   * @param admin Indicates the administrator ability information.
+   * @param managedEvents Indicates the managed events to subscribe.
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   */
+  function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+  function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
+
+  /**
+   * Unsubscribes the managed event of admin.
+   *
+   * @param admin Indicates the administrator ability information.
+   * @param managedEvents Indicates the managed events to unsubscribe.
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   */
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 }
 
 export default enterpriseDeviceManager;
