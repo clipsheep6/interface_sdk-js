@@ -51,7 +51,7 @@ declare namespace vibrator {
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
 
     /**
-     * 马达振动接口,根据传入的参数进行振动.
+     * 启动马达振动.
      * @param effect 马达振动效果, {@code effect}.
      * @param attribute 马达振动属性, {@code effect}.
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -94,7 +94,7 @@ declare namespace vibrator {
     }
 
     /**
-     * 马达使用场景. 选项如下:
+     * 马达振动场景.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
@@ -102,14 +102,14 @@ declare namespace vibrator {
         "touch" | "media" | "physicalFeedback" | "simulateReality";
 
     /**
-     * 马达振动效果. 选项如下:
+     * 马达振动效果.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
      type VibrateEffect = VibrateTime | VibratePreset;
 
      /**
-     * 定义马达振动时长.
+     * 马达振动时长.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
@@ -119,14 +119,14 @@ declare namespace vibrator {
     }
 
     /**
-     * 定义马达预置振动类型.
+     * 马达预置振动类型.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     interface VibratePreset {
         type: "preset";
-        effectId: string; /** 调整定时器时振动器的振动效果 */
-        count: number; /** 马达重复振动次数 */
+        effectId: string; /** 预置的振动效果ID */
+        count: number; /** 重复振动的次数 */
     }
 }
 
