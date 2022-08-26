@@ -51,6 +51,17 @@ declare namespace vibrator {
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
 
     /**
+     * 马达振动接口,根据传入的参数进行振动.
+     * @param effect 马达振动效果, {@code effect}.
+     * @param attribute 马达振动属性, {@code effect}.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 9
+     */
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
+
+    /**
      * Stop the motor from vibrating.
      * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -80,6 +91,42 @@ declare namespace vibrator {
         VIBRATOR_STOP_MODE_TIME = "time",
         /* Indicates the mode of stopping a preset vibration effect.*/
         VIBRATOR_STOP_MODE_PRESET = "preset",
+    }
+
+    /**
+     * 马达使用场景. 选项如下:
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
+        "touch" | "media" | "physicalFeedback" | "simulateReality";
+
+    /**
+     * 马达振动效果. 选项如下:
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+     type VibrateEffect = VibrateTime | VibratePreset;
+
+     /**
+     * 定义马达振动时长.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateTime {
+        type: "time";
+        duration: number; /** 马达振动时长, 单位ms */
+    }
+
+    /**
+     * 定义马达预置振动类型.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibratePreset {
+        type: "preset";
+        effectId: string; /** 调整定时器时振动器的振动效果 */
+        count: number; /** 马达重复振动次数 */
     }
 }
 
