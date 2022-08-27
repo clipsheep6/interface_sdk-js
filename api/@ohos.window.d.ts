@@ -1157,24 +1157,6 @@ declare namespace window {
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
     /**
-     * bind dialog to the target window.
-     * @param token token of the target window.
-     * @param deathCallback the callback of dialogDeath.
-     * @systemapi Hide this for inner system use.
-     * @since 9
-     */
-    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>): Promise<void>;
-
-     /**
-      * bind dialog to the target window.
-      * @param token token of the target window.
-      * @param deathCallback the callback of dialogDeath.
-      * @systemapi Hide this for inner system use.
-      * @since 9
-      */
-    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>);
-
-    /**
      * Whether the window supports thr wide gamut setting.
      * @since 8
      */
