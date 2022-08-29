@@ -178,7 +178,7 @@ declare namespace bluetooth {
      *
      * @return Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
      * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
+     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION 
      */
     function startBluetoothDiscovery(): boolean;
 
