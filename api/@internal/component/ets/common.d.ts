@@ -669,6 +669,25 @@ declare enum SourceType {
 }
 
 /**
+ * Defines the focus style
+ * @since 9
+ */
+declare enum FocusStyle {
+
+  /**
+   * Default focus style
+   * @since 9
+   */
+  Default,
+
+  /**
+   * None focus style
+   * @since 9
+   */
+  None,
+}
+
+/**
  * Defines the Border Image Repeat Mode.
  * @since 9
  */
@@ -1849,6 +1868,12 @@ declare class CommonMethod<T> {
    * @since 7
    */
   geometryTransition(id: string): T;
+
+  /**
+   * Set focusStyle for focus node.
+   * @since 9
+   */
+  focusStyle(value: FocusStyle): T;
 
   /**
    * Popup control
