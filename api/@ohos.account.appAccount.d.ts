@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
-import Want from "./@ohos.application.want";
+import { AsyncCallback, Callback } from './basic';
+import Want from './@ohos.application.Want';
 import rpc from "./@ohos.rpc"
 
 /**
