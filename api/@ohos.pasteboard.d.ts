@@ -311,6 +311,14 @@ declare namespace pasteboard {
     getProperty(): PasteDataProperty;
 
     /**
+     * Set PasteDataProperty to a PasteData object.
+     * @param { PasteDataProperty } property - save property to PasteData object.
+     * @throws { TypedError } if property not a PasteDataProperty object.
+     * @since 9
+     */
+    setProperty(property: PasteDataProperty): void;
+
+    /**
      * a Record based on a specified index.
      * @param index The index to specify the content item
      * @return PasteDataRecord type of PasteDataRecord
