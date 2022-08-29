@@ -51,9 +51,9 @@ declare namespace vibrator {
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
 
     /**
-     * 启动马达振动.
-     * @param effect 马达振动效果, {@code effect}.
-     * @param attribute 马达振动属性, {@code effect}.
+     * Trigger vibrator vibration.
+     * @param effect Describes the effect of vibration.
+     * @param attribute The attribute of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 9
@@ -94,7 +94,7 @@ declare namespace vibrator {
     }
 
     /**
-     * 马达振动场景.
+     * The use of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
@@ -102,31 +102,41 @@ declare namespace vibrator {
         "touch" | "media" | "physicalFeedback" | "simulateReality";
 
     /**
-     * 马达振动效果.
+     * The attribute of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateAttribute {
+        id?: number, /** Vibrator id, default is 0. */
+        usage: Usage, /** The use of vibration. */
+    }
+
+    /**
+     * Describes the effect of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
      type VibrateEffect = VibrateTime | VibratePreset;
 
-     /**
-     * 马达振动时长.
+    /**
+     * Specifies the duration of the vibration effect.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     interface VibrateTime {
         type: "time";
-        duration: number; /** 马达振动时长, 单位ms */
+        duration: number; /** The duration of the vibration, in ms */
     }
 
     /**
-     * 马达预置振动类型.
+     * Preset vibration type vibration effect.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
     interface VibratePreset {
         type: "preset";
-        effectId: string; /** 预置的振动效果ID */
-        count: number; /** 重复振动的次数 */
+        effectId: string; /** Preset type vibration */
+        count: number; /** The number of vibration repetitions */
     }
 }
 
