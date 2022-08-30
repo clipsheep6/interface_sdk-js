@@ -169,6 +169,129 @@ declare namespace webview {
            */
           storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
       }
+
+      /**
+       * Provides methods for managing the web cookies.
+       *
+       * @since 9
+       */
+      class WebCookieManager {
+          /**
+           * Gets all cookies for the given URL.
+           *
+           * @param url the URL for which the cookies are requested.
+           * @returns the cookie value for the given URL.
+           *
+           * @since 9
+           */
+          getCookie(url: string): string;
+
+          /**
+           * Set a single cookie (key-value pair) for the given URL.
+           *
+           * @param url the URL for which the cookie is to be set.
+           * @param value the cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+           * @returns true if the cookie was successfully set else false.
+           *
+           * @since 9
+           */
+          setCookie(url: string, value: string): boolean;
+
+          /**
+           * Save the cookies.
+           * 
+           * @return true if successfully save the cookies else false.
+           * 
+           * @since 9
+           */
+          saveCookieSync(): boolean;
+
+          /**
+           * Get whether the instance can send and accept cookies.
+           *
+           * @returns true if the instance can send and accept cookies else false.
+           *
+           * @since 9
+           */
+          isCookieAllowed(): boolean;
+
+          /**
+           * Set whether the instance should send and accept cookies.
+           * By default this is set to true.
+           * 
+           * @param accept whether the instance should send and accept cookies.
+           *
+           * @since 9
+           */
+          putAcceptCookieEnabled(accept: boolean): void;
+
+          /**
+           * Get whether the instance can send and accept thirdparty cookies.
+           *
+           * @returns true if the instance can send and accept thirdparty cookies else false.
+           *
+           * @since 9
+           */
+          isThirdPartyCookieAllowed(): boolean;
+
+          /**
+           * Set whether the instance should send and accept thirdparty cookies.
+           * By default this is set to true.
+           * 
+           * @param accept whether the instance should send and accept thirdparty cookies.
+           *
+           * @since 9
+           */
+          putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+
+          /**
+           * Get whether file scheme cookies can be send or accepted.
+           *
+           * @returns true if can send and accept else false.
+           *
+           * @since 9
+           */
+          isFileURICookieAllowed(): boolean;
+
+          /**
+           * Set whether file scheme cookies can be send or accepted.
+           * 
+           * @param accept true if can send and accept else false.
+           *
+           * @since 9
+           */
+          putAcceptFileURICookieEnabled(accept: boolean): void;
+
+          /**
+           * Check whether exists any cookies.
+           *
+           * @returns true if exists cookies else false;
+           *
+           * @since 9
+           */
+          existCookie(): boolean;
+
+          /**
+           * Remove all cookies.
+           *
+           * @since 9
+           */
+          deleteEntireCookie(): void;
+
+          /**
+           * Delete session cookies.
+           * 
+           * @since 9
+           */
+          deleteSessionCookie(): void;
+
+          /**
+           * Delete all expired cookies.
+           * 
+           * @since 9
+           */
+          deleteExpiredCookie(): void;
+      }
 }
 
 export default webview;
