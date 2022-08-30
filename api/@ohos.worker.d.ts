@@ -241,7 +241,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
+  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
 
   /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -251,7 +251,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
+  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -267,7 +267,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  postMessage(messageObject: Object, transfer: Transferable[]): void;
+  postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
 }
 
@@ -277,7 +277,7 @@ declare interface WorkerGlobalScope extends EventTarget {
  * @syscap SystemCapability.Utils.Lang
  */
 declare namespace worker {
-  class Worker extends EventTarget {
+  class Worker implements EventTarget {
     /**
      * Creates a worker instance
      * @param scriptURL URL of the script to be executed by the worker
@@ -314,7 +314,7 @@ declare namespace worker {
      * @since 7
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent) => void;
+    onmessage?: (event: MessageEvent<T>) => void;
 
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -323,7 +323,7 @@ declare namespace worker {
      * @since 7
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent) => void;
+    onmessageerror?: (event: MessageEvent<T>) => void;
 
     /**
      * Sends a message to the worker thread.
@@ -371,6 +371,45 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      */
     terminate(): void;
+
+    /**
+     * Adds an event listener to the worker.
+     * @param type  Type of the event to listen for.
+     * @param listener Callback to invoke when an event of the specified type occurs.
+     * @since 7
+     * @syscap SystemCapability.Utils.Lang
+     */
+    addEventListener(
+      type: string,
+      listener: EventListener
+    ): void;
+
+    /**
+     * Dispatches the event defined for the worker.
+     * @param event Event to dispatch.
+     * @since 7
+     * @syscap SystemCapability.Utils.Lang
+     */
+    dispatchEvent(event: Event): boolean;
+
+    /**
+     * Removes an event defined for the worker.
+     * @param type Type of the event for which the event listener is removed.
+     * @param callback Callback of the event listener to remove.
+     * @since 7
+     * @syscap SystemCapability.Utils.Lang
+     */
+    removeEventListener(
+      type: string,
+      callback?: EventListener
+    ): void;
+
+    /**
+     * Removes all event listeners for the worker.
+     * @since 7
+     * @syscap SystemCapability.Utils.Lang
+     */
+    removeAllListener(): void;
   }
   const parentPort: DedicatedWorkerGlobalScope;
 }
