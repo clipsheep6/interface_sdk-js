@@ -219,7 +219,7 @@ declare namespace webview {
           /**
            * Save the cookies.
            * 
-           * @param callback called after the cookies have been saveed. The parameter will either be
+           * @param callback called after the cookies have been saved. The parameter will either be
            *                 true if the cookies have been successfullly saved, or false if failed.
            * 
            * @since 9
