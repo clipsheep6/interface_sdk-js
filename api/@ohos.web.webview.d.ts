@@ -207,6 +207,26 @@ declare namespace webview {
           saveCookieSync(): boolean;
 
           /**
+           * Save the cookies.
+           * 
+           * @return a promise resolved after the cookies have been saved.The parameter will either
+           *         be true if the cookies were successfully saved, or false if failed.
+           * 
+           * @since 9
+           */
+          saveCookieAsync(): Promise<boolean>;
+
+          /**
+           * Save the cookies.
+           * 
+           * @param callback called after the cookies have been saveed. The parameter will either be
+           *                 true if the cookies have been successfullly saved, or false if failed.
+           * 
+           * @since 9
+           */
+          saveCookieAsync(callback: AsyncCallback<boolean>): void;
+
+          /**
            * Get whether the instance can send and accept cookies.
            *
            * @returns true if the instance can send and accept cookies else false.
