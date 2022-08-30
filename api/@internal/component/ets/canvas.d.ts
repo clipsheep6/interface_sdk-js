@@ -1117,5 +1117,12 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: () => void): CanvasAttribute;
 }
 
+declare module "CanvasFeature" {
+  module "CanvasFeature" {
+    // @ts-ignore
+    export { CanvasPattern, ImageBitmap };
+  }
+}
+
 declare const Canvas: CanvasInterface;
 declare const CanvasInstance: CanvasAttribute;

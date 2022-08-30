@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic';
+import { AsyncCallback } from './basic';
+import { Resource } from 'GlobalResource';
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full

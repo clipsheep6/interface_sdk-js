@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
+
 /**
  * Defines the console info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
