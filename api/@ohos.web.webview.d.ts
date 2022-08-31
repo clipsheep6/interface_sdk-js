@@ -179,8 +179,8 @@ declare namespace webview {
           /**
            * Gets all cookies for the given URL.
            *
-           * @param url the URL for which the cookies are requested.
-           * @returns the cookie value for the given URL.
+           * @param url The URL for which the cookies are requested.
+           * @returns The cookie value for the given URL.
            *
            * @since 9
            */
@@ -189,38 +189,38 @@ declare namespace webview {
           /**
            * Set a single cookie (key-value pair) for the given URL.
            *
-           * @param url the URL for which the cookie is to be set.
-           * @param value the cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
-           * @returns true if the cookie was successfully set else false.
+           * @param url The URL for which the cookie is to be set.
+           * @param value The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+           * @returns True if the cookie was successfully set else false.
            *
            * @since 9
            */
           setCookie(url: string, value: string): boolean;
 
           /**
-           * Save the cookies.
+           * Save the cookies Synchronously .
            * 
-           * @return true if successfully save the cookies else false.
+           * @return True if the cookies have been successfully saved else false.
            * 
            * @since 9
            */
           saveCookieSync(): boolean;
 
           /**
-           * Save the cookies.
+           * Save the cookies Asynchronously.
            * 
-           * @return a promise resolved after the cookies have been saved.The parameter will either
-           *         be true if the cookies were successfully saved, or false if failed.
+           * @return A promise resolved after the cookies have been saved.The parameter will either
+           *         be true if the cookies have been successfully saved, or false if failed.
            * 
            * @since 9
            */
           saveCookieAsync(): Promise<boolean>;
 
           /**
-           * Save the cookies.
+           * Save the cookies Asynchronously.
            * 
-           * @param callback called after the cookies have been saved. The parameter will either be
-           *                 true if the cookies have been successfullly saved, or false if failed.
+           * @param callback Called after the cookies have been saved. The parameter will either be
+           *                 true if the cookies have been successfully saved, or false if failed.
            * 
            * @since 9
            */
@@ -229,7 +229,7 @@ declare namespace webview {
           /**
            * Get whether the instance can send and accept cookies.
            *
-           * @returns true if the instance can send and accept cookies else false.
+           * @returns True if the instance can send and accept cookies else false.
            *
            * @since 9
            */
@@ -237,9 +237,9 @@ declare namespace webview {
 
           /**
            * Set whether the instance should send and accept cookies.
-           * By default this is set to true.
+           * By default this is set to be true.
            * 
-           * @param accept whether the instance should send and accept cookies.
+           * @param accept Whether the instance should send and accept cookies.
            *
            * @since 9
            */
@@ -248,7 +248,7 @@ declare namespace webview {
           /**
            * Get whether the instance can send and accept thirdparty cookies.
            *
-           * @returns true if the instance can send and accept thirdparty cookies else false.
+           * @returns True if the instance can send and accept thirdparty cookies else false.
            *
            * @since 9
            */
@@ -256,9 +256,9 @@ declare namespace webview {
 
           /**
            * Set whether the instance should send and accept thirdparty cookies.
-           * By default this is set to true.
+           * By default this is set to be true.
            * 
-           * @param accept whether the instance should send and accept thirdparty cookies.
+           * @param accept Whether the instance should send and accept thirdparty cookies.
            *
            * @since 9
            */
@@ -267,7 +267,7 @@ declare namespace webview {
           /**
            * Get whether file scheme cookies can be send or accepted.
            *
-           * @returns true if can send and accept else false.
+           * @returns True if the instance can send and accept file scheme cookies else false.
            *
            * @since 9
            */
@@ -276,7 +276,7 @@ declare namespace webview {
           /**
            * Set whether file scheme cookies can be send or accepted.
            * 
-           * @param accept true if can send and accept else false.
+           * @param accept True if the instance can send and accept file scheme cookies else false.
            *
            * @since 9
            */
@@ -285,7 +285,7 @@ declare namespace webview {
           /**
            * Check whether exists any cookies.
            *
-           * @returns true if exists cookies else false;
+           * @returns True if exists more than one cookie else false;
            *
            * @since 9
            */
@@ -299,7 +299,7 @@ declare namespace webview {
           deleteEntireCookie(): void;
 
           /**
-           * Delete session cookies.
+           * Delete the session cookies.
            * 
            * @since 9
            */
