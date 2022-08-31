@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ElementName }  from './bundle/elementName';
-import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
+import { ElementName }  from './bundleManager/elementName';
+import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/remoteAbilityInfo';
 
 /**
  * distributedBundle.

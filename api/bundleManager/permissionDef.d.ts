@@ -17,7 +17,6 @@
  * @name Indicates the defined permission details in file config.json
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @permission NA
  * @systemapi
  */
  export interface PermissionDef {

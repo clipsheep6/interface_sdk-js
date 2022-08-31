@@ -64,7 +64,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly labelIndex: number;
+  readonly labelId: number;
 
   /**
    * @default Indicates the icon of the application

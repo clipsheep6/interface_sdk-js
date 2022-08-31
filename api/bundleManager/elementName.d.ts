@@ -21,7 +21,6 @@
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  *
- * @permission N/A
  */
 export interface ElementName {
   /**

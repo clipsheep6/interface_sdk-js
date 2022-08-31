@@ -23,10 +23,11 @@ import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef'
 import { ElementName as _ElementName }  from './bundleManager/elementName';
 import Want from './@ohos.application.want';
 import image from './@ohos.multimedia.image';
-import * as _BundleInfo from './bundle/bundleInfo';
+import * as _BundleInfo from './bundleManager/bundleInfo';
 
 /**
- * 该模块用于获取安装在当前设备上的各种应用的包信息
+ * This module is used to obtain package information of various applications installed on the current device.
+ *
  * @namespace bundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9

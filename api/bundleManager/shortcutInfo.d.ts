@@ -107,9 +107,9 @@ export interface ShortcutWant{
   readonly targetModule: string;
 
   /**
-   * @default Indicates the target class of the shortcut want
+   * @default Indicates the target ability of the shortcut want
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    */
-  readonly targetClass: string;
+  readonly targetAbility: string;
 }

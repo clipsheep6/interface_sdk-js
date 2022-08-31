@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import { AbilityInfo } from './abilityInfo';
 import { ApplicationInfo } from './applicationInfo';
-import { ExtensionAbilityInfo } from './extensionAbilityInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**

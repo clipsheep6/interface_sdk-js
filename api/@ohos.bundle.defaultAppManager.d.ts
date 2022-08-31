@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { BundleInfo } from './bundle/bundleInfo';
-import { ElementName } from './bundle/elementName';
+import { BundleInfo } from './bundleManager/bundleInfo';
+import { ElementName } from './bundleManager/elementName';
 
 /**
  * default application manager.

@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { DispatchInfo as _DispatchInfo } from './bundle/dispatchInfo';
-import * as _PackInfo from './bundle/packInfo'
+import { DispatchInfo as _DispatchInfo } from './bundleManager/dispatchInfo';
+import * as _PackInfo from './bundleManager/packInfo'
 
 /**
  * free install bundle manager.

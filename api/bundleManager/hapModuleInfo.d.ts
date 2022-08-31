@@ -94,13 +94,6 @@ export interface HapModuleInfo {
    */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 
-  /**
-   * @default The device types that this hapmodule can run on
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly deviceTypes: Array<string>;
-  
    /**
     * @default Indicates the metadata of ability
     * @since 9
@@ -108,6 +101,13 @@ export interface HapModuleInfo {
     * 
     */
   readonly metadata: Array<Metadata>;
+
+  /**
+   * @default The device types that this hapmodule can run on
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+   readonly deviceTypes: Array<string>;
 
   /**
    * @default Indicates whether free installation of the hapmodule is supported
