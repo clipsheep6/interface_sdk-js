@@ -491,6 +491,206 @@ declare namespace userAuth {
          */
         ATL4 = 40000
     }
+
+    /**
+     * Get version information.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @return Returns version information.
+     */
+     function getVersion(): number;
+
+    /**
+     * Check whether the authentication capability is available.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param authType Credential type for authentication.
+     * @param authTrustLevel Trust level of authentication result.
+     */
+    function getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): void;
+
+    /**
+     * Auth event key.
+     * @since since 9
+     */
+    type AuthEventKey = "result" | "tip";
+
+    /**
+     * Event info.
+     * @since since 9
+     */
+    type EventInfo = AuthResultInfo | TipInfo;
+
+    interface AuthEvent {
+        /**
+         * The authentication event callback.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param result event info.
+         */
+        callback(result: EventInfo): void;
+    }
+
+    /**
+     * Authentication result: authentication token, remaining authentication attempts, lockout duration.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @param result authentication result.
+     * @param token pass the authentication result if the authentication is passed.
+     * @param remainAttempts return the remaining authentication attempts if the authentication fails.
+     * @param lockoutDuration return the lockout duration if the authectication executor is locked.
+     */
+    interface AuthResultInfo {
+        result: number;
+        token?: Uint8Array;
+        remainAttempts?: number;
+        lockoutDuration?: number;
+    }
+
+    /**
+     * Authentication tip info.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @param module authentication module.
+     * @param tip tip information, used to prompt the business to perform some operations.
+     */
+    interface TipInfo {
+        module: number;
+        tip: number;
+    }
+
+    /**
+     * Authentication instance, used to initiate a complete authentication
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @param module authentication module.
+     * @param tip tip information, used to prompt the business to perform some operations.
+     */
+    interface AuthInstace {
+        /**
+         * Turn on event listening.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param name event name.
+         * @param callback event information return.
+         */
+        on: (name: AuthEventKey, callback: AuthEvent) => void;
+
+        /**
+         * Turn off event listening.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param name event name.
+         */
+        off: (name: AuthEventKey) => void;
+
+        /**
+         * Start this authentication, an instance can only perform authentication once.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        start: () => void;
+
+        /**
+         * Cancel this authentication.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        cancel: () => void;
+    }
+
+    /**
+     * Get authentication instance.
+     * @since since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @return Returns an authentication instance.
+     */
+    function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstace;
+
+    /**
+     * Result code.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    enum ResultCodeV9 {
+    /**
+     * Indicates that the result is success or ability is supported.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    SUCCESS = 12500000,
+    /**
+     * Indicates the the result is failure or ability is not supported.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    FAIL = 12500001,
+
+    /**
+     * Indicates other errors.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    GENERAL_ERROR = 12500002,
+
+    /**
+     * Indicates that this operation has been canceled.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    CANCELED = 12500003,
+
+    /**
+     * Indicates that this operation has timed out.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    TIMEOUT = 12500004,
+
+    /**
+     * Indicates that this authentication type is not supported.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    TYPE_NOT_SUPPORT = 12500005,
+
+    /**
+     * Indicates that the authentication trust level is not supported.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    TRUST_LEVEL_NOT_SUPPORT = 12500006,
+
+    /**
+     * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    BUSY = 12500007,
+
+    /**
+     * Indicates incorrect parameters.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    INVALID_PARAMETERS = 12500008,
+
+    /**
+     * Indicates that the authenticator is locked.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    LOCKED = 12500009,
+
+    /**
+     * Indicates that the user has not enrolled the authenticator.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    NOT_ENROLLED = 12500010
+}
 }
 
 export default userAuth;
