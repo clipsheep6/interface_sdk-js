@@ -52,6 +52,13 @@ export function getDisplayLanguage(language: string, locale: string, sentenceCas
  * @since 7
  * @systemapi Hide this for inner system use.
  */
+/**
+ * Obtain all languages supported by the system.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @return Returns all languages supported by the system.
+ * @since 9
+ */
 export function getSystemLanguages(): Array<string>;
 
 /**
@@ -62,6 +69,14 @@ export function getSystemLanguages(): Array<string>;
  * @return Returns all regions supported by the system in the language.
  * @since 7
  * @systemapi Hide this for inner system use.
+ */
+/**
+ * Obtain all regions supported by the system in the language.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param { string } language - The language used to get the list of regions.
+ * @return Returns all regions supported by the system in the language.
+ * @since 9
  */
 export function getSystemCountries(language: string): Array<string>;
 
@@ -74,6 +89,15 @@ export function getSystemCountries(language: string): Array<string>;
  * @return Returns whether the current language or region is recommended.
  * @since 7
  * @systemapi Hide this for inner system use.
+ */
+/**
+ * Determine whether the current language or region is recommended.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param { string } language - The language code.
+ * @param { string } region - The region code.
+ * @return Returns whether the current language or region is recommended.
+ * @since 9
  */
 export function isSuggested(language: string, region?: string): boolean;
 
@@ -196,8 +220,17 @@ export interface UnitInfo {
 export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
+     *
+     * @type { string } type
+     * @since 8
      */
-    type: string;
+    /**
+     * Indicates the type to format phone number.
+     *
+     * @type { string } [ type ]
+     * @since 9
+     */
+    type?: string;
 }
 
 /**
