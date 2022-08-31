@@ -17,6 +17,7 @@ import { AbilityInfo } from './abilityInfo';
 import { ApplicationInfo } from './applicationInfo';
 import { ExtensionAbilityInfo } from './extensionAbilityInfo';
 import { HapModuleInfo } from './hapModuleInfo';
+import { ApplicationQuickFixInfo } from './applicationQuickFixInfo'
 
 /**
  * @name The scene which is used
@@ -256,4 +257,11 @@ export interface BundleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
+
+  /**
+    * @default Obtains quick fix information
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly ApplicationQuickFixInfo: ApplicationQuickFixInfo;
 }
