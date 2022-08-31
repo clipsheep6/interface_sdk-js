@@ -23,6 +23,7 @@ import bundle from './../@ohos.bundle';
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
+ * @deprecated since 9, use ../bundleManager/AbilityInfo
  */
 export interface AbilityInfo {
   /**

@@ -18,6 +18,7 @@
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface BundlePackInfo {
   /**
@@ -40,6 +41,7 @@ export interface BundlePackInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface PackageConfig {
   /**
@@ -76,6 +78,7 @@ export interface PackageConfig {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface PackageSummary {
   /**
@@ -98,6 +101,7 @@ export interface PackageSummary {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface BundleConfigInfo {
   /**
@@ -120,6 +124,7 @@ export interface BundleConfigInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
  export interface ExtensionAbilities {
   /**
@@ -142,6 +147,7 @@ export interface BundleConfigInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface ModuleConfigInfo {
   /**
@@ -185,6 +191,7 @@ export interface ModuleConfigInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface ModuleDistroInfo {
   /**
@@ -228,6 +235,7 @@ export interface ModuleDistroInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface ModuleAbilityInfo {
   /**
@@ -264,6 +272,7 @@ export interface ModuleAbilityInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface AbilityFormInfo {
   /**
@@ -321,6 +330,7 @@ export interface AbilityFormInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface Version {
   /**
@@ -350,6 +360,7 @@ export interface Version {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use ../bundleManager/PackInfo
  */
 export interface ApiVersion {
   /**
@@ -380,6 +391,7 @@ export interface ApiVersion {
 * @syscap SystemCapability.BundleManager.BundleFramework
 * @import NA
 * @systemapi hide this for inner system use
+* @deprecated since 9, use @ohos.bundle.freeInstall.BundlePackFlag
 */
 export enum BundlePackFlag {
  GET_PACK_INFO_ALL = 0x00000000,

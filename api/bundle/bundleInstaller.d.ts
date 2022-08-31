@@ -22,6 +22,7 @@ import bundle from './../@ohos.bundle';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9, use @ohos.bundle.installer.HashParam
  */
  export interface HashParam {
   /**
@@ -45,6 +46,7 @@ import bundle from './../@ohos.bundle';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9, use @ohos.bundle.installer.InstallParam
  */
 export interface InstallParam {
   /**
@@ -89,6 +91,7 @@ export interface InstallParam {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9, use @ohos.bundle.installer.InstallStatus
  */
 export interface InstallStatus {
 
@@ -113,6 +116,7 @@ export interface InstallStatus {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9, use @ohos.bundle.installer
  */
 export interface BundleInstaller {
   /**

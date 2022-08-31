@@ -18,6 +18,7 @@
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
+ * @deprecated since 9, use @ohos.bundle.freeInstall.DispacthInfo
  */
  export interface DispatchInfo {
     /**

@@ -14,13 +14,13 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ApplicationInfo as _ApplicationInfo } from './bundle/applicationInfo';
-import { Metadata as _Metadata } from './bundle/metadata';
-import { HapModuleInfo as _HapModuleInfo } from './bundle/hapModuleInfo';
-import { AbilityInfo as _AbilityInfo } from './bundle/abilityInfo';
-import { ExtensionAbilityInfo as _ExtensionAbilityInfo, ExtensionAbilityType as _ExtensionAbilityType } from './bundle/extensionAbilityInfo';
-import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
-import { ElementName as _ElementName }  from './bundle/elementName';
+import { ApplicationInfo as _ApplicationInfo } from './bundleManager/applicationInfo';
+import { Metadata as _Metadata } from './bundleManager/metadata';
+import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
+import { AbilityInfo as _AbilityInfo } from './bundleManager/abilityInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo, ExtensionAbilityType as _ExtensionAbilityType } from './bundleManager/extensionAbilityInfo';
+import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef';
+import { ElementName as _ElementName }  from './bundleManager/elementName';
 import Want from './@ohos.application.want';
 import image from './@ohos.multimedia.image';
 import * as _BundleInfo from './bundle/bundleInfo';

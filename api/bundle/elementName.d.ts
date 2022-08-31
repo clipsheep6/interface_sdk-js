@@ -22,6 +22,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework
  *
  * @permission N/A
+ * @deprecated since 9, use ../bundleManager/ElementName
  */
  export interface ElementName {
   /**

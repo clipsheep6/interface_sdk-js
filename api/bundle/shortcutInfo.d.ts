@@ -20,6 +20,7 @@
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
   * @systemapi Hide this for inner system use
+  * @deprecated since 9, use ../bundleManager/ShortcutWant
   */
   export interface ShortcutWant{
     /**
@@ -47,7 +48,7 @@
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @permission NA
-    *
+    * @deprecated since 9, use ../bundleManager/ShortcutInfo
     */
   export interface ShortcutInfo {
     /**

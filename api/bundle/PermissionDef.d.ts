@@ -19,6 +19,7 @@
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi
+ * @deprecated since 9, use ../bundleManager/PermissionDef
  */
  export interface PermissionDef {
   /**
