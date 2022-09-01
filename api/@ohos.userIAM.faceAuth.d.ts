@@ -42,9 +42,10 @@ declare namespace faceAuth {
          * @since 9
          * @param surfaceId Indicates surface id for face enroll preview.
          * @return Operation result.
+         * @permission ohos.permission.MANAGER_USER_IDM
          * @systemapi Hide this for inner system use.
          */
-        setSurfaceId(surfaceId: string): ResultCode;
+        setSurfaceId(surfaceId: string): void;
     }
 
     /**
@@ -57,14 +58,9 @@ declare namespace faceAuth {
      */
     enum ResultCode {
         /**
-         * Indicates that operation is success.
-         */
-        SUCCESS = 0,
-
-        /**
          * Indicates that operation is fail.
          */
-        FAIL = 1,
+        FAIL = 12700001,
     }
 }
 
