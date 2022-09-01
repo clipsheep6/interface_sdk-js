@@ -184,7 +184,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          getCookie(url: string): string;
+          static getCookie(url: string): string;
 
           /**
            * Set a single cookie (key-value pair) for the given URL.
@@ -195,7 +195,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          setCookie(url: string, value: string): boolean;
+          static setCookie(url: string, value: string): boolean;
 
           /**
            * Save the cookies Synchronously .
@@ -204,7 +204,7 @@ declare namespace webview {
            * 
            * @since 9
            */
-          saveCookieSync(): boolean;
+          static saveCookieSync(): boolean;
 
           /**
            * Save the cookies Asynchronously.
@@ -214,7 +214,7 @@ declare namespace webview {
            * 
            * @since 9
            */
-          saveCookieAsync(): Promise<boolean>;
+          static saveCookieAsync(): Promise<boolean>;
 
           /**
            * Save the cookies Asynchronously.
@@ -224,7 +224,7 @@ declare namespace webview {
            * 
            * @since 9
            */
-          saveCookieAsync(callback: AsyncCallback<boolean>): void;
+          static saveCookieAsync(callback: AsyncCallback<boolean>): void;
 
           /**
            * Get whether the instance can send and accept cookies.
@@ -233,7 +233,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          isCookieAllowed(): boolean;
+          static isCookieAllowed(): boolean;
 
           /**
            * Set whether the instance should send and accept cookies.
@@ -243,7 +243,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          putAcceptCookieEnabled(accept: boolean): void;
+          static putAcceptCookieEnabled(accept: boolean): void;
 
           /**
            * Get whether the instance can send and accept thirdparty cookies.
@@ -252,7 +252,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          isThirdPartyCookieAllowed(): boolean;
+          static isThirdPartyCookieAllowed(): boolean;
 
           /**
            * Set whether the instance should send and accept thirdparty cookies.
@@ -262,7 +262,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+          static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
 
           /**
            * Get whether file scheme cookies can be send or accepted.
@@ -271,7 +271,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          isFileURICookieAllowed(): boolean;
+          static isFileURICookieAllowed(): boolean;
 
           /**
            * Set whether file scheme cookies can be send or accepted.
@@ -280,7 +280,7 @@ declare namespace webview {
            *
            * @since 9
            */
-          putAcceptFileURICookieEnabled(accept: boolean): void;
+          static putAcceptFileURICookieEnabled(accept: boolean): void;
 
           /**
            * Check whether exists any cookies.
@@ -289,28 +289,28 @@ declare namespace webview {
            *
            * @since 9
            */
-          existCookie(): boolean;
+          static existCookie(): boolean;
 
           /**
            * Remove all cookies.
            *
            * @since 9
            */
-          deleteEntireCookie(): void;
+          static deleteEntireCookie(): void;
 
           /**
            * Delete the session cookies.
            * 
            * @since 9
            */
-          deleteSessionCookie(): void;
+          static deleteSessionCookie(): void;
 
           /**
            * Delete all expired cookies.
            * 
            * @since 9
            */
-          deleteExpiredCookie(): void;
+          static deleteExpiredCookie(): void;
       }
 }
 
