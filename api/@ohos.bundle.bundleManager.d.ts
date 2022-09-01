@@ -27,7 +27,6 @@ import * as _BundleInfo from './bundleManager/bundleInfo';
 
 /**
  * This module is used to obtain package information of various applications installed on the current device.
- *
  * @namespace bundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
@@ -35,7 +34,7 @@ import * as _BundleInfo from './bundleManager/bundleInfo';
 declare namespace bundleManager {
   /**
    * 用于查询BundleInfo的枚举值，在调用getBundleInfo、getAllBundleInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的bundleInfo
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -99,7 +98,7 @@ declare namespace bundleManager {
 
   /**
    * 用于查询ApplicationInfo的枚举值，在调用getApplicationInfo、getAllApplicationInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的applicationInfo
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -144,7 +143,7 @@ declare namespace bundleManager {
 
   /**
    * 用于查询AbilityInfo的枚举值，在调用queryAbilityInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的abilityInfo
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -183,7 +182,7 @@ declare namespace bundleManager {
 
   /**
    * 用于查询ExtensionAbilityInfo的枚举值，在调用queryAbilityInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的abilityInfo
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -222,13 +221,13 @@ declare namespace bundleManager {
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {number} bundleFlags - 查询BundleInfo的过滤标签，使用不同的BundleFlag可以查询到不同的包信息内容，BundleFlag中的值可以以或的方式使用
-   * @param {number} userId - Indicates the user ID or do not pass user ID.
-   * @param {AsyncCallback} callback - The callback of getting bundle info result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - 查询BundleInfo的过滤标签，使用不同的BundleFlag可以查询到不同的包信息内容，BundleFlag中的值可以以或的方式使用
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback } callback - The callback of getting bundle info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -237,13 +236,13 @@ declare namespace bundleManager {
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {number} bundleFlags - 查询BundleInfo的过滤标签，使用不同的BundleFlag可以查询到不同的包信息内容，BundleFlag中的值可以以或的方式使用
-   * @param {number} userId - Indicates the user ID or do not pass user ID.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<BundleInfo>} The result of getting the bundle info.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - 查询BundleInfo的过滤标签，使用不同的BundleFlag可以查询到不同的包信息内容，BundleFlag中的值可以以或的方式使用
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<BundleInfo> } The result of getting the bundle info.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -251,13 +250,13 @@ declare namespace bundleManager {
 
   /**
    * Obtains application info based on a given bundle name.
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {number} appFlags - 查询ApplicationInfo的过滤标签，使用不同的ApplicationFlag可以查询到不同的包信息内容，ApplicationFlag中的值可以以或的方式使用
-   * @param {number} userId Indicates the user ID or do not pass user ID.
-   * @param {AsyncCallback} callback - The callback of getting application info result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appFlags - 查询ApplicationInfo的过滤标签，使用不同的ApplicationFlag可以查询到不同的包信息内容，ApplicationFlag中的值可以以或的方式使用
+   * @param { number } userId Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback } callback - The callback of getting application info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -266,13 +265,13 @@ declare namespace bundleManager {
 
   /**
    * Obtains application info based on a given bundle name.
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {number} appFlags - 查询ApplicationInfo的过滤标签，使用不同的ApplicationFlag可以查询到不同的包信息内容，ApplicationFlag中的值可以以或的方式使用
-   * @param {number} userId - Indicates the user ID or do not pass user ID.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<ApplicationInfo>} The result of getting the application info.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appFlags - 查询ApplicationInfo的过滤标签，使用不同的ApplicationFlag可以查询到不同的包信息内容，ApplicationFlag中的值可以以或的方式使用
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<ApplicationInfo> } The result of getting the application info.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -280,12 +279,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
-   * @param {number} bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
-   * @param {number} userId - Indicates the user id.
-   * @param {AsyncCallback} callback - The callback of getting a list of BundleInfo objects.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { number } userId - Indicates the user id.
+   * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -294,12 +293,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
-   * @param {number} bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
-   * @param {number} userId - Indicates the user id.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<BundleInfo>>} Returns a list of BundleInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { number } userId - Indicates the user id.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -307,13 +306,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains information about all installed applications of a specified user.
-   *
-   * @param {number} appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param {number} userId - Indicates the user ID or do not pass user ID.
-   * @param {AsyncCallback} callback - The callback of getting a list of ApplicationInfo objects.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -322,12 +320,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains information about all installed applications of a specified user.
-   * @param {number} appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param {number} userId - Indicates the user ID or do not pass user ID. 
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<ApplicationInfo>>} Returns a list of ApplicationInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID. 
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -335,13 +333,13 @@ declare namespace bundleManager {
 
   /**
    * Query the AbilityInfo by the given Want.
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {number} abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
-   * @param {number} userId - userId Indicates the user ID.
-   * @param {AsyncCallback} callback - The callback of quering ability info result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限(system_basic权限）
+   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } userId - userId Indicates the user ID.
+   * @param { AsyncCallback } callback - The callback of quering ability info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -350,13 +348,13 @@ declare namespace bundleManager {
 
   /**
    * Query the AbilityInfo by the given Want.
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {number} abilityFlags- Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
-   * @param {number} userId - userId Indicates the user ID.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<AbilityInfo>>} Returns a list of AbilityInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param { AbilityFlag } abilityFlags Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } userId - userId Indicates the user ID.
+   * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -364,15 +362,14 @@ declare namespace bundleManager {
 
   /**
    * Query extension info of by utilizing a Want.
-   *
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {ExtensionAbilityType} extensionType - 指定的extensionType.
-   * @param {number} extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionInfo objects that will be returned.
-   * @param {number} userId - Indicates the user ID.
-   * @param {AsyncCallback} callback - The callback of quering extension ability info result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param {ExtensionAbilityType} extensionType - 指定的extensionType.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @param { AsyncCallback } callback - The callback of quering extension ability info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -381,14 +378,14 @@ declare namespace bundleManager {
 
   /**
    * Query the ExtensionAbilityInfo by the given Want.
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {ExtensionAbilityType} extensionType - 指定的extensionType.
-   * @param {number} extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
-   * @param {number} userId - userId Indicates the user ID.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<ExtensionAbilityInfo>>} Returns a list of ExtensionAbilityInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
+   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param {ExtensionAbilityType} extensionType - 指定的extensionType.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
+   * @param { number } userId - userId Indicates the user ID.
+   * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -396,10 +393,10 @@ declare namespace bundleManager {
 
   /**
    * Obtains bundle name by the given uid.
-   * @param {number} uid - Indicates the UID of an application.
-   * @param {AsyncCallback} callback - The callback of getting bundle name.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { number } uid - Indicates the UID of an application.
+   * @param { AsyncCallback } callback - The callback of getting bundle name.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -407,10 +404,10 @@ declare namespace bundleManager {
 
   /**
    * Obtains bundle name by the given uid.
-   * @param {number} uid - Indicates the UID of an application.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<string>} Returns the bundle name.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { number } uid - Indicates the UID of an application.
+   * @returns { Promise<string> } Returns the bundle name.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -418,11 +415,11 @@ declare namespace bundleManager {
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
-   * @param {string} hapFilePath Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
-   * @param {number} bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be returned.
-   * @param {AsyncCallback} callback - The callback of getting bundle archive info result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { AsyncCallback } callback - The callback of getting bundle archive info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -430,11 +427,11 @@ declare namespace bundleManager {
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
-   * @param {string} hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
-   * @param {number} bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<BundleInfo>} Returns the BundleInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED 
+   * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<BundleInfo> } Returns the BundleInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -444,12 +441,12 @@ declare namespace bundleManager {
    * Obtains the Want for starting the main ability of an application based on the
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
-   * @param {string} bundleName Indicates the bundle name of the application.
-   * @param {number} userId - Indicates the user ID or do not pass user ID. 
-   * @param {AsyncCallback} callback - The callback for starting the application's main ability.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } userId - Indicates the user ID or do not pass user ID. 
+   * @param { AsyncCallback } callback - The callback for starting the application's main ability.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -460,12 +457,12 @@ declare namespace bundleManager {
    * Obtains the Want for starting the main ability of an application based on the
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
-   * @param {string} bundleName Indicates the bundle name of the application.
-   * @param {number} userId - Indicates the user ID or do not pass user ID. 
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Want>} Returns the Want for starting the application's main ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 
+   * @permission 如果跨用户访问的话，需要有跨用户访问的权限
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } userId - Indicates the user ID or do not pass user ID. 
+   * @returns { Promise<Want> } the Want for starting the application's main ability.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -473,85 +470,85 @@ declare namespace bundleManager {
 
   /**
    * Clears cache data of a specified application.
-   * @param {string} bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
-   * @param {AsyncCallback} callback - The callback of cleaning bundle cache files result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.REMOVE_CACHE_FILES
-   * @systemapi Hide this for inner system use
+   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
+   * @param { AsyncCallback } callback - The callback of cleaning bundle cache files result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Clears cache data of a specified application.
-   * @param {string} bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} Clean bundle cache files result
    * @permission ohos.permission.REMOVE_CACHE_FILES
-   * @systemapi Hide this for inner system use
+   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
+   * @returns { Promise<void> } Clean bundle cache files result
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
 
   /**
    * Sets whether to enable a specified application.
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {boolean} isEnabled - The value true means to enable it, and the value false means to disable it.
-   * @param {AsyncCallback} callback - The callback of setting app enabled result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @systemapi Hide this for inner system use
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @param { AsyncCallback } callback - The callback of setting app enabled result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable a specified application.
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {boolean} isEnabled - The value true means to enable it, and the value false means to disable it.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} set app enabled result.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @systemapi Hide this for inner system use
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } set app enabled result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified ability.
-   * @param {AbilityInfo} abilityInfo - Indicates information about the ability to set.
-   * @param {boolean} isEnabled - The value true means to enable it, and the value false means to disable it.
-   * @param {AsyncCallback} callback - The callback of setting ability enabled result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @systemapi Hide this for inner system use
+   * @param {AbilityInfo} abilityInfo - Indicates information about the ability to set.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @param { AsyncCallback } callback - The callback of setting ability enabled result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable a specified ability.
-   * @param {AbilityInfo} abilityInfo - Indicates information about the ability to set.
-   * @param {boolean} isEnabled - The value true means to enable it, and the value false means to disable it.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} set ability enabled result.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @systemapi Hide this for inner system use
+   * @param {AbilityInfo} abilityInfo - Indicates information about the ability to set.
+   * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
+   * @returns { Promise<void> } set ability enabled result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
 
   /**
    * Checks whether a specified application is enabled.
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {AsyncCallback} callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { AsyncCallback } callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -559,9 +556,9 @@ declare namespace bundleManager {
 
   /**
    * Checks whether a specified application is enabled.
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<boolean>}  Returns true if the application is enabled; returns false otherwise.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @returns { Promise<boolean> }  Returns true if the application is enabled; returns false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -570,8 +567,8 @@ declare namespace bundleManager {
   /**
    * Checks whether a specified ability is enabled.
    * @param {AbilityInfo} info - Indicates information about the ability to check.
-   * @param {AsyncCallback} callback - The callback of checking ablility enabled result. The result is true if enabled, false otherwise.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { AsyncCallback } callback - The callback of checking ability enabled result. The result is true if enabled, false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -580,8 +577,8 @@ declare namespace bundleManager {
   /**
    * Checks whether a specified ability is enabled.
    * @param {AbilityInfo} info - Indicates information about the ability to check.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<boolean>}  Returns true if the ablity is enabled; returns false otherwise.
+   * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -589,37 +586,37 @@ declare namespace bundleManager {
 
   /**
    * Get the permission details by permission name.
-   * @param {string} permissionName - Indicates permission name.
-   * @param {AsyncCallback} callback - The callback of get permissionDef objec result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return Returns permissionDef object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @systemapi Hide this for inner system use
+   * @param { string } permissionName - Indicates permission name.
+   * @param { AsyncCallback } callback - The callback of get permissionDef objec result.
+   * @returns Returns permissionDef object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
 
   /**
    * Get the permission details by permission name.
-   * @param {string} permissionName - Indicates permission name.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} Returns permissionDef object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @systemapi Hide this for inner system use
+   * @param { string } permissionName - Indicates permission name.
+   * @returns { Promise<PermissionDef> } Returns permissionDef object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
   /**
    * Obtains the label of a specified ability.
-   * @param {string} bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param {string} moduleName Indicates the module name.
-   * @param {string} abilityName - Indicates the ability name.
-   * @param {AsyncCallback} callback - The callback of getting ability label result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } moduleName Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @param { AsyncCallback } callback - The callback of getting ability label result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
    * @since 9
    */
@@ -627,12 +624,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains the label of a specified ability.
-   * @param {string} bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param {string} moduleName Indicates the module name.
-   * @param {string} abilityName - Indicates the ability name.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<string>} Returns the label representing the label of the specified ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } moduleName Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<string> } Returns the label representing the label of the specified ability.
    * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
    * @since 9
    */
@@ -640,12 +637,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains the icon of a specified ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param bundleName Indicates the bundle name of the application to which the ability belongs.
    * @param moduleName Indicates the module name.
    * @param abilityName Indicates the ability name.
-   * @param {AsyncCallback} callback - The callback of getting ability icon result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { AsyncCallback } callback - The callback of getting ability icon result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
    * @since 9
    */
@@ -653,12 +650,12 @@ declare namespace bundleManager {
 
   /**
    * Obtains the icon of a specified ability.
-   * @param {string} bundleName Indicates the bundle name of the application to which the ability belongs.
-   * @param {string} moduleName Indicates the module name.
-   * @param {string} abilityName Indicates the ability name.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<image.PixelMap>} Returns the PixelMap object representing the icon of the specified ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } moduleName Indicates the module name.
+   * @param { string } abilityName Indicates the ability name.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<image.PixelMap> } Returns the PixelMap object representing the icon of the specified ability.
    * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
    * @since 9
    */
@@ -666,11 +663,11 @@ declare namespace bundleManager {
 
   /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
-   * @param {string} moduleName - Indicates the moduleName of the application.
-   * @param {string} abilityName - Indicates the abilityName of the application.
-   * @param {string} metadataName - Indicates the name of metadata in ability.
-   * @param {AsyncCallback} callback - The callback of returning string in json-format of the corresponding config file.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @param { string } abilityName - Indicates the abilityName of the application.
+   * @param { string } metadataName - Indicates the name of metadata in ability.
+   * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -678,11 +675,11 @@ declare namespace bundleManager {
 
   /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
-   * @param {string} moduleName - Indicates the moduleName of the application.
-   * @param {string} abilityName - Indicates the abilityName of the application.
-   * @param {string} metadataName - Indicates the name of metadata in ability.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<string>>} Returns string in json-format of the corresponding config file.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @param { string } abilityName - Indicates the abilityName of the application.
+   * @param { string } metadataName - Indicates the name of metadata in ability.
+   * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -690,11 +687,11 @@ declare namespace bundleManager {
 
   /**
    * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
-   * @param {string} moduleName - Indicates the moduleName of the application.
-   * @param {string} extensionAbilityName - Indicates the extensionAbilityName of the application.
-   * @param {string} metadataName - Indicates the name of metadata in ability.
-   * @param {AsyncCallback} callback - The callback of returning string in json-format of the corresponding config file.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @param { string } extensionAbilityName - Indicates the extensionAbilityName of the application.
+   * @param { string } metadataName - Indicates the name of metadata in ability.
+   * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -702,11 +699,11 @@ declare namespace bundleManager {
 
   /**
    * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
-   * @param {string} moduleName - Indicates the moduleName of the application.
-   * @param {string} extensionAbilityName - Indicates the extensionAbilityName of the application.
-   * @param {string} metadataName - Indicates the name of metadata in ability.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<string>>} Returns string in json-format of the corresponding config file.
+   * @param { string } moduleName - Indicates the moduleName of the application.
+   * @param { string } extensionAbilityName - Indicates the extensionAbilityName of the application.
+   * @param { string } metadataName - Indicates the name of metadata in ability.
+   * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */

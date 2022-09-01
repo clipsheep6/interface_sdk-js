@@ -17,216 +17,243 @@ import { ApplicationInfo } from './applicationInfo';
 import { Metadata } from './metadata'
 
 /**
- * @name Obtains configuration information about an ability
- * @since 9
+ * Obtains configuration information about an ability
+ * @typedef AbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
  */
 export interface AbilityInfo {
   /**
-    * @default Indicates the name of the bundle containing the ability
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the name of the bundle containing the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly bundleName: string;
 
   /**
-    * @default Indicates the name of the .hap package to which the capability belongs
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the name of the .hap package to which the capability belongs
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly moduleName: string;
 
   /**
-    * @default Ability simplified class name
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Ability simplified class name
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly name: string;
 
   /**
-    * @default Indicates the label of the ability
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the label of the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly label: string;
 
   /**
-    * @default Describes the ability
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly description: string;
 
   /**
-    * @default Indicates the icon of the ability
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the icon of the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly icon: string;
 
   /**
-    * @default Indicates the label id of the ability
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the label id of the ability
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly labelId: number;
 
   /**
-    * @default Indicates the description id of the ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates the description id of the ability
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly descriptionId: number;
 
   /**
-    * @default Indicates the icon id of the ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates the icon id of the ability
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly iconId: number;
 
   /**
-    * @default Process of ability, if user do not set it ,the value equal application process
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Process of ability, if user do not set it ,the value equal application process
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly process: string;
 
   /**
-    * @default Indicates the background service addressing a specific usage scenario
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @FAModelOnly
-    */
+   * Indicates the background service addressing a specific usage scenario
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @FAModelOnly
+   * @since 9
+   */
   readonly backgroundModes: number;
 
   /**
-    * @default Indicates whether an ability can be called by other abilities
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates whether an ability can be called by other abilities
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly isVisible: boolean;
 
   /**
-    * @default Enumerates ability display orientations
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Enumerates ability display orientations
+   * @type {DisplayOrientation}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly orientation: DisplayOrientation;
 
   /**
-    * @default Enumerates ability launch type
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Enumerates ability launch type
+   * @type {LaunchType}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly launchType: LaunchType;
 
   /**
-    * @default The permissions that others need to launch this ability
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * The permissions that others need to launch this ability
+   * @type {Array<string>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly permissions: Array<string>;
 
   /**
-    * @default The device types that this ability can run on
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * The device types that this ability can run on
+   * @type {Array<string>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly deviceTypes: Array<string>;
 
   /**
-    * @default Obtains configuration information about an application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Obtains configuration information about an application
+   * @type {ApplicationInfo}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly applicationInfo: ApplicationInfo;
 
   /**
-    * @default Indicates the metadata of ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * 
-    */
+   * @default Indicates the metadata of ability
+   * @type {Array<Metadata>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly metadata: Array<Metadata>;
 
   /**
-    * @default Indicates whether the ability is enabled
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates whether the ability is enabled
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly enabled: boolean;
 
   /**
-    * @default Indicates which window mode is supported
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates which window mode is supported
+   * @type {Array<SupportWindowMode>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly supportWindowMode: Array<SupportWindowMode>;
 
   /**
-    * @default Indicates maximum ratio of width over height of window under free window status.
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates maximum ratio of width over height of window under free window status.
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly maxWindowRatio: number;
 
   /**
-    * @default Indicates minimum ratio of width over height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates minimum ratio of width over height of window under free window status.
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly minWindowRatio: number;
 
   /**
-    * @default Indicates maximum width of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates maximum width of window under free window status.
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly maxWindowWidth: number;
 
   /**
-    * @default Indicates minimum width of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates minimum width of window under free window status.
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly minWindowWidth: number;
 
   /**
-    * @default Indicates maximum height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates maximum height of window under free window status.
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly maxWindowHeight: number;
 
   /**
-    * @default Indicates minimum height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates minimum height of window under free window status.
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly minWindowHeight: number;
 }
 
 /**
- * @name SupportWindowMode
+ * Support window mode
+ * @enum {number}
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
 export enum SupportWindowMode {
   /**
-   * @default Indicates supported window mode of full screen mode
-   * @since 9
+   * Indicates supported window mode of full screen mode
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   FULL_SCREEN = 0,
   /**
-   * @default Indicates supported window mode of split mode
+   * Indicates supported window mode of split mode
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    */
   SPLIT = 1,
   /**
-   * @default Indicates supported window mode of floating mode
+   * Indicates supported window mode of floating mode
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    */
@@ -234,27 +261,28 @@ export enum SupportWindowMode {
 }
 
 /**
-* @name LaunchType
-* @syscap SystemCapability.BundleManager.BundleFramework.Core
-* @since 9
-*/
+ * Launch type
+ * @enum {number}
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
 export enum LaunchType {
   /**
-   * @default Indicates that the ability has only one instance
+   * Indicates that the ability has only one instance
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   SINGLETON = 0,
-  
+
   /**
-   * @default Indicates that the ability can have multiple instances
+   * Indicates that the ability can have multiple instances
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   STANDARD = 1,
 
   /**
-   * @default Indicates that the ability can have specified instances
+   * Indicates that the ability can have specified instances
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -262,101 +290,100 @@ export enum LaunchType {
 }
 
 /**
- * @name DisplayOrientation
+ * Display orientation
+ * @enum {number}
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @import NA
- * @permission NA
  * @since 9
  */
 export enum DisplayOrientation {
   /**
-   * @default Indicates that the system automatically determines the display orientation
-   * @since 9
+   * Indicates that the system automatically determines the display orientation
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   UNSPECIFIED,
 
   /**
-   * @default Indicates the landscape orientation
-   * @since 9
+   * Indicates the landscape orientation
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   LANDSCAPE,
 
   /**
-   * @default Indicates the portrait orientation
-   * @since 9
+   * Indicates the portrait orientation
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   PORTRAIT,
 
   /**
-   * @default Indicates the page ability orientation is the same as that of the nearest ability in the stack
-   * @since 9
+   * Indicates the page ability orientation is the same as that of the nearest ability in the stack
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   FOLLOW_RECENT,
 
   /**
-   * @default Indicates the inverted landscape orientation
-   * @since 9
+   * Indicates the inverted landscape orientation
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   LANDSCAPE_INVERTED,
 
   /**
-   * @default Indicates the inverted portrait orientation
-   * @since 9
+   * Indicates the inverted portrait orientation
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   PORTRAIT_INVERTED,
 
   /**
-   * @default Indicates the orientation can be auto-rotated
-   * @since 9
+   * Indicates the orientation can be auto-rotated
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   AUTO_ROTATION,
 
   /**
-   * @default Indicates the landscape orientation rotated with sensor
-   * @since 9
+   * Indicates the landscape orientation rotated with sensor
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   AUTO_ROTATION_LANDSCAPE,
 
   /**
-   * @default Indicates the portrait orientation rotated with sensor
-   * @since 9
+   * Indicates the portrait orientation rotated with sensor
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   AUTO_ROTATION_PORTRAIT,
 
   /**
-   * @default Indicates the sensor restricted mode
-   * @since 9
+   * Indicates the sensor restricted mode
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   AUTO_ROTATION_RESTRICTED,
 
   /**
-   * @default Indicates the sensor landscape restricted mode
-   * @since 9
+   * Indicates the sensor landscape restricted mode
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   AUTO_ROTATION_LANDSCAPE_RESTRICTED,
 
   /**
-   * @default Indicates the sensor portrait restricted mode
-   * @since 9
+   * Indicates the sensor portrait restricted mode
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   AUTO_ROTATION_PORTRAIT_RESTRICTED,
 
   /**
-   * @default Indicates the locked orientation mode
-   * @since 9
+   * Indicates the locked orientation mode
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   LOCKED,
 }

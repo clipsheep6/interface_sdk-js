@@ -14,37 +14,42 @@
  */
 
 /**
- * @name Indicates the defined permission details in file config.json
- * @since 9
+ * Indicates the defined permission details in file config.json
+ * @typedef PermissionDef
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
+ * @since 9
  */
  export interface PermissionDef {
   /**
-    * @default Indicates the name of this permission
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates the name of this permission
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   permissionName: string;
 
   /**
-    * @default Indicates the grant mode of this permission
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates the grant mode of this permission
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   grantMode: number;
 
   /**
-    * @default Indicates the labelId of this permission
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates the labelId of this permission
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   labelId: number;
 
   /**
-    * @default Indicates the descriptionId of this permission
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    */
+   * Indicates the descriptionId of this permission
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   descriptionId: number;
 }

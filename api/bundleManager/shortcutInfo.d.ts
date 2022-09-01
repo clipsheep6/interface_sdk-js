@@ -14,102 +14,116 @@
  */
 
 /**
- * @name  Provides information about a shortcut, including the shortcut ID and label.
- * @since 9
+ * Provides information about a shortcut, including the shortcut ID and label.
+ * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi Hide this for inner system use
+ * @since 9
  */
 export interface ShortcutInfo {
   /**
-   * @default Indicates the ID of the application to which this shortcut belongs
-   * @since 9
+   * Indicates the ID of the application to which this shortcut belongs
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly id: string;
 
   /**
-   * @default Indicates the name of the bundle containing the shortcut
-   * @since 9
+   * Indicates the name of the bundle containing the shortcut
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly bundleName: string;
 
   /**
-   * @default Indicates the moduleName of the shortcut
-   * @since 9
+   * Indicates the moduleName of the shortcut
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
-  readonly moduleName?: string;
+  readonly moduleName: string;
 
   /**
-   * @default Indicates the host ability of the shortcut
-   * @since 9
+   * Indicates the host ability of the shortcut
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly hostAbility: string;
 
   /**
-   * @default Indicates the icon of the shortcut
-   * @since 9
+   * Indicates the icon of the shortcut
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly icon: string;
 
   /**
-   * @default Indicate s the icon id of the shortcut
-   * @since 9
+   * Indicate s the icon id of the shortcut
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly iconId: number;
 
   /**
-   * @default Indicates the label of the shortcut
-   * @since 9
+   * Indicates the label of the shortcut
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly label: string;
 
   /**
-   * @default Indicates the label id of the shortcut
-   * @since 9
+   * Indicates the label id of the shortcut
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly labelId: number;
 
   /**
-   * @default Indicates the wants of the shortcut
-   * @since 9
+   * Indicates the wants of the shortcut
+   * @type {Array<ShortcutWant>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly wants: Array<ShortcutWant>;
 }
 
 /**
- * @name  Provides methods for obtaining information about the ability that a shortcut will start, including the target
- *        bundle name, target module name and ability class name.
- * @since 9
+ * Provides methods for obtaining information about the ability that a shortcut will start, including the target
+ * bundle name, target module name and ability class name.+
+ * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @systemapi Hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface ShortcutWant{
   /**
-   * @default Indicates the target bundle of the shortcut want
-   * @since 9
+   * Indicates the target bundle of the shortcut want
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly targetBundle: string;
 
   /**
-   * @default Indicates the target module of the shortcut want
-   * @since 9
+   * Indicates the target module of the shortcut want
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly targetModule: string;
 
   /**
-   * @default Indicates the target ability of the shortcut want
-   * @since 9
+   * Indicates the target ability of the shortcut want
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly targetAbility: string;
 }

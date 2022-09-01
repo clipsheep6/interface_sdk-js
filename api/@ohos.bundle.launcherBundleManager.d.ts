@@ -19,22 +19,22 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './b
 
 
 /**
- * inner bundle manager.
+ * launcher bundle manager.
  * @namespace launcherBundleManager
  * @syscap  SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi Hide this for inner system use
+ * @systemapi
  * @since 9
  */
 declare namespace launcherBundleManager {
   /**
    * Obtains based on a given bundleName and userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {number} userId - Indicates the id for the user.
-   * @param {AsyncCallback} callback -The callback of the LauncherAbilityInfo object result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } userId - Indicates the id for the user.
+   * @param { AsyncCallback } callback -The callback of the LauncherAbilityInfo object result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
@@ -42,12 +42,12 @@ declare namespace launcherBundleManager {
    /**
    * Obtains based on a given bundleName and userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {number} userId - Indicates the id for the user.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<LauncherAbilityInfo>>} Return the LauncherAbilityInfo object.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } userId - Indicates the id for the user.
+   * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -55,11 +55,11 @@ declare namespace launcherBundleManager {
   /**
    * Obtains based on a given userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {number} userId - Indicates the id for the user.
-   * @param {AsyncCallback} callback -The callback of the LauncherAbilityInfo object result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { number } userId - Indicates the id for the user.
+   * @param { AsyncCallback } callback -The callback of the LauncherAbilityInfo object result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
@@ -67,11 +67,11 @@ declare namespace launcherBundleManager {
   /**
    * Obtains based on a given userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {number} userId - Indicates the id for the user.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Array<LauncherAbilityInfo>>} Returns the LauncherAbilityInfo object.
+   * @param { number } userId - Indicates the id for the user.
+   * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -79,11 +79,11 @@ declare namespace launcherBundleManager {
   /**
    * Obtains based on a given bundleName.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {AsyncCallback} callback -The callback of the ShortcutInfo object result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { AsyncCallback } callback -The callback of the ShortcutInfo object result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
@@ -91,11 +91,11 @@ declare namespace launcherBundleManager {
   /**
    * Obtains based on a given bundleName.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return { Promise<Array<ShortcutInfo>>} Returns the LauncherShortcutInfo object.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
@@ -103,7 +103,7 @@ declare namespace launcherBundleManager {
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
@@ -111,7 +111,7 @@ declare namespace launcherBundleManager {
   /**
    * Information about a shortcut, including the shortcut ID and label.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
    export type ShortcutInfo = _ShortcutInfo;
@@ -119,7 +119,7 @@ declare namespace launcherBundleManager {
   /**
    * Information about the ability that a shortcut will start, including the target bundle name, target module name and ability class name.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
   export type ShortcutWant = _ShortcutWant;

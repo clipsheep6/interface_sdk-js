@@ -20,19 +20,19 @@ import Want from './@ohos.application.want';
  * Application interception
  * @namespace appControl
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
- * @systemapi Hide this for inner system use
+ * @systemapi
  * @since 9
  */
 declare namespace appControl {
   /**
    * Set the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param {string} appId - Indicates the bundle name of the application.
-   * @param {Want} disposedWant - Indicates the disposed want.
-   * @param {AsyncCallback} callback - The callback of setting the disposed status of a specified bundle.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } appId - Indicates the bundle name of the application.
+   * @param { Want } disposedWant - Indicates the disposed want.
+   * @param { AsyncCallback } callback - The callback of setting the disposed status of a specified bundle.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function setDisposedStatus(appId: string, disposedWant: Want, callback: AsyncCallback<void>): void;
@@ -40,12 +40,12 @@ declare namespace appControl {
   /**
    * Set the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param {string} appId - Indicates the bundle name of the application.
-   * @param {Want} disposedWant - Indicates the disposed want.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} The result of setting the disposed status of a specified bundle.
+   * @param { string } appId - Indicates the bundle name of the application.
+   * @param { Want } disposedWant - Indicates the disposed want.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<void> } The result of setting the disposed status of a specified bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function setDisposedStatus(appId: string, disposedWant: Want,): Promise<void>;
@@ -53,11 +53,11 @@ declare namespace appControl {
   /**
    * Obtains the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param {string} appId - Indicates the bundle name of the application.
-   * @param {AsyncCallback<Want>} callback - The callback of getting the disposed status of a specified bundle.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } appId - Indicates the bundle name of the application.
+   * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getDisposedStatus(appId: string, callback: AsyncCallback<Want>): void;
@@ -65,11 +65,11 @@ declare namespace appControl {
   /**
    * Obtains the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param {string} appId - Indicates the bundle name of the application.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<Want>} Returns the disposed status of a specified bundle.
+   * @param { string } appId - Indicates the bundle name of the application.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<Want> } Returns the disposed status of a specified bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getDisposedStatus(appId: string): Promise<Want>;
@@ -77,11 +77,11 @@ declare namespace appControl {
   /**
    * Delete the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param {string} appId - Indicates the bundle name of the application.
-   * @param {AsyncCallback<void>} callback - the callback of deleting the disposed status of a specified bundle.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } appId - Indicates the bundle name of the application.
+   * @param { AsyncCallback<void> } callback - the callback of deleting the disposed status of a specified bundle.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
@@ -89,11 +89,11 @@ declare namespace appControl {
   /**
    * Delete the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param {string} appId - Indicates the bundle name of the application.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} Returns the result of deleting the disposed status of a specified bundle..
+   * @param { string } appId - Indicates the bundle name of the application.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<void> } Returns the result of deleting the disposed status of a specified bundle..
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function deleteDisposedStatus(appId: string): Promise<void>;

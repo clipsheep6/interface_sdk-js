@@ -21,7 +21,7 @@ import * as _PackInfo from './bundleManager/packInfo'
  * free install bundle manager.
  * @namespace freeInstall
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi Hide this for inner system use
+ * @systemapi
  * @since 9
  */
 declare namespace freeInstall {
@@ -97,13 +97,13 @@ declare namespace freeInstall {
   /**
    * Set the module wether need upgrade
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {string} moduleName - Indicates the module name of the application.
-   * @param {UpgradeFlag} upgradeFlag - Indicates upgradeFlag of the application.
-   * @param {AsyncCallback} callback - The callback of setting module upgrade flag result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
+   * @param { UpgradeFlag } upgradeFlag - Indicates upgradeFlag of the application.
+   * @param { AsyncCallback } callback - The callback of setting module upgrade flag result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>) : void;
@@ -111,13 +111,13 @@ declare namespace freeInstall {
   /**
    * Set the module wether need upgrade
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {string} moduleName - Indicates the module name of the application.
-   * @param {UpgradeFlag} upgradeFlag - Indicates upgradeFlag of the application.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} - Return the reslut of setting module upgrade flag.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
+   * @param { UpgradeFlag } upgradeFlag - Indicates upgradeFlag of the application.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<void> } - Return the reslut of setting module upgrade flag.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
@@ -125,12 +125,12 @@ declare namespace freeInstall {
   /**
    * Checks whether a specified module is removable.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {string} moduleName - Indicates the module name of the application.
-   * @param {AsyncCallback} callback - The callback of checking module removeable result.The result is true if the module is removable, false otherwise.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
+   * @param { AsyncCallback } callback - The callback of checking module removeable result.The result is true if the module is removable, false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
@@ -138,12 +138,12 @@ declare namespace freeInstall {
   /**
    * Checks whether a specified module is removable.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the bundle name of the application.
-   * @param {string} moduleName - Indicates the module name of the application.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
    * @returns {Promise<void>} Returns true if the module is removable; returns false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi Hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
@@ -151,12 +151,12 @@ declare namespace freeInstall {
   /**
    * Obtains bundlePackInfo based on bundleName and bundleFlags.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {BundlePackFlag} bundlePackFlag - Indicates the application bundle pack flag to be queried.
-   * @param {AsyncCallback} callback - The callback of getting the BundlePackInfo object result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { BundlePackFlag } bundlePackFlag - Indicates the application bundle pack flag to be queried.
+   * @param { AsyncCallback } callback - The callback of getting the BundlePackInfo object result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getBundlePackInfo(bundleName: string, bundlePackFlag : BundlePackFlag, callback: AsyncCallback<BundlePackInfo>): void;
@@ -164,12 +164,12 @@ declare namespace freeInstall {
   /**
    * Obtains bundlePackInfo based on bundleName and bundleFlags.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {string} bundleName - Indicates the application bundle name to be queried.
-   * @param {pack.BundlePackFlag} bundlePackFlag - Indicates the application bundle pack flag to be queried.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<pack.BundlePackInfo>} Returns the BundlePackInfo object.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { BundlePackFlag } bundlePackFlag - Indicates the application bundle pack flag to be queried.
+   * @returns {Promise<BundlePackInfo>} Returns the BundlePackInfo object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getBundlePackInfo(bundleName: string, bundlePackFlag : BundlePackFlag): Promise<BundlePackInfo>;
@@ -177,9 +177,9 @@ declare namespace freeInstall {
   /**
    * Obtains information about the dispatcher version.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param {AsyncCallback} callback - The callback of getting the dispatchInfo object for the current ability result.
+   * @param { AsyncCallback } callback - The callback of getting the dispatchInfo object for the current ability result.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getDispatchInfo(callback: AsyncCallback<DispatchInfo>): void;
@@ -187,9 +187,9 @@ declare namespace freeInstall {
   /**
    * Obtains information about the dispatcher version.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @return {Promise<DispatchInfo>} Returns the DispatchInfo object for the current ability.
+   * @returns { Promise<DispatchInfo> } Returns the DispatchInfo object for the current ability.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
    * @since 9
    */
   function getDispatchInfo(): Promise<DispatchInfo>;
@@ -198,7 +198,7 @@ declare namespace freeInstall {
    * The dispatch info class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type DispatchInfo = _DispatchInfo;
@@ -207,7 +207,7 @@ declare namespace freeInstall {
    * The bundle pack info class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type BundlePackInfo = _PackInfo.BundlePackInfo;
@@ -216,7 +216,7 @@ declare namespace freeInstall {
    * The package info class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type PackageConfig = _PackInfo.PackageConfig;
@@ -225,7 +225,7 @@ declare namespace freeInstall {
    * The package summary class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type PackageSummary = _PackInfo.PackageSummary;
@@ -234,7 +234,7 @@ declare namespace freeInstall {
    * The bundle summary class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type BundleConfigInfo = _PackInfo.BundleConfigInfo;
@@ -243,16 +243,16 @@ declare namespace freeInstall {
    * The extension ability forms class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
-  export type ExtensionAbilities = _PackInfo.ExtensionAbilities;
+  export type ExtensionAbility = _PackInfo.ExtensionAbility;
 
   /**
    * The module summary of a bundle.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type ModuleConfigInfo = _PackInfo.ModuleConfigInfo;
@@ -261,7 +261,7 @@ declare namespace freeInstall {
    * The bundle info summary class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type ModuleDistroInfo = _PackInfo.ModuleDistroInfo;
@@ -270,7 +270,7 @@ declare namespace freeInstall {
    * The ability info of a module.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type ModuleAbilityInfo = _PackInfo.ModuleAbilityInfo;
@@ -279,7 +279,7 @@ declare namespace freeInstall {
    * The form info of an ability.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type AbilityFormInfo = _PackInfo.AbilityFormInfo;
@@ -288,7 +288,7 @@ declare namespace freeInstall {
    * The bundle version class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type Version = _PackInfo.Version;
@@ -297,7 +297,7 @@ declare namespace freeInstall {
    * The bundle Api version class.
    *
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi hide this for inner system use
    */
   export type ApiVersion = _PackInfo.ApiVersion;
