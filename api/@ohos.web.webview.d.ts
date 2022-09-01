@@ -265,24 +265,6 @@ declare namespace webview {
           static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
 
           /**
-           * Get whether file scheme cookies can be send or accepted.
-           *
-           * @returns True if the instance can send and accept file scheme cookies else false.
-           *
-           * @since 9
-           */
-          static isFileURICookieAllowed(): boolean;
-
-          /**
-           * Set whether file scheme cookies can be send or accepted.
-           * 
-           * @param accept True if the instance can send and accept file scheme cookies else false.
-           *
-           * @since 9
-           */
-          static putAcceptFileURICookieEnabled(accept: boolean): void;
-
-          /**
            * Check whether exists any cookies.
            *
            * @returns True if exists more than one cookie else false;
