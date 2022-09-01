@@ -18,115 +18,129 @@ import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
 import { Metadata } from './metadata'
 
 /**
- * @name Obtains configuration information about an module.
+ * Obtains configuration information about an module.
+ * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
- *
  */
 export interface HapModuleInfo {
   /**
-   * @default Indicates the name of this hapmodule
+   * Indicates the name of this hapmodule
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Indicates the icon of this hapmodule
+   * Indicates the icon of this hapmodule
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly icon: string;
 
    /**
-    * @default Indicates the icon id of this hapmodule
+    * Indicates the icon id of this hapmodule
+    * @type {number}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
   readonly iconId: number;
 
    /**
-    * @default Indicates the label of this hapmodule
+    * Indicates the label of this hapmodule
+    * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
    readonly label: string;
 
    /**
-    * @default Indicates the label id of this hapmodule
+    * Indicates the label id of this hapmodule
+    * @type {number}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
    readonly labelId: number;
 
   /**
-   * @default Describes the hapmodule
+   * Describes the hapmodule
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly description: string;
 
   /**
-   * @default Indicates the description of this hapmodule
+   * Indicates the description of this hapmodule
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly descriptionId: number;
 
   /**
-   * @default Indicates main elementName of the module
+   * Indicates main elementName of the module
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly mainElementName: string;
 
   /**
-   * @default Obtains configuration information about ability
+   * Obtains configuration information about ability
+   * @type {Array<AbilityInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly abilityInfo: Array<AbilityInfo>;
 
   /**
-   * @default Obtains configuration information about extension ability
+   * Obtains configuration information about extension ability
+   * @type {Array<ExtensionAbilityInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 
    /**
-    * @default Indicates the metadata of ability
-    * @since 9
+    * Indicates the metadata of ability
+    * @type {Array<Metadata>}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * 
+    * @since 9
     */
   readonly metadata: Array<Metadata>;
 
   /**
-   * @default The device types that this hapmodule can run on
+   * The device types that this hapmodule can run on
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
    readonly deviceTypes: Array<string>;
 
   /**
-   * @default Indicates whether free installation of the hapmodule is supported
+   * Indicates whether free installation of the hapmodule is supported
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly installationFree: boolean;
 
    /**
-    * @default Indicates the hash value of the module
+    * Indicates the hash value of the module
+    * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
   readonly hashValue: string;
 
   /**
-   * @default Indicates the module source dir of this module
-   * @since 9
+   * Indicates the module source dir of this module
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly moduleSourceDir: string;
 }

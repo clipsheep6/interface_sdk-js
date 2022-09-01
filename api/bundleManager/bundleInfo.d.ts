@@ -17,63 +17,71 @@ import { ApplicationInfo } from './applicationInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
- * @name Obtains configuration information about a bundle
- * @since 9
+ * Obtains configuration information about a bundle
+ * @typedef BundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- *
+ * @since 9
  */
 export interface BundleInfo {
   /**
-   * @default Indicates the name of this bundle
+   * Indicates the name of this bundle
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Obtains configuration information about an application
+   * Obtains configuration information about an application
+   * @type {ApplicationInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly appInfo: ApplicationInfo;
 
   /**
-   * @default Obtains configuration information about an module
+   * Obtains configuration information about an module
+   * @type {Array<HapModuleInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly hapModuleInfos: Array<HapModuleInfo>;
 
   /**
-   * @default Indicates the required permissions details defined in file config.json
+   * Indicates the required permissions details defined in file config.json
+   * @type {Array<ReqPermissionDetail>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
   /**
-   * @default Indicates the grant status of required permissions
+   * Indicates the grant status of required permissions
+   * @type {Array<PermissionGrantStatus>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly permissionGrantStates: Array<PermissionGrantStatus>;
 
   /**
-   * @default Indicates the SignatureInfo of the bundle
+   * Indicates the SignatureInfo of the bundle
+   * @type {SignatureInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly signatureInfo: SignatureInfo;
 
   /**
-   * @default Indicates the hap install time
+   * Indicates the hap install time
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly installTime: number;
 
   /**
-   * @default Indicates the hap update time
+   * Indicates the hap update time
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -81,35 +89,39 @@ export interface BundleInfo {
 }
 
 /**
- * @name Indicates the required permissions details defined in file config.json
+ * Indicates the required permissions details defined in file config.json
+ * @typedef ReqPermissionDetail
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
- *
  */
 export interface ReqPermissionDetail {
   /**
-    * @default Indicates the name of this required permissions
+    * Indicates the name of this required permissions
+    * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
   name: string;
 
   /**
-    * @default Indicates the reason of this required permissions
+    * Indicates the reason of this required permissions
+    * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
   reason: string;
 
    /**
-    * @default Indicates the reason id of this required permissions
+    * Indicates the reason id of this required permissions
+    * @type {number}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
   reasonId: number;
 
   /**
-    * @default Indicates the used scene of this required permissions
+    * Indicates the used scene of this required permissions
+    * @type {UsedScene}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
     */
@@ -117,21 +129,23 @@ export interface ReqPermissionDetail {
 }
 
 /**
- * @name The scene which is used
- * @since 9
+ * The scene which is used
+ * @typedef UsedScene
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- *
+ * @since 9
  */
 export interface UsedScene {
   /**
-   * @default Indicates the abilities that need the permission
+   * Indicates the abilities that need the permission
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   abilities: Array<string>;
 
   /**
-   * @default Indicates the time when the permission is used
+   * Indicates the time when the permission is used
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -139,7 +153,8 @@ export interface UsedScene {
 }
 
 /**
- * @name PermissionGrantStatus
+ * PermissionGrantStatus
+ * @enum {number}
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
@@ -160,21 +175,24 @@ export interface UsedScene {
 }
 
 /**
- * @name Indicates SignatureInfo
+ * Indicates SignatureInfo
+ * @typedef SignatureInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
 export interface SignatureInfo {
   /**
-   * @default Indicates the ID of the application to which this bundle belongs
+   * Indicates the ID of the application to which this bundle belongs
    * The application ID uniquely identifies an application. It is determined by the bundle name and signature
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly appId: string;
 
   /**
-   * @default Indicates the fingerprint of the certificate
+   * Indicates the fingerprint of the certificate
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */

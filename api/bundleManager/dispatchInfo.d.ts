@@ -14,10 +14,11 @@
  */
 
 /**
- * @name The dispatch info class.
- * @since 9
+ * The dispatch info class.
+ * @typedef DispatchInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
  export interface DispatchInfo {
     /**

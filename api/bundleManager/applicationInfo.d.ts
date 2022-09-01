@@ -18,205 +18,233 @@ import { Metadata } from './metadata';
 import { Resource } from '../global/resource';
 
 /**
- * @name Obtains configuration information about an application
- * @since 9
+ * Obtains configuration information about an application
+ * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- *
+ * @since 9
  */
 export interface ApplicationInfo {
   /**
-   * @default Indicates the application name, which is the same as {@code bundleName}
+   * Indicates the application name, which is the same as {@code bundleName}
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Description of application
+   * Description of application
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly description: string;
 
   /**
-   * @default Indicates the description id of the application
+   * Indicates the description id of the application
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly descriptionId: number;
 
   /**
-   * @default Indicates whether or not this application may be instantiated
+   * Indicates whether or not this application may be instantiated
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly enabled: boolean;
 
   /**
-   * @default Indicates the label of the application
+   * Indicates the label of the application
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly label: string;
 
   /**
-   * @default Indicates the label id of the application
+   * Indicates the label id of the application
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly labelId: number;
 
   /**
-   * @default Indicates the icon of the application
+   * Indicates the icon of the application
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly icon: string;
 
   /**
-   * @default Indicates the icon id of the application
+   * Indicates the icon id of the application
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly iconId: number;
 
   /**
-   * @default Indicates the bundle vendor
+   * Indicates the bundle vendor
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly vendor: string;
 
   /**
-   * @default Indicates the version code of the bundle
+   * Indicates the version code of the bundle
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly versionCode: number;
 
   /**
-   * @default Indicates the version name of the bundle
+   * Indicates the version name of the bundle
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly versionName: string;
 
   /**
-   * @default Indicates the earliest historical version compatible with the bundle
+   * Indicates the earliest historical version compatible with the bundle
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
    readonly minCompatibleVersionCode: number;
 
   /**
-   * @default Indicates the target version number of the bundle
+   * Indicates the target version number of the bundle
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
    readonly targetVersion: number;
   
   /**
-   * @default Process of application, if user do not set it ,the value equal bundleName
+   * Process of application, if user do not set it ,the value equal bundleName
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly process: string;
 
   /**
-   * @default Indicates the path storing the module resources of the application
+   * Indicates the path storing the module resources of the application
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly moduleSourceDirs: Array<string>;
 
   /**
-   * @default Indicates the permissions required for accessing the application.
+   * Indicates the permissions required for accessing the application.
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly permissions: Array<string>;
 
   /**
-   * @default Indicates module information about an application
-   * @since 9
+   * Indicates module information about an application
+   * @type {Array<HapModuleInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly moduleInfos: Array<HapModuleInfo>;
 
   /**
-   * @default Indicates the path where the {@code Entry.hap} file of the application is saved
+   * Indicates the path where the {@code Entry.hap} file of the application is saved
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly entryDir: string;
 
   /**
-   * @default Indicates the application source code path
+   * Indicates the application source code path
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly codePath: string;
 
   /**
-   * @default Indicates the metadata of module
+   * Indicates the metadata of module
+   * @type {Map<string, Array<Metadata>>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly metadata: Map<string, Array<Metadata>>;
 
   /**
-   * @default Indicates whether or not this application may be removable
+   * Indicates whether or not this application may be removable
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly removable: boolean;
 
   /**
-   * @default Indicates the access token of the application
+   * Indicates the access token of the application
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly accessTokenId: number;
 
   /**
-   * @default Indicates the uid of the application
+   * Indicates the uid of the application
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly uid: number;
 
   /**
-   * @default Indicates icon resource of the application
-   * @since 9
+   * Indicates icon resource of the application
+   * @type {Resource}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly iconResource: Resource;
 
   /**
-   * @default Indicates label resource of the application
-   * @since 9
+   * Indicates label resource of the application
+   * @type {Resource}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
     readonly labelResource: Resource;
 
   /**
-   * @default Indicates description resource of the application
-   * @since 9
+   * Indicates description resource of the application
+   * @type {Resource}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly descriptionResource: Resource;
 
   /**
-   * @default Indicates the appDistributionType of the application
-   * @since 9
+   * Indicates the appDistributionType of the application
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly appDistributionType: string;
 
   /**
-   * @default Indicates the appProvisionType of the application
-   * @since 9
+   * Indicates the appProvisionType of the application
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly appProvisionType: string;
 }

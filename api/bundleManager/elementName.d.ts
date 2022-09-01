@@ -17,57 +17,56 @@
  * Contains basic Ability information, which uniquely identifies an ability.
  * You can use this class to obtain values of the fields set in an element,
  * such as the device ID, bundle name, and ability name.
- * @name Contains basic Ability information, which uniquely identifies an ability
- * @since 9
+ * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- *
+ * @since 9
  */
 export interface ElementName {
   /**
-   * @default Indicates device id
-   *
-   * @since 9
+   * Indicates device id
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   deviceId?: string;
 
   /**
    * @default Indicates bundle name
-   *
-   * @since 9
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   bundleName: string;
 
   /**
-   * @default Indicates ability name
-   *
-   * @since 9
+   * Indicates ability name
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   abilityName: string;
 
   /**
-   * @default Indicates uri
-   *
-   * @since 9
+   * Indicates uri
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   uri?: string;
 
   /**
-   * @default Indicates short name
-   *
-   * @since 9
+   * Indicates short name
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   shortName?: string;
 
  /**
   * @default Indicates module name
-  *
-  * @since 9
+  * @type {string}
   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+  * @since 9
   */
   moduleName?: string;
 }

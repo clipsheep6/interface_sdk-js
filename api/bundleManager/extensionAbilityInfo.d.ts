@@ -18,107 +18,120 @@ import { Metadata } from './metadata'
 
 /**
  * Extension information about a bundle
- * @interface
- * @since 9
+ * @typedef ExtensionAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- *
+ * @since 9
  */
 export interface ExtensionAbilityInfo {
   /**
-   * @default Indicates the name of the bundle
-   * @since 9
+   * Indicates the name of the bundle
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly bundleName: string;
 
   /**
-   * @default Indicates the name of the module
-   * @since 9
+   * Indicates the name of the module
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly moduleName: string;
 
   /**
-   * @default Indicates the name of the extension info
-   * @since 9
+   * Indicates the name of the extension info
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Indicates the label id of the entension info
-   * @since 9
+   * Indicates the label id of the entension info
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly labelId: number;
 
   /**
-   * @default Indicates the description id of the entension info
-   * @since 9
+   * Indicates the description id of the entension info
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly descriptionId: number;
 
   /**
-   * @default Indicates the icon id of the entension info
-   * @since 9
+   * Indicates the icon id of the entension info
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly iconId: number;
 
   /**
-   * @default Indicates whether the entensionInfo can be visible or not
-   * @since 9
+   * Indicates whether the entensionInfo can be visible or not
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly isVisible: boolean;
 
   /**
-   * @default Enumerates types of the entension info
-   * @since 9
+   * Enumerates types of the entension info
+   * @type {ExtensionAbilityType}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly extensionAbilityType: ExtensionAbilityType;
 
   /**
-   * @default The permissions that others need to use this extension info
-   * @since 9
+   * The permissions that others need to use this extension info
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly permissions: Array<string>;
 
   /**
-   * @default Obtains configuration information about an application
-   * @since 9
+   * Obtains configuration information about an application
+   * @type {ApplicationInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * @default Indicates the metadata of bundle
-   * @since 9
+   * Indicates the metadata of bundle
+   * @type {Array<Metadata>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly metadata: Array<Metadata>;
 
   /**
-   * @default Indicates the src language to express extension info
-   * @since 9
+   * Indicates the src language to express extension info
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly enabled: boolean;
 
   /**
-   * @default Indicates the read permission extension ability info
-   * @since 9
+   * Indicates the read permission extension ability info
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly readPermission: string;
 
   /**
-   * @default Indicates the write permission of extension ability info
-   * @since 9
+   * Indicates the write permission of extension ability info
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   readonly writePermission: string;
 }

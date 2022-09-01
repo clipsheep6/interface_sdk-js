@@ -14,362 +14,412 @@
  */
 
 /**
- * @name The bundle pack info class.
- * @since 9
+ * The bundle pack info class.
+ * @typedef BundlePackInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface BundlePackInfo {
   /**
-   * @default This contains package information in pack.info
-   * @since 9
+   * This contains package information in pack.info
+   * @type {PackageConfig}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly packages: Array<PackageConfig>;
 
   /**
-   * @default This contains bundle summary information in pack.info
-   * @since 9
+   * This contains bundle summary information in pack.info
+   * @type {PackageSummary}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly summary: PackageSummary;
 }
 
 /**
- * @name PackageConfig: the package info class.
- * @since 9
+ * PackageConfig: the package info class.
+ * @typedef PackageConfig
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface PackageConfig {
   /**
-   * @default Indicates the device type of this package
-   * @since 9
+   * Indicates the device type of this package
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly deviceType: Array<string>;
   
   /**
-   * @default Indicates the name of this package 
-   * @since 9
+   * Indicates the name of this package 
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Indicates the module type of this package
-   * @since 9
+   * Indicates the module type of this package
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly moduleType: string;
   
   /**
-   * @default Indicates whether this package is delivery and install
-   * @since 9
+   * Indicates whether this package is delivery and install
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly deliveryWithInstall: boolean;
 }
 
 /**
- * @name PackageSummary: the package summary class.
- * @since 9
+ * PackageSummary: the package summary class.
+ * @typedef PackageSummary
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface PackageSummary {
   /**
-   * @default Indicates the bundle config info of this package
-   * @since 9
+   * Indicates the bundle config info of this package
+   * @type {BundleConfigInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly app: BundleConfigInfo;
 
   /**
-   * @default Indicates the modules config info of this package
-   * @since 9
+   * Indicates the modules config info of this package
+   * @type {Array<ModuleConfigInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly modules: Array<ModuleConfigInfo>;
 }
 
 /**
- * @name BundleConfigInfo: the bundle summary class.
- * @since 9
+ * BundleConfigInfo: the bundle summary class.
+ * @typedef BundleConfigInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface BundleConfigInfo {
   /**
-   * @default Indicates the name of this bundle
-   * @since 9
+   * Indicates the name of this bundle
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly bundleName: string;
 
   /**
-   * @default Indicates the bundle version
-   * @since 9
+   * Indicates the bundle version
+   * @type {Version}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly version: Version;
 }
 
 /**
- * @name ExtensionAbility: the extension ability forms class.
- * @since 9
+ * ExtensionAbility: the extension ability forms class.
+ * @typedef ExtensionAbility
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
  export interface ExtensionAbility {
   /**
-   * @default Indicates the name of this extension ability
-   * @since 9
+   * Indicates the name of this extension ability
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Indicates the ability forms info
-   * @since 9
+   * Indicates the ability forms info
+   * @type {Array<AbilityFormInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
    readonly forms: Array<AbilityFormInfo>;
 }
 
 /**
- * @name ModuleConfigInfo: the module summary of a bundle.
- * @since 9
+ * ModuleConfigInfo: the module summary of a bundle.
+ * @typedef ModuleConfigInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface ModuleConfigInfo {
   /**
-   * @default Indicates the api version
-   * @since 9
+   * Indicates the api version
+   * @type {ApiVersion}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly apiVersion: ApiVersion;
 
   /**
-   * @default Indicates the devices type
-   * @since 9
+   * Indicates the devices type
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly deviceTypes: Array<string>;
   
   /**
-   * @default Indicates the module distro info
-   * @since 9
+   * Indicates the module distro info
+   * @type {ModuleDistroInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly distro: ModuleDistroInfo;
 
   /**
-   * @default Indicates the abilities info of this module
-   * @since 9
+   * Indicates the abilities info of this module
+   * @type {ModuleDistroInfo}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
-  readonly abilities: Array<ModuleAbilityInfo>;
+  readonly abilities: ModuleDistroInfo;
 
   /**
-   * @default Indicates extension abilities info of this module
-   * @since 9
+   * Indicates extension abilities info of this module
+   * @type {Array<ExtensionAbility>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
    readonly extensionAbilities: Array<ExtensionAbility>;
 }
 
 /**
- * @name ModuleDistroInfo: the bundle info summary class.
- * @since 9
+ * ModuleDistroInfo: the bundle info summary class.
+ * @typedef Array<ExtensionAbility>
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
-export interface ModuleDistroInfo {
+export interface Array<ExtensionAbility> {
   /**
-   * @default Indicates the name of main ability
-   * @since 9
+   * Indicates the name of main ability
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly mainAbility: string;
 
   /**
-   * @default Indicates is delivery with install
-   * @since 9
+   * Indicates is delivery with install
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly deliveryWithInstall: boolean;
   
   /**
-   * @default Indicates is free install
-   * @since 9
+   * Indicates is free install
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly installationFree: boolean;
 
   /**
-   * @default Indicates the module name
-   * @since 9
+   * Indicates the module name
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly moduleName: string;
   
   /**
-   * @default Indicates the module type
-   * @since 9
+   * Indicates the module type
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly moduleType: string;
 }
 
 /**
- * @name ModuleAbilityInfo: the ability info of a module.
- * @since 9
+ * ModuleAbilityInfo: the ability info of a module.
+ * @typedef ModuleAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface ModuleAbilityInfo {
   /**
-   * @default Indicates the name of this module ability
-   * @since 9
+   * Indicates the name of this module ability
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Indicates the label of this module ability
-   * @since 9
+   * Indicates the label of this module ability
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly label: string;
   
   /**
-   * @default Indicates is visible
-   * @since 9
+   * Indicates is visible
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly visible: boolean;
 
   /**
-   * @default Indicates the ability forms info
-   * @since 9
+   * Indicates the ability forms info
+   * @type {Array<AbilityFormInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly forms: Array<AbilityFormInfo>;
 }
 
 /**
- * @name AbilityFormInfo: the form info of an ability.
- * @since 9
+ * AbilityFormInfo: the form info of an ability.
+ * @typedef AbilityFormInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface AbilityFormInfo {
   /**
-   * @default Indicates the name of this ability
-   * @since 9
+   * Indicates the name of this ability
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly name: string;
 
   /**
-   * @default Indicates the type of this ability
-   * @since 9
+   * Indicates the type of this ability
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly type: string;
   
   /**
-   * @default Indicates is enabled update
-   * @since 9
+   * Indicates is enabled update
+   * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly updateEnabled: boolean;
 
   /**
-   * @default Indicates the scheduled update time
-   * @since 9
+   * Indicates the scheduled update time
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly scheduledUpdateTime: string;
   
   /**
-   * @default Indicates the update duration
-   * @since 9
+   * Indicates the update duration
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly updateDuration: number;
   
   /**
-   * @default Indicates the ability support dimensions
-   * @since 9
+   * Indicates the ability support dimensions
+   * @type {Array<number>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly supportDimensions: Array<number>;
   
   /**
-   * @default Indicates the ability default dimension
-   * @since 9
+   * Indicates the ability default dimension
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly defaultDimension: number;
 }
 
 /**
- * @name Version: the bundle version class.
- * @since 9
+ * Version: the bundle version class.
+ * @typedef Version
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface Version {
   /**
-   * @default Indicates the min compatible code of this version
-   * @since 9
+   * Indicates the min compatible code of this version
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly minCompatibleVersionCode: number;
 
   /**
-   * @default Indicates the name of this version
-   * @since 9
+   * Indicates the name of this version
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly name: string;
   
   /**
-   * @default Indicates the code of this version
-   * @since 9
+   * Indicates the code of this version
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly code: number;
 }
 
 /**
- * @name ApiVersion: the bundle Api version class.
- * @since 9
+ * ApiVersion: the bundle Api version class.
+ * @typedef ApiVersion
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
- * @systemapi hide this for inner system use
+ * @systemapi
+ * @since 9
  */
 export interface ApiVersion {
   /**
-   * @default Indicates the min compatible code of this version
-   * @since 9
+   * Indicates the min compatible code of this version
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly releaseType: string;
 
   /**
-   * @default Indicates the name of this version
-   * @since 9
+   * Indicates the name of this version
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly compatible: number;
   
   /**
-   * @default Indicates the code of this version
-   * @since 9
+   * Indicates the code of this version
+   * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
    */
   readonly target: number;
 }

@@ -14,31 +14,33 @@
  */
 
  /**
-  * @name Indicates the Metadata
-  * @since 9
+  * Indicates the Metadata
+  * @typedef Metadata
   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @permission NA
-  *
+  * @since 9
   */
   export interface Metadata {
     /**
-     * @default Indicates the metadata name
-     * @since 9
+     * Indicates the metadata name
+     * @type {string}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
      */
     name: string;
 
     /**
-     * @default Indicates the metadata value
-     * @since 9
+     * Indicates the metadata value
+     * @type {string}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
      */
     value: string;
 
     /**
-     * @default Indicates the metadata resource
-     * @since 9
+     * Indicates the metadata resource
+     * @type {string}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
      */
     resource: string;
   }
