@@ -337,7 +337,7 @@ declare namespace deviceManager {
    * @param callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
    * @throws {TypeError} if type of bundle Name is not string.
    * @throws {TypeError} if type of callback is not function.
-   * @throws {OHBusinessError} if number of arguments is wrong, required 2.
+   * @throws {OHBusinessError} if wrong number of parameters, required two.
    * @systemapi this method can be used only by system applications.
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
@@ -348,7 +348,7 @@ declare namespace deviceManager {
   interface DeviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
-     * @throws {OHBusinessError} if number of arguments is wrong.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @throws {OHBusinessError} if release failed.
      * @systemapi this method can be used only by system applications.
      */
@@ -356,8 +356,8 @@ declare namespace deviceManager {
 
     /**
      * Obtains a list of trusted devices.
-     * @throws {OHBusinessError} if number of arguments is wrong.
-     * @throws {OHBusinessError} if get Trusted DeviceList failed.
+     * @throws {OHBusinessError} if wrong number of parameters.
+     * @throws {OHBusinessError} if get trusted device list failed.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -369,7 +369,7 @@ declare namespace deviceManager {
      * @since 8
      * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws {TypeError} if type of callback is not function.
-     * @throws {OHBusinessError} if number of arguments is wrong.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -379,7 +379,7 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @since 8
-     * @throws {OHBusinessError} if number of arguments is wrong.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -389,7 +389,7 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @throws {OHBusinessError} if number of arguments is wrong.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @throws {OHBusinessError} if get Local DeviceInfo failed.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
@@ -401,7 +401,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
-     * @throws {OHBusinessError} if number of arguments is wrong.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -411,7 +411,7 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @throws {OHBusinessError} if number of arguments is wrong.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -423,8 +423,8 @@ declare namespace deviceManager {
      * @since 8
      * @param subscribeInfo subscribe info to discovery device
      * @throws {TypeError} if type of subscribeInfo is not object.
-     * @throws {OHBusinessError} if subscribeInfo.subscribeId is wrong.
-     * @throws {OHBusinessError} If the operation is called repeatedly.
+     * @throws {OHBusinessError} if subscribeInfo.subscribeId value error.
+     * @throws {OHBusinessError} if the operation is called repeatedly.
      * @throws {OHBusinessError} if start device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
@@ -438,8 +438,8 @@ declare namespace deviceManager {
      * @param filterOptions filterOptions to filter discovery device
      * @throws {TypeError} if type of subscribeInfo.subscribeInfo is not object.
      * @throws {TypeError} if type of filterOptions is not string.
-     * @throws {OHBusinessError} if subscribeId is wrong.
-     * @throws {OHBusinessError} If the operation is called repeatedly.
+     * @throws {OHBusinessError} if subscribeId value error.
+     * @throws {OHBusinessError} if the operation is called repeatedly.
      * @throws {OHBusinessError} if start device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
@@ -450,7 +450,7 @@ declare namespace deviceManager {
      *
      * @param subscribeId Service subscribe ID
      * @throws {TypeError} if type of subscribeId is not number.
-     * @throws {OHBusinessError} if subscribeId is too big.
+     * @throws {OHBusinessError} if subscribeId value is too big.
      * @throws {OHBusinessError} if stop device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
@@ -459,10 +459,10 @@ declare namespace deviceManager {
     /**
      * Publish discover device.
      * @since 9
+     * @param publishInfo publish info to Publish discovery device
      * @throws {TypeError} if type of publishInfo is not object.
      * @throws {OHBusinessError} If the operation is called repeatedly.
      * @throws {OHBusinessError} if publish device discovery failed.
-     * @param publishInfo publish info to Publish discovery device
      * @systemapi this method can be used only by system applications.
      */
     publishDeviceDiscovery(publishInfo: PublishInfo): void;
@@ -470,9 +470,9 @@ declare namespace deviceManager {
     /**
      * UnPublish discover device.
      * @since 9
+     * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
      * @throws {TypeError} if type of publishId is not number.
      * @throws {OHBusinessError} if unpublish device discovery failed.
-     * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
      * @systemapi this method can be used only by system applications.
      */
     unPublishDeviceDiscovery(publishId: number): void;
@@ -494,9 +494,9 @@ declare namespace deviceManager {
      * unAuthenticate the specified device.
      *
      * @since 8
+     * @param deviceInfo deviceInfo of device to unAuthenticate
      * @throws {TypeError} if type of deviceInfo is not object.
      * @throws {OHBusinessError} if unAuthenticate Device failed.
-     * @param deviceInfo deviceInfo of device to unAuthenticate
      * @systemapi this method can be used only by system applications.
      */
     unAuthenticateDevice(deviceInfo: DeviceInfo): void
