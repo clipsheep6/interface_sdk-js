@@ -81,7 +81,6 @@ declare namespace bundleManager {
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
-
     /**
      * 获取的ability信息包含被禁用的ability信息
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -93,7 +92,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    GET_BUNDLE_INFO_WITH_SIGNATURE = 0x00000080,
+    GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
   }
 
   /**
@@ -617,7 +616,7 @@ declare namespace bundleManager {
    * @param { string } abilityName - Indicates the ability name.
    * @param { AsyncCallback } callback - The callback of getting ability label result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource 
    * @since 9
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
@@ -630,7 +629,7 @@ declare namespace bundleManager {
    * @param { string } abilityName - Indicates the ability name.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return { Promise<string> } Returns the label representing the label of the specified ability.
-   * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @since 9
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
@@ -643,7 +642,7 @@ declare namespace bundleManager {
    * @param abilityName Indicates the ability name.
    * @param { AsyncCallback } callback - The callback of getting ability icon result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @since 9
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
@@ -656,7 +655,7 @@ declare namespace bundleManager {
    * @param { string } abilityName Indicates the ability name.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return { Promise<image.PixelMap> } Returns the PixelMap object representing the icon of the specified ability.
-   * @syscap SystemCapability.BundleManager.BundleFramework.BundleConfigResource 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @since 9
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;

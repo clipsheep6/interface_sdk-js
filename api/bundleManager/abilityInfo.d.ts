@@ -104,21 +104,21 @@ export interface AbilityInfo {
   readonly process: string;
 
   /**
-   * Indicates the background service addressing a specific usage scenario
-   * @type {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @FAModelOnly
-   * @since 9
-   */
-  readonly backgroundModes: number;
-
-  /**
    * Indicates whether an ability can be called by other abilities
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly isVisible: boolean;
+
+  /**
+   * Enumerates types of templates that can be used by an ability
+   * @type {AbilityType}
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @FAModelOnly
+   * @since 9
+   */
+  readonly type: AbilityType;
 
   /**
    * Enumerates ability display orientations
@@ -143,6 +143,33 @@ export interface AbilityInfo {
    * @since 9
    */
   readonly permissions: Array<string>;
+
+  /**
+   * Indicates the permission required for reading ability data
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @FAModelOnly
+   * @since 9
+   */
+  readonly readPermission: string;
+
+  /**
+   * Indicates the permission required for writing data to the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @FAModelOnly
+   * @since 9
+   */
+  readonly writePermission: string;
+
+  /**
+   * Uri of ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @FAModelOnly
+   * @since 9
+   */
+  readonly uri: string;
 
   /**
    * The device types that this ability can run on
@@ -184,6 +211,22 @@ export interface AbilityInfo {
    */
   readonly supportWindowMode: Array<SupportWindowMode>;
 
+  /**
+   * Indicates window size
+   * @type {WindowSize}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly windowSize: WindowSize;
+}
+
+/**
+ * Indicates the window size.
+ * @typedef WindowSize
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
+export interface WindowSize {
   /**
    * Indicates maximum ratio of width over height of window under free window status.
    * @type {number}
@@ -288,6 +331,43 @@ export enum LaunchType {
    */
   SPECIFIED = 2,
 }
+
+/**
+ * Indicates ability type
+ * @enum {number}
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
+ */
+export enum AbilityType {
+  /**
+   * Indicates an unknown ability type
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  UNKNOWN,
+
+  /**
+   * Indicates that the ability has a UI
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  PAGE,
+
+  /**
+   * Indicates that the ability does not have a UI
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  SERVICE,
+
+  /**
+   * Indicates that the ability is used to provide data access services
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  DATA,
+}
+
 
 /**
  * Display orientation

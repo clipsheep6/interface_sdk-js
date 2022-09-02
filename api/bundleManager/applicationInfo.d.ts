@@ -89,46 +89,6 @@ export interface ApplicationInfo {
   readonly iconId: number;
 
   /**
-   * Indicates the bundle vendor
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly vendor: string;
-
-  /**
-   * Indicates the version code of the bundle
-   * @type {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly versionCode: number;
-
-  /**
-   * Indicates the version name of the bundle
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly versionName: string;
-
-  /**
-   * Indicates the earliest historical version compatible with the bundle
-   * @type {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-   readonly minCompatibleVersionCode: number;
-
-  /**
-   * Indicates the target version number of the bundle
-   * @type {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-   readonly targetVersion: number;
-  
-  /**
    * Process of application, if user do not set it ,the value equal bundleName
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

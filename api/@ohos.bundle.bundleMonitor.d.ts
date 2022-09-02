@@ -37,7 +37,7 @@ declare namespace bundleMonitor {
      * @systemapi
      * @since 9
      */
-    bundleName: string;  
+    bundleName: string;
     /**
      * The user id
      * @type {number}

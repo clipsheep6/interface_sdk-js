@@ -42,13 +42,13 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the bundle name of the application.
    * @param { Want } disposedWant - Indicates the disposed want.
+   * @returns { Promise<void> } The result of setting the disposed status of a specified bundle.
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return { Promise<void> } The result of setting the disposed status of a specified bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
    */
-  function setDisposedStatus(appId: string, disposedWant: Want,): Promise<void>;
+  function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
   /**
    * Obtains the disposed status of a specified bundle.
@@ -66,8 +66,8 @@ declare namespace appControl {
    * Obtains the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the bundle name of the application.
+   * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return { Promise<Want> } Returns the disposed status of a specified bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
@@ -90,8 +90,8 @@ declare namespace appControl {
    * Delete the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the bundle name of the application.
+   * @returns { Promise<void> } Returns the result of deleting the disposed status of a specified bundle..
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return { Promise<void> } Returns the result of deleting the disposed status of a specified bundle..
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9

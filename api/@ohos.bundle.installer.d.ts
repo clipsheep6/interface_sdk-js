@@ -24,6 +24,75 @@ import { AsyncCallback } from './basic';
  */
 declare namespace installer {
   /**
+   * Obtains the interface used to install bundle.
+   * @param { AsyncCallback } callback - The callback of BundleInstaller object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void
+
+  /**
+   * Obtains the interface used to install bundle.
+   * @param { AsyncCallback } callback - The callback of getting a list of BundleInstaller objects.
+   * @returns { Promise<BundleInstaller> } BundleInstaller object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function getBundleInstaller(): Promise<BundleInstaller>;
+
+  /**
+   * Bundle installer interface, include install uninstall recover.
+   * @typedef BundleInstaller
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  interface BundleInstaller {
+    /**
+     * Install haps for an application.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @param { AsyncCallback } callback - The callback of installing haps result.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>) : void;
+
+    /**
+     * Uninstall an application.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstallation.
+     * @param { AsyncCallback } callback - The callback of uninstalling application result.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    uninstall(bundleName: string, installParam: InstallParam, callback : AsyncCallback<void>) : void;
+ 
+    /**
+     * recover an application.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstallation.
+     * @param { AsyncCallback } callback - The callback of recoverring application result.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
+  }
+
+  /**
    * Install error code
    * @enum {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -260,45 +329,6 @@ declare namespace installer {
      */
     crowdtestDeadline?: number;
   }
-
-  /**
-   * Install haps for an application.
-   * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
-   * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-   * @param { AsyncCallback } callback - The callback of installing haps result.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
-   */
-  function install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>) : void;
-
-  /**
-   * Uninstall an application.
-   * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
-   * @param { InstallParam } installParam - Indicates other parameters required for the uninstallation.
-   * @param { AsyncCallback } callback - The callback of uninstalling application result.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
-   */
-  function uninstall(bundleName: string, installParam: InstallParam, callback : AsyncCallback<void>) : void;
-
-  /**
-   * recover an application.
-   * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
-   * @param { InstallParam } installParam - Indicates other parameters required for the uninstallation.
-   * @param { AsyncCallback } callback - The callback of recoverring application result.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
-   */
-  function recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 }
 
 export default installer;
