@@ -70,7 +70,7 @@ declare namespace inputDevice {
   }
 
   /**
-   * @since 9
+   * @since 10
    */
   enum FunctionKey {
     /**
@@ -269,7 +269,7 @@ declare namespace inputDevice {
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
    * @return Returns a result indicating whether the specified key codes are supported.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
@@ -286,7 +286,7 @@ declare namespace inputDevice {
   /**
   * 获取键盘设备指定功能按键的使能状态.
   *
-  * @since 9
+  * @since 10
   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
   * @param key 功能按键的键值码.
   * @return 返回指定功能按键的使能状态.
@@ -297,7 +297,7 @@ declare namespace inputDevice {
   /**
   * 设置键盘设备指定功能键的使能状态.
   *
-  * @since 9
+  * @since 10
   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
   * @param key 功能按键的键值码.
   * @param state 待设置的使能状态 .
