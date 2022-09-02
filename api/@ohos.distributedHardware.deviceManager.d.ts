@@ -348,6 +348,7 @@ declare namespace deviceManager {
   interface DeviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
+     *
      * @throws {OHBusinessError} if wrong number of parameters.
      * @throws {OHBusinessError} if release failed.
      * @systemapi this method can be used only by system applications.
@@ -356,6 +357,7 @@ declare namespace deviceManager {
 
     /**
      * Obtains a list of trusted devices.
+     *
      * @throws {OHBusinessError} if wrong number of parameters.
      * @throws {OHBusinessError} if get trusted device list failed.
      * @return Returns a list of trusted devices.
@@ -458,6 +460,7 @@ declare namespace deviceManager {
 
     /**
      * Publish discover device.
+     *
      * @since 9
      * @param publishInfo publish info to Publish discovery device
      * @throws {TypeError} if type of publishInfo is not object.
@@ -469,6 +472,7 @@ declare namespace deviceManager {
 
     /**
      * UnPublish discover device.
+     *
      * @since 9
      * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
      * @throws {TypeError} if type of publishId is not number.
