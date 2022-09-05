@@ -46,7 +46,7 @@ declare namespace installer {
 
   /**
    * Bundle installer interface, include install uninstall recover.
-   * @typedef BundleInstaller
+   * @interface BundleInstaller
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9

@@ -24,7 +24,7 @@
 export interface ElementName {
   /**
    * Indicates device id
-   * @type {string}
+   * @type {?string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -48,7 +48,7 @@ export interface ElementName {
 
   /**
    * Indicates uri
-   * @type {string}
+   * @type {?string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -56,7 +56,7 @@ export interface ElementName {
 
   /**
    * Indicates short name
-   * @type {string}
+   * @type {?string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -64,7 +64,7 @@ export interface ElementName {
 
  /**
   * @default Indicates module name
-  * @type {string}
+  * @type {?string}
   * @syscap SystemCapability.BundleManager.BundleFramework.Core
   * @since 9
   */

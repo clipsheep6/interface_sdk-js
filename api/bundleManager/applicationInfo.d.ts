@@ -196,6 +196,7 @@ export interface ApplicationInfo {
    * Indicates the appDistributionType of the application
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   readonly appDistributionType: string;
@@ -204,6 +205,7 @@ export interface ApplicationInfo {
    * Indicates the appProvisionType of the application
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   readonly appProvisionType: string;

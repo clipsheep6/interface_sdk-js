@@ -40,7 +40,7 @@ export interface ExtensionAbilityInfo {
   readonly moduleName: string;
 
   /**
-   * Indicates the name of the extension info
+   * Indicates the name of the extension ability info
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -48,7 +48,7 @@ export interface ExtensionAbilityInfo {
   readonly name: string;
 
   /**
-   * Indicates the label id of the entension info
+   * Indicates the label id of the extension ability info
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -56,7 +56,7 @@ export interface ExtensionAbilityInfo {
   readonly labelId: number;
 
   /**
-   * Indicates the description id of the entension info
+   * Indicates the description id of the extension ability info
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -64,7 +64,7 @@ export interface ExtensionAbilityInfo {
   readonly descriptionId: number;
 
   /**
-   * Indicates the icon id of the entension info
+   * Indicates the icon id of the extension ability info
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -72,7 +72,7 @@ export interface ExtensionAbilityInfo {
   readonly iconId: number;
 
   /**
-   * Indicates whether the entensionInfo can be visible or not
+   * Indicates whether the extension ability info can be visible or not
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -80,7 +80,7 @@ export interface ExtensionAbilityInfo {
   readonly isVisible: boolean;
 
   /**
-   * Enumerates types of the entension info
+   * Enumerates types of the extension ability info
    * @type {ExtensionAbilityType}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -88,7 +88,7 @@ export interface ExtensionAbilityInfo {
   readonly extensionAbilityType: ExtensionAbilityType;
 
   /**
-   * The permissions that others need to use this extension info
+   * The permissions that others need to use this extension ability info
    * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -112,7 +112,7 @@ export interface ExtensionAbilityInfo {
   readonly metadata: Array<Metadata>;
 
   /**
-   * Indicates the src language to express extension info
+   * Indicates the src language to express extension ability info
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -149,18 +149,21 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   FORM = 0,
+
   /**
    * Indicates extension info with type of work schedule
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   WORK_SCHEDULER = 1,
+
   /**
    * Indicates extension info with type of input method
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   INPUT_METHOD = 2,
+
   /**
    * Indicates extension info with type of service
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -168,12 +171,14 @@ export interface ExtensionAbilityInfo {
    * @since 9
   */
   SERVICE = 3,
+
   /**
    * Indicates extension info with type of accessibility
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   ACCESSIBILITY = 4,
+
   /**
    * Indicates extension info with type of datashare
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -181,54 +186,63 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   DATA_SHARE = 5,
+
   /**
    * Indicates extension info with type of fileshare
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   FILE_SHARE = 6,
+
   /**
    * Indicates extension info with type of staticsubscriber
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   STATIC_SUBSCRIBER = 7,
+
   /**
    * Indicates extension info with type of wallpaper
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   WALLPAPER = 8,
+
   /**
    * Indicates extension info with type of backup
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   BACKUP = 9,
+
   /**
    * Indicates extension info with type of window
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   WINDOW = 10,
+
   /**
    * Indicates extension info with type of enterprise admin
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   ENTERPRISE_ADMIN = 11,
+
   /**
    * Indicates extension info with type of thumbnail
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   THUMBNAIL = 13,
+
   /**
    * Indicates extension info with type of preview
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   PREVIEW = 14,
+
   /**
    * Indicates extension info with type of unspecified
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

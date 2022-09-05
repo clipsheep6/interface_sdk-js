@@ -95,8 +95,7 @@ export interface ShortcutInfo {
 }
 
 /**
- * Provides methods for obtaining information about the ability that a shortcut will start, including the target
- * bundle name, target module name and ability class name.+
+ * Obtains information about the ability that a shortcut will start.
  * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi

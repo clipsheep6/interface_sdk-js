@@ -18,14 +18,14 @@ import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
 import { Metadata } from './metadata'
 
 /**
- * Obtains configuration information about an module.
+ * Obtains configuration information about a hap module.
  * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
 export interface HapModuleInfo {
   /**
-   * Indicates the name of this hapmodule
+   * Indicates the name of this hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -33,7 +33,7 @@ export interface HapModuleInfo {
   readonly name: string;
 
   /**
-   * Indicates the icon of this hapmodule
+   * Indicates the icon of this hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -41,7 +41,7 @@ export interface HapModuleInfo {
   readonly icon: string;
 
    /**
-    * Indicates the icon id of this hapmodule
+    * Indicates the icon id of this hap module
     * @type {number}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
@@ -49,7 +49,7 @@ export interface HapModuleInfo {
   readonly iconId: number;
 
    /**
-    * Indicates the label of this hapmodule
+    * Indicates the label of this hap module
     * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
@@ -57,7 +57,7 @@ export interface HapModuleInfo {
    readonly label: string;
 
    /**
-    * Indicates the label id of this hapmodule
+    * Indicates the label id of this hap module
     * @type {number}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
     * @since 9
@@ -65,7 +65,7 @@ export interface HapModuleInfo {
    readonly labelId: number;
 
   /**
-   * Describes the hapmodule
+   * Describes the hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -73,7 +73,7 @@ export interface HapModuleInfo {
   readonly description: string;
 
   /**
-   * Indicates the description of this hapmodule
+   * Indicates the description of this hap module
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -81,7 +81,7 @@ export interface HapModuleInfo {
   readonly descriptionId: number;
 
   /**
-   * Indicates main elementName of the module
+   * Indicates main elementName of the hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -113,7 +113,7 @@ export interface HapModuleInfo {
   readonly metadata: Array<Metadata>;
 
   /**
-   * The device types that this hapmodule can run on
+   * The device types that this hap module can run on
    * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -121,7 +121,7 @@ export interface HapModuleInfo {
    readonly deviceTypes: Array<string>;
 
   /**
-   * Indicates whether free installation of the hapmodule is supported
+   * Indicates whether free installation of the hap module is supported
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -129,15 +129,16 @@ export interface HapModuleInfo {
   readonly installationFree: boolean;
 
    /**
-    * Indicates the hash value of the module
+    * Indicates the hash value of the hap module
     * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+    * @systemapi
     * @since 9
     */
   readonly hashValue: string;
 
   /**
-   * Indicates the module source dir of this module
+   * Indicates the module source dir of this hap module
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9

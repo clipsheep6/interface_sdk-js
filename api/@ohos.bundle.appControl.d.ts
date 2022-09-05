@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import Want from './@ohos.application.want';
 
 /**
- * Application interception
+ * Used for application interception control
  * @namespace appControl
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi

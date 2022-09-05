@@ -33,7 +33,8 @@ import * as _BundleInfo from './bundleManager/bundleInfo';
  */
 declare namespace bundleManager {
   /**
-   * 用于查询BundleInfo的枚举值，在调用getBundleInfo、getAllBundleInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的bundleInfo
+   * It is used to query the enumeration value of bundleInfo. When calling the getBundleInfo and getAllBundleInfo interfaces,
+   * this enumeration value is passed in. The enumeration value can also be passed in multiple in the form of or to query bundleinfo with different contents
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -331,7 +332,7 @@ declare namespace bundleManager {
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
-   * Query the AbilityInfo by the given Want.
+   * Query the AbilityInfos by the given Want.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限(system_basic权限）
    * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
@@ -342,11 +343,11 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryAbilityInfo(want: Want, abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
-  function queryAbilityInfo(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityInfos(want: Want, abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityInfos(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfo by the given Want.
+   * Query the AbilityInfos by the given Want.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
@@ -357,7 +358,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryAbilityInfo(want: Want, abilityFlags: AbilityFlag, userId?: number): Promise<Array<AbilityInfo>>;
+  function queryAbilityInfos(want: Want, abilityFlags: AbilityFlag, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
    * Query extension info of by utilizing a Want.
