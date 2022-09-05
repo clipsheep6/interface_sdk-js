@@ -81,6 +81,77 @@ declare namespace vibrator {
         /* Indicates the mode of stopping a preset vibration effect.*/
         VIBRATOR_STOP_MODE_PRESET = "preset",
     }
+
+    /**
+     * The use of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
+                 "touch" | "media" | "physicalFeedback" | "simulateReality";
+
+    /**
+     * The attribute of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateAttribute {
+        id?: number, /** Vibrator id, default is 0. */
+        usage: Usage, /** The use of vibration. */
+    }
+
+    /**
+     * Specifies the duration of the vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateTime {
+        type: "time",
+        duration: number /** The duration of the vibration, in ms */
+    }
+
+    /**
+     * Preset vibration type vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibratePreset {
+        type: "preset";
+        effectId: string, /** Preset type vibration */
+        count: number /** The number of vibration repetitions */
+    }
+
+    /**
+     * Describes the effect of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    type VibrateEffect = VibrateTime | VibratePreset;
+
+    /**
+     * Trigger vibrator vibration
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 9
+     */
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
+
+    /**
+     * Whether vibration is supported.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    function isSupportVibrate(callback: AsyncCallback<boolean>): void;
+    function isSupportVibrate(): Promise<boolean>;
+
+    /**
+     * Whether the effectId is supported.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    function isSupportEffectId(effectId: string, callback: AsyncCallback<boolean>): void;
+    function isSupportEffectId(effectId: string): Promise<boolean>;
 }
 
 export default vibrator;
