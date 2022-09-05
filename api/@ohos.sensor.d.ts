@@ -28,14 +28,8 @@ declare namespace sensor {
      * @since 9
      */
      enum ErrorCode {
-        /* Indicates input parameter range error.*/
-        INPUT_PARAM_ERROR = 14500101,
-        /* Indicates connect sensors service fail.*/
-        CONNECT_SERVICE_FAIL = 14500102,
-        /* Indicates that the device does not support subscribe the sensor.*/
-        SENSOR_NOT_EXIST = 14500103,
-        /* Indicates that unsubscribe sensor failed, you should subscribe first.*/
-        UNSUBSCRIBE_FAIL = 14500104
+        /* Indicates operation fail.*/
+        OPERATION_FAIL = 14500101,
     }
     /**
      * The type of sensor.
@@ -71,7 +65,7 @@ declare namespace sensor {
      * @param {SensorId.ACCELEROMETER} type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
      * @param {Callback<AccelerometerResponse>} callback - callback accelerometer data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -86,7 +80,7 @@ declare namespace sensor {
      *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
      * @param {Callback<AccelerometerUncalibratedResponse>} callback - callback uncalibrated accelerometer data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -100,7 +94,7 @@ declare namespace sensor {
      * @param {SensorId.AMBIENT_LIGHT} type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
      * @param {Callback<LightResponse>} callback - callback ambient data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -112,7 +106,7 @@ declare namespace sensor {
      * @param {SensorId.AMBIENT_TEMPERATURE} type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
      * @param {Callback<AmbientTemperatureResponse>} callback - callback temperature data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -125,7 +119,7 @@ declare namespace sensor {
      * @param {SensorId.BAROMETER} type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
      * @param {Callback<BarometerResponse>} callback - callback barometer data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -137,7 +131,7 @@ declare namespace sensor {
      * @param {SensorId.GRAVITY} type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
      * @param {Callback<GravityResponse>} callback - callback gravity data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -150,8 +144,9 @@ declare namespace sensor {
      * @param {SensorId.GYROSCOPE} type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
      * @param {Callback<GyroscopeResponse>} callback - callback gyroscope data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
+     * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -163,8 +158,9 @@ declare namespace sensor {
      * @param {SensorId.GYROSCOPE_UNCALIBRATED} type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
      * @param {Callback<GyroscopeUncalibratedResponse>} callback - callback uncalibrated gyroscope data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
+     * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -176,7 +172,7 @@ declare namespace sensor {
      * @param {SensorId.HALL} type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
      * @param {Callback<HallResponse>} callback - callback uncalibrated gyroscope data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -188,7 +184,7 @@ declare namespace sensor {
      * @param {SensorId.HEART_RATE} type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
      * @param {Callback<HeartRateResponse>} callback - callback heart rate data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.READ_HEALTH_DATA
      * @syscap SystemCapability.Sensors.Sensor
@@ -202,7 +198,7 @@ declare namespace sensor {
      * @param {SensorId.HUMIDITY} type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
      * @param {Callback<HumidityResponse>} callback - callback humidity data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -215,7 +211,7 @@ declare namespace sensor {
      * @param {SensorId.LINEAR_ACCELERATION} type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELERATION}.
      * @param {Callback<LinearAccelerometerResponse>} callback - callback linear acceleration data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -229,7 +225,7 @@ declare namespace sensor {
      * @param {SensorId.MAGNETIC_FIELD} type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
      * @param {Callback<MagneticFieldResponse>} callback - callback magnetic field data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -243,7 +239,7 @@ declare namespace sensor {
      *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
      * @param {Callback<MagneticFieldUncalibratedResponse>} callback - callback uncalibrated magnetic field data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -256,7 +252,7 @@ declare namespace sensor {
      * @param {SensorId.ORIENTATION} type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
      * @param {Callback<OrientationResponse>} callback - callback orientation data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -269,7 +265,7 @@ declare namespace sensor {
      * @param {SensorId.PEDOMETER} type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
      * @param {Callback<PedometerResponse>} callback - callback pedometer data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
@@ -282,7 +278,7 @@ declare namespace sensor {
      * @param {SensorId.PEDOMETER_DETECTION} type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
      * @param {Callback<PedometerDetectionResponse>} callback - callback pedometer detection data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
@@ -296,7 +292,7 @@ declare namespace sensor {
      * @param {SensorId.PROXIMITY} type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
      * @param {Callback<ProximityResponse>} callback - callback proximity data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -308,7 +304,7 @@ declare namespace sensor {
      * @param {SensorId.ROTATION_VECTOR} type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
      * @param {Callback<RotationVectorResponse>} callback - callback rotation vector data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -321,7 +317,7 @@ declare namespace sensor {
      * @param {SensorId.SIGNIFICANT_MOTION} type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
      * @param {Callback<SignificantMotionResponse>} callback - callback significant motion data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -334,7 +330,7 @@ declare namespace sensor {
      * @param {SensorId.WEAR_DETECTION} type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
      * @param {Callback<RotationVectorResponse>} callback - callback wear detection data.
      * @param {Options} options - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -346,7 +342,7 @@ declare namespace sensor {
      * Subscribe to accelerometer sensor data once.
      * @param {SensorId.ACCELEROMETER} type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
      * @param {Callback<AccelerometerResponse>} callback - callback accelerometer data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -359,7 +355,7 @@ declare namespace sensor {
      * @param {SensorId.ACCELEROMETER_UNCALIBRATED} type - Indicate the sensor type to listen for,
      *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
      * @param {Callback<AccelerometerUncalibratedResponse>} callback - callback uncalibrated accelerometer data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -371,7 +367,7 @@ declare namespace sensor {
      * Subscribe to ambient light sensor data once.
      * @param {SensorId.AMBIENT_LIGHT} type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
      * @param {Callback<LightResponse>} callback - callback ambient data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -382,7 +378,7 @@ declare namespace sensor {
      * Subscribe to ambient temperature sensor data once.
      * @param {SensorId.AMBIENT_TEMPERATURE} type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
      * @param {Callback<AmbientTemperatureResponse>} callback - callback temperature data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -394,7 +390,7 @@ declare namespace sensor {
      * @param {SensorId.BAROMETER} type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
      * @param {Callback<BarometerResponse>} callback - callback barometer data.
 
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -406,7 +402,7 @@ declare namespace sensor {
      * @param {SensorId.GRAVITY} type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
      * @param {Callback<GravityResponse>} callback - callback gravity data.
 
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -417,8 +413,9 @@ declare namespace sensor {
      * Subscribe to gyroscope sensor data once.
      * @param {SensorId.GYROSCOPE} type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
      * @param {Callback<GyroscopeResponse>} callback - callback gyroscope data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
+     * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -428,8 +425,9 @@ declare namespace sensor {
      * Subscribe to uncalibrated gyroscope sensor data once.
      * @param {SensorId.GYROSCOPE_UNCALIBRATED} type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
      * @param {Callback<GyroscopeUncalibratedResponse>} callback - callback uncalibrated gyroscope data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
+     * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -439,7 +437,7 @@ declare namespace sensor {
      * Subscribe to hall sensor data once.
      * @param {SensorId.HALL} type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
      * @param {Callback<HallResponse>} callback - callback uncalibrated gyroscope data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -450,7 +448,7 @@ declare namespace sensor {
      * Subscribe to heart rate sensor data once.
      * @param {SensorId.HEART_RATE} type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
      * @param {Callback<HeartRateResponse>} callback - callback heart rate data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.READ_HEALTH_DATA
      * @syscap SystemCapability.Sensors.Sensor
@@ -462,7 +460,7 @@ declare namespace sensor {
      * Subscribe to humidity sensor data once.
      * @param {SensorId.HUMIDITY} type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
      * @param {Callback<HumidityResponse>} callback - callback humidity data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -473,7 +471,7 @@ declare namespace sensor {
      * Subscribe to linear acceleration sensor data once.
      * @param {SensorId.LINEAR_ACCELERATION} type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELERATION}.
      * @param {Callback<LinearAccelerometerResponse>} callback - callback linear acceleration data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -485,7 +483,7 @@ declare namespace sensor {
      * Subscribe to magnetic field sensor data once.
      * @param {SensorId.MAGNETIC_FIELD} type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
      * @param {Callback<MagneticFieldResponse>} callback - callback magnetic field data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -497,7 +495,7 @@ declare namespace sensor {
      * @param {SensorId.MAGNETIC_FIELD_UNCALIBRATED} type - Indicate the sensor type to listen for,
      *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
      * @param {Callback<MagneticFieldUncalibratedResponse>} callback - callback uncalibrated magnetic field data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -508,7 +506,7 @@ declare namespace sensor {
      * Subscribe to orientation sensor data once.
      * @param {SensorId.ORIENTATION} type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
      * @param {Callback<OrientationResponse>} callback - callback orientation data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -519,7 +517,7 @@ declare namespace sensor {
      * Subscribe to pedometer sensor data once.
      * @param {SensorId.PEDOMETER} type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
      * @param {Callback<PedometerResponse>} callback - callback pedometer data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
@@ -531,7 +529,7 @@ declare namespace sensor {
      * Subscribe to pedometer detection sensor data once.
      * @param {SensorId.PEDOMETER_DETECTION} type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
      * @param {Callback<PedometerDetectionResponse>} callback - callback pedometer detection data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
@@ -543,7 +541,7 @@ declare namespace sensor {
      * Subscribe to proximity sensor data once.
      * @param {SensorId.PROXIMITY} type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
      * @param {Callback<ProximityResponse>} callback - callback proximity data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -554,7 +552,7 @@ declare namespace sensor {
      * Subscribe to rotation vector sensor data once.
      * @param {SensorId.ROTATION_VECTOR} type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
      * @param {Callback<RotationVectorResponse>} callback - callback rotation vector data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -566,7 +564,7 @@ declare namespace sensor {
      * Subscribe to significant motion sensor data once.
      * @param {SensorId.SIGNIFICANT_MOTION} type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
      * @param {Callback<SignificantMotionResponse>} callback - callback significant motion data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -577,7 +575,7 @@ declare namespace sensor {
      * Subscribe to wear detection sensor data once.
      * @param {SensorId.WEAR_DETECTION} type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
      * @param {Callback<RotationVectorResponse>} callback - callback wear detection data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -587,7 +585,7 @@ declare namespace sensor {
      * Unsubscribe to accelerometer sensor data.
      * @param {SensorId.ACCELEROMETER} type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
      * @param {Callback<AccelerometerResponse>} callback - callback accelerometer data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -600,7 +598,7 @@ declare namespace sensor {
      * @param {SensorId.ACCELEROMETER_UNCALIBRATED} type - Indicate the sensor type to listen for,
      *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
      * @param {Callback<AccelerometerUncalibratedResponse>} callback - callback uncalibrated accelerometer data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -612,7 +610,7 @@ declare namespace sensor {
      * Unsubscribe to ambient light sensor data.
      * @param {SensorId.AMBIENT_LIGHT} type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
      * @param {Callback<LightResponse>} callback - callback ambient data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -623,7 +621,7 @@ declare namespace sensor {
      * Unsubscribe to ambient temperature sensor data.
      * @param {SensorId.AMBIENT_TEMPERATURE} type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
      * @param {Callback<AmbientTemperatureResponse>} callback - callback temperature data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -635,7 +633,7 @@ declare namespace sensor {
      * @param {SensorId.BAROMETER} type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
      * @param {Callback<BarometerResponse>} callback - callback barometer data.
 
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -647,7 +645,7 @@ declare namespace sensor {
      * @param {SensorId.GRAVITY} type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
      * @param {Callback<GravityResponse>} callback - callback gravity data.
 
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -658,8 +656,9 @@ declare namespace sensor {
      * Unsubscribe to gyroscope sensor data.
      * @param {SensorId.GYROSCOPE} type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
      * @param {Callback<GyroscopeResponse>} callback - callback gyroscope data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
+     * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -669,8 +668,9 @@ declare namespace sensor {
      * Unsubscribe to uncalibrated gyroscope sensor data.
      * @param {SensorId.GYROSCOPE_UNCALIBRATED} type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
      * @param {Callback<GyroscopeUncalibratedResponse>} callback - callback uncalibrated gyroscope data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
+     * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
@@ -680,7 +680,7 @@ declare namespace sensor {
      * Unsubscribe to hall sensor data.
      * @param {SensorId.HALL} type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
      * @param {Callback<HallResponse>} callback - callback uncalibrated gyroscope data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -691,7 +691,7 @@ declare namespace sensor {
      * Unsubscribe to heart rate sensor data.
      * @param {SensorId.HEART_RATE} type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
      * @param {Callback<HeartRateResponse>} callback - callback heart rate data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.READ_HEALTH_DATA
      * @syscap SystemCapability.Sensors.Sensor
@@ -703,7 +703,7 @@ declare namespace sensor {
      * Unsubscribe to humidity sensor data.
      * @param {SensorId.HUMIDITY} type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
      * @param {Callback<HumidityResponse>} callback - callback humidity data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -714,7 +714,7 @@ declare namespace sensor {
      * Unsubscribe to linear acceleration sensor data.
      * @param {SensorId.LINEAR_ACCELERATION} type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELERATION}.
      * @param {Callback<LinearAccelerometerResponse>} callback - callback linear acceleration data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
@@ -726,7 +726,7 @@ declare namespace sensor {
      * Unsubscribe to magnetic field sensor data.
      * @param {SensorId.MAGNETIC_FIELD} type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
      * @param {Callback<MagneticFieldResponse>} callback - callback magnetic field data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -738,7 +738,7 @@ declare namespace sensor {
      * @param {SensorId.MAGNETIC_FIELD_UNCALIBRATED} type - Indicate the sensor type to listen for,
      *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
      * @param {Callback<MagneticFieldUncalibratedResponse>} callback - callback uncalibrated magnetic field data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -749,7 +749,7 @@ declare namespace sensor {
      * Unsubscribe to orientation sensor data.
      * @param {SensorId.ORIENTATION} type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
      * @param {Callback<OrientationResponse>} callback - callback orientation data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -760,7 +760,7 @@ declare namespace sensor {
      * Unsubscribe to pedometer sensor data.
      * @param {SensorId.PEDOMETER} type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
      * @param {Callback<PedometerResponse>} callback - callback pedometer data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
@@ -772,7 +772,7 @@ declare namespace sensor {
      * Unsubscribe to pedometer detection sensor data.
      * @param {SensorId.PEDOMETER_DETECTION} type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
      * @param {Callback<PedometerDetectionResponse>} callback - callback pedometer detection data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
@@ -784,7 +784,7 @@ declare namespace sensor {
      * Unsubscribe to proximity sensor data.
      * @param {SensorId.PROXIMITY} type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
      * @param {Callback<ProximityResponse>} callback - callback proximity data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -795,7 +795,7 @@ declare namespace sensor {
      * Unsubscribe to rotation vector sensor data.
      * @param {SensorId.ROTATION_VECTOR} type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
      * @param {Callback<RotationVectorResponse>} callback - callback rotation vector data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -807,7 +807,7 @@ declare namespace sensor {
      * Unsubscribe to significant motion sensor data.
      * @param {SensorId.SIGNIFICANT_MOTION} type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
      * @param {Callback<SignificantMotionResponse>} callback - callback significant motion data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -818,7 +818,7 @@ declare namespace sensor {
      * Unsubscribe to wear detection sensor data.
      * @param {SensorId.WEAR_DETECTION} type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
      * @param {Callback<RotationVectorResponse>} callback - callback wear detection data.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1482,7 +1482,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type, {@code SensorId}.
      * @param {AsyncCallback<Sensor>} callback - callback sensor info.
      * @returns {void | Promise<Sensor>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1495,7 +1495,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type, {@code SensorId}.
      * @param {AsyncCallback<Array<Sensor>>} callback - callback sensor list.
      * @returns {void | Promise<Array<Sensor>>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1551,7 +1551,7 @@ declare namespace sensor {
      * since the Unix epoch.
      * @param {AsyncCallback<GeomagneticResponse>} callback - callback geomagnetic field.
      * @returns {void | Promise<GeomagneticResponse>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1579,7 +1579,7 @@ declare namespace sensor {
      * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
      * @param {AsyncCallback<number>} callback - callback device altitude.
      * @returns {void | Promise<number>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1605,7 +1605,7 @@ declare namespace sensor {
      * @param inclinationMatrix Indicates the inclination matrix.
      * @param {AsyncCallback<number>} callback - callback inclination in radians.
      * @returns {void | Promise<number>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1634,7 +1634,7 @@ declare namespace sensor {
      * @param preRotationMatrix Indicates the current rotation matrix.
      * @param {AsyncCallback<Array<number>>} callback - callback angle variation.
      * @returns {void | Promise<Array<number>>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1661,7 +1661,7 @@ declare namespace sensor {
      * @param rotationVector Indicates the rotation vector.
      * @param {AsyncCallback<Array<number>>} callback - callback rotation matrix.
      * @returns {void | Promise<Array<number>>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1707,7 +1707,7 @@ declare namespace sensor {
      * @param coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
      * @param {AsyncCallback<Array<number>>} callback - callback rotation matrix.
      * @returns {void | Promise<Array<number>>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1734,7 +1734,7 @@ declare namespace sensor {
      * @param rotationVector Indicates the rotation vector.
      * @param {AsyncCallback<Array<number>>} callback - callback a normalized quaternion.
      * @returns {void | Promise<Array<number>>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1760,7 +1760,7 @@ declare namespace sensor {
      * @param rotationMatrix Indicates the rotation matrix.
      * @param {AsyncCallback<Array<number>>} callback - callback the angle of rotation around the z, x, y axis.
      * @returns {void | Promise<Array<number>>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -1798,7 +1798,7 @@ declare namespace sensor {
      * @param geomagnetic Indicates the geomagnetic vector.
      * @param {AsyncCallback<Array<RotationMatrixResponse>>} callback - callback rotation matrix and inclination matrix.
      * @returns {void | Promise<ArRotationMatrixResponse>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9

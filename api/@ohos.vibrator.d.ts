@@ -36,14 +36,8 @@ declare namespace vibrator {
      * @since 9
      */
      enum ErrorCode {
-        /* Indicates input parameter range error.*/
-        INPUT_PARAM_ERROR = 14600101,
-        /* Indicates connect vibrator service fail.*/
-        CONNECT_SERVICE_FAIL = 14600102,
-        /* Indicates vibrate fail, does not support vibration or does not support vibration effects.*/
-        VIBRATE_FAIL = 14600103,
-        /* Indicates that the stop failed, the vibration is not activated or the stop mode does not match.*/
-        STOP_FAIL = 14600104
+        /* Indicates operation fail.*/
+        OPERATION_FAIL = 14500101,
     }
 
    /**
@@ -98,7 +92,7 @@ declare namespace vibrator {
      * @param {VibrateAttribute} attribute: Indicate vibrate attribute, {@code VibrateAttribute}.
      * @param {AsyncCallback<void>} callback - callback.
      * @returns {void | Promise<void>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @permission ohos.permission.VIBRATE
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -112,7 +106,7 @@ declare namespace vibrator {
      * @param {VibratorStopMode} stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
      * @param {AsyncCallback<void>} callback - callback.
      * @returns {void | Promise<void>} no callback return Promise otherwise return void.
-     * @throws {TypedError} Parameter check failed.
+     * @throws {BusinessError} Parameter check failed.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
