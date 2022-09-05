@@ -17,6 +17,7 @@ import { ApplicationInfo } from "../bundle/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";
+import AbilityStageContext from "./AbilityStageContext";
 import ApplicationContext from "./ApplicationContext";
 
 /**
@@ -48,7 +49,7 @@ export default class Context extends BaseContext {
     applicationInfo: ApplicationInfo;
 
     /**
-     * Indicates app cache dir.
+     * Indicates application cache dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -57,7 +58,7 @@ export default class Context extends BaseContext {
     cacheDir: string;
 
     /**
-     * Indicates app temp dir.
+     * Indicates application temp dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -66,7 +67,7 @@ export default class Context extends BaseContext {
     tempDir: string;
 
     /**
-     * Indicates app files dir.
+     * Indicates application files dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -75,7 +76,7 @@ export default class Context extends BaseContext {
     filesDir : string;
 
     /**
-     * Indicates app database dir.
+     * Indicates application database dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -84,7 +85,7 @@ export default class Context extends BaseContext {
     databaseDir : string;
 
     /**
-     * Indicates app preferences dir.
+     * Indicates application preferences dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -93,7 +94,7 @@ export default class Context extends BaseContext {
     preferencesDir : string;
 
     /**
-     * Indicates app bundle code dir.
+     * Indicates application bundle code dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -102,7 +103,7 @@ export default class Context extends BaseContext {
     bundleCodeDir : string;
 
     /**
-     * Indicates app distributed files dir.
+     * Indicates application distributed files dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -129,7 +130,7 @@ export default class Context extends BaseContext {
     area: AreaMode;
 
     /**
-     * Create a bundle context
+     * Create an application context of the bundle name
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -139,31 +140,31 @@ export default class Context extends BaseContext {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @StageModelOnly
      */
-    createBundleContext(bundleName: string): Context;
+    createBundleContext(bundleName: string): ApplicationContext;
 
     /**
-     * Create a module context
+     * Create an ability stage context
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param moduleName Indicates the module name.
-     * @return application context
+     * @return ability stage context
      * @StageModelOnly
      */
-    createModuleContext(moduleName: string): Context;
+    createAbilityStageContext(moduleName: string): AbilityStageContext;
 
     /**
-     * Create a module context
+     * Create an ability stage context
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @param bundleName Indicates the bundle name.
      * @param moduleName Indicates the module name.
-     * @return application context
+     * @return ability stage context
      * @StageModelOnly
      */
-    createModuleContext(bundleName: string, moduleName: string): Context;
+    createAbilityStageContext(bundleName: string, moduleName: string): AbilityStageContext;
 
     /**
      * Get application context

@@ -128,7 +128,7 @@ export default class ServiceExtensionAbility {
      * It is recommended that developers don't DUMP sensitive information.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param params Indicates the params from command.
      * @return The dump info array.
      * @StageModelOnly

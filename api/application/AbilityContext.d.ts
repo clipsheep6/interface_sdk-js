@@ -225,11 +225,10 @@ export default class AbilityContext extends Context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
-     * @systemapi Hide this for inner system use.
      * @return Returns the number code of the ability connected
      * @StageModelOnly
      */
-    connectAbility(want: Want, options: ConnectOptions): number;
+    connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
@@ -244,7 +243,7 @@ export default class AbilityContext extends Context {
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @StageModelOnly
      */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+    connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * The callback interface was connect successfully.
@@ -252,11 +251,10 @@ export default class AbilityContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection The number code of the ability connected
-     * @systemapi Hide this for inner system use.
      * @StageModelOnly
      */
-    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-    disconnectAbility(connection: number): Promise<void>;
+    disconnectServiceExtensionAbility(connection: number, callback:AsyncCallback<void>): void;
+    disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
     /**
      * Set mission label of current ability.
