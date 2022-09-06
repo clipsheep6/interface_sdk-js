@@ -105,8 +105,6 @@ declare namespace distributedDataObject {
          * @return Operation result, true is success, false is failed
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @since 8
-         * @deprecated since 9
-         * @useinstead setSession
          */
         setSessionId(sessionId?: string): boolean;
 
