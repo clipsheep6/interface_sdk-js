@@ -84,7 +84,7 @@ declare namespace defaultAppManager {
   /**
    * query whether the caller is default application based on type.
    * @param { string } type - application type or file type.
-   * @param { AsyncCallback } callback - The callback of quering default application result.  The result is true if default application, false otherwise.
+   * @param { AsyncCallback } callback - The callback of querying default application result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
@@ -94,7 +94,7 @@ declare namespace defaultAppManager {
   /**
    * query whether the caller is default application based on type.
    * @param { string } type - application type or file type.
-   * @returns { Promise<boolean> } return true if caller is default application; return false otherwise. 
+   * @returns { Promise<boolean> } return true if caller is default application; return false otherwise.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9

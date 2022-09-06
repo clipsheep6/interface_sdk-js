@@ -24,7 +24,7 @@ import { AsyncCallback, Callback } from './basic';
  */
 declare namespace bundleMonitor {
   /**
-   * 该模块用于定义监听安装、更新、卸载的结果信息
+   * This module is used to define the result information of monitoring install, update and uninstall.
    * @typedef BundleChangedInfo
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -56,7 +56,7 @@ declare namespace bundleMonitor {
   type BundleChangedEvent = 'add' | 'update' | 'remove';
 
   /**
-   * 注册对安装状态的监听
+   * Register to monitor the installation status
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type - Indicates the command should be implement.
    * @param { AsyncCallback<BundleChangedInfo> } callback - Indicates the callback to be register.
@@ -68,7 +68,7 @@ declare namespace bundleMonitor {
   function on(type: BundleChangedEvent, callback: AsyncCallback<BundleChangedInfo>): void;
 
   /**
-   * 取消对安装状态的监听
+   * Unregister to monitor the installation status
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type -type Indicates the command should be implement.
    * @param { AsyncCallback<BundleChangedInfo> } callback - Indicates the callback to be unregister.

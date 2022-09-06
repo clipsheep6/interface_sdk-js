@@ -26,38 +26,38 @@ import * as _PackInfo from './bundleManager/packInfo'
  */
 declare namespace freeInstall {
   /**
-   * 用于设置免安装在不用场景下升级的枚举值
+   * Used to set the enumeration value of upgrading for free installation.
    * @enum {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
    */
   export enum UpgradeFlag {
-      /**
-       * Indicates module not need to be upgraded
-       * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
-       * @systemapi
-       * @since 9
-       */
-      NOT_UPGRADE = 0,
-      /**
-       * Indicates single module need to be upgraded
-       * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
-       * @systemapi
-       * @since 9
-       */
-      SINGLE_UPGRADE = 1,
-      /**
-       * Indicates relation module need to be upgraded
-       * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
-       * @systemapi
-       * @since 9
-       */
-      RELATION_UPGRADE = 2,
+    /**
+     * Indicates module not need to be upgraded
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+     * @systemapi
+     * @since 9
+     */
+    NOT_UPGRADE = 0,
+    /**
+     * Indicates single module need to be upgraded
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+     * @systemapi
+     * @since 9
+     */
+    SINGLE_UPGRADE = 1,
+    /**
+     * Indicates relation module need to be upgraded
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+     * @systemapi
+     * @since 9
+     */
+    RELATION_UPGRADE = 2,
   }
 
   /**
-   * 用于查询BundlePackInfo的枚举值，在调用getBundleInfo、getAllBundleInfo接口时
+   * Used to query the enumeration value of bundlePackInfo.
    * @enum {number}
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
@@ -65,28 +65,28 @@ declare namespace freeInstall {
    */
   export enum BundlePackFlag {
     /**
-     * 查询所有的包信息
-     * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
+     * Query all package information.
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9
      */
     GET_PACK_INFO_ALL = 0x00000000,
     /**
-     * 查询所有的包信息
-     * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
+     * Query package information
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9
      */
     GET_PACKAGES = 0x00000001,
     /**
-     * 查询包的简要信息
+     * Query the brief information of the package
      * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
      * @systemapi
      * @since 9
      */
     GET_BUNDLE_SUMMARY = 0x00000002,
     /**
-     * 查询module的简要信息
+     * Query the brief information of the module.
      * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
      * @systemapi
      * @since 9
@@ -114,8 +114,8 @@ declare namespace freeInstall {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
    * @param { UpgradeFlag } upgradeFlag - Indicates upgradeFlag of the application.
+   * @returns { Promise<void> } - Return the reslut of setting module upgrade flag.
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return { Promise<void> } - Return the reslut of setting module upgrade flag.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
@@ -196,109 +196,97 @@ declare namespace freeInstall {
 
   /**
    * The dispatch info class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type DispatchInfo = _DispatchInfo;
 
   /**
    * The bundle pack info class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type BundlePackInfo = _PackInfo.BundlePackInfo;
 
   /**
    * The package info class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type PackageConfig = _PackInfo.PackageConfig;
 
   /**
    * The package summary class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type PackageSummary = _PackInfo.PackageSummary;
 
   /**
    * The bundle summary class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type BundleConfigInfo = _PackInfo.BundleConfigInfo;
 
   /**
    * The extension ability forms class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type ExtensionAbility = _PackInfo.ExtensionAbility;
 
   /**
    * The module summary of a bundle.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type ModuleConfigInfo = _PackInfo.ModuleConfigInfo;
 
   /**
    * The bundle info summary class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type ModuleDistroInfo = _PackInfo.ModuleDistroInfo;
 
   /**
    * The ability info of a module.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type ModuleAbilityInfo = _PackInfo.ModuleAbilityInfo;
 
   /**
    * The form info of an ability.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type AbilityFormInfo = _PackInfo.AbilityFormInfo;
 
   /**
    * The bundle version class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type Version = _PackInfo.Version;
 
   /**
    * The bundle Api version class.
-   *
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @systemapi hide this for inner system use
+   * @systemapi
+   * @since 9
    */
   export type ApiVersion = _PackInfo.ApiVersion;
 }

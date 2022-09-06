@@ -205,12 +205,12 @@ export interface ModuleConfigInfo {
 
 /**
  * ModuleDistroInfo: the bundle info summary class.
- * @typedef Array<ExtensionAbility>
+ * @typedef ModuleDistroInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9
  */
-export interface Array<ExtensionAbility> {
+export interface ModuleDistroInfo {
   /**
    * Indicates the name of main ability
    * @type {string}

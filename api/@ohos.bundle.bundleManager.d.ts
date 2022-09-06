@@ -33,63 +33,71 @@ import * as _BundleInfo from './bundleManager/bundleInfo';
  */
 declare namespace bundleManager {
   /**
-   * It is used to query the enumeration value of bundleInfo. When calling the getBundleInfo and getAllBundleInfo interfaces,
-   * this enumeration value is passed in. The enumeration value can also be passed in multiple in the form of or to query bundleinfo with different contents
+   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   enum BundleFlag {
     /**
-     * 该标签用于获取默认的包信息，获取到的包信息不包含SinatureInfo、ApplicationInfo、HapModuleInfo、Ability、ExtensionAbility及Permission的信息
+     * Used to obtain the default bundleInfo. The obtained bundleInfo does not contain information of
+     * signatureInfo, applicationInfo, hapModuleInfo, ability, extensionAbility and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_DEFAULT = 0x00000000,
-    /** 
-     * 该标签用于获取包含ApplicationInfo的包信息，获取到的包信息不包含appId、HapModuleInfo、Ability、ExtensionAbility及Permission的信息
+    /**
+     * Used to obtain the bundleInfo containing applicationInfo. The obtained bundleInfo does not
+     * contain the information of signatureInfo, hapModuleInfo, ability, extensionAbility and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
-    /** 
-     * 该标签用于获取包含HapModuleInfo的包信息，获取到的包信息不包含appId、ApplicationInfo、Ability、ExtensionAbility及Permission的信息
+    /**
+     * Used to obtain the bundleInfo containing hapModuleInfo. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability, extensionAbility and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_HAPMODULE = 0x00000002,
-    /** 
-     * 该标签用于获取包含Ability的BundleInfo，获取到的包信息不包含appId、ApplicationInfo、HapModuleInfo、Ability、ExtensionAbility及Permission的信息
+    /**
+     * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
     /**
-     * 该标签用于获取包含ExtensionAbility的BundleInfo，获取到的包信息不包含appId、ApplicationInfo、HapModuleInfo、Ability及Permission的信息
+     * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY = 0x00000008,
-    /** 
-     * 该标签用于获取包含Permission的BundleInfo，获取到的包信息不包含appId、ApplicationInfo、HapModuleInfo、Ability及ExtensionAbility的信息
+    /**
+     * Used to obtain the bundleInfo containing permission. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, hapModuleInfo, extensionAbility and ability.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
-    /** 
-     * 该标签用于获取包含在ModuleInfo、AbilityInfo中的metadata，不能单独使用，要配合GET_BUNDLE_INFO_WITH_APPLICATION、GET_BUNDLE_INFO_WITH_HAPMODULES、GET_BUNDLE_INFO_WITH_ABILITIES、GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY一起使用
+    /**
+     * Used to obtain the metadata contained in moduleInfo and abilityInfo. It can't be used alone, it needs to be used
+     * with GET_BUNDLE_INFO_WITH_APPLICATION, GET_BUNDLE_INFO_WITH_HAPMODULE, GET_BUNDLE_INFO_WITH_ABILITIES,
+     * GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
     /**
-     * 获取的ability信息包含被禁用的ability信息
+     * Used to obtain the bundleInfo containing abilityInfo with disabled ability. 
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
      GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
     /**
-     * 该标签用于获取包含SignatureInfo的BundleInfo，获取到的包信息不包含applicationInfo、hapModuleInfo、ability、extensionAbility及permission的信息
+     * Used to obtain the bundleInfo containing signatureInfo. The obtained bundleInfo does not
+     * contain the information of applicationInfo, hapModuleInfo, extensionAbility, ability and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -97,44 +105,39 @@ declare namespace bundleManager {
   }
 
   /**
-   * 用于查询ApplicationInfo的枚举值，在调用getApplicationInfo、getAllApplicationInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的applicationInfo
+   * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   enum ApplicationFlag {
     /**
-     * 该标签用于获取默认的ApplicationInfo信息，获取到的包信息不包含Permission、Metadata、应用被禁及用于证书指纹等信息
+     * Used to obtain the default applicationInfo. The obtained applicationInfo does not contain the information of
+     * permission and metadata.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_APPLICATION_INFO_DEFAULT = 0x00000000,
     /**
-     * 获取包含权限的ApplicationInfo信息
+     * Used to obtain the applicationInfo containing permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000001,
     /**
-     * 获取包含metadata的ApplicationInfo信息
+     * Used to obtain the applicationInfo containing metadata.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_APPLICATION_INFO_WITH_METADATA = 0x00000002,
     /**
-     * 获取的application信息包含被禁用的applicationInfo信息
+     * Used to obtain the applicationInfo containing disabled application.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000004,
     /**
-     * 获取的applicationInfo信息包含证书的指纹
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    GET_APPLICATION_INFO_WITH_CERTIFICATE_FINGERPRINT = 0x0000008,
-    /** 
-     * 获取包含所有的应用ApplicationInfo
+     * Used to obtain all applicationInfo in current device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -142,38 +145,39 @@ declare namespace bundleManager {
   }
 
   /**
-   * 用于查询AbilityInfo的枚举值，在调用queryAbilityInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的abilityInfo
+   * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   enum AbilityFlag {
     /**
-     * 获取默认的AbilityInfo，不包含权限信息、ApplicationInfo、metadata、禁用的AbilityInfo
+     * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
+     * permission, metadata and disabled abilityInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
-    /** 
-     * 获取的Ability信息带有权限的信息
+    /**
+     * Used to obtain the abilityInfo containing disabled abilityInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
-     * 获取带有应用的Ability信息
+     * Used to obtain the abilityInfo containing applicationInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
-     * 获取的Ability信息中带有metadata信息
+     * Used to obtain the abilityInfo containing metadata.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
-     * 获取的ability信息包含被禁用的ability信息
+     * Used to obtain the abilityInfo containing disabled abilityInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -181,38 +185,39 @@ declare namespace bundleManager {
   }
 
   /**
-   * 用于查询ExtensionAbilityInfo的枚举值，在调用queryAbilityInfo接口时，传入此枚举值，枚举值也可以以或的方式传入多个，以此查询到不同内容的abilityInfo
+   * Used to query the enumeration value of ExtensionAbilityInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   enum ExtensionAbilityFlag {
     /**
-     * 获取默认的ExtensionAbilityInfo，不包含权限信息、ApplicationInfo、metadata、禁用的ExtensionAbilityInfo
+     * Used to obtain the default extensionAbilityInfo. The obtained extensionAbilityInfo does not contain the information of
+     * permission, metadata and disabled abilityInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_DEFAULT = 0x00000000,
-    /** 
-     * 获取的ExtensionAbility信息带有权限的信息
+    /**
+     * Used to obtain the extensionAbilityInfo containing permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
-    /** 
-     * 获取带有应用的ExtensionAbility信息
+    /**
+     * Used to obtain the extensionAbilityInfo containing applicationInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
-     * 获取的ExtensionAbility信息中带有metadata信息
+     * Used to obtain the extensionAbilityInfo containing metadata.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
-     * 获取的ExtensionAbility信息包含被禁用的ExtensionAbility信息
+     * Used to obtain the extensionAbilityInfo containing disabled extensionAbilityInfo.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -220,11 +225,10 @@ declare namespace bundleManager {
   }
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - 查询BundleInfo的过滤标签，使用不同的BundleFlag可以查询到不同的包信息内容，BundleFlag中的值可以以或的方式使用
+   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback } callback - The callback of getting bundle info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -235,11 +239,10 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;  
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - 查询BundleInfo的过滤标签，使用不同的BundleFlag可以查询到不同的包信息内容，BundleFlag中的值可以以或的方式使用
+   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -249,11 +252,10 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: BundleFlag, userId?: number, ): Promise<BundleInfo>;  
 
   /**
-   * Obtains application info based on a given bundle name.
+   * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - 查询ApplicationInfo的过滤标签，使用不同的ApplicationFlag可以查询到不同的包信息内容，ApplicationFlag中的值可以以或的方式使用
+   * @param { number } appFlags - Indicates ApplicationFlag, the value in ApplicationFlag can be used in or.
    * @param { number } userId Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback } callback - The callback of getting application info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -264,11 +266,10 @@ declare namespace bundleManager {
   function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;  
 
   /**
-   * Obtains application info based on a given bundle name.
+   * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - 查询ApplicationInfo的过滤标签，使用不同的ApplicationFlag可以查询到不同的包信息内容，ApplicationFlag中的值可以以或的方式使用
+   * @param { number } appFlags - Indicates ApplicationFlag, the value in ApplicationFlag can be used in or.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<ApplicationInfo> } The result of getting the application info.
    * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -278,9 +279,7 @@ declare namespace bundleManager {
   function getApplicationInfo(bundleName: string, appFlags: number, userId?: number): Promise<ApplicationInfo>;  
 
   /**
-   * Obtains BundleInfo of all bundles available in the system.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
@@ -294,7 +293,6 @@ declare namespace bundleManager {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
    * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -307,7 +305,6 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
@@ -321,7 +318,6 @@ declare namespace bundleManager {
   /**
    * Obtains information about all installed applications of a specified user.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID. 
    * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -332,13 +328,12 @@ declare namespace bundleManager {
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
-   * Query the AbilityInfos by the given Want.
+   * Query the AbilityInfos by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限(system_basic权限）
    * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
    * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
-   * @param { AsyncCallback } callback - The callback of quering ability info result.
+   * @param { AsyncCallback } callback - The callback of querying ability info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -347,9 +342,8 @@ declare namespace bundleManager {
   function queryAbilityInfos(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfos by the given Want.
+   * Query the AbilityInfos by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
    * @param { AbilityFlag } abilityFlags Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
@@ -361,11 +355,10 @@ declare namespace bundleManager {
   function queryAbilityInfos(want: Want, abilityFlags: AbilityFlag, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
-   * Query extension info of by utilizing a Want.
+   * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {ExtensionAbilityType} extensionType - 指定的extensionType.
+   * @param { Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
    * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback } callback - The callback of quering extension ability info result.
@@ -373,15 +366,14 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryExtensionAbilityInfos(want: Want, extensionType: ExtensionAbilityType, extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfos(want: Want, extensionType: ExtensionAbilityType, extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfos(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfos(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
-   * Query the ExtensionAbilityInfo by the given Want.
+   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 (system_basic权限）
    * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {ExtensionAbilityType} extensionType - 指定的extensionType.
+   * @param {ExtensionAbilityType} extensionAbilityType - Indicates ExtensionAbilityType..
    * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
@@ -389,7 +381,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+  function queryExtensionAbilityInfos(want: Want, extensionAbilityType: number, extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -442,7 +434,6 @@ declare namespace bundleManager {
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限 
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } userId - Indicates the user ID or do not pass user ID. 
    * @param { AsyncCallback } callback - The callback for starting the application's main ability.
@@ -458,7 +449,6 @@ declare namespace bundleManager {
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @permission 如果跨用户访问的话，需要有跨用户访问的权限
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } userId - Indicates the user ID or do not pass user ID. 
    * @returns { Promise<Want> } the Want for starting the application's main ability.
@@ -711,90 +701,79 @@ declare namespace bundleManager {
 
   /**
    * Obtains configuration information about an application.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type ApplicationInfo = _ApplicationInfo;
 
   /**
    * Indicates the Metadata.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type Metadata = _Metadata;
 
   /**
    * Obtains configuration information about a bundle.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type BundleInfo = _BundleInfo.BundleInfo;
 
   /**
    * The scene which is used.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type UsedScene = _BundleInfo.UsedScene;
 
   /**
    * Indicates the required permissions details defined in file config.json.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
   /**
    * Obtains configuration information about an module.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type HapModuleInfo = _HapModuleInfo;
 
   /**
    * Obtains configuration information about an ability.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type AbilityInfo = _AbilityInfo;
 
   /**
    * Obtains extension information about a bundle.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
   /**
    * Indicates extension ability type
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type ExtensionAbilityType = _ExtensionAbilityType;
 
   /**
    * Indicates the defined permission details in file config.json.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
    */
   export type PermissionDef = _PermissionDef;
 
   /**
    * Contains basic Ability information, which uniquely identifies an ability.
-   * 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type ElementName = _ElementName;
 }

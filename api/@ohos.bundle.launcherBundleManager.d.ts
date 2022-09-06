@@ -19,9 +19,9 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './b
 
 
 /**
- * launcher bundle manager.
+ * Launcher bundle manager.
  * @namespace launcherBundleManager
- * @syscap  SystemCapability.BundleManager.BundleFramework.Launcher
+ * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi
  * @since 9
  */
