@@ -29,20 +29,20 @@ declare namespace distributedDataObject {
      * @param source Init data of distributed object
      * @return Returns the distributed object
      * @since 8
-	 * @deprecated since 9
-	 * @useinstead create
+     * @deprecated since 9
+     * @useinstead create
      */
     function createDistributedObject(source: object): DistributedObject;
 
-	/**
+    /**
      * Create distributed object
      *
      * @param source Init data of distributed object
      * @return Returns the distributed object
-	 * @throws {BusinessError} if process failed
-	 * @errorcode 15400001
-	 * @errorcode 401
-	 * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @throws {BusinessError} if process failed
+     * @errorcode 15400001
+     * @errorcode 401
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
     function create(source: object): DistributedObjectV9;
@@ -95,7 +95,7 @@ declare namespace distributedDataObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
-	 * @deprecated since 9
+     * @deprecated since 9
      */
     interface DistributedObject {
         /*
@@ -105,8 +105,8 @@ declare namespace distributedDataObject {
          * @return Operation result, true is success, false is failed
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @since 8
-		 * @deprecated since 9
-		 * @useinstead setSession
+         * @deprecated since 9
+         * @useinstead setSession
          */
         setSessionId(sessionId?: string): boolean;
 
@@ -170,38 +170,38 @@ declare namespace distributedDataObject {
         revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
         revokeSave(): Promise<RevokeSaveSuccessResponse>;
     }
-	
-	 /**
+    
+     /**
      * Object create by {@link create}.
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
     interface DistributedObjectV9 {
-		
-		/*
+        
+        /*
          * Change object session
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param sessionId The sessionId to be joined, if empty, leave all session
          * @return Operation result, true is success, false is failed
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-	     * @errorcode 401
-		 * @errorcode 201
-		 * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
+         * @errorcode 201
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         setSessionId(sessionId?: string, callback: AsyncCallback<void>): void;
-		setSessionId(sessionId?: string): Promise<void>;
+        setSessionId(sessionId?: string): Promise<void>;
 
         /**
          * On watch of change
          *
          * @param callback The callback of change
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-	     * @errorcode 401
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
          * @since 9
          */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
@@ -210,9 +210,9 @@ declare namespace distributedDataObject {
          * Off watch of change
          *
          * @param callback If not null, off the callback, if undefined, off all callbacks
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-	     * @errorcode 401
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
          * @since 9
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
@@ -225,10 +225,10 @@ declare namespace distributedDataObject {
          *                 networkId: NetworkId of the changed device
          *                 status: 'online' The object became online on the device and data can be synced to the device
          *                         'offline' The object became offline on the device and the object can not sync any data
-		 *                         'restored' The object restored from remote device
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-	     * @errorcode 401
+         *                         'restored' The object restored from remote device
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
          * @since 9
          */
         on(type: 'status', callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>): void;
@@ -237,9 +237,9 @@ declare namespace distributedDataObject {
          * Off watch of status
          *
          * @param callback If not null, off the callback, if undefined, off all callbacks
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-	     * @errorcode 401
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
          * @since 9
          */
         off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
@@ -254,11 +254,11 @@ declare namespace distributedDataObject {
          * 3. after resume data success, system will auto delete the saved data
          *
          * @param deviceId Indicates the device that will resume the object data
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-		 * @errorcode 15400003
-		 * @errorcode 15400004
-	     * @errorcode 401
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 15400003
+         * @errorcode 15400004
+         * @errorcode 401
          * @since 9
          */
         save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
@@ -268,10 +268,10 @@ declare namespace distributedDataObject {
          * Revoke save object, delete saved object immediately, if object is saved in local device, it will delete saved data on all trusted device
          * if object is saved in other device, it will delete data in local device.
          *
-		 * @throws {BusinessError} if process failed
-	     * @errorcode 15400001
-		 * @errorcode 15400005
-	     * @errorcode 401
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 15400005
+         * @errorcode 401
          * @since 9
          */
         revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
