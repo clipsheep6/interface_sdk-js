@@ -14,8 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import Context  from './application/Context';
+import Context from './application/Context';
 import image from './@ohos.multimedia.image';
+import dataSharePredicates from './@ohos.data.dataSharePredicates';
 
 /**
  * @name userfile_manager
@@ -75,6 +76,8 @@ declare namespace userfile_manager {
     AUDIO
   }
 
+  type MemberType = number | string | boolean;
+
   /**
    * Provides methods to encapsulate file attributes.
    * @since 9
@@ -101,6 +104,22 @@ declare namespace userfile_manager {
      */
     displayName: string;
     /**
+     * return the fileasset member parameter.
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param member the name of the parameter.
+     */
+    get(member: string): MemberType;
+
+    /**
+     * set the fileasset member parameter.
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param member the name of the parameter.
+     */
+    set(member: string, value: string): void;
+
+    /**
      * If it is a directory where the file is located.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -112,7 +131,7 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    isDirectory():Promise<boolean>;
+    isDirectory(): Promise<boolean>;
     /**
      * Modify meta data where the file is located.
      * @since 9
@@ -214,7 +233,7 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    isFavorite():Promise<boolean>;
+    isFavorite(): Promise<boolean>;
     /**
      * Set trash for the file when the file is located.
      * @since 9
@@ -244,11 +263,11 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    isTrash():Promise<boolean>;
+    isTrash(): Promise<boolean>;
   }
 
   /**
-   * Describes MediaFetchOptions's selection
+   * Describes File Type MediaFetchOptions's predicate key
    * @since 9
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    */
@@ -460,23 +479,25 @@ declare namespace userfile_manager {
   }
 
   /**
-   * Fetch parameters applicable on images, videos, audios, albums and other media
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * Fetch parameters
    * @since 9
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
    */
   interface MediaFetchOptions {
     /**
-     * Fields to retrieve, for example, selections: "media_type =? OR media_type =?".
+     * Indicates the columns to query.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param fetchColumns Indicates the columns to query. If this parameter is null, only uri, name, mediaType will query.
      */
-    selections: string;
+    fetchColumns: Array<string>;
     /**
-     * Conditions for retrieval, for example, selectionArgs: [IMAGE, VIDEO].
+     * predicate to query
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param predicates Indicates filter criteria.
      */
-    selectionArgs: Array<string>;
+    predicates: dataSharePredicates.DataSharePredicates;
   }
 
   /**
@@ -485,7 +506,7 @@ declare namespace userfile_manager {
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @import Import userfilemgr from '@ohos.filemanagement.userfile_manager'
    */
-  interface FetchFileResult {
+  interface FetchFileResult<T> {
     /**
      * Obtains the total number of files in the file retrieval result.
      * @since 9
@@ -514,66 +535,66 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
      */
-    getFirstObject(callback: AsyncCallback<FileAsset>): void;
+    getFirstObject(callback: AsyncCallback<T>): void;
     /**
-     * Obtains the first FileAsset in the file retrieval result. This method uses a promise to return the file.
+     * Obtains the first T in the file retrieval result. This method uses a promise to return the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @return A Promise instance used to return the file in the format of a T instance.
      */
-    getFirstObject(): Promise<FileAsset>;
+    getFirstObject(): Promise<T>;
     /**
-     * Obtains the next FileAsset in the file retrieval result.
+     * Obtains the next T in the file retrieval result.
      * This method uses a callback to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
      * This method returns the next file only when True is returned for isAfterLast().
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @param callback Callback used to return the file in the format of a T instance.
      */
-    getNextObject(callback: AsyncCallback<FileAsset>): void;
+    getNextObject(callback: AsyncCallback<T>): void;
     /**
-     * Obtains the next FileAsset in the file retrieval result.
+     * Obtains the next T in the file retrieval result.
      * This method uses a promise to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
      * This method returns the next file only when True is returned for isAfterLast().
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @return A Promise instance used to return the file in the format of a T instance.
      */
-    getNextObject(): Promise<FileAsset>;
+    getNextObject(): Promise<T>;
     /**
-     * Obtains the last FileAsset in the file retrieval result. This method uses a callback to return the file.
+     * Obtains the last T in the file retrieval result. This method uses a callback to return the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @param callback Callback used to return the file in the format of a T instance.
      */
-    getLastObject(callback: AsyncCallback<FileAsset>): void;
+    getLastObject(callback: AsyncCallback<T>): void;
     /**
-     * Obtains the last FileAsset in the file retrieval result. This method uses a promise to return the file.
+     * Obtains the last T in the file retrieval result. This method uses a promise to return the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @return A Promise instance used to return the file in the format of a T instance.
      */
-    getLastObject(): Promise<FileAsset>;
+    getLastObject(): Promise<T>;
     /**
-     * Obtains the FileAsset with the specified index in the file retrieval result.
+     * Obtains the T with the specified index in the file retrieval result.
      * This method uses a callback to return the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param index Index of the file to obtain.
-     * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @param callback Callback used to return the file in the format of a T instance.
      */
-    getPositionObject(index: number, callback: AsyncCallback<FileAsset>): void;
+    getPositionObject(index: number, callback: AsyncCallback<T>): void;
     /**
-     * Obtains the FileAsset with the specified index in the file retrieval result.
+     * Obtains the T with the specified index in the file retrieval result.
      * This method uses a promise to return the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param index Index of the file to obtain.
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @return A Promise instance used to return the file in the format of a T instance.
      */
-    getPositionObject(index: number): Promise<FileAsset>;
+    getPositionObject(index: number): Promise<T>;
   }
 
   /**
@@ -642,25 +663,27 @@ declare namespace userfile_manager {
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
      */
-    getFileAssets(type: Array<MediaType>, callback: AsyncCallback<FetchFileResult>): void;
+    getFileAssets(type: Array<MediaType>, callback: AsyncCallback<FetchFileResult<FileAsset>>): void;
     /**
      * SObtains files in an album. This method uses an asynchronous callback to return the files.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param type detemined which kinds of Media asset to retrive.
      * @param options Media retrieval options.
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
      */
-    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
+    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult<FileAsset>>): void;
     /**
      * Obtains files in an album. This method uses a promise to return the files.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param type detemined which kinds of Media asset to retrive.
      * @param options Media retrieval options.
      * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
      */
-    getFileAssets(type: Array<MediaType>, options?: MediaFetchOptions): Promise<FetchFileResult>;
+    getFileAssets(type: Array<MediaType>, options?: MediaFetchOptions): Promise<FetchFileResult<FileAsset>>;
   }
 
   /**
@@ -736,20 +759,22 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param type detemined which kinds of Media asset to retrive.
      * @param options, Media retrieval options.
      * @param callback, Callback return the FetchFileResult.
      */
-    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
+    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult<FileAsset>>): void;
     /**
      * query all assets just for count & first cover
      * if need all data, getAllObject from FetchFileResult
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
+     * @param type detemined which kinds of Media asset to retrive.
      * @param options Media retrieval options.
      * @return A promise instance used to return the files in the format of a FetchFileResult instance
      */
-    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions): Promise<FetchFileResult>;
+    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions): Promise<FetchFileResult<FileAsset>>;
     /**
      * Turn on mornitor the data changes by media type
      * @since 9
@@ -757,7 +782,7 @@ declare namespace userfile_manager {
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
      */
-    on(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback: Callback<void>): void;
+    on(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'fileChange' | 'remoteFileChange', callback: Callback<void>): void;
     /**
      * Turn off mornitor the data changes by media type
      * @since 9
@@ -765,7 +790,7 @@ declare namespace userfile_manager {
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
      */
-     off(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback?: Callback<void>): void;
+    off(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'fileChange' | 'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Create File Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -815,19 +840,21 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
-     * @param options Media retrieval options.
+     * @param type detemined which kinds of Media album to retrive.
+     * @param predicates Indicates filter criteria.
      * @param callback Callback used to return an album array.
      */
-    getAlbums(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<Array<Album>>): void;
+    getAlbums(type: Array<MediaType>, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<FetchFileResult<Album>>): void;
     /**
      * Obtains albums based on the media retrieval options. This method uses a promise to return the albums.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENT
-     * @param option Media retrieval options.
+     * @param type detemined which kinds of Media album to retrive.
+     * @param predicates Indicates filter criteria.
      * @return A Promise instance used to return an album array.
      */
-    getAlbums(type: Array<MediaType>, options: MediaFetchOptions): Promise<Array<Album>>;
+    getAlbums(type: Array<MediaType>, predicates: dataSharePredicates.DataSharePredicates): Promise<FetchFileResult<Album>>;
     /**
      * Obtains system private albums based on the virtual album type. This method uses an asynchronous callback to return.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -837,17 +864,17 @@ declare namespace userfile_manager {
      * @systemapi
      * @since 9
      */
-     getPrivateAlbum(type: VirtualAlbumType, callback: AsyncCallback<Array<VirtualAlbum>>): void;
-     /**
-      * Obtains system private albums based on the virtual album type. This method uses a promise to return.
-      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
-      * @param type virtual album type
-      * @return A Promise instance used to return a virtual album array.
-      * @systemapi
-      * @since 9
-      */
-     getPrivateAlbum(type: VirtualAlbumType): Promise<Array<VirtualAlbum>>;
+    getPrivateAlbum(type: VirtualAlbumType, callback: AsyncCallback<Array<VirtualAlbum>>): void;
+    /**
+     * Obtains system private albums based on the virtual album type. This method uses a promise to return.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param type virtual album type
+     * @return A Promise instance used to return a virtual album array.
+     * @systemapi
+     * @since 9
+     */
+    getPrivateAlbum(type: VirtualAlbumType): Promise<Array<VirtualAlbum>>;
     /**
      * Get Active Peer device information
      * @since 9
@@ -951,7 +978,7 @@ declare namespace userfile_manager {
    * @systemapi
    * @since 9
    */
-   enum VirtualAlbumType {
+  enum VirtualAlbumType {
     /**
      * System Private Album: Favorite album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -979,22 +1006,24 @@ declare namespace userfile_manager {
      * Obtains files in an virtual album. This method uses an asynchronous callback to return the files.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param type detemined which kinds of Media asset to retrive.
      * @param options Media retrieval options.
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
      * @systemapi
      * @since 9
      */
-    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
+    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult<FileAsset>>): void;
     /**
      * Obtains files in an virtual album. This method uses a promise to return the files.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param type detemined which kinds of Media asset to retrive.
      * @param options Media retrieval options.
      * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
      * @systemapi
      * @since 9
      */
-    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions): Promise<FetchFileResult>;
+    getFileAssets(type: Array<MediaType>, options: MediaFetchOptions): Promise<FetchFileResult<FileAsset>>;
   }
 }
 
