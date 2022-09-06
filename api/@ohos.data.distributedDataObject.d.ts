@@ -223,7 +223,7 @@ declare namespace distributedDataObject {
          *                 networkId: NetworkId of the changed device
          *                 status: 'online' The object became online on the device and data can be synced to the device
          *                         'offline' The object became offline on the device and the object can not sync any data
-         *                         'restored' The object restored from remote device
+         *                         'restored' The object restored success
          * @throws {BusinessError} if process failed
          * @errorcode 15400001
          * @errorcode 401
