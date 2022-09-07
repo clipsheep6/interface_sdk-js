@@ -26,7 +26,8 @@ import { ElementName } from './elementName'
  *
  * @permission N/A
  * @systemapi Hide this for inner system use
- * @deprecated since 9, use ../bundleManager/LauncherAbilityInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**

@@ -94,7 +94,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly abilityInfo: Array<AbilityInfo>;
+  readonly abilityInfos: Array<AbilityInfo>;
 
   /**
    * Obtains configuration information about extension ability
@@ -102,7 +102,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
+  readonly extensionAbilityInfos: Array<ExtensionAbilityInfo>;
 
    /**
     * Indicates the metadata of ability

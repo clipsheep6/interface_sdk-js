@@ -59,7 +59,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    GET_BUNDLE_INFO_WITH_HAPMODULE = 0x00000002,
+    GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
@@ -83,7 +83,7 @@ declare namespace bundleManager {
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
      * Used to obtain the metadata contained in moduleInfo and abilityInfo. It can't be used alone, it needs to be used
-     * with GET_BUNDLE_INFO_WITH_APPLICATION, GET_BUNDLE_INFO_WITH_HAPMODULE, GET_BUNDLE_INFO_WITH_ABILITIES,
+     * with GET_BUNDLE_INFO_WITH_APPLICATION, GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES,
      * GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -94,7 +94,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-     GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
+    GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
     /**
      * Used to obtain the bundleInfo containing signatureInfo. The obtained bundleInfo does not
      * contain the information of applicationInfo, hapModuleInfo, extensionAbility, ability and permission.
@@ -236,7 +236,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
-  function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;  
+  function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -249,7 +249,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function getBundleInfo(bundleName: string, bundleFlags: BundleFlag, userId?: number, ): Promise<BundleInfo>;  
+  function getBundleInfo(bundleName: string, bundleFlags: BundleFlag, userId?: number, ): Promise<BundleInfo>;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -263,7 +263,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getApplicationInfo(bundleName: string, appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
-  function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;  
+  function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -276,7 +276,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function getApplicationInfo(bundleName: string, appFlags: number, userId?: number): Promise<ApplicationInfo>;  
+  function getApplicationInfo(bundleName: string, appFlags: number, userId?: number): Promise<ApplicationInfo>;
 
   /**
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -288,7 +288,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getAllBundleInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
-  function getAllBundleInfo(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;  
+  function getAllBundleInfo(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
@@ -578,7 +578,7 @@ declare namespace bundleManager {
    * Get the permission details by permission name.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } permissionName - Indicates permission name.
-   * @param { AsyncCallback } callback - The callback of get permissionDef objec result.
+   * @param { AsyncCallback } callback - The callback of get permissionDef object result.
    * @returns Returns permissionDef object.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

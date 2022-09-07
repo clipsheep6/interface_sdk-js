@@ -18,7 +18,8 @@
   * @since 9
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
-  * @deprecated since 9, use ../bundleManager/Metadata
+  * @deprecated since 9
+  * @useinstead ../bundleManager/Metadata
   */
   export interface Metadata {
     /**

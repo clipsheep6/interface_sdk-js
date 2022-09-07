@@ -180,7 +180,7 @@ export interface ExtensionAbilityInfo {
   ACCESSIBILITY = 4,
 
   /**
-   * Indicates extension info with type of datashare
+   * Indicates extension info with type of dataShare
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -188,14 +188,14 @@ export interface ExtensionAbilityInfo {
   DATA_SHARE = 5,
 
   /**
-   * Indicates extension info with type of fileshare
+   * Indicates extension info with type of filesShare
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   FILE_SHARE = 6,
 
   /**
-   * Indicates extension info with type of staticsubscriber
+   * Indicates extension info with type of staticSubscriber
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */

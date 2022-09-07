@@ -37,7 +37,8 @@ import * as _BundleInstaller from './bundle/bundleInstaller';
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @deprecated since 9, use @ohos.bundle.bundleManager
+ * @deprecated since 9
+ * @useinstead @ohos.bundle.bundleManager
  */
 declare namespace bundle {
 
@@ -47,7 +48,8 @@ declare namespace bundle {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @deprecated since 9, use bundleManager.BundleFlag
+ * @deprecated since 9
+ * @useinstead @ohos.bundle.bundleManager.BundleFlag
  */
   enum BundleFlag {
     GET_BUNDLE_DEFAULT = 0x00000000,
@@ -97,7 +99,8 @@ declare namespace bundle {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @deprecated since 9, use bundleManager.ExtensionAbilityFlag
+ * @deprecated since 9
+ * @useinstead @ohos.bundle.bundleManager.ExtensionAbilityFlag
  */
   enum ExtensionFlag {
     GET_EXTENSION_INFO_DEFAULT = 0x00000000,
@@ -112,7 +115,7 @@ declare namespace bundle {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @deprecated since 9, not recommended
+ * @deprecated since 9
  */
   export enum ColorMode {
     AUTO_MODE = -1,
@@ -126,7 +129,8 @@ declare namespace bundle {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @deprecated since 9, use bundleInfo.PermissionGrantStatus
+ * @deprecated since 9
+ * @useinstead bundleInfo.PermissionGrantStatus
  */
   export enum GrantStatus {
     PERMISSION_DENIED = -1,
@@ -139,7 +143,8 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @deprecated since 9, not recommended
+   * @deprecated since 9
+   * @useinstead abilityInfo.AbilityType
    */
   export enum AbilityType {
     /**
@@ -177,7 +182,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @deprecated since 9, not recommended
+   * @deprecated since 9
    */
   export enum AbilitySubType {
     UNSPECIFIED = 0,
@@ -190,7 +195,8 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @deprecated since 9, use ../bundleManager/AbilityInfo.DisplayOrientation
+   * @deprecated since 9
+   * @useinstead abilityInfo.DisplayOrientation
    */
   export enum DisplayOrientation {
     /**
@@ -291,7 +297,8 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @deprecated since 9, use ./bundleManager/AbilityInfo.LaunchType
+   * @deprecated since 9
+   * @useinstead bundleManager/AbilityInfo.LaunchType
    */
   export enum LaunchMode {
     /**
@@ -315,7 +322,8 @@ declare namespace bundle {
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @import NA
   * @permission NA
-  * @deprecated since 9, use ./bundleManager/ExtensionAbilityInfo.ExtensionAbilityType
+  * @deprecated since 9
+  * @useinstead bundleManager/ExtensionAbilityInfo.ExtensionAbilityType
   */
   export enum ExtensionAbilityType {
     /**
@@ -416,7 +424,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @deprecated since 9, not recommended
+   * @deprecated since 9
    */
   export interface BundleOptions {
     /**
@@ -433,7 +441,8 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @deprecated since 9, use @ohos.bundle.install.InstallErrorCode
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.install.InstallErrorCode
    */
   export enum InstallErrorCode{
     SUCCESS = 0,
@@ -484,7 +493,8 @@ declare namespace bundle {
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.freeInstall.UpgradeFlag
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.freeInstall.UpgradeFlag
    */
   export enum UpgradeFlag {
     /**
@@ -514,6 +524,7 @@ declare namespace bundle {
   * @import NA
   * @permission NA
   * @deprecated since 9, use @ohos.bundle.AbilityInfo.SupportWindowMode
+  * @useinstead bundleManager/AbilityInfo.SupportWindowMode
   */
   export enum SupportWindowMode {
     /**
@@ -546,7 +557,8 @@ declare namespace bundle {
    * @param options Indicates the bundle options object.
    * @return Returns the BundleInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getBundleInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getBundleInfo
    */
    function getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
    function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
@@ -560,7 +572,8 @@ declare namespace bundle {
    * @return Returns the IBundleInstaller interface.
    * @permission ohos.permission.INSTALL_BUNDLE
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.install
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer.getBundleInstaller
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
@@ -574,7 +587,7 @@ declare namespace bundle {
    * @param abilityName Indicates the ability name.
    * @return Returns the AbilityInfo object for the current ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, not recommended
+   * @deprecated since 9
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
@@ -590,7 +603,8 @@ declare namespace bundle {
    * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns the ApplicationInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getApplicationInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getApplicationInfo
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
   function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>) : void;
@@ -608,7 +622,8 @@ declare namespace bundle {
    * @param userId Indicates the user ID.
    * @return Returns a list of AbilityInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, use @ohos.bundle.bundleManager.queryAbilityByWant
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.queryAbilityByWant
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
   function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
@@ -624,7 +639,8 @@ declare namespace bundle {
    * @param userId Indicates the user id.
    * @return Returns a list of BundleInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getAllBundleInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getAllBundleInfo
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>) : void;
   function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>) : void;
@@ -640,7 +656,8 @@ declare namespace bundle {
    * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns a list of ApplicationInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getAllApplicationInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getAllApplicationInfo
    */
   function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
   function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
@@ -653,7 +670,8 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param uid Indicates the UID of an application.
    * @return Returns the bundle name.
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getNameForUid
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getNameForUid
    */
    function getNameForUid(uid: number, callback: AsyncCallback<string>) : void
    function getNameForUid(uid: number) : Promise<string>;
@@ -668,7 +686,8 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
    * @return Returns the BundleInfo object.
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getBundleArchiveInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getBundleArchiveInfo
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
@@ -685,7 +704,8 @@ declare namespace bundle {
    * @return Returns the Want for starting the application's main ability if any; returns null if
    *         the given bundle does not exist or does not contain any main ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getLaunchWantForBundle
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getLaunchWantForBundle
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
@@ -699,7 +719,8 @@ declare namespace bundle {
    * @param callback Indicates the callback to be invoked for returning the operation result.
    * @permission ohos.permission.REMOVE_CACHE_FILES
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.bundleManager.cleanBundleCacheFiles
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.cleanBundleCacheFiles
    */
   function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
@@ -714,7 +735,8 @@ declare namespace bundle {
    *                  value false means to disable it.
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.bundleManager.setApplicationEnabled
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.setApplicationEnabled
    */
   function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
   function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
@@ -729,7 +751,8 @@ declare namespace bundle {
    *                  value false means to disable it..
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.bundleManager.setAbilityEnabled
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.setAbilityEnabled
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
@@ -745,7 +768,8 @@ declare namespace bundle {
    * @param userId Indicates the user ID.
    * @return Returns a list of ExtensionInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, use @ohos.bundle.bundleManager.queryExtensionAbilityInfos
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.queryExtensionAbilityInfos
    */
   function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
@@ -760,7 +784,8 @@ declare namespace bundle {
    * @return Returns permissionDef object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getPermissionDef
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getPermissionDef
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
@@ -774,7 +799,8 @@ declare namespace bundle {
    * @param abilityName Indicates the ability name.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @return Returns the label representing the label of the specified ability.
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getAbilityLabel
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getAbilityLabel
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
@@ -788,7 +814,8 @@ declare namespace bundle {
     * @param abilityName Indicates the ability name.
     * @return Returns the PixelMap object representing the icon of the specified ability.
     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-    * @deprecated since 9, use @ohos.bundle.bundleManager.getAbilityIcon
+    * @deprecated since 9
+    * @useinstead @ohos.bundle.bundleManager.getAbilityIcon
     */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
@@ -800,7 +827,8 @@ declare namespace bundle {
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param info Indicates information about the ability to check.
     * @returns Returns true if the ability is enabled; returns false otherwise.
-    * @deprecated since 9, use @ohos.bundle.bundleManager.isAbilityEnabled
+    * @deprecated since 9
+    * @useinstead @ohos.bundle.bundleManager.isAbilityEnabled
     */ 
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
@@ -812,7 +840,8 @@ declare namespace bundle {
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application.
     * @returns Returns true if the application is enabled; returns false otherwise.
-    * @deprecated since 9, use @ohos.bundle.bundleManager.isApplicationEnabled
+    * @deprecated since 9
+    * @useinstead @ohos.bundle.bundleManager.isApplicationEnabled
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
@@ -826,7 +855,8 @@ declare namespace bundle {
     * @param moduleName Indicates the module name of the application.
     * @param upgradeFlag Indicates upgradeFlag of the application.
     * @systemapi Hide this for inner system use
-    * @deprecated since 9, use @ohos.bundle.freeInstall.setHapModuleUpgradeFlag
+    * @deprecated since 9
+    * @useinstead @ohos.bundle.freeInstall.setHapModuleUpgradeFlag
     */
   function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
   function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
@@ -840,7 +870,8 @@ declare namespace bundle {
     * @param moduleName Indicates the module name of the application.
     * @returns Returns true if the module is removable; returns false otherwise.
     * @systemapi Hide this for inner system use
-    * @deprecated since 9, use @ohos.bundle.freeInstall.isHapModuleRemovable
+    * @deprecated since 9
+    * @useinstead @ohos.bundle.freeInstall.isHapModuleRemovable
     */
   function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
   function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
@@ -854,7 +885,8 @@ declare namespace bundle {
    * @param bundlePackFlag Indicates the application bundle pack flag to be queried.
    * @return Returns the BundlePackInfo object.
    * @systemapi hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.freeInstall.getBundlePackInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.freeInstall.getBundlePackInfo
    */
   function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag, callback: AsyncCallback<pack.BundlePackInfo>): void;
   function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag): Promise<pack.BundlePackInfo>;
@@ -869,7 +901,8 @@ declare namespace bundle {
    * @param abilityName Indicates the ability name.
    * @return Returns the AbilityInfo object for the current ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getAbilityInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getAbilityInfo
    */
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
@@ -881,7 +914,8 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @return Returns the DispatchInfo object for the current ability.
    * @systemapi hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.freeInstall.getDispatchInfo
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.freeInstall.getDispatchInfo
    */
   function getDispatcherVersion(callback: AsyncCallback<DispatchInfo>): void;
   function getDispatcherVersion(): Promise<DispatchInfo>;
@@ -896,7 +930,8 @@ declare namespace bundle {
    * @param abilityName Indicates the ability name.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @return Returns the label representing the label of the specified ability.
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getAbilityLabel
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getAbilityLabel
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
@@ -911,7 +946,8 @@ declare namespace bundle {
    * @param abilityName Indicates the ability name.
    * @return Returns the PixelMap object representing the icon of the specified ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getAbilityIcon
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getAbilityIcon
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
@@ -925,7 +961,8 @@ declare namespace bundle {
    * @param abilityName Indicates the abilityName of the application.
    * @param metadataName Indicates the name of metadata in ability.
    * @return Returns string in json-format of the corresponding config file.
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getProfileByAbility
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getProfileByAbility
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
@@ -939,7 +976,8 @@ declare namespace bundle {
    * @param extensionAbilityName Indicates the extensionAbilityName of the application.
    * @param metadataName Indicates the name of metadata in ability.
    * @return Returns string in json-format of the corresponding config file.
-   * @deprecated since 9, use @ohos.bundle.bundleManager.getProfileByExtensionAbility
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.getProfileByExtensionAbility
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
@@ -954,7 +992,8 @@ declare namespace bundle {
    * @return Returns the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.appControl.setDisposedStatus
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.appControl.setDisposedStatus
    */
   function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
   function setDisposedStatus(bundleName: string, status: number): Promise<void>;
@@ -968,7 +1007,8 @@ declare namespace bundle {
    * @return Returns the disposed status of a specified bundle.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
-   * @deprecated since 9, use @ohos.bundle.appControl.getDisposedStatus
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.appControl.getDisposedStatus
    */
   function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
   function getDisposedStatus(bundleName: string): Promise<number>;

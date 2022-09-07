@@ -56,28 +56,20 @@ export interface AbilityInfo {
   readonly label: string;
 
   /**
-   * Indicates the ability
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly description: string;
-
-  /**
-   * Indicates the icon of the ability
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly icon: string;
-
-  /**
    * Indicates the label id of the ability
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly labelId: number;
+
+  /**
+   * Indicates the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly description: string;
 
   /**
    * Indicates the description id of the ability
@@ -88,6 +80,14 @@ export interface AbilityInfo {
   readonly descriptionId: number;
 
   /**
+   * Indicates the icon of the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly icon: string;
+
+  /**
    * Indicates the icon id of the ability
    * @type {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -96,8 +96,8 @@ export interface AbilityInfo {
   readonly iconId: number;
 
   /**
-   * Process of ability, if user do not set it ,the value equal application process
-   * @type {number}
+   * Process of ability, if user do not set it, the value equal application process
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -188,7 +188,7 @@ export interface AbilityInfo {
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * @default Indicates the metadata of ability
+   * Indicates the metadata of ability
    * @type {Array<Metadata>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -209,7 +209,7 @@ export interface AbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly supportWindowMode: Array<SupportWindowMode>;
+  readonly supportWindowModes: Array<SupportWindowMode>;
 
   /**
    * Indicates window size
@@ -291,14 +291,14 @@ export enum SupportWindowMode {
   FULL_SCREEN = 0,
   /**
    * Indicates supported window mode of split mode
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   SPLIT = 1,
   /**
    * Indicates supported window mode of floating mode
-   * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   FLOATING = 2,
 }

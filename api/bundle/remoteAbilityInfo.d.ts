@@ -22,7 +22,8 @@ import { ElementName }  from './elementName';
  * @systemapi
  *
  * @permission N/A
- * @deprecated since 9, use ../bundleManager/RemoteAbilityInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
     /**

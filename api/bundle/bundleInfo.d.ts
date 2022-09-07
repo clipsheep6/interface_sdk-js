@@ -23,7 +23,8 @@ import { HapModuleInfo } from './hapModuleInfo';
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @deprecated since 9, use ../bundleManager/BundleInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/BundleInfo
  */
 export interface UsedScene {
   /**
@@ -46,7 +47,8 @@ export interface UsedScene {
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @deprecated since 9, use ../bundleManager/BundleInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/BundleInfo
  */
 export interface ReqPermissionDetail {
   /**
@@ -83,7 +85,8 @@ export interface ReqPermissionDetail {
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @deprecated since 9, use ../bundleManager/BundleInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/BundleInfo
  */
 export interface BundleInfo {
   /**

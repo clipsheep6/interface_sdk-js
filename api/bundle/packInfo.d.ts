@@ -18,7 +18,8 @@
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.BundlePackInfo
  */
 export interface BundlePackInfo {
   /**
@@ -41,7 +42,7 @@ export interface BundlePackInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @useinstead ../bundleManager/PackInfo.PackageConfig
  */
 export interface PackageConfig {
   /**
@@ -78,7 +79,8 @@ export interface PackageConfig {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.PackageSummary
  */
 export interface PackageSummary {
   /**
@@ -101,7 +103,8 @@ export interface PackageSummary {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.BundleConfigInfo
  */
 export interface BundleConfigInfo {
   /**
@@ -124,7 +127,8 @@ export interface BundleConfigInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.ExtensionAbility
  */
  export interface ExtensionAbilities {
   /**
@@ -147,7 +151,8 @@ export interface BundleConfigInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.ModuleConfigInfo
  */
 export interface ModuleConfigInfo {
   /**
@@ -191,7 +196,8 @@ export interface ModuleConfigInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.ModuleDistroInfo
  */
 export interface ModuleDistroInfo {
   /**
@@ -235,7 +241,8 @@ export interface ModuleDistroInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.ModuleAbilityInfo
  */
 export interface ModuleAbilityInfo {
   /**
@@ -272,7 +279,8 @@ export interface ModuleAbilityInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.AbilityFormInfo
  */
 export interface AbilityFormInfo {
   /**
@@ -330,7 +338,8 @@ export interface AbilityFormInfo {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.Version
  */
 export interface Version {
   /**
@@ -360,7 +369,8 @@ export interface Version {
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi hide this for inner system use
- * @deprecated since 9, use ../bundleManager/PackInfo
+ * @deprecated since 9
+ * @useinstead ../bundleManager/PackInfo.ApiVersion
  */
 export interface ApiVersion {
   /**

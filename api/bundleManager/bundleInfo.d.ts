@@ -129,26 +129,26 @@ export interface BundleInfo {
 }
 
 /**
- * Indicates the required permissions details defined in file config.json
+ * Indicates the required permissions details defined in configuration file
  * @typedef ReqPermissionDetail
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
 export interface ReqPermissionDetail {
   /**
-    * Indicates the name of this required permissions
-    * @type {string}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the name of this required permissions
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   name: string;
 
   /**
-    * Indicates the reason of this required permissions
-    * @type {string}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the reason of this required permissions
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   reason: string;
 
    /**
@@ -160,11 +160,11 @@ export interface ReqPermissionDetail {
   reasonId: number;
 
   /**
-    * Indicates the used scene of this required permissions
-    * @type {UsedScene}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+   * Indicates the used scene of this required permissions
+   * @type {UsedScene}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   usedScene: UsedScene;
 }
 
@@ -207,7 +207,7 @@ export interface UsedScene {
   PERMISSION_DENIED = -1,
 
   /**
-   * PERMISSION_DENIED
+   * PERMISSION_GRANTED
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
