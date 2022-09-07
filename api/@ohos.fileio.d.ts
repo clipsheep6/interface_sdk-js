@@ -34,10 +34,10 @@ declare namespace fileIO {
     export { closeSync };
     export { copyFile };
     export { copyFileSync };
-    export { createStream };
-    export { createStreamSync };
     export { createRandomAccessFile };
     export { createRandomAccessFileSync };
+    export { createStream };
+    export { createStreamSync };
     export { createWatcher };
     export { fchmod };
     export { fchmodSync };
