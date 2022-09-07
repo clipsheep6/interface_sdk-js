@@ -223,7 +223,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    * @param path Indicates the path object to be added.
    * @param transform Transformation matrix of the new trail
-   * @since 8
+   * @since 9
    */
   addPath(path: Path2D, transform?: Matrix2D): void;
 
@@ -910,7 +910,7 @@ declare class CanvasRenderer extends CanvasPath {
 
   /**
    * Obtains the currently applied transformation matrix.
-   * @since 8
+   * @since 9
    */
   getTransform(): Matrix2D;
 
@@ -953,7 +953,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
    * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
-   * @since 8
+   * @since 9
    */
   setTransform(transform?: Matrix2D): void;
 
