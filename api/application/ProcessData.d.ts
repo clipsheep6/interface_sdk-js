@@ -48,4 +48,13 @@ export default class ProcessData {
      * @systemapi hide for inner use.
      */
     uid: number;
+
+    /**
+     * The state.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    state: number;
 }
