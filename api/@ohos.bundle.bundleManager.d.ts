@@ -216,12 +216,6 @@ declare namespace bundleManager {
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004,
-    /**
-     * Used to obtain the extensionAbilityInfo containing disabled extensionAbilityInfo.
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    GET_EXTENSION_ABILITY_INFO_WITH_DISABLE = 0x00000008,
   }
 
   /**
