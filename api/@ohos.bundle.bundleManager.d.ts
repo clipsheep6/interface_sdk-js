@@ -182,6 +182,13 @@ declare namespace bundleManager {
      * @since 9
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000008,
+    /**
+     * Used to obtain the abilityInfo only for system app.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
   }
 
   /**
