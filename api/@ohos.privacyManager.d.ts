@@ -26,6 +26,7 @@ import {AsyncCallback, Callback} from './basic'
      * @param successCount Access count.
      * @param failCount Reject account.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -37,6 +38,7 @@ import {AsyncCallback, Callback} from './basic'
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
      * @return Return the response of permission used records.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -49,6 +51,7 @@ import {AsyncCallback, Callback} from './basic'
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be started.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -61,6 +64,7 @@ import {AsyncCallback, Callback} from './basic'
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be stopped.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -71,6 +75,7 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Subscribes to the change of active state of the specified permission.
      * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -80,6 +85,7 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Unsubscribes to the change of active state of the specified permission.
      * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
