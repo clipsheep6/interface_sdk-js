@@ -113,12 +113,12 @@ export interface ApplicationInfo {
   readonly permissions: Array<string>;
 
   /**
-   * Indicates module information about an application
+   * Indicates modules information about an application
    * @type {Array<HapModuleInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly moduleInfos: Array<HapModuleInfo>;
+  readonly modulesInfo: Array<HapModuleInfo>;
 
   /**
    * Indicates the path where the {@code Entry.hap} file of the application is saved

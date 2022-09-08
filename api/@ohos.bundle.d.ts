@@ -587,6 +587,7 @@ declare namespace bundle {
    * @return Returns the AbilityInfo object for the current ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager.queryAbilityInfo
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
@@ -622,7 +623,7 @@ declare namespace bundle {
    * @return Returns a list of AbilityInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
-   * @useinstead @ohos.bundle.bundleManager.queryAbilityByWant
+   * @useinstead @ohos.bundle.bundleManager.queryAbilityInfo
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
   function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
@@ -768,7 +769,7 @@ declare namespace bundle {
    * @return Returns a list of ExtensionInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
-   * @useinstead @ohos.bundle.bundleManager.queryExtensionAbilityInfos
+   * @useinstead @ohos.bundle.bundleManager.queryExtensionAbilityInfo
    */
   function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;

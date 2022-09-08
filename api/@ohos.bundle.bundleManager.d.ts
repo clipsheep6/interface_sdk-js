@@ -250,7 +250,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function getBundleInfo(bundleName: string, bundleFlags: BundleFlag, userId?: number, ): Promise<BundleInfo>;
+  function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -329,9 +329,9 @@ declare namespace bundleManager {
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
-   * Query the AbilityInfos by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @param { AsyncCallback } callback - The callback of querying ability info result.
@@ -339,42 +339,42 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryAbilityInfos(want: Want, abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
-  function queryAbilityInfos(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityInfo(want: Want, abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityInfo(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfos by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param { AbilityFlag } abilityFlags Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
+   * @param { number } abilityFlags Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryAbilityInfos(want: Want, abilityFlags: AbilityFlag, userId?: number): Promise<Array<AbilityInfo>>;
+  function queryAbilityInfo(want: Want, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { Want} want - Indicates the Want containing the application bundle name to be queried.
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
    * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
-   * @param { AsyncCallback } callback - The callback of quering extension ability info result.
+   * @param { AsyncCallback } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryExtensionAbilityInfos(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfos(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param {Want} want - Indicates the Want containing the application bundle name to be queried.
-   * @param {ExtensionAbilityType} extensionAbilityType - Indicates ExtensionAbilityType..
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
+   * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType..
    * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - userId Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
@@ -382,7 +382,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function queryExtensionAbilityInfos(want: Want, extensionAbilityType: number, extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+  function queryExtensionAbilityInfo(want: Want, extensionAbilityType: number, extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Obtains bundle name by the given uid.

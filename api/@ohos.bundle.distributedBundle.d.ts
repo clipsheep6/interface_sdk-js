@@ -50,28 +50,28 @@ declare namespace distributedBundle {
   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
 
   /**
-   * Obtains information about the ability infos of the remote device.
+   * Obtains information about the abilities info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
-   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - the callback of getting the ability infos of the remote device.
+   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - the callback of getting the abilities info of the remote device.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfos(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
-   * Obtains information about the ability infos of the remote device.
+   * Obtains information about the abilities info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
-   * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the ability infos of the remote device.
+   * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the abilities info of the remote device.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 
   /**
    * Obtains information about the ability info of the remote device.
@@ -91,7 +91,7 @@ declare namespace distributedBundle {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { string } locale - Indicates the locale info
-   * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the ability infos of the remote device.
+   * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the ability info of the remote device.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -100,30 +100,30 @@ declare namespace distributedBundle {
   function getRemoteAbilityInfo(elementName: ElementName, locale: string): Promise<RemoteAbilityInfo>;
 
   /**
-   * Obtains information about the ability infos of the remote device.
+   * Obtains information about the ability info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { string } locale - Indicates the locale info
-   * @param { AsyncCallback } callback - Returns the ability infos of the remote device.
+   * @param { AsyncCallback } callback - Returns the abilities info of the remote device.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
-   * Obtains information about the ability infos of the remote device.
+   * Obtains information about the abilities info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { string } locale - Indicates the locale info
-   * @returns { Promise<Array<RemoteAbilityInfo>> } Returns the ability infos of the remote device.
+   * @returns { Promise<Array<RemoteAbilityInfo>> } Returns the abilities info of the remote device.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @since 9
    */
-  function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
+  function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
 
   /**
    * Contains basic remote ability information.

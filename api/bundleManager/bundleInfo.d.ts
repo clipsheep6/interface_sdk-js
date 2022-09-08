@@ -85,7 +85,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly hapModuleInfos: Array<HapModuleInfo>;
+  readonly hapModulesInfo: Array<HapModuleInfo>;
 
   /**
    * Indicates the required permissions details defined in file config.json

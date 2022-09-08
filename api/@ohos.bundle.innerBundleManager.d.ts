@@ -41,7 +41,7 @@ declare namespace innerBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
    * @deprecated since 9
-   * @useinstead launcherBundleManager.getLauncherAbilityInfos
+   * @useinstead launcherBundleManager.getLauncherAbilityInfo
    */
   function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
   function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -87,7 +87,7 @@ declare namespace innerBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
    * @deprecated since 9
-   * @useinstead launcherBundleManager.getAllLauncherAbilityInfos
+   * @useinstead launcherBundleManager.getAllLauncherAbilityInfo
    */
   function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
   function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -102,7 +102,7 @@ declare namespace innerBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
    * @deprecated since 9
-   * @useinstead launcherBundleManager.getShortcutInfos
+   * @useinstead launcherBundleManager.getShortcutInfo
    */
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;

@@ -89,20 +89,20 @@ export interface HapModuleInfo {
   readonly mainElementName: string;
 
   /**
-   * Obtains configuration information about ability
+   * Obtains configuration information about abilities
    * @type {Array<AbilityInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly abilityInfos: Array<AbilityInfo>;
+  readonly abilitiesInfo: Array<AbilityInfo>;
 
   /**
-   * Obtains configuration information about extension ability
+   * Obtains configuration information about extension abilities
    * @type {Array<ExtensionAbilityInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly extensionAbilityInfos: Array<ExtensionAbilityInfo>;
+  readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
    /**
     * Indicates the metadata of ability

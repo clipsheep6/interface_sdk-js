@@ -27,7 +27,7 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './b
  */
 declare namespace launcherBundleManager {
   /**
-   * Obtains based on a given bundleName and userId.
+   * Obtains launcher abilities info based on a given bundleName and userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } userId - Indicates the id for the user.
@@ -37,10 +37,10 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
+  function getLauncherAbilityInfo(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
 
    /**
-   * Obtains based on a given bundleName and userId.
+   * Obtains launcher abilities info based on a given bundleName and userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } userId - Indicates the id for the user.
@@ -50,10 +50,10 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getLauncherAbilityInfo(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
 
   /**
-   * Obtains based on a given userId.
+   * Obtains launcher abilities info based on a given userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback } callback -The callback of the LauncherAbilityInfo object result.
@@ -62,10 +62,10 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
+  function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
 
   /**
-   * Obtains based on a given userId.
+   * Obtains launcher abilities info based on a given userId.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
@@ -74,10 +74,10 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getAllLauncherAbilityInfo(userId: number) : Promise<Array<LauncherAbilityInfo>>;
 
   /**
-   * Obtains based on a given bundleName.
+   * Obtains shortcut info based on a given bundleName.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { AsyncCallback } callback -The callback of the ShortcutInfo object result.
@@ -86,10 +86,10 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
+  function getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
 
   /**
-   * Obtains based on a given bundleName.
+   * Obtains shortcut info based on a given bundleName.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
@@ -98,7 +98,7 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
+  function getShortcutInfo(bundleName : string) : Promise<Array<ShortcutInfo>>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
