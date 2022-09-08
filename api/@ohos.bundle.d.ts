@@ -442,7 +442,6 @@ declare namespace bundle {
    * @import NA
    * @permission NA
    * @deprecated since 9
-   * @useinstead @ohos.bundle.install.InstallErrorCode
    */
   export enum InstallErrorCode{
     SUCCESS = 0,
