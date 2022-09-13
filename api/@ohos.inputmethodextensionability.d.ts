@@ -41,6 +41,8 @@ export default class InputMethodExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates the want of created service extension.
      * @return -
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PARAMCHECK
      * @StageModelOnly
      */
     onCreate(want: Want): void;
@@ -51,6 +53,8 @@ export default class InputMethodExtensionAbility {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PARAMCHECK
      * @StageModelOnly
      */
     onDestroy(): void;
