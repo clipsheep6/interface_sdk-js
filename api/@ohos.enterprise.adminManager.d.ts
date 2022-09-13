@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
-import { DeviceSettingsManager as _DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
+import { AsyncCallback } from "./basic";
 import Want from "./@ohos.application.Want";
 
 /**
@@ -23,7 +22,7 @@ import Want from "./@ohos.application.Want";
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  */
-declare namespace enterpriseDeviceManager {
+declare namespace adminManager {
 
   /**
    * @name EnterpriseInfo
@@ -36,13 +35,6 @@ declare namespace enterpriseDeviceManager {
   }
 
   /**
-   * @name DeviceSettingsManager
-   * @since 9
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   */
-  export type DeviceSettingsManager = _DeviceSettingsManager
-
-  /**
    * @name AdminType
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -50,6 +42,23 @@ declare namespace enterpriseDeviceManager {
   export enum AdminType {
     ADMIN_TYPE_NORMAL = 0x00,
     ADMIN_TYPE_SUPER = 0x01
+  }
+
+  /**
+   * @name ManagedEvent
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   */
+  export enum ManagedEvent {
+    MANAGED_EVENT_BUNDLE_ADDED = 0,
+    MANAGED_EVENT_BUNDLE_REMOVED = 1,
+    MANAGED_EVENT_APP_START = 2,
+    MANAGED_EVENT_APP_STOP = 3,
+    MANAGED_EVENT_PASTE_BOARD_GET = 4,
+    MANAGED_EVENT_PASTE_BOARD_SET = 5,
+    MANAGED_EVENT_PASTE_SCREENSHOT = 6,
+    MANAGED_EVENT_SHARE_SCREEN_START = 7,
+    MANAGED_EVENT_SHARE_SCREEN_STOP = 8
   }
 
   /**
@@ -63,15 +72,14 @@ declare namespace enterpriseDeviceManager {
    * @param enterpriseInfo Indicates the enterprise information of the calling application.
    * @param type Indicates the type of administrator to set.
    * @param userId Indicates the user ID or do not pass user ID.
-   * @return {@code true} if enables administrator success.
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    */
-  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<boolean>): void;
-  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId: number, callback: AsyncCallback<boolean>): void;
-  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<boolean>;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>): void;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId: number, callback: AsyncCallback<void>): void;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<void>;
 
   /**
-   * Disables a current normal administrator ability. 
+   * Disables a current normal administrator ability.
    * 
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
@@ -79,25 +87,24 @@ declare namespace enterpriseDeviceManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
    * @param userId Indicates the user ID or do not pass user ID.
-   * @return {@code true} if disables administrator success.
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    */
-  function disableAdmin(admin: Want, callback: AsyncCallback<boolean>): void;
-  function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
-  function disableAdmin(admin: Want, userId?: number): Promise<boolean>;
+  function disableAdmin(admin: Want, callback: AsyncCallback<void>): void;
+  function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<void>): void;
+  function disableAdmin(admin: Want, userId?: number): Promise<void>;
 
   /**
-   * Disables a current super administrator ability. 
+   * Disables a current super administrator ability.
    * 
    * Only the administrator app or apps with the shell uid can call this method.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param bundleName Indicates the administrator bundle information.
-   * @return {@code true} if disables super administrator success.
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
    */
-  function disableSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
-  function disableSuperAdmin(bundleName: String): Promise<boolean>;
+  function disableSuperAdmin(bundleName: String, callback: AsyncCallback<void>): void;
+  function disableSuperAdmin(bundleName: String): Promise<void>;
 
   /**
    * Get whether the ability is enabled as device administrator.
@@ -119,6 +126,7 @@ declare namespace enterpriseDeviceManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
    * @return Returns the enterprise information of the administrator.
+   * @permission ohos.permission.SET_ENTERPRISE_INFO
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
@@ -132,10 +140,10 @@ declare namespace enterpriseDeviceManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
    * @param enterpriseInfo Indicates the enterprise information of the calling application.
-   * @return {@code true} if sets enterprise information success.
+   * @permission ohos.permission.SET_ENTERPRISE_INFO
    */
-  function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo, callback: AsyncCallback<boolean>): void;
-  function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<boolean>;
+  function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo, callback: AsyncCallback<void>): void;
+  function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
 
   /**
    * Get whether the ability is enabled as super device administrator.
@@ -149,15 +157,28 @@ declare namespace enterpriseDeviceManager {
   function isSuperAdmin(bundleName: String): Promise<boolean>;
 
   /**
-   * Obtains the interface used to set device settings policy.
+   * Subscribes the managed event of admin.
    *
+   * @param admin Indicates the administrator ability information.
+   * @param managedEvents Indicates the managed events to subscribe.
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @return Returns the DeviceSettingsManager interface.
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
    */
-  function getDeviceSettingsManager(callback: AsyncCallback<DeviceSettingsManager>): void;
-  function getDeviceSettingsManager(): Promise<DeviceSettingsManager>;
+  function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+  function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
+  /**
+   * Unsubscribes the managed event of admin.
+   *
+   * @param admin Indicates the administrator ability information.
+   * @param managedEvents Indicates the managed events to unsubscribe.
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   */
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 }
 
-export default enterpriseDeviceManager;
+export default adminManager;
