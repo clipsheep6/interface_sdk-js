@@ -23,21 +23,6 @@
  */
 export default class ProcessData {
     /**
-     * @name ProcessState
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
-     */
-    export enum ProcessState {
-        STATE_CREATE,
-        STATE_FOREGROUND,
-        STATE_ACTIVE,
-        STATE_BACKGROUND,
-        STATE_DESTROY
-    }
-
-    /**
      * The bundle name.
      *
      * @since 8
@@ -71,7 +56,7 @@ export default class ProcessData {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
-    state: ProcessState;
+    state: number;
 
     /**
      * Whether the process is continuous task.
