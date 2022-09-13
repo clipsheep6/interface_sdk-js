@@ -80,14 +80,14 @@ declare namespace freeInstall {
     GET_PACKAGES = 0x00000001,
     /**
      * Query the brief information of the package
-     * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9
      */
     GET_BUNDLE_SUMMARY = 0x00000002,
     /**
      * Query the brief information of the module.
-     * @syscap SystemCapability.BundleManager.BundleFramework.freeIntall
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @systemapi
      * @since 9
      */
@@ -106,7 +106,7 @@ declare namespace freeInstall {
    * @systemapi
    * @since 9
    */
-  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>) : void;
+  function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>) : void;
 
   /**
    * Set the module wether need upgrade
@@ -114,26 +114,26 @@ declare namespace freeInstall {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
    * @param { UpgradeFlag } upgradeFlag - Indicates upgradeFlag of the application.
-   * @returns { Promise<void> } - Return the reslut of setting module upgrade flag.
+   * @returns { Promise<void> } - Return the result of setting module upgrade flag.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
    */
-  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
+  function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
 
   /**
    * Checks whether a specified module is removable.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
-   * @param { AsyncCallback } callback - The callback of checking module removeable result.The result is true if the module is removable, false otherwise.
+   * @param { AsyncCallback } callback - The callback of checking module removable result.The result is true if the module is removable, false otherwise.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9
    */
-  function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
+  function isHapModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether a specified module is removable.
@@ -146,7 +146,7 @@ declare namespace freeInstall {
    * @systemapi
    * @since 9
    */
-  function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
+  function isHapModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
   /**
    * Obtains bundlePackInfo based on bundleName and bundleFlags.
