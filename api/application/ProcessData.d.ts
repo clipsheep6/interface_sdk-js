@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,6 +22,21 @@
  * @permission N/A
  */
 export default class ProcessData {
+    /**
+     * @name ProcessState
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi Hide this for inner system use.
+     * @permission N/A
+     */
+    export enum ProcessState {
+        STATE_CREATE,
+        STATE_FOREGROUND,
+        STATE_ACTIVE,
+        STATE_BACKGROUND,
+        STATE_DESTROY
+    }
+
     /**
      * The bundle name.
      *
@@ -48,4 +63,31 @@ export default class ProcessData {
      * @systemapi hide for inner use.
      */
     uid: number;
+
+    /**
+     * The process state.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    state: ProcessState;
+
+    /**
+     * Whether the process is continuous task.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isContinuousTask: boolean;
+
+    /**
+     * Whether the process is keep alive.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isKeepAlive: boolean;
 }
