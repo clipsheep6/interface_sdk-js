@@ -336,6 +336,9 @@ declare namespace deviceManager {
    *
    * @param bundleName Indicates the bundle name of the application.
    * @param callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
+   * @throws {TypeError} if type of bundle Name is not string.
+   * @throws {TypeError} if type of callback is not function.
+   * @throws {OHBusinessError} if wrong number of parameters, required two.
    * @systemapi this method can be used only by system applications.
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
@@ -347,6 +350,8 @@ declare namespace deviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
      *
+     * @throws {OHBusinessError} if wrong number of parameters.
+     * @throws {OHBusinessError} if release failed.
      * @systemapi this method can be used only by system applications.
      */
     release(): void;
@@ -354,6 +359,8 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @throws {OHBusinessError} if wrong number of parameters.
+     * @throws {OHBusinessError} if get trusted device list failed.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -364,6 +371,8 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
+     * @throws {TypeError} if type of callback is not function.
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -373,6 +382,7 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @since 8
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -382,6 +392,8 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
+     * @throws {OHBusinessError} if wrong number of parameters.
+     * @throws {OHBusinessError} if get Local DeviceInfo failed.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -392,6 +404,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -401,6 +414,7 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
+     * @throws {OHBusinessError} if wrong number of parameters.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -411,6 +425,10 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param subscribeInfo subscribe info to discovery device
+     * @throws {TypeError} if type of subscribeInfo is not object.
+     * @throws {OHBusinessError} if subscribeInfo.subscribeId value error.
+     * @throws {OHBusinessError} if the operation is called repeatedly.
+     * @throws {OHBusinessError} if start device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
@@ -421,6 +439,11 @@ declare namespace deviceManager {
      * @since 9
      * @param subscribeInfo subscribe info to discovery device
      * @param filterOptions filterOptions to filter discovery device
+     * @throws {TypeError} if type of subscribeInfo.subscribeInfo is not object.
+     * @throws {TypeError} if type of filterOptions is not string.
+     * @throws {OHBusinessError} if subscribeId value error.
+     * @throws {OHBusinessError} if the operation is called repeatedly.
+     * @throws {OHBusinessError} if start device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
@@ -429,22 +452,32 @@ declare namespace deviceManager {
      * Stop to discover device.
      *
      * @param subscribeId Service subscribe ID
+     * @throws {TypeError} if type of subscribeId is not number.
+     * @throws {OHBusinessError} if subscribeId value is too big.
+     * @throws {OHBusinessError} if stop device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
     stopDeviceDiscovery(subscribeId: number): void;
 
     /**
      * Publish discover device.
+     *
      * @since 9
      * @param publishInfo publish info to Publish discovery device
+     * @throws {TypeError} if type of publishInfo is not object.
+     * @throws {OHBusinessError} If the operation is called repeatedly.
+     * @throws {OHBusinessError} if publish device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
     publishDeviceDiscovery(publishInfo: PublishInfo): void;
 
     /**
      * UnPublish discover device.
+     *
      * @since 9
      * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
+     * @throws {TypeError} if type of publishId is not number.
+     * @throws {OHBusinessError} if unpublish device discovery failed.
      * @systemapi this method can be used only by system applications.
      */
     unPublishDeviceDiscovery(publishId: number): void;
@@ -455,6 +488,9 @@ declare namespace deviceManager {
      * @param deviceInfo deviceInfo of device to authenticate
      * @param authParam authParam of device to authenticate
      * @param callback Indicates the callback to be invoked upon authenticateDevice
+     * @throws {TypeError} if type of deviceInfo is not object.
+     * @throws {TypeError} if type of authParam is not object.
+     * @throws {TypeError} if type of callback is not function.
      * @systemapi this method can be used only by system applications.
      */
     authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinToken ?: number}>): void;
@@ -464,6 +500,8 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param deviceInfo deviceInfo of device to unAuthenticate
+     * @throws {TypeError} if type of deviceInfo is not object.
+     * @throws {OHBusinessError} if unAuthenticate Device failed.
      * @systemapi this method can be used only by system applications.
      */
     unAuthenticateDevice(deviceInfo: DeviceInfo): void
@@ -473,6 +511,8 @@ declare namespace deviceManager {
      *
      * @param authInfo device auth info o verify
      * @param callback Indicates the callback to be invoked upon verifyAuthInfo
+     * @throws {TypeError} if type of authInfo is not object.
+     * @throws {TypeError} if type of callback is not function.
      * @systemapi this method can be used only by system applications.
      */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
@@ -481,8 +521,8 @@ declare namespace deviceManager {
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
      *
-     * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
@@ -490,8 +530,8 @@ declare namespace deviceManager {
     /**
      * UnRegister device state callback based on the application bundle name.
      *
-     * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
@@ -500,6 +540,7 @@ declare namespace deviceManager {
      * Register a device found callback so that the application can be notified when the device was found
      *
      * @param callback Indicates the device found callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'deviceFound', callback: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
@@ -508,6 +549,7 @@ declare namespace deviceManager {
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
      * @param callback Indicates the device found callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'deviceFound', callback?: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
@@ -516,6 +558,7 @@ declare namespace deviceManager {
      * Register a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param callback Indicates the device found result callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'discoverFail', callback: Callback<{ subscribeId: number, reason: number }>): void;
@@ -524,6 +567,7 @@ declare namespace deviceManager {
      * UnRegister a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param callback Indicates the device found result callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
@@ -533,6 +577,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
      on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
@@ -542,6 +587,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
      off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
@@ -551,6 +597,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
      on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
@@ -560,6 +607,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
      off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
@@ -568,6 +616,7 @@ declare namespace deviceManager {
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'serviceDie', callback: () => void): void;
@@ -576,6 +625,7 @@ declare namespace deviceManager {
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
+     * @throws {TypeError} if type of callback is not funcation.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'serviceDie', callback?: () => void): void;
