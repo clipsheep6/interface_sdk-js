@@ -23,6 +23,90 @@ import BaseContext from './application/BaseContext';
  * @permission ohos.permission.INTERNET
  */
 declare namespace request {
+  /**
+   * the permissions check fails
+   * @errorcode 13400201
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_PERMISSION: number;
+  /**
+   * the parameters check fails
+   * @errorcode 13400401
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_PARAMCHECK: number;
+  /**
+   * call unsupported api
+   * @errorcode 13400801
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_UNSUPPORTED: number;
+  /**
+   * http response status code is not ok
+   * @errorcode 13400001
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_RESPONSE: number;
+  /**
+   * file operation error
+   * @errorcode 13400002
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_FILEIO: number;
+  /**
+   * get/compute file size error
+   * @errorcode 13400003
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_FILESIZE: number;
+  /**
+   * bad file path
+   * @errorcode 13400004
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_FILEPATH: number;
+  /**
+   * task timeout
+   * @errorcode 13400005
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_TASKTIMEOUT: number;
+  /**
+   * exceed task retries limit
+   * @errorcode 13400006
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_TASKRETRIES: number;
+  /**
+   * da error
+   * @errorcode 13400007
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_DATABASE: number;
+  /**
+   * sa error
+   * @errorcode 13400008
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_SERVICE: number;
+  /**
+   * others error
+   * @errorcode 13499999
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   */
+  const EXCEPTION_OTHERS: number;
 
   /**
    * Bit flag indicating download is allowed when using the cellular network.
@@ -44,6 +128,7 @@ declare namespace request {
    * Indicates that the download cannot be resumed for some temporary errors.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_CANNOT_RESUME: number;
@@ -52,6 +137,7 @@ declare namespace request {
    * Indicates that no storage device, such as an SD card, is found.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_DEVICE_NOT_FOUND: number;
@@ -60,6 +146,7 @@ declare namespace request {
    * Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_FILE_ALREADY_EXISTS: number;
@@ -68,6 +155,7 @@ declare namespace request {
    * Indicates that a file operation fails.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_FILE_ERROR: number;
@@ -76,6 +164,7 @@ declare namespace request {
    * Indicates that the HTTP transmission fails.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_HTTP_DATA_ERROR: number;
@@ -84,6 +173,7 @@ declare namespace request {
    * Indicates insufficient storage space.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_INSUFFICIENT_SPACE: number;
@@ -92,6 +182,7 @@ declare namespace request {
    * Indicates an error caused by too many network redirections.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_TOO_MANY_REDIRECTS: number;
@@ -100,6 +191,7 @@ declare namespace request {
    * Indicates an HTTP code that cannot be identified.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_UNHANDLED_HTTP_CODE: number;
@@ -108,6 +200,7 @@ declare namespace request {
    * Indicates an undefined error.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
+   * @deprecated since 9
    * @permission ohos.permission.INTERNET
    */
   const ERROR_UNKNOWN: number;
@@ -188,6 +281,7 @@ declare namespace request {
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
+   * @deprecated since 9
    * @param config download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
@@ -204,14 +298,26 @@ declare namespace request {
    * @param config download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} if exception occurs
+   * @errorcode EXCEPTION_PERMISSION
+   * @errorcode EXCEPTION_PARAMCHECK
+   * @errorcode EXCEPTION_RESPONSE
+   * @errorcode EXCEPTION_FILEIO
+   * @errorcode EXCEPTION_FILESIZE
+   * @errorcode EXCEPTION_FILEPATH
+   * @errorcode EXCEPTION_TASKTIMEOUT
+   * @errorcode EXCEPTION_TASKRETRIES
+   * @errorcode EXCEPTION_DATABASE
+   * @errorcode EXCEPTION_SERVICE
    * @return -
    */
-  function download(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
+  function downloadV9(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
+   * @deprecated since 9
    * @param config download config
    * @permission ohos.permission.INTERNET
    * @return -
@@ -226,14 +332,26 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config download config
    * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} if exception occurs
+   * @errorcode EXCEPTION_PERMISSION
+   * @errorcode EXCEPTION_PARAMCHECK
+   * @errorcode EXCEPTION_RESPONSE
+   * @errorcode EXCEPTION_FILEIO
+   * @errorcode EXCEPTION_FILESIZE
+   * @errorcode EXCEPTION_FILEPATH
+   * @errorcode EXCEPTION_TASKTIMEOUT
+   * @errorcode EXCEPTION_TASKRETRIES
+   * @errorcode EXCEPTION_DATABASE
+   * @errorcode EXCEPTION_SERVICE
    * @return -
    */
-  function download(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
+  function downloadV9(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
    * Starts a upload session.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 6
+   * @deprecated since 9
    * @param config upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
@@ -250,14 +368,22 @@ declare namespace request {
    * @param config upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} if exception occurs
+   * @errorcode EXCEPTION_PERMISSION
+   * @errorcode EXCEPTION_PARAMCHECK
+   * @errorcode EXCEPTION_RESPONSE
+   * @errorcode EXCEPTION_FILEIO
+   * @errorcode EXCEPTION_FILESIZE
+   * @errorcode EXCEPTION_FILEPATH
    * @return -
    */
-  function upload(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
+  function uploadV9(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
    * Starts a upload session.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 6
+   * @deprecated since 9
    * @param config upload config
    * @permission ohos.permission.INTERNET
    * @return -
@@ -272,9 +398,16 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config upload config
    * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} if exception occurs
+   * @errorcode EXCEPTION_PERMISSION
+   * @errorcode EXCEPTION_PARAMCHECK
+   * @errorcode EXCEPTION_RESPONSE
+   * @errorcode EXCEPTION_FILEIO
+   * @errorcode EXCEPTION_FILESIZE
+   * @errorcode EXCEPTION_FILEPATH
    * @return -
    */
-  function upload(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
+  function uploadV9(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
    * DownloadConfig data Structure
@@ -520,6 +653,7 @@ declare namespace request {
      * Deletes a download session and the downloaded files.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6
+     * @deprecated since 9
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
      * @return -
@@ -530,6 +664,7 @@ declare namespace request {
      * Deletes a download session and the downloaded files.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6
+     * @deprecated since 9
      * @permission ohos.permission.INTERNET
      * @return -
      */
@@ -539,6 +674,7 @@ declare namespace request {
      * Pause a download session.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
      * @return -
@@ -549,6 +685,7 @@ declare namespace request {
      * Pause a download session.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @permission ohos.permission.INTERNET
      * @return -
      */
@@ -558,6 +695,7 @@ declare namespace request {
      * Resume a paused download session.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
      * @return -
@@ -568,6 +706,7 @@ declare namespace request {
      * Resume a paused download session.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @permission ohos.permission.INTERNET
      * @return -
      */
@@ -577,6 +716,7 @@ declare namespace request {
      * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @param callback Indicate the callback function to receive download info.
      * @permission ohos.permission.INTERNET
      * @return -
@@ -587,6 +727,7 @@ declare namespace request {
      * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @permission ohos.permission.INTERNET
      * @return -
      */
@@ -596,6 +737,7 @@ declare namespace request {
      * Queries the MIME type of the download file.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @param callback Indicate the callback function to receive download file MIME type.
      * @permission ohos.permission.INTERNET
      * @return -
@@ -606,10 +748,81 @@ declare namespace request {
      * Queries the MIME type of the download file.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
+     * @deprecated since 9
      * @permission ohos.permission.INTERNET
      * @return -
      */
     queryMimeType(): Promise<string>;
+
+    /**
+     * Delete the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Download
+     */
+    delete(callback: AsyncCallback<boolean>): void;
+    delete(): Promise<boolean>;
+
+    /**
+     * Suspend the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Download
+     */
+    suspend(callback: AsyncCallback<boolean>): void;
+    suspend(): Promise<boolean>;
+
+    /**
+     * Restore the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Download
+     */
+    restore(callback: AsyncCallback<boolean>): void;
+    restore(): Promise<boolean>;
+
+    /**
+     * Get the download task info
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Download
+     */
+    getTaskInfo(callback: AsyncCallback<DownloadInfo>): void;
+    getTaskInfo(): Promise<DownloadInfo>;
+
+    /**
+     * Get mimetype of the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Download
+     */
+    getTaskMimeType(callback: AsyncCallback<string>): void;
+    getTaskMimeType(callback: AsyncCallback<string>): void;
   }
 
   /**
@@ -673,7 +886,7 @@ declare namespace request {
      * @since 6
      * @permission ohos.permission.INTERNET
      */
-    value: string;
+    value: string|ArrayBuffer;
   }
 
   /**
@@ -831,9 +1044,10 @@ declare namespace request {
     off(type:'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
 
     /**
-     * Deletes a upload session.
+     * Remove a upload session.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6
+     * @deprecated since 9
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
      * @return -
@@ -841,13 +1055,40 @@ declare namespace request {
     remove(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes a upload session.
+     * Remove a upload session.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6
+     * @deprecated since 9
      * @permission ohos.permission.INTERNET
      * @return -
      */
     remove(): Promise<boolean>;
+
+    /**
+     * Delete the upload task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Upload
+     */
+    delete(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Delete the upload task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} if exception occurs
+     * @errorcode EXCEPTION_PERMISSION
+     * @errorcode EXCEPTION_PARAMCHECK
+     * @errorcode EXCEPTION_DATABASE
+     * @errorcode EXCEPTION_SERVICE
+     * @syscap SystemCapability.MiscServices.Upload
+     */
+    delete(): Promise<boolean>;
   }
 }
 
