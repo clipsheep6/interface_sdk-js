@@ -26,6 +26,14 @@ import {AsyncCallback, Callback} from './basic'
      * @param successCount Access count.
      * @param failCount Reject account.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
+     * @throws { BusinessError } with 12100002 If the specified permissionName is invalid or it is not an user_grant permission.
+     * @throws { BusinessError } with 12100017 If the specified successCount or failCount is invalid.
+     * @throws { BusinessError } with 12100014 If the specified tokenID does not belong to an application process.
+     * @throws { BusinessError } with 12100016 If the specified permission has not been used by the application specified by the tokenID.
+     * @throws { BusinessError } with 12100201 If interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } with 12100401 If the input parameter is not valid parameter.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -37,6 +45,10 @@ import {AsyncCallback, Callback} from './basic'
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
      * @return Return the response of permission used records.
+     * @throws { BusinessError } with 12100014 If the specified tokenID does not belong to an application process.
+     * @throws { BusinessError } with 12100019 If specfied time or flag is invalid.
+     * @throws { BusinessError } with 12100201 If interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } with 12100401 If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -49,6 +61,12 @@ import {AsyncCallback, Callback} from './basic'
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be started.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
+     * @throws { BusinessError } with 12100002 If the specified permissionName is invalid or it is not an user_grant permission.
+     * @throws { BusinessError } with 12100006 Repeated calls.
+     * @throws { BusinessError } with 12100014 If the specified tokenID does not belong to an application process.
+     * @throws { BusinessError } with 12100201 If interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } with 12100401 If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -61,6 +79,12 @@ import {AsyncCallback, Callback} from './basic'
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be stopped.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
+     * @throws { BusinessError } with 12100002 If the specified permissionName is invalid or it is not an user_grant permission.
+     * @throws { BusinessError } with 12100007 The use of the interface does not match with function "startUsingPermission".
+     * @throws { BusinessError } with 12100014 If the specified tokenID does not belong to an application process.
+     * @throws { BusinessError } with 12100201 If interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } with 12100401 If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -71,6 +95,11 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Subscribes to the change of active state of the specified permission.
      * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @throws { BusinessError } with 12100005 If the specified permissionName in the input list is all invalid or the list size has exceeded the limit.
+     * @throws { BusinessError } with 12100006 If the interface is called repeatedly.
+     * @throws { BusinessError } with 12100008 If The maximum enrollment limit is exceeded.
+     * @throws { BusinessError } with 12100201 If interface caller does not have specified permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } with 12100401 If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -80,6 +109,9 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Unsubscribes to the change of active state of the specified permission.
      * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @throws { BusinessError } with 12100007 If The use of the interface does not match with function "on".
+     * @throws { BusinessError } with 12100201 If interface caller does not have specified permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } with 12100401 If the input parameter is not valid parameter.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
