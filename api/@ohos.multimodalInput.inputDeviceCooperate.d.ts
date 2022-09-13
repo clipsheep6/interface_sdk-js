@@ -21,7 +21,7 @@ declare namespace inputDeviceCooperate {
    * Enumerates mouse traversal events.
    * 
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Cooperator.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
    */
   enum EventMsg {
