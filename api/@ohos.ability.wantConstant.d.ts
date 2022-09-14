@@ -36,12 +36,7 @@ declare namespace wantConstant {
      */
     ACTION_HOME = "ohos.want.action.home",
 
-    /**
-     * Indicates the action of starting a Page ability that displays a keypad.
-     *
-     * @since 6
-     */
-    ACTION_DIAL = "ohos.want.action.dial",
+    
 
     /**
      * Indicates the action of starting a Page ability for search.

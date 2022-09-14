@@ -19,12 +19,7 @@
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   */
 export enum ErrorCode {
-  /**
-   * Permission denied.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  PERMISSION_DENY = -3,
+ 
 
   /**
    * Ability not found.

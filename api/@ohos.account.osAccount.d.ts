@@ -23,13 +23,7 @@ import { AsyncCallback, Callback } from './basic';
  * @syscap SystemCapability.Account.OsAccount
  */
 declare namespace osAccount {
-    /**
-     * Obtains the AccountManager instance.
-     * @since 7
-     * @syscap SystemCapability.Account.OsAccount
-     * @return Returns the instance of the AccountManager.
-     */
-    function getAccountManager(): AccountManager;
+    
 
     /**
      * Provides abilities for you to manage and perform operations on your OS accounts.

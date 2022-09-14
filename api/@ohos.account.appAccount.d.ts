@@ -24,20 +24,7 @@ import rpc from './@ohos.rpc'
  * @syscap SystemCapability.Account.AppAccount
  */
 declare namespace appAccount {
-    /**
-     * Obtains the AppAccountManager instance.
-     * @since 7
-     * @syscap SystemCapability.Account.AppAccount
-     * @return Returns the instance of the AppAccountManager.
-     */
-    function createAppAccountManager(): AppAccountManager;
-
-    /**
-     * Provides methods for managing application accounts.
-     * @name AppAccountManager
-     * @since 7
-     * @syscap SystemCapability.Account.AppAccount
-     */
+    
     interface AppAccountManager {
         /**
          * Adds the account name and extra information of this application to the account management service.

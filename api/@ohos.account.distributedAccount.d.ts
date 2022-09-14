@@ -22,14 +22,7 @@ import {AsyncCallback} from './basic'
  * @syscap SystemCapability.Account.OsAccount
  */
 declare namespace distributedAccount {
-    /**
-     * Get the ability of the distributed account.
-     * @since 7
-     * @syscap SystemCapability.Account.OsAccount
-     * @permission N/A
-     * @return Ability to manage operations of distributed account.
-     */
-    function getDistributedAccountAbility(): DistributedAccountAbility;
+    
 
     /**
      * Defines distributed account functions and interfaces.

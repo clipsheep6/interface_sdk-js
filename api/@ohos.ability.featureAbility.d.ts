@@ -34,17 +34,7 @@ import window from './@ohos.window';
  * @FAModelOnly
  */
 declare namespace featureAbility {
-  /**
-   * Obtain the want sended from the source ability.
-   *
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param parameter Indicates the ability to start.
-   * @return -
-   * @FAModelOnly
-   */
-  function getWant(callback: AsyncCallback<Want>): void;
-  function getWant(): Promise<Want>;
+  
 
   /**
    * Starts a new ability.
