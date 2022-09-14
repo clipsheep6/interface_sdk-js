@@ -24,10 +24,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent'
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 export default class AccessibilityExtensionAbility {
-    /**
-     * Indicates accessibility extension ability context.
-     */
-    context: AccessibilityExtensionContext;
+   
 
     /**
      * Called when extension ability is connected.
