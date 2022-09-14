@@ -25,7 +25,7 @@ import Want from './@ohos.application.Want';
  * @name particleAbility
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
+ * @permission A
  * @FAModelOnly
  */
 declare namespace particleAbility {
@@ -33,7 +33,7 @@ declare namespace particleAbility {
    * Service ability uses this method to start a specific ability.
    *
    * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
    * @FAModelOnly

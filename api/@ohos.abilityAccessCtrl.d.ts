@@ -52,11 +52,7 @@ import { AsyncCallback, Callback } from './basic';
         /**
          * Grants a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be granted.
-         * @param permissionFlag Flag of permission state.
-         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
-         * @systemapi
-         * @since 8
+        
          */
         grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
         grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;

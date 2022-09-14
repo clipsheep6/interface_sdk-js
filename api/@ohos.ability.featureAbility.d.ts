@@ -30,7 +30,7 @@ import window from './@ohos.window';
  * @name featureAbility
  * @since 6
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
+ * @permission N
  * @FAModelOnly
  */
 declare namespace featureAbility {
@@ -50,7 +50,7 @@ declare namespace featureAbility {
    * Starts a new ability.
    *
    * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.Abi
    * @param parameter Indicates the ability to start.
    * @return -
    * @FAModelOnly
