@@ -39,20 +39,8 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      */
     interface AppAccountManager {
-        /**
-         * Adds the account name and extra information of this application to the account management service.
-         * <p>
-         * Only the owner of the application account has the permission to call this method.
-         *
-         * @since 7
-         * @param name Indicates the name of the application account to add.
-         * @param extraInfo Indicates the extra information of the application account to add.
-         *        The extra information cannot be sensitive information of the application account.
-         * @return void.
-         */
-        addAccount(name: string, callback: AsyncCallback<void>): void;
-        addAccount(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
-        addAccount(name: string, extraInfo?: string): Promise<void>;
+    
+
 
         /**
          * Adds an application account of a specified owner implicitly.

@@ -32,15 +32,7 @@ declare namespace accessibility {
    */
   type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual';
 
-  /**
-   * The action that the ability can execute.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   */
-  type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
-    'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
-    'scrollForward' | 'scrollBackward' | 'setSelection';
-
+ 
   /**
    * The type of the accessibility event.
    * @note windowsChange

@@ -30,14 +30,7 @@ declare namespace AbilityConstant {
      * @StageModelOnly
      */
     export interface LaunchParam {
-        /**
-         * Indicates launch reason.
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         * @StageModelOnly
-         */
-        launchReason: LaunchReason;
+      
 
         /**
          * Indicates last exit reason.

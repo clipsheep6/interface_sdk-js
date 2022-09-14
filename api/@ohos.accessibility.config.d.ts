@@ -27,14 +27,6 @@ declare namespace config {
   /**
    * Indicates the configuration of high-contrast text.
    */
-  var highContrastText: Config<boolean>;
-  /**
-   * Indicates the configuration of invert color.
-   */
-  var invertColor: Config<boolean>;
-  /**
-   * Indicates the configuration of daltonization color filter.
-   */
   var daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
    * Indicates the configuration of content timeout.
