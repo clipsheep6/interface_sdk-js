@@ -329,6 +329,38 @@ declare namespace deviceManager {
   }
 
   /**
+   * User Operation Action from devicemanager Fa.
+   *
+   * @systemapi this method can be used only by system applications.
+   */
+  enum UserOperationAction {
+    /**
+     * allow authentication
+     */
+    ACTION_ALLOW_AUTH = 0,
+
+    /**
+     * cancel authentication
+     */
+    ACTION_CANCEL_AUTH = 1,
+
+    /**
+     * user operation timeout for authentication confirm
+     */
+    ACTION_AUTH_CONFIRM_TIMEOUT = 2,
+
+    /**
+     * cancel pincode display
+     */
+    ACTION_CANCEL_PINCODE_DISPLAY = 3,
+
+    /**
+     * cancel pincode input
+     */
+    ACTION_CANCEL_PINCODE_INPUT = 4,
+  }
+
+  /**
    * Creates a {@code DeviceManager} instance.
    *
    * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
@@ -476,6 +508,14 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
+
+    /**
+     * Set user Operation from devicemanager Fa, this interface can only used by devicemanager Fa.
+     *
+     * @param operateAction User Operation Actions.
+     * @systemapi this method can be used only by system applications.
+     */  
+    setUserOperation(operateAction: UserOperationAction): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
