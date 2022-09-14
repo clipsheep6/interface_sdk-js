@@ -148,13 +148,13 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the minimum label is set.
    * @since 7
    */
-  minLabel(value: string): SliderAttribute;
+  minLabel(value: number): SliderAttribute;
 
   /**
    * Called when the maximum label is set.
    * @since 7
    */
-  maxLabel(value: string): SliderAttribute;
+  maxLabel(value: number): SliderAttribute;
 
   /**
    * Called when setting whether to display step size.
