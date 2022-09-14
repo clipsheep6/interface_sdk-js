@@ -34,10 +34,28 @@ declare namespace preferences {
      * @param name Indicates the preferences file name.
      * @return Returns the {@link Preferences} instance matching the specified preferences file name.
      * @throws BusinessError if invoked failed
-    * @since 9
+     * @since 9
      */
     function getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
     function getPreferences(context: Context, name: string): Promise<Preferences>;
+	
+    /**
+     * Obtains a {@link Preferences} instance matching a specified preferences file name.
+     *
+     * <p>The {@link references} instance loads all data of the preferences file and
+     * resides in the memory. You can use removePreferencesFromCache to remove the instance from the memory.
+     *
+     * @param context Indicates the context of application or capability.
+     * @param name Indicates the preferences file name.
+     * @return Returns the {@link Preferences} instance matching the specified preferences file name.
+     * @throws {BusinessError} if invoked failed
+     * @since 9
+	 * @errorcode 15500001
+	 * @errorcode 15500012
+	 * @errorcode 15500013
+     */
+    function getPreferencesV9(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
+    function getPreferencesV9(context: Context, name: string): Promise<Preferences>;
 
     /**
      * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -55,6 +73,26 @@ declare namespace preferences {
      */
     function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
     function deletePreferences(context: Context, name: string): Promise<void>;
+	
+	/**
+     * Deletes a {@link Preferences} instance matching a specified preferences file name
+     * from the cache which is performed by removePreferencesFromCache and deletes the
+     * preferences file.
+     *
+     * <p>When deleting the {@link Preferences} instance, you must release all references
+     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+     * will occur.
+     *
+     * @param context Indicates the context of application or capability.
+     * @param name Indicates the preferences file name.
+     * @throws {BusinessError} if invoked failed
+     * @since 9
+	 * @errorcode 15500001
+	 * @errorcode 15500012
+	 * @errorcode 15500013
+     */
+    function deletePreferencesV9(context: Context, name: string, callback: AsyncCallback<void>): void;
+    function deletePreferencesV9(context: Context, name: string): Promise<void>;
 
     /**
      * Deletes a {@link Preferences} instance matching a specified preferences file name
@@ -71,6 +109,25 @@ declare namespace preferences {
      */
     function removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback<void>): void;
     function removePreferencesFromCache(context: Context, name: string): Promise<void>;
+	
+	    /**
+     * Deletes a {@link Preferences} instance matching a specified preferences file name
+     * from the cache.
+     *
+     * <p>When deleting the {@link Preferences} instance, you must release all references
+     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+     * will occur.
+     *
+     * @param context Indicates the context of application or capability.
+     * @param name Indicates the preferences file name.
+     * @throws {BusinessError} if invoked failed
+     * @since 9
+	 * @errorcode 15500001
+	 * @errorcode 15500012
+	 * @errorcode 15500013
+     */
+    function removePreferencesFromCacheV9(context: Context, name: string, callback: AsyncCallback<void>): void;
+    function removePreferencesFromCacheV9(context: Context, name: string): Promise<void>;
 
     /**
      * Provides interfaces to obtain and modify preferences data.
@@ -98,6 +155,23 @@ declare namespace preferences {
         */
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
         get(key: string, defValue: ValueType): Promise<ValueType>;
+		
+		/**
+        * Obtains the value of a preferences in the int format.
+        *
+        * <p>If the value is {@code null} or not in the int format, the default value is returned.
+        *
+        * @param key Indicates the key of the preferences. It cannot be {@code null} or empty.
+        * @param defValue Indicates the default value to return.
+        * @return Returns the value matching the specified key if it is found; returns the default value otherwise.
+        * @throws {BusinessError} if invoked failed
+        * @since 9
+		* @errorcode 15500001
+	    * @errorcode 15500006
+	    * @errorcode 15500007
+        */
+        getV9(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
+        getV9(key: string, defValue: ValueType): Promise<ValueType>;
 
         /**
         * Obtains all the keys and values of a preferences in an object.
@@ -108,6 +182,17 @@ declare namespace preferences {
         */
         getAll(callback: AsyncCallback<Object>): void;
         getAll(): Promise<Object>;
+		
+		/**
+        * Obtains all the keys and values of a preferences in an object.
+        *
+        * @return Returns the values and keys in an object.
+        * @throws {BusinessError} if invoked failed
+        * @since 9
+		* @errorcode 15500001
+        */
+        getAllV9(callback: AsyncCallback<Object>): void;
+        getAllV9(): Promise<Object>;
 
         /**
          * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
@@ -120,6 +205,21 @@ declare namespace preferences {
          */
         has(key: string, callback: AsyncCallback<boolean>): void;
         has(key: string): Promise<boolean>;
+		
+		/**
+         * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
+         *
+         * @param key Indicates the key of the preferences to check for.
+         * @return Returns {@code true} if the {@link Preferences} object contains a preferences with the specified key;
+         * returns {@code false} otherwise.
+         * @throws BusinessError if invoked failed
+         * @since 9
+		 * @errorcode 15500001
+	     * @errorcode 15500006
+	     * @errorcode 15500007
+         */
+        hasV9(key: string, callback: AsyncCallback<boolean>): void;
+        hasV9(key: string): Promise<boolean>;
 
         /**
          * Sets an int value for the key in the {@link Preferences} object.
@@ -135,6 +235,25 @@ declare namespace preferences {
          */
         put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
         put(key: string, value: ValueType): Promise<void>;
+		
+		/**
+         * Sets an int value for the key in the {@link Preferences} object.
+         *
+         * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+         * file.
+         *
+         * @param key Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+         * @param value Indicates the value of the preferences.
+         * <tt>MAX_KEY_LENGTH</tt>.
+         * @throws BusinessError if invoked failed
+         * @since 9
+		 * @errorcode 15500001
+	     * @errorcode 15500006
+	     * @errorcode 15500007
+	     * @errorcode 15500015
+         */
+        putV9(key: string, value: ValueType, callback: AsyncCallback<void>): void;
+        putV9(key: string, value: ValueType): Promise<void>;
 
         /**
          * Deletes the preferences with a specified key from the {@link Preferences} object.
@@ -149,6 +268,23 @@ declare namespace preferences {
          */
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
+		
+		/**
+         * Deletes the preferences with a specified key from the {@link Preferences} object.
+         *
+         * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+         * file.
+         *
+         * @param key Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
+         * <tt>MAX_KEY_LENGTH</tt>.
+         * @throws BusinessError if invoked failed
+         * @since 9
+		 * @errorcode 15500001
+	     * @errorcode 15500006
+	     * @errorcode 15500007
+         */
+        deleteV9(key: string, callback: AsyncCallback<void>): void;
+        deleteV9(key: string): Promise<void>;
 
         /**
          * Clears all preferences from the {@link Preferences} object.
@@ -161,6 +297,19 @@ declare namespace preferences {
          */
         clear(callback: AsyncCallback<void>): void;
         clear(): Promise<void>;
+		
+		/**
+         * Clears all preferences from the {@link Preferences} object.
+         *
+         * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+         * file.
+         *
+         * @throws BusinessError if invoked failed
+         * @since 9
+		 * @errorcode 15500001
+         */
+        clearV9(callback: AsyncCallback<void>): void;
+        clearV9(): Promise<void>;
 
         /**
          * Asynchronously saves the {@link Preferences} object to the file.
@@ -170,6 +319,16 @@ declare namespace preferences {
          */
         flush(callback: AsyncCallback<void>): void;
         flush(): Promise<void>;
+		
+		/**
+         * Asynchronously saves the {@link Preferences} object to the file.
+         *
+         * @throws BusinessError if invoked failed
+         * @since 9
+		 * @errorcode 15500001
+         */
+        flushV9(callback: AsyncCallback<void>): void;
+        flushV9(): Promise<void>;
 
         /**
          * Registers an observer to listen for the change of a {@link Preferences} object.
