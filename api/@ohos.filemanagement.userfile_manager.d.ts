@@ -110,7 +110,6 @@ declare namespace userfile_manager {
      * @param member the name of the parameter.
      */
     get(member: string): MemberType;
-
     /**
      * set the fileasset member parameter.
      * @since 9
@@ -118,7 +117,6 @@ declare namespace userfile_manager {
      * @param member the name of the parameter.
      */
     set(member: string, value: string): void;
-
     /**
      * If it is a directory where the file is located.
      * @since 9
@@ -297,12 +295,6 @@ declare namespace userfile_manager {
      */
     URI = "uri",
     /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
-    /**
      * File name
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -358,12 +350,6 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     URI = "uri",
-    /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
     /**
      * File name
      * @since 9
@@ -426,12 +412,6 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     URI = "uri",
-    /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
     /**
      * File name
      * @since 9
@@ -668,63 +648,56 @@ declare namespace userfile_manager {
      * @systemapi
      * @since 9
      */
-     createPhotoAsset(mediaType: MediaType, displayName: string, callback: AsyncCallback<FileAsset>): void;
-
+    createPhotoAsset(mediaType: MediaType, displayName: string, callback: AsyncCallback<FileAsset>): void;
     /**
-     * Create Photo Asset
+      * Create Photo Asset
+      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+      * @permission ohos.permission.WRITE_IMAGEVIDEO
+      * @param mediaType mediaType for example:IMAGE, VIDEO
+      * @param displayName file name
+      * @return A Promise instance used to return the FileAsset
+      * @systemapi
+      * @since 9
+      */
+     createPhotoAsset(mediaType: MediaType, displayName: string): Promise<FileAsset>;
+    /**
+     * add Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param mediaType mediaType for example:IMAGE, VIDEO
-     * @param displayName file name
-     * @return A Promise instance used to return the FileAsset
+     * @param FileAsset asset
+     * @return A Promise instance used to return the boolean
      * @systemapi
      * @since 9
      */
-     createPhotoAsset(mediaType: MediaType, displayName: string): Promise<FileAsset>;
-  }
-
-  /**
-   * Enumeration public directory that predefined
-   * @since 9
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   */
-  enum DirectoryType {
+    addPhotoAsset(asset: FileAsset): Promise<boolean>;
+     /**
+      * add Photo Asset
+      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+      * @permission ohos.permission.WRITE_IMAGEVIDEO
+      * @param FileAsset asset
+      * @param callback Callback used to return the boolean
+      * @systemapi
+      * @since 9
+      */
+    addPhotoAsset(asset: FileAsset, callback: AsyncCallback<boolean>): void;
     /**
-     * predefined public directory for files token by Camera.
-     * @since 9
+     * delete album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_CAMERA = 0,
-    /**
-     * predefined public directory for VIDEO files.
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @return A Promise instance used to return the boolean
+     * @systemapi
      * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DIR_VIDEO,
-    /**
-     * predefined public directory for IMAGE files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_IMAGE,
-    /**
-     * predefined public directory for AUDIO files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_AUDIO,
-    /**
-     * predefined public directory for DOCUMENTS files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_DOCUMENTS,
-    /**
-     * predefined public directory for DOWNLOAD files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_DOWNLOAD
+    delete(): Promise<boolean>;
+     /**
+      * delete album
+      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+      * @permission ohos.permission.WRITE_IMAGEVIDEO
+      * @param callback Callback used to return the boolean
+      * @systemapi
+      * @since 9
+      */
+    delete(callback: AsyncCallback<boolean>): void;
   }
 
   /**
@@ -786,7 +759,6 @@ declare namespace userfile_manager {
      * @since 9
      */
     createPhotoAlbum(displayName: string, callback: AsyncCallback<Album>): void;
-
     /**
      * Create Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
