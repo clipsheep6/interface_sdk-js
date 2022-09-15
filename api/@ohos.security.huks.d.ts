@@ -304,8 +304,8 @@ declare namespace huks {
 
     /**
      * Interface of huks handle.
-     * @syscap SystemCapability.Security.Huks
      * @since 9
+     * @syscap SystemCapability.Security.Huks
      */
      export interface HuksSessionHandle {
         handle: number;
@@ -337,8 +337,8 @@ declare namespace huks {
 
     /**
      * Interface of huks result.
-     * @syscap SystemCapability.Security.Huks
      * @since 9
+     * @syscap SystemCapability.Security.Huks
      */
     export interface HuksReturnResult {
         outData?: Uint8Array;
