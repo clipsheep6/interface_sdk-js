@@ -204,7 +204,7 @@ declare namespace huks {
      * Update Operation.
      * @param {number} handle - Indicates the handle of the init operation.
      * @param {HuksOptions} options - Indicates the properties of the update operation.
-     * @param {Uint8Array} token - Indicates the value of token.
+     * @param {Uint8Array} token - Indicates the value of AuthToken from USER IAM service.
      * @throws {BusinessError} if the type of params is wrong.
      * @syscap SystemCapability.Security.Huks
      * @since 9
@@ -228,7 +228,7 @@ declare namespace huks {
      * Finish Operation.
      * @param {number} handle - Indicates the handle of the init operation.
      * @param {HuksOptions} options - Indicates the properties of the finish operation.
-     * @param {Uint8Array} token - Indicates the value of token.
+     * @param {Uint8Array} token - Indicates the value of AuthToken from USER IAM service.
      * @throws {BusinessError} if the type of params is wrong.
      * @syscap SystemCapability.Security.Huks
      * @since 9
@@ -309,7 +309,7 @@ declare namespace huks {
      */
      export interface HuksSessionHandle {
         handle: number;
-        token?: Uint8Array;
+        challenge?: Uint8Array;
     }
 
     /**
