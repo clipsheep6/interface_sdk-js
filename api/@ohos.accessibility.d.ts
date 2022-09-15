@@ -25,12 +25,7 @@ import { Callback } from './basic';
  */
 declare namespace accessibility {
 
-  /**
-   * The type of the Ability app.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
-   */
-  type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual';
+ 
 
   /**
    * The action that the ability can execute.

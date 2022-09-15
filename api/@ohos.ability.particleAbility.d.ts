@@ -29,17 +29,7 @@ import Want from './@ohos.application.Want';
  * @FAModelOnly
  */
 declare namespace particleAbility {
-  /**
-   * Service ability uses this method to start a specific ability.
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param parameter Indicates the ability to start.
-   * @return -
-   * @FAModelOnly
-   */
-  function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void;
-  function startAbility(parameter: StartAbilityParameter): Promise<void>;
+  
 
   /**
    * Destroys this service ability.

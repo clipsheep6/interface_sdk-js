@@ -19,12 +19,7 @@ import { AsyncCallback, Callback } from './basic';
  * @syscap SystemCapability.Security.AccessToken
  */
  declare namespace abilityAccessCtrl {
-    /**
-     * Obtains the AtManager instance.
-     * @return returns the instance of the AtManager.
-     * @since 8
-     */
-    function createAtManager(): AtManager;
+  
   
     /**
      * Provides methods for managing access_token.

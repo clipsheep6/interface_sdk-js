@@ -24,10 +24,7 @@ import { AsyncCallback, Callback } from './basic';
  * @systemapi
  */
 declare namespace config {
-  /**
-   * Indicates the configuration of high-contrast text.
-   */
-  var highContrastText: Config<boolean>;
+ 
   /**
    * Indicates the configuration of invert color.
    */
