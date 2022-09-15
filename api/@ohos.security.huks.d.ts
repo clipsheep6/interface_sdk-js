@@ -268,8 +268,8 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      * @since 9
      */
-     function attestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>) : void;
-     function attestKeyItem(keyAlias: string, options: HuksOptions) : Promise<void>;
+     function attestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>) : void;
+     function attestKeyItem(keyAlias: string, options: HuksOptions) : Promise<HuksReturnResult>;
      
     /**
      * Get the sdk version.
