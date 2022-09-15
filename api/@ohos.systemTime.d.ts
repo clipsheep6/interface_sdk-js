@@ -27,6 +27,9 @@ declare namespace systemTime {
      * @permission ohos.permission.SET_TIME
      * @param time Target time stamp (ms)
      * @since 7
+     * @throws {BusinessError} if process failed
+     * @errorcode 201 Permission verification failed
+     * @errorcode 401 parameter error
      */
     function setTime(time : number, callback : AsyncCallback<void>) : void;
     function setTime(time : number) : Promise<void>;
@@ -60,6 +63,9 @@ declare namespace systemTime {
      * @permission ohos.permission.SET_TIME
      * @param date The target date
      * @since 7
+     * @throws {BusinessError} if process failed
+     * @errorcode 201 Permission verification failed
+     * @errorcode 401 parameter error
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
     function setDate(date: Date): Promise<void>;
@@ -76,14 +82,17 @@ declare namespace systemTime {
      * @permission ohos.permission.SET_TIME_ZONE
      * @param timezone The system time zone
      * @since 7
+     * @throws {BusinessError} if process failed
+     * @errorcode 201 Permission verification failed
+     * @errorcode 401 parameter error
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
     function setTimezone(timezone: string): Promise<void>;
 
-      /**
+    /**
      * Obtains the system time zone.
      * @since 8
-     */  
+     */
     function getTimezone(callback: AsyncCallback<string>): void;
     function getTimezone(): Promise<string>;
 }
