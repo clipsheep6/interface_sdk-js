@@ -233,23 +233,6 @@ declare namespace userfile_manager {
      */
     isFavorite(): Promise<boolean>;
     /**
-     * Set trash for the file when the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
-     * @param isTrash true is trashed file, false is not trashed file
-     * @param callback Callback used to return, No value is returned.
-     */
-    trash(isTrash: boolean, callback: AsyncCallback<void>): void;
-    /**
-     * Set trash for the file when the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
-     * @param isTrash true is trashed file, false is not trashed file
-     */
-    trash(isTrash: boolean): Promise<void>;
-    /**
      * If the file is in trash when the file is located.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -262,24 +245,6 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     isTrash(): Promise<boolean>;
-    /**
-     * Delete File Asset
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param callback no value returned
-     * @systemapi
-     */
-     delete(callback: AsyncCallback<void>): void;
-     /**
-      * Delete File Asset
-      * @since 9
-      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-      * @permission ohos.permission.WRITE_IMAGEVIDEO
-      * @return A Promise instance, no value returned
-      * @systemapi
-      */
-     delete(): Promise<void>;
   }
 
   /**
@@ -762,6 +727,26 @@ declare namespace userfile_manager {
      * @since 9
      */
     createPhotoAlbum(displayName: string): Promise<Album>;
+    /**
+       * Delete Asset、Album
+       * @since 9
+       * @syscap SystemCapability.FileManagement.UserFileManager.Core
+       * @permission ohos.permission.WRITE_IMAGEVIDEO
+       * @param uri  uri of asset or album
+       * @param callback no value returned
+       * @systemapi
+       */
+    delete(uri: string, callback: AsyncCallback<void>): void;
+    /**
+      * Delete Asset、Album
+      * @since 9
+      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+      * @permission ohos.permission.WRITE_IMAGEVIDEO
+      * @param uri  uri of asset or album
+      * @return A Promise instance, no value returned
+      * @systemapi
+      */
+    delete(uri: string): Promise<void>;
     /**
      * Turn on mornitor the data changes by media type
      * @since 9
