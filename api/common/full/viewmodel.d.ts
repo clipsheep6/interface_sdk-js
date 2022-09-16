@@ -971,6 +971,12 @@ export interface InputElement extends Element {
    * @since 6
    */
   delete(): void;
+
+  /**
+   * get all charaters selected in the textarea
+   * @since 9
+   */
+  select():void;
 }
 
 /**
