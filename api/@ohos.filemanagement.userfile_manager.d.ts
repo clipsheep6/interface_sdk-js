@@ -918,7 +918,7 @@ declare namespace userfile_manager {
      * @param callback no value returned
      * @systemapi
      */
-     delete(uri: string, callback: AsyncCallback<void>): void;
+     deleteAsset(uri: string, callback: AsyncCallback<void>): void;
      /**
        * Delete Asset
        * @since 9
@@ -928,7 +928,7 @@ declare namespace userfile_manager {
        * @return A Promise instance, no value returned
        * @systemapi
        */
-     delete(uri: string): Promise<void>;
+     deleteAsset(uri: string): Promise<void>;
   }
 }
 
