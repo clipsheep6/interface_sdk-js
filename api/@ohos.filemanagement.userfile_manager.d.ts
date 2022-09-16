@@ -586,7 +586,7 @@ declare namespace userfile_manager {
      * @systemapi
      * @since 9
      */
-    addPhotoAsset(asset: FileAsset): Promise<boolean>;
+    addPhotoAsset(asset: FileAsset): Promise<void>;
     /**
       * add Photo Asset
       * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -596,25 +596,7 @@ declare namespace userfile_manager {
       * @systemapi
       * @since 9
       */
-    addPhotoAsset(asset: FileAsset, callback: AsyncCallback<boolean>): void;
-    /**
-     * delete album
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @return A Promise instance used to return the boolean
-     * @systemapi
-     * @since 9
-     */
-    delete(): Promise<boolean>;
-     /**
-      * delete album
-      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-      * @permission ohos.permission.WRITE_IMAGEVIDEO
-      * @param callback Callback used to return the boolean
-      * @systemapi
-      * @since 9
-      */
-    delete(callback: AsyncCallback<boolean>): void;
+    addPhotoAsset(asset: FileAsset, callback: AsyncCallback<void>): void;
   }
 
   /**
@@ -707,7 +689,7 @@ declare namespace userfile_manager {
      */
     createPhotoAsset(albumUri: string, mediaType: MediaType, displayName: string): Promise<FileAsset>;
     /**
-     * Delete Asset、Album
+     * Delete Asset, Album
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -717,7 +699,7 @@ declare namespace userfile_manager {
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
-      * Delete Asset、Album
+      * Delete Asset, Album
       * @since 9
       * @syscap SystemCapability.FileManagement.UserFileManager.Core
       * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -927,6 +909,26 @@ declare namespace userfile_manager {
      * @since 9
      */
     getPhotoAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
+    /**
+     * Delete Asset
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param uri  asset uri
+     * @param callback no value returned
+     * @systemapi
+     */
+     delete(uri: string, callback: AsyncCallback<void>): void;
+     /**
+       * Delete Asset
+       * @since 9
+       * @syscap SystemCapability.FileManagement.UserFileManager.Core
+       * @permission ohos.permission.WRITE_IMAGEVIDEO
+       * @param uri  asset uri
+       * @return A Promise instance, no value returned
+       * @systemapi
+       */
+     delete(uri: string): Promise<void>;
   }
 }
 
