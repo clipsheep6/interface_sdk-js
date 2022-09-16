@@ -550,7 +550,7 @@ declare namespace userfile_manager {
      */
     commitModify(): Promise<void>;
     /**
-     * SObtains files in an album. This method uses an asynchronous callback to return the files.
+     * Obtains files in an album. This method uses an asynchronous callback to return the files.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -558,7 +558,7 @@ declare namespace userfile_manager {
      */
     getPhotoAssets(callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
-     * SObtains files in an album. This method uses an asynchronous callback to return the files.
+     * Obtains files in an album. This method uses an asynchronous callback to return the files.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
