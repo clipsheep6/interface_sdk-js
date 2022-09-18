@@ -645,23 +645,23 @@ declare namespace userfile_manager {
      */
     getAudioAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
     /**
-     * Create Photo Asset
+     * Create Photo Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName album name
      * @param callback Callback used to return the Album
      * @systemapi
-     * @since 9
+     * @since 10
      */
     createPhotoAlbum(displayName: string, callback: AsyncCallback<Album>): void;
     /**
-     * Create Photo Asset
+     * Create Photo Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName album name
      * @return A Promise instance used to return the Album
      * @systemapi
-     * @since 9
+     * @since 10
      */
     createPhotoAlbum(displayName: string): Promise<Album>;
     /**
@@ -669,25 +669,25 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param mediaType mediaType for example:IMAGE, VIDEO
-     * @param string albumUri
      * @param displayName file name
+     * @param string albumUri
      * @param callback Callback used to return the FileAsset
      * @systemapi
      * @since 9
      */
-    createPhotoAsset(albumUri: string, mediaType: MediaType, displayName: string, callback: AsyncCallback<FileAsset>): void;
+    createPhotoAsset(displayName: string, mediaType: MediaType, albumUri?: string, callback: AsyncCallback<FileAsset>): void;
     /**
      * Create Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param mediaType mediaType for example:IMAGE, VIDEO
-     * @param string albumUri
      * @param displayName file name
+     * @param string albumUri
      * @return A Promise instance used to return the FileAsset
      * @systemapi
      * @since 9
      */
-    createPhotoAsset(albumUri: string, mediaType: MediaType, displayName: string): Promise<FileAsset>;
+    createPhotoAsset(displayName: string, mediaType: MediaType, albumUri?: string): Promise<FileAsset>;
     /**
      * Delete Asset, Album
      * @since 9
@@ -881,6 +881,7 @@ declare namespace userfile_manager {
      */
     TYPE_TRASH,
   }
+
   /**
    * Defines the private album
    *
@@ -918,17 +919,17 @@ declare namespace userfile_manager {
      * @param callback no value returned
      * @systemapi
      */
-     deleteAsset(uri: string, callback: AsyncCallback<void>): void;
-     /**
-       * Delete Asset
-       * @since 9
-       * @syscap SystemCapability.FileManagement.UserFileManager.Core
-       * @permission ohos.permission.WRITE_IMAGEVIDEO
-       * @param uri  asset uri
-       * @return A Promise instance, no value returned
-       * @systemapi
-       */
-     deleteAsset(uri: string): Promise<void>;
+    deleteAsset(uri: string, callback: AsyncCallback<void>): void;
+    /**
+      * Delete Asset
+      * @since 9
+      * @syscap SystemCapability.FileManagement.UserFileManager.Core
+      * @permission ohos.permission.WRITE_IMAGEVIDEO
+      * @param uri  asset uri
+      * @return A Promise instance, no value returned
+      * @systemapi
+      */
+    deleteAsset(uri: string): Promise<void>;
   }
 }
 
