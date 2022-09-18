@@ -270,7 +270,15 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index",
+
+    /**
+     * Indicates the param of ability token or extension token.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+     ABILITY_PARAMS_TOKEN = "ohos.ability.params.token"
   }
 
   /**
