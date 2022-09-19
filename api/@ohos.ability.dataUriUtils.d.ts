@@ -42,6 +42,17 @@ declare namespace dataUriUtils {
    */
   function attachId(uri: string, id: number): string
 
+   /**
+   * Attaches the given ID to the end of the path component of the given uri.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param uri Indicates the uri string from which the ID is to be obtained.
+   * @param id Indicates the ID to attach.
+   * @return Returns the uri object with the given ID attached.
+   */
+  function addId(uri: string, id: number): string
+
   /**
    * Deletes the ID from the end of the path component of the given uri.
    *
