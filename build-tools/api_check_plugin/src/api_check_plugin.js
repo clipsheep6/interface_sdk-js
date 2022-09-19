@@ -21,6 +21,9 @@ const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
 const { hasAPINote } = require("./utils");
+const { checkSyscap } = require("./check_syscap");
+const { checkDeprecated } = require("./check_deprecated");
+const { checkPermission } = require("./check_permission");
 let result = require("../check_result.json");
 
 function checkAPICodeStyle(url) {
@@ -67,6 +70,12 @@ function checkAllNode(node, sourcefile, fileName) {
     checkAPIDecorators(node, sourcefile, fileName);
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
+    // check syscap
+    checkSyscap(node, sourcefile, fileName);
+    // check deprecated
+    checkDeprecated(node, sourcefile, fileName);
+    // check permission
+    checkPermission(node, sourcefile, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
