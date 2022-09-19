@@ -112,19 +112,6 @@ declare namespace userfile_manager {
      */
     set(member: string, value: string): void;
     /**
-     * If it is a directory where the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param callback Callback return the result of isDerectory.
-     */
-    isDirectory(callback: AsyncCallback<boolean>): void;
-    /**
-     * If it is a directory where the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    isDirectory(): Promise<boolean>;
-    /**
      * Modify meta data where the file is located.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -239,49 +226,49 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    URI = "uri",
+    URI,
     /**
      * File name
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DISPLAY_NAME = "display_name",
+    DISPLAY_NAME,
     /**
      * Date of the file creation
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_ADDED = "date_added",
+    DATE_ADDED,
     /**
      * Modify date of the file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_MODIFIED = "date_modified",
+    DATE_MODIFIED,
     /**
      * Title of the file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    TITLE = "title",
+    TITLE,
     /**
      * Artist of the audio file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    ARTIST = "artist",
+    ARTIST,
     /**
      * Audio album of the audio file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    AUDIOALBUM = "audio_album",
+    AUDIOALBUM,
     /**
      * Duration of the audio and video file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DURATION = "duration",
+    DURATION,
   }
 
   /**
@@ -295,55 +282,55 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    URI = "uri",
+    URI,
     /**
      * File name
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DISPLAY_NAME = "display_name",
+    DISPLAY_NAME,
     /**
      * Date of the file creation
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_ADDED = "date_added",
+    DATE_ADDED,
     /**
      * Modify date of the file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_MODIFIED = "date_modified",
+    DATE_MODIFIED,
     /**
      * Title of the file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    TITLE = "title",
+    TITLE,
     /**
      * Duration of the audio and video file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DURATION = "duration",
+    DURATION,
     /**
      * Width of the image file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    WIDTH = "width",
+    WIDTH,
     /**
      * Height of the image file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    HEIGHT = "height",
+    HEIGHT,
     /**
      * Date taken of the file
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_TAKEN = "date_taken",
+    DATE_TAKEN,
   }
 
   /**
@@ -353,29 +340,29 @@ declare namespace userfile_manager {
    */
   enum AlbumKey {
     /**
-     * File uri
+     * Album uri
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    URI = "uri",
+    URI,
     /**
-     * File name
+     * Album name
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DISPLAY_NAME = "display_name",
+    ALBUM_NAME,
     /**
-     * Date of the file creation
+     * Date of the Album creation
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_ADDED = "date_added",
+    DATE_ADDED,
     /**
-     * Modify date of the file
+     * Modify date of the Album
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    DATE_MODIFIED = "date_modified",
+    DATE_MODIFIED,
   }
 
   /**
@@ -576,7 +563,7 @@ declare namespace userfile_manager {
      * @param options Media retrieval options.
      * @return A Promise instance used to return the files in the format of a FetchResult instance.
      */
-    getPhotoAssets(type: Array<MediaType>, options?: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
+    getPhotoAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
     /**
      * add Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -584,7 +571,7 @@ declare namespace userfile_manager {
      * @param FileAsset asset
      * @return A Promise instance used to return the boolean
      * @systemapi
-     * @since 9
+     * @since 10
      */
     addPhotoAsset(asset: FileAsset): Promise<void>;
     /**
@@ -594,7 +581,7 @@ declare namespace userfile_manager {
       * @param FileAsset asset
       * @param callback Callback used to return the boolean
       * @systemapi
-      * @since 9
+      * @since 10
       */
     addPhotoAsset(asset: FileAsset, callback: AsyncCallback<void>): void;
   }
