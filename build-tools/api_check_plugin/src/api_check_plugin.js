@@ -15,8 +15,9 @@
 
 const path = require("path");
 const fs = require("fs");
-// const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const ts = require("typescript");
+const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+// used in local test
+// const ts = require("typescript");
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
 const { hasAPINote } = require("./utils");
@@ -77,6 +78,6 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
-  return JSON.stringify(result.scanResult);
+  return result.scanResult;
 }
 exports.scanEntry = scanEntry;
