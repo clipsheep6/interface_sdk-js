@@ -18,12 +18,12 @@
  * @name wantConstant
  * @since 6
  * @syscap SystemCapability.Ability.AbilityBase
- * @permission N/A
+ * @permission N/
  */
 declare namespace wantConstant {
   /**
    * the constant for action of the want
-   * @name Action
+   * @name Act
    * @since 6
    * @syscap SystemCapability.Ability.AbilityBase
    * @permission N/A

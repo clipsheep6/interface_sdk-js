@@ -16,7 +16,7 @@
  /**
   * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
   * @since 6
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @syscap SystemCapability.Abi.AbilityRuntime.Core
   */
 export enum ErrorCode {
   /**
@@ -29,7 +29,7 @@ export enum ErrorCode {
   /**
    * Ability not found.
    * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.Abi
    */
   ABILITY_NOT_FOUND = -2,
 

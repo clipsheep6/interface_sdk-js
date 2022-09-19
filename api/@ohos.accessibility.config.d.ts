@@ -20,7 +20,7 @@ import { AsyncCallback, Callback } from './basic';
  * Configuration of the accessibility.
  *
  * @since 9
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @syscap System
  * @systemapi
  */
 declare namespace config {
@@ -75,8 +75,6 @@ declare namespace config {
 
   /**
    * Enable the accessibility extension ability.
-   * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
-   * @param capability Indicates the ability.
    */
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
   function enableAbility(name: string, capability: Array<accessibility.Capability>, callback: AsyncCallback<void>): void;
