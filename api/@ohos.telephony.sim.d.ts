@@ -434,7 +434,7 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @return Returns the opkey; returns "-1" if no SIM card is inserted or
+   * @return Returns the opkey; returns an empty string if no SIM card is inserted or
    * no opkey matched.
    * @since 9
    */
@@ -446,7 +446,7 @@ declare namespace sim {
     *
     * @param slotId Indicates the card slot index number,
     * ranging from 0 to the maximum card slot index number supported by the device.
-    * @return Returns the opname; returns null if no SIM card is inserted or
+    * @return Returns the opname; returns an empty string if no SIM card is inserted or
     * no opname matched.
     * @since 9
     */
@@ -461,17 +461,6 @@ declare namespace sim {
     field: string;
     value: string;
   }
-
-  /**
-   * Checks whether cellular data services are enabled.
-   *
-   * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
-   *
-   * @return Returns default cellular data slot id.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @since 9
-   */
-  function getDefaultCellularDataSlotIdSync(): number;
 
   /**
    * @systemapi Hide this for inner system use.
