@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -13,15 +13,15 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from '../basic';
-import { ApplicationInfo } from '../bundle/applicationInfo';
-import { ProcessInfo } from './processInfo';
-import { ElementName } from '../bundle/elementName';
-import BaseContext from '../application/BaseContext';
-import { HapModuleInfo } from '../bundle/hapModuleInfo';
-import { AppVersionInfo } from './appVersionInfo';
-import { AbilityInfo } from '../bundle/abilityInfo';
-import bundle from '../@ohos.bundle';
+import { AsyncCallback } from './basic';
+import { ApplicationInfo } from './bundle/applicationInfo';
+import { ProcessInfo } from './app/processInfo';
+import { ElementName } from './bundle/elementName';
+import BaseContext from './application/BaseContext';
+import { HapModuleInfo } from './bundle/hapModuleInfo';
+import { AppVersionInfo } from './app/appVersionInfo';
+import { AbilityInfo } from './bundle/abilityInfo';
+import bundle from './@ohos.bundle';
 
 
 /**
@@ -29,7 +29,7 @@ import bundle from '../@ohos.bundle';
  * application-specific resources, request and verification permissions.
  * Can only be obtained through the ability.
  *
- * @since 6
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import abilityManager from 'app/context'
  * @permission N/A
@@ -43,7 +43,7 @@ export interface Context extends BaseContext {
     * @note If in the context of the ability, return the root dir of
     * the ability; if in the context of the application, return the
     * root dir of the application.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @return the root dir
     * @FAModelOnly
@@ -58,7 +58,7 @@ export interface Context extends BaseContext {
     * @param uid user id
     * @note Pid and uid are optional. If you do not pass in pid and uid,
     * it will check your own permission.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @return asynchronous callback with {@code 0} if the PID
     *         and UID have the permission; callback with {@code -1} otherwise.
@@ -72,7 +72,7 @@ export interface Context extends BaseContext {
     * Requests certain permissions from the system.
     * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null.
     * @param requestCode Indicates the request code to be passed to the PermissionRequestResult
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -81,7 +81,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains information about the current application.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -90,7 +90,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the bundle name of the current ability.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -99,25 +99,16 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the current display orientation of this ability.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
     getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void
     getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
 
     /**
-    * Obtains the absolute path to the application-specific cache directory
-    * @since 6
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @deprecated since 7
-    */
-    getExternalCacheDir(callback: AsyncCallback<string>): void
-    getExternalCacheDir(): Promise<string>;
-    
-    /**
     * Sets the display orientation of the current ability.
     * @param orientation Indicates the new orientation for the current ability.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
     setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void
@@ -126,7 +117,7 @@ export interface Context extends BaseContext {
     /**
     * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state.
     * @param show Specifies whether to show this ability on top of the lock screen. The value true means to show it on the lock screen, and the value false means not.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
     setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void
@@ -135,7 +126,7 @@ export interface Context extends BaseContext {
     /**
     * Sets whether to wake up the screen when this ability is restored.
     * @param wakeUp Specifies whether to wake up the screen. The value true means to wake it up, and the value false means not.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
     setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void
@@ -143,7 +134,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains information about the current process, including the process ID and name.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -152,7 +143,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the ohos.bundle.ElementName object of the current ability. This method is available only to Page abilities.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -161,7 +152,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the name of the current process.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -170,7 +161,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the bundle name of the ability that called the current ability.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -179,7 +170,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the file directory of this application on the internal storage.
-    * @since 6
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -188,7 +179,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the cache directory of this application on the internal storage.
-    * @since 6
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -198,7 +189,7 @@ export interface Context extends BaseContext {
     /**
     * Obtains the distributed file path for storing ability or application data files.
     * If the distributed file path does not exist, the system will create a path and return the created path.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -207,7 +198,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the application type.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -216,7 +207,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the ModuleInfo object for this application.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -225,7 +216,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the application version information.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -234,7 +225,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the context of this application.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -242,7 +233,7 @@ export interface Context extends BaseContext {
 
     /**
     * Checks the detailed information of this ability.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -251,7 +242,7 @@ export interface Context extends BaseContext {
 
     /**
     * Checks whether the configuration of this ability is changing.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @return true if the configuration of this ability is changing and false otherwise.
     * @FAModelOnly
@@ -261,7 +252,7 @@ export interface Context extends BaseContext {
 
     /**
     * Informs the system of the time required for drawing this Page ability.
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -271,7 +262,7 @@ export interface Context extends BaseContext {
 
 /**
  * @name the result of requestPermissionsFromUser with asynchronous callback
- * @since 7
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @FAModelOnly
@@ -279,7 +270,7 @@ export interface Context extends BaseContext {
 interface PermissionRequestResult {
     /**
     * @default The request code passed in by the user
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -287,7 +278,7 @@ interface PermissionRequestResult {
 
     /**
     * @default The permissions passed in by the user
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -295,7 +286,7 @@ interface PermissionRequestResult {
 
     /**
     * @default The results for the corresponding request permissions
-    * @since 7
+    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -304,7 +295,7 @@ interface PermissionRequestResult {
 
 /**
  * @name PermissionOptions
- * @since 7
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @FAModelOnly
@@ -312,7 +303,7 @@ interface PermissionRequestResult {
 interface PermissionOptions {
  /**
   * @default The process id
-  * @since 7
+  * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @FAModelOnly
   */
@@ -320,7 +311,7 @@ interface PermissionOptions {
 
  /**
   * @default The user id
-  * @since 7
+  * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @FAModelOnly
   */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../basic";
-import { ConnectOptions } from "../ability/connectOptions";
-import Caller from '../@ohos.application.Ability';
-import ExtensionContext from "./ExtensionContext";
-import Want from "../@ohos.application.Want";
-import StartOptions from "../@ohos.application.StartOptions";
+import { AsyncCallback } from "./basic";
+import { ConnectOptions } from "./ability/connectOptions";
+import Caller from './@ohos.application.Ability';
+import ExtensionContext from "./application/ExtensionContext";
+import Want from "./@ohos.application.Want";
+import StartOptions from "./@ohos.application.StartOptions";
 
 /**
  * The context of service extension. It allows access to

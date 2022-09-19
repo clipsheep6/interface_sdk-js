@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,21 +13,21 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/ets/state_management.d.ts"/>
+/// <reference path="../component/ets/state_management.d.ts"/>
 
-import { AbilityInfo } from "../bundle/abilityInfo";
-import { AbilityResult } from "../ability/abilityResult";
-import { AsyncCallback } from "../basic";
-import { ConnectOptions } from "../ability/connectOptions";
-import { HapModuleInfo } from "../bundle/hapModuleInfo";
-import Context from "./Context";
-import Want from "../@ohos.application.Want";
-import StartOptions from "../@ohos.application.StartOptions";
-import PermissionRequestResult from "./PermissionRequestResult";
-import { Configuration } from '../@ohos.application.Configuration';
-import Caller from '../@ohos.application.Ability';
+import { AbilityInfo } from "./bundle/abilityInfo";
+import { AbilityResult } from "./ability/abilityResult";
+import { AsyncCallback } from "./basic";
+import { ConnectOptions } from "./ability/connectOptions";
+import { HapModuleInfo } from "./bundle/hapModuleInfo";
+import Context from "./application/Context";
+import Want from "./@ohos.application.Want";
+import StartOptions from "./@ohos.application.StartOptions";
+import PermissionRequestResult from "./application/PermissionRequestResult";
+import { Configuration } from './@ohos.application.Configuration';
+import Caller from './@ohos.application.Ability';
 import { LocalStorage } from 'StateManagement';
-import image from '../@ohos.multimedia.image';
+import image from './@ohos.multimedia.image';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -13,22 +13,22 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from '../basic';
-import ResultSet from '../data/rdb/resultSet';
-import { PacMap } from './dataAbilityHelper';
-import { DataAbilityOperation } from './dataAbilityOperation';
-import { DataAbilityResult } from './dataAbilityResult';
-import dataAbility from '../@ohos.data.dataAbility';
-import rdb from '../@ohos.data.rdb';
+import { AsyncCallback } from './basic';
+import ResultSet from './data/rdb/resultSet';
+import { PacMap } from './ability/dataAbilityHelper';
+import { DataAbilityOperation } from './ability/dataAbilityOperation';
+import { DataAbilityResult } from './ability/dataAbilityResult';
+import dataAbility from './@ohos.data.dataAbility';
+import rdb from './@ohos.data.rdb';
 
 /**
- * DataAbilityUtils
+ * DataAbilityHelper
  * @interface
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @famodelonly
  * @since 9
  */
-export interface DataAbilityUtils {
+export interface DataAbilityHelper {
     /**
      * Opens a file in a specified remote path.
      * @param { string } uri - Indicates the path of the file to open.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from "../bundle/applicationInfo";
-import resmgr from "../@ohos.resourceManager";
-import BaseContext from "./BaseContext";
-import EventHub from "./EventHub";
-import ApplicationContext from "./ApplicationContext";
+import { ApplicationInfo } from "./bundle/applicationInfo";
+import resmgr from "./@ohos.resourceManager";
+import BaseContext from "./application/BaseContext";
+import EventHub from "./application/EventHub";
+import ApplicationContext from "./application/ApplicationContext";
 
 /**
  * The base context of an ability or an application. It allows access to

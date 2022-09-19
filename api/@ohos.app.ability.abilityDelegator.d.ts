@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from '../basic';
-import Ability from '../@ohos.application.Ability';
-import AbilityStage from '../@ohos.application.AbilityStage';
-import { AbilityMonitor } from './abilityMonitor';
-import { AbilityStageMonitor } from './abilityStageMonitor';
-import Context from './Context';
-import Want from "../@ohos.application.Want";
-import { ShellCmdResult } from './shellCmdResult';
+import { AsyncCallback } from './basic';
+import Ability from './@ohos.application.Ability';
+import AbilityStage from './@ohos.application.AbilityStage';
+import { AbilityMonitor } from './application/abilityMonitor';
+import { AbilityStageMonitor } from './application/abilityStageMonitor';
+import Context from './application/Context';
+import Want from "./@ohos.application.Want";
+import { ShellCmdResult } from './application/shellCmdResult';
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
  *
- * @since 8
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegator from 'application/abilityDelegator.d'
  * @permission N/A
@@ -163,7 +163,7 @@ export interface AbilityDelegator {
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param msg Log information
      */
@@ -183,7 +183,7 @@ export interface AbilityDelegator {
     /**
      * Execute the given command in the aa tools side.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param cmd Shell command
      * @param timeoutSecs Timeout, in seconds

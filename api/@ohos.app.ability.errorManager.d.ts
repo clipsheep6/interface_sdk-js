@@ -42,7 +42,6 @@ declare namespace errorManager {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param observerId Indicates the number code of the observer.
-     * @return -
      */
     function unregisterErrorObserver(observerId: number,  callback: AsyncCallback<void>): void;
     function unregisterErrorObserver(observerId: number): Promise<void>;

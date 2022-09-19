@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../basic";
-import ExtensionContext from "./ExtensionContext";
-import formBindingData from '../@ohos.application.formBindingData';
-import Want from '../@ohos.application.Want';
+import { AsyncCallback } from "./basic";
+import ExtensionContext from "./application/ExtensionContext";
+import formBindingData from './@ohos.application.formBindingData';
+import Want from './@ohos.application.Want';
 
 /**
  * The context of form extension. It allows access to

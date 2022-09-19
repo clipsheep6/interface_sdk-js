@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import Want from './@ohos.application.Want';
 /**
  * A Particle Ability represents an ability with service.
  * @name particleAbility
- * @since 7
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
@@ -32,7 +32,7 @@ declare namespace particleAbility {
   /**
    * Service ability uses this method to start a specific ability.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
@@ -44,7 +44,7 @@ declare namespace particleAbility {
   /**
    * Destroys this service ability.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
@@ -55,7 +55,7 @@ declare namespace particleAbility {
   /**
    * Obtains the dataAbilityHelper.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
@@ -66,7 +66,7 @@ declare namespace particleAbility {
   /**
    * Keep this Service ability in the background and display a notification bar.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param id Identifies the notification bar information.
@@ -80,7 +80,7 @@ declare namespace particleAbility {
   /**
    * Cancel background running of this ability to free up system memory.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
    * @deprecated
@@ -91,7 +91,7 @@ declare namespace particleAbility {
   /**
    * Connects an ability to a Service ability.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param request Indicates the Service ability to connect.
    * @param options Callback object for the client. If this parameter is null, an exception is thrown.
@@ -102,7 +102,7 @@ declare namespace particleAbility {
 
   /**
   * Disconnects ability to a Service ability.
-  * @since 7
+  * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
   * @param connection the connection id returned from connectAbility api.
   * @FAModelOnly
@@ -113,7 +113,7 @@ declare namespace particleAbility {
   /**
   * Obtain the errorCode.
   *
-  * @since 7
+  * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
   * @FAModelOnly
   */

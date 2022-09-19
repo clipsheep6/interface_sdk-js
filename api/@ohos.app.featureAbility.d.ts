@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,7 +28,7 @@ import window from './@ohos.window';
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
  * @name featureAbility
- * @since 6
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
@@ -37,7 +37,7 @@ declare namespace featureAbility {
   /**
    * Obtain the want sended from the source ability.
    *
-   * @since 6
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
@@ -49,7 +49,7 @@ declare namespace featureAbility {
   /**
    * Starts a new ability.
    *
-   * @since 6
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
@@ -63,7 +63,7 @@ declare namespace featureAbility {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns the application context.
-   * @since 6
+   * @since 9
    * @FAModelOnly
    */
   function getContext(): Context;
@@ -71,7 +71,7 @@ declare namespace featureAbility {
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return Returns the {@link AbilityResult}.
@@ -84,7 +84,7 @@ declare namespace featureAbility {
    * Sets the result code and data to be returned by this Page ability to the caller
    * and destroys this Page ability.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the result to return.
    * @return -
@@ -96,7 +96,7 @@ declare namespace featureAbility {
   /**
    * Destroys this Page ability.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
@@ -107,7 +107,7 @@ declare namespace featureAbility {
   /**
    * Obtains the dataAbilityHelper.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
@@ -118,7 +118,7 @@ declare namespace featureAbility {
    /**
    * Checks whether the main window of this ability has window focus.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
    * @FAModelOnly
@@ -129,7 +129,7 @@ declare namespace featureAbility {
   /**
    * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
    * @default -
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param request The element name of the service ability
    * @param options The remote object instance
@@ -141,7 +141,7 @@ declare namespace featureAbility {
   /**
   * The callback interface was connect successfully.
   * @default -
-  * @since 7
+  * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
   * @param connection The number code of the ability connected
   * @FAModelOnly
@@ -152,7 +152,7 @@ declare namespace featureAbility {
   /**
    * Obtains the window corresponding to the current ability.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns the window corresponding to the current ability.
    * @FAModelOnly
@@ -163,7 +163,7 @@ declare namespace featureAbility {
   /**
    * Obtain the window configuration.
    * 
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
@@ -178,7 +178,7 @@ declare namespace featureAbility {
   /**
    * Obtain the window properties.
    * 
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
@@ -191,7 +191,7 @@ declare namespace featureAbility {
   /**
    * Obtain the errorCode.
    * 
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
@@ -205,7 +205,7 @@ declare namespace featureAbility {
   /**
    * Indicates the operation type of data.
    * 
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */

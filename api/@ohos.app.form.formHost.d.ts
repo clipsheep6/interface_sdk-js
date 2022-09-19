@@ -22,7 +22,7 @@ import formInfo from './@ohos.application.formInfo'
  * interface of formHost.
  *
  * @name formHost
- * @since 8
+ * @since 9
  * @syscap SystemCapability.Ability.Form
  * @systemapi hide for inner use.
  */
@@ -33,7 +33,7 @@ declare namespace formHost {
      * <p>After this method is called, the form won't be available for use by the application and the Form Manager
      * Service no longer keeps the cache information about the form.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
      * @return -
@@ -49,11 +49,10 @@ declare namespace formHost {
      * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
      * the {@code formId}.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
      * @param isReleaseCache Indicates whether or not release cache
-     * @return -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function releaseForm(formId: string, callback: AsyncCallback<void>): void;
@@ -68,7 +67,7 @@ declare namespace formHost {
      * provider automatically updates the form data (if there is any update) through the form framework, with the update
      * process being unperceivable by the application.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the form to update.
      * @return -
@@ -80,7 +79,7 @@ declare namespace formHost {
     /**
      * Converts a specified temporary form that has been obtained by the application into a normal form.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the temporary form to convert.
      * @return -
@@ -95,7 +94,7 @@ declare namespace formHost {
      * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
      * the form visibility change event.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made visible.
      * @return -
@@ -110,7 +109,7 @@ declare namespace formHost {
      * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
      * the form visibility change event.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made invisible.
      * @return -
@@ -125,7 +124,7 @@ declare namespace formHost {
      * <p>You can use this method to set form refresh state to true, the form can receive new
      * update from service.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made invisible.
      * @return -
@@ -140,7 +139,7 @@ declare namespace formHost {
      * <p>You can use this method to set form refresh state to false, the form do not receive
      * new update from service.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made invisible.
      * @return -
@@ -154,7 +153,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to obtain the system is ready.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @return -
      */
@@ -164,7 +163,7 @@ declare namespace formHost {
     /**
      * Obtains the FormInfo objects provided by all applications on the device.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @return Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -175,7 +174,7 @@ declare namespace formHost {
     /**
      * Obtains the FormInfo objects provided by a specified application on the device.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param bundleName Indicates the bundle name of the application.
      * @param moduleName Indicates the module name of the application.
@@ -191,7 +190,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to delete invalid forms of the application.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @return Returns the number of invalid forms deleted by the Form Manager Service
@@ -205,7 +204,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to obtains the form state.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param want Indicates want of the form.
      * @return Returns form state {@link FormStateInfo}
@@ -219,7 +218,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to listen to the event of uninstall form.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param type Indicates event type.
      * @return -
@@ -231,7 +230,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to cancel listening to the event of uninstall form.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param type Indicates event type.
      * @return -
@@ -243,7 +242,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to notify form visible state.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @param isVisible Indicates whether visible.
@@ -258,7 +257,7 @@ declare namespace formHost {
      *
      * <p>You can use this method to notify form enable update state.</p>
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @param isEnableUpdate Indicates whether enable update.

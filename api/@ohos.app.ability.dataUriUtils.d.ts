@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +16,7 @@
 /**
  * A utility class used for handling objects that use the DataAbilityHelper scheme.
  * @name dataUriUtils
- * @since 7
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
@@ -24,7 +24,7 @@ declare namespace dataUriUtils {
   /**
    * Obtains the ID attached to the end of the path component of the given uri.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object from which the ID is to be obtained.
    * @return Returns the ID attached to the end of the path component;
@@ -34,7 +34,7 @@ declare namespace dataUriUtils {
   /**
    * Attaches the given ID to the end of the path component of the given uri.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri string from which the ID is to be obtained.
    * @param id Indicates the ID to attach.
@@ -45,7 +45,7 @@ declare namespace dataUriUtils {
   /**
    * Deletes the ID from the end of the path component of the given uri.
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object from which the ID is to be deleted.
    * @return Returns the uri object with the ID deleted.
@@ -55,7 +55,7 @@ declare namespace dataUriUtils {
   /**
    * Updates the ID in the specified uri
    *
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object to be updated.
    * @param id Indicates the new ID.

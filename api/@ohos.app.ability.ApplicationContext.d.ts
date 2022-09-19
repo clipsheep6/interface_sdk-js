@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../basic";
-import Context from "./Context";
-import AbilityLifecycleCallback from "../@ohos.application.AbilityLifecycleCallback";
-import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
+import { AsyncCallback } from "./basic";
+import Context from "./application/Context";
+import AbilityLifecycleCallback from "./@ohos.application.AbilityLifecycleCallback";
+import EnvironmentCallback from "./@ohos.application.EnvironmentCallback";
 
 /**
  * The context of an application. It allows access to application-specific resources.

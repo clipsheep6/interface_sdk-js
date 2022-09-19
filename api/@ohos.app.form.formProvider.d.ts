@@ -16,23 +16,23 @@
 import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.application.formBindingData";
 import formInfo from "./@ohos.application.formInfo";
+import Want from "./@ohos.application.Want"
 
 /**
  * interface of formProvider.
  *
  * @name formProvider
- * @since 8
+ * @since 9
  * @syscap SystemCapability.Ability.Form
  */
 declare namespace formProvider {
     /**
      * Set next update time for a specified form.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID.
      * @param minute Indicates duration minute before next update.
-     * @return -
      */
     function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
     function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
@@ -42,7 +42,7 @@ declare namespace formProvider {
      *
      * Client to communication with FormManagerService.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
      * @param formBindingData Indicates the form data

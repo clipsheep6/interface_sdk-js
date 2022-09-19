@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,7 +23,7 @@ import StartOptions from "./@ohos.application.StartOptions";
  * This module provides the capability to manage abilities and obtaining system task information.
  *
  * @name missionManager
- * @since 8
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
@@ -32,7 +32,7 @@ declare namespace missionManager {
     /**
      * Register the missionListener to ams.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param listener Indicates the MissionListener to be registered.
      * @return The index number of the MissionListener.
@@ -42,7 +42,7 @@ declare namespace missionManager {
     /**
      * Unrgister the missionListener to ams.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param listenerId Indicates the listener id to be unregistered.
      * @return -
@@ -53,7 +53,7 @@ declare namespace missionManager {
     /**
      * Get the missionInfo with the given missionId.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the device to be queried.
      * @param missionId Indicates mission id to be queried.
@@ -65,7 +65,7 @@ declare namespace missionManager {
     /**
      * Get the missionInfo with the given missionId.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the device to be queried.
      * @param numMax Indicates the maximum number of returned missions.
@@ -77,7 +77,7 @@ declare namespace missionManager {
     /**
      * Get the mission snapshot with the given missionId.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the device to be queried.
      * @param missionId Indicates mission id to be queried.
@@ -101,7 +101,7 @@ declare namespace missionManager {
     /**
      * Lock the mission.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be locked.
      * @return -
@@ -112,7 +112,7 @@ declare namespace missionManager {
     /**
      * Unlock the mission.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be unlocked.
      * @return -
@@ -123,7 +123,7 @@ declare namespace missionManager {
     /**
      * Clear the given mission in the ability manager service.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be cleared.
      * @return -
@@ -134,7 +134,7 @@ declare namespace missionManager {
     /**
      * Clear all missions in the ability manager service.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
@@ -144,7 +144,7 @@ declare namespace missionManager {
     /**
      * Schedule the given mission to foreground.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be moved to foreground.
      * @param options Indicates the start options.
