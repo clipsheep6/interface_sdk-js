@@ -63,6 +63,21 @@ export default class ServiceExtensionContext extends ExtensionContext {
     startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
 
     /**
+     * Launcher uses this method to start a recent ability.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the ability to start.
+     * @param options Indicates the start options.
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
+     */
+     startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
+     startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+     startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
+
+    /**
      * Starts a new service extension ability.
      *
      * @since 9
@@ -89,7 +104,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      */
     startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
     startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
- 
+
     /**
      * Stops a service within the same application.
      *
