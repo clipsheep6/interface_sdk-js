@@ -29,7 +29,7 @@
     readonly version: string;
 
     /**
-     * Indicates the free install interface version number
+     * Indicates the free install interface version
      * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @since 9
      */

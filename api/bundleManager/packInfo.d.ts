@@ -47,15 +47,15 @@ export interface BundlePackInfo {
  */
 export interface PackageConfig {
   /**
-   * Indicates the device type of this package
+   * Indicates the device types of this package
    * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-  readonly deviceType: Array<string>;
-  
+  readonly deviceTypes: Array<string>;
+
   /**
-   * Indicates the name of this package 
+   * Indicates the name of this package
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
@@ -163,6 +163,14 @@ export interface BundleConfigInfo {
  */
 export interface ModuleConfigInfo {
   /**
+   * Indicates the name of main ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+   * @since 9
+   */
+  readonly mainAbility: string;
+
+  /**
    * Indicates the api version
    * @type {ApiVersion}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
@@ -177,7 +185,7 @@ export interface ModuleConfigInfo {
    * @since 9
    */
   readonly deviceTypes: Array<string>;
-  
+
   /**
    * Indicates the module distro info
    * @type {ModuleDistroInfo}
@@ -188,11 +196,11 @@ export interface ModuleConfigInfo {
 
   /**
    * Indicates the abilities info of this module
-   * @type {ModuleDistroInfo}
+   * @type {Array<ModuleAbilityInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-  readonly abilities: ModuleDistroInfo;
+  readonly abilities: Array<ModuleAbilityInfo>;
 
   /**
    * Indicates extension abilities info of this module
@@ -211,14 +219,6 @@ export interface ModuleConfigInfo {
  * @since 9
  */
 export interface ModuleDistroInfo {
-  /**
-   * Indicates the name of main ability
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
-   * @since 9
-   */
-  readonly mainAbility: string;
-
   /**
    * Indicates is delivery with install
    * @type {boolean}
@@ -343,19 +343,19 @@ export interface AbilityFormInfo {
   
   /**
    * Indicates the ability support dimensions
-   * @type {Array<number>}
+   * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-  readonly supportDimensions: Array<number>;
+  readonly supportDimensions: Array<string>;
   
   /**
    * Indicates the ability default dimension
-   * @type {number}
+   * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-  readonly defaultDimension: number;
+  readonly defaultDimension: string;
 }
 
 /**
