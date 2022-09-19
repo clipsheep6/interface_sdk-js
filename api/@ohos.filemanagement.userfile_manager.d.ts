@@ -626,25 +626,6 @@ declare namespace userfile_manager {
      */
     getPhotoAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
     /**
-     * query audio assets
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_AUDIO
-     * @param options, Media retrieval options.
-     * @param callback, Callback return the FetchResult.
-     */
-    getAudioAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
-    /**
-     * query audio assets
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_AUDIO
-     * @param type detemined which kinds of Media asset to retrive.
-     * @param options Media retrieval options.
-     * @return A promise instance used to return the files in the format of a FetchResult instance
-     */
-    getAudioAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
-    /**
      * Create Photo Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -689,42 +670,6 @@ declare namespace userfile_manager {
      */
     createPhotoAsset(displayName: string, mediaType: MediaType, albumUri?: string): Promise<FileAsset>;
     /**
-     * Delete Asset, Album
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param uri  uri of asset or album
-     * @param callback no value returned
-     * @systemapi
-     */
-    delete(uri: string, callback: AsyncCallback<void>): void;
-    /**
-      * Delete Asset, Album
-      * @since 9
-      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-      * @permission ohos.permission.WRITE_IMAGEVIDEO
-      * @param uri  uri of asset or album
-      * @return A Promise instance, no value returned
-      * @systemapi
-      */
-    delete(uri: string): Promise<void>;
-    /**
-     * Turn on mornitor the data changes by media type
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','remoteFileChange'
-     * @param callback no value returned
-     */
-    on(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange', callback: Callback<void>): void;
-    /**
-     * Turn off mornitor the data changes by media type
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','remoteFileChange'
-     * @param callback no value returned
-     */
-    off(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange', callback?: Callback<void>): void;
-    /**
      * Obtains albums based on the media retrieval options. This method uses an asynchronous callback to return.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -762,6 +707,61 @@ declare namespace userfile_manager {
      * @since 9
      */
     getPrivateAlbum(type: PrivateAlbumType): Promise<Array<PrivateAlbum>>;
+    /**
+     * query audio assets
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     * @param options, Media retrieval options.
+     * @param callback, Callback return the FetchResult.
+     */
+    getAudioAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
+    /**
+     * query audio assets
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     * @param type detemined which kinds of Media asset to retrive.
+     * @param options Media retrieval options.
+     * @return A promise instance used to return the files in the format of a FetchResult instance
+     */
+    getAudioAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
+     /**
+     * Delete Asset, Album
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param uri  uri of asset or album
+     * @param callback no value returned
+     * @systemapi
+     */
+    delete(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Delete Asset, Album
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param uri  uri of asset or album
+     * @return A Promise instance, no value returned
+     * @systemapi
+     */
+    delete(uri: string): Promise<void>;
+    /**
+     * Turn on mornitor the data changes by media type
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','remoteFileChange'
+     * @param callback no value returned
+     */
+    on(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange', callback: Callback<void>): void;
+    /**
+     * Turn off mornitor the data changes by media type
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','remoteFileChange'
+     * @param callback no value returned
+     */
+    off(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Get Active Peer device information
      * @since 9
