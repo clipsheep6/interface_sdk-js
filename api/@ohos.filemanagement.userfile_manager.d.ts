@@ -174,7 +174,7 @@ declare namespace userfile_manager {
      * @param size thumbnail's size
      * @param callback Callback used to return the thumbnail's pixelmap.
      */
-    getThumbnail(size: Size, callback: AsyncCallback<image.PixelMap>): void;
+    getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
      * Get thumbnail of the file when the file is located.
      * @since 9
@@ -182,7 +182,7 @@ declare namespace userfile_manager {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param size thumbnail's size
      */
-    getThumbnail(size?: Size): Promise<image.PixelMap>;
+    getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
      * Set favorite for the file when the file is located.
      * @since 9
@@ -490,7 +490,7 @@ declare namespace userfile_manager {
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @since 9
    */
-  interface Album {
+  interface AbsAlbum {
     /**
      * Album name.
      * @since 9
@@ -522,21 +522,6 @@ declare namespace userfile_manager {
      */
     readonly coverUri: string;
     /**
-     * Modify the meta data for the album
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param callback, no value will be returned.
-     */
-    commitModify(callback: AsyncCallback<void>): void;
-    /**
-     * Modify the meta data for the album
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     */
-    commitModify(): Promise<void>;
-    /**
      * Obtains files in an album. This method uses an asynchronous callback to return the files.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -564,6 +549,30 @@ declare namespace userfile_manager {
      * @return A Promise instance used to return the files in the format of a FetchResult instance.
      */
     getPhotoAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
+  }
+
+  /**
+   * Defines the album.
+   *
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   * @since 9
+   */
+   interface Album extends AbsAlbum {
+    /**
+     * Modify the meta data for the album
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param callback, no value will be returned.
+     */
+    commitModify(callback: AsyncCallback<void>): void;
+    /**
+     * Modify the meta data for the album
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     */
+    commitModify(): Promise<void>;
     /**
      * add Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -636,33 +645,41 @@ declare namespace userfile_manager {
      * Create Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param mediaType mediaType for example:IMAGE, VIDEO
      * @param displayName file name
-     * @param string albumUri
+     * @param albumUri asset will put into album.
      * @param callback Callback used to return the FileAsset
      * @systemapi
      * @since 9
      */
-    createPhotoAsset(displayName: string, mediaType: MediaType, albumUri?: string, callback: AsyncCallback<FileAsset>): void;
+    createPhotoAsset(displayName: string, albumUri: string, callback: AsyncCallback<FileAsset>): void;
     /**
      * Create Photo Asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param mediaType mediaType for example:IMAGE, VIDEO
      * @param displayName file name
-     * @param string albumUri
+     * @param callback Callback used to return the FileAsset
+     * @systemapi
+     * @since 9
+     */
+     createPhotoAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
+    /**
+     * Create Photo Asset
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param displayName file name
+     * @param albumUri album uri is optional, asset will put into default album without albumUri
      * @return A Promise instance used to return the FileAsset
      * @systemapi
      * @since 9
      */
-    createPhotoAsset(displayName: string, mediaType: MediaType, albumUri?: string): Promise<FileAsset>;
+    createPhotoAsset(displayName: string, albumUri?: string): Promise<FileAsset>;
     /**
      * Obtains albums based on the media retrieval options. This method uses an asynchronous callback to return.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param predicates Indicates filter criteria.
-     * @param callback Callback used to return an album array.
+     * @param callback Callback used to return an album FetchResult.
      */
     getPhotoAlbums(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -671,7 +688,7 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param predicates Indicates filter criteria.
-     * @return A Promise instance used to return an album array.
+     * @return A Promise instance used to return an album FetchResult.
      */
     getPhotoAlbums(predicates: dataSharePredicates.DataSharePredicates): Promise<FetchResult<Album>>;
     /**
@@ -679,21 +696,21 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param type private album type
-     * @param callback used to return a private album array.
+     * @param callback used to return a private album FetchResult.
      * @systemapi
      * @since 9
      */
-    getPrivateAlbum(type: PrivateAlbumType, callback: AsyncCallback<Array<PrivateAlbum>>): void;
+    getPrivateAlbum(type: PrivateAlbumType, callback: AsyncCallback<FetchResult<PrivateAlbum>>): void;
     /**
      * Obtains system private albums based on the private album type. This method uses a promise to return.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param type private album type
-     * @return A Promise instance used to return a private album array.
+     * @return A Promise instance used to return a private album FetchResult.
      * @systemapi
      * @since 9
      */
-    getPrivateAlbum(type: PrivateAlbumType): Promise<Array<PrivateAlbum>>;
+    getPrivateAlbum(type: PrivateAlbumType): Promise<FetchResult<PrivateAlbum>>;
     /**
      * query audio assets
      * @since 9
@@ -714,21 +731,21 @@ declare namespace userfile_manager {
      */
     getAudioAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
      /**
-     * Delete Asset, Album
+     * Delete Asset
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param uri  uri of asset or album
+     * @param uri  uri of asset
      * @param callback no value returned
      * @systemapi
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
-     * Delete Asset, Album
+     * Delete Asset
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param uri  uri of asset or album
+     * @param uri  uri of asset
      * @return A Promise instance, no value returned
      * @systemapi
      */
@@ -797,26 +814,6 @@ declare namespace userfile_manager {
   }
 
   /**
-   * thumbnail's size which have width and heigh
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   * @since 9
-   */
-  interface Size {
-    /**
-     * Width of image file
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    width: number;
-    /**
-     * Height of image file
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    height: number;
-  }
-
-  /**
    * peer devices' information
    * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
    * @systemapi
@@ -876,47 +873,25 @@ declare namespace userfile_manager {
    * @systemapi
    * @since 9
    */
-  interface PrivateAlbum {
+  interface PrivateAlbum extends AbsAlbum {
     /**
-     * Obtains files in an private album. This method uses an asynchronous callback to return the files.
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param options Media retrieval options.
-     * @param callback Callback used to return the files in the format of a FetchResult instance.
-     * @systemapi
-     * @since 9
-     */
-    getPhotoAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
-    /**
-     * Obtains files in an private album. This method uses a promise to return the files.
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param options Media retrieval options.
-     * @return A Promise instance used to return the files in the format of a FetchResult instance.
-     * @systemapi
-     * @since 9
-     */
-    getPhotoAssets(options: MediaFetchOptions): Promise<FetchResult<FileAsset>>;
-    /**
-     * Delete Asset
+     * Delete Asset From Trash bin
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param uri  asset uri
      * @param callback no value returned
      * @systemapi
      */
-    deleteAsset(uri: string, callback: AsyncCallback<void>): void;
+    deleteAsset(callback: AsyncCallback<void>): void;
     /**
-      * Delete Asset
+      * Delete Asset From Trash bin
       * @since 9
       * @syscap SystemCapability.FileManagement.UserFileManager.Core
       * @permission ohos.permission.WRITE_IMAGEVIDEO
-      * @param uri  asset uri
       * @return A Promise instance, no value returned
       * @systemapi
       */
-    deleteAsset(uri: string): Promise<void>;
+    deleteAsset(): Promise<void>;
   }
 }
 
