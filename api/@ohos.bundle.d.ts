@@ -1024,6 +1024,8 @@ declare namespace bundle {
    * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns the ApplicationInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.appControl.getApplicationInfoSync
    */
    function getApplicationInfoSync(bundleName: string, bundleFlags: number, userId: number) : ApplicationInfo;
    function getApplicationInfoSync(bundleName: string, bundleFlags: number) : ApplicationInfo;
@@ -1039,6 +1041,8 @@ declare namespace bundle {
    * @param options Indicates the bundle options object.
    * @return Returns the BundleInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.appControl.getApplicationInfoSync
    */
    function getBundleInfoSync(bundleName: string, bundleFlags: number, options: BundleOptions): BundleInfo;
    function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;

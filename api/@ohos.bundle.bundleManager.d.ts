@@ -701,6 +701,36 @@ declare namespace bundleManager {
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 
   /**
+   * Obtains based on a given bundleName and bundleFlags.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param  { string } bundleName - Indicates the application bundle name to be queried.
+   * @param  { number } bundleFlags - Indicates the flag used to specify information contained in the ApplicationInfo object
+   *            that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @returns Returns the ApplicationInfo object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+   function getApplicationInfoSync(bundleName: string, bundleFlags: number, userId: number) : ApplicationInfo;
+   function getApplicationInfoSync(bundleName: string, bundleFlags: number) : ApplicationInfo;
+
+  /**
+   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object
+   *            that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @returns Returns the BundleInfo object.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+   function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
+   function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+
+  /**
    * Obtains configuration information about an application.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
