@@ -42,6 +42,7 @@ declare namespace audio {
    * @param callback Callback used to return the audio capturer instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @permission ohos.permission.MICROPHONE
    */
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
 
@@ -51,6 +52,7 @@ declare namespace audio {
    * @return Promise used to return the audio capturer instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @permission ohos.permission.MICROPHONE
    */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
