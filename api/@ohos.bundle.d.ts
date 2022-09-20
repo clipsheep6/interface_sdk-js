@@ -26,7 +26,6 @@ import { ElementName as _ElementName }  from './bundle/elementName';
 import { DispatchInfo as _DispatchInfo } from './bundle/dispatchInfo';
 import Want from './@ohos.application.want';
 import image from './@ohos.multimedia.image';
-import pack from './bundle/packInfo';
 import * as _PackInfo from './bundle/packInfo';
 import * as _BundleInfo from './bundle/bundleInfo';
 import * as _BundleInstaller from './bundle/bundleInstaller';
@@ -820,8 +819,8 @@ declare namespace bundle {
    * @return Returns the BundlePackInfo object.
    * @systemapi hide this for inner system use
    */
-  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag, callback: AsyncCallback<pack.BundlePackInfo>): void;
-  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag): Promise<pack.BundlePackInfo>;
+  function getBundlePackInfo(bundleName: string, bundlePackFlag : _PackInfo.BundlePackFlag, callback: AsyncCallback<_PackInfo.BundlePackInfo>): void;
+  function getBundlePackInfo(bundleName: string, bundlePackFlag : _PackInfo.BundlePackFlag): Promise<_PackInfo.BundlePackInfo>;
 
   /**   
    * Obtains information about the current ability.
