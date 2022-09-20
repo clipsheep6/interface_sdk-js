@@ -27,7 +27,6 @@ import { ShellCmdResult } from './application/shellCmdResult';
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityDelegator from 'application/abilityDelegator.d'
  * @permission N/A
  */
 export interface AbilityDelegator {
@@ -145,8 +144,8 @@ export interface AbilityDelegator {
      * @param ability The ability object
      * @return true: success false: failure
      */
-    doAbilityForeground(ability: Ability, callback: AsyncCallback<boolean>): void;
-    doAbilityForeground(ability: Ability): Promise<boolean>;
+    doAbilityForeground(ability: Ability, callback: AsyncCallback<void>): void;
+    doAbilityForeground(ability: Ability): Promise<void>;
 
     /**
      * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
@@ -156,8 +155,8 @@ export interface AbilityDelegator {
      * @param ability The ability object
      * @return true: success false: failure
      */
-    doAbilityBackground(ability: Ability, callback: AsyncCallback<boolean>): void;
-    doAbilityBackground(ability: Ability): Promise<boolean>;
+    doAbilityBackground(ability: Ability, callback: AsyncCallback<void>): void;
+    doAbilityBackground(ability: Ability): Promise<void>;
 
     /**
      * Prints log information to the unit testing console.

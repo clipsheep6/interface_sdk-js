@@ -190,7 +190,15 @@ declare namespace formInfo {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        JS = 1
+        JS = 1,
+
+        /**
+         * eTS form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        eTS = 2
     }
 
     /**
@@ -495,6 +503,7 @@ declare namespace formInfo {
          */
         Dimension_2_1,
     }
+
     /**
      * The visibility of a form.
      *
@@ -506,7 +515,7 @@ declare namespace formInfo {
          * Indicates the type of the form is visible.
          * @since 9
          */
-        FORM_VISIBLE:number,
+        FORM_VISIBLE: number,
         /**
          * Indicates the type of the form is invisible.
          * @since 9

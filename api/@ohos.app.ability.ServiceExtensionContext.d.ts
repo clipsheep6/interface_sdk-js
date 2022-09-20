@@ -141,11 +141,10 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the service extension to connect.
      * @param options Indicates the callback of connection.
-     * @systemapi hide for inner use.
      * @return connection id, int value.
      * @StageModelOnly
      */
-    connectAbility(want: Want, options: ConnectOptions): number;
+    connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
     /**
      * Connects an ability to a Service extension with account.
@@ -159,11 +158,10 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param want Indicates the service extension to connect.
      * @param accountId Indicates the account to connect.
      * @param options Indicates the callback of connection.
-     * @systemapi hide for inner use.
      * @return connection id, int value.
      * @StageModelOnly
      */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+    connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * Disconnects an ability to a service extension, in contrast to
@@ -172,12 +170,11 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection the connection id returned from connectAbility api.
-     * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
      */
-    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-    disconnectAbility(connection: number): Promise<void>;
+    disconnectServiceExtensionAbility(connection: number, callback:AsyncCallback<void>): void;
+    disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
     /**
      * Get the caller object of the startup capability
