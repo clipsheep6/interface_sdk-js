@@ -15,44 +15,49 @@
 
 const result = require("../check_result.json");
 const rules = require("../code_style_rule.json");
-const { getAPINote } = require('./utils');
+const { getAPINote, error_type } = require('./utils');
 
 function checkPermission(node, sourcefile, fileName) {
-    const permissionTags = [...rules.decorators["permission"]];
+    const permissionTagsPart = [...rules.decorators["permission"]];
+    const permissionTags = []
+    permissionTagsPart.forEach((item) => {
+        const tag = 'ohos.permission.' + item
+        permissionTags.push(tag)
+    })
+
     const permissionRuleSet = new Set(permissionTags);
     const apiNote = getAPINote(node);
     const apiNoteArr = apiNote.split('*');
-    const hasPermissionError = false;
+    let hasPermissionError = false;
     let errorInfo = "";
     apiNoteArr.forEach(note => {
         if (note.match(new RegExp('@permission'))) {
             const permissionNote = note.replace('@permission', '').trim();
-            if(/ or /.test(permissionNote)){
-                const permissionArr=permissionNote.split(' or ')
-                permissionArr.forEach(item=>{
-                     if (!permissionRuleSet.has(item)) {
-                    hasPermissionError = true;
-                    if (errorInfo !== "") {
-                        errorInfo += `,${item}`;
-                        } else {
-                        errorInfo += item;
+            if (/( or | and )/g.test(permissionNote)) {
+                const permissionArr = permissionNote.split(/( or | and )/)
+                permissionArr.forEach(item => {
+                    if (!/( or | and )/g.test(item)) {
+                        if (!permissionRuleSet.has(item)) {
+                            hasPermissionError = true;
+                            if (errorInfo !== "") {
+                                errorInfo += `,${item}`;
+                            } else {
+                                errorInfo += item;
+                            }
                         }
                     }
                 })
-            } else if(/ and /.test(permissionNote)){
-                const permissionArr=permissionNote.split(' and ')
-                permissionArr.forEach(item=>{
-                     if (!permissionRuleSet.has(item)) {
+            } else {
+                if (!permissionRuleSet.has(permissionNote) && !/N\/A/.test(permissionNote)) {
                     hasPermissionError = true;
                     if (errorInfo !== "") {
-                        errorInfo += `,${item}`;
+                        errorInfo += `,${permissionNote}`;
                     } else {
-                        errorInfo += item;
+                        errorInfo += permissionNote;
                     }
-                    }
-                })
-               
+                }
             }
+
         }
     });
 
@@ -62,10 +67,12 @@ function checkPermission(node, sourcefile, fileName) {
             result.apiFiles.push(fileName);
         }
         const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-          const errorMessage =`API check error of [unknow permission] in ${fileName}(line:${posOfNode.line+1},col:`+`${posOfNode.character+1}):${error_info}`;
-          const scanResultSet = new Set(result.scanResult);
-          scanResultSet.add(errorMessage);
-          result.scanResult = [...scanResultSet];
+        const errorMessage = `API check error of [${error_type.UNKNOW_PERMISSION}] in ${fileName} (line:` +
+            `${posOfNode.line + 1},col:${posOfNode.character + 1}): ${errorInfo}`;
+
+        const scanResultSet = new Set(result.scanResult);
+        scanResultSet.add(errorMessage);
+        result.scanResult = [...scanResultSet];
     }
 }
 exports.checkPermission = checkPermission;

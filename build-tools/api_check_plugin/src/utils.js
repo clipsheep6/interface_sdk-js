@@ -65,3 +65,11 @@ function overwriteIndexOf(item, array) {
   return indexArr;
 }
 exports.overwriteIndexOf = overwriteIndexOf;
+
+const error_type = {
+  UNKNOW_DECORATOR: 'unknow decorator',
+  MISSPELL_WORDS: 'misspell words',
+  NAMING_ERRORS: 'naming errors',
+  UNKNOW_PERMISSION: 'unknow permission',
+}
+exports.error_type = error_type;

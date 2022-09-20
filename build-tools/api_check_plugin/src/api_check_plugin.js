@@ -20,6 +20,7 @@ const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 // const ts = require("typescript");
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
+const { checkPermission } = require("./check_permission");
 const { hasAPINote } = require("./utils");
 let result = require("../check_result.json");
 
@@ -67,6 +68,8 @@ function checkAllNode(node, sourcefile, fileName) {
     checkAPIDecorators(node, sourcefile, fileName);
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
+    // check permission
+    checkPermission(node, sourcefile, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
