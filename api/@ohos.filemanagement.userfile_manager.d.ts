@@ -51,17 +51,11 @@ declare namespace userfile_manager {
    */
   enum MediaType {
     /**
-     * File media type
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    FILE = 0,
-    /**
      * Image media type
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    IMAGE,
+    IMAGE = 1,
     /**
      * Video media type
      * @since 9
@@ -118,20 +112,6 @@ declare namespace userfile_manager {
      * @param member the name of the parameter.
      */
     set(member: string, value: string): void;
-
-    /**
-     * If it is a directory where the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param callback Callback return the result of isDerectory.
-     */
-    isDirectory(callback: AsyncCallback<boolean>): void;
-    /**
-     * If it is a directory where the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    isDirectory(): Promise<boolean>;
     /**
      * Modify meta data where the file is located.
      * @since 9
@@ -235,45 +215,6 @@ declare namespace userfile_manager {
      */
     isFavorite(): Promise<boolean>;
   }
-
-  /**
-   * Describes File Type MediaFetchOptions's predicate key
-   * @since 9
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   */
-  enum FileKey {
-    /**
-     * File uri
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    URI = "uri",
-    /**
-     * File name
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DISPLAY_NAME = "display_name",
-    /**
-     * Date of the file creation
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_ADDED = "date_added",
-    /**
-     * Modify date of the file
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_MODIFIED = "date_modified",
-    /**
-     * Title of the file
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    TITLE = "title",
-  }
-
   /**
    * Describes AUDIO TYPE MediaFetchOptions's predicate
    * @since 9
