@@ -139,6 +139,7 @@ export interface AbilityInfo {
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @FAModelOnly
+    * @deprecated since 9
     */
   readonly subType: bundle.AbilitySubType;
 

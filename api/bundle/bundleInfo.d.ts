@@ -142,6 +142,7 @@ export interface BundleInfo {
     * @default Obtains configuration information about an ability
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
+    * @deprecated sin 9
     */
   readonly abilityInfos: Array<AbilityInfo>;
 
