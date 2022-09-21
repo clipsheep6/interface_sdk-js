@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from "../bundle/applicationInfo";
+import { BundleInfo } from "../bundle/BundleInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";
@@ -45,7 +45,7 @@ export default class Context extends BaseContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    applicationInfo: ApplicationInfo;
+    bundleInfo: BundleInfo;
 
     /**
      * Indicates app cache dir.
