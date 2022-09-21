@@ -18,6 +18,7 @@ import ExtensionContext from "./ExtensionContext";
 import accessibility from "../@ohos.accessibility";
 import { GesturePath } from "../@ohos.application.AccessibilityExtensionAbility";
 
+// 遗留：以下各方法都有一个错误码，即参数类型不正确，需要在注释中说明。
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
@@ -35,6 +36,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
     /**
      * Get focus element.
      * @param isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
+     * @throws {BusinessError} with ACCESSIBILITY_OPERATION_RIGHT_DENIED 如果用户没有给予执行该方法的权限。
      */
     getFocusElement(isAccessibilityFocus?: boolean): Promise<AccessibilityElement>;
     getFocusElement(callback: AsyncCallback<AccessibilityElement>): void;
@@ -43,6 +45,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
     /**
      * Get window root element.
      * @param windowId Indicates the window ID.
+     * @throws {BusinessError} with ACCESSIBILITY_OPERATION_RIGHT_DENIED 如果用户没有给予执行该方法的权限。
      */
     getWindowRootElement(windowId?: number): Promise<AccessibilityElement>;
     getWindowRootElement(callback: AsyncCallback<AccessibilityElement>): void;
@@ -51,6 +54,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
     /**
      * Get window list.
      * @param displayId Indicates the display ID.
+     * @throws {BusinessError} with ACCESSIBILITY_OPERATION_RIGHT_DENIED 如果用户没有给予执行该方法的权限。
      */
     getWindows(displayId?: number): Promise<Array<AccessibilityElement>>;
     getWindows(callback: AsyncCallback<Array<AccessibilityElement>>): void;
@@ -59,6 +63,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
     /**
      * Inject gesture path events.
      * @param gesturePath Indicates the gesture path.
+     * @throws {BusinessError} with ACCESSIBILITY_OPERATION_RIGHT_DENIED 如果用户没有给予执行该方法的权限。
      */
     injectGesture(gesturePath: GesturePath): Promise<void>;
     injectGesture(gesturePath: GesturePath, callback: AsyncCallback<void>): void;
@@ -81,6 +86,7 @@ declare interface AccessibilityElement {
     /**
      * Get the value of an attribute.
      * @param attributeName Indicates the attribute name.
+     * @throws {BusinessError} with ACCESSIBILITY_PROPERTY_NOT_EXIST 如果属性不存在。
      */
     attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
     attributeValue<T extends keyof ElementAttributeValues>(attributeName: T,
@@ -96,10 +102,11 @@ declare interface AccessibilityElement {
      * Perform the specified action.
      * @param actionName Indicates the action name.
      * @param parameters Indicates the parameters needed to execute the action.
+     * @throws {BusinessError} with ACCESSIBILITY_ACTION_NOT_SUPPORT 如果不支持该动作。
      */
-    performAction(actionName: string, parameters?: object): Promise<boolean>;
-    performAction(actionName: string, callback: AsyncCallback<boolean>): void;
-    performAction(actionName: string, parameters: object, callback: AsyncCallback<boolean>): void;
+    performAction(actionName: string, parameters?: object): Promise<void>;
+    performAction(actionName: string, callback: AsyncCallback<void>): void;
+    performAction(actionName: string, parameters: object, callback: AsyncCallback<void>): void;
     
     /**
      * Find elements that match the condition.

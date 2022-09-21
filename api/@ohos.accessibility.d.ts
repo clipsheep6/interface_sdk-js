@@ -13,8 +13,23 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback, BusinessError as _BusinessError} from './basic';
 import { Callback } from './basic';
+
+/**
+ * Enumerates error code.
+ *
+ * @since 9
+ */
+export enum AccessibilityErrorCode {
+  ACCESSIBILITY_PERMISSION_DENIED = 201,
+  ACCESSIBILITY_INVALID_INPUT = 401,
+  ACCESSIBILITY_INVALID_NAME = 9300001,
+  ACCESSIBILITY_ALREADY_ENABLED = 9300002,
+  ACCESSIBILITY_OPERATION_RIGHT_DENIED = 9300004,
+  ACCESSIBILITY_PROPERTY_NOT_EXIST = 9300005,
+  ACCESSIBILITY_ACTION_NOT_SUPPORT = 9300003,
+}
 
 /**
  * Accessibility
@@ -23,14 +38,14 @@ import { Callback } from './basic';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @import basic,abilityInfo
  */
-declare namespace accessibility {
+declare namespace accessibility { 
 
   /**
    * The type of the Ability app.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
-  type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual';
+  type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all';
 
   /**
    * The action that the ability can execute.
@@ -102,6 +117,20 @@ declare namespace accessibility {
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
   function isOpenAccessibility(): Promise<boolean>;
 
+  // 变更理由：需要增加错误码处理，例如参数类型错误。 存疑，这里只有callback形式有入参，这个需要变更吗？
+  /**
+   * Checks whether accessibility ability is enabled.
+   * @since 9
+   * @param callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @return Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
+   * @throws {BusinessError} with SYSPARAM_NOT_FOUND if key is not found
+   * @throws {BusinessError} with SYSPARAM_PERMISSION_DENIED if permission denied
+   * @throws {BusinessError} with SYSPARAM_SYSTEM_ERROR if system internal error
+  */
+  function isAccessibilityEnabled(): Promise<boolean>;
+  function isAccessibilityEnabled(callback: AsyncCallback<boolean>): void;
+
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
    * @since 7
@@ -111,6 +140,10 @@ declare namespace accessibility {
   */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
   function isOpenTouchGuide(): Promise<boolean>;
+
+  // 变更理由：需要增加错误码处理，例如参数类型错误。 存疑，这里只有callback形式有入参，这个需要变更吗？
+  function isScreenReaderEnabled(): Promise<boolean>;
+  function isScreenReaderEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
    * Queries the list of accessibility abilities.
@@ -125,6 +158,9 @@ declare namespace accessibility {
   function getAbilityLists(abilityType: AbilityType,
     stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
 
+    // 变更理由：需要增加错误码处理，例如参数类型错误。
+function getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
+function getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState, callback: AsyncCallback<Array<AccessibilityAbilityInfo>>): void;
   /**
    * Queries the list of accessibility abilities.
    * @since 9
@@ -168,6 +204,9 @@ declare namespace accessibility {
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
+
+  // 变更理由，配合 isScreenReaderEnabled 的变更。
+  function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
   /**
    * Deregister the observe of the accessibility state changed.

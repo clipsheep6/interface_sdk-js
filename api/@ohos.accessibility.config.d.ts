@@ -15,7 +15,7 @@
 
 import accessibility from './@ohos.accessibility';
 import { AsyncCallback, Callback } from './basic';
-
+// 遗留：以下各方法都有一个错误码，即参数类型不正确，需要在注释中说明。
 /**
  * Configuration of the accessibility.
  *
@@ -77,6 +77,9 @@ declare namespace config {
    * Enable the accessibility extension ability.
    * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param capability Indicates the ability.
+   * @throws {BusinessError} with ACCESSIBILITY_PERMISSION_DENIED 如果没有设置属性的权限.
+   * @throws {BusinessError} with ACCESSIBILITY_INVALID_NAME 如果包名不正确或者不存在.
+   * @throws {BusinessError} with ACCESSIBILITY_ALREADY_ENABLED 如果该扩展已经使能.
    */
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
   function enableAbility(name: string, capability: Array<accessibility.Capability>, callback: AsyncCallback<void>): void;
@@ -84,6 +87,8 @@ declare namespace config {
   /**
    * Disable the accessibility extension ability.
    * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
+   * @throws {BusinessError} with ACCESSIBILITY_PERMISSION_DENIED 如果没有设置属性的权限.
+   * @throws {BusinessError} with ACCESSIBILITY_INVALID_NAME 如果包名不正确或者不存在.
    */
   function disableAbility(name: string): Promise<void>;
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
@@ -93,14 +98,15 @@ declare namespace config {
    * @param type Indicates the enableAbilityListsStateChanged type.
    * @param callback Indicates the listener.
    */
-  function on(type: 'enableAbilityListsStateChanged', callback: Callback<void>): void;
+  function on(type: 'extensionStateChanged', callback: Callback<void>): void;
+  // 变更理由：原方法名有问题，不合适。
 
   /**
    * Deregister listener that watches for changes in the enabled status of accessibility extensions.
    * @param type Indicates the enableAbilityListsStateChanged type.
    * @param callback Indicates the listener.
    */
-  function off(type: 'enableAbilityListsStateChanged', callback?: Callback<void>): void;
+  function off(type: 'extensionStateChanged', callback?: Callback<void>): void;
 
   /**
    * Indicates setting, getting, and listening to changes in configuration.
@@ -109,12 +115,14 @@ declare namespace config {
     /**
      * Setting configuration value.
      * @param value Indicates the value.
+     * @throws {BusinessError} with ACCESSIBILITY_PERMISSION_DENIED 如果没有设置属性的权限.
      */
     set(value: T): Promise<void>;
     set(value: T, callback: AsyncCallback<void>): void;
 
     /**
      * Getting configuration value.
+     * @throws {BusinessError} with ACCESSIBILITY_PERMISSION_DENIED 如果没有获取属性的权限.
      */
     get(): Promise<T>;
     get(callback: AsyncCallback<T>): void;
@@ -122,6 +130,7 @@ declare namespace config {
     /**
      * Register the listener to listen for configuration changes.
      * @param callback Indicates the listener.
+     * @throws {BusinessError} with ACCESSIBILITY_PERMISSION_DENIED 如果没有获取属性的权限.
      */
     on(callback: Callback<T>): void;
 
