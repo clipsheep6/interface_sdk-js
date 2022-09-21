@@ -35,7 +35,7 @@ export default class ApplicationStateObserver {
      * @systemapi hide for inner use.
      * @return -
      */
-    onForegroundApplicationChanged(appStateData: AppStateData): void;
+    onApplicationStateChanged(appStateData: AppStateData): void;
 
     /**
      * Will be called when ability state changed.
