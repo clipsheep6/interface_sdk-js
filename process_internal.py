@@ -25,33 +25,50 @@ def copy_files(options):
         remove_dict = json.load(f)
         if options.name in remove_dict:
             rm_name = remove_dict[options.name]
-            if 'base' in rm_name:
-                file_list = rm_name['base']
-            else:
-                file_list = []
-            for file in os.listdir(options.input):
-                src = os.path.join(options.input, file)
-                if os.path.isfile(src) and (
-                    not 'global_remove' in rm_name or (
-                    'global_remove' in rm_name and (
-                    not file in rm_name['global_remove']))):
-                    format_src = format_path(src)
-                    if options.ispublic == 'true':
-                        if not 'sdk_build_public_remove' in rm_name:
-                            file_list.append(format_src)
-                        else:
-                            if not file in rm_name['sdk_build_public_remove']:
-                                file_list.append(format_src)
-                    else:
-                        file_list.append(format_src)
+            file_list = process_name(options.input,
+                options.ispublic, rm_name)
         else:
-            file_list = []
-            for file in os.listdir(options.input):
-                src = os.path.join(options.input, file)
-                if os.path.isfile(src):
-                    format_src = format_path(src)
-                    file_list.append(format_src)
+            file_list = process_noname(options.input)
         return file_list
+
+
+def process_name(target_dir, is_public, config_data):
+    if 'base' in config_data:
+        file_list = config_data['base']
+    else:
+        file_list = []
+    for file in os.listdir(target_dir):
+        src = os.path.join(target_dir, file)
+        if os.path.isfile(src) and (
+            not 'global_remove' in config_data or (
+            'global_remove' in config_data and (
+            not file in config_data['global_remove']))):
+            file_list = process_name_file(is_public, config_data, file_list,
+                src, file)
+    return file_list
+
+
+def process_name_file(is_public, config_data, file_list, file_path, file_name):
+    format_src = format_path(file_path)
+    if is_public == 'true':
+        if not 'sdk_build_public_remove' in config_data:
+            file_list.append(format_src)
+        else:
+            if not file_name in config_data['sdk_build_public_remove']:
+                file_list.append(format_src)
+    else:
+        file_list.append(format_src)
+    return file_list
+
+
+def process_noname(target_dir):
+    file_list = []
+    for file in os.listdir(target_dir):
+        src = os.path.join(target_dir, file)
+        if os.path.isfile(src):
+            format_src = format_path(src)
+            file_list.append(format_src)
+    return file_list
 
 
 def format_path(filepath):

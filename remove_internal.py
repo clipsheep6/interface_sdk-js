@@ -18,12 +18,10 @@ import sys
 import optparse
 import shutil
 
-# d.ts directories to be deleted
-remove_list = ["@internal", "common", "form", "liteWearable", "config", "syscapCheck"]
-
 
 # traversal all fill in project folder
 def copy_files(input_path, output_path):
+    remove_list = ["@internal", "common", "form", "liteWearable", "config", "syscapCheck"]
     for file in os.listdir(input_path):
         src = os.path.join(input_path, file)
         dst = os.path.join(output_path, file)
