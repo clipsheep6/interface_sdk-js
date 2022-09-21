@@ -1745,3 +1745,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
 declare const Web: WebInterface;
 declare const WebInstance: WebAttribute;
+
+declare module "WebComponent" {
+    module "WebComponent" {
+        //@ts-ignore
+        export { WebController };
+    }
+}
