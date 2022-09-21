@@ -130,7 +130,7 @@ declare namespace userfile_manager {
      * Open the file is located.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.WRITE_IMAGEVIDEO
      * @param mode mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
      */
@@ -139,7 +139,7 @@ declare namespace userfile_manager {
      * Open the file is located.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.WRITE_IMAGEVIDEO
      * @param mode mode for open, for example: rw, r, w.
      */
     open(mode: string): Promise<number>;
@@ -493,7 +493,7 @@ declare namespace userfile_manager {
   }
 
   /**
-   * Defines the album.
+   * Defines the AbsAlbum.
    *
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @since 9
@@ -662,7 +662,7 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName file name
-     * @param albumUri asset will put into album.
+     * @param albumUri asset will put into the album.
      * @param callback Callback used to return the FileAsset
      * @throw if type displayName or albumUri is not string
      * @systemapi
@@ -685,7 +685,7 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName file name
-     * @param albumUri album uri is optional, asset will put into default album without albumUri
+     * @param albumUri album uri is optional, asset will put into the default album without albumUri
      * @return A Promise instance used to return the FileAsset
      * @throw if type displayName or albumUri is not string
      * @systemapi
@@ -759,7 +759,7 @@ declare namespace userfile_manager {
     * @since 9
     * @syscap SystemCapability.FileManagement.UserFileManager.Core
     * @permission ohos.permission.WRITE_IMAGEVIDEO
-    * @param uri  uri of asset
+    * @param uri uri of asset
     * @param callback no value returned
     * @throw if type uri is not string
     * @systemapi
@@ -770,7 +770,7 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param uri  uri of asset
+     * @param uri uri of asset
      * @return A Promise instance, no value returned
      * @throw if type uri is not string
      * @systemapi
