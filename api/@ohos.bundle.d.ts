@@ -903,31 +903,42 @@ declare namespace bundle {
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 
   /**
-   * Set the disposed status of a specified bundle.
+   * Set the disposed status of a specified application.
    *
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
-   * @param status Indicates the disposed status.
-   * @return Returns the disposed status of a specified bundle.
+   * @param appId Indicates the appId of the application.
+   * @param disposedWant Indicates the disposed want.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
    */
-  function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
-  function setDisposedStatus(bundleName: string, status: number): Promise<void>;
+  function setDisposedStatus(appId: string, disposedWant: Want, callback: AsyncCallback<void>): void;
+  function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
   /**
-   * Obtains the disposed status of a specified bundle.
+   * Obtains the disposed status of a specified application.
    *
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
-   * @return Returns the disposed status of a specified bundle.
+   * @param appId Indicates the appId of the application.
+   * @return Returns the disposed status of a specified application.
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @systemapi Hide this for inner system use
    */
-  function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
-  function getDisposedStatus(bundleName: string): Promise<number>;
+  function getDisposedStatus(appId: string, callback: AsyncCallback<number>): void;
+  function getDisposedStatus(appId: string): Promise<number>;
+
+  /**
+   * Delete the disposed status of a specified application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param appId Indicates the appId of the application.
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @systemapi Hide this for inner system use
+   */
+  function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
+  function deleteDisposedStatus(appId: string): Promise<void>;
 
   /**
    * Obtains based on a given bundleName and bundleFlags.
