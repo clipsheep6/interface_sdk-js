@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { Callback } from './basic';
 
 /**
  * Bundle monitor
@@ -59,25 +59,25 @@ declare namespace bundleMonitor {
    * Register to monitor the installation status
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type - Indicates the command should be implement.
-   * @param { AsyncCallback<BundleChangedInfo> } callback - Indicates the callback to be register.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
    */
-  function on(type: BundleChangedEvent, callback: AsyncCallback<BundleChangedInfo>): void;
+  function on(type: BundleChangedEvent, callback: Callback<BundleChangedInfo>): void;
 
   /**
    * Unregister to monitor the installation status
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type -type Indicates the command should be implement.
-   * @param { AsyncCallback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
    */
-  function off(type: BundleChangedEvent, callback?: AsyncCallback<BundleChangedInfo>): void;
+  function off(type: BundleChangedEvent, callback?: Callback<BundleChangedInfo>): void;
 }
 
 export default bundleMonitor

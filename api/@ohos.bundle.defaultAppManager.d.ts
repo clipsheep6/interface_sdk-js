@@ -54,13 +54,13 @@ declare namespace defaultAppManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    VIDEO = "Audio Player",
+    VIDEO = "Video Player",
     /**
-     * default pdf identifier.
+     * default PDF identifier.
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    PDF = "Pdf Viewer",
+    PDF = "PDF Viewer",
     /**
      * default word identifier.
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
@@ -74,11 +74,11 @@ declare namespace defaultAppManager {
      */
     EXCEL = "Excel Viewer",
     /**
-     * default ppt identifier.
+     * default PPT identifier.
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    PPT = "Ppt Viewer",
+    PPT = "PPT Viewer",
   }
 
   /**
