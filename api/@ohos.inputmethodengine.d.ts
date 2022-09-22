@@ -216,8 +216,7 @@ declare namespace inputMethodEngine {
 
     /**
      * @since 9
-     * @return InputMethodEngine object of the current input method
-     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @return InputMethodAbility object of the current input method
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -225,29 +224,28 @@ declare namespace inputMethodEngine {
      * @errorcode EXCEPTION_IMENGINE
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
-    function getInputMethodEngineV9(): InputMethodEngine;
+    function getInputMethodAbility(): InputMethodAbility;
 
     /**
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, use 'getInputMethodAbility' instead.
      */
     function getInputMethodEngine(): InputMethodEngine;
 
     /**
      * @since 9
      * @return KeyboardDelegate object of the current input method
-     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
      * @errorcode EXCEPTION_IMENGINE
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
-    function createKeyboardDelegateV9(): KeyboardDelegate;
+    function getKeyboardDelegate(): KeyboardDelegate;
 
     /**
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, use 'getKeyboardDelegate' instead.
      */
     function createKeyboardDelegate(): KeyboardDelegate;
 
@@ -279,13 +277,13 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'hide' instead.
          */
         hideKeyboard(callback: AsyncCallback<void>): void;
 
         /**
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'hide' instead.
          */
         hideKeyboard(): Promise<void>;
     }
@@ -301,7 +299,7 @@ declare namespace inputMethodEngine {
          * @param callback give keyboard controller and text input client
          * @return :-
          */
-        on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient|TextInputClientV9) => void): void;
+        on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
         /**
          * Unsubscribe 'inputStart'
@@ -310,7 +308,47 @@ declare namespace inputMethodEngine {
          * @param callback optional, give keyboard controller and text input client
          * @return :-
          */
-        off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient|TextInputClientV9) => void): void;
+        off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
+
+        /**
+         * Subscribe 'keyboardShow'|'keyboardHide'
+         * @since 8
+         * @param type keyboardShow|keyboardHide
+         * @return :-
+         */
+        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
+
+        /**
+         * Unsubscribe 'keyboardShow'|'keyboardHide'
+         * @since 8
+         * @param type keyboardShow|keyboardHide
+         * @return :-
+         */
+        off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
+    }
+
+    /**
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+     interface InputMethodAbility {
+        /**
+         * Subscribe 'inputStart'
+         * @since 9
+         * @param type inputStart
+         * @param callback give keyboard controller and text input client
+         * @return :-
+         */
+        on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
+
+        /**
+         * Unsubscribe 'inputStart'
+         * @since 9
+         * @param type inputStart
+         * @param callback optional, give keyboard controller and text input client
+         * @return :-
+         */
+        off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
         /**
          * Subscribe 'inputStop'.
@@ -350,7 +388,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Subscribe 'keyboardShow'|'keyboardHide'
-         * @since 8
+         * @since 9
          * @param type keyboardShow|keyboardHide
          * @return :-
          */
@@ -358,7 +396,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Unsubscribe 'keyboardShow'|'keyboardHide'
-         * @since 8
+         * @since 9
          * @param type keyboardShow|keyboardHide
          * @return :-
          */
@@ -474,9 +512,8 @@ declare namespace inputMethodEngine {
     /**
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @permission ohos.permission.CONNECT_IME_ABILITY
      */
-     interface TextInputClientV9 {
+     interface InputClient {
         /**
          * @since 9
          * @throws {BusinessError} if exception occurs
@@ -653,41 +690,57 @@ declare namespace inputMethodEngine {
      */
     interface KeyboardDelegate {
         /**
+         * Subscribe key up or down event
+         *
          * @since 8
          */
         on(type: 'keyDown'|'keyUp', callback: (event: KeyEvent) => boolean): void;
 
         /**
+         * Unsubscribe key up or down event
+         *
          * @since 8
          */
         off(type: 'keyDown'|'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
         /**
+         * Subscribe cursor context change
+         *
          * @since 8
          */
         on(type: 'cursorContextChange', callback: (x: number, y: number, height: number) => void): void;
 
         /**
+         * Unsubscribe cursor context change
+         *
          * @since 8
          */
         off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void;
 
         /**
+         * Subscribe selection change
+         *
          * @since 8
          */
         on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
         /**
+         * Unsubscribe selection change
+         *
          * @since 8
          */
         off(type: 'selectionChange', callback?: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
         /**
+         * Subscribe text change
+         *
          * @since 8
          */
         on(type: 'textChange', callback: (text: string) => void): void;
 
         /**
+         * Unsubscribe text change
+         *
          * @since 8
          */
         off(type: 'textChange', callback?: (text: string) => void): void;
@@ -698,12 +751,16 @@ declare namespace inputMethodEngine {
      */
     interface EditorAttribute {
         /**
+         * editor's pattern
+         *
          * @since 8
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         readonly inputPattern: number;
 
         /**
+         * editor's key type
+         *
          * @since 8
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -715,11 +772,15 @@ declare namespace inputMethodEngine {
      */
     interface KeyEvent {
         /**
+         * key code
+         *
          * @since 8
          */
         readonly keyCode: number;
 
         /**
+         * key action
+         *
          * @since 8
          */
         readonly keyAction: number;

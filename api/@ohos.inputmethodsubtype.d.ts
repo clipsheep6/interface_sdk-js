@@ -38,7 +38,7 @@ export default interface InputMethodSubtype {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
-    readonly id: number;
+    readonly id: string;
 
     /**
      * The mode of input method subtype.

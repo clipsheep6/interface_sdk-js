@@ -128,14 +128,14 @@ declare namespace inputMethod {
     /**
      * input method setting
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, use 'getSetting' instead.
      */
     function getInputMethodSetting(): InputMethodSetting;
 
     /**
      * input method controller
      * @since 6
-     * @deprecated since 9
+     * @deprecated since 9, use 'getController' instead.
      */
     function getInputMethodController(): InputMethodController;
 
@@ -143,7 +143,6 @@ declare namespace inputMethod {
      * input method setting
      * @since 9
      * @return :-
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -151,13 +150,12 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
-     function getInputMethodSettingV9(): InputMethodSetting;
+     function getSetting(): InputMethodSetting;
 
     /**
      * input method controller
      * @since 9
      * @return :-
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -165,14 +163,14 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
-    function getInputMethodControllerV9(): InputMethodController;
+    function getController(): InputMethodController;
 
     /**
      * Switch input method
      * @since 9
      * @param target Indicates the input method which will replace the current one
      * @return :-
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -188,7 +186,7 @@ declare namespace inputMethod {
      * @since 9
      * @param target Indicates the input method which will replace the current one
      * @return :-
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -198,7 +196,7 @@ declare namespace inputMethod {
      * @StageModelOnly
      */
     function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
-    
+
     /**
      * Get current input method
      * @since 9
@@ -217,7 +215,7 @@ declare namespace inputMethod {
      * @since 9
      * @param target Indicates the input method subtype which will replace the current one
      * @return success or fail
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -233,7 +231,7 @@ declare namespace inputMethod {
      * @since 9
      * @param target Indicates the input method subtype which will replace the current one
      * @return success or fail
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -263,7 +261,7 @@ declare namespace inputMethod {
      * @param inputMethodProperty Indicates the target input method
      * @param inputMethodSubtype Indicates the target input method subtype
      * @return :-
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -280,7 +278,7 @@ declare namespace inputMethod {
      * @param inputMethodProperty Indicates the target input method
      * @param inputMethodSubtype Indicates the target input method subtype
      * @return :-
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+     * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} if exception occurs
      * @errorcode EXCEPTION_PERMISSION
      * @errorcode EXCEPTION_PARAMCHECK
@@ -296,13 +294,22 @@ declare namespace inputMethod {
      */
     interface InputMethodSetting {
         /**
-         * Ntify input method or subtype change
+         * Subscribe input method or subtype change
          * @since 9
          * @param type Indicates the event type
          * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         on(type: 'imeChange', callback: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void): void;
+
+        /**
+         * Unsubscribe input method or subtype change
+         * @since 9
+         * @param type Indicates the event type
+         * @return :-
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+         off(type: 'imeChange', callback?: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void): void;
 
         /**
          * List subtype of the specified input method
@@ -377,7 +384,7 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          */
-        listInputMethodV9(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
+        getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
         /**
          * List input methods
@@ -394,16 +401,16 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          */
-        listInputMethodV9(enable: boolean): Promise<Array<InputMethodProperty>>;
+        getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
         /**
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'getInputMethods' instead.
          */
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
         /**
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'getInputMethods' instead.
          */
         listInputMethod(): Promise<Array<InputMethodProperty>>;
 
@@ -411,7 +418,7 @@ declare namespace inputMethod {
          * show input method setting extension dialog
          * @since 9
          * @return :-
-         * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} if exception occurs
          * @errorcode EXCEPTION_PERMISSION
          * @errorcode EXCEPTION_PARAMCHECK
@@ -422,13 +429,13 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          */
-        displayOptionalInputMethodV9(callback: AsyncCallback<boolean>): void;
+        showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
         /**
          * show input method setting extension dialog
          * @since 9
          * @return -
-         * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} if exception occurs
          * @errorcode EXCEPTION_PERMISSION
          * @errorcode EXCEPTION_PARAMCHECK
@@ -439,17 +446,17 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          */
-        displayOptionalInputMethodV9(): Promise<boolean>;
+        showOptionalInputMethods(): Promise<boolean>;
 
         /**
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'showOptionalInputMethods' instead.
          */
         displayOptionalInputMethod(callback: AsyncCallback<void>): void;
 
         /**
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'showOptionalInputMethods' instead.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         displayOptionalInputMethod(): Promise<void>;
@@ -460,7 +467,7 @@ declare namespace inputMethod {
      */
     interface InputMethodController {
         /**
-         * Stop input method
+         * Stop input
          * @since 9
          * @return :-
          * @throws {BusinessError} if exception occurs
@@ -470,10 +477,10 @@ declare namespace inputMethod {
          * @errorcode EXCEPTION_IMMS
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
-        stopInputV9(callback: AsyncCallback<boolean>): void;
+        stopInputSession(callback: AsyncCallback<boolean>): void;
 
         /**
-         * Stop input method
+         * Stop input
          * @since 9
          * @return :-
          * @throws {BusinessError} if exception occurs
@@ -483,21 +490,21 @@ declare namespace inputMethod {
          * @errorcode EXCEPTION_IMMS
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
-        stopInputV9(): Promise<boolean>;
+        stopInputSession(): Promise<boolean>;
 
         /**
-         * Stop input method
+         * Stop input
          * @since 6
-         * @deprecated since 9
+         * @deprecated since 9, use 'stopInputSession' instead.
          * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
         */
         stopInput(callback: AsyncCallback<boolean>): void;
 
         /**
-         * Stop input method
+         * Stop input
          * @since 6
-         * @deprecated since 9
+         * @deprecated since 9, use 'stopInputSession' instead.
          * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -507,6 +514,7 @@ declare namespace inputMethod {
          * Show soft keyboard
          * @since 9
          * @return :-
+         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} if exception occurs
          * @errorcode EXCEPTION_PERMISSION
          * @errorcode EXCEPTION_PARAMCHECK
@@ -520,6 +528,7 @@ declare namespace inputMethod {
          * Show soft keyboard
          * @since 9
          * @return :-
+         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} if exception occurs
          * @errorcode EXCEPTION_PERMISSION
          * @errorcode EXCEPTION_PARAMCHECK
@@ -528,11 +537,12 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         showSoftKeyboard():Promise<void>;
-         
+
         /**
          * Hide soft keyboard
          * @since 9
          * @return :-
+         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} if exception occurs
          * @errorcode EXCEPTION_PERMISSION
          * @errorcode EXCEPTION_PARAMCHECK
@@ -541,11 +551,12 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         hideSoftKeyboard(callback: AsyncCallback<void>): void;
-         
+
         /**
          * Hide soft keyboard
          * @since 9
          * @return :-
+         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} if exception occurs
          * @errorcode EXCEPTION_PERMISSION
          * @errorcode EXCEPTION_PARAMCHECK
@@ -564,7 +575,7 @@ declare namespace inputMethod {
         /**
          * The name of input method
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'name' instead.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         readonly packageName: string;
@@ -572,7 +583,7 @@ declare namespace inputMethod {
         /**
          * The id of input method
          * @since 8
-         * @deprecated since 9
+         * @deprecated since 9, use 'id' instead.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         readonly methodId: string;
