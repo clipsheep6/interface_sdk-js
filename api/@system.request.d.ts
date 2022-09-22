@@ -15,7 +15,7 @@
 
 /**
  * @syscap SystemCapability.MiscServices.Upload
- * @deprecated since 9
+ * @deprecated since 9, use '@ohos.request' instead.
  */
 export interface UploadResponse {
   /**
