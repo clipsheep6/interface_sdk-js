@@ -14,25 +14,16 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import Context  from './application/Context';
+import Context from './application/Context';
 import image from './@ohos.multimedia.image';
 
 /**
- * @name userfile_manager
+ * @name userFileManager
  * @since 9
  * @syscap SystemCapability.FileManagement.UserFileManager.Core
- * @import Import userfile_manager from '@ohos.filemanagement.userfile_manager'
+ * @import Import userFileManager from '@ohos.filemanagement.userfile_manager'
  */
-declare namespace userfile_manager {
-  /**
-   * Obtains a UserFileManager instance.
-   * @since 9
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   * @import Import userfile_manager from '@ohos.filemanagement.userfile_manager'
-   * @FAModelOnly
-   * @return Returns a UserFileManager instance if the operation is successful; returns null otherwise.
-   */
-  function getUserFileMgr(): UserFileManager;
+declare namespace userFileManager {
   /**
    * Returns an instance of UserFileManager
    * @since 9
@@ -50,17 +41,11 @@ declare namespace userfile_manager {
    */
   enum MediaType {
     /**
-     * File media type
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    FILE = 0,
-    /**
      * Image media type
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    IMAGE,
+    IMAGE = 1,
     /**
      * Video media type
      * @since 9
@@ -79,7 +64,7 @@ declare namespace userfile_manager {
    * Provides methods to encapsulate file attributes.
    * @since 9
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   * @import Import userfilemgr from '@ohos.filemanagement.userfile_manager'
+   * @import Import userFileManager from '@ohos.filemanagement.userfile_manager'
    */
   interface FileAsset {
     /**
@@ -100,19 +85,6 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     displayName: string;
-    /**
-     * If it is a directory where the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param callback Callback return the result of isDerectory.
-     */
-    isDirectory(callback: AsyncCallback<boolean>): void;
-    /**
-     * If it is a directory where the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    isDirectory():Promise<boolean>;
     /**
      * Modify meta data where the file is located.
      * @since 9
@@ -214,81 +186,7 @@ declare namespace userfile_manager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    isFavorite():Promise<boolean>;
-    /**
-     * Set trash for the file when the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
-     * @param isTrash true is trashed file, false is not trashed file
-     * @param callback Callback used to return, No value is returned.
-     */
-    trash(isTrash: boolean, callback: AsyncCallback<void>): void;
-    /**
-     * Set trash for the file when the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
-     * @param isTrash true is trashed file, false is not trashed file
-     */
-    trash(isTrash: boolean): Promise<void>;
-    /**
-     * If the file is in trash when the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param callback Callback used to return true or false.
-     */
-    isTrash(callback: AsyncCallback<boolean>): void;
-    /**
-     * If the file is in trash when the file is located.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    isTrash():Promise<boolean>;
-  }
-
-  /**
-   * Describes MediaFetchOptions's selection
-   * @since 9
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   */
-  enum FileKey {
-    /**
-     * File uri
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    URI = "uri",
-    /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
-    /**
-     * File name
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DISPLAY_NAME = "display_name",
-    /**
-     * Date of the file creation
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_ADDED = "date_added",
-    /**
-     * Modify date of the file
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DATE_MODIFIED = "date_modified",
-    /**
-     * Title of the file
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    TITLE = "title",
+    isFavorite(): Promise<boolean>;
   }
 
   /**
@@ -303,12 +201,6 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     URI = "uri",
-    /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
     /**
      * File name
      * @since 9
@@ -365,12 +257,6 @@ declare namespace userfile_manager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     URI = "uri",
-    /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
     /**
      * File name
      * @since 9
@@ -434,12 +320,6 @@ declare namespace userfile_manager {
      */
     URI = "uri",
     /**
-     * Relative Path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    RELATIVE_PATH = "relative_path",
-    /**
      * File name
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -483,7 +363,7 @@ declare namespace userfile_manager {
    * Implements file retrieval.
    * @since 9
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   * @import Import userfilemgr from '@ohos.filemanagement.userfile_manager'
+   * @import Import userFileManager from '@ohos.filemanagement.userfile_manager'
    */
   interface FetchFileResult {
     /**
@@ -608,12 +488,6 @@ declare namespace userfile_manager {
      */
     readonly count: number;
     /**
-     * Relative path for the album
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    readonly relativePath: string;
-    /**
      * coverUri for the album
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -664,72 +538,12 @@ declare namespace userfile_manager {
   }
 
   /**
-   * Enumeration public directory that predefined
-   * @since 9
-   * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   */
-  enum DirectoryType {
-    /**
-     * predefined public directory for files token by Camera.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_CAMERA = 0,
-    /**
-     * predefined public directory for VIDEO files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_VIDEO,
-    /**
-     * predefined public directory for IMAGE files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_IMAGE,
-    /**
-     * predefined public directory for AUDIO files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_AUDIO,
-    /**
-     * predefined public directory for DOCUMENTS files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_DOCUMENTS,
-    /**
-     * predefined public directory for DOWNLOAD files.
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     */
-    DIR_DOWNLOAD
-  }
-
-  /**
    * Defines the UserFileManager class and provides functions to access the data in user file storage.
    *
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @since 9
    */
   interface UserFileManager {
-    /**
-     * get system predefined root dir, use to create file asset by relative path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param type, public directory predefined in DirectoryType.
-     * @param callback Callback return the FetchFileResult.
-     */
-    getPublicDirectory(type: DirectoryType, callback: AsyncCallback<string>): void;
-    /**
-     * get system predefined root dir, use to create file asset by relative path
-     * @since 9
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param type public directory predefined in DirectoryType.
-     * @return A promise instance used to return the public directory in the format of string
-     */
-    getPublicDirectory(type: DirectoryType): Promise<string>;
     /**
      * query all assets just for count & first cover
      * if need all data, getAllObject from FetchFileResult
@@ -754,42 +568,18 @@ declare namespace userfile_manager {
      * Turn on mornitor the data changes by media type
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
+     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange', 'remoteFileChange'
      * @param callback no value returned
      */
-    on(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback: Callback<void>): void;
+    on(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange', callback: Callback<void>): void;
     /**
      * Turn off mornitor the data changes by media type
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
+     * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange', 'remoteFileChange'
      * @param callback no value returned
      */
-     off(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback?: Callback<void>): void;
-    /**
-     * Create File Asset
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
-     * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
-     * @param displayName file name
-     * @param relativePath relative path
-     * @param callback Callback used to return the FileAsset
-     * @systemapi
-     * @since 9
-     */
-    createAsset(mediaType: MediaType, displayName: string, relativePath: string, callback: AsyncCallback<FileAsset>): void;
-    /**
-     * Create File Asset
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO or ohos.permission.WRITE_DOCUMENT
-     * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
-     * @param displayName file name
-     * @param relativePath relative path
-     * @return A Promise instance used to return the FileAsset
-     * @systemapi
-     * @since 9
-     */
-    createAsset(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
+    off(type: 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange', callback?: Callback<void>): void;
     /**
      * Delete File Asset
      * @since 9
@@ -837,17 +627,17 @@ declare namespace userfile_manager {
      * @systemapi
      * @since 9
      */
-     getPrivateAlbum(type: VirtualAlbumType, callback: AsyncCallback<Array<VirtualAlbum>>): void;
-     /**
-      * Obtains system private albums based on the virtual album type. This method uses a promise to return.
-      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
-      * @param type virtual album type
-      * @return A Promise instance used to return a virtual album array.
-      * @systemapi
-      * @since 9
-      */
-     getPrivateAlbum(type: VirtualAlbumType): Promise<Array<VirtualAlbum>>;
+    getPrivateAlbum(type: VirtualAlbumType, callback: AsyncCallback<Array<VirtualAlbum>>): void;
+    /**
+     * Obtains system private albums based on the virtual album type. This method uses a promise to return.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.READ_DOCUMENTS
+     * @param type virtual album type
+     * @return A Promise instance used to return a virtual album array.
+     * @systemapi
+     * @since 9
+     */
+    getPrivateAlbum(type: VirtualAlbumType): Promise<Array<VirtualAlbum>>;
     /**
      * Get Active Peer device information
      * @since 9
@@ -951,7 +741,7 @@ declare namespace userfile_manager {
    * @systemapi
    * @since 9
    */
-   enum VirtualAlbumType {
+  enum VirtualAlbumType {
     /**
      * System Private Album: Favorite album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -998,4 +788,4 @@ declare namespace userfile_manager {
   }
 }
 
-export default userfile_manager;
+export default userFileManager;
