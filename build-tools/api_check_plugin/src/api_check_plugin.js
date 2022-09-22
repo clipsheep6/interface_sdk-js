@@ -15,10 +15,10 @@
 
 const path = require("path");
 const fs = require("fs");
-// const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const ts = require("typescript");
+const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
+const { checkAPINameOfHump } = require("./check_hump");
 const { hasAPINote } = require("./utils");
 let result = require("../check_result.json");
 
@@ -61,6 +61,9 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
+  if (!ts.isImportDeclaration) {
+    
+  }
   if (hasAPINote(node)) {
     // check decorator
     checkAPIDecorators(node, sourcefile, fileName);
@@ -70,6 +73,8 @@ function checkAllNode(node, sourcefile, fileName) {
   if (ts.isIdentifier(node)) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
+    // check hump naming
+    checkAPINameOfHump(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
@@ -77,6 +82,6 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
-  return JSON.stringify(result.scanResult);
+  return result.scanResult;
 }
 exports.scanEntry = scanEntry;
