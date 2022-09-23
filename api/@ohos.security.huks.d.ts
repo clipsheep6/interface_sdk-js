@@ -185,8 +185,8 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      * @since 9
      */
-    function doInit(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>) : void;
-    function doInit(keyAlias: string, options: HuksOptions) : Promise<HuksSessionHandle>;
+    function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>) : void;
+    function initSession(keyAlias: string, options: HuksOptions) : Promise<HuksSessionHandle>;
 
     /**
      * Update Operation.
@@ -209,9 +209,9 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      * @since 9
      */
-    function doUpdate(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>) : void;
-    function doUpdate(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksReturnResult>) : void;
-    function doUpdate(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksReturnResult>;
+    function updateSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>) : void;
+    function updateSession(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksReturnResult>) : void;
+    function updateSession(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksReturnResult>;
 
     /**
      * Finish Operation.
@@ -233,9 +233,9 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      * @since 9
      */
-     function doFinish(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>) : void;
-     function doFinish(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksReturnResult>) : void;
-     function doFinish(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksReturnResult>;
+     function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>) : void;
+     function finishSession(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksReturnResult>) : void;
+     function finishSession(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksReturnResult>;
 
     /**
      * Abort Operation.
@@ -256,8 +256,8 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      * @since 9
      */
-    function doAbort(handle: number, options: HuksOptions, callback: AsyncCallback<void>) : void;
-    function doAbort(handle: number, options: HuksOptions) : Promise<void>;
+    function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>) : void;
+    function abortSession(handle: number, options: HuksOptions) : Promise<void>;
 
     
     /**
