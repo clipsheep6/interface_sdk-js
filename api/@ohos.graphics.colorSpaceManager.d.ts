@@ -22,6 +22,18 @@ import { AsyncCallback } from './basic';
  declare namespace colorSpaceManager {
 
   /**
+   * Enumerates color manager error code.
+   * @since 9
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   */
+  enum CMErrorCode {
+    CM_ERROR_NO_PERMISSION = 201,
+    CM_ERROR_INVALID_PARAM = 401,
+    CM_ERROR_DEVICE_NOT_SUPPORT = 801,
+    CM_ERROR_INVALID_ENUM_USAGE = 18600001,
+  }
+
+  /**
    * Enumerates color space types.
    * @since 9
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
