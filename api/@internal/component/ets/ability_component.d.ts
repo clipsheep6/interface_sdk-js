@@ -25,7 +25,7 @@ interface AbilityComponentInterface {
    * @since 9
    * @systemapi
    */
-  (want: Want): AbilityComponentAttribute;
+  (want: import('../api/@ohos.application.Want').default): AbilityComponentAttribute;
 }
 
 /**
