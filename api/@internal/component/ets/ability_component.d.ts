@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+declare type Want = import("../../../@ohos.application.Want").default
+
 /**
  * Provide an interface for the ability component.
  * @since 9
