@@ -110,7 +110,6 @@ declare namespace hiSysEvent {
    * @static
    * @param {SysEventInfo} info system event information to be written.
    * @param {AsyncCallback} [callback] callback function.
-   * @return {void | Promise<void>} no callback return Promise otherwise return void.
    * @since 9
    */
   function write(info: SysEventInfo): Promise<void>;
@@ -277,11 +276,10 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo[]} infos system event information of query result.
-     * @param {number[]} seqs sequeue of infos.
      * @return {void} return void.
      * @since 9
      */
-    onQuery: (infos: SysEventInfo[], seqs: number[]) => void;
+    onQuery: (infos: SysEventInfo[]) => void;
 
     /**
      * notify Querier execute query has finished.
@@ -303,10 +301,9 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
-   * @return {number} 0 success, 1 fail
    * @since 9
    */
-  function addWatcher(watcher: Watcher): number;
+  function addWatcher(watcher: Watcher): void;
 
   /**
    * remove watcher
@@ -315,10 +312,9 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} wathcer watch system event
-   * @return {number} 0 success, 1 fail
    * @since 9
    */
-  function removeWatcher(wathcer: Watcher): number;
+  function removeWatcher(wathcer: Watcher): void;
 
   /**
    * query system event
@@ -329,10 +325,9 @@ declare namespace hiSysEvent {
    * @param {QueryArg} queryArg common arguments of query system event
    * @param {QueryRule[]} rules rule of query system event
    * @param {Querier} querier receive query result
-   * @return {number} 0 success, 1 fail
    * @since 9
    */
-  function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): number;
+  function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 }
 
 export default hiSysEvent;
