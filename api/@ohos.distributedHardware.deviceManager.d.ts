@@ -358,6 +358,11 @@ declare namespace deviceManager {
      * cancel pincode input
      */
     ACTION_CANCEL_PINCODE_INPUT = 4,
+
+    /**
+     * done pincode input
+     */
+    ACTION_DONE_PINCODE_INPUT = 5
   }
 
   /**
@@ -516,6 +521,23 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */  
     setUserOperation(operateAction: UserOperationAction): void;
+
+    /**
+     * Register a callback from deviceManager service so that the devicemanager Fa can be notified when some events happen.
+     * this interface can only used by devicemanager Fa.
+     *
+     * @param callback for devicemanager Fa to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     on(type: 'dmSeaCallback', callback: Callback<{ param: string}>): void;
+
+     /**
+      * UnRegister dmFaCallback, this interface can only used by devicemanager Fa.
+      *
+      * @param callback for devicemanager Fa to register.
+      * @systemapi this method can be used only by system applications.
+      */
+     off(type: 'dmSeaCallback', callback?: Callback<{ param: string}>): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
