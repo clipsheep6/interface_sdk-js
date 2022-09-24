@@ -999,7 +999,42 @@ declare namespace commonEvent {
      * This common event can be triggered only by system.
      * @since 9
      */
-    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
+    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
+
+    /**
+     * Indicate the action of a common event that a new sms bas been received by the device.
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_SMS_RECEIVE_COMPLETED = "usual.event.SMS_RECEIVE_COMPLETED",
+
+    /**
+     * Indicate the action of a common event that a new sms emergency cell broadcast bas been received by the device.
+     * To subscribe to this protected common event, your application must have the ohos.permission.RECEIVE_SMS
+     * permission.
+     * This common event can be triggered only by system.
+     * @since 8
+     */
+    COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED = "usual.event.SMS_EMERGENCY_CB_RECEIVE_COMPLETED",
+
+     /**
+      * Indicate the action of a common event that a new sms normal cell broadcast bas been received by the device.
+      * To subscribe to this protected common event, your application must have the ohos.permission.RECEIVE_SMS
+      * permission.
+      * This common event can be triggered only by system.
+      * @since 8
+      */
+     COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED = "usual.event.SMS_CB_RECEIVE_COMPLETED",
+
+     /**
+      * Indicate the action of a common event that a new sms wappush has been received by the device.
+      * To subscribe to this protected common event, your application must have the ohos.permission.RECEIVE_SMS
+      * permission.
+      * This common event can be triggered only by system.
+      * @since 8
+      */
+    COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED = "usual.event.SMS_WAPPUSH_RECEIVE_COMPLETED"
   }
 }
 
