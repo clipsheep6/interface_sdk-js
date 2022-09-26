@@ -17,6 +17,9 @@
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
  */
+declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
+declare type WebHeader = import('../api/@ohos.web.webview').default.WebHeader;
+
 declare enum MessageLevel {
   /**
    * Debug level.
@@ -76,53 +79,62 @@ declare enum MixedMode {
 /**
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  * @since 8
+ * @deprecated since 9
  */
 declare enum HitTestType {
   /**
    * The edit text.
    * @since 8
+   * @deprecated since 9
    */
   EditText,
 
   /**
    * The email address.
    * @since 8
+   * @deprecated since 9
    */
   Email,
 
   /**
    * The HTML::a tag with src=http.
    * @since 8
+   * @deprecated since 9
    */
   HttpAnchor,
 
   /**
    * The HTML::a tag with src=http + HTML::img.
    * @since 8
+   * @deprecated since 9
    */
   HttpAnchorImg,
 
   /**
    * The HTML::img tag.
    * @since 8
+   * @deprecated since 9
    */
   Img,
 
   /**
    * The map address.
    * @since 8
+   * @deprecated since 9
    */
   Map,
 
   /**
    * The phone number.
    * @since 8
+   * @deprecated since 9
    */
   Phone,
 
   /**
    * Other unknown HitTest.
    * @since 8
+   * @deprecated since 9
    */
   Unknown,
 }
@@ -155,73 +167,6 @@ declare enum CacheMode {
    * @since 8
    */
   Only,
-}
-
-/**
- * Define html5 web message port.
- * @since 9
- */
-declare class WebMessagePort {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Close port.
-   * @since 9
-   */
-  close(): void;
-
-  /**
-   * Post a message to other port.
-   * @since 9
-   */
-  postMessageEvent(message: WebMessageEvent): void;
-
-  /**
-   * Receive message from other port.
-   * @since 9
-   */
-  onMessageEvent(callback: (result: string) => void): void;
-}
-
-
-/**
- * Define html5 web message, which include message and ports.
- * @since 9
- */
-declare class WebMessageEvent {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Get message.
-   * @since 9
-   */
-  getData(): string;
-
-  /**
-   * Set message.
-   * @since 9
-   */
-  setData(data: string): void;
-
-  /**
-   * Get ports.
-   * @since 9
-   */
-  getPorts(): Array<WebMessagePort>;
-
-  /**
-   * Set ports.
-   * @since 9
-   */
-  setPorts(ports: Array<WebMessagePort>): void;
 }
 
 /**
@@ -412,30 +357,6 @@ declare class FileSelectorResult {
 }
 
 /**
- * Defines the hit test value, related to {@link getHitTestValue} method.
- * @since 9
- */
-declare class HitTestValue {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * get the hit test type.
-   * @since 9
-   */
-  getType(): HitTestType;
-
-  /**
-   * get the hit test extra data.
-   * @since 9
-   */
-  getExtra(): string;
-}
-
-/**
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  * @since 9
  */
@@ -450,7 +371,7 @@ declare class HttpAuthHandler {
    * confirm.
    * @since 9
    */
-  confirm(userName: string, password: string): boolean;
+  confirm(userName: string, password: string): void;
 
   /**
    * cancel.
@@ -665,12 +586,20 @@ declare class WebContextMenuResult {
 declare class ConsoleMessage {
   /**
    * Constructor.
+   *
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Constructor.
    * @param message The console message.
    * @param sourceId The Web source file's path and name.
    * @param lineNumber The line number of the console message.
    * @param messageLevel The console log level.
    *
    * @since 8
+   * @deprecated since 9
    */
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
@@ -728,8 +657,17 @@ declare class WebResourceRequest {
    * @return Return the request headers
    *
    * @since 8
+   * @deprecated since 9
    */
   getRequestHeader(): Array<Header>;
+
+  /**
+   * Gets request headers.
+   * @return Return the request headers
+   *
+   * @since 9
+   */
+  getRequestHeaders(): Array<WebHeader>;
 
   /**
    * Gets the request URL.
@@ -763,7 +701,6 @@ declare class WebResourceRequest {
    */
   isRedirect(): boolean;
 }
-
 
 /**
  * Defines the Web resource response.
@@ -813,8 +750,17 @@ declare class WebResourceRequest {
    * @return Return the response headers.
    *
    * @since 8
+   * @deprecated since 9
    */
   getResponseHeader() : Array<Header>;
+
+  /**
+   * Gets the response headers.
+   * @return Return the response headers.
+   *
+   * @since 8
+   */
+  getResponseHeaders() : Array<WebHeader>;
 
   /**
    * Gets the response code.
@@ -862,7 +808,7 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseHeader(header: Array<Header>);
+  setResponseHeaders(headers: Array<WebHeader>);
 
   /**
    * Sets the response code.
@@ -939,65 +885,33 @@ declare class JsGeolocation {
    * @since 8
    */
   invoke(origin: string, allow: boolean, retain: boolean): void;
+
+  /**
+   * Report the geolocation permission status from users.
+   * @param origin The origin that ask for the geolocation permission.
+   * @param allow The geolocation permission status.
+   * @param retain Whether to allow the geolocation permission status to be saved to the system.
+   * @throws {BusinessError} if origin is not a valid resource.
+   * @throws {BusinessError} if allow is not a bool type.
+   * @throws {BusinessError} if retain is not a bool type.
+   *
+   * @since 9
+   */
+  invoke(origin: string, allow: boolean, retain: boolean): void;
 }
 
 /**
  * Defines the Web cookie.
  * @since 8
+ * @deprecated since 9
  */
 declare class WebCookie {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
-
-  /**
-   * Get whether cookies can be send or accepted.
-   * @return true if can send and accept cookies else false.
-   *
-   * @since 9
-   */
-  isCookieAllowed(): boolean;
-
-  /**
-   * Get whether third party cookies can be send or accepted.
-   * @return true if can send and accept third party cookies else false.
-   *
-   * @since 9
-   */
-  isThirdPartyCookieAllowed(): boolean;
-
-  /**
-   * Get whether file scheme cookies can be send or accepted.
-   * @return true if can send and accept else false.
-   * @since 9
-   */
-  isFileURICookieAllowed(): boolean;
-
-  /**
-   * Set whether cookies can be send or accepted.
-   * @param accept whether can send and accept cookies
-   *
-   * @since 9
-   */
-  putAcceptCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether third party cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *
-   * @since 9
-   */
-  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether file scheme cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *
-   * @since 9
-   */
-  putAcceptFileURICookieEnabled(accept: boolean): void;
 
   /**
    * Sets the cookie.
@@ -1007,84 +921,37 @@ declare class WebCookie {
   setCookie();
 
   /**
-   * Sets the cookie.
-   * @since 9
-   */
-  setCookie(url: string, value: string): boolean;
-
-  /**
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
    */
   saveCookie();
-
-  /**
-   * Saves the cookies.
-   * @since 9
-   */
-  saveCookieSync(): boolean;
-
-  /**
-   * Gets all cookies for the given URL.
-   *
-   * @param url the URL for which the cookies are requested.
-   * @return the cookie value for the given URL.
-   *
-   * @since 9
-   */
-  getCookie(url: string): string;
-
-  /**
-   * Check whether exists any cookies.
-   *
-   * @return true if exists cookies else false;
-   * @since 9
-   */
-  existCookie(): boolean;
-
-  /**
-   * Delete all cookies.
-   *
-   * @since 9
-   */
-  deleteEntireCookie(): void;
-
-  /**
-   * Delete session cookies.
-   *
-   * @since 9
-   */
-  deleteSessionCookie(): void;
-
-  /**
-   * Delete all expired cookies.
-   *
-   * @since 9
-   */
-  deleteExpiredCookie(): void;
 }
 
 /**
  * Defines the Web controller.
  * @since 8
+ * @deprecated since 9
  */
  declare class WebController {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
 
   /**
    * Let the Web inactive.
    * @since 8
+   * @deprecated since 9
    */
   onInactive(): void;
 
   /**
    * Let the Web active.
    * @since 8
+   * @deprecated since 9
    */
   onActive(): void;
 
@@ -1093,24 +960,14 @@ declare class WebCookie {
    * @param factor The zoom factor.
    *
    * @since 8
+   * @deprecated since 9
    */
   zoom(factor: number): void;
 
   /**
-   * Let the Web zoom in.
-   * @since 9
-   */
-   zoomIn(): boolean;
-
-  /**
-   * Let the Web zoom out.
-   * @since 9
-   */
-   zoomOut(): boolean;
-
-  /**
    * Clears the history in the Web.
    * @since 8
+   * @deprecated since 9
    */
   clearHistory(): void;
 
@@ -1119,29 +976,16 @@ declare class WebCookie {
    * @param options The options with a piece of code and a callback.
    *
    * @since 8
+   * @deprecated since 9
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
-
-  /**
-   * Create web message ports
-   *
-   * @since 9
-   */
-  createWebMessagePorts(): Array<WebMessagePort>;
-
-  /**
-   * Post web message port to html5
-   * @param options The options with a message event and a uri.
-   *
-   * @since 9
-   */
-  postMessage(options: { message: WebMessageEvent, uri: string}): void;
 
   /**
    * Loads the data or URL.
    * @param options The options with the data or URL and other information.
    *
    * @since 8
+   * @deprecated since 9
    */
   loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
@@ -1150,18 +994,21 @@ declare class WebCookie {
    * @param options The options with the URL and other information.
    *
    * @since 8
+   * @deprecated since 9
    */
   loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
    * @since 8
+   * @deprecated since 9
    */
   refresh();
 
   /**
    * Stops the current load.
    * @since 8
+   * @deprecated since 9
    */
   stop();
 
@@ -1170,6 +1017,7 @@ declare class WebCookie {
    * @param options The option with the JavaScript object and method list.
    *
    * @since 8
+   * @deprecated since 9
    */
   registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
@@ -1178,60 +1026,35 @@ declare class WebCookie {
    * @param name The name of a registered JavaScript object to be deleted.
    *
    * @since 8
+   * @deprecated since 9
    */
   deleteJavaScriptRegister(name: string);
 
   /**
    * Gets the type of HitTest.
    * @since 8
+   * @deprecated since 9
    */
   getHitTest(): HitTestType;
 
   /**
-   * Gets the hit test value of HitTest.
-   * @since 9
-   */
-  getHitTestValue(): HitTestValue;
-
-  /**
-   * Gets the id for the current Web.
-   * @since 9
-   */
-  getWebId(): number;
-
-  /**
-   * Gets the default user agent.
-   * @since 9
-   */
-  getDefaultUserAgent(): string;
-
-  /**
-   * Gets the title of current Web page.
-   * @since 9
-   */
-  getTitle(): string;
-
-  /**
-   * Gets the content height of current Web page.
-   * @since 9
-   */
-  getPageHeight(): number;
-
-  /**
    * Gets the request focus.
    * @since 8
+   * @deprecated since 9
    */
   requestFocus();
 
   /**
    * Checks whether the web page can go back.
    * @since 8
+   * @deprecated since 9
    */
   accessBackward(): boolean;
 
   /**
    * Checks whether the web page can go forward.
    * @since 8
+   * @deprecated since 9
    */
   accessForward(): boolean;
 
@@ -1240,80 +1063,41 @@ declare class WebCookie {
    * @param step The number of steps.
    *
    * @since 8
+   * @deprecated since 9
    */
   accessStep(step: number): boolean;
 
   /**
    * Goes back in the history of the web page.
    * @since 8
+   * @deprecated since 9
    */
   backward();
 
   /**
    * Goes forward in the history of the web page.
    * @since 8
+   * @deprecated since 9
    */
   forward();
-
-  /**
-   * Goes forward or back backOrForward in the history of the web page.
-   * @since 9
-   */
-  backOrForward(step: number): void;
-
-  /**
-   * Gets network cookie manager
-   * @since 9
-   */
-  getCookieManager() : WebCookie
-
-  /**
-   * Search all instances of 'searchString' on the page and highlights them,
-   * result will be notify through callback onSearchResultReceive.
-   * @param searchString string to be search.
-   * @since 9
-   */
-  searchAllAsync(searchString: string): void;
-
-  /**
-   * Clears the highlighting surrounding text matches created by searchAllAsync.
-   * @since 9
-   */
-  clearMatches(): void;
-
-  /**
-   * Highlights and scrolls to the next match search.
-   * @param forward step of search is back or forward.
-   * @since 9
-   */
-  searchNext(forward: boolean): void;
-
-  /**
-   * Clears the ssl cache in the Web.
-   * @since 9
-   */
-   clearSslCache(): void;
-
-  /**
-   * Clears the client authentication certificate cache in the Web.
-   * @since 9
-   */
-  clearClientAuthenticationCache(): void;
 }
 
 /**
  * Defines the Web options.
  * @since 8
+ * @deprecated since 9
  */
 declare interface WebOptions {
   /**
    * Sets the address of the web page to be displayed.
    * @since 8
+   * @deprecated since 9
    */
   src: string | Resource;
   /**
    * Sets the controller of the Web.
    * @since 8
+   * @deprecated since 9
    */
   controller: WebController;
 }
@@ -1321,13 +1105,44 @@ declare interface WebOptions {
 /**
  * Defines the Web interface.
  * @since 8
+ * @deprecated since 9
  */
 interface WebInterface {
   /**
    * Sets Value.
    * @since 8
+   * @deprecated since 9
    */
   (value: WebOptions): WebAttribute;
+}
+
+/**
+ * Defines the Web options.
+ * @since 9
+ */
+declare interface WebviewOptions {
+  /**
+   * Sets the address of the web page to be displayed.
+   * @since 9
+   */
+  src: string | Resource;
+  /**
+   * Sets the controller of the Web.
+   * @since 9
+   */
+  controller: WebviewController;
+}
+
+/**
+ * Defines the webview interface.
+ * @since 9
+ */
+interface WebviewInterface {
+  /**
+   * Sets Value.
+   * @since 9
+   */
+  (value: WebviewOptions): WebAttribute;
 }
 
 /**
@@ -1784,4 +1599,5 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 }
 
 declare const Web: WebInterface;
+declare const Webview: WebviewInterface;
 declare const WebInstance: WebAttribute;

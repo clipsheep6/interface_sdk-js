@@ -23,6 +23,168 @@ import {AsyncCallback} from "./basic";
  */
 declare namespace webview {
     /**
+     * Defines the Web's request/response header.
+     * @since 9
+     */
+    interface WebHeader {
+        /**
+         * Gets the key of the request/response header.
+         * @since 9
+         */
+        headerKey: string;
+
+        /**
+         * Gets the value of the request/response header.
+         * @since 9
+         */
+        headerValue: string;
+    }
+
+    /**
+     * Enum type supplied to {@link getHitTestValue} for indicating the cursor node HitTest.
+     * @since 9
+     */
+    enum HitTestTypeV9 {
+        /**
+         * The edit text.
+         * @since 9
+         */
+        EditText,
+
+        /**
+         * The email address.
+         * @since 9
+         */
+        Email,
+
+        /**
+         * The HTML::a tag with src=http.
+         * @since 9
+         */
+        HttpAnchor,
+
+        /**
+         * The HTML::a tag with src=http + HTML::img.
+         * @since 9
+         */
+        HttpAnchorImg,
+
+        /**
+         * The HTML::img tag.
+         * @since 9
+         */
+        Img,
+
+        /**
+         * The map address.
+         * @since 9
+         */
+        Map,
+
+        /**
+         * The phone number.
+         * @since 9
+         */
+        Phone,
+
+        /**
+         * Other unknown HitTest.
+         * @since 9
+         */
+        Unknown,
+    }
+
+    /**
+     * Defines the hit test value, related to {@link getHitTestValue} method.
+     * @since 9
+     */
+    class HitTestValue {
+        /**
+         * Constructor.
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * get the hit test type.
+         * @since 9
+         */
+        getType(): HitTestTypeV9;
+
+        /**
+         * get the hit test extra data.
+         * @since 9
+         */
+        getExtra(): string;
+    }
+
+    /**
+     * Define html5 web message port.
+     * @since 9
+     */
+    class WebMessagePort {
+        /**
+         * Constructor.
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * Close port.
+         * @since 9
+         */
+        close(): void;
+
+        /**
+         * Post a message to other port.
+         * @since 9
+         */
+        postMessageEvent(message: WebMessageEvent): void;
+
+        /**
+         * Receive message from other port.
+         * @since 9
+         */
+        onMessageEvent(callback: (result: string) => void): void;
+    }
+
+    /**
+     * Define html5 web message, which include message and ports.
+     * @since 9
+     */
+    class WebMessageEvent {
+        /**
+         * Constructor.
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * Get message.
+         * @since 9
+         */
+        getData(): string;
+
+        /**
+         * Set message.
+         * @since 9
+         */
+        setData(data: string): void;
+
+        /**
+         * Get ports.
+         * @since 9
+         */
+        getPorts(): Array<WebMessagePort>;
+
+        /**
+         * Set ports.
+         * @since 9
+         */
+        setPorts(ports: Array<WebMessagePort>): void;
+    }
+
+    /**
      * Provides basic information of web storage.
      * @name WebStorageOrigin
      * @since 9
@@ -124,19 +286,249 @@ declare namespace webview {
       }
 
       /**
-       * Provides asynchronous methods for manage the webview.
+       * Defines the webview controller.
        *
        * @since 9
        */
-      class WebAsyncController {
-          /**
-           * Constructor.
-           *
-           * @param controller WebAsyncController needs a WebController to associate with corresponding nweb.
-           *
-           * @since 9
-           */
-          constructor(controller: WebController);
+      class WebviewController {
+        /**
+         * Constructor.
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * Let the Web inactive.
+         * @since 9
+         */
+        onInactive(): void;
+
+        /**
+         * Let the Web active.
+         * @since 9
+         */
+        onActive(): void;
+
+        /**
+         * Let the Web zoom by.
+         * @param factor The zoom factor.
+         * @throws {BusinessError} if factor is not a valid number.
+         * @throws {BusinessError} if {@link zoomAccess} set false.
+         *
+         * @since 9
+         */
+        zoom(factor: number): void;
+
+        /**
+         * Let the Web zoom in.
+         * @throws {BusinessError} if {@link zoomAccess} set false.
+         * @since 9
+         */
+        zoomIn(): void;
+
+        /**
+         * Let the Web zoom out.
+         * @throws {BusinessError} if {@link zoomAccess} set false.
+         * @since 9
+         */
+        zoomOut(): void;
+
+        /**
+         * Clears the history in the Web.
+         * @since 9
+         */
+        clearHistory(): void;
+
+        /**
+         * Loads a piece of code and execute JS code in the context of the currently displayed page.
+         * @param options The options with a piece of code and a callback.
+         * @throws {BusinessError} if script is not a valid string.
+         *
+         * @since 9
+         */
+        runJavaScript(options: { script: string, callback?: (result: string) => void });
+
+        /**
+         * Create web message ports
+         *
+         * @since 9
+         */
+        createWebMessagePorts(): Array<WebMessagePort>;
+
+        /**
+         * Post web message port to html5
+         * @param options The options with a message event and a uri.
+         * @throws {BusinessError} if message is not a WebMessageEvent type.
+         * @throws {BusinessError} if uri is not a string type.
+         *
+         * @since 9
+         */
+        postMessage(options: { message: WebMessageEvent, uri: string}): void;
+
+        /**
+         * Loads the data or URL.
+         * @param options The options with the data or URL and other information.
+         * @throws {BusinessError} if data is not a string type or not a valid format.
+         * @throws {BusinessError} if mimeType is not a string type or not a valid format.
+         * @throws {BusinessError} if encoding is not a string type or not a valid format.
+         *
+         * @since 9
+         */
+        loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
+
+        /**
+         * Loads the given URL.
+         * @param options The options with the URL and other information.
+         * @throws {BusinessError} if url is not a string type or not a valid format.
+         * @throws {BusinessError} if Header is not Array type or not a valid format.
+         *
+         * @since 9
+         */
+        loadUrl(options: { url: string | Resource, headers?: Array<WebHeader> });
+
+        /**
+         * refreshes the current URL.
+         * @since 9
+         */
+        refresh();
+
+        /**
+         * Stops the current load.
+         * @since 9
+         */
+        stop();
+
+        /**
+         * Registers the JavaScript object and method list.
+         * @param options The option with the JavaScript object and method list.
+         * @throws {BusinessError} if name is not a string type or not a valid format.
+         *
+         * @since 9
+         */
+        registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
+
+        /**
+         * Deletes a registered JavaScript object with given name.
+         * @param name The name of a registered JavaScript object to be deleted.
+         * @throws {BusinessError} if name is not a string type or not a valid format.
+         *
+         * @since 9
+         */
+        deleteJavaScriptRegister(name: string);
+
+        /**
+         * Gets the hit test value of HitTest.
+         * @since 9
+         */
+        getHitTestValue(): HitTestValue;
+
+        /**
+         * Gets the id for the current Web.
+         * @since 9
+         */
+        getWebId(): number;
+
+        /**
+         * Gets the default user agent.
+         * @since 9
+         */
+        getDefaultUserAgent(): string;
+
+        /**
+         * Gets the title of current Web page.
+         * @since 9
+         */
+        getTitle(): string;
+
+        /**
+         * Gets the content height of current Web page.
+         * @since 9
+         */
+        getPageHeight(): number;
+
+        /**
+         * Gets the request focus.
+         * @since 9
+         */
+        requestFocus();
+
+        /**
+         * Checks whether the web page can go back.
+         * @since 9
+         */
+        accessBackward(): boolean;
+
+        /**
+         * Checks whether the web page can go forward.
+         * @since 9
+         */
+        accessForward(): boolean;
+
+        /**
+         * Checks whether the web page can go back or forward the given number of steps.
+         * @param step The number of steps.
+         * @throw {BusinessError} if step is not a valid number.
+         *
+         * @since 9
+         */
+        accessStep(step: number): boolean;
+
+        /**
+         * Goes back in the history of the web page.
+         * @throw {BusinessError} if can't backward anymore.
+         * @since 9
+         */
+        backward(): void;
+
+        /**
+         * Goes forward in the history of the web page.
+         * @throw {BusinessError} if can't forward anymore.
+         * @since 9
+         */
+        forward(): void;
+
+        /**
+         * Goes forward or back backOrForward in the history of the web page.
+         * @throw {BusinessError} if step is not a valid number.
+         * @throw {BusinessError} if can't backward or forward anymore.
+         * @since 9
+         */
+        backOrForward(step: number): void;
+
+        /**
+         * Search all instances of 'searchString' on the page and highlights them,
+         * result will be notify through callback onSearchResultReceive.
+         * @param searchString string to be search.
+         * @throws {BusinessError} if searchString is not a string type or not a valid format.
+         * @since 9
+         */
+        searchAllAsync(searchString: string): void;
+
+        /**
+         * Clears the highlighting surrounding text matches created by searchAllAsync.
+         * @since 9
+         */
+        clearMatches(): void;
+
+        /**
+         * Highlights and scrolls to the next match search.
+         * @param forward step of search is back or forward.
+         * @throws {BusinessError} if forward is not a boolean type.
+         * @since 9
+         */
+        searchNext(forward: boolean): void;
+
+        /**
+         * Clears the ssl cache in the Web.
+         * @since 9
+         */
+        clearSslCache(): void;
+
+        /**
+         * Clears the client authentication certificate cache in the Web.
+         * @since 9
+         */
+        clearClientAuthenticationCache(): void;
 
           /**
            * Stores the current page as a web archive.
@@ -146,6 +538,7 @@ declare namespace webview {
            *                 the url and the generated offline webpage will be stored in the directory
            *                 specified by baseName. If it is true, the offline webpage will be directly
            *                 stored in the path specified by baseName.
+           * @throws {BusinessError} if baseName is not a string type or not a valid format.
            * @returns a promise resolved after the web archive has been stored. The parameter will either
            *          be the filename under which the file was stored, or empty if storing the file failed.
            *
@@ -164,6 +557,7 @@ declare namespace webview {
            * @param callback called after the web archive has been stored. The parameter will either be
            *                 the filename under which the file was stored, or empty if storing
            *                 the file failed.
+           * @throws {BusinessError} if baseName is not a string type or not a valid format.
            *
            * @since 9
            */
