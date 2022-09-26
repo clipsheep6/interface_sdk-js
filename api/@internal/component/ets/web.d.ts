@@ -261,6 +261,36 @@ declare enum RenderExitReason {
 }
 
 /**
+ * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
+ * @since 9
+ */
+ declare enum SslError {
+  /**
+   * General error.
+   * @since 9
+   */
+   Invalid,
+
+  /**
+   * Hostname mismatch.
+   * @since 9
+   */
+   HostMismatch,
+
+  /**
+   * The certificate date is invalid.
+   * @since 9
+   */
+   DateInvalid,
+
+  /**
+   * The certificate authority is not trusted.
+   * @since 9
+   */
+   Untrusted,
+}
+
+/**
  * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
  * @since 9
  */
@@ -433,6 +463,63 @@ declare class HttpAuthHandler {
    * @since 9
    */
   isHttpAuthInfoSaved(): boolean;
+}
+
+/**
+ * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
+ * @since 9
+ */
+ declare class SslErrorHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+   constructor();
+
+  /**
+   * Confirm to use the SSL certificate.
+   * @since 9
+   */
+   handleConfirm(): void;
+
+  /**
+   * Cancel this request.
+   * @since 9
+   */
+   handleCancel(): void;
+}
+
+/**
+ * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
+ * @since 9
+ */
+ declare class ClientAuthenticationHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Confirm to use the specified private key and client certificate chain.
+   * @param priKeyFile The file that store private key.
+   * @param certChainFile The file that store client certificate chain.
+   *
+   * @since 9
+   */
+  confirm(priKeyFile : string, certChainFile : string): void;
+
+  /**
+   * Cancel this certificate request.
+   * @since 9
+   */
+  cancel(): void;
+  
+  /**
+   * Ignore this certificate request temporarily.
+   * @since 9
+   */
+  ignore(): void;
 }
 
 /**
@@ -1200,6 +1287,18 @@ declare class WebCookie {
    * @since 9
    */
   searchNext(forward: boolean): void;
+
+  /**
+   * Clears the ssl cache in the Web.
+   * @since 9
+   */
+   clearSslCache(): void;
+
+  /**
+   * Clears the client authentication certificate cache in the Web.
+   * @since 9
+   */
+  clearClientAuthenticationCache(): void;
 }
 
 /**
@@ -1665,6 +1764,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
    onScroll(callback: (event: {xOffset: number, yOffset: number}) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page receives an ssl Error.
+   * @param callback The triggered callback when the Web page receives an ssl Error.
+   *
+   * @since 9
+   */
+   onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page needs ssl client certificate from the user.
+   * @param callback The triggered callback when needs ssl client certificate from the user.
+   *
+   * @since 9
+   */
+  onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
+      keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;

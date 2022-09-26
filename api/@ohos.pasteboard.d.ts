@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import Want from './@ohos.application.want';
-import { image } from './@ohos.multimedia.image';
+import Want from './@ohos.application.Want';
+import image from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard

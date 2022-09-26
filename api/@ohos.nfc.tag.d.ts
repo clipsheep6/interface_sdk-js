@@ -34,6 +34,7 @@ import { TagSession as _TagSession } from './tag/tagSession';
 import { PacMap } from "./ability/dataAbilityHelper";
 import rpc from "./@ohos.rpc";
 import { AsyncCallback, Callback } from './basic';
+import Want from './@ohos.application.Want';
 
 /**
  * Provides methods to operate or manage NFC tag.
@@ -193,6 +194,17 @@ declare namespace tag {
   function getNdefFormatableTag(tagInfo: TagInfo): NdefFormatableTag
 
   /**
+   * Parse a {@link TagInfo} object from Want.
+   *
+   * @param want The want object that contains the values of TagInfo.
+   * @return The TagInfo object that's parsed.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  function getTagInfo(want: Want): TagInfo
+
+  /**
    * Provides tag information.
    *
    * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
@@ -208,7 +220,7 @@ declare namespace tag {
     *
     * @since 9
     */
-    uid: string;
+    uid: number[];
 
    /**
     * The supported technology list of this tag.
