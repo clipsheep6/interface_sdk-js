@@ -1032,6 +1032,12 @@ declare namespace wifi {
         /** Client certificate alias */
         clientCertAliases: string;
 
+        /**  */
+        cerEntry: Uint8Array;
+
+        /**  */
+        certPassword: string;
+
         /** Alternate subject match */
         altSubjectMatch: string;
 
