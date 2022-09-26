@@ -107,6 +107,10 @@ declare namespace router {
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param options Options.
+   * @throws BusinessError 401 if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws BusinessError 100001 if can not get the delegate.
+   * @throws BusinessError 100002 if the uri is not exist.
+   * @throws BusinessError 100003 if the pages are pushed too much.
    * @since 8
    */
   function push(options: RouterOptions):void;
@@ -115,6 +119,10 @@ declare namespace router {
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param options Options.
    * @param mode RouterMode
+   * @throws BusinessError 401 if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws BusinessError 100001 if can not get the delegate.
+   * @throws BusinessError 100002 if the uri is not exist.
+   * @throws BusinessError 100003 if the pages are pushed too much.
    * @since 9
    */
   function push(options: RouterOptions, mode: RouterMode):void;
@@ -122,6 +130,9 @@ declare namespace router {
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param options Options.
+   * @throws BusinessError 401 if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws BusinessError 100001 if can not get the delegate.
+   * @throws BusinessError 100002 if the uri is not exist.
    * @since 8
    */
   function replace(options: RouterOptions):void;
@@ -130,6 +141,9 @@ declare namespace router {
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param options Options.
    * @param mode RouterMode
+   * @throws BusinessError 401 if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws BusinessError 100001 if can not get the delegate.
+   * @throws BusinessError 100002 if the uri is not exist.
    * @since 9
    */
   function replace(options: RouterOptions, mode: RouterMode):void;
@@ -137,18 +151,21 @@ declare namespace router {
   /**
    * Returns to the previous page or a specified page.
    * @param options Options.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function back(options?: RouterOptions):void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function clear():void;
 
   /**
    * Obtains the number of pages in the current stack.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @returns Number of pages in the stack. The maximum value is 32.
    * @since 8
    */
@@ -156,6 +173,7 @@ declare namespace router {
 
   /**
    * Obtains information about the current page state.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @returns Page state.
    * @since 8
    */
@@ -164,18 +182,22 @@ declare namespace router {
   /**
    * Pop up dialog to ask whether to back
    * @param options Options.
+   * @throws BusinessError 401 if the type of the parameter is not object or the type of the message is not string.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function enableAlertBeforeBackPage(options: EnableAlertOptions):void;
 
   /**
    * cancel enableAlertBeforeBackPage
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function disableAlertBeforeBackPage():void;
 
   /**
    * Obtains information about the current page params.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @returns Page params.
    * @since 8
    */

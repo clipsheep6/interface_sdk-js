@@ -143,6 +143,7 @@ declare namespace matrix4 {
 
     /**
      * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
+     * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
      * @since 7
      * @return Return to Matrix4Transit
      */
@@ -150,6 +151,7 @@ declare namespace matrix4 {
 
     /**
      * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
+     * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
      * @since 7
      * @return Return to Matrix4Transit
      */
@@ -157,6 +159,7 @@ declare namespace matrix4 {
 
     /**
      * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
+     * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
      * @since 7
      * @return Return to Matrix4Transit
      */
@@ -164,6 +167,7 @@ declare namespace matrix4 {
 
     /**
      * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
+     * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
      * @since 7
      * @return Return to Matrix4Transit
      */
@@ -171,6 +175,7 @@ declare namespace matrix4 {
 
     /**
      * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
+     * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not array or the length is not 2.
      * @since 7
      * @return Return to Matrix4Transit
      */
@@ -179,6 +184,7 @@ declare namespace matrix4 {
 
   /**
    * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the length of matrix init array is not equal to MATRIX_LENGTH(16).
    * @since 7
    * @return Return to Matrix4Transit
    */
@@ -226,6 +232,7 @@ declare namespace matrix4 {
 
   /**
    * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
    * @since 7
    * @return Return to Matrix4Transit
    */
@@ -233,6 +240,7 @@ declare namespace matrix4 {
 
   /**
    * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
    * @since 7
    * @return Return to Matrix4Transit
    */
@@ -240,6 +248,7 @@ declare namespace matrix4 {
 
   /**
    * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
    * @since 7
    * @return Return to Matrix4Transit
    */
@@ -247,6 +256,7 @@ declare namespace matrix4 {
 
   /**
    * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not object.
    * @since 7
    * @return Return to Matrix4Transit
    */
@@ -254,6 +264,7 @@ declare namespace matrix4 {
 
   /**
    * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of the parameter is not array or the length is not 2.
    * @since 7
    * @return Return to Matrix4Transit
    */

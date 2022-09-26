@@ -47,6 +47,7 @@ declare namespace curves {
   interface ICurve {
     /**
     * Get curve value by fraction.
+    * @throws BusinessError 401 if the number of interpolate args is illegal.
     * @since 9
     */ 
      interpolate(fraction : number) : number;
@@ -54,12 +55,14 @@ declare namespace curves {
 
   /**
    * Initializes the interpolator curve when called.
+   * @throws BusinessError 401 if the number of initCurve args is illegal.
    * @since 9
    */
   function initCurve(curve?: Curve): ICurve;
 
   /**
    * Initializes the interpolator curve when called.
+   * @throws BusinessError 401 if the number of init args is illegal.
    * @since 7
    * @deprecated since 9
    */
@@ -67,12 +70,14 @@ declare namespace curves {
  
   /**
    * Constructs a step curve when called.
+   * @throws BusinessError 401 if the number of stepsCurve args is illegal or the value of the stepSize is illegal.
    * @since 9
    */
    function stepsCurve(count: number, end: boolean): ICurve;
  
   /**
    * Constructs a step curve when called.
+   * @throws BusinessError 401 if the number of steps args is illegal or the value of the stepSize is illegal.
    * @since 7
    * @deprecated since 9
    */
@@ -80,12 +85,14 @@ declare namespace curves {
  
   /**
    * Constructs a third-order Bezier curve when called.
+   * @throws BusinessError 401 if the number of cubicBezierCurve args is illegal.
    * @since 9
    */
   function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
  
   /**
    * Constructs a third-order Bezier curve when called.
+   * @throws BusinessError 401 if the number of cubicBezier args is illegal.
    * @since 7
    * @deprecated since 9
    */
@@ -93,12 +100,14 @@ declare namespace curves {
  
   /**
    * Constructs a spring curve when called.
+   * @throws BusinessError 401 if The number of springCurve args is illegal or the value of springCurve args is illegal.
    * @since 9
    */
   function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
  
   /**
    * Constructs a spring curve when called.
+   * @throws BusinessError 401 if the number of spring args is illegal or the value of spring args is illegal.
    * @since 7
    * @deprecated since 9
    */
@@ -107,6 +116,7 @@ declare namespace curves {
   /**
    * Constructs a spring motion when called.
    * If one parameter is not specified, it uses the corresponding default values.
+   * @throws BusinessError 401 if the number of springMotion args is illegal.
    * @since 9
    */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
@@ -114,6 +124,7 @@ declare namespace curves {
   /**
    * Constructs a responsive spring motion when called.
    * If one parameter is not specified, it uses the corresponding default values.
+   * @throws BusinessError 401 if the number of responsiveSpringMotion args is illegal.
    * @since 9
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;

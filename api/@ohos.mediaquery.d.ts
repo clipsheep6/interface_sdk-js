@@ -45,6 +45,8 @@ declare namespace mediaquery {
     /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when the media attributes change.
+     * @throws BusinessError 401 if the number of arguments is 0, the type of argument 1 is not string, the length of argument 1 is too long, argument 1 mismatch "change" or the type of argument 2 is not function.
+     * @throws BusinessError 100001 if can not get jsEngine or MediaQueryListener init failed.
      * @since 7
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
@@ -52,6 +54,8 @@ declare namespace mediaquery {
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is not triggered when the media attributes chang.
+     * @throws BusinessError 401 if the number of arguments is 0, the type of argument 1 is not string, the length of argument 1 is too long, argument 1 mismatch "change" or the type of argument 2 is not function.
+     * @throws BusinessError 100001 if can not get jsEngine or MediaQueryListener init failed.
      * @since 7
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
@@ -59,6 +63,7 @@ declare namespace mediaquery {
 
   /**
    * Sets the media query criteria and returns the corresponding listening handle
+   * @throws BusinessError 401 if the number of parameters is not 1, the type of condition is incorrect or the length of condition is too long.
    * @since 7
    */
   function matchMediaSync(condition: string): MediaQueryListener;
