@@ -71,6 +71,11 @@ declare namespace dateTimeManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { boolean } disallow - True if set the modificationing of date time disabled, otherwise false.
    * @param { AsyncCallback<void> } callback - the callback of disallowModifyDateTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -84,6 +89,11 @@ declare namespace dateTimeManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { boolean } disallow - True if set the modificationing of date time disabled, otherwise false.
    * @returns { Promise<void> } the promise returned by the disallowModifyDateTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -97,6 +107,11 @@ declare namespace dateTimeManager {
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<boolean> } callback - the callback of isModifyDateTimeDisallowed.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -109,6 +124,11 @@ declare namespace dateTimeManager {
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<boolean> } the promise returned by the isModifyDateTimeDisallowed.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

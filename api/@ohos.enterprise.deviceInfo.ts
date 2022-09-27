@@ -30,6 +30,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getDeviceSerial.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -42,6 +47,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by getDeviceSerial.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -55,6 +65,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getDisplayVersion.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -67,6 +82,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by getDisplayVersion.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -80,6 +100,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getDeviceName.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -92,6 +117,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by getDeviceName.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -105,6 +135,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<string> } callback - the callback of getHardDiskSerial.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -117,6 +152,11 @@ declare namespace deviceInfo {
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<string> } the promise returned by getHardDiskSerial.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

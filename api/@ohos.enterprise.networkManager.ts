@@ -32,6 +32,11 @@ declare namespace networkManager {
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<Array<string>> } callback - the callback of getAllNetworkInterfaces.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -44,6 +49,11 @@ declare namespace networkManager {
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<Array<string>> } the promise returned by getAllNetworkInterfaces.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -58,6 +68,11 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
    * @param { AsyncCallback<string> } callback - the callback of getIpAddress.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -71,6 +86,11 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
    * @returns { Promise<string> } the promise returned by getIpAddress.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -85,6 +105,11 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @param { AsyncCallback<string> } callback - the callback of getMac.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -98,6 +123,11 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @returns { Promise<string> } the promise returned by getMac.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -112,6 +142,11 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get status.
    * @param { AsyncCallback<boolean> } callback - the callback of getNetworkInterfaceStatus.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -125,6 +160,11 @@ declare namespace networkManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get status.
    * @returns { Promise<boolean> } the promise returned by getNetworkInterfaceStatus.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -140,6 +180,11 @@ declare namespace networkManager {
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
    * @param { AsyncCallback<void> } callback - the callback of setNetworkInterfaceDisabled.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -154,6 +199,11 @@ declare namespace networkManager {
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
    * @returns { Promise<void> } the promise returned setNetworkInterfaceDisabled.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

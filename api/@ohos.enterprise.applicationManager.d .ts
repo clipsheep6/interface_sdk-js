@@ -33,6 +33,11 @@ declare namespace applicationManager {
    * @param { Array<string> } bundleNames - List of applications that disallowed running.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -48,6 +53,11 @@ declare namespace applicationManager {
    * @param { Array<string> } bundleNames - List of applications that disallowed running.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promiose returned by the addDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -63,6 +73,11 @@ declare namespace applicationManager {
    * @param { Array<string> } bundleNames - List of applications that disallowed running.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.s
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -78,6 +93,11 @@ declare namespace applicationManager {
    * @param { Array<string> } bundleNames - List of applications that disallowed running.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promiose returned by the removeDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -93,6 +113,11 @@ declare namespace applicationManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -108,6 +133,11 @@ declare namespace applicationManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<string>> } the promiose returned by the getDisallowedRunningBundles.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly

@@ -32,6 +32,11 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates rhe target time stamp (ms).
    * @param { AsyncCallback<void> } callback - the callback of setScreenOffTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -45,6 +50,11 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates rhe target time stamp (ms).
    * @returns { Promise<void> } the promise returned by setScreenOffTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -58,6 +68,11 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_SET_SCREENOFF_TIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<number> } callback - the callback of getScreenOffTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -70,6 +85,11 @@ declare namespace deviceSettings {
    * @permission ohos.permission.ENTERPRISE_SET_SCREENOFF_TIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<number> } the promise returned by getScreenOffTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200007 - the system ability work abnormally.
+   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
