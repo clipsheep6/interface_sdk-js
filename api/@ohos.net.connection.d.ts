@@ -40,6 +40,8 @@ declare namespace connection {
   /**
    * Obtains the data network that is activated by default.
    *
+   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
    * @param callback Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -48,19 +50,9 @@ declare namespace connection {
   function getDefaultNet(): Promise<NetHandle>;
 
   /**
-   * Obtains the data network that is activated by default.
-   *
-   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
-   *
-   * @return Returns the {@link NetHandle} object;
-   *      returns {@code null} if the default network is not activated.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @since 9
-   */
-  function getDefaultNetSync(): NetHandle;
-
-  /**
    * Obtains the list of data networks that are activated.
+   *
+   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -71,6 +63,8 @@ declare namespace connection {
   /**
    * Queries the connection properties of a network.
    *
+   * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
    * @param netHandle Indicates the network to be queried.
    * @param callback Returns the {@link ConnectionProperties} object.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -80,6 +74,8 @@ declare namespace connection {
 
   /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   *
+   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the handle. See {@link NetHandle}.
    * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
@@ -140,6 +136,42 @@ declare namespace connection {
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
+  /**
+   * Get app routing information
+   *
+   * @param callback Returns the {@link NetHandle} object;
+   */
+  function getAppNet(callback: AsyncCallback<NetHandle>): void;
+  function getAppNet(): Promise<NetHandle>;
+
+  /**
+   * set app routing information
+   *
+   * @param netHandle Indicates the network whose state is to be reported.
+   * @permission ohos.permission.INTERNET
+   *
+   */
+  function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+  function setAppNet(netHandle: NetHandle): Promise<void>;
+
+  /**
+   * Get default httpproxy infomation
+   *
+   * @param callback Returns the {@link HttpProxy} object;
+   */
+  function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+  function getDefaultHttpProxy(): Promise<HttpProxy>;
+
+  /**
+   * Is the default net measurement
+   *
+   * @param callback return is net metered
+   * @permission ohos.permission.GET_NETWORK_INFO
+   */
+  function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
+  function isDefaultNetMetered(): Promise<boolean>;
+
+
   export interface NetConnection {
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -175,11 +207,20 @@ declare namespace connection {
     netId: number;
 
     /**
+     * Binds a TCPSocket or UDPSocket to the current network. All data flows from
+     * the socket will use this network, without being subject to {@link setAppNet}.
+     * Before using this method, ensure that the socket is disconnected.
+     *
+     * @param socketParam Indicates the TCPSocket or UDPSocket object.
+     */
+    bindSocket(socketParam: TCPSocket | UDPSocket, callback: AsyncCallback<void>): void;
+    bindSocket(socketParam: TCPSocket | UDPSocket): Promise<void>;
+
+    /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
      * @param callback Returns the NetAddress list.
-     * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
@@ -189,7 +230,6 @@ declare namespace connection {
      *
      * @param host Indicates the host name or the domain.
      * @return Returns the first NetAddress.
-     * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
     getAddressByName(host: string): Promise<NetAddress>;
@@ -241,9 +281,23 @@ declare namespace connection {
     BEARER_WIFI = 1,
 
     /**
+     * Indicates that the network is based on a bluetooth network.
+     */
+    BEARER_BLUETOOTH = 2,
+    /**
      * Indicates that the network is an Ethernet network.
      */
     BEARER_ETHERNET = 3,
+
+    /**
+     * Indicates that the network is based on a VPN network.
+     */
+    BEARER_VPN = 4,
+
+    /**
+     * Indicates that the network is based on bjkbearer bluetooth network.
+     */
+    BEARER_BJKBEARER_BLUETOOTH = 5,
   }
 
   export interface ConnectionProperties {
@@ -268,10 +322,19 @@ declare namespace connection {
     prefixLength: number;
   }
 
+  /**
+   * @since 7
+   */
   export interface NetAddress {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
     port?: number; // [0, 65535]
+  }
+
+  export interface HttpProxy {
+    host: string;
+    port: number;
+    parsedExclusionList: Array<string>;
   }
 }
 
