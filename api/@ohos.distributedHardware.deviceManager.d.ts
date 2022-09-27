@@ -100,6 +100,13 @@ declare namespace deviceManager {
     TV = 0x9C
   }
 
+  interface SeaParamInfo {
+    /**
+     * SeaParamInfo is listen callback info
+     */
+     verifyFailed: boolean; 
+  }
+
   /**
    * Device state change event definition
    *
@@ -515,29 +522,29 @@ declare namespace deviceManager {
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
 
     /**
-     * Set user Operation from devicemanager Fa, this interface can only used by devicemanager Fa.
+     * Set user Operation from devicemanager Sea, this interface can only used by devicemanager Sea.
      *
      * @param operateAction User Operation Actions.
      * @systemapi this method can be used only by system applications.
      */  
-    setUserOperation(operateAction: UserOperationAction): void;
+     setUserOperation(operateAction: number, params: string): void;
 
     /**
-     * Register a callback from deviceManager service so that the devicemanager Fa can be notified when some events happen.
-     * this interface can only used by devicemanager Fa.
+     * Register a callback from deviceManager service so that the devicemanager Sea can be notified when some events happen.
+     * this interface can only used by devicemanager Sea.
      *
-     * @param callback for devicemanager Fa to register.
+     * @param callback for devicemanager Sea to register.
      * @systemapi this method can be used only by system applications.
      */
-     on(type: 'dmSeaCallback', callback: Callback<{ param: string}>): void;
+     on(type: 'seaStatueChange', callback: Callback<{ param: SeaParamInfo}>): void;
 
      /**
-      * UnRegister dmFaCallback, this interface can only used by devicemanager Fa.
+      * UnRegister dmSeaCallback, this interface can only used by devicemanager Sea.
       *
-      * @param callback for devicemanager Fa to register.
+      * @param callback for devicemanager Sea to register.
       * @systemapi this method can be used only by system applications.
       */
-     off(type: 'dmSeaCallback', callback?: Callback<{ param: string}>): void;
+     off(type: 'seaStatueChange', callback?: Callback<{ param: SeaParamInfo}>): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
