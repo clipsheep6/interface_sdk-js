@@ -617,7 +617,7 @@ declare namespace image {
    * @param buf The buffer of the iamge.
    * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
    */
-  function CreateIncrementalSource(buf: ArrayBuffer): ImageSource;
+  function createIncrementalSource(buf: ArrayBuffer): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.
@@ -627,7 +627,7 @@ declare namespace image {
    * @param options The config of source.
    * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
    */
-  function CreateIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource;
+  function createIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImagePacker instance.
