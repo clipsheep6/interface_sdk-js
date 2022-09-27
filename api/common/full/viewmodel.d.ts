@@ -971,6 +971,12 @@ export interface InputElement extends Element {
    * @since 6
    */
   delete(): void;
+
+  /**
+   * set the component selected
+   * @since 9
+   */
+  select():void;
 }
 
 /**
