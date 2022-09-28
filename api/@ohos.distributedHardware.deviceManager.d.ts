@@ -329,43 +329,6 @@ declare namespace deviceManager {
   }
 
   /**
-   * User Operation Action from devicemanager Fa.
-   *
-   * @systemapi this method can be used only by system applications.
-   */
-  enum UserOperationAction {
-    /**
-     * allow authentication
-     */
-    ACTION_ALLOW_AUTH = 0,
-
-    /**
-     * cancel authentication
-     */
-    ACTION_CANCEL_AUTH = 1,
-
-    /**
-     * user operation timeout for authentication confirm
-     */
-    ACTION_AUTH_CONFIRM_TIMEOUT = 2,
-
-    /**
-     * cancel pincode display
-     */
-    ACTION_CANCEL_PINCODE_DISPLAY = 3,
-
-    /**
-     * cancel pincode input
-     */
-    ACTION_CANCEL_PINCODE_INPUT = 4,
-
-    /**
-     * done pincode input
-     */
-    ACTION_DONE_PINCODE_INPUT = 5
-  }
-
-  /**
    * Creates a {@code DeviceManager} instance.
    *
    * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
