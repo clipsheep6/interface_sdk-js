@@ -19,7 +19,7 @@
  * @syscap SystemCapability.Security.Cipher
  * @permission N/A
  */
-export interface CipherResponse {
+ export interface CipherResponse {
   /**
    * response text
    * @since 3
@@ -194,6 +194,7 @@ export interface CipherAesOptions {
 export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
+   * @Deprecated
    * @param options RSA options
    * @syscap SystemCapability.Security.Cipher
    */
@@ -201,6 +202,7 @@ export default class Cipher {
 
   /**
    * Encrypts or decrypts data using AES.
+   * @Deprecated
    * @param options AES options
    * @syscap SystemCapability.Security.Cipher
    */
