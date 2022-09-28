@@ -240,6 +240,7 @@ declare namespace call {
   function getCallIdListForConference(callId: number): Promise<Array<string>>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -247,6 +248,7 @@ declare namespace call {
   function getCallWaitingStatus(slotId: number): Promise<CallWaitingStatus>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -360,6 +362,7 @@ declare namespace call {
   function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -367,6 +370,7 @@ declare namespace call {
   function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
