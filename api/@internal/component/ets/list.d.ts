@@ -102,6 +102,18 @@ interface ListInterface {
  */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
+   * Called when need to decide contentStartOffset the list will show.
+   * @since 10
+   */
+  contentStartOffset(value: number): ListAttribute;
+
+  /**
+  * Called when need to decide  contentEndOffset the list will show.
+  * @since 10
+  */
+  contentEndOffset(value: number): ListAttribute;
+
+  /**
    * Called when need to decide how much lanes the list will show.
    * @since 9
    */
