@@ -172,6 +172,8 @@ declare namespace prompt {
   /**
    * Displays the notification text.
    * @param options Options.
+   * @throws BusinessError 401 if the type of message is incorrect.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function showToast(options: ShowToastOptions):void;
@@ -179,6 +181,8 @@ declare namespace prompt {
   /**
    * Displays the dialog box.
    * @param options Options.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>):void;
@@ -187,6 +191,8 @@ declare namespace prompt {
   /**
    * Displays the menu.
    * @param options Options.
+   * @throws BusinessError 401 if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws BusinessError 100001 if can not get the delegate.
    * @since 8
    */
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>):void;

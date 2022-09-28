@@ -101,6 +101,8 @@ export interface AnimatorResult {
   /**
    * Update the options for current animator.
    * @param options Options.
+   * @throws BusinessError 401 if the type of the parameter 1 is not object.
+   * @throws BusinessError 100001 if no page is found for pageId or fail to get object property list.
    * @since 6
    */
   update(options: AnimatorOptions): void;
@@ -162,6 +164,7 @@ export default class Animator {
   /**
    * Create an animator object for custum animation.
    * @param options Options.
+   * @throws BusinessError 401 if parameter error.
    * @since 6
    */
   static createAnimator(options: AnimatorOptions): AnimatorResult;

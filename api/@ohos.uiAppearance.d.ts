@@ -40,6 +40,7 @@ declare namespace uiAppearance {
     /**
      * Set the system dark-mode.
      * @param mode Indicates the dark-mode to set
+     * @throws BusinessError 401 if parameter error.
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @systemapi Hide this for inner system use
      */

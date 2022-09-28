@@ -21,6 +21,8 @@ import { OffscreenCanvasRenderingContext2D } from './viewmodel'
  * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
  * @param delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @throws BusinessError 401 if the number of parameters is less than 1 or the type of the parameter is not function.
+ * @throws BusinessError 100001 if get js engine instance failed or get frontend delegate failed.
  * @returns Returns the timer ID.
  * @since 3
  */
@@ -32,6 +34,8 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
  * @param delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @throws BusinessError 401 if the number of parameters is less than 1 or the type of the parameter is not function.
+ * @throws BusinessError 100001 if get js engine instance failed or get frontend delegate failed.
  * @returns Returns the timer ID.
  * @since 3
  */
@@ -57,6 +61,8 @@ export declare function cancelAnimationFrame(requestId: number): void;
  * Cancels the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param intervalID Indicates the timer ID returned by "setInterval()".
+ * @throws BusinessError 401 if the number of parameters is less than 1 or the type of the parameter is not function.
+ * @throws BusinessError 100001 if get js engine instance failed or get frontend delegate failed.
  * @since 3
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -65,6 +71,8 @@ export declare function clearInterval(intervalID?: number): void;
  * Cancels the timer set by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @throws BusinessError 401 if the number of parameters is less than 1 or the type of the parameter is not function.
+ * @throws BusinessError 100001 if get js engine instance failed or get frontend delegate failed.
  * @since 3
  */
 export declare function clearTimeout(timeoutID?: number): void;
@@ -81,6 +89,7 @@ export declare function createLocalParticleAbility(name?: string): any;
 
 /**
  * Defining syscap function.
+ * @throws BusinessError 401 if the number of parameters is not 1 or the type is not string.
  * @since 8
  */
 export declare function canIUse(syscap: string): boolean;
@@ -187,6 +196,7 @@ export declare class OffscreenCanvas {
    * Converts the draw contents of the current off-screen draw object to a string in the form of a Blob.
    * @param type indicating the image format.
    * @param quality between 0 and 1 indicating image quality if the type option is image/jpeg or image/webp.
+   * @throws BusinessError 401 if the number of parameters is not 2.
    * @returns A Promise returning a Blob object representing the image contained in the canvas.
    * @since 7
    */

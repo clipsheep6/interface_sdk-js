@@ -50,6 +50,7 @@ export default class Configuration {
   /**
    * Obtains the current locale of the application, which is the same as the system locale.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @throws BusinessError 200001 if can not get the local configuration.
    * @since 3
    */
   static getLocale(): LocaleResponse;
