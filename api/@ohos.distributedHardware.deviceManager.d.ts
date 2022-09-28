@@ -100,13 +100,6 @@ declare namespace deviceManager {
     TV = 0x9C
   }
 
-  interface SeaParamInfo {
-    /**
-     * SeaParamInfo is listen callback info
-     */
-     verifyFailed: boolean; 
-  }
-
   /**
    * Device state change event definition
    *
@@ -536,7 +529,7 @@ declare namespace deviceManager {
      * @param callback for devicemanager Sea to register.
      * @systemapi this method can be used only by system applications.
      */
-     on(type: 'seaStatueChange', callback: Callback<{ param: SeaParamInfo}>): void;
+     on(type: 'seaStatueChange', callback: Callback<{ param: string}>): void;
 
      /**
       * UnRegister dmSeaCallback, this interface can only used by devicemanager Sea.
@@ -544,7 +537,7 @@ declare namespace deviceManager {
       * @param callback for devicemanager Sea to register.
       * @systemapi this method can be used only by system applications.
       */
-     off(type: 'seaStatueChange', callback?: Callback<{ param: SeaParamInfo}>): void;
+     off(type: 'seaStatueChange', callback?: Callback<{ param: string}>): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
