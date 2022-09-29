@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { BundleStatusCallback } from './bundle/bundleStatusCallback';
-import { LauncherAbilityInfo} from './bundle/launcherAbilityInfo';
-import { ShortcutInfo } from './bundle/shortcutInfo';
+import { BundleStatusCallback as _BundleStatusCallback } from './bundle/bundleStatusCallback';
+import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
+import * as _ShortCutInfo from './bundle/shortcutInfo';
 
 /**
  * inner bundle manager.
@@ -94,6 +94,42 @@ declare namespace innerBundleManager {
    */
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
+
+  /**
+   * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type LauncherAbilityInfo = _LauncherAbilityInfo;
+
+  /**
+   * Contains basic launcher Ability information, which uniquely identifies a launcher StatusCallback.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type BundleStatusCallback = _BundleStatusCallback;
+
+  /**
+   * Provides information about a shortcut, including the shortcut ID and label.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type ShortcutInfo = _ShortCutInfo.ShortcutInfo;
+
+  /**
+   * Provides methods for obtaining information about the ability that a shortcut will start, including the target
+   * bundle name, target module name and ability class name.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type ShortcutWant = _ShortCutInfo.ShortcutWant;
 }
 
 export default innerBundleManager;

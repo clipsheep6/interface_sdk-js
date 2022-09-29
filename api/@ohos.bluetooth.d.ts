@@ -178,8 +178,7 @@ declare namespace bluetooth {
      *
      * @return Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
      * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
-     * @permission ohos.permission.LOCATION
+     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION 
      */
     function startBluetoothDiscovery(): boolean;
 
@@ -363,7 +362,7 @@ declare namespace bluetooth {
      * @return Returns instance of profile.
      * @since 9
      */
-    function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile;
+    function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
 
     /**
      * Base interface of profile.
@@ -436,16 +435,7 @@ declare namespace bluetooth {
          *
          * @param device The address of the remote device.
          * @return Returns {@link PlayingState} of the remote device.
-         * @deprecated since 9
          * @since 8
-         */
-        /**
-         * Obtains the playing state of device.
-         *
-         * @param device The address of the remote device.
-         * @return Returns {@link PlayingState} of the remote device.
-         * @since 9
-         * @permission ohos.permission.USE_BLUETOOTH
          */
         getPlayingState(device: string): PlayingState;
     }
@@ -538,6 +528,60 @@ declare namespace bluetooth {
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
     }
 
+    /**
+     * Manager pan profile.
+     */
+    interface PanProfile extends BaseProfile {
+        /**
+         * Disconnect to device with pan.
+         *
+         * @param device The address of the remote device to disconnect.
+         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @since 9
+         * @permission permission ohos.permission.USE_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        disconnect(device: string): boolean;
+
+        /**
+         * Subscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+
+        /**
+         * Unsubscribe the event reported when the profile connection state changes.
+         *
+         * @param type Type of the profile connection state changes event to listen for.
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+
+        /**
+         * Enable bluetooth tethering.
+         *
+         * @param enable Specifies whether to enable tethering. The value {@code true} indicates
+         * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
+         * @since 9
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        setTethering(enable: boolean): void;
+
+        /**
+         * Obtains the tethering enable or disable.
+         *
+         * @return Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
+         * @since 9
+         * @systemapi Hide this for inner system use.
+         */
+        isTetheringOn(): boolean;
+    }
+
     namespace BLE {
         /**
          * create a JavaScript Gatt server instance.
@@ -574,9 +618,7 @@ declare namespace bluetooth {
          * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
          * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
          * @since 7
-         * @permission ohos.permission.DISCOVER_BLUETOOTH
-         * @permission ohos.permission.MANAGE_BLUETOOTH
-         * @permission ohos.permission.LOCATION
+         * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH and ohos.permission.LOCATION
          */
         function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
 
@@ -1607,6 +1649,11 @@ declare namespace bluetooth {
          * @since 9
          */
         PROFILE_HID_HOST = 6,
+        
+        /**
+         * @since 9
+         */
+        PROFILE_PAN_NETWORK = 7,
     }
 }
 

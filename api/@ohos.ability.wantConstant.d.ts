@@ -130,14 +130,14 @@ declare namespace wantConstant {
      *
      * @since 8
      */
-     ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
+    ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
 
     /**
      * Indicates the action of starting a Page ability for Take a video.
      *
      * @since 8
      */
-     ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
+    ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
 
     /**
      * Indicates the action of showing the application selection dialog box.
@@ -217,17 +217,65 @@ declare namespace wantConstant {
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
 
     /**
-     * Indicates the action of downloading application from application market.
+     * Indicates the action of an application downloaded from the application market.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload"
+    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
+
+    /**
+     * Indicates the action of an application crowdtested from the application market.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest",
+
+    /**
+     * Indicates the param of sandbox flag.
+     * 
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_SANDBOX = "ohos.dlp.params.sandbox",
+
+    /**
+     * Indicates the param of dlp bundle name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_BUNDLE_NAME = "ohos.dlp.params.bundleName",
+
+    /**
+     * Indicates the param of dlp module name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_MODULE_NAME = "ohos.dlp.params.moduleName",
+
+    /**
+     * Indicates the param of dlp ability name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_ABILITY_NAME = "ohos.dlp.params.abilityName",
+
+    /**
+     * Indicates the param of dlp bundle index.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
   }
 
   /**
    * the constant for Entity of the want
-   * @name Action
+   * @name Entity
    * @since 6
    * @syscap SystemCapability.Ability.AbilityBase
    * @permission N/A

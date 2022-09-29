@@ -78,9 +78,9 @@ export default class FormExtension {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param newStatus Indicates the form events occurred. The key in the {@code Map} object indicates the form ID,
-     *    and the value indicates the event type, which can be either {@link formManager#VisibilityType#FORM_VISIBLE}
-     *    or {@link formManager#VisibilityType#FORM_INVISIBLE}. {@link formManager#VisibilityType#FORM_VISIBLE}
-     *    means that the form becomes visible, and {@link formManager#VisibilityType#FORM_INVISIBLE}
+     *    and the value indicates the event type, which can be either {@link formInfo#VisibilityType#FORM_VISIBLE}
+     *    or {@link formInfo#VisibilityType#FORM_INVISIBLE}. {@link formInfo#VisibilityType#FORM_VISIBLE}
+     *    means that the form becomes visible, and {@link formInfo#VisibilityType#FORM_INVISIBLE}
      *    means that the form becomes invisible.
      * @return -
      * @StageModelOnly
@@ -139,4 +139,16 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onAcquireFormState?(want: Want): formInfo.FormState;
+
+    /**
+     * Called when the system shares the form.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param formId Indicates the ID of the form.
+     * @systemapi hide for inner use.
+     * @return Returns the wantParams object.
+     * @StageModelOnly
+     */
+    onShare?(formId: string): {[key: string]: any};
 }

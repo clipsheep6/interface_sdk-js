@@ -16,12 +16,13 @@
 import rpc from "./@ohos.rpc";
 import ExtensionContext from "./application/ExtensionContext";
 import Want from './@ohos.application.Want';
+import window from './@ohos.window';
 
 /**
  * class of window extension ability.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
  */
@@ -30,7 +31,7 @@ export default class WindowExtensionAbility {
      * Indicates window extension ability context.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
@@ -40,19 +41,18 @@ export default class WindowExtensionAbility {
      * Called back when a window extension is first connected to an ability.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @param want Indicates connection information about the Window ability.
      * @systemapi hide for inner use.
-     * @return Returns the proxy of the Window ability.
      * @StageModelOnly
      */
-    onConnect(want: Want): rpc.RemoteObject;
+    onConnect(want: Want): void;
 
     /**
      * Called back when all abilities connected to a window extension are disconnected.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @param want Indicates disconnection information about the window extension.
      * @systemapi hide for inner use.
      * @return -
@@ -64,11 +64,11 @@ export default class WindowExtensionAbility {
      * Called back when window is created.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
      */
-    onWindowReady(window: Window): void;
+    onWindowReady(window: window.Window): void;
 }
 

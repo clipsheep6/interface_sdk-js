@@ -66,6 +66,16 @@ import image from "../@ohos.multimedia.image";
     onMissionMovedToFront(mission: number): void;
 
     /**
+     * Called by system when mission label has changed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission whose label has changed.
+     * @return -
+     */
+     onMissionLabelUpdated(mission: number): void;
+
+    /**
      * Called by system when mission icon has changed.
      *
      * @since 9
@@ -75,4 +85,14 @@ import image from "../@ohos.multimedia.image";
      * @return -
      */
      onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
+
+    /**
+     * Called by system when target mission is closed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission whose ability instance is destroyed.
+     * @return -
+     */
+    onMissionClosed(mission: number): void;
 }
