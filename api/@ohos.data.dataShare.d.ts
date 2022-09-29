@@ -28,6 +28,9 @@ declare namespace dataShare {
      * @param context Indicates the application context.
      * @param uri Indicates the path of the file to open.
      * @return Returns the dataShareHelper.
+     * @throws {BusinessError} if process failed
+     * @errorcode 15700001
+     * @errorcode 401
      * @StageModelOnly
      */
     function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
@@ -75,6 +78,9 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param value Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
          * @return Returns the index of the inserted data record.
+         * @throws {BusinessError} if process failed
+         * @errorcode 15700002
+         * @errorcode 401
          * @StageModelOnly
          */
         insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
@@ -88,6 +94,9 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records deleted.
+         * @throws {BusinessError} if process failed
+         * @errorcode 15700002
+         * @errorcode 401
          * @StageModelOnly
          */
         delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -102,6 +111,9 @@ declare namespace dataShare {
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
          * @return Returns the query result.
+         * @throws {BusinessError} if process failed
+         * @errorcode 15700002
+         * @errorcode 401
          * @StageModelOnly
          */
         query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
@@ -116,6 +128,9 @@ declare namespace dataShare {
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @param value Indicates the data to update. This parameter can be null.
          * @return Returns the number of data records updated.
+         * @throws {BusinessError} if process failed
+         * @errorcode 15700002
+         * @errorcode 401
          * @StageModelOnly
          */
         update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
@@ -129,6 +144,9 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param values Indicates the data records to insert.
          * @return Returns the number of data records inserted.
+         * @throws {BusinessError} if process failed
+         * @errorcode 15700002
+         * @errorcode 401
          * @StageModelOnly
          */
         batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
