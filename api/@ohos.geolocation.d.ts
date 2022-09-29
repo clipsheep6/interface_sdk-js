@@ -15,7 +15,7 @@
 import { AsyncCallback, Callback } from './basic';
 import { WantAgent } from './@ohos.wantAgent';
 
- /**
+/**
  * Provides interfaces for initiating location requests, ending the location service,
  * and obtaining the location result cached by the system.
  *
@@ -23,6 +23,13 @@ import { WantAgent } from './@ohos.wantAgent';
  * @syscap SystemCapability.Location.Location.Core
  * @import import geolocation from '@ohos.geolocation'
  * @permission ohos.permission.LOCATION
+ */
+/**
+ * Provides interfaces for initiating location requests, ending the location service,
+ * and obtaining the location result cached by the system.
+ *
+ * @since 9
+ * @import import geolocation from '@ohos.geolocation'
  */
 declare namespace geolocation {
     /**
@@ -54,6 +61,13 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
+    /**
+     * subscribe location switch changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @param callback Indicates the callback for reporting the location result.
+     */
     function on(type: 'locationServiceState', callback: Callback<boolean>): void;
 
     /**
@@ -62,6 +76,13 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the location result.
+     */
+    /**
+     * unsubscribe location switch changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
      * @param callback Indicates the callback for reporting the location result.
      */
     function off(type: 'locationServiceState', callback?: Callback<boolean>): void;
@@ -198,6 +219,13 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch result.
      */
+    /**
+     * obtain current location switch status
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @param callback Indicates the callback for reporting the location switch result.
+     */
     function isLocationEnabled(callback: AsyncCallback<boolean>): void;
     function isLocationEnabled(): Promise<boolean>;
 
@@ -244,6 +272,13 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the address info.
      */
+    /**
+     * obtain address info from location
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @param callback Indicates the callback for reporting the address info.
+     */
     function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
     function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -255,6 +290,13 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the latitude and longitude result.
      */
+    /**
+     * obtain latitude and longitude info from location address
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @param callback Indicates the callback for reporting the latitude and longitude result.
+     */
     function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
     function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -264,6 +306,13 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the geocode service status.
+     */
+    /**
+     * obtain geocode service status
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @param callback Indicates the callback for reporting the geocode service status.
      */
     function isGeoServiceAvailable(callback: AsyncCallback<boolean>): void;
@@ -298,6 +347,14 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @param command Indicates the extended Command Message Body.
+     * @param callback Indicates the callback for reporting the send command result.
+     */
+    /**
+     * send extended commands to location subsystem.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
      * @param command Indicates the extended Command Message Body.
      * @param callback Indicates the callback for reporting the send command result.
      */
@@ -432,6 +489,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * satellite status information
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     */
     export interface SatelliteStatusInfo {
         satellitesNumber: number;
         satelliteIds: Array<number>;
@@ -448,6 +511,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * parameters for requesting to report cache location information
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     */
     export interface CachedGnssLocationsRequest {
         reportingPeriodSec: number;
         wakeUpCacheQueueFull: boolean;
@@ -459,6 +528,12 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * configuring parameters in geo fence requests
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geofence
      */
     export interface GeofenceRequest {
         priority: LocationRequestPriority;
@@ -473,6 +548,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * configuring parameters in geo fence requests
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geofence
+     */
     export interface Geofence {
         latitude: number;
         longitude: number;
@@ -486,7 +567,6 @@ declare namespace geolocation {
      * @since 8
      * @systemapi
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION
      * @param type indicates location privacy protocol type.
      * @param callback indicates the callback for reporting the location privacy protocol confirmation status.
      */
@@ -499,7 +579,6 @@ declare namespace geolocation {
      * @since 8
      * @systemapi
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION
      * @param type indicates location privacy protocol type.
      * @param isConfirmed indicates whether the location privacy protocol has been confirmed.
      * @param callback Indicates the callback for reporting whether the action is set successfully.
@@ -514,6 +593,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * configuring parameters in reverse geocode requests
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geocoder
+     */
     export interface ReverseGeoCodeRequest {
         locale?: string;
         latitude: number;
@@ -527,6 +612,12 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * configuring parameters in geocode requests
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geocoder
      */
     export interface GeoCodeRequest {
         locale?: string;
@@ -544,6 +635,12 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * data struct describes geographic locations.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geocoder
      */
     export interface GeoAddress {
         /**
@@ -673,6 +770,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * configuring parameters in location requests
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     */
     export interface LocationRequest {
         priority?: LocationRequestPriority;
         scenario?: LocationRequestScenario;
@@ -688,6 +791,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * configuring parameters in current location requests
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     */
     export interface CurrentLocationRequest {
         priority?: LocationRequestPriority;
         scenario?: LocationRequestScenario;
@@ -701,6 +810,12 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * provides information about geographic locations
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
      */
     export interface Location {
         /**
@@ -781,6 +896,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * enum for location priority
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     */
     export enum LocationRequestPriority {
         UNSET = 0x200,
         ACCURACY,
@@ -794,6 +915,12 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * enum for location scenario
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
      */
     export enum LocationRequestScenario {
         UNSET = 0x300,
@@ -810,6 +937,12 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * enum for error code
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
      */
     export enum GeoLocationErrorCode {
         /**
@@ -874,6 +1007,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
+    /**
+     * enum for location privacy type
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     */
     export enum LocationPrivacyType {
         OTHERS = 0,
         STARTUP,
@@ -886,6 +1025,12 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     */
+    /**
+     * Location subsystem command structure
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
      */
     export interface LocationCommand {
         scenario: LocationRequestScenario;
