@@ -63,6 +63,7 @@ declare namespace call {
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
    *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param callback Returns the call state.
    */
   function getCallState(callback: AsyncCallback<CallState>): void;
@@ -95,6 +96,7 @@ declare namespace call {
   /**
    * Checks whether a phone number is on the emergency number list.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param phoneNumber Indicates the phone number to check.
    * @param callback Returns {@code true} if the phone number is on the emergency number list;
    * returns {@code false} otherwise.
@@ -348,6 +350,7 @@ declare namespace call {
   function separateConference(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -355,6 +358,7 @@ declare namespace call {
   function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -436,6 +440,7 @@ declare namespace call {
   function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -443,6 +448,7 @@ declare namespace call {
   function enableImsSwitch(slotId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -450,6 +456,7 @@ declare namespace call {
   function disableImsSwitch(slotId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
