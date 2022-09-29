@@ -34,7 +34,7 @@ declare namespace deviceControl {
    * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -51,7 +51,7 @@ declare namespace deviceControl {
    * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi

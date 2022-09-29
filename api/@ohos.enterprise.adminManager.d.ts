@@ -144,7 +144,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200004 - failed to activate the adminstrator application of the device.
    * @throws { BusinessError } 9200006 - the specified user ID is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -167,7 +167,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200004 - failed to activate the adminstrator application of the device.
    * @throws { BusinessError } 9200006 - the specified user ID is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -188,7 +188,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200005 - failed to deactivate the administrator application of the device.
    * @throws { BusinessError } 9200006 - the specified user ID is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -208,7 +208,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200005 - failed to deactivate the administrator application of the device.
    * @throws { BusinessError } 9200006 - the specified user ID is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -225,7 +225,7 @@ declare namespace adminManager {
    * @param { AsyncCallback<void> } callback - the callback of disableSuperAdmin.
    * @throws { BusinessError } 9200005 - failed to deactivate the administrator application of the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -241,7 +241,7 @@ declare namespace adminManager {
    * @returns { Promise<void> } the promise returned by the disableSuperAdmin.
    * @throws { BusinessError } 9200005 - failed to deactivate the administrator application of the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -290,7 +290,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -306,7 +306,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -325,7 +325,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -343,7 +343,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -387,7 +387,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -405,7 +405,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -424,7 +424,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -442,7 +442,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
-   * @throws { BusinessError } 201 - the application does not have permission to use bundle service.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
