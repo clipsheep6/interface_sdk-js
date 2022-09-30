@@ -22,6 +22,30 @@ import {ErrorCallback, AsyncCallback, Callback} from './basic';
  */
 declare namespace audio {
   /**
+   * Enumerates audio errors.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum AudioErrors {
+    /**
+     * Common errors.
+     */
+    ERROR_INVALID_PARAM = 6800101,
+    ERROR_NO_MEMORY     = 6800102,
+    ERROR_ILLEGAL_STATE = 6800103,
+    ERROR_UNSUPPORTED   = 6800104,
+    ERROR_TIMEOUT       = 6800105,
+    /**
+     * Audio specific errors.
+     */
+    ERROR_STREAM_LIMIT  = 6800201,
+    /**
+     * Default error.
+     */
+    ERROR_SYSTEM        = 6800301
+  }
+
+  /**
    * Define local device network id for audio
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3175,81 +3199,45 @@ declare namespace audio {
     getAudioParameter(key: string): Promise<string>;
 
     /**
-     * Obtains an AudioInterruptManager instance. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
+     * Obtains an AudioInterruptManager instance.
+     * @return AudioInterruptManager instance.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
      */
-    getInterruptManager(callback: AsyncCallback<AudioInterruptManager>): void;
-    /**
-     * Obtains an AudioInterruptManager instance. This method uses a promise to return the result.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     */
-    getInterruptManager(): Promise<AudioInterruptManager>;
+    getInterruptManager(): AudioInterruptManager;
 
     /**
-     * Obtains an AudioVolumeManager instance. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
+     * Obtains an AudioVolumeManager instance.
+     * @return AudioVolumeManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getVolumeManager(callback: AsyncCallback<AudioVolumeManager>): void;
-    /**
-     * Obtains an AudioVolumeManager instance. This method uses a promise to return the result.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    getVolumeManager(): Promise<AudioVolumeManager>;
+    getVolumeManager(): AudioVolumeManager;
 
     /**
      * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
+     * @return AudioStreamManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    getStreamManager(callback: AsyncCallback<AudioStreamManager>): void;
-    /**
-     * Obtains an AudioStreamManager instance. This method uses a promise to return the result.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     */
-    getStreamManager(): Promise<AudioStreamManager>;
+    getStreamManager(): AudioStreamManager;
 
     /**
-     * Obtains an AudioRoutingManager instance. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
+     * Obtains an AudioRoutingManager instance.
+     * @return AudioRoutingManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
-    getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
-    /**
-     * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     */
-    getRoutingManager(): Promise<AudioRoutingManager>;
+    getRoutingManager(): AudioRoutingManager;
 
     /**
-     * Obtains an AudioCommunicationManager instance. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the result.
+     * Obtains an AudioCommunicationManager instance.
+     * @return AudioCommunicationManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    getCommunicationManager(callback: AsyncCallback<AudioCommunicationManager>): void;
-    /**
-     * Obtains an AudioCommunicationManager instance. This method uses a promise to return the result.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    getCommunicationManager(): Promise<AudioCommunicationManager>;
+    getCommunicationManager(): AudioCommunicationManager;
   }
 
   /**
