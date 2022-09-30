@@ -96,7 +96,6 @@ declare namespace call {
   /**
    * Checks whether a phone number is on the emergency number list.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param phoneNumber Indicates the phone number to check.
    * @param callback Returns {@code true} if the phone number is on the emergency number list;
    * returns {@code false} otherwise.
