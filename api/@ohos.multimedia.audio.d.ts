@@ -2234,7 +2234,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
-  function createAudioStreamCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioStreamCapturer>): void;
+  function createAudioStreamCapturer(options: AudioStreamCapturerOptions, callback: AsyncCallback<AudioStreamCapturer>): void;
 
   /**
    * Obtains an AudioStreamCapturer instance. This method uses a promise to return the capturer instance.
@@ -2243,7 +2243,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
-  function createAudioStreamCapturer(options: AudioCapturerOptions): Promise<AudioStreamCapturer>;
+  function createAudioStreamCapturer(options: AudioStreamCapturerOptions): Promise<AudioStreamCapturer>;
 
   /**
    * Obtains an AudioStreamRenderer instance. This method uses an asynchronous callback to return the renderer instance.
