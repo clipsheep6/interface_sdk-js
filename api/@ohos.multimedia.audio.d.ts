@@ -329,8 +329,9 @@ declare namespace audio {
    * Enumerates the active device types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
+   * @deprecated since 9
    */
-   enum ActiveDeviceType {
+  enum ActiveDeviceType {
     /**
      * Speaker.
      * @since 7
@@ -343,6 +344,20 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     BLUETOOTH_SCO = 7,
+  }
+
+  /**
+   * Enumerates the available device types for communication.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Communication
+   */
+  enum CommunicationDeviceType {
+    /**
+     * Speaker.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    SPEAKER = 2
   }
 
   /**
@@ -419,20 +434,51 @@ declare namespace audio {
    * Enumerates the audio channel.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @deprecated since 9
    */
   enum AudioChannel {
     /**
      * Channel 1.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     CHANNEL_1 = 0x1 << 0,
     /**
      * Channel 2.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     CHANNEL_2 = 0x1 << 1
+  }
+
+  /**
+   * Enumerates the audio render channel mask.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum AudioRendererChannelMask {
+    CHANNEL_OUT_FRONT_LEFT = 0x1 << 0,
+    CHANNEL_OUT_FRONT_RIGHT = 0x1 << 1,
+    CHANNEL_OUT_FRONT_CENTER = 0x1 << 2, 
+    CHANNEL_OUT_LOW_FREQUENCY = 0x1 << 3, 
+    CHANNEL_OUT_SIDE_LEFT = 0x1 << 4,
+    CHANNEL_OUT_SIDE_RIGHT = 0x1 << 5, 
+    CHANNEL_OUT_BACK_LEFT = 0x1 << 6,
+    CHANNEL_OUT_BACK_RIGHT = 0x1 << 7
+  }
+
+  /**
+   * Enumerates the audio capture channel mask.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum AudioCapturerChannelMask {
+    CHANNEL_IN_LEFT = 0x1 << 0,
+    CHANNEL_IN_RIGHT = 0x1 << 1,
+    CHANNEL_IN_FRONT = 0x1 << 2, 
+    CHANNEL_IN_BACK = 0x1 << 3
   }
 
   /**
@@ -613,42 +659,47 @@ declare namespace audio {
    */
   enum FocusType {
     /**
-     * Recording type.
+     * Default focus type.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      */
-    FOCUS_TYPE_RECORDING = 0,
+    FOCUS_TYPE_DEFAULT = 0,
   }
 
   /**
    * Describes audio stream information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @deprecated since 9
    */
   interface AudioStreamInfo {
     /**
      * Sampling rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     samplingRate: AudioSamplingRate;
     /**
      * Audio channels.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     channels: AudioChannel;
     /**
      * Audio sample format.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     sampleFormat: AudioSampleFormat;
     /**
      * Audio encoding type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     encodingType: AudioEncodingType;
   }
@@ -657,29 +708,34 @@ declare namespace audio {
    * Describes audio renderer information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @deprecated since 9
    */
   interface AudioRendererInfo {
     /**
      * Content type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     content: ContentType;
     /**
      * Stream usage.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     usage: StreamUsage;
     /**
      * Audio renderer flags.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     rendererFlags: number;
   }
 
-  /** Describes audio renderer filter.
+  /** 
+   * Describes audio renderer filter.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
@@ -698,7 +754,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      */
-    rendererInfo?: AudioRendererInfo;
+    rendererInfo?: AudioStreamRendererInfo;
     /**
      * AudioRenderer id.
      * @since 9
@@ -712,18 +768,21 @@ declare namespace audio {
    * Describes audio renderer configuration options.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @deprecated since 9
    */
   interface AudioRendererOptions {
     /**
      * Stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @deprecated since 9
      */
     streamInfo: AudioStreamInfo;
     /**
      * Renderer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @deprecated since 9
      */
     rendererInfo: AudioRendererInfo;
   }
@@ -1913,18 +1972,21 @@ declare namespace audio {
    * Describes audio capturer information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @deprecated since 9
    */
   interface AudioCapturerInfo {
     /**
      * Audio source type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     source: SourceType;
     /**
      * Audio capturer flags.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 9
      */
     capturerFlags: number;
   }
@@ -1933,18 +1995,21 @@ declare namespace audio {
    * Describes audio capturer configuration options.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @deprecated since 9
    */
   interface AudioCapturerOptions {
     /**
      * Stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @deprecated since 9
      */
     streamInfo: AudioStreamInfo;
     /**
      * Capturer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @deprecated since 9
      */
     capturerInfo: AudioCapturerInfo;
   }
@@ -2187,7 +2252,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
-  function createAudioStreamRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioStreamRenderer>): void;
+  function createAudioStreamRenderer(options: AudioStreamRendererOptions, callback: AsyncCallback<AudioStreamRenderer>): void;
 
   /**
    * Obtains an AudioStreamRenderer instance. This method uses a promise to return the renderer instance.
@@ -2196,7 +2261,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
-  function createAudioStreamRenderer(options: AudioRendererOptions): Promise<AudioStreamRenderer>;
+  function createAudioStreamRenderer(options: AudioStreamRendererOptions): Promise<AudioStreamRenderer>;
 
   /**
    * Obtains a TonePlayer instance. This method uses an asynchronous callback to return the renderer instance.
@@ -2205,7 +2270,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Tone
    */
-  function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
+  function createTonePlayer(options: AudioStreamRendererInfo, callback: AsyncCallback<TonePlayer>): void;
 
   /**
    * Obtains a TonePlayer instance. This method uses a promise to return the renderer instance.
@@ -2214,35 +2279,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Tone
    */
-  function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
-
-  /**
-   * Enumerates the audio render channel mask.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Audio.Core
-   */
-  enum AudioRendererChannelMask {
-    CHANNEL_OUT_FRONT_LEFT = 0x1 << 0,
-    CHANNEL_OUT_FRONT_RIGHT = 0x1 << 1,
-    CHANNEL_OUT_FRONT_CENTER = 0x1 << 2, 
-    CHANNEL_OUT_LOW_FREQUENCY = 0x1 << 3, 
-    CHANNEL_OUT_SIDE_LEFT = 0x1 << 4,
-    CHANNEL_OUT_SIDE_RIGHT = 0x1 << 5, 
-    CHANNEL_OUT_BACK_LEFT = 0x1 << 6,
-    CHANNEL_OUT_BACK_RIGHT = 0x1 << 7
-  }
-
-  /**
-   * Enumerates the audio capture channel mask.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Audio.Core
-   */
-  enum AudioCapturerChannelMask {
-    CHANNEL_IN_LEFT = 0x1 << 0,
-    CHANNEL_IN_RIGHT = 0x1 << 1,
-    CHANNEL_IN_FRONT = 0x1 << 2, 
-    CHANNEL_IN_BACK = 0x1 << 3
-  }
+  function createTonePlayer(options: AudioStreamRendererInfo): Promise<TonePlayer>;
 
   /**
    * Implements audio interrupt management.
@@ -2254,45 +2291,25 @@ declare namespace audio {
     /**
      * Request Interrupt event.
      * @param focusType The Interrupt type.
-     * @param resultCallback Callback used to return the result.
      * @param eventCallback Callback used to receive interrupt event.
+     * @return resultCallback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
      */
-    requestInterrupt(focusType: FocusType, resultCallback: AsyncCallback<boolean>, eventCallback: Callback<InterruptEvent>): void;
-
-    /**
-     * Request Interrupt event.
-     * @param focusType The Interrupt type.
-     * @param eventCallback Callback used to receive interrupt event.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Interrupt
-     * @systemapi
-     */
-    requestInterrupt(focusType: FocusType, callback2: Callback<InterruptEvent>): Promise<boolean>;
+    on(type: 'requestInterrupt', focusType: FocusType, eventCallback: Callback<InterruptEvent>): boolean;
 
     /**
      * Abandon the requested Interrupt event.
      * @param focusType The Interrupt type.
-     * @param callback Callback used to return the result.
+     * @return callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
      */
-    abandonInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>, callback2?: Callback<InterruptEvent>): void;
-
-    /**
-     * Abandon the requested Interrupt event.
-     * @param focusType The Interrupt type.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Interrupt
-     * @systemapi
-     */
-    abandonInterrupt(focusType: FocusType, callback2?: Callback<InterruptEvent>): Promise<boolean>;
+    off(type: 'requestInterrupt', focusType: FocusType, eventCallback?: Callback<InterruptEvent>): boolean;
   }
+
   /**
    * Implements audio volume management.
    * @since 9
@@ -2319,14 +2336,6 @@ declare namespace audio {
     getVolumeGroupInfos(networkId: string): Promise<VolumeGroupInfos>;
 
     /**
-     * Listens for system volume change events. This method uses a callback to get volume change events.
-     * @param callback Callback used to get the system volume change event.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
-
-    /**
      * Obtains an AudioVolumeGroupManager instance. This method uses an asynchronous callback to return the result.
      * @param groupId volume group id, use LOCAL_VOLUME_GROUP_ID in default
      * @param callback Callback used to return the result.
@@ -2342,6 +2351,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getVolumeGroup(groupId: number): Promise<AudioVolumeGroupManager>;
+
+    /**
+     * Listens for system volume change events. This method uses a callback to get volume change events.
+     * @param callback Callback used to get the system volume change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
   }
 
   /**
@@ -2357,7 +2374,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
-
     /**
      * Get information of current existing audio renderers.
      * @return Promise used to return the information of current existing audio renderers.
@@ -2373,7 +2389,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
-
     /**
      * Get information of current existing audio capturers.
      * @return Promise used to return the information of current existing audio capturers.
@@ -2440,14 +2455,13 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    isAudioRendererLowLatencySupported(streaminfo: AudioStreamInfo, callback: Callback<boolean>): void;
-
+    isAudioRendererLowLatencySupported(streamInfo: AudioStreamInfo, callback: Callback<boolean>): void;
     /**
      * Check if system support low latency configuration in audio renderer.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    isAudioRendererLowLatencySupported(streaminfo: AudioStreamInfo): Promise<boolean>;
+    isAudioRendererLowLatencySupported(streamInfo: AudioStreamInfo): Promise<boolean>;
   }
 
   /**
@@ -2483,7 +2497,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    readonly rendererInfo: AudioRendererInfo;
+    readonly rendererInfo: AudioStreamRendererInfo;
 
     /**
      * Audio state.
@@ -2534,7 +2548,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    readonly capturerInfo: AudioCapturerInfo;
+    readonly capturerInfo: AudioStreamCapturerInfo;
 
     /**
      * Audio state.
@@ -2576,14 +2590,6 @@ declare namespace audio {
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
 
     /**
-     * UnSubscribes to device change events.
-     * @param callback Callback used to obtain the device update details.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     */
-    off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
-
-    /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
      * the callback.
      * @param deviceFlag Audio device flag.
@@ -2592,6 +2598,14 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes to device change events.
+     * @param callback Callback used to obtain the device update details.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
@@ -2611,13 +2625,13 @@ declare namespace audio {
      * @permission ohos.permission.MICROPHONE
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
+
     /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
      * @param Callback used to return the mute status of the microphone. The value true means that the microphone is
      * muted, and false means the opposite.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @permission ohos.permission.MICROPHONE
      */
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
@@ -2626,7 +2640,6 @@ declare namespace audio {
      * muted, and false means the opposite.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @permission ohos.permission.MICROPHONE
      */
     isMicrophoneMute(): Promise<boolean>;
 
@@ -2656,6 +2669,7 @@ declare namespace audio {
      * @systemapi
      */
     selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+
     /**
      * Select the output device with desired AudioRenderer. This method uses an asynchronous callback to return the result.
      * @param filter Filter for AudioRenderer.
@@ -2720,6 +2734,7 @@ declare namespace audio {
      * @systemapi
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
+
     /**
      * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
      * @param volumeType Audio stream type.
@@ -2736,6 +2751,7 @@ declare namespace audio {
     * @syscap SystemCapability.Multimedia.Audio.Volume
     */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
+
     /**
      * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
      * @param volumeType Audio stream type.
@@ -2752,6 +2768,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
+
     /**
      * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
      * @param volumeType Audio stream type.
@@ -2768,6 +2785,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
+
     /**
      * Mutes a stream. This method uses an asynchronous callback to return the result.
      * @param volumeType Audio stream type.
@@ -2790,6 +2808,7 @@ declare namespace audio {
      * @systemapi
      */
     mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
+
     /**
      * Checks whether a stream is muted. This method uses an asynchronous callback to return the query result.
      * @param volumeType Audio stream type.
@@ -2820,13 +2839,14 @@ declare namespace audio {
     /**
      * Descript connect type for local device.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     CONNECT_TYPE_LOCAL = 1,
+
     /**
      * Descript virtual type for local device.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     CONNECT_TYPE_DISTRIBUTED = 2
   }
@@ -2844,25 +2864,29 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      */
-     readonly networkId: string;
+    readonly networkId: string;
+
     /**
      * Volume group id.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     readonly groupId: number;
+
     /**
      * Volume mapping group id.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     readonly mappingId: number;
+
     /**
      * Volume group name.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     readonly groupName: string;
+
     /**
      * Connect type of group device.
      * @since 9
@@ -2896,6 +2920,7 @@ declare namespace audio {
      * @systemapi
      */
     setAudioScene(scene: AudioScene): Promise<void>;
+
     /**
      * Obtains the audio scene mode. This method uses an asynchronous callback to return the query result.
      * @param callback Callback used to return the audio scene mode.
@@ -2910,6 +2935,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getAudioScene(): Promise<AudioScene>;
+
     /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
      * @param deviceType Audio device type.
@@ -2929,7 +2955,8 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    setCommunicationDevice(deviceType: ActiveDeviceType, active: boolean): Promise<void>;
+    setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise<void>;
+
     /**
      * Checks whether a device is active. This method uses an asynchronous callback to return the query result.
      * @param deviceType Audio device type.
@@ -2937,7 +2964,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    isCommunicationDeviceActive(deviceType: ActiveDeviceType, callback: AsyncCallback<boolean>): void;
+    isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>): void;
     /**
      * Checks whether a device is active. This method uses a promise to return the query result.
      * @param deviceType Audio device type.
@@ -2945,7 +2972,8 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    isCommunicationDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
+    isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolean>;
+
     /**
      * Sets the ringer mode. This method uses an asynchronous callback to return the result.
      * @param mode Ringer mode.
@@ -2966,6 +2994,7 @@ declare namespace audio {
      * @systemapi
      */
     setRingerMode(mode: AudioRingMode): Promise<void>;
+
     /**
      * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
      * @param callback Callback used to return the ringer mode.
@@ -2980,6 +3009,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getRingerMode(): Promise<AudioRingMode>;
+
     /**
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
      * @param callback Callback used to get the updated ringer mode.
@@ -3034,6 +3064,7 @@ declare namespace audio {
    * Provides APIs for tone playing.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Tone
+   * @systemapi
    */
   interface TonePlayer {
     /**
@@ -3125,6 +3156,7 @@ declare namespace audio {
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      */
     setAudioParameter(key: string, value: string): Promise<void>;
+
     /**
      * Obtains the value of an audio parameter. This method uses an asynchronous callback to return the query result.
      * @param key Key of the audio parameter whose value is to be obtained.
@@ -3141,6 +3173,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     getAudioParameter(key: string): Promise<string>;
+
     /**
      * Obtains an AudioInterruptManager instance. This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
@@ -3157,6 +3190,7 @@ declare namespace audio {
      * @systemapi
      */
     getInterruptManager(): Promise<AudioInterruptManager>;
+
     /**
      * Obtains an AudioVolumeManager instance. This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
@@ -3179,7 +3213,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     getStreamManager(callback: AsyncCallback<AudioStreamManager>): void;
-
     /**
      * Obtains an AudioStreamManager instance. This method uses a promise to return the result.
      * @return Promise used to return the result.
@@ -3195,7 +3228,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
-
     /**
      * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
      * @return Promise used to return the result.
@@ -3211,7 +3243,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getCommunicationManager(callback: AsyncCallback<AudioCommunicationManager>): void;
-
     /**
      * Obtains an AudioCommunicationManager instance. This method uses a promise to return the result.
      * @return Promise used to return the result.
@@ -3222,27 +3253,96 @@ declare namespace audio {
   }
 
   /**
+   * Describes audio stream renderer format.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioStreamRendererFormat {
+    /**
+     * Sampling rate.
+     * @since 9
+     */
+    samplingRate: AudioSamplingRate;
+
+    /**
+     * Audio channel mask.
+     * @since 9
+     */
+    channels: AudioRendererChannelMask;
+
+    /**
+     * Audio sample format.
+     * @since 9
+     */
+    sampleFormat: AudioSampleFormat;
+
+    /**
+     * Audio encoding type.
+     * @since 9
+     */
+    encodingType: AudioEncodingType;
+  }
+
+  /**
+   * Describes audio stream renderer information.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioStreamRendererInfo {
+    /**
+     * Content type.
+     * @since 9
+     */
+    content: ContentType;
+    /**
+     * Stream usage.
+     * @since 9
+     */
+    usage: StreamUsage;
+    /**
+     * Audio renderer flags.
+     * @since 9
+     */
+    flags: number;
+  }
+
+  /**
+   * Describes audio stream renderer configuration options.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioStreamRendererOptions {
+    /**
+     * Stream information.
+     * @since 9
+     */
+    streamFormat: AudioStreamRendererFormat;
+    /**
+     * Renderer information.
+     * @since 9
+     */
+    rendererInfo: AudioStreamRendererInfo;
+  }
+
+  /**
    * Describe data info.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
-  interface AudioRendererDataInfo {
+  interface AudioStreamRendererDataInfo {
     /**
      * Buffer to fill.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     buffer: ArrayBuffer;
     /**
      * Data written length.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     dataLength: number;
     /**
      * Extend info with buffer.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     bufferFlags: number;
   }
@@ -3267,7 +3367,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getRendererInfo(callback: AsyncCallback<AudioRendererInfo>): void;
+    getRendererInfo(callback: AsyncCallback<AudioStreamRendererInfo>): void;
     /**
      * Obtains the renderer information provided while creating a renderer instance. This method uses a promise to
      * return the result.
@@ -3275,22 +3375,22 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getRendererInfo(): Promise<AudioRendererInfo>;
+    getRendererInfo(): Promise<AudioStreamRendererInfo>;
 
     /**
-     * Obtains the renderer stream information. This method uses an asynchronous callback to return the result.
-     * @param callback Callback used to return the stream information.
+     * Obtains the renderer stream format. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream format.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
+    getStreamFormat(callback: AsyncCallback<AudioStreamRendererFormat>): void;
     /**
-     * Obtains the renderer stream information. This method uses a promise to return the result.
-     * @return Promise used to return the stream information.
+     * Obtains the renderer stream format. This method uses a promise to return the result.
+     * @return Promise used to return the stream format.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getStreamInfo(): Promise<AudioStreamInfo>;
+    getStreamFormat(): Promise<AudioStreamRendererFormat>;
 
     /**
      * Obtains the renderer stream id. This method uses an asynchronous callback to return the result.
@@ -3554,7 +3654,76 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    on(type: "dataRequest", callback: Callback<AudioRendererDataInfo>): void;
+    on(type: "dataRequest", callback: Callback<AudioStreamRendererDataInfo>): void;
+  }
+
+  /**
+   * Describes audio stream capturer format.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  interface AudioStreamCapturerFormat {
+    /**
+     * Sampling rate.
+     * @since 9
+     */
+    samplingRate: AudioSamplingRate;
+
+    /**
+     * Audio channel mask.
+     * @since 9
+     */
+    channels: AudioCapturerChannelMask;
+
+    /**
+     * Audio sample format.
+     * @since 9
+     */
+    sampleFormat: AudioSampleFormat;
+
+    /**
+     * Audio encoding type.
+     * @since 9
+     */
+    encodingType: AudioEncodingType;
+  }
+
+  /**
+   * Describes audio capturer information.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  interface AudioStreamCapturerInfo {
+    /**
+     * Audio source type.
+     * @since 9
+     */
+    source: SourceType;
+
+    /**
+     * Audio capturer flags.
+     * @since 9
+     */
+    flags: number;
+  }
+
+  /**
+   * Describes audio capturer configuration options.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
+  interface AudioStreamCapturerOptions {
+    /**
+     * Stream format.
+     * @since 9
+     */
+    streamFormat: AudioStreamCapturerFormat;
+
+    /**
+     * Capturer information.
+     * @since 9
+     */
+    capturerInfo: AudioStreamCapturerInfo;
   }
 
   /**
@@ -3577,7 +3746,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    getCapturerInfo(callback: AsyncCallback<AudioCapturerInfo>): void;
+    getCapturerInfo(callback: AsyncCallback<AudioStreamCapturerInfo>): void;
     /**
      * Obtains the capturer information provided while creating a capturer instance. This method uses a promise to
      * return the result.
@@ -3585,7 +3754,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    getCapturerInfo(): Promise<AudioCapturerInfo>;
+    getCapturerInfo(): Promise<AudioStreamCapturerInfo>;
 
     /**
      * Obtains the capturer stream information. This method uses an asynchronous callback to return the result.
@@ -3593,27 +3762,27 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
+    getStreamFormat(callback: AsyncCallback<AudioStreamCapturerFormat>): void;
     /**
      * Obtains the capturer stream information. This method uses a promise to return the result.
      * @return Promise used to return the stream information.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    getStreamInfo(): Promise<AudioStreamInfo>;
+    getStreamFormat(): Promise<AudioStreamCapturerFormat>;
 
     /**
      * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the stream id.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getAudioStreamId(callback: AsyncCallback<number>): void;
     /**
      * Obtains the capturer stream id. This method uses a promise to return the result.
      * @return Promise used to return the stream id.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getAudioStreamId(): Promise<number>;
 
