@@ -77,12 +77,6 @@ declare namespace http {
      * @since 9
      */
     secureOptions?: TLSSecureOptions;
-    /**
-     * For https.
-     *
-     * @since 9
-     */
-    checkServerIdentity?: (hostname: string, certs: Array<X509CertRawData>) => Error | undefined;
   }
 
   export interface HttpRequest {

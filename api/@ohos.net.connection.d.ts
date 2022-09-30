@@ -55,6 +55,7 @@ declare namespace connection {
    * @return Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -453,28 +454,6 @@ declare namespace connection {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
     port?: number; // [0, 65535]
-  }
-
-  /**
-   * @since 9
-   */
-  export interface NetProxy {
-    type: ProxyType;
-    address: NetAddress;
-  }
-
-  /**
-   * @since 9
-   */
-  export enum ProxyType {
-    /**
-     * Represents proxy for high level protocols such as HTTP or FTP.
-     */
-    HTTP,
-    /**
-     * Represents a SOCKS (V4 or V5) proxy.
-     */
-    SOCKS
   }
 }
 

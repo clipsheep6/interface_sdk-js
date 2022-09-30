@@ -439,67 +439,6 @@ declare namespace socket {
     TLSv12 = "TLSv1.2",
     TLSv13 = "TLSv1.3",
   }
-
-  /**
-   * @since 10
-   */
-  export interface LocalSocket {
-    /**
-     * Accepts a connection request from the client.
-     */
-    accept(callback: AsyncCallback<void>): void;
-    accept(): Promise<void>;
-
-    /**
-     * Connects the client socket to a specified address for setting up a connection with the server.
-     */
-    connect(callback: AsyncCallback<void>): void;
-    connect(): Promise<void>;
-
-    /**
-     * Closes the socket after the server and client finish communicating with each other.
-     */
-    close(callback: AsyncCallback<void>): void;
-    close(): Promise<void>;
-
-    /**
-     * Sends data over a LocalSocket connection.
-     *
-     * @param data Data to send.
-     */
-    send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
-    send(data: string | ArrayBuffer): Promise<void>;
-
-    /**
-     * Listens for message receiving events of the LocalSocket connection.
-     */
-    on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
-
-    /**
-     * Cancels listening for message receiving events of the LocalSocket connection.
-     */
-    off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
-
-    /**
-     * Listens for connection or close events of the LocalSocket connection.
-     */
-    on(type: 'connect' | 'close', callback: Callback<void>): void;
-
-    /**
-     * Cancels listening for connection or close events of the LocalSocket connection.
-     */
-    off(type: 'connect' | 'close', callback?: Callback<void>): void;
-
-    /**
-     * Listens for error events of the LocalSocket connection.
-     */
-    on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the LocalSocket connection.
-     */
-    off(type: 'error', callback?: ErrorCallback): void;
-  }
 }
 
 export default socket;
