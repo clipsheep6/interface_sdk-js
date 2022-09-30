@@ -55,7 +55,6 @@ declare namespace connection {
    * @return Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @since 9
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -220,6 +219,66 @@ declare namespace connection {
     NET_CAPABILITY_MMS = 0,
 
     /**
+     * Indicates that the network can access the carrier's SUPL server.
+     * @since 9
+     */
+    NET_CAPABILITY_SUPL = 1,
+
+    /**
+     * Indicates that the network can access the carrier's DUN or Tethering gateway.
+     * @since 9
+     */
+    NET_CAPABILITY_DUN = 2,
+
+    /**
+     * Indicates that the network can access the FOTA server for remote device upgrade.
+     * @since 9
+     */
+    NET_CAPABILITY_FOTA = 3,
+
+    /**
+     * Indicates that the network can access the IMS server.
+     * @since 9
+     */
+    NET_CAPABILITY_IMS = 4,
+
+    /**
+     * Indicates that the network can access the carrier's CBS server.
+     * @since 9
+     */
+    NET_CAPABILITY_CBS = 5,
+
+    /**
+     * Indicates that the network can be used for Wi-Fi Direct.
+     * @since 9
+     */
+    NET_CAPABILITY_WIFI_P2P = 6,
+
+    /**
+     * Indicates that the network can access the carrier's Initial Attach server.
+     * @since 9
+     */
+    NET_CAPABILITY_IA = 7,
+
+    /**
+     * Indicates that the network can access the carrier's RCS server.
+     * @since 9
+     */
+    NET_CAPABILITY_RCS = 8,
+
+    /**
+     * Indicates that the network can access the carrier's XCAP server.
+     * @since 9
+     */
+    NET_CAPABILITY_XCAP = 9,
+
+    /**
+     * Indicates that the network can access the carrier's IMS emergency call server.
+     * @since 9
+     */
+    NET_CAPABILITY_EIMS = 10,
+
+    /**
      * Indicates that the network traffic is not metered.
      */
     NET_CAPABILITY_NOT_METERED = 11,
@@ -230,6 +289,18 @@ declare namespace connection {
     NET_CAPABILITY_INTERNET = 12,
 
     /**
+     * Indicates that the network is not restricted.
+     * @since 9
+     */
+    NET_CAPABILITY_NOT_RESTRICTED = 13,
+
+    /**
+     * Indicates that the network is trusted.
+     * @since 9
+     */
+    NET_CAPABILITY_TRUSTED = 14,
+
+    /**
      * Indicates that the network does not use a VPN.
      */
     NET_CAPABILITY_NOT_VPN = 15,
@@ -238,6 +309,60 @@ declare namespace connection {
      * Indicates that the network is available.
      */
     NET_CAPABILITY_VALIDATED = 16,
+
+    /**
+     * Indicates that this network was found to have a captive portal in place last time it was
+     * probed.
+     * @since 9
+     */
+    NET_CAPABILITY_CAPTIVE_PORTAL = 17,
+
+    /**
+     * Indicates that the network is unavailable during roaming.
+     * @since 9
+     */
+    NET_CAPABILITY_NOT_ROAMING = 18,
+
+    /**
+     * Indicates that the network is available only for foreground applications.
+     * @since 9
+     */
+    NET_CAPABILITY_FOREGROUND = 19,
+
+    /**
+     * Indicates that the network is not congested.
+     * @since 9
+     */
+    NET_CAPABILITY_NOT_CONGESTED = 20,
+
+    /**
+     * Indicates that the network is not suspended.
+     * @since 9
+     */
+    NET_CAPABILITY_NOT_SUSPENDED = 21,
+
+    /**
+     * Indicates that traffic that goes through this network is paid by oem. For example,
+     * this network can be used by system apps to upload telemetry data.
+     *
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    NET_CAPABILITY_OEM_PAID = 22,
+
+    /**
+     * Indicates that the network can access the Mission Critical server of the carrier.
+     * @since 9
+     */
+    NET_CAPABILITY_MCX = 23,
+
+    /**
+     * Indicates that the network was tested to only provide partial connectivity.
+     *
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    NET_CAPABILITY_PARTIAL_CONNECTIVITY = 24,
   }
 
   export enum NetBearType {
@@ -252,18 +377,63 @@ declare namespace connection {
     BEARER_WIFI = 1,
 
     /**
+     * Indicates that the network is based on a Bluetooth network.
+     * @since 9
+     */
+    BEARER_BLUETOOTH = 2,
+
+    /**
      * Indicates that the network is an Ethernet network.
      */
     BEARER_ETHERNET = 3,
+
+    /**
+     * Indicates that the network is a VPN.
+     * @since 9
+     */
+    BEARER_VPN = 4,
+
+    /**
+     * Indicates that the network is a Wi-Fi Aware network.
+     * @since 9
+     */
+    BEARER_WIFI_AWARE = 5,
+
+    /**
+     * Indicates that the network is a LoWPAN network.
+     * @since 9
+     */
+    BEARER_LOWPAN = 6
   }
 
   export interface ConnectionProperties {
     interfaceName: string;
+    /**
+     * @since 9
+     */
+    isUsePrivateDns: boolean;
+    /**
+     * @since 9
+     */
+    privateDnsServerName: string;
     domains: string;
+    /**
+     * @since 9
+     */
+    httpProxy: HttpProxy;
     linkAddresses: Array<LinkAddress>;
     dnses: Array<NetAddress>;
     routes: Array<RouteInfo>;
     mtu: number;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface HttpProxy {
+    host: string;
+    port: number;
+    parsedExclusionList: Array<string>;
   }
 
   export interface RouteInfo {
@@ -283,6 +453,28 @@ declare namespace connection {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
     port?: number; // [0, 65535]
+  }
+
+  /**
+   * @since 9
+   */
+  export interface NetProxy {
+    type: ProxyType;
+    address: NetAddress;
+  }
+
+  /**
+   * @since 9
+   */
+  export enum ProxyType {
+    /**
+     * Represents proxy for high level protocols such as HTTP or FTP.
+     */
+    HTTP,
+    /**
+     * Represents a SOCKS (V4 or V5) proxy.
+     */
+    SOCKS
   }
 }
 
