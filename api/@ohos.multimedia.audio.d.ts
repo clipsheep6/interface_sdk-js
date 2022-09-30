@@ -35,7 +35,7 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    */
-  const LOCAL_VOLUME_GROUP_ID: string;
+  const LOCAL_VOLUME_GROUP_ID: number;
 
   /**
    * Define local interrupt group id for audio
@@ -43,7 +43,7 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @systemapi
    */
-  const LOCAL_INTERRUPT_GROUP_ID: string;
+  const LOCAL_INTERRUPT_GROUP_ID: number;
 
   /**
    * Obtains an AudioManager instance.
@@ -2613,7 +2613,7 @@ declare namespace audio {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @permission ohos.permission.MICROPHONE
+     * @permission ohos.permission.MODIFY_AUDIO_CAPTURER_SETTINGS
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2622,7 +2622,7 @@ declare namespace audio {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @permission ohos.permission.MICROPHONE
+     * @permission ohos.permission.MODIFY_AUDIO_CAPTURER_SETTINGS
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
 
