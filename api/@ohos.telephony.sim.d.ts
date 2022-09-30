@@ -97,7 +97,6 @@ declare namespace sim {
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param callback Returns one of the following SIM card states:
@@ -224,7 +223,6 @@ declare namespace sim {
   /**
    * Checks whether a SIM card is inserted in a specified slot.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns true if a SIM card is inserted; return false otherwise.
