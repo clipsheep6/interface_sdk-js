@@ -210,6 +210,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
    * Navigation subtitle
    * @since 8
+   * @deprecated since 9
    */
   subTitle(value: string): NavigationAttribute;
 
