@@ -2637,7 +2637,7 @@ declare namespace audio {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @permission ohos.permission.MODIFY_AUDIO_CAPTURER_SETTINGS
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -2646,7 +2646,7 @@ declare namespace audio {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @permission ohos.permission.MODIFY_AUDIO_CAPTURER_SETTINGS
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
 
@@ -3558,7 +3558,7 @@ declare namespace audio {
      * @param mode The interrupt mode.
      * @param callback Callback used to return the result.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
      */
     setInterruptMode(mode: InterruptMode, callback: AsyncCallback<void>): void;
     /**
@@ -3566,7 +3566,7 @@ declare namespace audio {
      * @param mode The interrupt mode.
      * @return Promise used to return the result.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
      */
     setInterruptMode(mode: InterruptMode): Promise<void>;
 
@@ -3592,7 +3592,7 @@ declare namespace audio {
      * triggered when audio playback is interrupted.
      * @param callback Callback used to listen for interrupt callback.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
