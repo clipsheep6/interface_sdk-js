@@ -88,17 +88,11 @@
    */
   Split,
    /**
-   * If the width of navigation component is less than the sum of minNavBarWidth and minContentWidth,
-   * the navigation component is displayed in stack mode. Otherwise it's displayed in split mode. 
+   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+   * Otherwise it's displayed in stack mode. 
    * @since 9
    */
-  AutoStackSplit,
-  /**
-   * If the width of navigation component is less than the sum of minNavBarWidth and minContentWidth,
-   * the navigation component is displayed in overlay mode. Otherwise it's displayed in split mode. 
-   * @since 9
-   */
-  AutoOverlaySplit,
+  Auto,
 }
 
 /**
@@ -184,24 +178,6 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   navBarWidth(value: Length): NavigationAttribute;
 
   /**
-   * Sets the minimum width of navigation bar.
-   * @since 9
-   */
-   minNavBarWidth(value: Length): NavigationAttribute;
-
-   /**
-   * Sets the maximum width of navigation bar.
-   * @since 9
-   */
-  maxNavBarWidth(value: Length): NavigationAttribute;
-
-  /**
-   * Sets the minimum width of content area.
-   * @since 9
-   */
-  minContentWidth(value: Length): NavigationAttribute;
-
-  /**
    * Sets the position of navigation bar.
    * @since 9
    */
@@ -214,32 +190,16 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   mode(value: NavigationMode): NavigationAttribute;
 
   /**
-   * Sets the icon of button which controls navigation bar show or hide.
-   * @since 9
-   */
-  controlButtonIcon(value: {
-    shown: string | PixelMap | Resource;
-    hidden: string | PixelMap | Resource;
-    switching?: string | PixelMap | Resource;
-  }): NavigationAttribute;
-
-  /**
    * Sets the back button icon.
    * @since 9
    */
   backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
 
   /**
-   * Hide the button which controls the navigation bar show or hide.
-   * @since 9
-   */
-  hideControlButton(value: boolean): NavigationAttribute;
-
-  /**
    * Hide the navigation bar.
    * @since 9
    */
-   hideNavBar(value: boolean): NavigationAttribute;
+  hideNavBar(value: boolean): NavigationAttribute;
 
   /**
    * Navigation title
@@ -296,10 +256,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
 
   /**
-   * Trigger callback when the visibility of navigation bar change in overlay or split mode.
+   * Trigger callback when the visibility of navigation bar change.
    * @since 9
    */
-   onNavBarVisibilityChange(callback: (isVisible: boolean) => void): NavigationAttribute;
+   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
 declare const Navigation: NavigationInterface;
