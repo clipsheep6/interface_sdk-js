@@ -14,6 +14,60 @@
  */
 
 /**
+ * Navigation tile height.
+ * @since 9
+ */
+ declare enum TitleHeight {
+  /**
+   * Title height when only main title is avaliable.
+   * @since 9
+   */
+  MainOnly,
+
+  /**
+   * Title height when main title and subtitle are both avaliable.
+   * @since 9
+   */
+  MainWithSub,
+}
+
+/**
+ * Defines the navigation common title.
+ * @since 9
+ */
+ declare interface NavigatinCommonTitle {
+  /**
+   * Sets the main title.
+   * @since 9
+   */
+  main: string;
+
+  /**
+   * Sets the sub title.
+   * @since 9
+   */
+  sub?: string;
+}
+
+/**
+ * Defines the navigation custom title.
+ * @since 9
+ */
+ declare interface NavigatinCustomTitle {
+  /**
+   * Sets the custom title builder.
+   * @since 9
+   */
+  builder: string;
+
+  /**
+   * Sets the custom title height.
+   * @since 9
+   */
+  height?: TitleHeight | Length;
+}
+
+/**
  * The construct function of NavDestination.
  * @since 9
  */
@@ -34,19 +88,13 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Navigation title bar
    * @since 9
    */
-  title(value: string | CustomBuilder): NavDestinationAttribute;
+  title(value: string | NavigatinCommonTitle | NavigatinCustomTitle): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
    * @since 9
    */
   hideTitleBar(value: boolean): NavDestinationAttribute;
-
-  /**
-   * Navigation title bar's menus
-   * @since 9
-   */
-  menus(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
 }
 
 declare const NavDestination: NavDestinationInterface;
