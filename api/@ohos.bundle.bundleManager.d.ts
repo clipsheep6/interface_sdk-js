@@ -108,6 +108,7 @@ declare namespace bundleManager {
    * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   enum ApplicationFlag {
@@ -148,6 +149,7 @@ declare namespace bundleManager {
    * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   enum AbilityFlag {
@@ -185,7 +187,6 @@ declare namespace bundleManager {
     /**
      * Used to obtain the abilityInfo only for system app.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
      * @since 9
      */
     GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
@@ -195,6 +196,7 @@ declare namespace bundleManager {
    * Used to query the enumeration value of ExtensionAbilityInfo. Multiple values can be passed in the form of or.
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   enum ExtensionAbilityFlag {
@@ -226,6 +228,26 @@ declare namespace bundleManager {
   }
 
   /**
+   * Obtains own bundleInfo.
+   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @returns { Promise<BundleInfo> } The result of getting the bundle info.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
+
+  /**
+   * Obtains own bundleInfo.
+   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @param { AsyncCallback } callback - The callback of getting bundle info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+
+  /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -234,6 +256,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting bundle info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
@@ -248,6 +271,7 @@ declare namespace bundleManager {
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
@@ -261,6 +285,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting application info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getApplicationInfo(bundleName: string, appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
@@ -275,6 +300,7 @@ declare namespace bundleManager {
    * @returns { Promise<ApplicationInfo> } The result of getting the application info.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getApplicationInfo(bundleName: string, appFlags: number, userId?: number): Promise<ApplicationInfo>;
@@ -286,6 +312,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getAllBundleInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
@@ -299,6 +326,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getAllBundleInfo(bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
@@ -311,6 +339,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getAllApplicationInfo(appFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
@@ -324,6 +353,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
@@ -337,6 +367,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of querying ability info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function queryAbilityInfo(want: Want, abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
@@ -351,6 +382,7 @@ declare namespace bundleManager {
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function queryAbilityInfo(want: Want, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
@@ -365,6 +397,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
@@ -380,6 +413,7 @@ declare namespace bundleManager {
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
@@ -391,6 +425,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting bundle name.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void
@@ -402,6 +437,7 @@ declare namespace bundleManager {
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getBundleNameByUid(uid: number): Promise<string>;
@@ -414,6 +450,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting bundle archive info result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void
@@ -426,6 +463,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return { Promise<BundleInfo> } Returns the BundleInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getBundleArchiveInfo(hapFilePath: string,  bundleFlags: number): Promise<BundleInfo>;
@@ -440,6 +478,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback for starting the application's main ability.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, userId: number, callback: AsyncCallback<Want>): void;
@@ -455,6 +494,7 @@ declare namespace bundleManager {
    * @returns { Promise<Want> } the Want for starting the application's main ability.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, userId?: number): Promise<Want>;
@@ -541,6 +581,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
@@ -551,6 +592,7 @@ declare namespace bundleManager {
    * @returns { Promise<boolean> }  Returns true if the application is enabled; returns false otherwise.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
@@ -561,6 +603,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of checking ability enabled result. The result is true if enabled, false otherwise.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
@@ -571,6 +614,7 @@ declare namespace bundleManager {
    * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
@@ -608,7 +652,8 @@ declare namespace bundleManager {
    * @param { string } abilityName - Indicates the ability name.
    * @param { AsyncCallback } callback - The callback of getting ability label result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Resource 
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
    * @since 9
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
@@ -622,6 +667,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return { Promise<string> } Returns the label representing the label of the specified ability.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
    * @since 9
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
@@ -635,6 +681,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of getting ability icon result.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
    * @since 9
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
@@ -648,6 +695,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return { Promise<image.PixelMap> } Returns the PixelMap object representing the icon of the specified ability.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
    * @since 9
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
@@ -660,6 +708,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
@@ -672,6 +721,7 @@ declare namespace bundleManager {
    * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
@@ -684,6 +734,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
@@ -696,6 +747,7 @@ declare namespace bundleManager {
    * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
@@ -710,6 +762,7 @@ declare namespace bundleManager {
    * @returns Returns the ApplicationInfo object.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
    function getApplicationInfoSync(bundleName: string, bundleFlags: number, userId: number) : ApplicationInfo;
@@ -725,6 +778,7 @@ declare namespace bundleManager {
    * @returns Returns the BundleInfo object.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
    function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
