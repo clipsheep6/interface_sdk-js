@@ -14,6 +14,57 @@
  */
 
 /**
+ * Nativation mode
+ * @since 9
+ */
+ declare enum NavigationMode {
+  /**
+   * The navigation bar and the content area are displayed in stack.
+   * @since 9
+   */
+  Stack,
+  /**
+   * The navigation bar is displayed as an overlay above the content area.
+   * @since 9
+   */
+  Overlay,
+  /**
+   * The navigation bar and the content area are displayed side by side.
+   * @since 9
+   */
+  Split,
+   /**
+   * If the width of navigation component is less than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in stack mode. Otherwise it's displayed in split mode. 
+   * @since 9
+   */
+  AutoStackSplit,
+  /**
+   * If the width of navigation component is less than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in overlay mode. Otherwise it's displayed in split mode. 
+   * @since 9
+   */
+  AutoOverlaySplit,
+}
+
+/**
+ * Navigation bar position
+ * @since 9
+ */
+ declare enum NavBarPosition {
+  /**
+   * The navigation bar is on the Start of the container
+   * @since 9
+   */
+  Start,
+  /**
+   * The navigation bar is on the End of the container
+   * @since 9
+   */
+  End,
+}
+
+/**
  * Naivagtion title mode.
  * @since 8
  */
@@ -73,6 +124,70 @@ interface NavigationInterface {
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
+   * Sets the width of navigation bar.
+   * @since 9
+   */
+  navBarWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the minimum width of navigation bar.
+   * @since 9
+   */
+   minNavBarWidth(value: Length): NavigationAttribute;
+
+   /**
+   * Sets the maximum width of navigation bar.
+   * @since 9
+   */
+  maxNavBarWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the minimum width of content area.
+   * @since 9
+   */
+  minContentWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the position of navigation bar.
+   * @since 9
+   */
+  navBarPosition(value: NavBarPosition): NavigationAttribute;
+
+  /**
+   * Sets the mode of navigation.
+   * @since 9
+   */
+  mode(value: NavigationMode): NavigationAttribute;
+
+  /**
+   * Sets the icon of button which controls navigation bar show or hide.
+   * @since 9
+   */
+  controlButtonIcon(value: {
+    shown: string | PixelMap | Resource;
+    hidden: string | PixelMap | Resource;
+    switching?: string | PixelMap | Resource;
+  }): NavigationAttribute;
+
+  /**
+   * Sets the back button icon.
+   * @since 9
+   */
+  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
+
+  /**
+   * Hide the button which controls the navigation bar show or hide.
+   * @since 9
+   */
+  hideControlButton(value: boolean): NavigationAttribute;
+
+  /**
+   * Hide the navigation bar.
+   * @since 9
+   */
+   hideNavBar(value: boolean): NavigationAttribute;
+
+  /**
    * Navigation title
    * @since 8
    */
@@ -85,7 +200,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   subTitle(value: string): NavigationAttribute;
 
   /**
-   * Hide navigation bar
+   * Hide navigation title bar
    * @since 8
    */
   hideTitleBar(value: boolean): NavigationAttribute;
@@ -125,6 +240,12 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 8
    */
   onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
+
+  /**
+   * Trigger callback when the visibility of navigation bar change in overlay or split mode.
+   * @since 9
+   */
+   onNavBarVisibilityChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
 declare const Navigation: NavigationInterface;
