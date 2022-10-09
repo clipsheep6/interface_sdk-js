@@ -82,7 +82,7 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
-     * Used to obtain the metadata contained in moduleInfo and abilityInfo. It can't be used alone, it needs to be used
+     * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo. It can't be used alone, it needs to be used
      * with GET_BUNDLE_INFO_WITH_APPLICATION, GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES,
      * GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -90,7 +90,8 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
     /**
-     * Used to obtain the bundleInfo containing abilityInfo with disabled ability. 
+     * Used to obtain the default bundleInfo containing disabled application and ability. The obtained bundleInfo does not contain information of
+     * signatureInfo, applicationInfo, hapModuleInfo, ability, extensionAbility and permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -708,7 +709,6 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
    * @since 9
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
@@ -721,7 +721,6 @@ declare namespace bundleManager {
    * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
    * @since 9
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
@@ -734,7 +733,6 @@ declare namespace bundleManager {
    * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
    * @since 9
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
@@ -747,7 +745,6 @@ declare namespace bundleManager {
    * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
    * @throws { BusinessError } If the input parameter is not valid parameter.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
    * @since 9
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
@@ -818,6 +815,20 @@ declare namespace bundleManager {
    * @since 9
    */
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
+
+  /**
+   * Indicates the PermissionGrantState.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type PermissionGrantState = _BundleInfo.PermissionGrantState;
+
+    /**
+   * Indicates the SignatureInfo.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type SignatureInfo = _BundleInfo.SignatureInfo;
 
   /**
    * Obtains configuration information about an module.

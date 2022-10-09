@@ -91,6 +91,8 @@ declare namespace zlib {
    * @param inFile Indicates the path of the file to be compressed.
    * @param outFile Indicates the path of the output compressed file.
    * @return Returns error code.
+   * @deprecated since 9
+   * @useinstead compressFile
    */
   function zipFile(inFile:string, outFile:string, options: Options): Promise<void>;
 
@@ -126,6 +128,8 @@ declare namespace zlib {
    * @param inFile Indicates the path of the file to be decompressed.
    * @param outFile Indicates the path of the decompressed file.
    * @return Returns error code.
+   * @deprecated since 9
+   * @useinstead decompressFile
    */
   function unzipFile(inFile:string, outFile:string, options: Options): Promise<void>;
 

@@ -97,11 +97,11 @@ export interface BundleInfo {
 
   /**
    * Indicates the grant status of required permissions
-   * @type {Array<PermissionGrantStatus>}
+   * @type {Array<PermissionGrantState>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly permissionGrantStates: Array<PermissionGrantStatus>;
+  readonly permissionGrantStates: Array<PermissionGrantState>;
 
   /**
    * Indicates the SignatureInfo of the bundle
@@ -193,12 +193,12 @@ export interface UsedScene {
 }
 
 /**
- * PermissionGrantStatus
+ * PermissionGrantState
  * @enum {number}
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
- export enum PermissionGrantStatus {
+ export enum PermissionGrantState {
   /**
    * PERMISSION_DENIED
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
