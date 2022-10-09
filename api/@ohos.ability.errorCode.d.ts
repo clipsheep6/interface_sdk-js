@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
- /**
-  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
-  * @since 6
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
+/**
+ * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+ * @since 6
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ */
 export enum ErrorCode {
   /**
    * Permission denied.
@@ -39,6 +39,13 @@ export enum ErrorCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   INVALID_PARAMETER = -1,
+
+  /**
+  * Invalid parameter.
+  * @since 6
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+  enumValueSyscabcp = -10,
 
   /**
    * No error.
