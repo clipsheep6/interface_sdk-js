@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
+declare type WebHeader = import('../api/@ohos.web.webview').default.WebHeader;
+
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
@@ -76,6 +79,7 @@ declare enum MixedMode {
 /**
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  * @since 8
+ * @deprecated since 9
  */
 declare enum HitTestType {
   /**
@@ -689,6 +693,7 @@ declare class ConsoleMessage {
    * @param messageLevel The console log level.
    *
    * @since 8
+   * @deprecated since 9
    */
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
@@ -955,6 +960,7 @@ declare class JsGeolocation {
    * @param retain Whether to allow the geolocation permission status to be saved to the system.
    *
    * @since 8
+   * @deprecated since 9
    */
   invoke(origin: string, allow: boolean, retain: boolean): void;
 }
@@ -1091,18 +1097,21 @@ declare class WebCookie {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
 
   /**
    * Let the Web inactive.
    * @since 8
+   * @deprecated since 9
    */
   onInactive(): void;
 
   /**
    * Let the Web active.
    * @since 8
+   * @deprecated since 9
    */
   onActive(): void;
 
@@ -1111,6 +1120,7 @@ declare class WebCookie {
    * @param factor The zoom factor.
    *
    * @since 8
+   * @deprecated since 9
    */
   zoom(factor: number): void;
 
@@ -1129,6 +1139,7 @@ declare class WebCookie {
   /**
    * Clears the history in the Web.
    * @since 8
+   * @deprecated since 9
    */
   clearHistory(): void;
 
@@ -1137,6 +1148,7 @@ declare class WebCookie {
    * @param options The options with a piece of code and a callback.
    *
    * @since 8
+   * @deprecated since 9
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
 
@@ -1160,6 +1172,7 @@ declare class WebCookie {
    * @param options The options with the data or URL and other information.
    *
    * @since 8
+   * @deprecated since 9
    */
   loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
@@ -1168,18 +1181,21 @@ declare class WebCookie {
    * @param options The options with the URL and other information.
    *
    * @since 8
+   * @deprecated since 9
    */
   loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
    * @since 8
+   * @deprecated since 9
    */
   refresh();
 
   /**
    * Stops the current load.
    * @since 8
+   * @deprecated since 9
    */
   stop();
 
@@ -1188,6 +1204,7 @@ declare class WebCookie {
    * @param options The option with the JavaScript object and method list.
    *
    * @since 8
+   * @deprecated since 9
    */
   registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
@@ -1196,12 +1213,14 @@ declare class WebCookie {
    * @param name The name of a registered JavaScript object to be deleted.
    *
    * @since 8
+   * @deprecated since 9
    */
   deleteJavaScriptRegister(name: string);
 
   /**
    * Gets the type of HitTest.
    * @since 8
+   * @deprecated since 9
    */
   getHitTest(): HitTestType;
 
@@ -1238,18 +1257,21 @@ declare class WebCookie {
   /**
    * Gets the request focus.
    * @since 8
+   * @deprecated since 9
    */
   requestFocus();
 
   /**
    * Checks whether the web page can go back.
    * @since 8
+   * @deprecated since 9
    */
   accessBackward(): boolean;
 
   /**
    * Checks whether the web page can go forward.
    * @since 8
+   * @deprecated since 9
    */
   accessForward(): boolean;
 
@@ -1258,18 +1280,21 @@ declare class WebCookie {
    * @param step The number of steps.
    *
    * @since 8
+   * @deprecated since 9
    */
   accessStep(step: number): boolean;
 
   /**
    * Goes back in the history of the web page.
    * @since 8
+   * @deprecated since 9
    */
   backward();
 
   /**
    * Goes forward in the history of the web page.
    * @since 8
+   * @deprecated since 9
    */
   forward();
 
@@ -1322,6 +1347,7 @@ declare class WebCookie {
 /**
  * Defines the Web options.
  * @since 8
+ * @deprecated since 9
  */
 declare interface WebOptions {
   /**
@@ -1333,12 +1359,13 @@ declare interface WebOptions {
    * Sets the controller of the Web.
    * @since 8
    */
-  controller: WebController;
+  controller: WebController | WebviewController;
 }
 
 /**
  * Defines the Web interface.
  * @since 8
+ * @deprecated since 9
  */
 interface WebInterface {
   /**
