@@ -16,11 +16,11 @@
 import { AsyncCallback } from './basic'
 
 declare namespace rpc {
-   /**
-    * The error code of rpc.
-    * @syscap SystemCapability.Communication.IPC.Core
-    * @since 9
-    */
+/**
+ * The error code of rpc.
+ * @syscap SystemCapability.Communication.IPC.Core
+ * @since 9
+ */
     enum ErrorCode {
         /* Verify param failed */
         CHECK_PARAM_ERROR = 401,
