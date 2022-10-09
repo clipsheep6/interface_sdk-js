@@ -100,7 +100,7 @@ declare namespace zlib {
    * @param {string} outFile Indicates the path of the output compressed file.
    * @param {Options} options Indicates the options of compressing file.
    * @param {AsyncCallback} callback - The callback of compressing file result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @throws {BusinessError} 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 9
    */
@@ -111,8 +111,8 @@ declare namespace zlib {
    * @param {string} inFile Indicates the path of the file to be compressed.
    * @param {string} outFile Indicates the path of the output compressed file.
    * @param {Options} options Indicates the options of compressing file.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} Returns the result of compressing file.
+   * @returns {Promise<void>} Returns the result of compressing file.
+   * @throws {BusinessError} 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 9
    */
@@ -135,7 +135,7 @@ declare namespace zlib {
    * @param {string} outFile Indicates the path of the output decompressed file.
    * @param {Options} options Indicates the options of decompressing file.
    * @param {AsyncCallback} callback - The callback of decompressing file result.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
+   * @throws {BusinessError} 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 9
    */
@@ -146,8 +146,8 @@ declare namespace zlib {
    * @param {string} inFile Indicates the path of the file to be decompressed.
    * @param {string} outFile Indicates the path of the output decompressing file.
    * @param {Options} options Indicates the options of decompressing file.
-   * @throws {BusinessError} If the input parameter is not valid parameter.
-   * @return {Promise<void>} Returns the result of decompressing file.
+   * @returns {Promise<void>} Returns the result of decompressing file.
+   * @throws {BusinessError} 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 9
    */
