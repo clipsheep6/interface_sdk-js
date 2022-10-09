@@ -14,28 +14,10 @@
  */
 
 /**
- * Navigation tile height.
+ * Defines the navigation destination common title.
  * @since 9
  */
- declare enum TitleHeight {
-  /**
-   * Title height when only main title is avaliable.
-   * @since 9
-   */
-  MainOnly,
-
-  /**
-   * Title height when main title and subtitle are both avaliable.
-   * @since 9
-   */
-  MainWithSub,
-}
-
-/**
- * Defines the navigation common title.
- * @since 9
- */
- declare interface NavigatinCommonTitle {
+ declare interface NavDestinationCommonTitle {
   /**
    * Sets the main title.
    * @since 9
@@ -50,10 +32,10 @@
 }
 
 /**
- * Defines the navigation custom title.
+ * Defines the navigation destination custom title.
  * @since 9
  */
- declare interface NavigatinCustomTitle {
+ declare interface NavDestinationCustomTitle {
   /**
    * Sets the custom title builder.
    * @since 9
@@ -88,7 +70,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Navigation title bar
    * @since 9
    */
-  title(value: string | NavigatinCommonTitle | NavigatinCustomTitle): NavDestinationAttribute;
+  title(value: string | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
