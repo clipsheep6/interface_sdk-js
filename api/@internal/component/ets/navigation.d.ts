@@ -28,7 +28,7 @@
    * Sets the sub title.
    * @since 9
    */
-  sub?: string;
+  sub: string;
 }
 
 /**
@@ -46,7 +46,7 @@
    * Sets the custom title height.
    * @since 9
    */
-  height?: TitleHeight | Length;
+  height: TitleHeight | Length;
 }
 
 /**

@@ -28,7 +28,7 @@
    * Sets the sub title.
    * @since 9
    */
-  sub?: string;
+  sub: string;
 }
 
 /**
@@ -46,7 +46,7 @@
    * Sets the custom title height.
    * @since 9
    */
-  height?: TitleHeight | Length;
+  height: TitleHeight | Length;
 }
 
 /**
@@ -70,7 +70,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Navigation title bar
    * @since 9
    */
-  title(value: string | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
+  title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
