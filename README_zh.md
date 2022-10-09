@@ -1,8 +1,29 @@
 # API声明文件公共仓<a name="ZH-CN_TOPIC_0000001151209521"></a>
 
--   [简介](#section11660541593)
-
 ## 简介<a name="section11660541593"></a>
 
 JavaScript API 公共仓，用来提交 API d.ts 声明文件。
+
+## 目录
+
+```
+├─api
+|  ├─@internal
+│  |  ├─component
+│  |  |  └─ets                 #组件存放目录
+|  |  └─ets 
+|  └─@ohos.×××.d.ts            #API声明文件
+├─build-tools
+   ├─api_check_plugin          #检查API规范的工具
+   |  ├─plugin
+   |  ├─src
+   |  └─test
+   └─collect_application_api   #解析应用到的API的工具
+      └─src
+
+```
+
+## 相关仓
+
+[interface-sdk_js](https://gitee.com/openharmony/interface_sdk-js/tree/master)
 
