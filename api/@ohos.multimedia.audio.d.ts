@@ -3039,7 +3039,6 @@ declare namespace audio {
      * @param callback Callback used to get the updated ringer mode.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
   }
