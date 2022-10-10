@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,66 +17,56 @@
  * Contains basic Ability information, which uniquely identifies an ability.
  * You can use this class to obtain values of the fields set in an element,
  * such as the device ID, bundle name, and ability name.
- * @name Contains basic Ability information, which uniquely identifies an ability
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- *
- * @permission N/A
- * @deprecated since 9
- * @useinstead ../bundleManager/ElementName
+ * @typedef ElementName
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @since 9
  */
- export interface ElementName {
+export interface ElementName {
   /**
-   * device id
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * Indicates device id
+   * @type {?string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   deviceId?: string;
 
   /**
-   * bundle name
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @default Indicates bundle name
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   bundleName: string;
 
   /**
-   * ability name
-   * @default ability class name.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * Indicates ability name
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   abilityName: string;
 
   /**
-   * uri
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * Indicates uri
+   * @type {?string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   uri?: string;
 
   /**
-   * shortName
-   * @default -
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * Indicates short name
+   * @type {?string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
    */
   shortName?: string;
 
  /**
-  * module name
-  * @default -
-  *
+  * @default Indicates module name
+  * @type {?string}
+  * @syscap SystemCapability.BundleManager.BundleFramework.Core
   * @since 9
-  * @syscap SystemCapability.BundleManager.BundleFramework
   */
   moduleName?: string;
 }

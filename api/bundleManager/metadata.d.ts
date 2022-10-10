@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,32 +14,33 @@
  */
 
  /**
-  * @name Indicates the Metadata
+  * Indicates the Metadata
+  * @typedef Metadata
+  * @syscap SystemCapability.BundleManager.BundleFramework.Core
   * @since 9
-  * @syscap SystemCapability.BundleManager.BundleFramework
-  * @permission NA
-  * @deprecated since 9
-  * @useinstead ../bundleManager/Metadata
   */
   export interface Metadata {
     /**
-     * @default Indicates the metadata name
+     * Indicates the metadata name
+     * @type {string}
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     name: string;
 
     /**
-     * @default Indicates the metadata value
+     * Indicates the metadata value
+     * @type {string}
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     value: string;
 
     /**
-     * @default Indicates the metadata resource
+     * Indicates the metadata resource
+     * @type {string}
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     resource: string;
   }

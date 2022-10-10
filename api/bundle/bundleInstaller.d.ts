@@ -22,6 +22,8 @@ import bundle from './../@ohos.bundle';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead  @ohos.bundle.installer.HashParam
  */
  export interface HashParam {
   /**
@@ -45,6 +47,8 @@ import bundle from './../@ohos.bundle';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead @ohos.bundle.installer.InstallParam
  */
 export interface InstallParam {
   /**
@@ -89,6 +93,8 @@ export interface InstallParam {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead @ohos.bundle.installer.InstallStatus
  */
 export interface InstallStatus {
 
@@ -113,6 +119,8 @@ export interface InstallStatus {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead @ohos.bundle.installer.BundleInstaller
  */
 export interface BundleInstaller {
   /**
@@ -126,6 +134,8 @@ export interface BundleInstaller {
    * @param installParam Indicates other parameters required for the installation.
    * @return InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer.BundleInstaller.install
    */
   install(bundleFilePaths: Array<string>, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 
@@ -139,6 +149,8 @@ export interface BundleInstaller {
    * @param installParam Indicates other parameters required for the uninstallation.
    * @return InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer.BundleInstaller.uninstall
    */
   uninstall(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 
@@ -153,6 +165,8 @@ export interface BundleInstaller {
    * @return InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer.BundleInstaller.recover
    */
    recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 }

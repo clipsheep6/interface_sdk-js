@@ -14,130 +14,175 @@
  */
 
 import { AsyncCallback } from './basic';
-import { BundleInfo } from './bundle/bundleInfo';
-import { ElementName } from './bundle/elementName';
+import { BundleInfo } from './bundleManager/bundleInfo';
+import { ElementName } from './bundleManager/elementName';
 
 /**
  * default application manager.
- * @name defaultAppManager
+ * @namespace defaultAppManager
+ * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
  * @since 9
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  */
 declare namespace defaultAppManager {
   /**
    * the constant for application type.
-   * @name ApplicationType
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission N/A
    */
   export enum ApplicationType {
     /**
      * default browser identifier.
-     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    BROWSER = "BROWSER",
+    BROWSER = "Web Browser",
     /**
      * default image identifier.
-     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    IMAGE = "IMAGE",
+    IMAGE = "Image Gallery",
     /**
      * default audio identifier.
-     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    AUDIO = "AUDIO",
+    AUDIO = "Audio Player",
     /**
      * default video identifier.
-     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    VIDEO = "VIDEO",
+    VIDEO = "Video Player",
     /**
-     * default pdf identifier.
-     *
+     * default PDF identifier.
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    PDF = "PDF",
+    PDF = "PDF Viewer",
     /**
      * default word identifier.
-     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    WORD = "WORD",
+    WORD = "Word Viewer",
     /**
      * default excel identifier.
-     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    EXCEL = "EXCEL",
+    EXCEL = "Excel Viewer",
     /**
-     * default ppt identifier.
-     *
+     * default PPT identifier.
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
-    PPT = "PPT",
+    PPT = "PPT Viewer",
   }
 
   /**
    * query whether the caller is default application based on type.
-   *
+   * @param { string } type - application type or file type.
+   * @param { AsyncCallback } callback - The callback of querying default application result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param type application type or file type.
-   * @return return true if caller is default application; return false otherwise.
-   * @permission N/A
    */
-  function isDefaultApplication(type: string) : Promise<boolean>;
   function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
 
   /**
-   * get default application based on type.
-   *
+   * query whether the caller is default application based on type.
+   * @param { string } type - application type or file type.
+   * @returns { Promise<boolean> } return true if caller is default application; return false otherwise.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param type application type or file type.
-   * @param userId indicates the id for the user.
-   * @return return the BundleInfo object.
-   * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @systemapi hide this for inner system use.
    */
-  function getDefaultApplication(type: string, userId?: number) : Promise<BundleInfo>;
+  function isDefaultApplication(type: string) : Promise<boolean>;
+
+  /**
+   * get default application based on type.
+   * @permission ohos.permission.GET_DEFAULT_APPLICATION
+   * @param { string } type - application type or file type.
+   * @param { number } userId - indicates the id for the user.
+   * @param { AsyncCallback } callback - the callback of the BundleInfo object result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
+   * @systemapi
+   * @since 9
+   */
   function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>) : void;
   function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>) : void;
 
   /**
-   * set default application based on type.
-   *
+   * get default application based on type.
+   * @param { string } type - application type or file type.
+   * @param { number } userId - indicates the id for the user.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @return { Promise<BundleInfo> } return the BundleInfo object.
+   * @permission ohos.permission.GET_DEFAULT_APPLICATION
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
+   * @systemapi
    * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param type application type or file type.
-   * @param elementName uniquely identifies an ability or extensionAbility.
-   * @param userId indicates the id for the user.
-   * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @systemapi hide this for inner system use.
    */
-  function setDefaultApplication(type: string, elementName: ElementName, userId?: number) : Promise<void>;
+  function getDefaultApplication(type: string, userId?: number) : Promise<BundleInfo>;
+
+  /**
+   * set default application based on type.
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - application type or file type.
+   * @param { ElementName } elementName - uniquely identifies an ability or extensionAbility.
+   * @param { number } userId - indicates the id for the user.
+   * @param { AsyncCallback } callback - the callback of setting default application result.
+   * @throws { BusinessError } if the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @systemapi
+   * @since 9
+   */
   function setDefaultApplication(type: string, elementName: ElementName, userId: number, callback: AsyncCallback<void>) : void;
   function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>) : void;
 
   /**
-   * reset default application based on type.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param type application type or file type.
-   * @param userId indicates the id for the user.
+   * set default application based on type.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @systemapi hide this for inner system use.
+   * @param { string } type - application type or file type.
+   * @param { ElementName } elementName - uniquely identifies an ability or extensionAbility.
+   * @param { number } userId - indicates the id for the user.
+   * @returns { Promise<void> } the resut of setting default application.
+   * @throws { BusinessError } if the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @systemapi
+   * @since 9
    */
-  function resetDefaultApplication(type: string, userId?: number) : Promise<void>;
+  function setDefaultApplication(type: string, elementName: ElementName, userId?: number) : Promise<void>;
+
+  /**
+   * reset default application based on type.
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - application type or file type.
+   * @param { number } userId - indicates the id for the user.
+   * @param { AsyncCallback } callback - the callback of resetting default application result.
+   * @throws { BusinessError } if the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @systemapi
+   * @since 9
+   */
   function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>) : void;
   function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
+
+  /**
+   * reset default application based on type.
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION
+   * @param { string } type - application type or file type.
+   * @param { number } userId - indicates the id for the user.
+   * @returns { Promise<void> } the result of resetting default application.
+   * @throws { BusinessError } if the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @systemapi
+   * @since 9
+   */
+  function resetDefaultApplication(type: string, userId?: number) : Promise<void>;
 }
 
 export default defaultAppManager;

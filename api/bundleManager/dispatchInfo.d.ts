@@ -14,25 +14,24 @@
  */
 
 /**
- * @name The dispatch info class.
+ * Dispatch info related to installation free
+ * @typedef DispatchInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
+ * @systemapi
  * @since 9
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @systemapi hide this for inner system use
- * @deprecated since 9
- * @useinstead @ohos.bundle.freeInstall.DispacthInfo
  */
  export interface DispatchInfo {
     /**
-     * @default Indicates the dispatchInfo version
+     * Indicates the dispatchInfo version
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     readonly version: string;
-  
+
     /**
-     * @default Indicates the free install interface version number
+     * Indicates the free install interface version
+     * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     readonly dispatchAPI: string;
 }
