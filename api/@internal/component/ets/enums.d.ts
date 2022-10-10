@@ -1504,3 +1504,21 @@ declare enum CopyOptions {
    */
   None,
 }
+
+/**
+ * Title height.
+ * @since 9
+ */
+ declare enum TitleHeight {
+  /**
+   * Title height when only main title is avaliable.
+   * @since 9
+   */
+  MainOnly,
+
+  /**
+   * Title height when main title and subtitle are both avaliable.
+   * @since 9
+   */
+  MainWithSub,
+}
