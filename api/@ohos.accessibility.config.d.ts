@@ -97,7 +97,7 @@ declare namespace config {
 
   /**
    * Register the listener that watches for changes in the enabled status of accessibility extensions.
-   * @param type Indicates the enableAbilityListsStateChanged type.
+   * @param type Indicates the type of event.
    * @param callback Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error.
    */
@@ -105,7 +105,7 @@ declare namespace config {
 
   /**
    * Deregister listener that watches for changes in the enabled status of accessibility extensions.
-   * @param type Indicates the enableAbilityListsStateChanged type.
+   * @param type Indicates the type of event.
    * @param callback Indicates the listener.
    * @throws { BusinessError } 401 - Input parameter error.
    */
@@ -127,7 +127,6 @@ declare namespace config {
     /**
      * Getting configuration value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Input parameter error.
      */
     get(): Promise<T>;
     get(callback: AsyncCallback<T>): void;
@@ -143,7 +142,6 @@ declare namespace config {
     /**
      * Deregister the listener to listen for configuration changes.
      * @param callback Indicates the listener.
-     * @throws { BusinessError } 401 - Input parameter error.
      */
     off(callback?: Callback<T>): void;
   }

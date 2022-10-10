@@ -101,7 +101,6 @@ declare namespace accessibility {
   /**
    * Checks whether accessibility ability is enabled.
    * @since 7
-   * @deprecated since 9
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
@@ -110,37 +109,14 @@ declare namespace accessibility {
   function isOpenAccessibility(): Promise<boolean>;
 
   /**
-   * Checks whether accessibility ability is enabled.
-   * @since 9
-   * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error.
-   */
-  function isAccessibilityExtensionEnabled(callback: AsyncCallback<boolean>): void;
-  function isAccessibilityExtensionEnabled(): Promise<boolean>;
-
-  /**
    * Checks touch browser ability (which is used by talkback) is enabled.
    * @since 7
-   * @deprecated since 9
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @return Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
    */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
   function isOpenTouchGuide(): Promise<boolean>;
-
-  /**
-   * Checks touch browser ability is enabled.
-   * @since 9
-   * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @return Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error.
-   */
-  function isScreenReaderEnabled(callback: AsyncCallback<boolean>): void;
-  function isScreenReaderEnabled(): Promise<boolean>;
 
   /**
    * Queries the list of accessibility abilities.
@@ -196,89 +172,45 @@ declare namespace accessibility {
   /**
    * Register the observe of the accessibility state changed.
    * @since 7
-   * @deprecated since 9
    * @param type state event type.
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
    */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the observe of the accessibility extension enable state changed.
-   * @since 9
-   * @param type state event type.
-   * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error.
-   */
-  function on(type: 'accessibilityExtensionEnableStateChange', callback: Callback<boolean>): void;
-
-  /**
    * Register the observe of the touchGuide state changed.
    * @since 7
-   * @deprecated since 9
    * @param type state event type.
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the observe of the screen reader enable state changed.
-   * @since 9
-   * @param type state event type.
-   * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error.
-   */
-  function on(type: 'screenReaderEnableStateChange', callback: Callback<boolean>): void;
-
-  /**
    * Deregister the observe of the accessibility state changed.
    * @since 7
-   * @deprecated since 9
-   * @param type state event type
-   * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
-   */
-  function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
-
-
-  /**
-   * Deregister the observe of the accessibility extension enable state changed.
-   * @since 9
    * @param type state event type
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
-  function off(type: 'accessibilityExtensionEnableStateChange', callback?: Callback<boolean>): void;
+  function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Deregister the observe of the touchGuide state changed.
    * @since 7
-   * @deprecated since 9
-   * @param type state event type
-   * @param callback Asynchronous callback interface.
-   * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
-   */
-   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
-
-  /**
-   * Deregister the observe of the screen reader enable state changed.
-   * @since 9
    * @param type state event type
    * @param callback Asynchronous callback interface.
    * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
-   function off(type: 'screenReaderEnableStateChange', callback?: Callback<boolean>): void;
+   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Get the captions manager.
@@ -305,55 +237,27 @@ declare namespace accessibility {
  
      /**
       * Register the observe of the enable state.
-      * @deprecated since 9
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      on(type: 'enableChange', callback: Callback<boolean>): void;
 
      /**
-      * Register the observe of the enable state.
-      * @since 9
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     on(type: 'enableStateChange', callback: Callback<boolean>): void;
-
-     /**
       * Register the observer of the style.
-      * @deprecated since 9
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
 
      /**
-      * Register the observer of the style.
-      * @since 9
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     on(type: 'captionsStyleChange', callback: Callback<CaptionsStyle>): void;
-
-     /**
       * Deregister the observe of the enable state.
-      * @deprecated since 9
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      off(type: 'enableChange', callback?: Callback<boolean>): void;
 
      /**
-      * Deregister the observe of the enable state.
-      * @since 9
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     off(type: 'enableStateChange', callback?: Callback<boolean>): void;
-
-     /**
       * Deregister the observer of the style.
-      * @deprecated since 9
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
-
-     /**
-      * Deregister the observer of the style.
-      * @since 9
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     off(type: 'captionsStyleChange', callback?: Callback<CaptionsStyle>): void;
    }
  
    /**

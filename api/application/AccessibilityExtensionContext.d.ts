@@ -83,7 +83,6 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
 declare interface AccessibilityElement {
     /**
      * Get a list of attribute names.
-     * @throws { BusinessError } 401 - Input parameter error.
      */
     attributeNames<T extends keyof ElementAttributeValues>(): Promise<Array<T>>;
     attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
@@ -100,7 +99,6 @@ declare interface AccessibilityElement {
 
     /**
      * Get a list of supported actions.
-     * @throws { BusinessError } 401 - Input parameter error.
      */
     actionNames(): Promise<Array<string>>;
     actionNames(callback: AsyncCallback<Array<string>>): void;
