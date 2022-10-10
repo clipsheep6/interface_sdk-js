@@ -2,7 +2,7 @@
 
 ## 简介<a name="section11660541593"></a>
 
-JavaScript API 公共仓，用来提交 API d.ts 声明文件。
+JS/TS API 公共仓，用来提交 API d.ts 声明文件以及API相关工具。
 
 ## 目录
 
@@ -10,9 +10,12 @@ JavaScript API 公共仓，用来提交 API d.ts 声明文件。
 ├─api
 |  ├─@internal
 │  |  ├─component
-│  |  |  └─ets                 #组件存放目录
+│  |  |  └─ets                 #基于TS扩展的声明式开发范式组件声明文件
 |  |  └─ets 
-|  └─@ohos.×××.d.ts            #API声明文件
+|  ├─config                    #基于JS扩展的类Web范式
+|  ├─form                      #JS服务卡片
+|  ├─@ohos.×××.d.ts            #API声明文件
+|  └─@system.×××.d.ts          #标记为停止维护的接口
 ├─build-tools
    ├─api_check_plugin          #检查API规范的工具
    |  ├─plugin
