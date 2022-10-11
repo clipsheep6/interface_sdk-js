@@ -70,6 +70,26 @@ declare namespace inputDevice {
   }
 
   /**
+   * @since 10
+   */
+  enum FunctionKey {
+    /**
+     * 大小写切换键
+     */
+    CAPSLOCK = 0,
+
+    /**
+     * 小键盘使能键
+     */
+    NUMLOCK = 1,
+
+    /**
+     * 滚动锁定键
+     */
+    SCROLLOCK = 2,
+  }
+
+  /**
    * Defines the listener for input device events.
    * 
    * @since 9
@@ -249,7 +269,7 @@ declare namespace inputDevice {
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
    * @return Returns a result indicating whether the specified key codes are supported.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
@@ -262,6 +282,28 @@ declare namespace inputDevice {
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
+
+  /**
+  * 获取键盘设备指定功能按键的使能状态.
+  *
+  * @since 10
+  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+  * @param key 功能按键的键值码.
+  * @return 返回指定功能按键的使能状态.
+  */
+  function getFunctionKeyState(key: FunctionKey, callback: AsyncCallback<boolean>): void;
+  function getFunctionKeyState(key: FunctionKey): Promise<boolean>;
+
+  /**
+  * 设置键盘设备指定功能键的使能状态.
+  *
+  * @since 10
+  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+  * @param key 功能按键的键值码.
+  * @param state 待设置的使能状态 .
+  */
+  function setFunctionKeyState(key: FunctionKey, state: boolean, callback: AsyncCallback<void>): void;
+  function setFunctionKeyState(key: FunctionKey, state: boolean): Promise<void>;
 }
 
 export default inputDevice;
