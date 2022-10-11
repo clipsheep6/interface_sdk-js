@@ -19,6 +19,78 @@ import {AsyncCallback} from "./basic";
 import {Resource} from 'GlobalResource';
 
 /**
+ * Defines the Web's request/response header.
+ * @since 9
+ */
+ declare interface Header {
+    /**
+     * Gets the key of the request/response header.
+     * @since 9
+     */
+    headerKey: string;
+  
+    /**
+     * Gets the value of the request/response header.
+     * @since 9
+     */
+    headerValue: string;
+  }
+
+/**
+ * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+ * @since 9
+ */
+ declare enum HitTestTypeV9 {
+    /**
+     * The edit text.
+     * @since 9
+     */
+    EditText,
+  
+    /**
+     * The email address.
+     * @since 9
+     */
+    Email,
+  
+    /**
+     * The HTML::a tag with src=http.
+     * @since 9
+     */
+    HttpAnchor,
+  
+    /**
+     * The HTML::a tag with src=http + HTML::img.
+     * @since 9
+     */
+    HttpAnchorImg,
+  
+    /**
+     * The HTML::img tag.
+     * @since 9
+     */
+    Img,
+  
+    /**
+     * The map address.
+     * @since 9
+     */
+    Map,
+  
+    /**
+     * The phone number.
+     * @since 9
+     */
+    Phone,
+  
+    /**
+     * Other unknown HitTest.
+     * @since 9
+     */
+    Unknown,
+  }
+
+/**
  * Defines the hit test value, related to {@link getHitTestValue} method.
  * @since 9
  */
@@ -29,7 +101,7 @@ declare interface HitTestValue {
      *
      * @since 9
      */
-    type: HitTestType;
+    type: HitTestTypeV9;
 
     /**
      * Get the hit test extra data.
@@ -557,11 +629,11 @@ declare namespace webview {
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
-         * @returns { HitTestType } The type of HitTest.
+         * @returns { HitTestTypeV9 } The type of HitTest.
          *
          * @since 9
          */
-        getHitTest(): HitTestType;
+        getHitTest(): HitTestTypeV9;
 
         /**
          * Stores the current page as a web archive.
