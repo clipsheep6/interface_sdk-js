@@ -576,6 +576,12 @@ declare namespace audio {
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
     /**
+     * Voice assistant broadcast usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_VOICE_ASSISTANT = 3,
+    /**
      * Notification or ringtone usage.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2161,6 +2167,20 @@ declare namespace audio {
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
     /**
+     * Obtains the renderer stream id. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(callback: AsyncCallback<number>): void;
+    /**
+     * Obtains the renderer stream id. This method uses a promise to return the result.
+     * @return Promise used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(): Promise<number>;
+    /**
      * Starts the renderer. This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
      * @since 8
@@ -2390,6 +2410,12 @@ declare namespace audio {
      */
     SOURCE_TYPE_MIC = 0,
     /**
+     * Voice recognition source type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    SOURCE_TYPE_VOICE_RECOGNITION = 1,
+    /**
      * Voice communication source type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2480,6 +2506,21 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
+
+    /**
+     * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(callback: AsyncCallback<number>): void;
+    /**
+     * Obtains the capturer stream id. This method uses a promise to return the result.
+     * @return Promise used to return the stream id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    getAudioStreamId(): Promise<number>;
 
     /**
      * Starts capturing. This method uses an asynchronous callback to return the result.
