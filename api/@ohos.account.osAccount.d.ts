@@ -568,6 +568,7 @@ declare namespace osAccount {
      * @name UserAuth
      * @since 8
      * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
      */
     class UserAuth {
         /**
@@ -671,6 +672,7 @@ declare namespace osAccount {
      * @name PINAuth
      * @since 8
      * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
      */
     class PINAuth {
         /**
@@ -707,6 +709,7 @@ declare namespace osAccount {
      * @name UserIdentityManager
      * @since 8
      * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
      */
     class UserIdentityManager {
         /**
