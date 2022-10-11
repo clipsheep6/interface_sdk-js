@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback} from "./basic";
+import { WebController } from 'WebComponent';
 
 /**
  * This module provides the capability to manage web modules.
