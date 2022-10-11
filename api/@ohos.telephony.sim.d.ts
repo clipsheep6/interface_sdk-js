@@ -26,7 +26,6 @@ declare namespace sim {
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param callback Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.

@@ -63,7 +63,6 @@ declare namespace call {
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param callback Returns the call state.
    */
   function getCallState(callback: AsyncCallback<CallState>): void;
@@ -155,6 +154,7 @@ declare namespace call {
    * Hangups the foreground call.
    *
    * @param callId Indicates the identifier of the call to hangup.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -174,6 +174,7 @@ declare namespace call {
    *
    * @param callId Indicates the identifier of the call to reject.
    * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -185,6 +186,7 @@ declare namespace call {
    * Rejects the incoming call without callId.
    *
    * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -192,6 +194,7 @@ declare namespace call {
   function reject(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -199,6 +202,7 @@ declare namespace call {
   function holdCall(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -206,6 +210,7 @@ declare namespace call {
   function unHoldCall(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -279,36 +284,42 @@ declare namespace call {
   function isInEmergencyCall(): Promise<boolean>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -319,6 +330,7 @@ declare namespace call {
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of MMI code.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -329,6 +341,7 @@ declare namespace call {
     *
     * @param type Indicates the observer type.
     * @param callback Return the result of MMI code.
+    * @permission ohos.permission.SET_TELEPHONY_STATE
     * @systemapi Hide this for inner system use.
     * @since 9
     */
@@ -455,7 +468,6 @@ declare namespace call {
   function disableImsSwitch(slotId: number): Promise<void>;
 
   /**
-   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
