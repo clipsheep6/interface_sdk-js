@@ -1925,3 +1925,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
 declare const Web: WebInterface;
 declare const WebInstance: WebAttribute;
+
+declare module "WebView" {
+  module "WebView" {
+    // @ts-ignore
+    export { Header, HitTestType };
+  }
+}
