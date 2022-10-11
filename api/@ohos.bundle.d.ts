@@ -393,6 +393,12 @@ declare namespace bundle {
      */
     PREVIEW = 14,
     /**
+     * @default Indicates extension info with type of print
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    PRINT = 15,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
