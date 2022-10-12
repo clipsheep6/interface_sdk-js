@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -44,15 +44,13 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
  * the original notification will be updated. In addition, the notification ID can be used to cancel
  * a notification by calling the {@link #cancel(int)} method.
  *
- * @name notification
- * @since 7
+ * @name notificationManager
+ * @since 9
  * @syscap SystemCapability.Notification.Notification
  * @import import notification from '@ohos.notification';
  * @permission N/A
- * @deprecated since 9
- * @useinstead notificationManager
  */
-declare namespace notification {
+declare namespace notificationManager {
   /**
    * Publishes a notification.
    *
@@ -61,8 +59,7 @@ declare namespace notification {
    *
    * @param request notification request
    * @param callback callback function
-   * @deprecated since 9
-   * @useinstead notificationManager.publish
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
   function publish(request: NotificationRequest): Promise<void>;
@@ -70,13 +67,11 @@ declare namespace notification {
   /**
    * Publishes a notification to the specified user.
    *
-   * @since 8
    * @param Publishes a notification.
    * @param userId of subscriber receiving the notification
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.publish
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    *
    */
    function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
@@ -85,14 +80,12 @@ declare namespace notification {
   /**
    * Publishes a representative notification.
    *
-   * @since 9
    * @param request a notification.
    * @param representativeBundle bundle name of the representative
    * @param userId userid of the representative
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.publishAsBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    *
    */
     function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
@@ -103,8 +96,7 @@ declare namespace notification {
    *
    * @param id of the notification to cancel, which must be unique in the application.
    * @param callback callback function
-   * @deprecated since 9
-   * @useinstead notificationManager.cancel
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
@@ -114,8 +106,7 @@ declare namespace notification {
    * @param id ID of the notification to cancel, which must be unique in the application.
    * @param label Label of the notification to cancel.
    * @param callback callback function
-   * @deprecated since 9
-   * @useinstead notificationManager.cancel
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
@@ -123,23 +114,21 @@ declare namespace notification {
   /**
    * Cancels a representative notification.
    *
-   * @since 9
    * @param id ID of the notification to cancel, which must be unique in the application.
    * @param representativeBundle bundle name of the representative
    * @param userId userid of the representative
    * @param callback callback function
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.cancelAsBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
   function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
 
   /**
    * Cancels all notifications of the current application.
-   * @deprecated since 9
-   * @useinstead notificationManager.cancelAll
+   * 
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function cancelAll(callback: AsyncCallback<void>): void;
   function cancelAll(): Promise<void>;
@@ -152,8 +141,7 @@ declare namespace notification {
    * @param callback callback function
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.addSlot
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -165,8 +153,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.addSlot
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -175,8 +162,7 @@ declare namespace notification {
    *
    * @param type Slot type to add.
    * @param callback callback function
-   * @deprecated since 9
-   * @useinstead notificationManager.addSlot
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
   function addSlot(type: SlotType): Promise<void>;
@@ -189,8 +175,7 @@ declare namespace notification {
    * @param callback callback function
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.addSlots
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -199,11 +184,9 @@ declare namespace notification {
    *
    * @param slots Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * This parameter must be specified.
-   *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.addSlots
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -212,9 +195,8 @@ declare namespace notification {
    *
    * @param slotType Type of the notification slot to obtain.
    * @param callback callback function
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return Returns the created {@link NotificationSlot}.
-   * @deprecated since 9
-   * @useinstead notificationManager.getSlot
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
@@ -222,9 +204,8 @@ declare namespace notification {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    *
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return Returns all notification slots of this application.
-   * @deprecated since 9
-   * @useinstead notificationManager.getSlots
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
   function getSlots(): Promise<Array<NotificationSlot>>;
@@ -234,24 +215,23 @@ declare namespace notification {
    *
    * @param slotType Type of the NotificationSlot to remove.
    * @param callback callback function
-   * @deprecated since 9
-   * @useinstead notificationManager.removeSlot
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
   function removeSlot(slotType: SlotType): Promise<void>;
 
   /**
    * Removes all NotificationSlot objects created by the current application.
-   * @deprecated since 9
-   * @useinstead notificationManager.removeAllSlots
+   *
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
   function removeAllSlots(): Promise<void>;
 
   /**
    * Describes NotificationSlot types.
-   * @deprecated since 9
-   * @useinstead notificationManager.SlotType
+   * 
+   * @since 9
    */
   export enum SlotType {
     /**
@@ -284,11 +264,9 @@ declare namespace notification {
    * Describes notification content types.
    *
    * @name ContentType
-   * @since 7
+   * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.ContentType
    */
   export enum ContentType {
     /**
@@ -319,9 +297,6 @@ declare namespace notification {
 
   /**
    * Indicates the level of the slot
-   *
-   * @deprecated since 9
-   * @useinstead notificationManager.SlotLevel
    */
   export enum SlotLevel {
     /**
@@ -359,8 +334,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.subscribe
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -369,8 +343,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.subscribe
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function subscribe(subscriber: NotificationSubscriber, info: NotificationSubscribeInfo, callback: AsyncCallback<void>): void;
 
@@ -379,8 +352,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.subscribe
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
@@ -389,8 +361,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.unsubscribe
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -399,8 +370,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.unsubscribe
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -409,8 +379,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.enableNotification
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function enableNotification(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -419,8 +388,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.enableNotification
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function enableNotification(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -429,8 +397,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -439,8 +406,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -449,8 +415,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -459,19 +424,15 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
    */
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
    * Checks whether this application has permission to publish notifications under the user.
    *
-   * since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
   function isNotificationEnabled(userId: number): Promise<boolean>;
@@ -481,8 +442,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.displayBadge
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -491,8 +451,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.displayBadge
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -501,8 +460,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isBadgeDisplayed
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -511,8 +469,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isBadgeDisplayed
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -521,8 +478,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.setSlotByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -531,8 +487,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.setSlotByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -541,8 +496,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getSlotsByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -551,8 +505,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getSlotsByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -561,8 +514,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getSlotNumByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -571,8 +523,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getSlotNumByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -581,8 +532,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -591,8 +541,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
@@ -601,8 +550,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -611,8 +559,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
@@ -621,8 +568,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
@@ -631,19 +577,16 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function removeAll(callback: AsyncCallback<void>): void;
 
   /**
    * Remove all notifications under the specified user.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
    function removeAll(userId: number, callback: AsyncCallback<void>): void;
    function removeAll(userId: number): Promise<void>;
@@ -653,8 +596,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
@@ -664,8 +606,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getAllActiveNotifications
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -675,16 +616,14 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getAllActiveNotifications
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
    * Obtains the number of all active notifications.
    *
-   * @deprecated since 9
-   * @useinstead notificationManager.getActiveNotificationCount
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
   function getActiveNotificationCount(): Promise<number>;
@@ -692,8 +631,7 @@ declare namespace notification {
   /**
    * Obtains an array of active notifications.
    *
-   * @deprecated since 9
-   * @useinstead notificationManager.cancelGroup
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
@@ -701,9 +639,7 @@ declare namespace notification {
   /**
    * Cancel the notification of a specified group for this application.
    *
-   * @since 8
-   * @deprecated since 9
-   * @useinstead notificationManager.cancelGroup
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
   function cancelGroup(groupName: string): Promise<void>;
@@ -711,11 +647,9 @@ declare namespace notification {
   /**
    * Delete the notification of a specified group for this application.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.removeGroupByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
@@ -723,11 +657,9 @@ declare namespace notification {
   /**
    * Set the Do Not Disturb date.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.setDoNotDisturbDate
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
@@ -735,11 +667,9 @@ declare namespace notification {
   /**
    * Set the Do Not Disturb date under the specified user.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.setDoNotDisturbDate
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
    function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
    function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
@@ -747,11 +677,9 @@ declare namespace notification {
   /**
    * Obtains the Do Not Disturb date.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getDoNotDisturbDate
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
@@ -759,11 +687,9 @@ declare namespace notification {
   /**
    * Obtains the Do Not Disturb date.
    *
-   * @since 8
    * @systemapi Hide this for inner system use under the specified user.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getDoNotDisturbDate
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
    function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
    function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
@@ -771,11 +697,9 @@ declare namespace notification {
   /**
    * Obtains whether to support the Do Not Disturb mode.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.supportDoNotDisturbMode
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
   function supportDoNotDisturbMode(): Promise<boolean>;
@@ -783,11 +707,9 @@ declare namespace notification {
   /**
    * Obtains whether the template is supported by the system.
    *
-   * @since 8
    * @param templateName Name of template to be Obtained
    * @param callback callback function
-   * @deprecated since 9
-   * @useinstead notificationManager.isSupportTemplate
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
   function isSupportTemplate(templateName: string): Promise<boolean>;
@@ -795,9 +717,7 @@ declare namespace notification {
   /**
    * Request permission to send notification.
    *
-   * @since 8
-   * @deprecated since 9
-   * @useinstead notificationManager.requestEnableNotification
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
    function requestEnableNotification(callback: AsyncCallback<void>): void;
    function requestEnableNotification(): Promise<void>;
@@ -805,11 +725,9 @@ declare namespace notification {
   /**
    * Sets whether the device supports distributed notification.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.enableDistributed
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function enableDistributed(enable: boolean, callback: AsyncCallback<void>): void;
   function enableDistributed(enable: boolean): Promise<void>;
@@ -817,9 +735,7 @@ declare namespace notification {
   /**
    * Obtains whether the device supports distributed notification.
    *
-   * @since 8
-   * @deprecated since 9
-   * @useinstead notificationManager.isDistributedEnabled
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
   function isDistributedEnabled(): Promise<boolean>;
@@ -827,11 +743,9 @@ declare namespace notification {
   /**
    * Sets whether an application supports distributed notification.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.enableDistributedByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
@@ -839,11 +753,9 @@ declare namespace notification {
   /**
    * Obtains whether an application supports distributed notification.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.isDistributedEnabledByBundle
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
@@ -851,11 +763,9 @@ declare namespace notification {
   /**
    * Obtains the remind modes of the notification.
    *
-   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.getDeviceRemindType
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
   function getDeviceRemindType(): Promise<DeviceRemindType>;
@@ -863,11 +773,9 @@ declare namespace notification {
   /**
    * Set whether the application slot is enabled.
    *
-   * @since 9
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead notificationManager.enableNotificationSlot
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    */
    function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
    function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
@@ -875,11 +783,9 @@ declare namespace notification {
   /**
     * Obtains whether the application slot is enabled.
     *
-    * @since 9
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead notificationManager.isNotificationSlotEnabled
+    * @throws { BusinessError } If the input parameter is not valid parameter.
     */
    function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
    function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
@@ -887,11 +793,9 @@ declare namespace notification {
   /**
     * Set whether to sync notifications to devices that do not have the app installed.
     *
-    * @since 9
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead notificationManager.setSyncNotificationEnabledWithoutApp
+    * @throws { BusinessError } If the input parameter is not valid parameter.
     */
     function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
     function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
@@ -899,20 +803,17 @@ declare namespace notification {
   /**
     * Obtains whether to sync notifications to devices that do not have the app installed.
     *
-    * @since 9
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead notificationManager.getSyncNotificationEnabledWithoutApp
+    * @throws { BusinessError } If the input parameter is not valid parameter.
     */
    function getSyncNotificationEnabledWithoutApp(userId: number, callback: AsyncCallback<boolean>): void;
    function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
 
   /**
    * Describes a BundleOption.
-   *
-   * @deprecated since 9
-   * @useinstead notificationManager.BundleOption
+   * 
+   * @since 9
    */
   export interface BundleOption {
     bundle: string;
@@ -921,9 +822,8 @@ declare namespace notification {
 
   /**
    * Describes a NotificationKey, which can be used to identify a notification.
-   *
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationKey
+   * 
+   * @since 9
    */
   export interface NotificationKey {
     id: number;
@@ -933,10 +833,8 @@ declare namespace notification {
   /**
    * The type of the Do Not Disturb.
    *
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.DoNotDisturbType
    */
   export enum DoNotDisturbType {
     /**
@@ -963,29 +861,22 @@ declare namespace notification {
   /**
    * Describes a DoNotDisturbDate instance.
    *
+   * @since 9
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.DoNotDisturbDate
    */
   export interface DoNotDisturbDate {
     /**
      * the type of the Do Not Disturb.
-     *
-     * @since 8
      */
     type: DoNotDisturbType;
 
     /**
      * the start time of the Do Not Disturb.
-     *
-     * @since 8
      */
     begin: Date;
 
     /**
      * the end time of the Do Not Disturb.
-     *
-     * @since 8
      */
     end: Date;
   }
@@ -993,10 +884,8 @@ declare namespace notification {
   /**
    * The remind type of the nofication.
    *
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.DeviceRemindType
    */
   export enum DeviceRemindType {
     /**
@@ -1023,10 +912,8 @@ declare namespace notification {
   /**
    * Notification source type
    *
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.SourceType
    */
   export enum SourceType {
     /**
@@ -1050,8 +937,6 @@ declare namespace notification {
    *
    * @since 9
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.RemoveReason
    */
   export enum RemoveReason {
     /**
@@ -1071,8 +956,6 @@ declare namespace notification {
    * @since 9
    * @permission N/A
    * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationActionButton
    */
   export type NotificationActionButton = _NotificationActionButton
 
@@ -1082,8 +965,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationBasicContent
    */
   export type NotificationBasicContent = _NotificationBasicContent
 
@@ -1093,8 +974,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationContent
    */
   export type NotificationContent = _NotificationContent
 
@@ -1104,8 +983,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationLongTextContent
    */
   export type NotificationLongTextContent = _NotificationLongTextContent
 
@@ -1115,8 +992,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationMultiLineContent
    */
   export type NotificationMultiLineContent = _NotificationMultiLineContent
 
@@ -1126,8 +1001,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationPictureContent
    */
   export type NotificationPictureContent = _NotificationPictureContent
 
@@ -1137,8 +1010,6 @@ declare namespace notification {
    * @since 9
    * @permission N/A
    * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationFlags
    */
   export type NotificationFlags =  _NotificationFlags
 
@@ -1148,8 +1019,6 @@ declare namespace notification {
    * @since 9
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationFlagStatus
    */
   export type NotificationFlagStatus = _NotificationFlagStatus
 
@@ -1159,8 +1028,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationRequest
    */
   export type NotificationRequest = _NotificationRequest
 
@@ -1170,8 +1037,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.DistributedOptions
    */
   export type DistributedOptions = _DistributedOptions
 
@@ -1181,8 +1046,6 @@ declare namespace notification {
    * @since 9
    * @permission N/A
    * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationSlot
    */
   export type NotificationSlot = _NotificationSlot
 
@@ -1193,8 +1056,6 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationSorting
    */
   export type NotificationSorting = _NotificationSorting
 
@@ -1205,8 +1066,6 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationSubscribeInfo
    */
   export type NotificationSubscribeInfo = _NotificationSubscribeInfo
 
@@ -1218,8 +1077,6 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationSubscriber
    */
   export type NotificationSubscriber = _NotificationSubscriber
 
@@ -1231,8 +1088,6 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.SubscribeCallbackData
    */
   export type SubscribeCallbackData = _SubscribeCallbackData
 
@@ -1242,8 +1097,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationManager.EnabledNotificationCallbackData
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData
 
@@ -1253,8 +1106,6 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationTemplate
    */
   export type NotificationTemplate = _NotificationTemplate
 
@@ -1264,10 +1115,8 @@ declare namespace notification {
    * @since 9
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead notificationManager.NotificationUserInput
    */
   export type NotificationUserInput = _NotificationUserInput
 }
 
-export default notification;
+export default notificationManager;
