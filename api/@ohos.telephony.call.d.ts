@@ -394,7 +394,7 @@ declare namespace call {
   /**
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 10
    */
   function getCallTransferInfo(slotId: number, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
   function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
@@ -402,10 +402,21 @@ declare namespace call {
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 10
    */
   function setCallTransfer(slotId: number, info: CallTransferInfo, callback: AsyncCallback<void>): void;
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
+
+  /**
+   * Checks whether support call transfer due to time.
+   *
+   * <p>The system checks whether IP multimedia subsystem domain (IMS) support call transfer due to time.
+   *
+   * @systemapi Hide this for inner system use.
+   * @return Returns {@code true} if the device call transfer due to time; returns {@code false} otherwise.
+   * @since 10
+   */
+  function isSupportCallTransferTime(slotId: number): boolean;
 
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
@@ -529,12 +540,16 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 10
    */
   export interface CallTransferInfo {
     transferNum: string;
     type: CallTransferType;
     settingType: CallTransferSettingType;
+    startHour?: number;
+    startMinute?: number;
+    endHour?: number;
+    endMinute?: number;
   }
 
   /**
@@ -739,11 +754,15 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 10
    */
   export interface CallTransferResult {
     status: TransferStatus;
     number: string;
+    startHour: number;
+    startMinute: number;
+    endHour: number;
+    endMinute: number;
   }
 
   /**
