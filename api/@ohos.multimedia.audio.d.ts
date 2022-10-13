@@ -2676,6 +2676,44 @@ declare namespace audio {
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
 
     /**
+     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * @param deviceType Audio device type.
+     * @param active Active status to set. The value true means to set the device to the active status, and false
+     * means the opposite.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    setCommunicationDevice(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Sets a device to the active state. This method uses a promise to return the result.
+     * @param deviceType Audio device type.
+     * @param active Active status to set. The value true means to set the device to the active status, and false
+     * means the opposite.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise<void>;
+
+    /**
+     * Checks whether a device is active. This method uses an asynchronous callback to return the query result.
+     * @param deviceType Audio device type.
+     * @param callback Callback used to return the active status of the device.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>): void;
+    /**
+     * Checks whether a device is active. This method uses a promise to return the query result.
+     * @param deviceType Audio device type.
+     * @return Promise used to return the active status of the device.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolean>;
+
+    /**
      * Select the output device. This method uses an asynchronous callback to return the result.
      * @param outputAudioDevices Audio device description
      * @param callback Callback used to return the result.
@@ -2851,6 +2889,50 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
+
+    /**
+     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
+     * @param mode Ringer mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @systemapi
+     */
+    setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the ringer mode. This method uses a promise to return the result.
+     * @param mode Ringer mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @systemapi
+     */
+    setRingerMode(mode: AudioRingMode): Promise<void>;
+
+    /**
+     * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
+    /**
+     * Obtains the ringer mode. This method uses a promise to return the query result.
+     * @return Promise used to return the ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getRingerMode(): Promise<AudioRingMode>;
+
+    /**
+     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
+     * @param callback Callback used to get the updated ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
   }
 
   /**
@@ -2920,130 +3002,6 @@ declare namespace audio {
   }
 
   /**
-   * Implements audio communication management.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Audio.Communication
-   */
-  interface AudioCommunicationManager {
-    /**
-     * Sets the audio scene mode to change audio strategies. This method uses an asynchronous callback to return the
-     * result.
-     * @param scene Audio scene mode.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
-    /**
-     * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
-     * @param scene Audio scene mode.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    setAudioScene(scene: AudioScene): Promise<void>;
-
-    /**
-     * Obtains the audio scene mode. This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the audio scene mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    getAudioScene(callback: AsyncCallback<AudioScene>): void;
-    /**
-     * Obtains the audio scene mode. This method uses a promise to return the query result.
-     * @return Promise used to return the audio scene mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    getAudioScene(): Promise<AudioScene>;
-
-    /**
-     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
-     * @param deviceType Audio device type.
-     * @param active Active status to set. The value true means to set the device to the active status, and false
-     * means the opposite.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    setCommunicationDevice(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
-    /**
-     * Sets a device to the active state. This method uses a promise to return the result.
-     * @param deviceType Audio device type.
-     * @param active Active status to set. The value true means to set the device to the active status, and false
-     * means the opposite.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise<void>;
-
-    /**
-     * Checks whether a device is active. This method uses an asynchronous callback to return the query result.
-     * @param deviceType Audio device type.
-     * @param callback Callback used to return the active status of the device.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>): void;
-    /**
-     * Checks whether a device is active. This method uses a promise to return the query result.
-     * @param deviceType Audio device type.
-     * @return Promise used to return the active status of the device.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolean>;
-
-    /**
-     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
-     * @param mode Ringer mode.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
-     * @systemapi
-     */
-    setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
-    /**
-     * Sets the ringer mode. This method uses a promise to return the result.
-     * @param mode Ringer mode.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
-     * @systemapi
-     */
-    setRingerMode(mode: AudioRingMode): Promise<void>;
-
-    /**
-     * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the ringer mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
-    /**
-     * Obtains the ringer mode. This method uses a promise to return the query result.
-     * @return Promise used to return the ringer mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    getRingerMode(): Promise<AudioRingMode>;
-
-    /**
-     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
-     * @param callback Callback used to get the updated ringer mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
-  }
-
-    /**
    * Enumerates tone types for player.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Tone
@@ -3198,6 +3156,41 @@ declare namespace audio {
     getAudioParameter(key: string): Promise<string>;
 
     /**
+     * Sets the audio scene mode to change audio strategies. This method uses an asynchronous callback to return the
+     * result.
+     * @param scene Audio scene mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
+     */
+    setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
+    /**
+     * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
+     * @param scene Audio scene mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
+     */
+    setAudioScene(scene: AudioScene): Promise<void>;
+
+    /**
+     * Obtains the audio scene mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the audio scene mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getAudioScene(callback: AsyncCallback<AudioScene>): void;
+    /**
+     * Obtains the audio scene mode. This method uses a promise to return the query result.
+     * @return Promise used to return the audio scene mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Communication
+     */
+    getAudioScene(): Promise<AudioScene>;
+
+    /**
      * Obtains an AudioInterruptManager instance.
      * @return AudioInterruptManager instance.
      * @since 9
@@ -3229,14 +3222,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     getRoutingManager(): AudioRoutingManager;
-
-    /**
-     * Obtains an AudioCommunicationManager instance.
-     * @return AudioCommunicationManager instance.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     */
-    getCommunicationManager(): AudioCommunicationManager;
   }
 
   /**
