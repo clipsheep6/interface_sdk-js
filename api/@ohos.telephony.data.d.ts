@@ -112,9 +112,23 @@ declare namespace data {
    *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback Returns {@code true} if roaming is enabled for cellular data services; returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @deprecated since 9
+   * @useinstead isCellularDataRoamingEnabledV9
    */
   function isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
   function isCellularDataRoamingEnabled(slotId: number): Promise<boolean>;
+
+  /**
+   * Checks whether roaming is enabled for cellular data services.
+   *
+   * @param slotId Indicates the ID of a card slot.
+   *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param callback Returns {@code true} if roaming is enabled for cellular data services; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function isCellularDataRoamingEnabledV9(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isCellularDataRoamingEnabledV9(slotId: number): Promise<boolean>;
 
   /**
    * Enables cellular data roaming.

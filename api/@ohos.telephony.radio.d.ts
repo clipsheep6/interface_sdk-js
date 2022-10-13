@@ -47,10 +47,41 @@ declare namespace radio {
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
    * </ul>
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @deprecated since 9
+   * @useinstead getRadioTechV9
    */
   function getRadioTech(slotId: number,
     callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
   function getRadioTech(slotId: number): Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>;
+
+  /**
+   * Obtains radio access technology (RAT) of the registered network. The system
+   * returns RAT of the packet service (PS) and circuit service (CS) domain.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns an integer indicating the RAT in use. The values are as follows:
+   * <ul>
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
+   * </ul>
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getRadioTechV9(slotId: number,
+    callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
+  function getRadioTechV9(slotId: number): Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>;
 
   /**
    * Obtains the network state of the registered network.
@@ -59,14 +90,30 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns a {@code NetworkState} object.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @deprecated since 9
+   * @useinstead getNetworkStateV9
    */
   function getNetworkState(callback: AsyncCallback<NetworkState>): void;
   function getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void;
   function getNetworkState(slotId?: number): Promise<NetworkState>;
 
   /**
+   * Obtains the network state of the registered network.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns a {@code NetworkState} object.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getNetworkStateV9(callback: AsyncCallback<NetworkState>): void;
+  function getNetworkStateV9(slotId: number, callback: AsyncCallback<NetworkState>): void;
+  function getNetworkStateV9(slotId?: number): Promise<NetworkState>;
+
+  /**
    * Proactively requests to update location information.
    *
+   * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi
@@ -78,6 +125,7 @@ declare namespace radio {
   /**
    * Proactively requests to update location information.
    *
+   * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
    * @systemapi
@@ -104,9 +152,26 @@ declare namespace radio {
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
    * <ul>
+   * @deprecated since 9
+   * @useinstead getNetworkSelectionModeV9
    */
   function getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void;
   function getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>;
+
+  /**
+   * Obtains the network search mode of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the ID of the SIM card slot.
+   * @param callback Returns the network search mode of the SIM card. Available values are as follows:
+   * <ul>
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
+   * <ul>
+   * @since 9
+   */
+  function getNetworkSelectionModeV9(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void;
+  function getNetworkSelectionModeV9(slotId: number): Promise<NetworkSelectionMode>;
 
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
@@ -130,9 +195,23 @@ declare namespace radio {
    * @param callback Returns the country code defined in ISO 3166-2;
    * returns an empty string if the device is not registered with any network.
    * @since 7
+   * @deprecated since 9
+   * @useinstead getISOCountryCodeForNetworkV9
    */
   function getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void;
   function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the ISO-defined country code of the country where the registered network is deployed.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the country code defined in ISO 3166-2;
+   * returns an empty string if the device is not registered with any network.
+   * @since 9
+   */
+  function getISOCountryCodeForNetworkV9(slotId: number, callback: AsyncCallback<string>): void;
+  function getISOCountryCodeForNetworkV9(slotId: number): Promise<string>;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -214,9 +293,22 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
    * @since 7
+   * @deprecated since 9
+   * @useinstead getSignalInformationV9
    */
   function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
   function getSignalInformation(slotId: number): Promise<Array<SignalInformation>>;
+
+  /**
+   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
+   * @since 9
+   */
+  function getSignalInformationV9(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
+  function getSignalInformationV9(slotId: number): Promise<Array<SignalInformation>>;
 
   /**
    * Checks whether the device supports 5G New Radio (NR).
@@ -234,8 +326,20 @@ declare namespace radio {
    * supported by the device.
    * @return Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 8
+   * @deprecated since 9
+   * @useinstead isNrSupportedV9
    */
   function isNrSupported(slotId: number): boolean;
+
+  /**
+   * Checks whether the device supports 5G New Radio (NR) by according card slot.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @return Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @since 9
+   */
+  function isNrSupportedV9(slotId: number): boolean;
 
   /**
    * Checks whether the radio service is enabled.
@@ -244,10 +348,24 @@ declare namespace radio {
    *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 7
+   * @deprecated since 9
+   * @useinstead isRadioOnV9
    */
   function isRadioOn(callback: AsyncCallback<boolean>): void;
   function isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
   function isRadioOn(slotId?: number): Promise<boolean>;
+
+  /**
+   * Checks whether the radio service is enabled.
+   *
+   * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function isRadioOnV9(callback: AsyncCallback<boolean>): void;
+  function isRadioOnV9(slotId: number, callback: AsyncCallback<boolean>): void
+  function isRadioOnV9(slotId?: number): Promise<boolean>;
 
   /**
    * Turn on the radio service.
@@ -277,9 +395,17 @@ declare namespace radio {
 
   /**
    * @since 7
+   * @deprecated since 9
+   * @useinstead getOperatorNameV9
    */
   function getOperatorName(slotId: number, callback: AsyncCallback<string>): void;
   function getOperatorName(slotId: number): Promise<string>;
+
+  /**
+   * @since 9
+   */
+  function getOperatorNameV9(slotId: number, callback: AsyncCallback<string>): void;
+  function getOperatorNameV9(slotId: number): Promise<string>;
 
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
