@@ -53,10 +53,25 @@ declare namespace webSocket {
      * @param options Optional parameters {@link WebSocketRequestOptions}.
      * @param callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead connectV9
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
+
+    /**
+     * Initiates a WebSocket request to establish a WebSocket connection to a given URL.
+     *
+     * @param url URL for establishing a WebSocket connection.
+     * @param options Optional parameters {@link WebSocketRequestOptions}.
+     * @param callback Returns callback used to return the execution result.
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    connectV9(url: string, callback: AsyncCallback<boolean>): void;
+    connectV9(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
+    connectV9(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 
     /**
      * Sends data through a WebSocket connection.
@@ -64,9 +79,22 @@ declare namespace webSocket {
      * @param data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
      * @param callback Returns callback used to return the execution result.
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead sendV9
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
     send(data: string | ArrayBuffer): Promise<boolean>;
+
+    /**
+     * Sends data through a WebSocket connection.
+     *
+     * @param data Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
+     * @param callback Returns callback used to return the execution result.
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    sendV9(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
+    sendV9(data: string | ArrayBuffer): Promise<boolean>;
 
     /**
      * Closes a WebSocket connection.

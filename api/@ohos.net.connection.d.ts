@@ -74,9 +74,22 @@ declare namespace connection {
    * @param netHandle Indicates the network to be queried.
    * @param callback Returns the {@link ConnectionProperties} object.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @deprecated since 9
+   * @useinstead getConnectionPropertiesV9
    */
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
+
+  /**
+   * Queries the connection properties of a network.
+   *
+   * @param netHandle Indicates the network to be queried.
+   * @param callback Returns the {@link ConnectionProperties} object.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getConnectionPropertiesV9(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
+  function getConnectionPropertiesV9(netHandle: NetHandle): Promise<ConnectionProperties>;
 
   /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
@@ -84,9 +97,22 @@ declare namespace connection {
    * @param netHandle Indicates the handle. See {@link NetHandle}.
    * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @deprecated since 9
+   * @useinstead getNetCapabilitiesV9
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
+
+  /**
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   *
+   * @param netHandle Indicates the handle. See {@link NetHandle}.
+   * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getNetCapabilitiesV9(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
+  function getNetCapabilitiesV9(netHandle: NetHandle): Promise<NetCapabilities>;
 
   /**
    * Checks whether the default data network is activated.
@@ -117,15 +143,39 @@ declare namespace connection {
    *
    * @param netHandle Indicates the network whose state is to be reported.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * @deprecated since 9
+   * @useinstead reportNetConnectedV9
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
+
+  /**
+   * Reports the network state is connected.
+   *
+   * @param netHandle Indicates the network whose state is to be reported.
+   * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * @since 9
+   */
+  function reportNetConnectedV9(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+  function reportNetConnectedV9(netHandle: NetHandle): Promise<void>;
 
   /**
    * Reports the network state is disconnected.
    *
    * @param netHandle Indicates the network whose state is to be reported.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * @deprecated since 9
+   * @useinstead reportNetDisconnected
+   */
+  function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+  function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
+
+  /**
+   * Reports the network state is disconnected.
+   *
+   * @param netHandle Indicates the network whose state is to be reported.
+   * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * @since 9
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
@@ -136,9 +186,22 @@ declare namespace connection {
    * @param host Indicates the host name or the domain.
    * @param callback Returns the NetAddress list.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @deprecated since 9
+   * @useinstead getAddressesByNameV9
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
+
+  /**
+   * Resolves the host name to obtain all IP addresses based on the default data network.
+   *
+   * @param host Indicates the host name or the domain.
+   * @param callback Returns the NetAddress list.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getAddressesByNameV9(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
+  function getAddressesByNameV9(host: string): Promise<Array<NetAddress>>;
 
   export interface NetConnection {
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
@@ -191,9 +254,22 @@ declare namespace connection {
      * @param host Indicates the host name or the domain.
      * @param callback Returns the NetAddress list.
      * @permission ohos.permission.GET_NETWORK_INFO
+     * @deprecated since 9
+     * @useinstead getAddressesByNameV9
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
+
+    /**
+     * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
+     *
+     * @param host Indicates the host name or the domain.
+     * @param callback Returns the NetAddress list.
+     * @permission ohos.permission.GET_NETWORK_INFO
+     * @since 9
+     */
+    getAddressesByNameV9(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
+    getAddressesByNameV9(host: string): Promise<Array<NetAddress>>;
 
     /**
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
@@ -201,9 +277,22 @@ declare namespace connection {
      * @param host Indicates the host name or the domain.
      * @return Returns the first NetAddress.
      * @permission ohos.permission.GET_NETWORK_INFO
+     * @deprecated since 9
+     * @useinstead getAddressByNameV9
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
     getAddressByName(host: string): Promise<NetAddress>;
+
+    /**
+     * Resolves a host name to obtain the first IP address based on the specified NetHandle.
+     *
+     * @param host Indicates the host name or the domain.
+     * @return Returns the first NetAddress.
+     * @permission ohos.permission.GET_NETWORK_INFO
+     * @since 9
+     */
+    getAddressByNameV9(host: string, callback: AsyncCallback<NetAddress>): void;
+    getAddressByNameV9(host: string): Promise<NetAddress>;
   }
 
   export interface NetCapabilities {

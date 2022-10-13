@@ -130,18 +130,42 @@ declare namespace socket {
      *
      * @param address Destination address. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead bindV9
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
+
+    /**
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     *
+     * @param address Destination address. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    bindV9(address: NetAddress, callback: AsyncCallback<void>): void;
+    bindV9(address: NetAddress): Promise<void>;
 
     /**
      * Sends data over a UDPSocket connection.
      *
      * @param options Optional parameters {@link UDPSendOptions}.
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead send
      */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
     send(options: UDPSendOptions): Promise<void>;
+
+    /**
+     * Sends data over a UDPSocket connection.
+     *
+     * @param options Optional parameters {@link UDPSendOptions}.
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    sendV9(options: UDPSendOptions, callback: AsyncCallback<void>): void;
+    sendV9(options: UDPSendOptions): Promise<void>;
 
     /**
      * Closes a UDPSocket connection.
@@ -251,27 +275,63 @@ declare namespace socket {
      *
      * @param address Destination address. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead bindV9
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
+
+    /**
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     *
+     * @param address Destination address. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    bindV9(address: NetAddress, callback: AsyncCallback<void>): void;
+    bindV9(address: NetAddress): Promise<void>;
 
     /**
      * Sets up a connection to the specified IP address and port number.
      *
      * @param options Optional parameters {@link TCPConnectOptions}.
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead connectV9
      */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TCPConnectOptions): Promise<void>;
+
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     *
+     * @param options Optional parameters {@link TCPConnectOptions}.
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    connectV9(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
+    connectV9(options: TCPConnectOptions): Promise<void>;
 
     /**
      * Sends data over a TCPSocket connection.
      *
      * @param options Optional parameters {@link TCPSendOptions}.
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead sendV9
      */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
     send(options: TCPSendOptions): Promise<void>;
+
+    /**
+     * Sends data over a TCPSocket connection.
+     *
+     * @param options Optional parameters {@link TCPSendOptions}.
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    sendV9(options: TCPSendOptions, callback: AsyncCallback<void>): void;
+    sendV9(options: TCPSendOptions): Promise<void>;
 
     /**
      * Closes a TCPSocket connection.
