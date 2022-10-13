@@ -1,7 +1,3 @@
-/*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -1280,7 +1276,7 @@ declare namespace camera {
 
   /**
    * Video output object.
-   * @since 9
+[O   * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
   interface VideoOutput {
@@ -1380,3 +1376,4 @@ declare namespace camera {
 }
 
 export default camera;
+
