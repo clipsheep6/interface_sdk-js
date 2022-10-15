@@ -54,20 +54,20 @@ declare namespace audio {
   const LOCAL_NETWORK_ID: string;
 
   /**
-   * Define local volume group id for audio
+   * Define default volume group id for audio
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    */
-  const LOCAL_VOLUME_GROUP_ID: number;
+  const DEFAULT_VOLUME_GROUP_ID: number;
 
   /**
-   * Define local interrupt group id for audio
+   * Define default interrupt group id for audio
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @systemapi
    */
-  const LOCAL_INTERRUPT_GROUP_ID: number;
+  const DEFAULT_INTERRUPT_GROUP_ID: number;
 
   /**
    * Obtains an AudioManager instance.
@@ -1818,7 +1818,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getVolumeGroup(groupId: number, callback: AsyncCallback<AudioVolumeGroupManager>): void;
+    getVolumeGroupManager(groupId: number, callback: AsyncCallback<AudioVolumeGroupManager>): void;
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses a promise to return the result.
      * @param groupId volume group id, use LOCAL_VOLUME_GROUP_ID in default
@@ -1826,7 +1826,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getVolumeGroup(groupId: number): Promise<AudioVolumeGroupManager>;
+    getVolumeGroupManager(groupId: number): Promise<AudioVolumeGroupManager>;
 
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
