@@ -1527,6 +1527,8 @@ declare namespace audio {
      * @param focusType The Interrupt type.
      * @param eventCallback Callback used to receive interrupt event.
      * @return resultCallback Callback used to return the result.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
@@ -1537,6 +1539,8 @@ declare namespace audio {
      * Abandon the requested Interrupt event.
      * @param focusType The Interrupt type.
      * @return callback Callback used to return the result.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
@@ -1572,6 +1576,8 @@ declare namespace audio {
      * the callback.
      * @param deviceFlag Audio device flag.
      * @param callback Callback used to obtain the device update details.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -1580,6 +1586,8 @@ declare namespace audio {
     /**
      * UnSubscribes to device change events.
      * @param callback Callback used to obtain the device update details.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -1724,6 +1732,8 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param type Type of the event to listen for. Only the audioRendererChange event is supported.
      * @param callback Callback invoked for the audio renderer change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -1731,6 +1741,8 @@ declare namespace audio {
 
     /**
      * UnSubscribes to audio renderer change events.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -1741,6 +1753,8 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param type Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @param callback Callback invoked for the audio capturer change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -1748,6 +1762,8 @@ declare namespace audio {
 
     /**
      * UnSubscribes to audio capturer change events.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -1831,6 +1847,8 @@ declare namespace audio {
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param callback Callback used to get the system volume change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1875,6 +1893,8 @@ declare namespace audio {
     /**
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
      * @param callback Callback used to get the updated ringer mode.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1919,6 +1939,8 @@ declare namespace audio {
     /**
      * Listens for system microphone state change events. This method uses a callback to get microphone change events.
      * @param callback Callback used to get the system microphone state change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -2745,6 +2767,8 @@ declare namespace audio {
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param callback Callback used to listen for interrupt callback.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      */
@@ -2793,6 +2817,8 @@ declare namespace audio {
     /**
      * Subscribes audio data requeset event callback.
      * @param callback Callback invoked when need audio data.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
