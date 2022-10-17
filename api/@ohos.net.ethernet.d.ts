@@ -19,7 +19,6 @@ import {AsyncCallback, Callback} from "./basic";
  * Provides interfaces to manage ethernet.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NetManager.Ethernet
  */
 declare namespace ethernet {
   /**
