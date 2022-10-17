@@ -57,7 +57,6 @@ declare namespace audio {
    * Define default volume group id for audio
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
    */
   const DEFAULT_VOLUME_GROUP_ID: number;
 
@@ -65,7 +64,6 @@ declare namespace audio {
    * Define default interrupt group id for audio
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
-   * @systemapi
    */
   const DEFAULT_INTERRUPT_GROUP_ID: number;
 
