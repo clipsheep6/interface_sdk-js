@@ -28,10 +28,9 @@ declare namespace camera {
   /**
    * Creates a CameraManager instance.
    * @param context Current application context.
-   * @return CameraManager instance.
+   * @return CameraManager instance, or nullptr if error.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
    */
   function getCameraManager(context: Context): CameraManager;
 
@@ -258,10 +257,9 @@ declare namespace camera {
     /**
      * Creates a CameraInput instance by camera.
      * @param camera Camera device used to create the instance.
-     * @return The CameraInput instance.
+     * @return The CameraInput instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      * @permission ohos.permission.CAMERA
      */
     createCameraInput(camera: CameraDevice): CameraInput;
@@ -270,10 +268,9 @@ declare namespace camera {
      * Creates a CameraInput instance by camera position and type.
      * @param position Target camera position.
      * @param type Target camera type.
-     * @return The CameraInput instance.
+     * @return The CameraInput instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      * @permission ohos.permission.CAMERA
      */
     createCameraInput(position: CameraPosition, type: CameraType): CameraInput;
@@ -282,10 +279,9 @@ declare namespace camera {
      * Creates a PreviewOutput instance.
      * @param profile Preview output profile.
      * @param surfaceId Surface object id used in camera photo output.
-     * @return The PreviewOutput instance.
+     * @return The PreviewOutput instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
@@ -293,10 +289,9 @@ declare namespace camera {
      * Creates a PhotoOutput instance.
      * @param profile Photo output profile.
      * @param surfaceId Surface object id used in camera photo output.
-     * @return The PhotoOutput instance.
+     * @return The PhotoOutput instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     createPhotoOutput(profile: Profile, surfaceId: string): PhotoOutput;
 
@@ -304,29 +299,26 @@ declare namespace camera {
      * Creates a VideoOutput instance.
      * @param profile Video profile.
      * @param surfaceId Surface object id used in camera video output.
-     * @return The VideoOutput instance.
+     * @return The VideoOutput instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
 
     /**
      * Creates a MetadataOutput instance.
      * @param metadataObjectTypes Array of MetadataObjectType.
-     * @return The MetadataOutput instance.
+     * @return The MetadataOutput instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     createMetadataOutput(metadataObjectTypes: Array<MetadataObjectType>): MetadataOutput;
 
     /**
      * Gets a CaptureSession instance.
-     * @return The CaptureSession instance.
+     * @return The CaptureSession instance, or nullptr if error.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     createCaptureSession(): CaptureSession;
 
@@ -567,7 +559,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     close(callback: AsyncCallback<void>): void;
 
@@ -576,7 +567,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     close(): Promise<void>;
 
@@ -860,7 +850,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -869,7 +858,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(): Promise<void>;
 
@@ -878,7 +866,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -887,7 +874,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     release(): Promise<void>;
 
@@ -1141,7 +1127,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -1150,7 +1135,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     release(): Promise<void>;
   }
@@ -1184,7 +1168,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -1193,7 +1176,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(): Promise<void>;
 
@@ -1508,7 +1490,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -1517,7 +1498,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(): Promise<void>;
 
@@ -1647,7 +1627,6 @@ declare namespace camera {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -1656,7 +1635,6 @@ declare namespace camera {
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws Throws this exception if any of the following errors occurs:{@link CameraErrorCode}.
      */
     stop(): Promise<void>;
 
