@@ -83,7 +83,7 @@ declare namespace defaultAppManager {
 
   /**
    * Query whether the caller is default application based on type.
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { AsyncCallback<boolean> } callback - The callback of querying default application result.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -94,7 +94,7 @@ declare namespace defaultAppManager {
 
   /**
    * Query whether the caller is default application based on type.
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @returns { Promise<boolean> } Return true if caller is default application; return false otherwise.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -106,7 +106,7 @@ declare namespace defaultAppManager {
   /**
    * Get default application based on type.
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -125,7 +125,7 @@ declare namespace defaultAppManager {
   /**
    * Get default application based on type.
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<BundleInfo> } Return the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -143,7 +143,7 @@ declare namespace defaultAppManager {
   /**
    * Set default application based on type.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of setting default application result.
@@ -163,7 +163,7 @@ declare namespace defaultAppManager {
   /**
    * Set default application based on type.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of setting default application.
@@ -182,7 +182,7 @@ declare namespace defaultAppManager {
   /**
    * Reset default application based on type.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -200,7 +200,7 @@ declare namespace defaultAppManager {
   /**
    * Reset default application based on type.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or file type.
+   * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of resetting default application.
    * @throws { BusinessError } 201 - Permission denied.
