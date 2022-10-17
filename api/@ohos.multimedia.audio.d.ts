@@ -1526,6 +1526,7 @@ declare namespace audio {
      * Request Interrupt event.
      * @param focusType The Interrupt type.
      * @param eventCallback Callback used to receive interrupt event.
+     * @return request interrupt result.
      * @return resultCallback Callback used to return the result.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -1538,7 +1539,7 @@ declare namespace audio {
     /**
      * Abandon the requested Interrupt event.
      * @param focusType The Interrupt type.
-     * @return callback Callback used to return the result.
+     * @return abandon interrupt result.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
@@ -1853,98 +1854,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
-
-    /**
-     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
-     * @param mode Ringer mode.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
-     * @systemapi
-     */
-    setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
-    /**
-     * Sets the ringer mode. This method uses a promise to return the result.
-     * @param mode Ringer mode.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
-     * @systemapi
-     */
-    setRingerMode(mode: AudioRingMode): Promise<void>;
-
-    /**
-     * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the ringer mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
-    /**
-     * Obtains the ringer mode. This method uses a promise to return the query result.
-     * @return Promise used to return the ringer mode.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    getRingerMode(): Promise<AudioRingMode>;
-
-    /**
-     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
-     * @param callback Callback used to get the updated ringer mode.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch
-     * @throws { BusinessError } 6800101 - if input parameter value error
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
-
-    /**
-     * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
-     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
-     * @param callback Callback used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     */
-    setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
-    /**
-     * Mutes or unmutes the microphone. This method uses a promise to return the result.
-     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
-     * @return Promise used to return the result.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     */
-    setMicrophoneMute(mute: boolean): Promise<void>;
-
-    /**
-     * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
-     * @param Callback used to return the mute status of the microphone. The value true means that the microphone is
-     * muted, and false means the opposite.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    isMicrophoneMute(callback: AsyncCallback<boolean>): void;
-    /**
-     * Checks whether the microphone is muted. This method uses a promise to return the query result.
-     * @return Promise used to return the mute status of the microphone. The value true means that the microphone is
-     * muted, and false means the opposite.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    isMicrophoneMute(): Promise<boolean>;
-
-    /**
-     * Listens for system microphone state change events. This method uses a callback to get microphone change events.
-     * @param callback Callback used to get the system microphone state change event.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch
-     * @throws { BusinessError } 6800101 - if input parameter value error
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
   }
 
   /**
@@ -2068,6 +1977,98 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
+
+    /**
+     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
+     * @param mode Ringer mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @systemapi
+     */
+    setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the ringer mode. This method uses a promise to return the result.
+     * @param mode Ringer mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @systemapi
+     */
+    setRingerMode(mode: AudioRingMode): Promise<void>;
+
+    /**
+     * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
+    /**
+     * Obtains the ringer mode. This method uses a promise to return the query result.
+     * @return Promise used to return the ringer mode.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getRingerMode(): Promise<AudioRingMode>;
+
+    /**
+     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
+     * @param callback Callback used to get the updated ringer mode.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
+
+    /**
+     * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
+     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     */
+    setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
+     */
+    setMicrophoneMute(mute: boolean): Promise<void>;
+
+    /**
+     * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
+     * @param Callback used to return the mute status of the microphone. The value true means that the microphone is
+     * muted, and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    isMicrophoneMute(callback: AsyncCallback<boolean>): void;
+    /**
+     * Checks whether the microphone is muted. This method uses a promise to return the query result.
+     * @return Promise used to return the mute status of the microphone. The value true means that the microphone is
+     * muted, and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    isMicrophoneMute(): Promise<boolean>;
+
+    /**
+     * Listens for system microphone state change events. This method uses a callback to get microphone change events.
+     * @param callback Callback used to get the system microphone state change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
   }
 
   /**
