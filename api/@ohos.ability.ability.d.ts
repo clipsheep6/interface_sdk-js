@@ -37,7 +37,7 @@ declare namespace ability {
      * @since 9
      * @FAModelOnly
      */
-    export type DataAbilityHelper = _DataAbilityHelper
+    export type DataHelper = _DataAbilityHelper
     
     /**
      * DataAbilityHelper
