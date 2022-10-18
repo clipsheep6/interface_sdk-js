@@ -18,32 +18,53 @@
   * @since 6
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   */
-export enum ErrorCode {
-  /**
-   * Permission denied.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  PERMISSION_DENY = -3,
-
-  /**
-   * Ability not found.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  ABILITY_NOT_FOUND = -2,
-
-  /**
-   * Invalid parameter.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  INVALID_PARAMETER = -1,
-
-  /**
-   * No error.
-   * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  NO_ERROR = 0
-}
+  export enum ErrorCode {
+    /**
+     * Permission denied.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    PERMISSION_DENY = -3,
+  
+    /**
+     * Ability not found.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    ABILITY_NOT_FOUND = -2,
+  
+    /**
+     * Invalid parameter.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    INVALID_PARAMETER = -1,
+    
+    /**
+    * Invalid parameter.
+    * @since 6
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+     enumValueSyscabcp = -10,
+  
+     /**
+     * Invalid parameter.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+     enumValueSyscap = -12,
+     
+     /**
+     * Invalid parameter.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+      enumSyscap = -11,
+  
+    /**
+     * No error.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    NO_ERROR = 0
+  }
