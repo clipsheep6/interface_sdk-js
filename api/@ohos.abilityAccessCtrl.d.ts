@@ -14,6 +14,8 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
+import Context from "./application/Context";
+import PermissionRequestResult from "./application/PermissionRequestResult";
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -176,6 +178,18 @@ import { AsyncCallback, Callback } from './basic';
          * @since 9
          */
         off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermissionStateChangeInfo>): void;
+
+        /**
+         * Requests certain permissions from the user.
+         *
+         * @param context The context that initiates the permission request.
+         * @param permissionNameList Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+         * @return Returns the {@link PermissionRequestResult}.
+         * @since 9
+         * @StageModelOnly
+         */
+        requestPermissionsFromUser(context: Context, permissionNameList: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
+        requestPermissionsFromUser(context: Context, permissionNameList: Array<string>) : Promise<PermissionRequestResult>;
     }
   
     /**
