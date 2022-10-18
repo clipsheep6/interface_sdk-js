@@ -54,6 +54,13 @@ export enum ErrorCode {
    */
    enumValueSyscap = -12,
    
+   /**
+   * Invalid parameter.
+   * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+    enumSyscap = -11,
+
   /**
    * No error.
    * @since 6
