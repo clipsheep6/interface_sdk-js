@@ -521,6 +521,25 @@ declare namespace bundle {
      */
     FLOATING = 2,
   }
+  /**
+   * Obtains own bundleInfo.
+   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @returns { Promise<BundleInfo> } The result of getting the bundle info.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
+
+  /**
+   * Obtains own bundleInfo.
+   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @param { AsyncCallback } callback - The callback of getting bundle info result.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
