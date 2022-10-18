@@ -79,7 +79,7 @@ declare enum MixedMode {
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  * @since 8
  */
-declare enum HitTestType {
+export declare enum HitTestType {
   /**
    * The edit text.
    * @since 8
@@ -923,7 +923,7 @@ declare class WebResourceRequest {
  * Defines the Web's request/response header.
  * @since 8
  */
-declare interface Header {
+export declare interface Header {
   /**
    * Gets the key of the request/response header.
    * @since 8
