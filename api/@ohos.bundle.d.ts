@@ -23,11 +23,8 @@ import { AbilityInfo as _AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
 import { ElementName as _ElementName }  from './bundle/elementName';
-import { DispatchInfo as _DispatchInfo } from './bundle/dispatchInfo';
 import Want from './@ohos.application.Want';
 import image from './@ohos.multimedia.image';
-import pack from './bundle/packInfo';
-import * as _PackInfo from './bundle/packInfo';
 import * as _BundleInfo from './bundle/bundleInfo';
 import * as _BundleInstaller from './bundle/bundleInstaller';
 
@@ -848,51 +845,6 @@ declare namespace bundle {
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
 
   /**
-    * Set the module wether need upgrade
-    *
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @param bundleName Indicates the bundle name of the application.
-    * @param moduleName Indicates the module name of the application.
-    * @param upgradeFlag Indicates upgradeFlag of the application.
-    * @systemapi Hide this for inner system use
-    * @deprecated since 9
-    * @useinstead ohos.bundle.freeInstall#setHapModuleUpgradeFlag
-    */
-  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
-  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
-
-  /**
-    * Checks whether a specified module is removable.
-    *
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @param bundleName Indicates the bundle name of the application.
-    * @param moduleName Indicates the module name of the application.
-    * @returns Returns true if the module is removable; returns false otherwise.
-    * @systemapi Hide this for inner system use
-    * @deprecated since 9
-    * @useinstead ohos.bundle.freeInstall#isHapModuleRemovable
-    */
-  function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
-  function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
-
-  /**
-   * Obtains bundlePackInfo based on bundleName and bundleFlags.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the application bundle name to be queried.
-   * @param bundlePackFlag Indicates the application bundle pack flag to be queried.
-   * @return Returns the BundlePackInfo object.
-   * @systemapi hide this for inner system use
-   * @deprecated since 9
-   * @useinstead ohos.bundle.freeInstall#getBundlePackInfo
-   */
-  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag, callback: AsyncCallback<pack.BundlePackInfo>): void;
-  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag): Promise<pack.BundlePackInfo>;
-
-  /**
    * Obtains information about the current ability.
    *
    * @since 9
@@ -907,19 +859,6 @@ declare namespace bundle {
    */
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
-
-  /**
-   * Obtains information about the dispatcher version.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @return Returns the DispatchInfo object for the current ability.
-   * @systemapi hide this for inner system use
-   * @deprecated since 9
-   * @useinstead ohos.bundle.freeInstall#getDispatchInfo
-   */
-  function getDispatcherVersion(callback: AsyncCallback<DispatchInfo>): void;
-  function getDispatcherVersion(): Promise<DispatchInfo>;
 
   /**
    * Obtains the label of a specified ability.
@@ -1180,123 +1119,6 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    */
   export type ElementName = _ElementName;
-
-  /**
-   * The dispatch info class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type DispatchInfo = _DispatchInfo;
-
-  /**
-   * The bundle pack info class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type BundlePackInfo = _PackInfo.BundlePackInfo;
-
-  /**
-   * The package info class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type PackageConfig = _PackInfo.PackageConfig;
-
-  /**
-   * The package summary class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type PackageSummary = _PackInfo.PackageSummary;
-
-  /**
-   * The bundle summary class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type BundleConfigInfo = _PackInfo.BundleConfigInfo;
-
-  /**
-   * The extension ability forms class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type ExtensionAbilities = _PackInfo.ExtensionAbilities;
-
-  /**
-   * The module summary of a bundle.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type ModuleConfigInfo = _PackInfo.ModuleConfigInfo;
-
-  /**
-   * The bundle info summary class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type ModuleDistroInfo = _PackInfo.ModuleDistroInfo;
-
-  /**
-   * The ability info of a module.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type ModuleAbilityInfo = _PackInfo.ModuleAbilityInfo;
-
-  /**
-   * The form info of an ability.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type AbilityFormInfo = _PackInfo.AbilityFormInfo;
-
-  /**
-   * The bundle version class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type Version = _PackInfo.Version;
-
-  /**
-   * The bundle Api version class.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type ApiVersion = _PackInfo.ApiVersion;
-
-  /**
-   * Flags which are used to indicate bundle pack.
-   *
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type BundlePackFlag = _PackInfo.BundlePackFlag;
 }
 
 export default bundle;
