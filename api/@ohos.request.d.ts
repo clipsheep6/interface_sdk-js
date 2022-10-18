@@ -827,7 +827,7 @@ declare namespace request {
    *
    * @name File
    * @since 6
-   * @syscap SystemCapability.MiscServices.Download
+   * @syscap SystemCapability.MiscServices.Upload
    * @permission ohos.permission.INTERNET
    */
   interface File {
@@ -866,7 +866,7 @@ declare namespace request {
    *
    * @name RequestData
    * @since 6
-   * @syscap SystemCapability.MiscServices.Download
+   * @syscap SystemCapability.MiscServices.Upload
    * @permission ohos.permission.INTERNET
    */
   interface RequestData {
