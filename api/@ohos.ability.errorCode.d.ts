@@ -36,7 +36,7 @@ export enum ErrorCode {
   /**
    * Invalid parameter.
    * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Coreaaa
    */
   INVALID_PARAMETER = -1,
 

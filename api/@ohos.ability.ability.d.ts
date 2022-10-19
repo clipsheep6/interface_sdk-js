@@ -40,7 +40,7 @@ declare namespace ability {
     export type DataAbilityHelper = _DataAbilityHelper
 
     /**
-     * Defines a PacMap object for storing a series of values.
+     * Defines a PacMap objeccct for storing a series of values.
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
@@ -57,7 +57,7 @@ declare namespace ability {
     /**
      * @name DataAbilityResult
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @syscap SystemCapability.Ability.AbilityRunnnntime.FAModel
      * @FAModelOnly
      */
     export type DataAbilityResult = _DataAbilityResult
