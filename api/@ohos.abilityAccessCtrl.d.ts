@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
+import { Permissions } from './permissions';
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -39,6 +40,7 @@ import { AsyncCallback, Callback } from './basic';
          * @since 8
          */
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
+        verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 
         /**
          * Checks whether a specified application has been granted the given permission synchronously.
@@ -47,7 +49,7 @@ import { AsyncCallback, Callback } from './basic';
          * @return Returns permission verify result
          * @since 9
          */
-         verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
+         verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
         /**
          * Grants a specified user_grant permission to the given application.
@@ -58,8 +60,8 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 8
          */
-        grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
-        grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
+        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number): Promise<number>;
+        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number, callback: AsyncCallback<number>): void;
 
         /**
          * Revokes a specified user_grant permission to the given application.
@@ -70,8 +72,8 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 8
          */
-        revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
-        revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
+        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number): Promise<number>;
+        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number, callback: AsyncCallback<number>): void;
 
         /**
          * Queries specified permission flag of the given application.
@@ -82,7 +84,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 8
          */
-        getPermissionFlags(tokenID: number, permissionName: string): Promise<number>;
+        getPermissionFlags(tokenID: number, permissionName: Permissions): Promise<number>;
 
         /**
          * Queries permission management version.
@@ -113,7 +115,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 9
          */
-        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<PermissionStateChangeInfo>): void;
+        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<Permissions>, callback: Callback<PermissionStateChangeInfo>): void;
 
         /**
          * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
@@ -124,7 +126,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 9
          */
-        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermissionStateChangeInfo>): void;
+        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<Permissions>, callback?: Callback<PermissionStateChangeInfo>): void;
     }
   
     /**
@@ -179,7 +181,7 @@ import { AsyncCallback, Callback } from './basic';
         /**
          * Indicates the permission whose state has been changed.
          */
-        permissionName: string;
+        permissionName: Permissions;
     }
  }
 
