@@ -48,6 +48,24 @@ declare namespace ability {
     export type PacMap = _PacMap
 
     /**
+     * DataAbilityHelper
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     *
+     * @since 9
+     * @FAModelOnly
+     */
+     export type testType = boolean | number;
+
+     /**
+      * DataAbilityHelper
+      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+      *
+      * @since 9
+      * @FAModelOnly
+      */
+     export type teebtbtbtType = number;
+     
+    /**
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly

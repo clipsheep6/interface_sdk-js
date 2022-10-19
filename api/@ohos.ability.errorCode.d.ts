@@ -40,6 +40,20 @@ export enum ErrorCode {
    */
   INVALID_PARAMETER = -1,
 
+    /**
+  * Invalid parameter.
+  * @since 6
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+     enumValueSyscabcp = -10,
+
+     /**
+     * Invalid parameter.
+     * @since 6
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+     enumValueSyscap = -12,
+     
   /**
    * No error.
    * @since 6
