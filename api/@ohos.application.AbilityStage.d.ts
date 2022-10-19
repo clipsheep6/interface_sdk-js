@@ -75,7 +75,7 @@ export default class AbilityStage {
      * background and there is no enough memory for running as many background processes as possible.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param level Indicates the memory trim level, which shows the current memory usage status.
      * @return -
      * @StageModelOnly

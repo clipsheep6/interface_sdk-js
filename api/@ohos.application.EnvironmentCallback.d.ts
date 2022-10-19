@@ -27,7 +27,7 @@ export default class EnvironmentCallback {
      * Called when the system configuration is updated.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param config: Indicates the updated configuration.
      * @StageModelOnly
      */
