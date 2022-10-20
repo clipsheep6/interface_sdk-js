@@ -367,18 +367,21 @@ declare namespace audio {
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.CommunicationDeviceType
    */
   enum ActiveDeviceType {
     /**
      * Speaker.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     SPEAKER = 2,
     /**
      * Bluetooth device using the SCO link.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @deprecated since 9
      */
     BLUETOOTH_SCO = 7,
   }
@@ -391,7 +394,7 @@ declare namespace audio {
   enum CommunicationDeviceType {
     /**
      * Speaker.
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     SPEAKER = 2
@@ -472,6 +475,7 @@ declare namespace audio {
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.AudioOutputChannelMask or ohos.multimedia.audio.AudioInputChannelMask
    */
   enum AudioChannel {
     /**
@@ -727,6 +731,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioStreamInfo#channelOut or ohos.multimedia.audio.AudioStreamInfo#channelIn
      */
     channels?: AudioChannel;
     /**
@@ -1089,6 +1094,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setVolume
      */
     setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
     /**
@@ -1100,6 +1106,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setVolume
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
     /**
@@ -1109,6 +1116,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getVolume
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -1118,6 +1126,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getVolume
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -1127,6 +1136,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMinVolume
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -1136,6 +1146,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMinVolume
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -1145,6 +1156,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMaxVolume
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -1154,6 +1166,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMaxVolume
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -1163,6 +1176,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#getDevices
      */
     getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
@@ -1172,6 +1186,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#getDevices
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
     /**
@@ -1182,6 +1197,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#mute
      */
     mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -1192,6 +1208,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#mute
      */
     mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
     /**
@@ -1202,6 +1219,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#isMute
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -1212,6 +1230,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#isMute
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -1222,6 +1241,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isActive
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -1232,6 +1252,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isActive
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -1242,6 +1263,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicrophoneMute
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -1252,6 +1274,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setMicrophoneMute
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
     /**
@@ -1262,6 +1285,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#isMicrophoneMute
      */
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
@@ -1272,6 +1296,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#isMicrophoneMute
      */
     isMicrophoneMute(): Promise<boolean>;
     /**
@@ -1282,6 +1307,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setRingerMode
      */
     setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
     /**
@@ -1292,6 +1318,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#setRingerMode
      */
     setRingerMode(mode: AudioRingMode): Promise<void>;
     /**
@@ -1300,6 +1327,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getRingerMode
      */
     getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
     /**
@@ -1308,6 +1336,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getRingerMode
      */
     getRingerMode(): Promise<AudioRingMode>;
     /**
@@ -1355,6 +1384,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#setCommunicationDevice
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -1366,6 +1396,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#setCommunicationDevice
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean): Promise<void>;
     /**
@@ -1375,6 +1406,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#isCommunicationDeviceActive
      */
     isDeviceActive(deviceType: ActiveDeviceType, callback: AsyncCallback<boolean>): void;
     /**
@@ -1384,6 +1416,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#isCommunicationDeviceActive
      */
     isDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
     /**
@@ -1393,6 +1426,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:volumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
     /**
@@ -1402,6 +1436,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#event:ringerModeChange
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
     /**
@@ -1444,6 +1479,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#event:deviceChange
      */
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
 
@@ -1453,6 +1489,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioRoutingManager#event:deviceChange
      */
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
@@ -1465,6 +1502,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioInterruptManager#event:audioInterrupt
      */
     on(type: 'interrupt', interrupt: AudioInterrupt, callback: Callback<InterruptAction>): void;
 
@@ -1476,6 +1514,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.AudioInterruptManager#event:audioInterrupt
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
 
@@ -2461,6 +2500,7 @@ declare namespace audio {
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @deprecated since 9
+   * @useinstead ohos.multimedia.audio.InterruptEvent
    */
   interface InterruptAction {
 
