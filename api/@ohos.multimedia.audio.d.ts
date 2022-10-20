@@ -695,19 +695,19 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the focus type.
+   * Enumerates the audio interrupt request type.
    * @since 9
-   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @systemapi
    */
-  enum FocusType {
+  enum InterruptRequestType {
     /**
-     * Default focus type.
+     * Default type to request audio interrupt.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
      */
-    FOCUS_TYPE_DEFAULT = 0,
+    INTERRUPT_REQUEST_TYPE_DEFAULT = 0,
   }
 
   /**
@@ -1514,6 +1514,52 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio interrupt request result type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Interrupt
+   * @systemapi
+   */
+  enum InterruptRequestResultType {
+    /**
+     * Request audio interrupt success
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    INTERRUPT_REQUEST_GRANT = 0,
+    /**
+     * Request audio interrupt fail, may have higher priority type
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    INTERRUPT_REQUEST_REJECT = 1
+  }
+
+  /**
+   * Describes audio interrupt operation results.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Interrupt
+   * @systemapi
+   */
+  interface InterruptResult {
+    /**
+     * Interrupt request or abandon result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    requestResult: InterruptRequestResultType;
+    /**
+     * Interrupt node as a unit to receive interrupt change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    interruptNode: number;
+  }
+
+  /**
    * Implements audio interrupt management.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
@@ -1521,30 +1567,64 @@ declare namespace audio {
    */
   interface AudioInterruptManager {
     /**
-     * Request Interrupt event.
-     * @param focusType The Interrupt type.
-     * @param eventCallback Callback used to receive interrupt event.
-     * @return request interrupt result.
-     * @return resultCallback Callback used to return the result.
+     * Request audio interrupt to get a interrupt node.
+     * @param type The Interrupt request type.
+     * @param callback Callback used to receive interrupt result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    requestInterrupt(type: InterruptRequestType, callback: AsyncCallback<InterruptResult>): void;
+    /**
+     * Request audio interrupt to get a interrupt node.
+     * @param type The Interrupt request type.
+     * @return Promise used to receive interrupt result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    requestInterrupt(type: InterruptRequestType): Promise<InterruptResult>;
+    /**
+     * Subscribes to interrupt change events.
+     * @param interruptNode Interrupt node to receive change event.
+     * @param callback Callback used to call when interrupt change.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
      */
-    on(type: 'requestInterrupt', focusType: FocusType, eventCallback: Callback<InterruptEvent>): boolean;
+    on(type: 'audioInterrupt', interruptNode: number, callback: Callback<InterruptEvent>): void;
 
     /**
-     * Abandon the requested Interrupt event.
-     * @param focusType The Interrupt type.
-     * @return abandon interrupt result.
+     * Abandon audio interrupt that requested before.
+     * @param interruptNode Interrupt node that requested before.
+     * @param callback Callback used to receive interrupt result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    abandonInterrupt(interruptNode: number, callback: AsyncCallback<InterruptResult>): void;
+    /**
+     * Abandon audio interrupt that requested before.
+     * @param interruptNode Interrupt node that requested before.
+     * @return Promise used to receive interrupt result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @systemapi
+     */
+    abandonInterrupt(interruptNode: number): Promise<InterruptResult>;
+    /**
+     * Unsubscribes to interrupt change events.
+     * @param interruptNode Interrupt node to receive change events.
+     * @param callback Callback used in subscribe.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
      */
-    off(type: 'requestInterrupt', focusType: FocusType, eventCallback?: Callback<InterruptEvent>): boolean;
+    off(type: 'audioInterrupt', interruptNode: number, callback?: Callback<InterruptEvent>): void;
   }
 
   /**
@@ -1601,7 +1681,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    setCommunicationDevice(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
+    setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets a device to the active state. This method uses a promise to return the result.
      * @param deviceType Audio device type.
