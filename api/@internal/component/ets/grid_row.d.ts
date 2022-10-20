@@ -13,107 +13,22 @@
  * limitations under the License.
  */
 
-
-/**
-* Defines the option in length unit of grid-row component.
-* @since 9
-*/
-declare interface GridRowSizeOption {
-    /**
-    * Grid Row Size Option xs
-    * @since 9
-    */
-    xs?: Length,
-
-    /**
-    * Grid Row Size Option sm
-    * @since 9
-    */
-    sm?: Length,
-
-    /**
-    * Grid Row Size Option md
-    * @since 9
-    */
-    md?: Length,
-
-    /**
-    * Grid Row Size Option lg
-    * @since 9
-    */
-    lg?: Length,
-
-    /**
-    * Grid Row Size Option xl
-    * @since 9
-    */
-    xl?: Length,
-
-    /**
-    * Grid Row Size Option xxl
-    * @since 9
-    */
-    xxl?: Length,
-}
-
-/**
-* Defines the option in number unit of grid-container component.
-* @since 9
-*/
-declare interface GridRowColumnOption {
-    /**
-    * Grid Row Column Option xs
-    * @since 9
-    */
-    xs?: number,
-
-    /**
-    * Grid Row Column Option sm
-    * @since 9
-    */
-    sm?: number,
-    
-    /**
-    * Grid Row Column Option md
-    * @since 9
-    */
-    md?: number,
-    
-    /**
-    * Grid Row Column Option lg
-    * @since 9
-    */
-    lg?: number,
-    
-    /**
-    * Grid Row Column Option xl
-    * @since 9
-    */
-    xl?: number,
-    
-    /**
-    * Grid Row Column Option xxl
-    * @since 9
-    */
-    xxl?: number,
-}
-
 /**
 * Defines the gutter of grid-row component.
 * @since 9
 */
-declare interface GutterOption {
+declare interface GridRowGutterOption {
     /**
-    * Define x in GutterOption
+    * Define x in GridRowGutterOption
     * @since 9
     */
-    x?: Length | GridRowSizeOption,
+    x?: Length | GridRowColumnSizeOption,
     
     /**
-    * Define y in GutterOption
+    * Define y in GridRowGutterOption
     * @since 9
     */
-    y?: Length | GridRowSizeOption
+    y?: Length | GridRowColumnSizeOption
 }
 
 /**
@@ -179,13 +94,13 @@ declare interface GridRowOptions {
      * layout spacing between sub-components
      * @since 9
      */
-    gutter?: Length | GutterOption;
+    gutter?: Length | GridRowGutterOption;
 
     /**
      * Sets the total number of columns in the current layout.
      * @since 9
      */
-    columns?: number | GridRowColumnOption;
+    columns?: number | GridRowColumnSizeOption;
 
     /**
      * grid-row layout breakpoints.

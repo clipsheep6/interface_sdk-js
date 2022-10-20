@@ -17,39 +17,39 @@
 * Defines the option in number unit of grid-container child component.
 * @since 9
 */
-declare interface GridColColumnOption {
+declare interface GridRowColumnSizeOption {
     /**
-     * Grid Col Column Option xs
+     * Grid row column size option xs
      * @since 9
      */
     xs?: number,
 
     /**
-     * Grid Col Column Option sm
+     * Grid row column size option sm
      * @since 9
      */
     sm?: number,
 
     /**
-     * Grid Col Column Option md
+     * Grid row column size option md
      * @since 9
      */
     md?: number,
 
     /**
-     * Grid Col Column Option lg
+     * Grid row column size option lg
      * @since 9
      */
     lg?: number,
 
     /**
-     * Grid Col Column Option xl
+     * Grid row column size option xl
      * @since 9
      */
     xl?: number,
 
     /**
-     * Grid Col Column Option xxl
+     * Grid row column size option xxl
      * @since 9
      */
     xxl?: number,
@@ -64,19 +64,19 @@ declare interface GridColOptions {
      * Sets the span of current gird-container item.
      * @since 9
      */
-    span?: number | GridColColumnOption;
+    span?: number | GridRowColumnSizeOption;
 
     /**
      * Sets the offset of current gird-container item.
      * @since 9
      */
-    offset?: number | GridColColumnOption;
+    offset?: number | GridRowColumnSizeOption;
 
     /**
      * Sets the order of current gird-container item.
      * @since 9
      */
-    order?: number | GridColColumnOption;
+    order?: number | GridRowColumnSizeOption;
 }
 
 
@@ -89,7 +89,7 @@ interface GridColInterface {
      * Defines the constructor of GridContainer.
      * @since 9
      */
-    (optiion?: GridColOptions): GridColAttribute;
+    (option?: GridColOptions): GridColAttribute;
 }
 
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
@@ -97,19 +97,19 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
     * Sets the span of current gird-container item.
     * @since 9
     */
-    span(value: number | GridColColumnOption): GridRowAttribute;
+    span(value: number | GridRowColumnSizeOption): GridRowAttribute;
 
     /**
     * Sets the offset of  current gird-container item.
     * @since 9
     */
-    offset(value: number | GridColColumnOption): GridRowAttribute;
+    offset(value: number | GridRowColumnSizeOption): GridRowAttribute;
 
     /**
     * Sets the order of current gird-container item.
     * @since 9
     */
-    order(value: number | GridColColumnOption): GridRowAttribute;
+    order(value: number | GridRowColumnSizeOption): GridRowAttribute;
 }
 
 declare const GridCol: GridColInterface
