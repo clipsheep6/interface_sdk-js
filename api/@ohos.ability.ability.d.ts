@@ -37,8 +37,26 @@ declare namespace ability {
      * @since 9
      * @FAModelOnly
      */
-    export type DataAbilityHelper = _DataAbilityHelper
+    export type DataHelper = _DataAbilityHelper
+    
+    /**
+     * DataAbilityHelper
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     *
+     * @since 9
+     * @FAModelOnly
+     */
+     export type testType = boolean | number;
 
+     /**
+      * DataAbilityHelper
+      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+      *
+      * @since 9
+      * @FAModelOnly
+      */
+     export type teebtbtbtType = number;
+ 
     /**
      * Defines a PacMap object for storing a series of values.
      * @since 9

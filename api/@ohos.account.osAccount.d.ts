@@ -52,8 +52,8 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300003 - the account indicated by localId has been activated.
-         * @throws {BusinessError} 12300010 - account service is busy.
+         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
+         * @throws {BusinessError} 12300009 - the account indicated by localId has been activated.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -151,7 +151,6 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or constraint.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
          * @since 9
          */
         checkConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
@@ -399,7 +398,6 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
          * @since 9
          */
         getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
@@ -598,6 +596,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or photo.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
