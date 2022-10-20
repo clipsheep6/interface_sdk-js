@@ -770,45 +770,7 @@ declare namespace settings {
      */
     const WIFI_WATCHDOG_STATUS: string
   }
-
-  /**
-   * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
-   * template.
-   *
-   * @param name Indicates the name of the setting to set.
-   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
-   * @since 7
-   */
-  function getURI(name: string, callback: AsyncCallback<object>): void;
-  function getURI(name: string): Promise<object>;
-
-  /**
-   * Obtains the value of a specified character string in the database.
-   *
-   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
-   * the database.
-   * @param name Indicates the name of the character string.
-   * @return Returns the value of the character string in the table if any is found; returns {@code null}
-   * otherwise.
-   * @since 7
-   */
-  function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
-  function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
-
-  /**
-   * Saves a character string name and its value to the database.
-   *
-   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
-   * the database.
-   * @param name Indicates the name of the character string.
-   * @param value Indicates the value of the character string.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @since 7
-   * @systemapi Hide this for inner system use.
-   */
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
-
+  
   /**
    * Enables or disables airplane mode.
    *
@@ -832,13 +794,101 @@ declare namespace settings {
   function canShowFloating(): Promise<boolean>;
 
   /**
+   * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
+   * template.
+   *
+   * @param name Indicates the name of the setting to set.
+   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @since 7
+   */
+  function getURI(name: string, callback: AsyncCallback<object>): void;
+  function getURI(name: string): Promise<object>;
+
+  /**
    * get settingsdata uri(synchronization method)
    * @since 8
    * @param name Indicates the name of the setting to set.
    * @return Return settingsdata uri.
+   * @deprecated
    */
-   function getUriSync(name: string): string;
+   function getUriSync(name: string): object;
 
+   /**
+   * get value from settingsdata
+   * @since 9
+   * @param context Indicates the dataAbilityHelper or dataShareHelper used to access
+   * the database.
+   * @param name Indicates the name of the character string.
+   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * otherwise.
+   */
+  function getValue(context: context, name: string, callback: AsyncCallback<object>): void;
+  function getValue(context: context, name: string): Promise<object>;  
+
+   /**
+    * get value from settingsdata(synchronization method)
+    * @since 9
+    * @param context Indicates dataAbilityHelper or dataShareHelper instance
+    * @param name Indicates the name of the character string.
+    * @param defValue Indicates the default value of the character string.
+    * @return settingsdata value
+    */
+   function getValueSync(context: context, name: string, defValue: string): object;
+  
+   /**
+   * set settingsdata value.
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @since 9
+   * @param context Indicates dataAbilityHelper or dataShareHelper instance
+   * @param name Indicates the name of the character string.
+   * @param value Indicates the value of the character string.
+   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @systemapi Hide this for inner system use.
+   */
+   function setValue(context: context, name: string, value: object, callback: AsyncCallback<boolean>): void;
+   function setValue(context: context, name: string, value: object): Promise<boolean>;
+   
+   /**
+    * set settingsdata value(synchronization method)
+    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+    * @since 9
+    * @param context Indicates dataAbilityHelper or dataShareHelper instance
+    * @param name Indicates the name of the character string.
+    * @param value Indicates the value of the character string.
+    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @systemapi Hide this for inner system use.
+    */
+   function setValueSync(context: context, name: string, value: string): boolean;
+   
+   /**
+   * Obtains the value of a specified character string in the database.
+   *
+   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
+   * the database.
+   * @param name Indicates the name of the character string.
+   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * otherwise.
+   * @since 7
+   * @deprecated
+   */
+  function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
+  function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
+
+  /**
+   * Saves a character string name and its value to the database.
+   *
+   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
+   * the database.
+   * @param name Indicates the name of the character string.
+   * @param value Indicates the value of the character string.
+   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @since 7
+   * @systemapi Hide this for inner system use.
+   * @deprecated
+   */
+  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
+  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
+  
    /**
     * get value from settingsdata(synchronization method)
     * @since 8
@@ -846,6 +896,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @return settingsdata value
+    * @deprecated
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
  
@@ -857,8 +908,10 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @deprecated
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
+
 }
 
 export default settings;
