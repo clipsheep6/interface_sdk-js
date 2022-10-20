@@ -21,7 +21,7 @@ import { ConnectOptions } from './ability/connectOptions';
 import Want from './@ohos.application.Want';
 
 /**
- * A Particle Ability represents an ability with service.
+ * A Particle Abilityhhhabc represents an ability with service.
  * @name particleAbility
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -30,7 +30,7 @@ import Want from './@ohos.application.Want';
  */
 declare namespace particleAbility {
   /**
-   * Service ability uses this method to start a specific ability.
+   * Service ability usesbbasd this method to start a specific ability.
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
