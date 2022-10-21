@@ -34,6 +34,15 @@ declare namespace geolocation {
      * @param request Indicates the location request parameters.
      * @param callback Indicates the callback for reporting the location result.
      */
+    /**
+     * subscribe location changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param request Indicates the location request parameters.
+     * @param callback Indicates the callback for reporting the location result.
+     */
     function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
     /**
@@ -42,6 +51,14 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the location result.
+     */
+    /**
+     * unsubscribe location changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
     function off(type: 'locationChange', callback?: Callback<Location>): void;
@@ -75,6 +92,15 @@ declare namespace geolocation {
      * @param request Indicates the cached GNSS locations request parameters.
      * @param callback Indicates the callback for reporting the cached GNSS locations.
      */
+    /**
+     * subscribe to cache GNSS locations update messages
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param request Indicates the cached GNSS locations request parameters.
+     * @param callback Indicates the callback for reporting the cached GNSS locations.
+     */
     function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
     /**
@@ -83,6 +109,14 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the cached gnss locations.
+     */
+    /**
+     * unsubscribe to cache GNSS locations update messages
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback Indicates the callback for reporting the cached gnss locations.
      */
     function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>): void;
@@ -95,6 +129,14 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
      */
+    /**
+     * subscribe gnss status changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param callback Indicates the callback for reporting the gnss status change.
+     */
     function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
     /**
@@ -103,6 +145,14 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the gnss status change.
+     */
+    /**
+     * unsubscribe gnss status changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
      */
     function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
@@ -115,6 +165,14 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
      */
+    /**
+     * subscribe nmea message changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param callback Indicates the callback for reporting the nmea message.
+     */
     function on(type: 'nmeaMessageChange', callback: Callback<string>): void;
 
     /**
@@ -123,6 +181,14 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the nmea message.
+     */
+    /**
+     * unsubscribe nmea message changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
      */
     function off(type: 'nmeaMessageChange', callback?: Callback<string>): void;
@@ -136,6 +202,15 @@ declare namespace geolocation {
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the fence status.
      */
+    /**
+     * add a geofence and subscribe geo fence status changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param request Indicates the Geo-fence configuration parameters.
+     * @param callback Indicates the callback for reporting the fence status.
+     */
     function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
@@ -144,6 +219,15 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
+     * @param request Indicates the Geo-fence configuration parameters.
+     * @param callback Indicates the callback for reporting the remove fence result.
+     */
+    /**
+     * remove a geofence and unsubscribe geo fence status changed
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the remove fence result.
      */
@@ -175,6 +259,14 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
+    /**
+     * obtain current location
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param callback Indicates the callback for reporting the location result.
+     */
     function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
     function getCurrentLocation(callback: AsyncCallback<Location>): void;
     function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
@@ -185,6 +277,14 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the location result.
+     */
+    /**
+     * obtain last known location
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
     function getLastLocation(callback: AsyncCallback<Location>): void;
@@ -277,6 +377,14 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached GNSS locations size.
      */
+    /**
+     * obtain the number of cached GNSS locations reported at a time
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @param callback Indicates the callback for reporting the cached GNSS locations size.
+     */
     function getCachedGnssLocationsSize(callback: AsyncCallback<number>): void;
     function getCachedGnssLocationsSize(): Promise<number>;
 
@@ -287,6 +395,15 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
+     * @param callback Indicates the callback for reporting the result.
+     */
+    /**
+     * all prepared GNSS locations are returned to the application through the callback function,
+     * and the bottom-layer buffer is cleared.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback Indicates the callback for reporting the result.
      */
     function flushCachedGnssLocations(callback: AsyncCallback<boolean>): void;
