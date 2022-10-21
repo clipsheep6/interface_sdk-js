@@ -73,7 +73,7 @@ declare namespace appReceovery {
     }
 
     /**
-     * The type of where to save
+     * The type of where to save.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
