@@ -843,7 +843,6 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @systemapi Hide this for inner system use.
    */
    function setValue(context: context, name: string, value: object, callback: AsyncCallback<boolean>): void;
    function setValue(context: context, name: string, value: object): Promise<boolean>;
@@ -868,6 +867,7 @@ declare namespace settings {
    * @return Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
+   * @deprecated
    * @useinstead getValue(context: context...)
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
@@ -883,6 +883,7 @@ declare namespace settings {
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
+   * @deprecated
    * @useinstead setValue(context: context...)
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
@@ -895,6 +896,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @return settingsdata value
+    * @deprecated
     * @useinstead getValueSync(context: context...)
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
@@ -907,6 +909,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @deprecated
     * @useinstead setValueSync(context: context...)
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
