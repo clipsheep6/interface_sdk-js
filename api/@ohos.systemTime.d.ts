@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
+import {AsyncCallback, ErrorCallback} from './basic';
 
 /**
  * System time and timezone.
@@ -24,67 +24,193 @@ import { AsyncCallback, ErrorCallback } from './basic';
 declare namespace systemTime {
     /**
      * Sets the system time.
+     * 
      * @permission ohos.permission.SET_TIME
-     * @param time Target time stamp (ms)
+     * @param {number} time - Target time stamp (ms)
+     * @param {AsyncCallback<void>} callback - The callback function.
+     * @throws {BusinessError} 201 - if forbidden by permission: ohos.permission.SET_TIME.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @since 7
      */
-    function setTime(time : number, callback : AsyncCallback<void>) : void;
-    function setTime(time : number) : Promise<void>;
+    function setTime(time: number, callback: AsyncCallback<void>): void;
+    
+    /**
+     * Sets the system time.
+     *
+     * @permission ohos.permission.SET_TIME
+     * @param {number} time - Target time stamp (ms)
+     * @returns {Promise<void>} the promise object.
+     * @throws {BusinessError} 201 - if forbidden by permission: ohos.permission.SET_TIME.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 7
+     */
+    function setTime(time: number): Promise<void>;
 
     /**
      * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+     *
+     * @param {boolean} isNano - return in nanoseconds if true, otherwise in milliseconds
+     * @param {AsyncCallback<number>} callback - the number of time.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @since 8
      */
     function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+     *
+     * @param {AsyncCallback<number>} callback - the number of milliseconds.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 8
+     */
     function getCurrentTime(callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+     *
+     * @param {boolean} isNano - return in nanoseconds if true, otherwise in milliseconds
+     * @returns {Promise<number>} the number of time.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 8
+     */
     function getCurrentTime(isNano?: boolean): Promise<number>;
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+     * 
+     * @param {boolean} isNano - return in nanoseconds if true, otherwise in milliseconds
+     * @param {AsyncCallback<number>} callback - the number of time.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @since 8
      */
     function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+     *
+     * @param {AsyncCallback<number>} callback - the number of milliseconds.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 8
+     */
     function getRealActiveTime(callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+     *
+     * @param {boolean} isNano - return in nanoseconds if true, otherwise in milliseconds.
+     * @returns {Promise<number>} the number of time.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 8
+     */
     function getRealActiveTime(isNano?: boolean): Promise<number>;
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+     * 
+     * @param {boolean} isNano - return in nanoseconds if true, otherwise in milliseconds
+     * @param {AsyncCallback<number>} callback - the number of time.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @since 8
      */
     function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+     *
+     * @param {AsyncCallback<number>} callback - the number of milliseconds.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 8
+     */
     function getRealTime(callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+     *
+     * @param {boolean} isNano - return in nanoseconds if true, otherwise in milliseconds
+     * @returns {Promise<number>} the number of time.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 8
+     */
     function getRealTime(isNano?: boolean): Promise<number>;
 
     /**
      * Sets the system time.
+     * 
      * @permission ohos.permission.SET_TIME
-     * @param date The target date
+     * @param {Date} date - The target date.
+     * @param {AsyncCallback<void>} callback - the callback function.
+     * @throws {BusinessError} 201 - if forbidden by permission: ohos.permission.SET_TIME.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @since 7
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the system time.
+     *
+     * @permission ohos.permission.SET_TIME
+     * @param {Date} date - The target date.
+     * @returns {Promise<void>} the promise object.
+     * @throws {BusinessError} 201 - if forbidden by permission: ohos.permission.SET_TIME.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 7
+     */
     function setDate(date: Date): Promise<void>;
 
     /**
      * Obtains the system date.
+     *
+     * @param {AsyncCallback<Date>} callback - the system date.
      * @since 8
      */
     function getDate(callback: AsyncCallback<Date>): void;
+
+    /**
+     * Obtains the system date.
+     *
+     * @returns {Promise<Date>} the system date.
+     * @since 8
+     */
     function getDate(): Promise<Date>;
 
     /**
      * Sets the system time zone.
+     * 
      * @permission ohos.permission.SET_TIME_ZONE
-     * @param timezone The system time zone
+     * @param {string} timezone - The system time zone.
+     * @param {AsyncCallback<void>} callback - the callback function.
+     * @throws {BusinessError} 201 - if forbidden by permission: ohos.permission.SET_TIME_ZONE.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @since 7
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the system time zone.
+     *
+     * @permission ohos.permission.SET_TIME_ZONE
+     * @param {string} timezone - The system time zone.
+     * @returns {Promise<void>} the promise object.
+     * @throws {BusinessError} 201 - if forbidden by permission: ohos.permission.SET_TIME_ZONE.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @since 7
+     */
     function setTimezone(timezone: string): Promise<void>;
 
-      /**
+    /**
      * Obtains the system time zone.
+     *
+     * @param {AsyncCallback<string>} callback - the system time zone.
      * @since 8
-     */  
+     */
     function getTimezone(callback: AsyncCallback<string>): void;
+
+    /**
+     * Obtains the system time zone.
+     *
+     * @returns {Promise<string>} the system time zone.
+     * @since 8
+     */
     function getTimezone(): Promise<string>;
 }
 
