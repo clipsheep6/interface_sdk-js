@@ -856,7 +856,6 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-    * @systemapi Hide this for inner system use.
     */
    function setValueSync(context: context, name: string, value: string): boolean;
    
