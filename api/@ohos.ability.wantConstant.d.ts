@@ -17,7 +17,7 @@
  * the constant for action and entity in the want
  * @name wantConstant
  * @since 6
- * @syscap SystemCapability.Ability.AbilityBase
+ * @syscap SystemCapability.Ability.AbilityteBase
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.app.ability.wantConstant
