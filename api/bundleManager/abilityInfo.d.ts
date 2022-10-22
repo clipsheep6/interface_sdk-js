@@ -14,7 +14,7 @@
  */
 
 import { ApplicationInfo } from './applicationInfo';
-import { Metadata } from './metadata'
+import { Metadata } from './metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
