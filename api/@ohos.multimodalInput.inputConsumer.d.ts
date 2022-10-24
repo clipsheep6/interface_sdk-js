@@ -28,6 +28,7 @@ declare namespace inputConsumer {
     /**
      * Defines event of key that user want to subscribe or unsubscribe.
      *
+     * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @param preKeys The pre-keys that want to subscribe or unsubscribe.
@@ -36,10 +37,26 @@ declare namespace inputConsumer {
      * @param finalKeyDownDuration Duration of final key press.
      */
     interface KeyOptions {
+        /**
+         * @since 8
+         */
         preKeys: Array<number>;
+        /**
+         * @since 8
+         */
         finalKey: number;
+        /**
+         * @since 8
+         */
         isFinalKeyDown: boolean;
+        /**
+         * @since 8
+         */
         finalKeyDownDuration: number;
+        /**
+         * @since 9
+         */
+         finalKeyUpDelay: number;
     }
 
     /**

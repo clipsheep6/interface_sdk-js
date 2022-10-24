@@ -289,6 +289,25 @@ declare namespace pointer {
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
+   * 设置全局默认鼠标样式
+   * @since 10
+   * @systemapi hide for inner use
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param pointerStyle Pointer style.
+   * @param callback Callback used to return the result.
+   */
+   function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+
+  /**
+   * 设置全局默认鼠标样式
+   * @since 10
+   * @systemapi hide for inner use
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param pointerStyle Pointer style.
+   */
+   function setPointerStyle(pointerStyle: PointerStyle): Promise<void>;
+
+  /**
    * Queries the pointer style.
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -307,6 +326,24 @@ declare namespace pointer {
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
+
+  /**
+   * 查询全局默认鼠标样式
+   * @since 10
+   * @systemapi hide for inner use
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param callback Callback used to return the result.
+   */
+   function getPointerStyle(callback: AsyncCallback<PointerStyle>): void;
+
+   /**
+    * Queries the pointer style.
+    * @since 10
+    * @systemapi hide for inner use
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @return Returns the result through a promise.
+    */
+   function getPointerStyle(): Promise<PointerStyle>;
 
   /**
    * Sets whether the pointer icon is visible.
