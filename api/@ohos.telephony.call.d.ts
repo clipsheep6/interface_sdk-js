@@ -312,7 +312,7 @@ declare namespace call {
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
 
   /**
-   * Observe the result of MMI code
+   * Observe the audio device change event
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of MMI code.
@@ -320,26 +320,6 @@ declare namespace call {
    * @since 9
    */
   function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
-  
-  /**
-   * Observe the result of SetAudioDevice result
-   *
-   * @param type Indicates the observer type.
-   * @param callback Return the result of Current AudioDevice.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
-
-  /**
-   * Unobserve the result of SetAudioDevice result
-   *
-   * @param type Indicates the observer type.
-   * @param callback Return the result of Current AudioDevice.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceInfo>): void
 
    /**
     * Unobserve the result of MMI code
@@ -350,6 +330,26 @@ declare namespace call {
     * @since 9
     */
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
+ 
+  /**
+   * Observe the result of SetAudioDevice result
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of current audio device.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
+
+  /**
+   * Unobserve the result of SetAudioDevice result
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of current audio device.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceInfo>): void;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -502,6 +502,8 @@ declare namespace call {
     audioDeviceList: Array<AudioDevice>;
     /** Indicates the type of current audiodevice. */
     currentAudioDevice: AudioDevice;
+    /** Indicates the current active bluetooth device. */
+    activeBluetoothDevice: AudioDevice;
     /** Indicates the status of mute. */
     isMuted: boolean;
   }
@@ -895,17 +897,16 @@ declare namespace call {
     CALL_NOT_ALLOW = 1029,
     SIM_INVALID = 1045,
     UNKNOWN = 1279,
-  };
+  }
   
-   /**
+  /**
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-
   export interface DisconnectedDetails {
     reason: DisconnectedReason;
     message?: string;
-  };
+  }
 }
 
 export default call;
