@@ -332,7 +332,7 @@ declare namespace call {
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
  
   /**
-   * Observe the result of SetAudioDevice result
+   * Observe the audio device change event
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of current audio device.
@@ -342,7 +342,7 @@ declare namespace call {
   function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceInfo>): void;
 
   /**
-   * Unobserve the result of SetAudioDevice result
+   * Unobserve the audio device change event
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of current audio device.
