@@ -321,7 +321,7 @@ declare namespace inputDevice {
    * @return Returns a result indicating whether the specified key codes are supported.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
 
   /**
    * Checks whether the specified key codes of an input device are supported.
