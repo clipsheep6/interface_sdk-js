@@ -512,7 +512,7 @@ declare namespace call {
     /** Indicates the type of current audiodevice. */
     currentAudioDevice: AudioDevice;
     /** Indicates the current active bluetooth device. */
-    activeBluetoothDevice: AudioDevice;
+    activeBluetoothDevice?: AudioDevice;
     /** Indicates the status of mute. */
     isMuted: boolean;
   }
