@@ -29,8 +29,23 @@ declare namespace distributedDataObject {
      * @param source Init data of distributed object
      * @return Returns the distributed object
      * @since 8
+     * @deprecated since 9
+     * @useinstead create
      */
     function createDistributedObject(source: object): DistributedObject;
+
+    /**
+     * Create distributed object
+     *
+     * @param source Init data of distributed object
+     * @return Returns the distributed object
+     * @throws {BusinessError} if process failed
+     * @errorcode 15400001
+     * @errorcode 401
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 9
+     */
+    function create(source: object): DistributedObjectV9;
 
     /**
      * Generate a random sessionId
@@ -80,6 +95,7 @@ declare namespace distributedDataObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
+     * @deprecated since 9
      */
     interface DistributedObject {
         /*
@@ -147,6 +163,113 @@ declare namespace distributedDataObject {
          * Revoke save object, delete saved object immediately, if object is saved in local device, it will delete saved data on all trusted device
          * if object is saved in other device, it will delete data in local device.
          *
+         * @since 9
+         */
+        revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
+        revokeSave(): Promise<RevokeSaveSuccessResponse>;
+    }
+    
+     /**
+     * Object create by {@link create}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 9
+     */
+    interface DistributedObjectV9 {
+        
+        /*
+         * Change object session
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param sessionId The sessionId to be joined, if empty, leave all session
+         * @return Operation result, true is success, false is failed
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
+         * @errorcode 201
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+         * @since 9
+         */
+        setSessionId(sessionId?: string, callback: AsyncCallback<void>): void;
+        setSessionId(sessionId?: string): Promise<void>;
+
+        /**
+         * On watch of change
+         *
+         * @param callback The callback of change
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
+         * @since 9
+         */
+        on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+
+        /**
+         * Off watch of change
+         *
+         * @param callback If not null, off the callback, if undefined, off all callbacks
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
+         * @since 9
+         */
+        off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+
+        /**
+         * On watch of status
+         *
+         * @param callback Indicates the observer of object status changed.
+         *                 sessionId: The sessionId of the changed object
+         *                 networkId: NetworkId of the changed device
+         *                 status: 'online' The object became online on the device and data can be synced to the device
+         *                         'offline' The object became offline on the device and the object can not sync any data
+         *                         'restored' The object restored success
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
+         * @since 9
+         */
+        on(type: 'status', callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>): void;
+
+        /**
+         * Off watch of status
+         *
+         * @param callback If not null, off the callback, if undefined, off all callbacks
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 401
+         * @since 9
+         */
+        off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
+
+        /**
+         * Save object, after save object data successfully, the object data will not release when app existed, and resume data on saved device after app existed
+         * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data, you should encrypt it
+         *
+         * the saved data will be released when
+         * 1. saved after 24h
+         * 2. app uninstalled
+         * 3. after resume data success, system will auto delete the saved data
+         *
+         * @param deviceId Indicates the device that will resume the object data
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 15400003
+         * @errorcode 15400004
+         * @errorcode 401
+         * @since 9
+         */
+        save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
+        save(deviceId: string): Promise<SaveSuccessResponse>;
+
+        /**
+         * Revoke save object, delete saved object immediately, if object is saved in local device, it will delete saved data on all trusted device
+         * if object is saved in other device, it will delete data in local device.
+         *
+         * @throws {BusinessError} if process failed
+         * @errorcode 15400001
+         * @errorcode 15400005
+         * @errorcode 401
          * @since 9
          */
         revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
