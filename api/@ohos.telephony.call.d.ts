@@ -312,7 +312,7 @@ declare namespace call {
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
 
   /**
-   * Observe the audio device change event
+   * Observe the result of MMI code
    *
    * @param type Indicates the observer type.
    * @param callback Return the result of MMI code.
@@ -424,6 +424,15 @@ declare namespace call {
    * @since 8
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the audio device with options.
+   *
+   * @param device Indicates the device of audio.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function setAudioDevice(device: AudioDevice): Promise<void>;
 
   /**
@@ -475,7 +484,7 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 9
    */
   export enum AudioDeviceType {
     DEVICE_EARPIECE,
@@ -815,7 +824,7 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 9
    */
   export enum DisconnectedReason {
     UNASSIGNED_NUMBER = 1,
