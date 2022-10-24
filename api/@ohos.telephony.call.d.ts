@@ -321,7 +321,7 @@ declare namespace call {
    */
   function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
   
-    /**
+  /**
    * Observe the result of SetAudioDevice result
    *
    * @param type Indicates the observer type.
@@ -424,16 +424,6 @@ declare namespace call {
    * @since 8
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
-
-  /**
-   * Set the audio device with options.
-   *
-   * @param device Indicates the device of audio.
-   * @param options Indicates additional information, such as address of bluetooth.
-   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
   function setAudioDevice(device: AudioDevice): Promise<void>;
 
   /**
@@ -491,11 +481,10 @@ declare namespace call {
     DEVICE_EARPIECE,
     DEVICE_SPEAKER,
     DEVICE_WIRED_HEADSET,
-    DEVICE_BLUETOOTH_SCO,
-    DEVICE_MIC,
+    DEVICE_BLUETOOTH_SCO
   }
   
-   /**
+  /**
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -831,25 +820,25 @@ declare namespace call {
     NO_ROUTE_TO_DESTINATION = 3,
     CHANNEL_UNACCEPTABLE = 6,
     OPERATOR_DETERMINED_BARRING = 8,
-	CALL_COMPLETED_ELSEWHERE = 13,
+    CALL_COMPLETED_ELSEWHERE = 13,
     NORMAL_CALL_CLEARING = 16,
     USER_BUSY = 17,
     NO_USER_RESPONDING = 18,
     USER_ALERTING_NO_ANSWER = 19,
     CALL_REJECTED = 21,
     NUMBER_CHANGED = 22,
-	CALL_REJECTED_DUE_TO_FEATURE_AT_THE_DESTINATION = 24,
+    CALL_REJECTED_DUE_TO_FEATURE_AT_THE_DESTINATION = 24,
     FAILED_PRE_EMPTION = 25,
     NON_SELECTED_USER_CLEARING = 26,
     DESTINATION_OUT_OF_ORDER = 27,
     INVALID_NUMBER_FORMAT = 28,
-	FACILITY_REJECTED = 29,
+    FACILITY_REJECTED = 29,
     RESPONSE_TO_STATUS_ENQUIRY = 30,
     NORMAL_UNSPECIFIED = 31,
     NO_CIRCUIT_CHANNEL_AVAILABLE = 34,
     NETWORK_OUT_OF_ORDER = 38,
     TEMPORARY_FAILURE = 41,
-	SWITCHING_EQUIPMENT_CONGESTION = 42,
+    SWITCHING_EQUIPMENT_CONGESTION = 42,
     ACCESS_INFORMATION_DISCARDED = 43,
     REQUEST_CIRCUIT_CHANNEL_NOT_AVAILABLE = 44,
     RESOURCES_UNAVAILABLE_UNSPECIFIED = 47,
@@ -915,7 +904,7 @@ declare namespace call {
 
   export interface DisconnectedDetails {
     reason: DisconnectedReason;
-    message: string;
+    message?: string;
   };
 }
 
