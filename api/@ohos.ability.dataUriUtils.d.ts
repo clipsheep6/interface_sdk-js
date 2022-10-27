@@ -14,7 +14,7 @@
  */
 
 /**
- * A utility class used for handling objects that use the DataAbilityHelper scheme.
+ * A utility class used for handlinghhh objects that use the DataAbilityHelper scheme.
  * @name dataUriUtils
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
