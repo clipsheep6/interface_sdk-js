@@ -109,13 +109,13 @@ export interface ErrorEvent extends Event {
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
-export interface MessageEvent<T> extends Event {
+export interface MessageEvent extends Event {
   /**
    * Data transferred when an exception occurs.
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  readonly data: T;
+  readonly data;
 }
 
 /**
@@ -359,7 +359,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.onmessage
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -371,7 +371,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.onmessageerror
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -422,7 +422,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvent) => void;
 
    /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -435,7 +435,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -527,7 +527,7 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent<T>) => void;
+    onmessage?: (event: MessageEvent) => void;
     /**
      * The onmessage attribute of the worker specifies the event handler
      * when the worker receives a message that cannot be serialized.
@@ -538,7 +538,7 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent<T>) => void;
+    onmessageerror?: (event: MessageEvent) => void;
     /**
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
@@ -688,7 +688,7 @@ declare namespace worker {
      * @useinstead ohos.worker.ThreadWorker.onmessage
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent<T>) => void;
+    onmessage?: (event: MessageEvent) => void;
 
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -699,7 +699,7 @@ declare namespace worker {
      * @useinstead ohos.worker.ThreadWorker.onmessageerror
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent<T>) => void;
+    onmessageerror?: (event: MessageEvent) => void;
 
     /**
      * Sends a message to the worker thread.
@@ -757,6 +757,53 @@ declare namespace worker {
      * @syscap SystemCapability.Utils.Lang
      */
     terminate(): void;
+
+    /**
+   * Adds an event listener to the worker.
+   * @param type  Type of the event to listen for.
+   * @param listener Callback to invoke when an event of the specified type occurs.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.worker.WorkerEventTarget.addEventListener
+   * @syscap SystemCapability.Utils.Lang
+   */
+     addEventListener(
+      type: string,
+      listener: EventListener
+    ): void;
+
+    /**
+     * Dispatches the event defined for the worker.
+     * @param event Event to dispatch.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.worker.WorkerEventTarget.dispatchEvent
+     * @syscap SystemCapability.Utils.Lang
+     */
+    dispatchEvent(event: Event): boolean;
+
+    /**
+     * Removes an event defined for the worker.
+     * @param type Type of the event for which the event listener is removed.
+     * @param callback Callback of the event listener to remove.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.worker.WorkerEventTarget.removeEventListener
+     * @syscap SystemCapability.Utils.Lang
+     */
+    removeEventListener(
+      type: string,
+      callback?: EventListener
+    ): void;
+
+    /**
+     * Removes all event listeners for the worker.
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.worker.WorkerEventTarget.removeAllListener
+     * @syscap SystemCapability.Utils.Lang
+     */
+    removeAllListener(): void;
   }
   const parentPort: DedicatedWorkerGlobalScope;
 
