@@ -443,9 +443,8 @@ declare namespace bundleState {
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.usageStatistics.queryAppGroup
      */
-    function queryAppUsagePriorityGroup(callback: AsyncCallback<number>): void;
     function queryAppUsagePriorityGroup(bundleName: string, callback: AsyncCallback<number>): void;
-    function queryAppUsagePriorityGroup(bundleName?: string): Promise<number>;
+    function queryAppUsagePriorityGroup(bundleName: string): Promise<number>;
 
      /**
      * Declares group type.
