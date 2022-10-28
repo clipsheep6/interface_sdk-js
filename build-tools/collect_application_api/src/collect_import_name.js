@@ -64,7 +64,7 @@ function getImportFileName(url) {
         }
         function collectApplicationApi(node, sourcefile) {
             const basePath = __dirname.replace('src', '');
-            let funcionType = ''
+            let functionType = ''
             if (ts.isPropertyAccessExpression(node) && node.expression && ts.isIdentifier(node.name)) {
                 if (ts.isCallExpression(node.expression) && ts.isPropertyAccessExpression(node.expression.expression)) {
                     const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
@@ -72,7 +72,7 @@ function getImportFileName(url) {
                         fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                         moduleName: node.expression.expression.expression.escapedText,
                         apiName: node.name.escapedText,
-                        funcionType: funcionType
+                        functionType: functionType
                     })
                 } else if (ts.isPropertyAccessExpression(node.expression) && ts.isIdentifier(node.expression.expression)) {
                     const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
@@ -81,7 +81,7 @@ function getImportFileName(url) {
                         moduleName: node.expression.expression.escapedText,
                         apiName: node.expression.name.escapedText,
                         value: node.name.escapedText,
-                        funcionType: funcionType
+                        functionType: functionType
                     })
                 } else if (ts.isIdentifier(node.expression) && ts.isCallExpression(node.parent)) {
                     if (node.parent.arguments && node.name.escapedText.toString() == 'on' || node.name.escapedText.toString() == 'off') {
@@ -92,7 +92,7 @@ function getImportFileName(url) {
                                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                                     moduleName: node.expression.escapedText,
                                     apiName: node.name.escapedText + '_' + argument.text,
-                                    funcionType: funcionType
+                                    functionType: functionType
                                 })
                             }
                         })
@@ -101,16 +101,16 @@ function getImportFileName(url) {
                         const typeArguments = node.parent.arguments
                         for (let i = 0; i < typeArguments.length; i++) {
                             if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
-                            ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
-                                funcionType = 'callback'
+                                ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
+                                functionType = 'callback'
                             }
-                            
+
                         }
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                             moduleName: node.expression.escapedText,
                             apiName: node.name.escapedText,
-                            funcionType: funcionType
+                            functionType: functionType
                         })
                     }
                 }
@@ -120,7 +120,7 @@ function getImportFileName(url) {
                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                     moduleName: node.left.escapedText,
                     apiName: node.right.escapedText,
-                    funcionType: funcionType
+                    functionType: functionType
                 })
             } else if (isEtsComponentNode(node)) {
                 const componentName = node.expression.escapedText.toString();
@@ -136,7 +136,7 @@ function getImportFileName(url) {
                             let temp = statements[index + 1].expression.expression;
                             while (temp) {
                                 if (ts.isPropertyAccessExpression(temp)) {
-                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);                                    
+                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                                     apiList.push({
                                         fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                                         moduleName: componentName,
@@ -149,7 +149,7 @@ function getImportFileName(url) {
                                     apiList.push({
                                         fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                                         moduleName: componentName,
-                                        apiName: temp.name.escapedText.toString(),
+                                        apiName: temp.escapedText.toString(),
                                         type: 'ArkUI',
                                         pos: node.pos
                                     })
@@ -173,35 +173,34 @@ function getImportFileName(url) {
                     while (!ts.isExpressionStatement(temp)) {
                         if (ts.isPropertyAccessExpression(temp)) {
                             if (ts.isPropertyAccessExpression(temp)) {
-                                if (ts.isPropertyAccessExpression(temp)) {
-                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-                                    apiList.push({
-                                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
-                                        moduleName: componentName,
-                                        apiName: temp.name.escapedText.toString(),
-                                        type: 'ArkUI',
-                                        pos: node.pos
-                                    })
-                                }else if (ts.isIdentifier(temp)) {
-                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-                                    apiList.push({
-                                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
-                                        moduleName: componentName,
-                                        apiName: temp.name.escapedText.toString(),
-                                        type: 'ArkUI',
-                                        pos: node.pos
-                                    })
-                                }
+                                const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                                apiList.push({
+                                    fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                    moduleName: componentName,
+                                    apiName: temp.name.escapedText.toString(),
+                                    type: 'ArkUI',
+                                    pos: node.pos
+                                })
+                            } else if (ts.isIdentifier(temp)) {
+                                const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                                apiList.push({
+                                    fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                    moduleName: componentName,
+                                    apiName: temp.escapedText.toString(),
+                                    type: 'ArkUI',
+                                    pos: node.pos
+                                })
                             }
-                            temp = temp.parent
                         }
+                        temp = temp.parent
                     }
                 }
             }
             node.getChildren().forEach(item => collectApplicationApi(item, sourcefile));
-        }
+        }       
     }
 }
+
 
 function isEtsComponentNode(node) {
     return ts.isEtsComponentExpression(node) || (ts.isCallExpression(node) && node.expression &&
@@ -260,6 +259,12 @@ function filterApi() {
                 finalClassName.push(className);
             }
         })
+    })
+
+    apiList.forEach(api => {
+        if (apiType = "ArkUI") {
+            applicationApis.push(api);
+        }
     })
 }
 

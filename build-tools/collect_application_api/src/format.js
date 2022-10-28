@@ -64,23 +64,26 @@ function getApiData(fileData) {
                     applyApi.pos = applicationApis[i].fileName;
                     finalApis.push(applyApi);
                 }
-            }
-            if (!applicationApis[i].value) {
+            } else if (!applicationApis[i].value) {
                 if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
                     applicationApis[i].apiName == newApis[j].methodName &&
-                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    applicationApis[i].functionType == newApis[j].functionType) {
+                    newApis[j].pos = applicationApis[i].fileName;
                     finalApis.push(newApis[j]);
                 } else if (applicationApis[i].apiName == newApis[j].className &&
-                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    applicationApis[i].functionType == newApis[j].functionType) {
+                    newApis[j].pos = applicationApis[i].fileName;
                     finalApis.push(newApis[j]);
                 } else if (applicationApis[i].apiName == newApis[j].methodName &&
-                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    applicationApis[i].functionType == newApis[j].functionType) {
+                    newApis[j].pos = applicationApis[i].fileName;
                     finalApis.push(newApis[j]);
                 }
             } else {
                 if (applicationApis[i].apiName == newApis[j].className &&
                     applicationApis[i].value == newApis[j].methodName &&
-                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    applicationApis[i].functionType == newApis[j].functionType) {
+                    newApis[j].pos = applicationApis[i].fileName;
                     finalApis.push(newApis[j]);
                 }
             }
@@ -120,7 +123,7 @@ function addMethodType(newApis) {
             let methodContent = item.methodText;
             getMethodType(methodContent, getName, methodType);
             if (methodType == 'callback' || methodType == 'Promise') {
-                item.funcionType = methodType;
+                item.functionType = methodType;
             }
         }
     })

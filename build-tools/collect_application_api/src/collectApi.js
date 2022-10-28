@@ -45,7 +45,7 @@ function parse(files) {
     fileContentList.forEach(item => {
         const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
         let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
-            item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ? 
+            item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ? 
             "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
         ts.transpileModule(item.fileContent, {
             compilerOptions: {
@@ -58,7 +58,7 @@ function parse(files) {
     fileContentList.forEach(item => {
         const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
         let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
-            item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ? "ArkUI" : 
+            item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ? "ArkUI" : 
             fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
         ts.transpileModule(item.fileContent, {
             compilerOptions: {
