@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-const { readFile } = require('./util');
+const { readFile, etsComponentSet } = require('./util');
 const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
-const { visitEachChild } = require('typescript');
 
 let apiList = [];
 let importFiles = new Map();
@@ -25,6 +24,7 @@ let moduleName = [];
 let applicationApis = [];
 let classNames = [];
 let finalClassName = [];
+let etsComponentBlockPos = new Set([]);
 
 function collectApi(url) {
     const applicationUrl = path.resolve(__dirname, url);
@@ -63,52 +63,150 @@ function getImportFileName(url) {
             return sourcefile;
         }
         function collectApplicationApi(node, sourcefile) {
+            const basePath = __dirname.replace('src', '');
+            let funcionType = ''
             if (ts.isPropertyAccessExpression(node) && node.expression && ts.isIdentifier(node.name)) {
                 if (ts.isCallExpression(node.expression) && ts.isPropertyAccessExpression(node.expression.expression)) {
+                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                     apiList.push({
-                        fileName: path.basename(url),
+                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                         moduleName: node.expression.expression.expression.escapedText,
-                        apiName: node.name.escapedText
+                        apiName: node.name.escapedText,
+                        funcionType: funcionType
                     })
                 } else if (ts.isPropertyAccessExpression(node.expression) && ts.isIdentifier(node.expression.expression)) {
+                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                     apiList.push({
-                        fileName: path.basename(url),
+                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                         moduleName: node.expression.expression.escapedText,
                         apiName: node.expression.name.escapedText,
-                        value: node.name.escapedText
+                        value: node.name.escapedText,
+                        funcionType: funcionType
                     })
                 } else if (ts.isIdentifier(node.expression) && ts.isCallExpression(node.parent)) {
                     if (node.parent.arguments && node.name.escapedText.toString() == 'on' || node.name.escapedText.toString() == 'off') {
                         node.parent.arguments.forEach(argument => {
+                            const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                             if (ts.isStringLiteral(argument)) {
                                 apiList.push({
-                                    fileName: path.basename(url),
+                                    fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                                     moduleName: node.expression.escapedText,
-                                    apiName: node.name.escapedText + '_' + argument.text
+                                    apiName: node.name.escapedText + '_' + argument.text,
+                                    funcionType: funcionType
                                 })
                             }
                         })
                     } else {
+                        const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                        const typeArguments = node.parent.arguments
+                        for (let i = 0; i < typeArguments.length; i++) {
+                            if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
+                            ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
+                                funcionType = 'callback'
+                            }
+                            
+                        }
                         apiList.push({
-                            fileName: path.basename(url),
+                            fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                             moduleName: node.expression.escapedText,
-                            apiName: node.name.escapedText
+                            apiName: node.name.escapedText,
+                            funcionType: funcionType
                         })
                     }
                 }
             } else if (ts.isQualifiedName(node) && ts.isTypeReferenceNode(node.parent)) {
+                const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                 apiList.push({
-                    fileName: path.basename(url),
+                    fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                     moduleName: node.left.escapedText,
-                    apiName: node.right.escapedText
+                    apiName: node.right.escapedText,
+                    funcionType: funcionType
                 })
+            } else if (isEtsComponentNode(node)) {
+                const componentName = node.expression.escapedText.toString();
+                if (ts.isEtsComponentExpression(node) && ts.isBlock(node.parent) &&
+                    !etsComponentBlockPos.has(node.parent.parent.pos)) {
+                    etsComponentBlockPos.add(node.parent.parent);
+                    const blockNode = node.parent.parent;
+                    const statements = blockNode.statements;
+                    statements.forEach((stat, index) => {
+                        if (stat.expression && ts.isEtsComponentExpression(stat.expression) &&
+                            index + 1 < statements.length && ts.isExpressionStatement(statements[index + 1]) &&
+                            statements[index + 1].expression && ts.isCallExpression(statements[index + 1].expression)) {
+                            let temp = statements[index + 1].expression.expression;
+                            while (temp) {
+                                if (ts.isPropertyAccessExpression(temp)) {
+                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);                                    
+                                    apiList.push({
+                                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                        moduleName: componentName,
+                                        apiName: temp.name.escapedText.toString(),
+                                        type: 'ArkUI',
+                                        pos: node.pos
+                                    })
+                                } else if (ts.isIdentifier(temp)) {
+                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                                    apiList.push({
+                                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                        moduleName: componentName,
+                                        apiName: temp.name.escapedText.toString(),
+                                        type: 'ArkUI',
+                                        pos: node.pos
+                                    })
+                                }
+                                temp = temp.expression;
+                            }
+                        } else if (statements.length == 1 && stat.expression && ts.isEtsComponentExpression(stat.expression)) {
+                            let temp = stat.expression.expression;
+                            const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                            apiList.push({
+                                fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                moduleName: temp.escapedText,
+                                apiName: 'N/A',
+                                type: 'ArkUI',
+                                pos: node.pos
+                            })
+                        }
+                    });
+                } else if (ts.isCallExpression(node)) {
+                    let temp = node.parent;
+                    while (!ts.isExpressionStatement(temp)) {
+                        if (ts.isPropertyAccessExpression(temp)) {
+                            if (ts.isPropertyAccessExpression(temp)) {
+                                if (ts.isPropertyAccessExpression(temp)) {
+                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                                    apiList.push({
+                                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                        moduleName: componentName,
+                                        apiName: temp.name.escapedText.toString(),
+                                        type: 'ArkUI',
+                                        pos: node.pos
+                                    })
+                                }else if (ts.isIdentifier(temp)) {
+                                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                                    apiList.push({
+                                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
+                                        moduleName: componentName,
+                                        apiName: temp.name.escapedText.toString(),
+                                        type: 'ArkUI',
+                                        pos: node.pos
+                                    })
+                                }
+                            }
+                            temp = temp.parent
+                        }
+                    }
+                }
             }
             node.getChildren().forEach(item => collectApplicationApi(item, sourcefile));
         }
     }
 }
 
-
+function isEtsComponentNode(node) {
+    return ts.isEtsComponentExpression(node) || (ts.isCallExpression(node) && node.expression &&
+        ts.isIdentifier(node.expression) && etsComponentSet.has(node.expression.escapedText.toString()))
+}
 
 function judgeImportFile(node) {
     if (ts.isStringLiteral(node.moduleSpecifier)) {
@@ -116,14 +214,31 @@ function judgeImportFile(node) {
             let moduleNames = [];
             if (importFiles.get(node.moduleSpecifier.text)) {
                 const moduleNameSet = new Set(importFiles.get(node.moduleSpecifier.text));
-                if (!moduleNameSet.has(node.importClause.name.escapedText)) {
-                    moduleNameSet.add(node.importClause.name.escapedText);
-                    moduleName.push(node.importClause.name.escapedText)
+                if (node.importClause.name !== undefined) {
+                    if (!moduleNameSet.has(node.importClause.name.escapedText)) {
+                        moduleNameSet.add(node.importClause.name.escapedText);
+                        moduleName.push(node.importClause.name.escapedText)
+                    }
+                } else if (ts.isNamedImports(node.importClause.namedBindings)) {
+                    node.importClause.namedBindings.elements.forEach(element => {
+                        if (!moduleNameSet.has(element.name.escapedText)) {
+                            moduleNameSet.add(element.name.escapedText);
+                            moduleName.push(element.name.escapedText)
+                        }
+                    })
                 }
                 moduleNames = [...moduleNameSet];
             } else {
-                moduleNames.push(node.importClause.name.escapedText);
-                moduleName.push(node.importClause.name.escapedText);
+                if (node.importClause.name !== undefined) {
+                    moduleNames.push(node.importClause.name.escapedText);
+                    moduleName.push(node.importClause.name.escapedText);
+                } else if (ts.isNamedImports(node.importClause.namedBindings)) {
+                    node.importClause.namedBindings.elements.forEach(element => {
+                        moduleNames.push(element.name.escapedText);
+                        moduleName.push(element.name.escapedText);
+
+                    })
+                }
             }
             importFiles.set(node.moduleSpecifier.text, moduleNames);
         }
@@ -149,8 +264,8 @@ function filterApi() {
 }
 
 try {
-    collectApi("../application"); 
-    filterApi();   
+    collectApi("../application");
+    filterApi();
     exports.importFiles = importFiles;
     exports.applicationApis = applicationApis;
 } catch (error) {

@@ -12,6 +12,6 @@
         "exceljs": "^4.3.0",
         "fs": "^0.0.1-security",
         "path": "^0.12.7",
-        "typescript": "^4.7.4"
+        "typescript": "file:./deps/ohos-typescript-4.2.3-r2.tgz"
     }
 }

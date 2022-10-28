@@ -31,27 +31,8 @@ function getApiData(fileData) {
         }
     });
     const apis = parse(APP_API_FILES);
-    const newApis = filterData(apis, fileData);
+    const newApis = apis;
     const finalApis = [];
-    for (let i = 0; i < applicationApis.length; i++) {
-        for (let j = 0; j < newApis.length; j++) {
-            if (!applicationApis[i].value) {
-                if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
-                    applicationApis[i].apiName == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                } else if (applicationApis[i].apiName == newApis[j].className) {
-                    finalApis.push(newApis[j]);
-                } else if (applicationApis[i].apiName == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                }
-            } else {
-                if (applicationApis[i].apiName == newApis[j].className &&
-                    applicationApis[i].value == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                }
-            }
-        }
-    }
     for (let i = 0; i < applicationModules.length; i++) {
         for (let j = 0; j < newApis.length; j++) {
             if (applicationModules[i].packageName == newApis[j].packageName &&
@@ -60,8 +41,54 @@ function getApiData(fileData) {
             }
         }
     }
+    addMethodType(newApis);
+    for (let i = 0; i < applicationApis.length; i++) {
+        for (let j = 0; j < newApis.length; j++) {
+            if (applicationApis[i].type === "ArkUI") {
+                if (applicationApis[i].moduleName === newApis[j].className.replace(/Attribute/, "")
+                    .replace(/Interface/, "") && applicationApis[i].apiName == newApis[j].methodName) {
+                    let applyApi = JSON.parse(JSON.stringify(newApis[j]));
+                    applyApi.className = applicationApis[i].moduleName;
+                    applyApi.pos = applicationApis[i].fileName;
+                    finalApis.push(applyApi);
+                } else if (applicationApis[i].apiName == newApis[j].methodName &&
+                    newApis[j].className === "CommonMethod") {
+                    let applyApi = JSON.parse(JSON.stringify(newApis[j]));
+                    applyApi.className = applicationApis[i].moduleName;
+                    applyApi.notes = "CommonMethod";
+                    finalApis.push(applyApi);
+                } else if (applicationApis[i].moduleName === newApis[j].className &&
+                    applicationApis[i].apiName == 'N/A') {
+                    let applyApi = JSON.parse(JSON.stringify(newApis[j]));
+                    applyApi.methodName = '';
+                    applyApi.pos = applicationApis[i].fileName;
+                    finalApis.push(applyApi);
+                }
+            }
+            if (!applicationApis[i].value) {
+                if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
+                    applicationApis[i].apiName == newApis[j].methodName &&
+                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    finalApis.push(newApis[j]);
+                } else if (applicationApis[i].apiName == newApis[j].className &&
+                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    finalApis.push(newApis[j]);
+                } else if (applicationApis[i].apiName == newApis[j].methodName &&
+                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    finalApis.push(newApis[j]);
+                }
+            } else {
+                if (applicationApis[i].apiName == newApis[j].className &&
+                    applicationApis[i].value == newApis[j].methodName &&
+                    applicationApis[i].funcionType == newApis[j].funcionType) {
+                    finalApis.push(newApis[j]);
+                }
+            }
+        }
+    }
+
     let noRepeatApis = [...new Set(finalApis)];
-    count(finalApis, noRepeatApis);
+    // count(finalApis, noRepeatApis);
     excel(noRepeatApis);
 }
 
@@ -86,6 +113,51 @@ function filterData(apis, rulers) {
     return appApis;
 }
 
+function addMethodType(newApis) {
+    newApis.forEach(item => {
+        let methodType = '';
+        if (item.apiType == 'Method') {
+            let methodContent = item.methodText;
+            getMethodType(methodContent, getName, methodType);
+            if (methodType == 'callback' || methodType == 'Promise') {
+                item.funcionType = methodType;
+            }
+        }
+    })
+}
+function getMethodType(content, callback, methodType) {
+    ts.transpileModule(content, {
+        compilerOptions: {
+            "target": ts.ScriptTarget.ES2017
+        },
+        fileName: "index.ets",
+        transformers: { before: [callback(methodType)] }
+    })
+}
+
+function getName(methodType) {
+    return (context) => {
+        return (node) => {
+            getType(node, methodType);
+            return node;
+        }
+        function getType(node, type) {
+            if (ts.isFunctionDeclaration(node)) {
+                if (node.parameters.length > 1) {
+                    for (let i = 0; i < node.parameters.length; i++) {
+                        const parameter = node.parameters[node.parameters.length - 1];
+                        type = parameter.name.escapedText;
+
+                    }
+                } else if (ts.isTypeReferenceNode(node.type)) {
+                    type = node.type.typeName.escapedText;
+                }
+            }
+            return ts.visitEachChild(node, getType, context);
+        }
+
+    }
+}
 function count(finalApis, noRepeatApis) {
     let newArr = new Array(noRepeatApis.length);
     for (let j = 0; j < noRepeatApis.length; j++) {
