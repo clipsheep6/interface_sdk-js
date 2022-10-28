@@ -20,7 +20,7 @@ const ExcelJS = require('exceljs');
 const applicationModules = [];
 
 const typeCollection = false;
-const isNotMerge = false;
+const isNotMerge = true;
 function collectArkUiApis(){
     const apis = [];
     const arkUiApiDir = path.resolve(__dirname,'../sdk/build-tools/ets-loader/declarations');

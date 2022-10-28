@@ -55,6 +55,7 @@ function getApiData(fileData) {
                     newApis[j].className === "CommonMethod") {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.className = applicationApis[i].moduleName;
+                    applyApi.pos = applicationApis[i].fileName;
                     applyApi.notes = "CommonMethod";
                     finalApis.push(applyApi);
                 } else if (applicationApis[i].moduleName === newApis[j].className &&
@@ -90,9 +91,7 @@ function getApiData(fileData) {
             }
         }
     }
-
     let noRepeatApis = [...new Set(finalApis)];
-    // count(finalApis, noRepeatApis);
     excel(noRepeatApis);
 }
 
