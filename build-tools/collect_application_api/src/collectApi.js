@@ -530,7 +530,7 @@ async function buildExportData(fileContentList) {
 async function getExcelBuffer(api) {
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '调用次数', '函数', '文件位置','类型', 'SysCap',
+    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '函数', '文件位置','类型', 'SysCap',
         '权限', '支持起始版本', '访问级别', '备注']
     for (let i = 1; i <= api.length; i++) {
         const apiData = api[i - 1];

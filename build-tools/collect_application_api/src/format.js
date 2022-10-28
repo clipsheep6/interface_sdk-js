@@ -75,6 +75,7 @@ function getApiData(fileData) {
                     newApis[j].pos = applicationApis[i].fileName;
                     finalApis.push(newApis[j]);
                 } else if (applicationApis[i].apiName == newApis[j].methodName &&
+                    applicationApis[i].moduleName == newApis[j].namespace &&
                     applicationApis[i].functionType == newApis[j].functionType) {
                     newApis[j].pos = applicationApis[i].fileName;
                     finalApis.push(newApis[j]);
@@ -152,8 +153,11 @@ function getName(methodType) {
                         type = parameter.name.escapedText;
 
                     }
-                } else if (ts.isTypeReferenceNode(node.type)) {
-                    type = node.type.typeName.escapedText;
+                } else {
+                    if (ts.isTypeReferenceNode(node.type)){
+                        type = node.type.typeName.escapedText;
+                    }
+                    
                 }
             }
             return ts.visitEachChild(node, getType, context);

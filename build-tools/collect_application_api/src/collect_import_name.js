@@ -86,8 +86,8 @@ function getImportFileName(url) {
                 } else if (ts.isIdentifier(node.expression) && ts.isCallExpression(node.parent)) {
                     if (node.parent.arguments && node.name.escapedText.toString() == 'on' || node.name.escapedText.toString() == 'off') {
                         node.parent.arguments.forEach(argument => {
-                            const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                             if (ts.isStringLiteral(argument)) {
+                                const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                                 apiList.push({
                                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 2}, col:${posOfNode.character + 2})`,
                                     moduleName: node.expression.escapedText,
@@ -124,7 +124,7 @@ function getImportFileName(url) {
                 })
             } else if (isEtsComponentNode(node)) {
                 const componentName = node.expression.escapedText.toString();
-                if (ts.isEtsComponentExpression(node) && ts.isBlock(node.parent) &&
+                if (ts.isEtsComponentExpression(node) && ts.isBlock(node.parent.parent) &&
                     !etsComponentBlockPos.has(node.parent.parent.pos)) {
                     etsComponentBlockPos.add(node.parent.parent);
                     const blockNode = node.parent.parent;
@@ -262,7 +262,7 @@ function filterApi() {
     })
 
     apiList.forEach(api => {
-        if (apiType = "ArkUI") {
+        if (api.type = "ArkUI") {
             applicationApis.push(api);
         }
     })
