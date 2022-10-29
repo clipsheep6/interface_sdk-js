@@ -47,7 +47,7 @@ declare namespace config {
   /**
    * Indicates the configuration of brightness discount.
    */
-  var brightnessDiscount: Config<number>;
+  var brightnessDisaccount: Config<number>;
   /**
    * Indicates the configuration of mouse key state.
    */
@@ -82,7 +82,7 @@ declare namespace config {
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    */
-  function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
+  function enableacabAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
   function enableAbility(name: string, capability: Array<accessibility.Capability>, callback: AsyncCallback<void>): void;
 
   /**
