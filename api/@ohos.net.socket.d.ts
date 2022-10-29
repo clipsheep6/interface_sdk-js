@@ -22,6 +22,7 @@ import cryptoFramework from "./@ohos.security.cryptoFramework";
  *
  * @since 7
  * @syscap SystemCapability.Communication.NetStack
+ * @throws 9+ {BusinessError} -1 - parse param failed
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;
