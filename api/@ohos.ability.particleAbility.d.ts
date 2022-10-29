@@ -68,7 +68,7 @@ declare namespace particleAbility {
    *
    * @since 7
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @permission ohos.permission.KEEP_BACKGROUNDCE_RUNNING
    * @param id Identifies the notification bar information.
    * @param request Indicates the notificationRequest instance containing information for displaying a notification bar.
    * @FAModelOnly
