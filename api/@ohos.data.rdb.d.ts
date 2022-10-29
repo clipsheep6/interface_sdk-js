@@ -203,7 +203,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-         S1 = 1,
+         S1,
 
          /**
           * S2: mains the db is middle level security
@@ -212,7 +212,7 @@ declare namespace rdb
           * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
           * @since 9
           */
-         S2 = 2,
+         S2,
  
          /**
           * S3: mains the db is high level security
@@ -221,7 +221,7 @@ declare namespace rdb
           * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
           * @since 9
           */
-         S3 = 3,
+         S3,
  
          /**
           * S4: mains the db is critical level security
@@ -230,7 +230,7 @@ declare namespace rdb
           * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
           * @since 9
           */
-         S4 = 4,
+         S4,
     }
 
     /**
@@ -654,6 +654,7 @@ declare namespace rdb
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -667,6 +668,7 @@ declare namespace rdb
          * @returns {Promise<number>} return the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -701,6 +703,7 @@ declare namespace rdb
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -713,6 +716,7 @@ declare namespace rdb
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -750,6 +754,7 @@ declare namespace rdb
          * @param {AsyncCallback<ResultSetV9>} callback - the {@link ResultSetV9} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
@@ -763,6 +768,7 @@ declare namespace rdb
          * @returns {Promise<ResultSetV9>} return the {@link ResultSetV9} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns ?: Array<string>): Promise<ResultSetV9>;
