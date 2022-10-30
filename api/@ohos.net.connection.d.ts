@@ -22,6 +22,7 @@ import socket from "./@ohos.net.socket";
  *
  * @since 8
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @throws 9+ {BusinessError} -1 - parse param failed
  */
 declare namespace connection {
   type HttpRequest = http.HttpRequest;
