@@ -22,6 +22,7 @@ import cryptoFramework from "./@ohos.security.cryptoFramework";
  *
  * @since 7
  * @syscap SystemCapability.Communication.NetStack
+ * @throws {BusinessError} 401 - Parameter error.
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;

@@ -22,6 +22,7 @@ import socket from "./@ohos.net.socket";
  *
  * @since 8
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @throws {BusinessError} 401 - Parameter error.
  */
 declare namespace connection {
   type HttpRequest = http.HttpRequest;
