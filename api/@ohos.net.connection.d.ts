@@ -88,10 +88,22 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
+    /**
+   * Checks whether data traffic usage on the current network is metered.
+   *
+   * @param callback Returns {@code true} if data traffic usage on the current network is metered;
+   *      returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
+  function isDefaultNetMetered(): Promise<boolean>;
+
   /**
    * Checks whether the default data network is activated.
    *
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
