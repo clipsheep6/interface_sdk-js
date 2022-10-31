@@ -252,6 +252,9 @@ declare namespace socket {
      * @param address Destination address. {@link NetAddress}
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303109 - TLS_ERR_SYS_EBADF.
+     * @throws {BusinessError} 2303113 - TLS_ERR_SYS_EACCES.
+     * @throws {BusinessError} 2303198 - TLS_ERR_SYS_EADDRINUSE.
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
@@ -278,6 +281,8 @@ declare namespace socket {
      * Closes a TCPSocket connection.
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     close(callback: AsyncCallback<void>): void;
     close(): Promise<void>;
@@ -288,6 +293,9 @@ declare namespace socket {
      * @param callback Callback used to return the result. {@link NetAddress}
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303114 - TLS_ERR_SYS_EFAULT.
+     * @throws {BusinessError} 2303122 - TLS_ERR_SYS_EINVAL.
+     * @throws {BusinessError} 2303188 - TLS_ERR_SYS_ENOTSOCK.
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
     getRemoteAddress(): Promise<NetAddress>;
@@ -298,6 +306,9 @@ declare namespace socket {
      * @param callback Callback used to return the result. {@link SocketStateBase}
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303114 - TLS_ERR_SYS_EFAULT.
+     * @throws {BusinessError} 2303122 - TLS_ERR_SYS_EINVAL.
+     * @throws {BusinessError} 2303188 - TLS_ERR_SYS_ENOTSOCK.
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -394,6 +405,9 @@ declare namespace socket {
      * For example:{"name": "AES128-SHA256", "standardName": "TLS_RSA_WITH_AES_128_CBC_SHA256", "version": "TLSv1.2"}
      *
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303502 - TLS_ERR_WANT_READ.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
     getCipherSuite(): Promise<Array<string>>;
@@ -410,6 +424,18 @@ declare namespace socket {
     /**
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303104 - TLS_ERR_SYS_EINTR.
+     * @throws {BusinessError} 2303109 - TLS_ERR_SYS_EBADF.
+     * @throws {BusinessError} 2303111 - TLS_ERR_SYS_EAGAIN.
+     * @throws {BusinessError} 2303113 - TLS_ERR_SYS_EACCES.
+     * @throws {BusinessError} 2303188 - TLS_ERR_SYS_ENOTSOCK.
+     * @throws {BusinessError} 2303191 - TLS_ERR_SYS_EPROTOTYPE.
+     * @throws {BusinessError} 2303198 - TLS_ERR_SYS_EADDRINUSE.
+     * @throws {BusinessError} 2303199 - TLS_ERR_SYS_EADDRNOTAVAIL.
+     * @throws {BusinessError} 2303210 - TLS_ERR_SYS_ETIMEDOUT.
+     * @throws {BusinessError} 2303502 - TLS_ERR_WANT_READ.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TLSConnectOptions): Promise<void>;
@@ -420,6 +446,9 @@ declare namespace socket {
      * @param data Optional parameters {@link string}.
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303503 - TLS_ERR_WANT_WRITE.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     send(data: string, callback: AsyncCallback<void>): void;
     send(data: string): Promise<void>;
