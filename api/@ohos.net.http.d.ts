@@ -20,7 +20,7 @@ import {AsyncCallback, Callback} from "./basic";
  *
  * @since 6
  * @syscap SystemCapability.Communication.NetStack
- * @throws 9+ Will throw an error if the argument type or number is wrong
+ * @throws {BusinessError} 401 - Parameter error.
  */
 declare namespace http {
   /**
