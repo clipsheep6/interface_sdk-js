@@ -88,7 +88,7 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
-    /**
+  /**
    * Checks whether data traffic usage on the current network is metered.
    *
    * @param callback Returns {@code true} if data traffic usage on the current network is metered;
