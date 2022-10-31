@@ -20,6 +20,7 @@ import {AsyncCallback, ErrorCallback} from "./basic";
  *
  * @since 6
  * @syscap SystemCapability.Communication.NetStack
+ * @throws {BusinessError} 401 - Parameter error.
  */
 declare namespace webSocket {
   /**
