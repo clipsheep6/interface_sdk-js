@@ -20,6 +20,7 @@ import {AsyncCallback, Callback} from "./basic";
  *
  * @since 6
  * @syscap SystemCapability.Communication.NetStack
+ * @throws 9+ {BusinessError} -1 - parse param failed
  */
 declare namespace http {
   /**
