@@ -815,7 +815,7 @@ declare interface BorderImageOption {
    * Border image source
    * @since 9
    */
-  source?: string | Resource | linearGradient,
+  source?: string | Resource,
 
   /**
    * Border image width
