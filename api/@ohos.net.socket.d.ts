@@ -251,6 +251,10 @@ declare namespace socket {
      *
      * @param address Destination address. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303109 - TLS_ERR_SYS_EBADF.
+     * @throws {BusinessError} 2303113 - TLS_ERR_SYS_EACCES.
+     * @throws {BusinessError} 2303198 - TLS_ERR_SYS_EADDRINUSE.
      */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
@@ -276,6 +280,9 @@ declare namespace socket {
     /**
      * Closes a TCPSocket connection.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     close(callback: AsyncCallback<void>): void;
     close(): Promise<void>;
@@ -285,6 +292,10 @@ declare namespace socket {
      *
      * @param callback Callback used to return the result. {@link NetAddress}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303114 - TLS_ERR_SYS_EFAULT.
+     * @throws {BusinessError} 2303122 - TLS_ERR_SYS_EINVAL.
+     * @throws {BusinessError} 2303188 - TLS_ERR_SYS_ENOTSOCK.
      */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
     getRemoteAddress(): Promise<NetAddress>;
@@ -294,6 +305,10 @@ declare namespace socket {
      *
      * @param callback Callback used to return the result. {@link SocketStateBase}
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303114 - TLS_ERR_SYS_EFAULT.
+     * @throws {BusinessError} 2303122 - TLS_ERR_SYS_EINVAL.
+     * @throws {BusinessError} 2303188 - TLS_ERR_SYS_ENOTSOCK.
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -303,37 +318,50 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link TCPExtraOptions}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
      */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
      * Listens for message receiving events of the TCPSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
     /**
      * Listens for connection or close events of the TCPSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
      * Cancels listening for connection or close events of the TCPSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
      * Listens for error events of the TCPSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Cancels listening for error events of the TCPSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
@@ -345,6 +373,8 @@ declare namespace socket {
 
     /**
      * Returns an object representing a local certificate.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
     getCertificate(): Promise<X509CertRawData>;
@@ -354,6 +384,8 @@ declare namespace socket {
      * an empty object will be returned. If the socket is destroyed, null is returned.
      * If needChain is true, it contains the complete certificate chain. Otherwise,
      * it only contains the peer's certificate.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
     getRemoteCertificate(): Promise<X509CertRawData>;
@@ -362,6 +394,8 @@ declare namespace socket {
      * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
      * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
      * Server sockets or disconnected client sockets will return a value of null.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     getProtocol(callback: AsyncCallback<string>): void;
     getProtocol(): Promise<string>;
@@ -369,6 +403,11 @@ declare namespace socket {
     /**
      * Returns an object containing the negotiated cipher suite information.
      * For example:{"name": "AES128-SHA256", "standardName": "TLS_RSA_WITH_AES_128_CBC_SHA256", "version": "TLSv1.2"}
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303502 - TLS_ERR_WANT_READ.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
     getCipherSuite(): Promise<Array<string>>;
@@ -376,12 +415,27 @@ declare namespace socket {
     /**
      * The list of signature algorithms shared between the server and the client, in descending order of priority.
      * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     *
+     * @throws {BusinessError} 401 - Parameter error.
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303104 - TLS_ERR_SYS_EINTR.
+     * @throws {BusinessError} 2303109 - TLS_ERR_SYS_EBADF.
+     * @throws {BusinessError} 2303111 - TLS_ERR_SYS_EAGAIN.
+     * @throws {BusinessError} 2303113 - TLS_ERR_SYS_EACCES.
+     * @throws {BusinessError} 2303188 - TLS_ERR_SYS_ENOTSOCK.
+     * @throws {BusinessError} 2303191 - TLS_ERR_SYS_EPROTOTYPE.
+     * @throws {BusinessError} 2303198 - TLS_ERR_SYS_EADDRINUSE.
+     * @throws {BusinessError} 2303199 - TLS_ERR_SYS_EADDRNOTAVAIL.
+     * @throws {BusinessError} 2303210 - TLS_ERR_SYS_ETIMEDOUT.
+     * @throws {BusinessError} 2303502 - TLS_ERR_WANT_READ.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TLSConnectOptions): Promise<void>;
@@ -391,6 +445,10 @@ declare namespace socket {
      *
      * @param data Optional parameters {@link string}.
      * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303503 - TLS_ERR_WANT_WRITE.
+     * @throws {BusinessError} 2303505 - TLS_ERR_SYSCALL.
+     * @throws {BusinessError} 2303506 - TLS_ERR_ZERO_RETURN.
      */
     send(data: string, callback: AsyncCallback<void>): void;
     send(data: string): Promise<void>;
