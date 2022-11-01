@@ -372,27 +372,16 @@ declare namespace webview {
         static setCookie(url: string, value: string): void;
 
         /**
-         * Save the cookies Synchronously.
-         *
-         * @since 9
-         */
-        static saveCookieSync(): void;
-
-        /**
          * Save the cookies Asynchronously.
          *
-         * @param { AsyncCallback<boolean> } callback - Called after the cookies have been saved.
-         *                                              The parameter will either be true if the cookies
-         *                                              have been successfully saved, or false if failed.
+         * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
          * @throws { BusinessError } 401 - Invaild input parameter.
-         * @return { Promise<boolean> } A promise resolved after the cookies have been saved.
-         *                              The parameter will either be true if the cookies have
-         *                              been successfully saved, or false if failed.
+         * @return { Promise<void> } A promise resolved after the cookies have been saved.
          *
          * @since 9
          */
-        static saveCookieAsync(): Promise<boolean>;
-        static saveCookieAsync(callback: AsyncCallback<boolean>): void;
+        static saveCookieAsync(): Promise<void>;
+        static saveCookieAsync(callback: AsyncCallback<void>): void;
 
         /**
          * Get whether the instance can send and accept cookies.
