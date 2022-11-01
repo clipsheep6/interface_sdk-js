@@ -409,9 +409,8 @@ declare namespace bundleState {
      * @param bundleName, name of the application.
      * @return Returns the usage priority group of the calling application.
      */
-    function queryAppUsagePriorityGroup(callback: AsyncCallback<number>): void;
     function queryAppUsagePriorityGroup(bundleName: string, callback: AsyncCallback<number>): void;
-    function queryAppUsagePriorityGroup(bundleName?: string): Promise<number>;
+    function queryAppUsagePriorityGroup(bundleName: string): Promise<number>;
 
      /**
      * Declares group type.
