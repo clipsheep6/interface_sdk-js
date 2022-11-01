@@ -16,7 +16,7 @@
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback, Callback } from './basic' ;
-import Context from './application/BaseContext';
+import BaseContext from './application/BaseContext';
 import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
@@ -613,7 +613,7 @@ declare namespace window {
    * @param type Indicates window type.
    * @since 8
    */
-  function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
+  function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -622,7 +622,7 @@ declare namespace window {
    * @param type Indicates window type.
    * @since 8
    */
-  function create(ctx: Context, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -658,24 +658,24 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @since 8
    */
-  function getTopWindow(ctx: Context): Promise<Window>;
+  function getTopWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
    */
-  function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
+  function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
-   * minimize all app windows.
+   * Minimize all app windows.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function minimizeAll(id: number, callback: AsyncCallback<void>): void;
 
   /**
-   * minimize all app windows.
+   * Minimize all app windows.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
