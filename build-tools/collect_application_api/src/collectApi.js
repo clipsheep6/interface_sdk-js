@@ -20,9 +20,15 @@ const ExcelJS = require('exceljs');
 const applicationModules = [];
 
 const typeCollection = false;
-const isNotMerge = false;
-
+const isNotMerge = true;
+function collectArkUiApis(){
+    const apis = [];
+    const arkUiApiDir = path.resolve(__dirname,'../sdk/build-tools/ets-loader/declarations');
+    readFile(arkUiApiDir, apis);
+    return apis;
+}
 function parse(files) {
+    files = files.concat(collectArkUiApis());
     const fileContentList = [];
     files.forEach(file => {
         let fileContent = fs.readFileSync(file, 'utf-8');
@@ -38,8 +44,9 @@ function parse(files) {
     const hash = new Set([]);
     fileContentList.forEach(item => {
         const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-        let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-            item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
+        let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
+            item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ? 
+            "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
         ts.transpileModule(item.fileContent, {
             compilerOptions: {
                 "target": ts.ScriptTarget.ES2017
@@ -50,8 +57,9 @@ function parse(files) {
     });
     fileContentList.forEach(item => {
         const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-        let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-            item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
+        let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
+            item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ? "ArkUI" : 
+            fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
         ts.transpileModule(item.fileContent, {
             compilerOptions: {
                 "target": ts.ScriptTarget.ES2017
@@ -508,7 +516,9 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
             sysCap: apiInfo.sysCap,
             permission: apiInfo.permission,
             model: apiInfo.model,
-            applicationFile: ''
+            applicationFile: '',
+            pos:'',
+            functionType:''
         })
     }
 }
@@ -520,13 +530,13 @@ async function buildExportData(fileContentList) {
 async function getExcelBuffer(api) {
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '调用次数', '函数', '类型', 'SysCap',
-        '权限', '支持起始版本', '访问级别']
+    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '函数', '文件位置','类型', 'SysCap',
+        '权限', '支持起始版本', '访问级别', '备注']
     for (let i = 1; i <= api.length; i++) {
         const apiData = api[i - 1];
         sheet.getRow(i + 1).values = [apiData.packageName, apiData.namespace, apiData.className, apiData.methodName,
-        apiData.count, apiData.methodText, apiData.apiType, apiData.sysCap, apiData.permission,
-        apiData.version, apiData.isSystemApi]
+        apiData.methodText, apiData.pos,apiData.apiType, apiData.sysCap, apiData.permission,
+        apiData.version, apiData.isSystemApi, apiData.notes]
     }
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
