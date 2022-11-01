@@ -138,15 +138,8 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @StageModelOnly
  * @since 9
  */
-declare function getContext(component?: Object): Context;
+declare function getContext(component?: Object): import('../api/application/Context').default;
 
-/**
- * Get context.
- * @StageModelOnly
- * @since 9
- */
-declare type Context = import('../api/application/Context').default;
- 
 /**
  * Defines the data type of the interface restriction.
  * @since 7
