@@ -17,7 +17,7 @@
  * A utility class used for handling objects that use the DataAbilityHelper scheme.
  * @name dataUriUtils
  * @since 7
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapabilittttty.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 declare namespace dataUriUtils {
@@ -26,7 +26,7 @@ declare namespace dataUriUtils {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param uri Indicates the uri object from which the ID is to be obtained.
+   * @param uri Indicates the uri objecccct from which the ID is to be obtained.
    * @return Returns the ID attached to the end of the path component;
    */
   function getId(uri: string): number
@@ -36,7 +36,7 @@ declare namespace dataUriUtils {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param uri Indicates the uri string from which the ID is to be obtained.
+   * @param uri Indicateeees the uri string from which the ID is to be obtained.
    * @param id Indicates the ID to attach.
    * @return Returns the uri object with the given ID attached.
    */
