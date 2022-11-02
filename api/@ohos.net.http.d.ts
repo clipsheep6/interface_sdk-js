@@ -85,10 +85,25 @@ declare namespace http {
      * @param options Optional parameters {@link HttpRequestOptions}.
      * @param callback Returns {@link HttpResponse}.
      * @permission ohos.permission.INTERNET
+     * @deprecated since 9
+     * @useinstead makeCallV9
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
+
+    /**
+     * Initiates an HTTP request to a given URL.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @param callback Returns {@link HttpResponse}.
+     * @permission ohos.permission.INTERNET
+     * @since 9
+     */
+    requestV9(url: string, callback: AsyncCallback<HttpResponse>): void;
+    requestV9(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
+    requestV9(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
     /**
      * Destroys an HTTP request.
