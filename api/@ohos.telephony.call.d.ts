@@ -31,10 +31,24 @@ declare namespace call {
    * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
    * that the call is or can be connected.
    * @permission ohos.permission.PLACE_CALL
+   * @deprecated since 9
    */
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options?: DialOptions): Promise<boolean>;
+
+  /**
+   * Makes a call.
+   *
+   * @param phoneNumber Indicates the called number.
+   * @param options Indicates additional information carried in the call.
+   * @permission ohos.permission.PLACE_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
   /**
    * Go to the dial screen and the called number is displayed.
@@ -42,9 +56,21 @@ declare namespace call {
    * @param phoneNumber Indicates the called number.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
+   * @deprecated since 9
+   * @useinstead makeCallV9
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
   function makeCall(phoneNumber: string): Promise<void>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param phoneNumber Indicates the called number.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 9
+   */
+  function makeCallV9(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function makeCallV9(phoneNumber: string): Promise<void>;
 
   /**
    * Checks whether a call is ongoing.
@@ -99,10 +125,24 @@ declare namespace call {
    * @param callback Returns {@code true} if the phone number is on the emergency number list;
    * returns {@code false} otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead isEmergencyPhoneNumberV9
    */
   function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
   function isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback<boolean>): void;
   function isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
+
+  /**
+   * Checks whether a phone number is on the emergency number list.
+   *
+   * @param phoneNumber Indicates the phone number to check.
+   * @param callback Returns {@code true} if the phone number is on the emergency number list;
+   * returns {@code false} otherwise.
+   * @since 9
+   */
+  function isEmergencyPhoneNumberV9(phoneNumber: string, callback: AsyncCallback<boolean>): void;
+  function isEmergencyPhoneNumberV9(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback<boolean>): void;
+  function isEmergencyPhoneNumberV9(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
 
   /**
    * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
@@ -114,10 +154,27 @@ declare namespace call {
    * @param callback Returns the phone number after being formatted; returns an empty string
    * if the input phone number is invalid.
    * @since 7
+   * @deprecated since 9
+   * @useinstead formatPhoneNumberV9
    */
   function formatPhoneNumber(phoneNumber: string, callback: AsyncCallback<string>): void;
   function formatPhoneNumber(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback<string>): void;
   function formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise<string>;
+
+  /**
+   * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
+   * a phone number is in the format of country code (if any) + 3-digit service provider code
+   * + 4-digit area code + 4-digit subscriber number. After the formatting,
+   * each part is separated by a space.
+   *
+   * @param phoneNumber Indicates the phone number to format.
+   * @param callback Returns the phone number after being formatted; returns an empty string
+   * if the input phone number is invalid.
+   * @since 9
+   */
+  function formatPhoneNumberV9(phoneNumber: string, callback: AsyncCallback<string>): void;
+  function formatPhoneNumberV9(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback<string>): void;
+  function formatPhoneNumberV9(phoneNumber: string, options?: NumberFormatOptions): Promise<string>;
 
   /**
    * Formats a phone number into an E.164 representation.
@@ -126,9 +183,22 @@ declare namespace call {
    * @param countryCode Indicates a two-digit country code defined in ISO 3166-1.
    * @param callback Returns an E.164 number; returns an empty string if the input phone number is invalid.
    * @since 7
+   * @deprecated since 9
+   * @useinstead formatPhoneNumberToE164V9
    */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback<string>): void;
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
+
+  /**
+   * Formats a phone number into an E.164 representation.
+   *
+   * @param phoneNumber Indicates the phone number to format.
+   * @param countryCode Indicates a two-digit country code defined in ISO 3166-1.
+   * @param callback Returns an E.164 number; returns an empty string if the input phone number is invalid.
+   * @since 9
+   */
+  function formatPhoneNumberToE164V9(phoneNumber: string, countryCode: string, callback: AsyncCallback<string>): void;
+  function formatPhoneNumberToE164V9(phoneNumber: string, countryCode: string): Promise<string>;
 
   /**
    * Answers the incoming call.
@@ -668,6 +738,9 @@ declare namespace call {
     CALL_STATE_OFFHOOK = 2
   }
 
+  /**
+   * @deprecated since 9
+   */
   export interface DialOptions {
     /**
      * boolean means whether the call to be made is a video call. The value {@code false} indicates a voice call.
@@ -691,6 +764,29 @@ declare namespace call {
     /**
      * @systemapi Hide this for inner system use.
      * @since 8
+     */
+    dialType?: DialType;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export interface DialCallOptions {
+    /**
+     * @systemapi Hide this for inner system use.
+     */
+    accountId?: number;
+    /**
+     * @systemapi Hide this for inner system use.
+     */
+    videoState?: VideoStateType;
+    /**
+     * @systemapi Hide this for inner system use.
+     */
+    dialScene?: DialScene;
+    /**
+     * @systemapi Hide this for inner system use.
      */
     dialType?: DialType;
   }

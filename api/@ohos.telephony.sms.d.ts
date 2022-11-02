@@ -49,9 +49,27 @@ declare namespace sms {
    *     and the value {@code 3gpp2} indicates CDMA/LTE SMS.
    * @param callback Returns an SMS message instance; returns {@code null} if {@code pdu} is empty or
    *     {@code specification} is not supported.
+   * @deprecated since 9
+   * @useinstead createMessageV9
    */
   function createMessage(pdu: Array<number>, specification: string, callback: AsyncCallback<ShortMessage>): void;
   function createMessage(pdu: Array<number>, specification: string): Promise<ShortMessage>;
+
+  /**
+   * Creates an SMS message instance based on the protocol data unit (PDU) and the specified SMS protocol.
+   *
+   * <p>After receiving the original PDU data, the system creates an SMS message instance according to the specified
+   * SMS protocol.
+   *
+   * @param pdu Indicates the original data, which is obtained from the received SMS.
+   * @param specification Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE SMS,
+   *     and the value {@code 3gpp2} indicates CDMA/LTE SMS.
+   * @param callback Returns an SMS message instance; returns {@code null} if {@code pdu} is empty or
+   *     {@code specification} is not supported.
+   * @since 9
+   */
+  function createMessageV9(pdu: Array<number>, specification: string, callback: AsyncCallback<ShortMessage>): void;
+  function createMessageV9(pdu: Array<number>, specification: string): Promise<ShortMessage>;
 
   /**
    * Sends a text or data SMS message.
@@ -61,8 +79,22 @@ declare namespace sms {
    *
    * @param options Indicates the parameters and callback for sending the SMS message.
    * @permission ohos.permission.SEND_MESSAGES
+   * @deprecated since 9
    */
   function sendMessage(options: SendMessageOptions): void;
+
+  /**
+   * Sends a text or data SMS message.
+   *
+   * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
+   * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
+   *
+   * @param options Indicates the parameters and callback for sending the SMS message.
+   * @permission ohos.permission.SEND_MESSAGES
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function sendMessageV9(options: SendMessageOptions): void;
 
   /**
    * Sets the default SIM card for sending SMS messages. You can obtain the default SIM card by

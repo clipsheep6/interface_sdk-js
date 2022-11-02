@@ -30,9 +30,22 @@ declare namespace sim {
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param callback Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead isSimActiveV9
    */
   function isSimActive(slotId: number, callback: AsyncCallback<boolean>): void;
   function isSimActive(slotId: number): Promise<boolean>;
+
+  /**
+   * Checks whether the SIM card in a specified slot is activated.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   * @param callback Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @since 9
+   */
+  function isSimActiveV9(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isSimActiveV9(slotId: number): Promise<boolean>;
 
   /**
    * Obtains the default card slot for the voice service.
@@ -41,9 +54,22 @@ declare namespace sim {
    * returns {@code 1} if card 2 is used as the default card slot for the voice service;
    * returns {@code -1} if no card is available for the voice service.
    * @since 7
+   * @deprecated since 9
+   * @useinstead getDefaultVoiceSlotIdV9
    */
   function getDefaultVoiceSlotId(callback: AsyncCallback<number>): void;
   function getDefaultVoiceSlotId(): Promise<number>;
+
+  /**
+   * Obtains the default card slot for the voice service.
+   *
+   * @param callback Returns {@code 0} if card 1 is used as the default card slot for the voice service;
+   * returns {@code 1} if card 2 is used as the default card slot for the voice service;
+   * returns {@code -1} if no card is available for the voice service.
+   * @since 9
+   */
+  function getDefaultVoiceSlotIdV9(callback: AsyncCallback<number>): void;
+  function getDefaultVoiceSlotIdV9(): Promise<number>;
 
   /**
    * Checks whether your application (the caller) has been granted the operator permissions.
@@ -52,9 +78,22 @@ declare namespace sim {
    * @param callback Returns {@code true} if your application has been granted the operator permissions;
    * returns {@code false} otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead hasOperatorPrivilegesV9
    */
   function hasOperatorPrivileges(slotId: number, callback: AsyncCallback<boolean>): void;
   function hasOperatorPrivileges(slotId: number): Promise<boolean>;
+
+  /**
+   * Checks whether your application (the caller) has been granted the operator permissions.
+   *
+   * @param slotId Indicates the ID of the SIM card slot.
+   * @param callback Returns {@code true} if your application has been granted the operator permissions;
+   * returns {@code false} otherwise.
+   * @since 9
+   */
+  function hasOperatorPrivilegesV9(slotId: number, callback: AsyncCallback<boolean>): void;
+  function hasOperatorPrivilegesV9(slotId: number): Promise<boolean>;
 
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
@@ -62,9 +101,22 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card is inserted.
+   * @deprecated since 9
+   * @useinstead getISOCountryCodeForSimV9
    */
   function getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void;
   function getISOCountryCodeForSim(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the ISO country code of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card is inserted.
+   * @since 9
+   */
+  function getISOCountryCodeForSimV9(slotId: number, callback: AsyncCallback<string>): void;
+  function getISOCountryCodeForSimV9(slotId: number): Promise<string>;
 
   /**
    * Obtains the home PLMN number of the SIM card in a specified slot.
@@ -75,9 +127,25 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @deprecated since 9
+   * @useinstead getSimOperatorNumericV9
    */
   function getSimOperatorNumeric(slotId: number, callback: AsyncCallback<string>): void;
   function getSimOperatorNumeric(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the home PLMN number of the SIM card in a specified slot.
+   *
+   * <p>The value is recorded in the SIM card and is irrelevant to the network
+   * with which the SIM card is currently registered.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @since 9
+   */
+  function getSimOperatorNumericV9(slotId: number, callback: AsyncCallback<string>): void;
+  function getSimOperatorNumericV9(slotId: number): Promise<string>;
 
   /**
    * Obtains the service provider name (SPN) of the SIM card in a specified slot.
@@ -89,9 +157,26 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the SPN; returns an empty string if no SIM card is inserted or
    * no EFSPN file in the SIM card.
+   * @deprecated since 9
+   * @useinstead getSimSpnV9
    */
   function getSimSpn(slotId: number, callback: AsyncCallback<string>): void;
   function getSimSpn(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   *
+   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
+   * with which the SIM card is currently registered.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the SPN; returns an empty string if no SIM card is inserted or
+   * no EFSPN file in the SIM card.
+   * @since 9
+   */
+  function getSimSpnV9(slotId: number, callback: AsyncCallback<string>): void;
+  function getSimSpnV9(slotId: number): Promise<string>;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
@@ -107,9 +192,30 @@ declare namespace sim {
    * <li>{@code SimState#SIM_STATE_READY}
    * <li>{@code SimState#SIM_STATE_LOADED}
    * </ul>
+   * @deprecated since 9
+   * @useinstead getSimStateV9
    */
   function getSimState(slotId: number, callback: AsyncCallback<SimState>): void;
   function getSimState(slotId: number): Promise<SimState>;
+
+  /**
+   * Obtains the state of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   * @param callback Returns one of the following SIM card states:
+   * <ul>
+   * <li>{@code SimState#SIM_STATE_UNKNOWN}
+   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
+   * <li>{@code SimState#SIM_STATE_LOCKED}
+   * <li>{@code SimState#SIM_STATE_NOT_READY}
+   * <li>{@code SimState#SIM_STATE_READY}
+   * <li>{@code SimState#SIM_STATE_LOADED}
+   * </ul>
+   * @since 9
+   */
+  function getSimStateV9(slotId: number, callback: AsyncCallback<SimState>): void;
+  function getSimStateV9(slotId: number): Promise<SimState>;
 
   /**
    * Obtains the type of the SIM card installed in a specified slot.
@@ -117,9 +223,21 @@ declare namespace sim {
    * @param slotId Indicates the ID of the specified slot.
    * @param callback Returns the SIM card type.
    * @since 7
+   * @deprecated since 9
+   * @useinstead getCardTypeV9
    */
   function getCardType(slotId: number, callback: AsyncCallback<CardType>): void;
   function getCardType(slotId: number): Promise<CardType>;
+
+  /**
+   * Obtains the type of the SIM card installed in a specified slot.
+   *
+   * @param slotId Indicates the ID of the specified slot.
+   * @param callback Returns the SIM card type.
+   * @since 9
+   */
+  function getCardTypeV9(slotId: number, callback: AsyncCallback<CardType>): void;
+  function getCardTypeV9(slotId: number): Promise<CardType>;
 
   /**
    * Obtains the ICCID of the SIM card in a specified slot.
@@ -226,9 +344,22 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns true if a SIM card is inserted; return false otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead hasSimCardV9
    */
   function hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void;
   function hasSimCard(slotId: number): Promise<boolean>;
+
+  /**
+   * Checks whether a SIM card is inserted in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns true if a SIM card is inserted; return false otherwise.
+   * @since 9
+   */
+  function hasSimCardV9(slotId: number, callback: AsyncCallback<boolean>): void;
+  function hasSimCardV9(slotId: number): Promise<boolean>;
 
   /**
    * @permission ohos.permission.GET_TELEPHONY_STATE
