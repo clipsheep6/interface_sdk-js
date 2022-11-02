@@ -17,13 +17,14 @@ const { readFile, etsComponentSet } = require('./util');
 const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
+const ExcelJS = require('exceljs');
 
 let apiList = [];
 let importFiles = new Map();
 let moduleName = [];
 let applicationApis = [];
-let classNames = [];
-let finalClassName = [];
+let classList = [];
+let finalClassList = [];
 let etsComponentBlockPos = new Set([]);
 
 function collectApi(url) {
@@ -73,19 +74,29 @@ function getImportFileName(url) {
                         moduleName: node.expression.expression.expression.escapedText,
                         apiName: node.name.escapedText,
                         functionType: functionType,
-                        packageName:''
+                        packageName: ''
                     })
-                } else if (ts.isPropertyAccessExpression(node.expression) && ts.isIdentifier(node.expression.expression)) {
+                } else if (ts.isPropertyAccessExpression(node.expression) && node.expression.expression) {
                     const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                     let functionType = ''
-                    apiList.push({
-                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
-                        moduleName: node.expression.expression.escapedText,
-                        apiName: node.expression.name.escapedText,
-                        value: node.name.escapedText,
-                        functionType: functionType,
-                        packageName:''
-                    })
+                    if (ts.isIdentifier(node.expression.expression)) {
+                        apiList.push({
+                            fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
+                            moduleName: node.expression.expression.escapedText,
+                            apiName: node.expression.name.escapedText,
+                            value: node.name.escapedText,
+                            functionType: functionType,
+                            packageName: ''
+                        })
+                    }else{
+                        apiList.push({
+                            fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
+                            moduleName: node.expression.name.escapedText,
+                            apiName: node.name.escapedText,
+                            functionType: functionType,
+                            packageName: ''
+                        })
+                    }
                 } else if (ts.isIdentifier(node.expression) && ts.isCallExpression(node.parent)) {
                     if (node.parent.arguments && node.name.escapedText.toString() == 'on' || node.name.escapedText.toString() == 'off') {
                         node.parent.arguments.forEach(argument => {
@@ -97,40 +108,50 @@ function getImportFileName(url) {
                                     moduleName: node.expression.escapedText,
                                     apiName: node.name.escapedText + '_' + argument.text,
                                     functionType: functionType,
-                                    packageName:''
+                                    packageName: ''
                                 })
                             }
                         })
                     } else {
                         const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                         let functionType = ''
-                        const typeArguments = node.parent.arguments
-                        for (let i = 0; i < typeArguments.length; i++) {
+                        // judge function type
+                        if (node.parent.arguments.length > 0) {
+                            const typeArguments = node.parent.arguments
                             if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
                                 ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
                                 functionType = 'callback'
+                            } else {
+                                functionType = 'Promise';
                             }
+                        } else if (node.parent.arguments.length == 0) {
+                            functionType = 'Promise';
                         }
-                        // console.log('modulename:::' + node.expression.escapedText);
-                        // console.log('apiName::::' + node.name.escapedText);
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                             moduleName: node.expression.escapedText,
                             apiName: node.name.escapedText,
                             functionType: functionType,
-                            packageName:''
+                            packageName: ''
                         })
                     }
                 }
             } else if (ts.isQualifiedName(node) && ts.isTypeReferenceNode(node.parent)) {
                 const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                 let functionType = ''
-                apiList.push({
+                let instantiateObject = ''
+                if (ts.isPropertyDeclaration(node.parent.parent) && ts.isIdentifier(node.parent.parent.name)) {
+                    instantiateObject = node.parent.parent.name.escapedText
+                }
+                // console.log(instantiateObject);
+                classList.push({
                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
+                    instantiateObject: instantiateObject,
                     moduleName: node.left.escapedText,
-                    apiName: node.right.escapedText,
+                    interfaceName: node.right.escapedText,
+                    apiName:'',
                     functionType: functionType,
-                    packageName:''
+                    packageName: ''
                 })
             } else if (isEtsComponentNode(node)) {
                 const componentName = node.expression.escapedText.toString();
@@ -207,7 +228,7 @@ function getImportFileName(url) {
                 }
             }
             node.getChildren().forEach(item => collectApplicationApi(item, sourcefile));
-        }       
+        }
     }
 }
 
@@ -256,12 +277,23 @@ function judgeImportFile(node) {
 
 
 function filterApi() {
-    importFiles.forEach((value, key) =>{
-        value.forEach(item=>{
+    importFiles.forEach((value, key) => {
+        value.forEach(item => {
             apiList.forEach(api => {
                 if (item == api.moduleName) {
                     api.packageName = key.replace('@', '');
                     applicationApis.push(api);
+                }
+            })
+        })
+    })
+
+    importFiles.forEach((value, key) => {
+        value.forEach(item => {
+            classList.forEach(api => {
+                if (item == api.moduleName) {
+                    api.packageName = key.replace('@', '');
+                    finalClassList.push(api);
                 }
             })
         })
@@ -272,13 +304,53 @@ function filterApi() {
             applicationApis.push(api);
         }
     })
+
+    classList.forEach(item=> {
+        // console.log(item);
+        applicationApis.forEach(api=>{
+            // console.log(api);
+            if (item.instantiateObject = api.moduleName) {
+                let unsureApi = JSON.parse(JSON.stringify(item));
+                // console.log('class:::', item);
+                // console.log('application:::', api);
+                unsureApi.apiName = api.apiName;
+                unsureApi.fileName = api.fileName;
+                // console.log('class:::', unsureApi);
+                finalClassList.push(unsureApi);
+            }
+        })
+    });
+}
+
+async function getExcelBuffer(api) {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet('interface', { views: [{ xSplit: 2 }] });
+    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '文件位置']
+    for (let i = 1; i <= api.length; i++) {
+        const apiData = api[i - 1];
+        sheet.getRow(i + 1).values = [apiData.packageName, apiData.moduleName, apiData.interfaceName ,apiData.apiName, apiData.fileName]
+    }
+    const buffer = await workbook.xlsx.writeBuffer();
+    return buffer;
+}
+
+async function excel(api) {
+    let buffer = await getExcelBuffer(api)
+    fs.writeFile('Interface.xlsx', buffer, function (err) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+    });
 }
 
 try {
     collectApi("../application");
     filterApi();
-    exports.importFiles = importFiles;    
+    exports.importFiles = importFiles;
     exports.applicationApis = applicationApis;
+    let noRepeatApis = [...new Set(finalClassList)];
+    excel(finalClassList);
 
 } catch (error) {
     console.error('COLLECT IMPORT NAME ERROR: ', error);

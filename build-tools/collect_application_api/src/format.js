@@ -17,7 +17,7 @@ const { readFile, excel, parse, getExcelBuffer, applicationModules, } = require(
 const path = require('path');
 const ts = require('typescript')
 const { importFiles, applicationApis } = require('./collect_import_name');
-const { visitEachChild } = require('typescript')
+const { visitEachChild } = require('typescript');
 let methodType = '';
 function getApiData(fileData) {
     const SDK_API_FILES = [];
@@ -45,6 +45,16 @@ function getApiData(fileData) {
     }
     addMethodType(newApis);
     for (let i = 0; i < applicationApis.length; i++) {
+        if (applicationApis[i].packageName == 'ohos.application.formHost') {
+            // console.log(applicationApis[i]);
+        }
+    }
+    for (let j = 0; j < newApis.length; j++) {
+        if (newApis[j].packageName == 'ohos.application.formHost' && newApis[j].methodName == 'getFormsInfo') {
+            // console.log(newApis[j]);
+        }
+    }
+    for (let i = 0; i < applicationApis.length; i++) {
         for (let j = 0; j < newApis.length; j++) {
             if (applicationApis[i].type === "ArkUI") {
                 if (applicationApis[i].moduleName === newApis[j].className.replace(/Attribute/, "")
@@ -70,17 +80,12 @@ function getApiData(fileData) {
             } else if (!applicationApis[i].value) {
                 if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
                     applicationApis[i].apiName == newApis[j].methodName &&
-                    applicationApis[i].functionType == newApis[j].functionType) {
+                    applicationApis[i].functionType == newApis[j].functionType &&
+                    newApis[j].packageName == applicationApis[i].packageName) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
                     finalApis.push(applyApi);
-                } else if (applicationApis[i].apiName == newApis[j].className &&
-                    newApis[j].packageName == applicationApis[i].packageName &&
-                    applicationApis[i].functionType == newApis[j].functionType) {
-                    let applyApi = JSON.parse(JSON.stringify(newApis[j]));
-                    applyApi.pos = applicationApis[i].fileName;
-                    finalApis.push(applyApi);
-                } else if (applicationApis[i].apiName == newApis[j].methodName &&
+                }  else if (applicationApis[i].apiName == newApis[j].methodName &&
                     applicationApis[i].packageName == newApis[j].packageName &&
                     applicationApis[i].functionType == newApis[j].functionType) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
@@ -90,7 +95,8 @@ function getApiData(fileData) {
             } else {
                 if (applicationApis[i].apiName == newApis[j].className &&
                     applicationApis[i].value == newApis[j].methodName &&
-                    applicationApis[i].functionType == newApis[j].functionType) {
+                    applicationApis[i].functionType == newApis[j].functionType &&
+                    applicationApis[i].packageName == newApis[j].packageName) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
                     finalApis.push(applyApi);
@@ -153,16 +159,13 @@ function getName() {
         }
         function getType(node) {
             if (ts.isFunctionDeclaration(node)) {
-                if (node.parameters.length > 0) {
+                if (ts.isTypeReferenceNode(node.type)) {
+                    methodType = node.type.typeName.escapedText;
+                }else if (node.parameters) {
                     for (let i = 0; i < node.parameters.length; i++) {
                         const parameter = node.parameters[node.parameters.length - 1];
                         methodType = parameter.name.escapedText;
                     }
-                } else {
-                    if (ts.isTypeReferenceNode(node.type)) {
-                        methodType = node.type.typeName.escapedText;
-                    }
-
                 }
             }
             return ts.visitEachChild(node, getType, context);
