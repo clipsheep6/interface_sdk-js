@@ -160,6 +160,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Called when overflowX property is set.
+   * @since 9
+   */
+  overflowX(value: string): TextAreaAttribute;
 }
 
 declare const TextArea: TextAreaInterface;
