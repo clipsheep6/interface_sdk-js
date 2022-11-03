@@ -31,7 +31,7 @@ declare namespace config {
   /**
    * Indicates the configuration of invert color.
    */
-  var invertColor: Config<boolean>;
+  var invertColors: Config<boolean>;
   /**
    * Indicates the configuration of daltonization color filter.
    */
