@@ -29,7 +29,7 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 7
      */
-    function createAppAccountManager(): AppAccountManager;
+    function createAppAccountMge(): AppAccountManager;
 
     /**
      * Provides methods for managing application accounts.
