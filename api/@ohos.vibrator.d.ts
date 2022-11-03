@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
+import List from "./@ohos.util.List"
 
 /**
  * This module provides the capability to control motor vibration.
@@ -133,7 +134,7 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
-     type VibrateEffect = VibrateTime | VibratePreset;
+     type VibrateEffect = VibrateTime | VibratePreset | VibrateWaveform;
 
     /**
      * Specifies the duration of the vibration effect.
@@ -155,6 +156,102 @@ declare namespace vibrator {
         effectId: string; /** Preset type vibration */
         count: number; /** The number of vibration repetitions */
     }
+
+    
+    /**
+     * Specifies the time slice.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+    interface TimeSlice {
+        type: "timeSlice";
+        duration: number; /** The duration of the vibration, in ms */
+        intensity?: number; /**  Indicates the intensity of the slice. */
+        frequency?: number /**  Indicates the frequency of the slice. */
+    }
+    
+    /**
+     * Specifies the meta effect slice.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+    interface MetaEffectSlice {
+        type: "metaEffect";
+        metaEffect: string; /** Indicates the metaEffectId provided by the system to add. */
+        scale?: number; /** Indicates the scale to apply to the intensity of the metaEffect. */
+    }
+
+    /**
+     * The slice of customized vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+     type WaveformSlice = TimeSlice | MetaEffectSlice;
+
+    /**
+     * Customized vibration type vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+     interface VibrateWaveform {
+        type: "customized";
+        waveformSequence: List<WaveformSlice>;
+    }
+
+    /**
+     * A builder for vibrate waveform.
+     * For example:
+     * step1:
+     * WaveformBuilder builder = new WaveformBuilder();
+     * VibrateWaveform waveform = builder.addMetaEffect("meta_effect_test2", 100, 0.5)
+     *        .addTimeSlice(200, 100, 75, 80)
+     *        .addMetaEffect("meta_effect_test2", 50)
+     *        .addTimeSlice(150, 200)
+     *        .addMetaEffect("primitive_effect_test3", 150, 0.75)
+     *        .build();
+     *
+     * step2:
+     * vibrator.startVibration(sequence, {usage: "alarm"}, (error) => {
+     *      if (error) {
+     *          console.error("vibrate fail");
+     *      }
+     * });
+     * @name WaveformBuilder
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+     class WaveformBuilder {
+        vibrateWaveform: List<WaveformSlice>;
+        /**
+         * Add vibration meta effect to the waveform sequence.
+         * @param metaEffectId Indicates the metaEffectId provided by the system to add.
+         * @param delay Indicates the amount of time to wait, in milliseconds, before playing the metaEffectId,
+         * starting at the time the previous element in the composition is complete.
+         * @param scale Indicates the scale to apply to the intensity of the metaEffectId.
+         * @returns WaveformBuilder.
+         * @since 10
+         */
+         addMetaEffect(metaEffectId: string, delay: number, scale?: number): WaveformBuilder;
+
+        /**
+         * Add vibration time slice to the waveform sequence.
+         * @param duration Indicates the duration of time slice to add.
+         * @param delay Indicates the amount of time to wait, in milliseconds, before playing the slice,
+         * starting at the time the previous element in the composition is complete.
+         * @param intensity Indicates the intensity of the slice.
+         * @param frequency Indicates the frequency of the slice.
+         * @returns WaveformBuilder.
+         * @since 10
+         */
+         addTimeSlice(duration: number, delay: number, intensity?: number, frequency?: number): WaveformBuilder;
+
+        /**
+         * Build the waveform as a single.
+         * @returns VibrateWaveform.
+         * @since 10
+         */
+         build(): VibrateWaveform;
+     }
 }
 
 export default vibrator;
