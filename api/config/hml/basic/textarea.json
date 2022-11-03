@@ -25,6 +25,36 @@
       "type": "string"
     },
     {
+      "name": "overflowX",
+      "required": false,
+      "description": [
+        {
+          "name": "overflow in horizontal direction"
+        }
+      ],
+      "type": "enum",
+      "options": [
+        {
+          "name": "visible"
+        },
+        {
+          "name": "hidden"
+        },
+        {
+          "name": "scroll"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "no-display"
+        },
+        {
+          "name": "no-content"
+        }
+       ]
+    },
+    {
       "name": "maxlength",
       "required": false,
       "description": [
