@@ -27,7 +27,6 @@ declare class XComponentController {
   /**
    * Get the id of surface created by XComponent.
    * @since 8
-   * @systemapi
    */
   /**
    * Get the id of surface created by XComponent.
@@ -44,7 +43,6 @@ declare class XComponentController {
   /**
    * Set the surface size created by XComponent.
    * @since 8
-   * @systemapi
    */
   /**
    * Set the surface size created by XComponent.
