@@ -816,47 +816,47 @@ declare namespace settings {
    /**
    * get value from settingsdata
    * @since 9
-   * @param context Indicates the dataAbilityHelper or dataShareHelper used to access
+   * @param context Indicates the Context or dataAbilityHelper used to access
    * the database.
    * @param name Indicates the name of the character string.
    * @return Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    */
-  function getValue(context: context, name: string, callback: AsyncCallback<object>): void;
-  function getValue(context: context, name: string): Promise<object>;  
+  function getValue(context: Context, name: string, callback: AsyncCallback<object>): void;
+  function getValue(context: Context, name: string): Promise<object>;  
 
    /**
     * get value from settingsdata(synchronization method)
     * @since 9
-    * @param context Indicates dataAbilityHelper or dataShareHelper instance
+    * @param context Indicates Context or dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @return settingsdata value
     */
-   function getValueSync(context: context, name: string, defValue: string): object;
+   function getValueSync(context: Context, name: string, defValue: string): object;
   
    /**
    * set settingsdata value.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @since 9
-   * @param context Indicates dataAbilityHelper or dataShareHelper instance
+   * @param context Indicates Context or dataAbilityHelper instance
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    */
-   function setValue(context: context, name: string, value: object, callback: AsyncCallback<boolean>): void;
-   function setValue(context: context, name: string, value: object): Promise<boolean>;
+   function setValue(context: Context, name: string, value: object, callback: AsyncCallback<boolean>): void;
+   function setValue(context: Context, name: string, value: object): Promise<boolean>;
    
    /**
     * set settingsdata value(synchronization method)
     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
     * @since 9
-    * @param context Indicates dataAbilityHelper or dataShareHelper instance
+    * @param context Indicates Context or dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
     */
-   function setValueSync(context: context, name: string, value: string): boolean;
+   function setValueSync(context: Context, name: string, value: string): boolean;
    
    /**
    * Obtains the value of a specified character string in the database.
