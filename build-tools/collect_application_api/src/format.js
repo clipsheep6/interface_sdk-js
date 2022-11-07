@@ -19,6 +19,23 @@ const ts = require('typescript')
 const { importFiles, applicationApis } = require('./collect_import_name');
 const { visitEachChild } = require('typescript');
 let methodType = '';
+// optional argument number
+let number = 0;
+// every function argument number
+let argumentNumber = 0;
+
+// filter api according to the number of parameters and function type
+function judgeArgument(applicationApi, newApi) {
+    if (applicationApi.functionType == newApi.functionType && applicationApi.number <= newApi.arguments &&
+        applicationApi.number >= newApi.arguments - newApi.optionalArg) {
+        return true;
+    } else if (newApi.functionType == '' && applicationApi.number <= newApi.arguments &&
+        applicationApi.number >= newApi.arguments - newApi.optionalArg) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function getApiData(fileData) {
     const SDK_API_FILES = [];
     getAllApiFiles(SDK_API_FILES);
@@ -35,14 +52,6 @@ function getApiData(fileData) {
     const apis = parse(APP_API_FILES);
     const newApis = apis;
     const finalApis = [];
-    for (let i = 0; i < applicationModules.length; i++) {
-        for (let j = 0; j < newApis.length; j++) {
-            if (applicationModules[i].packageName == newApis[j].packageName &&
-                applicationModules[i].methodName == newApis[j].className) {
-                newApis[j].namespace = applicationModules[i].className;
-            }
-        }
-    }
     addMethodType(newApis);
     for (let i = 0; i < applicationApis.length; i++) {
         if (applicationApis[i].packageName == 'ohos.application.formHost') {
@@ -80,14 +89,14 @@ function getApiData(fileData) {
             } else if (!applicationApis[i].value) {
                 if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
                     applicationApis[i].apiName == newApis[j].methodName &&
-                    applicationApis[i].functionType == newApis[j].functionType &&
-                    newApis[j].packageName == applicationApis[i].packageName) {
+                    judgeArgument(applicationApis[i], newApis[j])) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
                     finalApis.push(applyApi);
-                }  else if (applicationApis[i].apiName == newApis[j].methodName &&
+                    break;
+                } else if (applicationApis[i].apiName == newApis[j].methodName &&
                     applicationApis[i].packageName == newApis[j].packageName &&
-                    applicationApis[i].functionType == newApis[j].functionType) {
+                    judgeArgument(applicationApis[i], newApis[j])) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
                     finalApis.push(applyApi);
@@ -112,28 +121,13 @@ function getAllApiFiles(files) {
     readFile(path.resolve(__dirname, '../sdk'), files);
 }
 
-function filterData(apis, rulers) {
-    const appApis = [];
-    rulers.forEach((value, key) => {
-        const modules = rulers.get(key);
-        modules.forEach(module => {
-            apis.forEach(api => {
-                if (key.replace(/^\@/, '') === api.packageName && module.match(new RegExp(api.className, 'i'))) {
-                    appApis.push(api);
-                } else if (key.replace(/^\@/, '') === api.packageName) {
-                    appApis.push(api);
-                }
-            });
-        });
-    });
-    return appApis;
-}
-
 function addMethodType(newApis) {
     newApis.forEach(item => {
         if (item.apiType == 'Method') {
             let methodContent = item.methodText;
-            getMethodType(methodContent, getName, methodType);
+            getMethodType(methodContent, filterType, methodType);
+            item.optionalArg = number;
+            item.arguments = argumentNumber;
             if (methodType == 'callback' || methodType == 'Promise') {
                 item.functionType = methodType;
             }
@@ -150,22 +144,44 @@ function getMethodType(content, callback) {
     })
 }
 
-function getName() {
+function filterType() {
     return (context) => {
         return (node) => {
             methodType = '';
+            argumentNumber = 0;
             getType(node);
             return node;
         }
         function getType(node) {
+            // add function type(callback or Promise)
             if (ts.isFunctionDeclaration(node)) {
-                if (ts.isTypeReferenceNode(node.type)) {
+                if (node.type && ts.isTypeReferenceNode(node.type)) {
                     methodType = node.type.typeName.escapedText;
-                }else if (node.parameters) {
-                    for (let i = 0; i < node.parameters.length; i++) {
+                } else if (node.parameters.length > 0) {
                         const parameter = node.parameters[node.parameters.length - 1];
-                        methodType = parameter.name.escapedText;
-                    }
+                        if (parameter.name.escapedText == 'callback') {
+                            methodType = parameter.name.escapedText;
+                        }                                          
+                }
+            }
+            // add arguments number and optional arguments number
+            if (node.parameters && node.parameters.length>0) {
+                number = 0;
+                argumentNumber = node.parameters.length;
+                let argArray = node.parameters;
+                for (let i = 0; i < argArray.length; i++) {
+                    if (argArray[i].questionToken && argArray[i].questionToken.kind == 57) {
+                        number ++
+                    }                   
+                }
+            }else if (node.arguments && node.arguments.length > 0) {
+                number = 0;
+                argumentNumber = node.arguments.length;
+                let argArray = node.arguments;
+                for (let i = 0; i < argArray.length; i++) {
+                    if (argArray[i].questionToken && argArray[i].questionToken.kind == 57) {
+                        number ++
+                    }                    
                 }
             }
             return ts.visitEachChild(node, getType, context);

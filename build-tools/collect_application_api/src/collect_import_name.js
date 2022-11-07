@@ -88,7 +88,7 @@ function getImportFileName(url) {
                             functionType: functionType,
                             packageName: ''
                         })
-                    }else{
+                    } else {
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                             moduleName: node.expression.name.escapedText,
@@ -114,15 +114,18 @@ function getImportFileName(url) {
                         })
                     } else {
                         const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-                        let functionType = ''
+                        let functionType = '';
+                        let number = 0;
                         // judge function type
                         if (node.parent.arguments.length > 0) {
                             const typeArguments = node.parent.arguments
                             if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
                                 ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
-                                functionType = 'callback'
+                                functionType = 'callback';
+                                number = typeArguments.length;
                             } else {
                                 functionType = 'Promise';
+                                number = typeArguments.length;
                             }
                         } else if (node.parent.arguments.length == 0) {
                             functionType = 'Promise';
@@ -132,7 +135,8 @@ function getImportFileName(url) {
                             moduleName: node.expression.escapedText,
                             apiName: node.name.escapedText,
                             functionType: functionType,
-                            packageName: ''
+                            packageName: '',
+                            number: number
                         })
                     }
                 }
@@ -143,18 +147,18 @@ function getImportFileName(url) {
                 if (ts.isPropertyDeclaration(node.parent.parent) && ts.isIdentifier(node.parent.parent.name)) {
                     instantiateObject = node.parent.parent.name.escapedText
                 }
-                // console.log(instantiateObject);
                 classList.push({
                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                     instantiateObject: instantiateObject,
                     moduleName: node.left.escapedText,
                     interfaceName: node.right.escapedText,
-                    apiName:'',
+                    apiName: '',
                     functionType: functionType,
                     packageName: ''
                 })
             } else if (isEtsComponentNode(node)) {
-                const componentName = node.expression.escapedText.toString();
+                const componentName = node.expression.escapedText ? node.expression.escapedText.toString() :
+                    node.expression.expression.escapedText.toString();
                 if (ts.isEtsComponentExpression(node) && ts.isBlock(node.parent.parent) &&
                     !etsComponentBlockPos.has(node.parent.parent.pos)) {
                     etsComponentBlockPos.add(node.parent.parent);
@@ -305,9 +309,9 @@ function filterApi() {
         }
     })
 
-    classList.forEach(item=> {
+    classList.forEach(item => {
         // console.log(item);
-        applicationApis.forEach(api=>{
+        finalClassList.forEach(api => {
             // console.log(api);
             if (item.instantiateObject = api.moduleName) {
                 let unsureApi = JSON.parse(JSON.stringify(item));
@@ -328,7 +332,7 @@ async function getExcelBuffer(api) {
     sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '文件位置']
     for (let i = 1; i <= api.length; i++) {
         const apiData = api[i - 1];
-        sheet.getRow(i + 1).values = [apiData.packageName, apiData.moduleName, apiData.interfaceName ,apiData.apiName, apiData.fileName]
+        sheet.getRow(i + 1).values = [apiData.packageName, apiData.moduleName, apiData.interfaceName, apiData.apiName, apiData.fileName]
     }
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
