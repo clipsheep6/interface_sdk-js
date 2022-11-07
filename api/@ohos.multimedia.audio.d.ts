@@ -1481,6 +1481,7 @@ declare namespace audio {
      * @param callback Callback invoked for the audio interruption event.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @deprecated since 9
      */
     on(type: 'interrupt', interrupt: AudioInterrupt, callback: Callback<InterruptAction>): void;
 
@@ -1491,6 +1492,7 @@ declare namespace audio {
      * @param callback Callback invoked for the audio interruption event.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @deprecated since 9
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
 
