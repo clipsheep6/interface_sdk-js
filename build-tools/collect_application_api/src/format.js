@@ -54,12 +54,12 @@ function getApiData(fileData) {
     const finalApis = [];
     addMethodType(newApis);
     for (let i = 0; i < applicationApis.length; i++) {
-        if (applicationApis[i].packageName == 'ohos.application.formHost') {
+        if (applicationApis[i].packageName == 'ohos.geolocation') {
             // console.log(applicationApis[i]);
         }
     }
     for (let j = 0; j < newApis.length; j++) {
-        if (newApis[j].packageName == 'ohos.application.formHost' && newApis[j].methodName == 'getFormsInfo') {
+        if (newApis[j].packageName == 'ohos.geolocation' && newApis[j].methodName == 'on_locationChange') {
             // console.log(newApis[j]);
         }
     }
@@ -89,7 +89,8 @@ function getApiData(fileData) {
             } else if (!applicationApis[i].value) {
                 if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
                     applicationApis[i].apiName == newApis[j].methodName &&
-                    judgeArgument(applicationApis[i], newApis[j])) {
+                    judgeArgument(applicationApis[i], newApis[j]) &&
+                    applicationApis[i].packageName == newApis[j].packageName) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
                     finalApis.push(applyApi);
@@ -113,8 +114,8 @@ function getApiData(fileData) {
             }
         }
     }
-    let noRepeatApis = [...new Set(finalApis)];
-    excel(noRepeatApis);
+    // let noRepeatApis = [...new Set(finalApis)];
+    excel(finalApis);
 }
 
 function getAllApiFiles(files) {

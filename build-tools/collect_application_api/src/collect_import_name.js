@@ -20,12 +20,14 @@ const ts = require('typescript');
 const ExcelJS = require('exceljs');
 
 let apiList = [];
+// key:import file; value:import class
 let importFiles = new Map();
-let moduleName = [];
 let applicationApis = [];
 let classList = [];
 let finalClassList = [];
 let etsComponentBlockPos = new Set([]);
+let importFileList = [];
+let exportClass = '';
 
 function collectApi(url) {
     const applicationUrl = path.resolve(__dirname, url);
@@ -56,7 +58,7 @@ function getImportFileName(url) {
             const statements = sourcefile.statements;
             statements.forEach(item => {
                 if (ts.isImportDeclaration(item)) {
-                    judgeImportFile(item);
+                    judgeImportFile(item, url);
                 } else {
                     collectApplicationApi(item, sourcefile);
                 }
@@ -117,19 +119,8 @@ function getImportFileName(url) {
                         let functionType = '';
                         let number = 0;
                         // judge function type
-                        if (node.parent.arguments.length > 0) {
-                            const typeArguments = node.parent.arguments
-                            if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
-                                ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
-                                functionType = 'callback';
-                                number = typeArguments.length;
-                            } else {
-                                functionType = 'Promise';
-                                number = typeArguments.length;
-                            }
-                        } else if (node.parent.arguments.length == 0) {
-                            functionType = 'Promise';
-                        }
+                       addFunctionType(node, functionType, number);
+                        console.log('functionType::::', functionType);
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                             moduleName: node.expression.escapedText,
@@ -139,6 +130,19 @@ function getImportFileName(url) {
                             number: number
                         })
                     }
+                } else if (ts.isIdentifier(node.expression) && ts.isIdentifier(node.name)) {
+                    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+                    let functionType = '';
+                    let number = 0;
+                    apiList.push({
+                        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
+                        moduleName: node.expression.escapedText,
+                        apiName: node.name.escapedText,
+                        functionType: functionType,
+                        packageName: '',
+                        number: number
+                    })
+
                 }
             } else if (ts.isQualifiedName(node) && ts.isTypeReferenceNode(node.parent)) {
                 const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
@@ -242,35 +246,96 @@ function isEtsComponentNode(node) {
         ts.isIdentifier(node.expression) && etsComponentSet.has(node.expression.escapedText.toString()))
 }
 
-function judgeImportFile(node) {
+function addFunctionType(node, type, number) {
+    if (node.parent.arguments.length > 0) {
+        const typeArguments = node.parent.arguments
+        if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
+            ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
+            type = 'callback';
+            number = typeArguments.length;
+            // console.log(type);
+        } else {
+            type = 'Promise';
+            number = typeArguments.length;
+        }
+    } else if (node.parent.arguments.length == 0) {
+        type = 'Promise';
+    }
+}
+
+function addImportFiles(fileName, importClass, packageName) {
+    let file = `${__dirname.replace('src', "")}\sdk\\api\\${packageName}.d.ts`
+    let fileContent = fs.readFileSync(file, 'utf-8');
+    const filePath = path.basename(file).replace(/\.d.ts$/g, 'ts');
+    ts.transpileModule(fileContent, {
+        compilerOptions: {
+            "target": ts.ScriptTarget.ES2017
+        },
+        fileName: filePath,
+        transformers: { before: [judgeIsExport()] }
+    })
+    importFileList.push({
+        appFileName: fileName.replace(__dirname.replace('src', ''), ''),
+        importClass: importClass,
+        exportClass: exportClass,
+        packageName: packageName
+    })
+}
+
+function judgeIsExport() {
+    return (context) => {
+        exportClass = '';
+        return (sourcefile) => {
+            if (sourcefile.statements) {
+                sourcefile.statements.forEach(statement => {
+                    if (ts.isExportAssignment(statement) && statement.expression.escapedText) {
+                        exportClass = statement.expression.escapedText;
+                    }
+                })
+            }
+            return sourcefile;
+        }
+    }
+}
+
+function judgeImportFile(node, url) {
     if (ts.isStringLiteral(node.moduleSpecifier)) {
         if ((node.moduleSpecifier.text).indexOf('@ohos.') != -1 || (node.moduleSpecifier.text).indexOf('@system.') != -1) {
             let moduleNames = [];
+            let importFileName = node.moduleSpecifier.text;
+            let importClass = '';
             if (importFiles.get(node.moduleSpecifier.text)) {
                 const moduleNameSet = new Set(importFiles.get(node.moduleSpecifier.text));
-                if (node.importClause.name !== undefined) {
+                importClass = node.importClause.name.escapedText;
+                if (node.importClause.name != undefined) {
                     if (!moduleNameSet.has(node.importClause.name.escapedText)) {
                         moduleNameSet.add(node.importClause.name.escapedText);
-                        moduleName.push(node.importClause.name.escapedText)
+                        addImportFiles(url, importClass, importFileName);
+                    } else {
+                        addImportFiles(url, importClass, importFileName);
                     }
                 } else if (ts.isNamedImports(node.importClause.namedBindings)) {
                     node.importClause.namedBindings.elements.forEach(element => {
+                        importClass = element.name.escapedText;
                         if (!moduleNameSet.has(element.name.escapedText)) {
                             moduleNameSet.add(element.name.escapedText);
-                            moduleName.push(element.name.escapedText)
+                            addImportFiles(url, importClass, importFileName);
+                        } else {
+                            addImportFiles(url, importClass, importFileName);
                         }
                     })
                 }
                 moduleNames = [...moduleNameSet];
             } else {
-                if (node.importClause.name !== undefined) {
+                if (node.importClause.name != undefined) {
                     moduleNames.push(node.importClause.name.escapedText);
-                    moduleName.push(node.importClause.name.escapedText);
+                    importClass = node.importClause.name.escapedText;
+                    addImportFiles(url, importClass, importFileName);
                 } else if (ts.isNamedImports(node.importClause.namedBindings)) {
                     node.importClause.namedBindings.elements.forEach(element => {
                         moduleNames.push(element.name.escapedText);
-                        moduleName.push(element.name.escapedText);
-
+                        importClass = element.name.escapedText;
+                        addImportFiles(url, importClass, importFileName);
                     })
                 }
             }
@@ -281,27 +346,61 @@ function judgeImportFile(node) {
 
 
 function filterApi() {
-    importFiles.forEach((value, key) => {
-        value.forEach(item => {
-            apiList.forEach(api => {
-                if (item == api.moduleName) {
-                    api.packageName = key.replace('@', '');
-                    applicationApis.push(api);
-                }
-            })
-        })
-    })
+    // importFiles.forEach((value, key) => {
+    //     value.forEach(item => {
+    //         apiList.forEach(api => {
+    //             if (item == api.moduleName) {
+    //                 api.packageName = key.replace('@', '');
+    //                 applicationApis.push(api);
+    //             }
+    //         })
+    //     })
+    // })
 
-    importFiles.forEach((value, key) => {
-        value.forEach(item => {
-            classList.forEach(api => {
-                if (item == api.moduleName) {
-                    api.packageName = key.replace('@', '');
-                    finalClassList.push(api);
-                }
-            })
-        })
-    })
+    // importFiles.forEach((value, key) => {
+    //     value.forEach(item => {
+    //         classList.forEach(api => {
+    //             if (item == api.moduleName) {
+    //                 api.packageName = key.replace('@', '');
+    //                 finalClassList.push(api);
+    //             }
+    //         })
+    //     })
+    // })
+    // console.log(importFileList);
+    // console.log(apiList);
+    // console.log(importFileList);
+    importFileList.forEach(importFile => {
+        if (importFile.packageName == '@ohos.fileio') {
+            // console.log('importFile:::', importFile);
+        }
+    });
+
+    apiList.forEach(api => {
+        if (api.moduleName == 'geolocation') {
+            // console.log('api:::::::',api);
+        }
+    });
+
+    importFileList.forEach(importFile => {
+        apiList.forEach(api => {
+            if (api.moduleName == 'deviceInfo') {
+                // console.log(api);
+            }
+            // console.log(/\${api.fileName}/.test(importFile.appFileName));
+            if (importFile.importClass == api.moduleName && api.fileName.indexOf(importFile.appFileName) != -1) {
+                api.packageName = importFile.packageName.replace('@', '');
+                applicationApis.push(api);
+                // console.log(api);
+            }
+        });
+    });
+
+    // applicationApis.forEach(item => {
+    //     if (item.moduleName == 'deviceInfo') {
+    //         console.log(item);
+    //     }
+    // });
 
     apiList.forEach(api => {
         if (api.type == "ArkUI") {
@@ -326,27 +425,27 @@ function filterApi() {
     });
 }
 
-async function getExcelBuffer(api) {
-    const workbook = new ExcelJS.Workbook();
-    const sheet = workbook.addWorksheet('interface', { views: [{ xSplit: 2 }] });
-    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '文件位置']
-    for (let i = 1; i <= api.length; i++) {
-        const apiData = api[i - 1];
-        sheet.getRow(i + 1).values = [apiData.packageName, apiData.moduleName, apiData.interfaceName, apiData.apiName, apiData.fileName]
-    }
-    const buffer = await workbook.xlsx.writeBuffer();
-    return buffer;
-}
+// async function getExcelBuffer(api) {
+//     const workbook = new ExcelJS.Workbook();
+//     const sheet = workbook.addWorksheet('interface', { views: [{ xSplit: 2 }] });
+//     sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '文件位置']
+//     for (let i = 1; i <= api.length; i++) {
+//         const apiData = api[i - 1];
+//         sheet.getRow(i + 1).values = [apiData.packageName, apiData.moduleName, apiData.interfaceName, apiData.apiName, apiData.fileName]
+//     }
+//     const buffer = await workbook.xlsx.writeBuffer();
+//     return buffer;
+// }
 
-async function excel(api) {
-    let buffer = await getExcelBuffer(api)
-    fs.writeFile('Interface.xlsx', buffer, function (err) {
-        if (err) {
-            console.error(err);
-            return;
-        }
-    });
-}
+// async function excel(api) {
+//     let buffer = await getExcelBuffer(api)
+//     fs.writeFile('Interface.xlsx', buffer, function (err) {
+//         if (err) {
+//             console.error(err);
+//             return;
+//         }
+//     });
+// }
 
 try {
     collectApi("../application");
@@ -354,7 +453,8 @@ try {
     exports.importFiles = importFiles;
     exports.applicationApis = applicationApis;
     let noRepeatApis = [...new Set(finalClassList)];
-    excel(finalClassList);
+    // console.log(applicationApis);
+    // excel(finalClassList);
 
 } catch (error) {
     console.error('COLLECT IMPORT NAME ERROR: ', error);

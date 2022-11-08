@@ -503,7 +503,6 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
     if (!hash.has(recard)) {
         hash.add(recard);
         api.push({
-            namespace: '',
             packageName: packageName,
             className: className,
             methodName: methodName,
@@ -531,11 +530,11 @@ async function buildExportData(fileContentList) {
 async function getExcelBuffer(api) {
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '函数', '文件位置', '类型', 'SysCap',
+    sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '文件位置', '类型', 'SysCap',
         '权限', '支持起始版本', '访问级别', '备注']
     for (let i = 1; i <= api.length; i++) {
         const apiData = api[i - 1];
-        sheet.getRow(i + 1).values = [apiData.packageName, apiData.namespace, apiData.className, apiData.methodName,
+        sheet.getRow(i + 1).values = [apiData.packageName, apiData.className, apiData.methodName,
         apiData.methodText, apiData.pos, apiData.apiType, apiData.sysCap, apiData.permission,
         apiData.version, apiData.isSystemApi, apiData.notes]
     }
