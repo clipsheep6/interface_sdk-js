@@ -812,6 +812,26 @@ declare namespace update {
     }
 
     /**
+     * Enumerates call result.
+     *
+     * @since 9
+     */
+    export enum CallResult {
+        SUCCESS = 0,
+        FAIL = 100,
+        UN_SUPPORT = 801,
+        DEV_UPG_INFO_ERR = 102,
+        FORBIDDEN = 103,
+        IPC_ERR = 104,
+        APP_NOT_GRANTED = 201,
+        PARAM_ERR = 401,
+        TIME_OUT = 402,
+        DB_ERROR = 501,
+        IO_ERROR = 502,
+        NET_ERROR = 503
+    }
+
+    /**
      * Enumerates business vendor type.
      *
      * @since 9
