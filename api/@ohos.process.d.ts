@@ -347,20 +347,6 @@ declare namespace process {
 
     type EventListener = (evt: Object) => void;
     /**
-    * Return a child process object and spawns a new ChildProcess to run the command
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @param command String of the shell commands executed by the child process.
-    * @param options This is an object. The object contains three parameters. Timeout is the running time of the child
-    * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
-    * maximum buffer area for standard input and output.
-    * @systemapi Hide this for inner system use
-    * @return Return a child process object.
-    */
-    function runCmd(command: string,
-        options?: { timeout?: number, killSignal?: number | string, maxBuffer?: number }): ChildProcess;
-
-    /**
     * Abort current process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
