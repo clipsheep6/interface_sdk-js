@@ -170,12 +170,14 @@ declare namespace sms {
   /**
    * SMS over IMS is supported if IMS is registered and SMS is supported on IMS.
    *
+   * @param slotId Indicates the default SIM card for Ims Sms. The value {@code 0} indicates card slot 1,
+   *     and the value {@code 1} indicates card slot 2.
    * @param callback Returns true if SMS over IMS is supported, false otherwise.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function isImsSmsSupported(callback: AsyncCallback<boolean>): void;
-  function isImsSmsSupported(): Promise<boolean>;
+  function isImsSmsSupported(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isImsSmsSupported(slotId: number): Promise<boolean>;
 
   /**
    * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.
@@ -209,6 +211,52 @@ declare namespace sms {
     messageType: MessageType;
     mmsType: MmsSendReq | MmsSendConf | MmsNotificationInd | MmsRespInd | MmsRetrieveConf | MmsAcknowledgeInd | MmsDeliveryInd | MmsReadOrigInd | MmsReadRecInd;
     attachment?: Array<MmsAttachment>;
+  }
+
+  /**
+   * Sends a MMS message.
+   *
+   * @param mmsParam Indicates the parameters of the MMS message.
+   * @param callback Indicates the execution result. For error code, see MmsFailCode.
+   * @permission ohos.permission.SEND_MESSAGES
+   * @since 9
+   */
+  function sendMms(mmsParam: MmsParam, callback: AsyncCallback<void>): void;
+  function sendMms(mmsParam: MmsParam): Promise<void>;
+
+  /**
+   * Downloads a MMS message.
+   *
+   * @param mmsParam Indicates the parameters of the MMS message.
+   * @param callback Indicates the execution result. For error code, see MmsFailCode.
+   * @permission ohos.permission.RECEIVE_MMS
+   * @since 9
+   */
+  function downloadMms(mmsParam: MmsParam, callback: AsyncCallback<void>): void;
+  function downloadMms(mmsParam: MmsParam): Promise<void>;
+
+  /**
+   * @since 9
+   */
+  export interface MmsParam {
+    /** Indicates the ID of the SIM card slot used for sending the Mms message. */
+    slotId: number;
+    /** Indicates the Mmsc used for sending the Mms message. */
+    mmsc: string;
+    /** Indicates the Mms pdu url used for sending the Mms message. */
+    data: string;
+    /** Indicates the Mms UA and Mms UaProf used for sending the Mms message. */
+    mmsConfig?: MmsConfig;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface MmsConfig {
+    /** Indicates the User Agent used for the Mms message. */
+    userAgent: string;
+    /** Indicates the User Agent Profile for the Mms message. */
+    userAgentProfile: string;
   }
 
   /**
@@ -381,6 +429,21 @@ declare namespace sms {
     TYPE_MMS_DELIVERY_IND,
     TYPE_MMS_READ_REC_IND,
     TYPE_MMS_READ_ORIG_IND,
+  }
+
+  /**
+   * @since 9
+   */
+  export enum MmsFailCode {
+    MMS_FAIL_NONE_ERROR = 0,
+    MMS_FAIL_UNKNOWN_ERROR,
+    MMS_FAIL_APN_INVALID,
+    MMS_FAIL_CONNECT_MMS_ERROR,
+    MMS_FAIL_HTTP_ERROR,
+    MMS_FAIL_IO_ERROR,
+    MMS_FAIL_RETRY_ERROR,
+    MMS_FAIL_CONFIGURATION_ERROR,
+    MMS_FAIL_DATA_NETWORK_ERROR,
   }
 
   /**
