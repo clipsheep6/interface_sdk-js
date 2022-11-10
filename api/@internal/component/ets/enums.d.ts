@@ -1522,3 +1522,14 @@ declare enum TitleHeight {
    */
   MainWithSub,
 }
+
+/**
+ * export FontStyle module.
+ * @since 9
+ */
+ declare module "FontStyleModule" {
+  module "FontStyleModule" {
+      // @ts-ignore
+      export { FontStyle };
+  }
+}
