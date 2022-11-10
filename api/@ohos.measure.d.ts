@@ -68,12 +68,12 @@ export interface MeasureOptions {
  * since 9
  */
 export default class Measure {
-    
+
     /**
      * Displays the textWidth.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @param options Options.
-     * @since 9 
+     * @since 9
      */
     static measureText(options: MeasureOptions): double;
 }
