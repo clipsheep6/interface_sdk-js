@@ -116,7 +116,15 @@ export interface AnimatorResult {
    * @deprecated since 9
    * @useinstead ohos.animator.reset
    */
-  update(options: AnimatorOptions): void;
+  update(options: ActorOptions): void;
+   /**
+   * Download the options for current animator.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.animator.reset
+   */
+    download(): void;
   /**
    * Reset the options for current animator.
    * @param { AnimatorOptions } options - Options.
