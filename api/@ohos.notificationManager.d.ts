@@ -809,21 +809,21 @@ declare namespace notificationManager {
 
   /**
    * Request permission to send notification.
-   * @param { AsyncCallback<number> } callback - Returns the status of notification switch. enum RequestEnable.
+   * @param { AsyncCallback<boolean> } callback - The callback returns the status of notification switch.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  function requestEnableNotification(callback: AsyncCallback<number>): void;
+  function requestEnableNotification(callback: AsyncCallback<boolean>): void;
 
   /**
    * Request permission to send notification.
-   * @returns { Promise<number> } Returns the status of notification switch. enum RequestEnable.
+   * @returns { Promise<boolean> } Returns the status of notification switch.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  function requestEnableNotification(): Promise<number>;
+  function requestEnableNotification(): Promise<boolean>;
 
   /**
    * Sets whether the device supports distributed notification.
@@ -1294,30 +1294,6 @@ declare namespace notificationManager {
      * User dismissal notification  on the status bar
      */
     CANCEL_REASON_REMOVE = 2,
-  }
-
-  /**
-   * Request the status of notification switch
-   * @enum { number }
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-   export enum RequestEnable {
-    /**
-     * Switch opened
-     */
-    STATUS_OPEN,
-
-    /**
-     * Switch closed
-     */
-    STATUS_CLOSE,
-
-    /**
-     * Interface not supported
-     */
-    UNSUPPORTED,
   }
 
   /**
