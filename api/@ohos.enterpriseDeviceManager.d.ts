@@ -67,6 +67,20 @@ declare namespace enterpriseDeviceManager {
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
+
+    /**
+     * The event of app start.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 9
+     */
+     MANAGED_EVENT_APP_START = 2,
+
+     /**
+     * The event of app stop.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 9
+     */
+      MANAGED_EVENT_APP_STOP = 3
   }
 
   /**
