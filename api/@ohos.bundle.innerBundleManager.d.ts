@@ -53,7 +53,7 @@ declare namespace innerBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
    * @param LauncherStatusCallback Indicates the callback to be register.
-   * @return Returns the result or error maeeage.
+   * @return Returns the result or error message.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -68,7 +68,7 @@ declare namespace innerBundleManager {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
-   * @return Returns the result or error maeeage.
+   * @return Returns the result or error message.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
    * @deprecated since 9
