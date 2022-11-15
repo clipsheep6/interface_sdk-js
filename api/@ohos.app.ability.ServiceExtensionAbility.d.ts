@@ -46,6 +46,16 @@ export default class ServiceExtensionAbility {
     onCreate(want: Want): void;
 
     /**
+     * Called back when a service extension is started for initialization.
+     * @param { Want } want - Indicates the want of created service extension.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
+     */
+     deleate(want: Want): void;
+
+    /**
      * Called back before a service extension is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -65,7 +75,7 @@ export default class ServiceExtensionAbility {
      * @stagemodelonly
      * @since 9
      */
-    onRequest(want: Want, startId: number): void;
+    onRequest(want: Want, endId: number): void;
 
     /**
      * Called back when a service extension is first connected to an ability.
