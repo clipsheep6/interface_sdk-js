@@ -435,7 +435,6 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -455,7 +454,6 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
