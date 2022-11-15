@@ -109,7 +109,7 @@
       */
     readonly isStatic?: boolean
     /**
-      * @default Indicates whether the shortcut is homeshortcut
+      * @default Indicates whether the shortcut is home shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
