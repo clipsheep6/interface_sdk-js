@@ -21,7 +21,6 @@ import { Callback } from './basic';
  * @name Accessibility
  * @since 7
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @import basic,abilityInfo
  */
 declare namespace accessibility {
   /**
@@ -48,13 +47,13 @@ declare namespace accessibility {
     'scrollForward' | 'scrollBackward' | 'setSelection';
 
   /**
-   * The type of the accessibility event.
-   * @note windowsChange
-   * @note windowContentChange
-   * @note windowStateChange
-   * @note announcement
-   * @note notificationChange
-   * @note textTraversedAtMove
+   * The type of the accessibility event, all events are as follows:
+   * 1.windowsChange
+   * 2.windowContentChange
+   * 3.windowStateChange
+   * 4.announcement
+   * 5.notificationChange
+   * 6.textTraversedAtMove
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -64,7 +63,7 @@ declare namespace accessibility {
 
   /**
    * The change type of the windowsChange event.
-   * @note It's used when received the {@code windowsChange} event.
+   * It's used when received the {@code windowsChange} event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -79,7 +78,7 @@ declare namespace accessibility {
 
   /**
    * The ability that accessibility subsystem support.
-   * @note touchExplorer: Describes the capability to talkback.
+   * touchExplorer: Describes the capability to talkback.
    * magnification: Describes the capability to request to control the display magnification.
    * gesturesSimulation: Describes the capability to request to simulate the gesture.
    * windowContent: Describes the capability to search for the content of the active window.
@@ -92,7 +91,6 @@ declare namespace accessibility {
 
   /**
    * The granularity of text move.
-   * @note The granularity of text move.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -416,7 +414,6 @@ declare namespace accessibility {
 
     /**
      * The content list.
-     * @note
      * @since 7
      */
     contents?: Array<string>;
@@ -446,8 +443,7 @@ declare namespace accessibility {
     endIndex?: number;
 
     /**
-     * The total of the items.
-     * @note talkback used it when scroll.
+     * The total of the items, talkback used it when scroll.
      * @since 7
      */
     itemCount?: number;
