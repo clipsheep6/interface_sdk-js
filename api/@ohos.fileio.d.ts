@@ -34,6 +34,8 @@ declare namespace fileIO {
     export { closeSync };
     export { copyFile };
     export { copyFileSync };
+    export { createRandomAccessFile };
+    export { createRandomAccessFileSync };
     export { createStream };
     export { createStreamSync };
     export { createWatcher };
@@ -88,6 +90,7 @@ declare namespace fileIO {
     export { Stat };
     export { Stream };
     export { Watcher };
+    export { RandomAccessFile };
 }
 
 /**
@@ -182,6 +185,37 @@ declare function copyFile(src: string | number, dest: string | number, mode: num
  * @throws {TypedError | Error} copyFile fail
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
+
+/**
+ * createRandomAccessFile.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ * @function createRandomAccessFile
+ * @param {string | number} file - the path or fd of file.
+ * @param {number} fpointer - the file pointer of file.
+ * @param {number} [flags = 0] - the flags.
+ * @param {AsyncCallback<RandomAccessFile>} [callback] - callback.
+ * @returns {void | Promise<RandomAccessFile>} no callback return Promise otherwise return RandomAccessFile
+ * @throws {BusinessError} Parameter check failed
+ */
+ declare function createRandomAccessFile(file: string | number, fpointer: number, flags?: number): Promise<RandomAccessFile>;
+ declare function createRandomAccessFile(file: string | number, fpointer: number, callback: AsyncCallback<RandomAccessFile>): void;
+ declare function createRandomAccessFile(file: string | number, fpointer: number, flags: number, callback: AsyncCallback<RandomAccessFile>): void;
+/**
+ * createRandomAccessFileSync.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ * @function createRandomAccessFileSync
+ * @param {string | number} file - the path or fd of file.
+ * @param {number} fpointer - the file pointer of file.
+ * @param {number} [flags = 0] - the flags.
+ * @returns {RandomAccessFile} createRandomAccessFile
+ * @throws {BusinessError} Parameter check failed
+ */
+ declare function createRandomAccessFileSync(file: string | number, fpointer: number, flags?: number): RandomAccessFile;
+
 /**
  * createStream.
  *
@@ -1218,6 +1252,133 @@ export type Filter = {
      * @readonly
      */
     excludeMedia?: boolean;
+}
+
+/**
+ * RandomAccessFile
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+ declare interface RandomAccessFile {
+    /**
+     * @type {number}
+     * @readonly
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     */
+    readonly fd: number;
+    /**
+     * @type {number}
+     * @readonly
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     */
+    readonly fpointer: number;
+    /**
+     * closeSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @returns {void} close success
+     * @throws {BusinessError | Error} close fail
+     */
+    closeSync(): void;
+    /**
+     * setFilePointerSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @param {number} offset - offset.
+     * @returns {void} set the pointer of file success
+     * @throws {BusinessError | Error} set the pointer of file fail
+     */
+    setFilePointerSync(offset: number): void;
+    /**
+     * write.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @param {ArrayBuffer} buffer - buffer.
+     * @param {Object} [options] - options.
+     * @param {number} [options.offset = 0] - offset(bytes).
+     * @param {number} [options.length = -1] - length(bytes).
+     * @param {number} [options.position = 0] - position(bytes).
+     * @param {AsyncCallback<number>} [callback] - callback.
+     * @returns {void | Promise<number>} no callback return Promise otherwise return void
+     * @throws {BusinessError} Parameter check failed
+     */
+    write(buffer: ArrayBuffer, options?: {
+        offset?: number;
+        length?: number;
+        position?: number;
+    }): Promise<number>;
+    write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
+    write(buffer: ArrayBuffer, options: {
+        offset?: number;
+        length?: number;
+        position?: number;
+    }, callback: AsyncCallback<number>): void;
+    /**
+     * writeSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @param {ArrayBuffer} buffer - buffer.
+     * @param {Object} [options] - options.
+     * @param {number} [options.offset = 0] - offset(bytes).
+     * @param {number} [options.length = -1] - length(bytes).
+     * @param {number} [options.position = 0] - position(bytes).
+     * @returns {number} on success number of bytes written
+     * @throws {BusinessError | Error} write fail
+     */
+    writeSync(buffer: ArrayBuffer, options?: {
+        offset?: number;
+        length?: number;
+        position?: number;
+    }): number;
+    /**
+     * read.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @param {ArrayBuffer} buffer - buffer.
+     * @param {Object} [options] - options.
+     * @param {number} [options.offset = 0] - offset(bytes).
+     * @param {number} [options.length = -1] - length(bytes).
+     * @param {number} [options.position = 0] - position(bytes).
+     * @param {AsyncCallback<number>} [callback] - callback.
+     * @returns {void | Promise<ReadOut>} no callback return Promise otherwise return void
+     * @throws {BusinessError} Parameter check failed
+     */
+    read(buffer: ArrayBuffer, options?: {
+        position?: number;
+        offset?: number;
+        length?: number;
+    }): Promise<ReadOut>;
+    read(buffer: ArrayBuffer, callback: AsyncCallback<ReadOut>): void;
+    read(buffer: ArrayBuffer, options: {
+        position?: number;
+        offset?: number;
+        length?: number;
+    }, callback: AsyncCallback<ReadOut>): void;
+    /**
+     * readSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 10
+     * @param {ArrayBuffer} buffer - buffer.
+     * @param {Object} [options] - options.
+     * @param {number} [options.offset = 0] - offset(bytes).
+     * @param {number} [options.length = -1] - length(bytes).
+     * @param {number} [options.position = 0] - position(bytes).
+     * @returns {number} number of bytesRead
+     * @throws {BusinessError | Error} read fail
+     */
+    readSync(buffer: ArrayBuffer, options?: {
+        position?: number;
+        offset?: number;
+        length?: number;
+    }): number;
 }
 
 /**
