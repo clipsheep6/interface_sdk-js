@@ -198,8 +198,9 @@ export class DeviceCapability {
  * Obtains the ResourceManager object of the current application.
  *
  * @param callback Indicates the callback containing the ResourceManager object.
- * @since 6
  * @FAModelOnly
+ * @crossplatform
+ * @since 6
  */
 export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
 
@@ -217,8 +218,9 @@ export function getResourceManager(bundleName: string, callback: AsyncCallback<R
  * Obtains the ResourceManager object of the current application.
  *
  * @returns Returns that the ResourceManager object is returned in Promise mode.
- * @since 6
  * @FAModelOnly
+ * @crossplatform
+ * @since 6
  */
 export function getResourceManager(): Promise<ResourceManager>;
 
@@ -243,6 +245,7 @@ export interface ResourceManager {
      *
      * @param resId Indicates the resource ID.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @crossplatform
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
@@ -254,6 +257,7 @@ export interface ResourceManager {
      *
      * @param resId Indicates the resource ID.
      * @returns Returns the character string corresponding to the resource ID.
+     * @crossplatform
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
