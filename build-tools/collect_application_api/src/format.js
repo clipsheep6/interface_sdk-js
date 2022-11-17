@@ -32,6 +32,9 @@ function judgeArgument(applicationApi, newApi) {
     } else if (newApi.functionType == '' && applicationApi.number <= newApi.arguments &&
         applicationApi.number >= newApi.arguments - newApi.optionalArg) {
         return true;
+    } else if (applicationApi.number <= newApi.arguments &&
+        applicationApi.number >= newApi.arguments - newApi.optionalArg) {
+
     } else {
         return false;
     }
@@ -65,7 +68,7 @@ function getApiData(fileData) {
     }
     for (let i = 0; i < applicationApis.length; i++) {
         for (let j = 0; j < newApis.length; j++) {
-            if (applicationApis[i].type === "ArkUI") {
+            if (applicationApis[i].type === "ArkUI" && newApis[j].packageName === 'ArkUI') {
                 if (applicationApis[i].moduleName === newApis[j].className.replace(/Attribute/, "")
                     .replace(/Interface/, "") && applicationApis[i].apiName == newApis[j].methodName) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
@@ -93,6 +96,7 @@ function getApiData(fileData) {
                     applicationApis[i].packageName == newApis[j].packageName) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
+                    applyApi.notes = applicationApis[i].notes ? applicationApis[i].notes : '';
                     finalApis.push(applyApi);
                     break;
                 } else if (applicationApis[i].apiName == newApis[j].methodName &&
@@ -100,6 +104,7 @@ function getApiData(fileData) {
                     judgeArgument(applicationApis[i], newApis[j])) {
                     let applyApi = JSON.parse(JSON.stringify(newApis[j]));
                     applyApi.pos = applicationApis[i].fileName;
+                    applyApi.notes = applicationApis[i].notes ? applicationApis[i].notes : '';
                     finalApis.push(applyApi);
                 }
             } else {
@@ -161,30 +166,30 @@ function filterType() {
                 if (node.type && ts.isTypeReferenceNode(node.type)) {
                     methodType = node.type.typeName.escapedText;
                 } else if (node.parameters.length > 0) {
-                        const parameter = node.parameters[node.parameters.length - 1];
-                        if (parameter.name.escapedText == 'callback') {
-                            methodType = parameter.name.escapedText;
-                        }                                          
+                    const parameter = node.parameters[node.parameters.length - 1];
+                    if (parameter.name.escapedText == 'callback') {
+                        methodType = parameter.name.escapedText;
+                    }
                 }
             }
             // add arguments number and optional arguments number
-            if (node.parameters && node.parameters.length>0) {
+            if (node.parameters && node.parameters.length > 0) {
                 number = 0;
                 argumentNumber = node.parameters.length;
                 let argArray = node.parameters;
                 for (let i = 0; i < argArray.length; i++) {
                     if (argArray[i].questionToken && argArray[i].questionToken.kind == 57) {
-                        number ++
-                    }                   
+                        number++
+                    }
                 }
-            }else if (node.arguments && node.arguments.length > 0) {
+            } else if (node.arguments && node.arguments.length > 0) {
                 number = 0;
                 argumentNumber = node.arguments.length;
                 let argArray = node.arguments;
                 for (let i = 0; i < argArray.length; i++) {
                     if (argArray[i].questionToken && argArray[i].questionToken.kind == 57) {
-                        number ++
-                    }                    
+                        number++
+                    }
                 }
             }
             return ts.visitEachChild(node, getType, context);

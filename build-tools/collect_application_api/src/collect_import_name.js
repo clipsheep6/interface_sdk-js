@@ -148,7 +148,7 @@ function getImportFileName(url) {
                 const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                 let functionType = ''
                 let instantiateObject = ''
-                if (ts.isPropertyDeclaration(node.parent.parent) && ts.isIdentifier(node.parent.parent.name)) {
+                if (ts.isPropertyDeclaration(node.parent.parent) && ts.isVariableDeclaration(node.parent.parent.name)) {
                     instantiateObject = node.parent.parent.name.escapedText
                 }
                 classList.push({
@@ -271,7 +271,8 @@ function addFunctionType(node) {
 
 function addImportFiles(fileName, importClass, packageName) {
     let file = `${__dirname.replace('src', "")}\sdk\\api\\${packageName}.d.ts`
-    let fileContent = fs.readFileSync(file, 'utf-8');
+    let isExit = fs.existsSync(file);
+    let fileContent = isExit ? fs.readFileSync(file, 'utf-8') : '';
     const filePath = path.basename(file).replace(/\.d.ts$/g, 'ts');
     ts.transpileModule(fileContent, {
         compilerOptions: {
@@ -313,7 +314,7 @@ function judgeImportFile(node, url) {
             if (importFiles.get(node.moduleSpecifier.text)) {
                 const moduleNameSet = new Set(importFiles.get(node.moduleSpecifier.text));
                 importClass = node.importClause ? node.importClause.name.escapedText : '';
-                if (node.importClass && node.importClause.name != undefined) {
+                if (node.importClause && node.importClause.name != undefined) {
                     if (!moduleNameSet.has(node.importClause.name.escapedText)) {
                         moduleNameSet.add(node.importClause.name.escapedText);
                         addImportFiles(url, importClass, importFileName);
@@ -366,30 +367,6 @@ function isInterfaceDeclaration(interfaceName) {
 }
 
 function filterApi() {
-    // importFiles.forEach((value, key) => {
-    //     value.forEach(item => {
-    //         apiList.forEach(api => {
-    //             if (item == api.moduleName) {
-    //                 api.packageName = key.replace('@', '');
-    //                 applicationApis.push(api);
-    //             }
-    //         })
-    //     })
-    // })
-
-    // importFiles.forEach((value, key) => {
-    //     value.forEach(item => {
-    //         classList.forEach(api => {
-    //             if (item == api.moduleName) {
-    //                 api.packageName = key.replace('@', '');
-    //                 finalClassList.push(api);
-    //             }
-    //         })
-    //     })
-    // })
-    // console.log(importFileList);
-    // console.log(apiList);
-    // console.log(importFileList);
     classList.forEach(item => {
         importFileList.forEach(importFile => {
             if (item.moduleName === importFile.importClass && item.fileName.indexOf(importFile.appFileName) != -1) {
@@ -421,6 +398,7 @@ function filterApi() {
                 unsureApi.namespace = item.moduleName;
                 unsureApi.moduleName = item.interfaceName;
                 unsureApi.packageName = item.packageName;
+                unsureApi.notes = '实例化对象方式调用'
                 finalClassList.push(unsureApi);
             }
         });
