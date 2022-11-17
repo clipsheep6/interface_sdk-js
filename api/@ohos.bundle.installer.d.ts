@@ -97,7 +97,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstallation.
-     * @param { AsyncCallback } callback - The callback of recoverring application result.
+     * @param { AsyncCallback } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified userId is not existed.
