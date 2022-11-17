@@ -18,6 +18,7 @@ const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
 const ExcelJS = require('exceljs');
+let isInterface = false;
 
 let apiList = [];
 // key:import file; value:import class
@@ -38,9 +39,9 @@ function collectApi(url) {
 
 function tsTransform(applicationFiles, callback) {
     applicationFiles.forEach(url => {
-        if (/\.ets/.test(path.basename(url)) || /\.ts/.test(path.basename(url))) {
+        if (/\.ets/.test(path.basename(url)) || /\.ts/.test(path.basename(url)) || /\.js/.test(path.basename(url))) {
             const content = fs.readFileSync(url, 'utf-8');
-            const fileName = path.basename(url).replace(/\.d.ts$/g, 'ts');
+            const fileName = path.basename(url).replace(/\.d.ts$/g, 'ts').replace(/\.js/g, 'ts').replace(/\.json/g, 'ts');
             ts.transpileModule(content, {
                 compilerOptions: {
                     "target": ts.ScriptTarget.ES2017
@@ -101,6 +102,7 @@ function getImportFileName(url) {
                     }
                 } else if (ts.isIdentifier(node.expression) && ts.isCallExpression(node.parent)) {
                     if (node.parent.arguments && node.name.escapedText.toString() == 'on' || node.name.escapedText.toString() == 'off') {
+                        let functionTypeObj = addFunctionType(node);
                         node.parent.arguments.forEach(argument => {
                             if (ts.isStringLiteral(argument)) {
                                 const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
@@ -109,25 +111,23 @@ function getImportFileName(url) {
                                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                                     moduleName: node.expression.escapedText,
                                     apiName: node.name.escapedText + '_' + argument.text,
-                                    functionType: functionType,
+                                    functionType: functionTypeObj.type,
+                                    number: functionTypeObj.number,
                                     packageName: ''
                                 })
                             }
                         })
                     } else {
                         const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-                        let functionType = '';
-                        let number = 0;
                         // judge function type
-                       addFunctionType(node, functionType, number);
-                        console.log('functionType::::', functionType);
+                        let functionTypeObj = addFunctionType(node);
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                             moduleName: node.expression.escapedText,
                             apiName: node.name.escapedText,
-                            functionType: functionType,
+                            functionType: functionTypeObj.type,
                             packageName: '',
-                            number: number
+                            number: functionTypeObj.number
                         })
                     }
                 } else if (ts.isIdentifier(node.expression) && ts.isIdentifier(node.name)) {
@@ -246,20 +246,26 @@ function isEtsComponentNode(node) {
         ts.isIdentifier(node.expression) && etsComponentSet.has(node.expression.escapedText.toString()))
 }
 
-function addFunctionType(node, type, number) {
-    if (node.parent.arguments.length > 0) {
-        const typeArguments = node.parent.arguments
+function addFunctionType(node) {
+    let type = '';
+    let number = '';
+    let typeArguments;
+    if (ts.isCallExpression(node.parent) && node.parent.arguments.length > 0) {
+        typeArguments = node.parent.arguments;
         if (ts.isArrowFunction(typeArguments[typeArguments.length - 1]) ||
             ts.isFunctionExpression(typeArguments[typeArguments.length - 1])) {
             type = 'callback';
             number = typeArguments.length;
-            // console.log(type);
+            return { type, number };
         } else {
             type = 'Promise';
             number = typeArguments.length;
+            return { type, number };
         }
     } else if (node.parent.arguments.length == 0) {
         type = 'Promise';
+        number = 0;
+        return { type, number };
     }
 }
 
@@ -306,15 +312,15 @@ function judgeImportFile(node, url) {
             let importClass = '';
             if (importFiles.get(node.moduleSpecifier.text)) {
                 const moduleNameSet = new Set(importFiles.get(node.moduleSpecifier.text));
-                importClass = node.importClause.name.escapedText;
-                if (node.importClause.name != undefined) {
+                importClass = node.importClause ? node.importClause.name.escapedText : '';
+                if (node.importClass && node.importClause.name != undefined) {
                     if (!moduleNameSet.has(node.importClause.name.escapedText)) {
                         moduleNameSet.add(node.importClause.name.escapedText);
                         addImportFiles(url, importClass, importFileName);
                     } else {
                         addImportFiles(url, importClass, importFileName);
                     }
-                } else if (ts.isNamedImports(node.importClause.namedBindings)) {
+                } else if (node.importClause !== undefined && ts.isNamedImports(node.importClause.namedBindings)) {
                     node.importClause.namedBindings.elements.forEach(element => {
                         importClass = element.name.escapedText;
                         if (!moduleNameSet.has(element.name.escapedText)) {
@@ -327,11 +333,11 @@ function judgeImportFile(node, url) {
                 }
                 moduleNames = [...moduleNameSet];
             } else {
-                if (node.importClause.name != undefined) {
+                if (node.importClause) {
                     moduleNames.push(node.importClause.name.escapedText);
                     importClass = node.importClause.name.escapedText;
                     addImportFiles(url, importClass, importFileName);
-                } else if (ts.isNamedImports(node.importClause.namedBindings)) {
+                } else if (node.importClause !== undefined && ts.isNamedImports(node.importClause.namedBindings)) {
                     node.importClause.namedBindings.elements.forEach(element => {
                         moduleNames.push(element.name.escapedText);
                         importClass = element.name.escapedText;
@@ -344,6 +350,20 @@ function judgeImportFile(node, url) {
     }
 }
 
+function isInterfaceDeclaration(interfaceName) {
+    return (context) => {
+        isInterface = false;
+        return (node) => {
+            return node;
+        }
+        function getInterfaceName(node) {
+            if (ts.isInterfaceDeclaration(node) && interfaceName === node.name.escapedText) {
+                isInterface = true;
+            }
+            return ts.visitEachChild(node, getInterfaceName, context);
+        }
+    }
+}
 
 function filterApi() {
     // importFiles.forEach((value, key) => {
@@ -370,24 +390,44 @@ function filterApi() {
     // console.log(importFileList);
     // console.log(apiList);
     // console.log(importFileList);
-    importFileList.forEach(importFile => {
-        if (importFile.packageName == '@ohos.fileio') {
-            // console.log('importFile:::', importFile);
+    classList.forEach(item => {
+        importFileList.forEach(importFile => {
+            if (item.moduleName === importFile.importClass && item.fileName.indexOf(importFile.appFileName) != -1) {
+                item.packageName = importFile.packageName.replace('@', '');
+            }
+        });
+    });
+
+    classList.forEach(item => {
+        let file = `${__dirname.replace('src', "")}\sdk\\api\\@${item.packageName}.d.ts`
+        let fileContent = fs.readFileSync(file, 'utf-8');
+        const filePath = path.basename(file).replace(/\.d.ts$/g, 'ts');
+        ts.transpileModule(fileContent, {
+            compilerOptions: {
+                "target": ts.ScriptTarget.ES2017
+            },
+            fileName: filePath,
+            transformers: { before: [isInterfaceDeclaration(item.interfaceName)] }
+        })
+        if (!isInterface) {
+            item.interfaceName = '';
         }
     });
 
-    apiList.forEach(api => {
-        if (api.moduleName == 'geolocation') {
-            // console.log('api:::::::',api);
-        }
+    classList.forEach(item => {
+        apiList.forEach(api => {
+            if (item.instantiateObject === api.moduleName) {
+                let unsureApi = api;
+                unsureApi.namespace = item.moduleName;
+                unsureApi.moduleName = item.interfaceName;
+                unsureApi.packageName = item.packageName;
+                finalClassList.push(unsureApi);
+            }
+        });
     });
 
     importFileList.forEach(importFile => {
         apiList.forEach(api => {
-            if (api.moduleName == 'deviceInfo') {
-                // console.log(api);
-            }
-            // console.log(/\${api.fileName}/.test(importFile.appFileName));
             if (importFile.importClass == api.moduleName && api.fileName.indexOf(importFile.appFileName) != -1) {
                 api.packageName = importFile.packageName.replace('@', '');
                 applicationApis.push(api);
@@ -407,54 +447,17 @@ function filterApi() {
             applicationApis.push(api);
         }
     })
-
-    classList.forEach(item => {
-        // console.log(item);
-        finalClassList.forEach(api => {
-            // console.log(api);
-            if (item.instantiateObject = api.moduleName) {
-                let unsureApi = JSON.parse(JSON.stringify(item));
-                // console.log('class:::', item);
-                // console.log('application:::', api);
-                unsureApi.apiName = api.apiName;
-                unsureApi.fileName = api.fileName;
-                // console.log('class:::', unsureApi);
-                finalClassList.push(unsureApi);
-            }
-        })
-    });
 }
 
-// async function getExcelBuffer(api) {
-//     const workbook = new ExcelJS.Workbook();
-//     const sheet = workbook.addWorksheet('interface', { views: [{ xSplit: 2 }] });
-//     sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '文件位置']
-//     for (let i = 1; i <= api.length; i++) {
-//         const apiData = api[i - 1];
-//         sheet.getRow(i + 1).values = [apiData.packageName, apiData.moduleName, apiData.interfaceName, apiData.apiName, apiData.fileName]
-//     }
-//     const buffer = await workbook.xlsx.writeBuffer();
-//     return buffer;
-// }
-
-// async function excel(api) {
-//     let buffer = await getExcelBuffer(api)
-//     fs.writeFile('Interface.xlsx', buffer, function (err) {
-//         if (err) {
-//             console.error(err);
-//             return;
-//         }
-//     });
-// }
 
 try {
     collectApi("../application");
     filterApi();
     exports.importFiles = importFiles;
-    exports.applicationApis = applicationApis;
+    // exports.applicationApis = applicationApis;
     let noRepeatApis = [...new Set(finalClassList)];
-    // console.log(applicationApis);
-    // excel(finalClassList);
+    const allApiList = applicationApis.concat(noRepeatApis);
+    exports.applicationApis = allApiList;
 
 } catch (error) {
     console.error('COLLECT IMPORT NAME ERROR: ', error);

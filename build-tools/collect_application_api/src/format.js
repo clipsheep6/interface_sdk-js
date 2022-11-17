@@ -125,7 +125,9 @@ function getAllApiFiles(files) {
 function addMethodType(newApis) {
     newApis.forEach(item => {
         if (item.apiType == 'Method') {
-            let methodContent = item.methodText;
+            let methodContent = `interface test{
+                item.methodText
+            }`;
             getMethodType(methodContent, filterType, methodType);
             item.optionalArg = number;
             item.arguments = argumentNumber;
@@ -155,7 +157,7 @@ function filterType() {
         }
         function getType(node) {
             // add function type(callback or Promise)
-            if (ts.isFunctionDeclaration(node)) {
+            if (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node)) {
                 if (node.type && ts.isTypeReferenceNode(node.type)) {
                     methodType = node.type.typeName.escapedText;
                 } else if (node.parameters.length > 0) {
