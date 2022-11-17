@@ -232,7 +232,7 @@ declare namespace update {
          *
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
-         *  @since 9
+         * @since 9
          */
         on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
