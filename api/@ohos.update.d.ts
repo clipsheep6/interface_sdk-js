@@ -28,6 +28,8 @@ declare namespace update {
      *
      * @param upgradeInfo indicates client app and business type
      * @return online update handler to perform online update
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
      */
     function getOnlineUpdater(upgradeInfo: UpgradeInfo): Updater;
@@ -36,6 +38,8 @@ declare namespace update {
      * Get restore handler.
      *
      * @return restore handler to perform factory reset
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
      */
     function getRestorer(): Restorer;
@@ -44,6 +48,8 @@ declare namespace update {
      * Get local update handler.
      *
      * @return local update handler to perform local update
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
      */
     function getLocalUpdater(): LocalUpdater;
@@ -60,6 +66,8 @@ declare namespace update {
          * Check new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         checkNewVersion(callback: AsyncCallback<CheckResult>): void;
@@ -69,6 +77,8 @@ declare namespace update {
          * Get new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
@@ -78,6 +88,9 @@ declare namespace update {
          * Get new version description.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getNewVersionDescription(versionDigestInfo: VersionDigestInfo, descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
@@ -87,6 +100,8 @@ declare namespace update {
          * Get current version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
@@ -95,6 +110,9 @@ declare namespace update {
         /**
          * Get current version description.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -104,6 +122,8 @@ declare namespace update {
         /**
          * Get task info.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -114,6 +134,9 @@ declare namespace update {
          * Trigger download new version packages.
          * apps should listen to task update event
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -124,6 +147,9 @@ declare namespace update {
          * resume download new version packages.
          * apps should listen to task update event
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -134,6 +160,9 @@ declare namespace update {
          * pause download new version packages.
          * apps should listen to task update event
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -144,6 +173,9 @@ declare namespace update {
          * Install packages for the device.
          * apps should listen to task update event
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -153,6 +185,9 @@ declare namespace update {
         /**
          * clear error during upgrade.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error..
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -162,6 +197,8 @@ declare namespace update {
         /**
          * Get current upgrade policy.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -171,6 +208,8 @@ declare namespace update {
         /**
          * Set upgrade policy.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -180,6 +219,8 @@ declare namespace update {
         /**
          * terminate upgrade task.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -189,13 +230,17 @@ declare namespace update {
         /**
          * Subscribe task update events
          *
-         * @since 9
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         *  @since 9
          */
         on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
         /**
          * Unsubscribe task update events
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
@@ -212,6 +257,8 @@ declare namespace update {
         /**
          * Reboot and clean user data.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.FACTORY_RESET
          * @since 9
          */
@@ -230,6 +277,8 @@ declare namespace update {
         /**
          * Verify local update package.
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -240,6 +289,8 @@ declare namespace update {
          * Apply local update package.
          * apps should listen to task update event
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
@@ -249,6 +300,8 @@ declare namespace update {
         /**
          * Subscribe task update events
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
@@ -256,6 +309,8 @@ declare namespace update {
         /**
          * Unsubscribe task update events
          *
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
