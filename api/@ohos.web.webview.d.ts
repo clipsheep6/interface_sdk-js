@@ -486,6 +486,17 @@ declare namespace webview {
      */
      class WebviewController {
         /**
+         * Initialize the web engine before loading the web components.
+         *
+         * @note This is a global static API that must be called on the UI thread, and it will have no effect if any
+         *       web components are loaded.
+         * @returns { boolean } True if the web engine is initialized else false.
+         *
+         * @since 9
+         */
+         static initializeWebEngine(callback?: (result: boolean) => void): void;
+
+        /**
          * Checks whether the web page can go forward.
          *
          * @throws { BusinessError } 17100001 - Init error.
