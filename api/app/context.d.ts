@@ -247,7 +247,7 @@ export interface Context extends BaseContext {
     * @FAModelOnly
     */
     getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void
-    getAbilityInfo(): Promise<AbilityInfo>;
+    getAbilityInfo(): PromiAbilityInfo>;
 
     /**
     * Checks whether the configuration of this ability is changing.
