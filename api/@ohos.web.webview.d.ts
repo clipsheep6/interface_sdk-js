@@ -527,11 +527,10 @@ declare namespace webview {
          *
          * @note This is a global static API that must be called on the UI thread, and it will have no effect if any
          *       web components are loaded.
-         * @returns { boolean } True if the web engine is initialized else false.
          *
          * @since 9
          */
-         static initializeWebEngine(callback?: (result: boolean) => void): void;
+        static initializeWebEngine(): void;
 
         /**
          * Sets debugging of web contents into any webviews of this application.
