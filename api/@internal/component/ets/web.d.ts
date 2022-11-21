@@ -14,7 +14,7 @@
  */
 
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
-
+import image from '../api/@ohos.multimedia.image';
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
@@ -609,6 +609,30 @@ declare class PermissionRequest {
 }
 
 /**
+ * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
+ * @since 9
+ */
+declare class DataResubmissionHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Resend related form data.
+   * @since 9
+   */
+  resend(): void;
+   
+  /**
+   * Do not resend related form data.
+   * @since 9
+   */
+  cancel(): void;
+}
+
+/**
  * Defines the onWindowNew callback, related to {@link onWindowNew} method.
  * @since 9
  */
@@ -826,6 +850,13 @@ declare class WebResourceRequest {
    * @since 8
    */
   isRedirect(): boolean;
+
+  /**
+   * 
+   * 
+   * @since 9
+   */
+  getRequestMethod(): string;
 }
 
 
@@ -2065,6 +2096,54 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   scrollBarAccess(type: ScrollBarType, scrollBarAccess: boolean): WebAttribute;
+
+  /**
+   * Whether web component can load resource from network.
+   * @param block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  blockNetwork(block: boolean): WebAttribute;
+
+  /**
+  * Whether use algorithmic darkening when the theme is dark mode.
+  * @param accept {@code true} means enable algorithmic darkening; {@code false} otherwise.
+  * 
+  * @since 10
+  */
+  forceDarkAccess(accept: boolean): WebAttribute;
+ 
+  /**
+   * Triggered when the application receive the url of an apple-touch-icon.
+   * @param callback The triggered callback when the application receive an new url of an
+   * apple-touch-icon.
+   * @since 9
+   */
+  onTouchIconUrlReceive(callback: (event: {url: string,
+       precomposed: boolean}) => void): WebAttribute;
+ 
+  /**
+   * Triggered when the application receive a new favicon for the current web page.
+   * @param callback The triggered callback when the application receive a new favicon for the 
+   * current web page.
+   * @since 9
+   */
+  onFaviconReceive(callback: (event: {favicon: image.PixelMap}) => void): WebAttribute;
+
+  /**
+   * Triggered when previous page will no longer be drawn and next page begin to draw.
+   * @param callback The triggered callback when previous page will no longer be drawn and next
+   * page begin to draw.
+   * @since 9
+   */
+  onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Trigger when the form could be resubmitted.
+   * @param callback The triggered callback to decision whether resend form data or not.
+   * @since 9
+   */
+  onDataResubmission(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;

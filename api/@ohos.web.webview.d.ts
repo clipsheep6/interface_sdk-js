@@ -17,6 +17,8 @@
 
 import {AsyncCallback} from "./basic";
 import {Resource} from 'GlobalResource';
+import image from "./@ohos.multimedia.image";
+import rpc from "./@ohos.rpc";
 
 /**
  * This module provides the capability to manage web modules.
@@ -229,6 +231,96 @@ declare namespace webview {
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
       }
+
+    /**
+     * Provides information for history item in BackForwardList.
+     * @name HistoryItem
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    class HistoryItem {
+        /**
+         * Constructor.
+         *
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * Get favicon of this history item.
+         * 
+         * @returns { image.PixelMap } The favicon of this history item.
+         * @since 9
+         */
+        getIcon(): image.PixelMap;
+
+        /**
+         * Get original url of this history item.
+         *
+         * @returns { string } The original url of this history item.
+         * @since 9
+         */
+        getHistoryRawUrl(): string;
+
+        /**
+         * Get title of this history item.
+         *
+         * @returns { string } The title of this history item.
+         * @since 9
+         */
+        getHistoryTitle(): string;
+
+         /**
+         * Get url of this history item.
+         *
+         * @returns { string } The url of this history item.
+         * @since 9
+         */
+        getHistoryUrl(): string;
+    }
+
+    /**
+     * Provides back and forward history list information method. related to {@link HistoryItem}.
+     * @name BackForwardList
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    class BackForwardList {
+        /**
+         * Constructor.
+         *
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * Get current index in BackForwardList 
+         *
+         * @returns { HistoryItem } current index in BackForwardList.
+         * 
+         * @since 9
+         */
+        getIndex(): number;
+
+        /**
+         * Get size of in BackForwardList 
+         *
+         * @returns { number } number of HistroyItem in list.
+         * @since 9
+         */
+        getSize(): number;
+        
+        /**
+         * Get history entry at given index.
+         * 
+         * @param { number } index Index of back forward list entry.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @returns { HistoryItem } HistroyItem at given index in back forward list.
+         * 
+         * @since 9
+         */
+        getItemAtIndex(index: number): HistoryItem;
+    }
 
       /**
        * Provides asynchronous methods for manage the webview.
@@ -1034,6 +1126,98 @@ declare namespace webview {
          * @since 9
          */
         pageDown(bottom:boolean): void;
+
+        /**
+         * Gets the original url of current Web page.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { string } Return the the original url of the current page.
+         *
+         * @since 9
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Gets the original url of current Web page.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { string } Return the the original url of the current page.
+         *
+         * @since 9
+         */
+        getFavicon(): image.PixelMap;
+
+        /**
+         * Put network state for web. Which is used to set window.navigator.isOnline property in
+         * JavaScript.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        putNetworkAvailable(): void;
+        
+        /**
+         * Qurey if current document has image.
+         *
+         * @param { AsyncCallback<void> } callback - Called after query image has finished.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @return { Promise<void> } A promise resolved after query image has finished.
+         *
+         * @since 9
+         */
+        hasImage(): Promise<boolean>;
+        hasImage(callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Get back forward stack list from current webview.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @return { BackForwardList } Back forward list for current webview.
+         *
+         * @since 9
+         */
+        getBackForwardEntries(): BackForwardList;
+
+        /**
+         * Serialize back forward list of the current webview.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @return { rpc.MessageSequence } A messageSequence which is from current back forward state.
+         *
+         * @since 9
+         */
+        serializeWebState(): rpc.MessageSequence;
+
+        /**
+         * Restore the back forward state to current webview from state MessageSequence.
+         *
+         * @param { rpc.MessageSequence } state - A messageSequence which is represented back forward state.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        restoreWebState(state: rpc.MessageSequence): void;
+
+        /**
+         * Remove resource cache in application. So this method will Remove all cache for all webviews in the
+         * same application.
+         * 
+         * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
+         *                               in ram.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         */
+        removeCache(clearRom: boolean): void;
     }
 }
 
