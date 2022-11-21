@@ -28,15 +28,15 @@ export interface DeviceSettingsManager {
    * This function can be called by a super administrator.
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } time - time indicates rhe target time stamp (ms).
+   * @param { number } time - time indicates the target time stamp (ms).
    * @returns { Promise<void> } the promise returned by the setDateTime.
-   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator applicayion does not have permission to manage the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
