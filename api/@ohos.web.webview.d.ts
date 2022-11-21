@@ -239,7 +239,7 @@ declare namespace webview {
           /**
            * Constructor.
            *
-           * @param { WebController } controller WebAsyncController needs a WebController 
+           * @param { WebController } controller WebAsyncController needs a WebController
            *                          to associate with corresponding nweb.
            *
            * @since 9
@@ -395,7 +395,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept cookies.
          * By default this is set to be true.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -415,7 +415,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept thirdparty cookies.
          * By default this is set to be false.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -532,6 +532,17 @@ declare namespace webview {
          * @since 9
          */
          static initializeWebEngine(callback?: (result: boolean) => void): void;
+
+        /**
+         * Sets debugging of web contents into any webviews of this application.
+         *
+         * @param { number } webDebuggingAccess - True if enables debugging of web contents into any webviews
+         *                                        of this application otherwise false.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 9
+         */
+        static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
         /**
          * Checks whether the web page can go forward.
@@ -846,7 +857,7 @@ declare namespace webview {
          * Registers the JavaScript object and method list.
          *
          * @param { object } object - Application side JavaScript objects participating in registration.
-         * @param { string } name - The name of the registered object, which is consistent with the 
+         * @param { string } name - The name of the registered object, which is consistent with the
          *                          object name called in the window.
          * @param { Array<string> } methodList - Thr method of the application side JavaScript object participating
          *                                       in the registration.
