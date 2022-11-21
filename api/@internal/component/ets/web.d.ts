@@ -534,7 +534,7 @@ declare class HttpAuthHandler {
    * @since 9
    */
   cancel(): void;
-  
+
   /**
    * Ignore this certificate request temporarily.
    * @since 9
@@ -1419,6 +1419,26 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the WebView media options.
+ * @since 10
+ */
+declare interface WebMediaOption {
+  /**
+   * Set the audio re-focusing renewal period, in seconds.
+   * The default value is 0 seconds.
+   * @since 10
+   */
+  resumeInterval?: number;
+
+  /**
+   * Set whether the audio is exclusive
+   * The default value is true.
+   * @since 10
+   */
+  audioExclusive?: boolean;
+}
+
+/**
  * Defines the Web interface.
  * @since 8
  */
@@ -1921,6 +1941,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
+
+  /**
+   * Notify the application key events are not consumed by the WebView.
+   * @param event Key event info.
+   *
+   * @since 9
+   */
+  onUnconsumedKeyEvent(callback: (event: KeyEvent) => void): WebAttribute;
+
+  /**
+   * Key events notify the application before the WebView consumes them.
+   * @param event Key event info.
+   *
+   * @return True if the application consumes key events else false.
+   * @since 9
+   */
+  onPreKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+
+  /**
+   * WebView media options.
+   * @param options media options.
+   *
+   * @since 10
+   */
+  mediaOption(options: WebMediaOption): WebAttribute;
 }
 
 declare const Web: WebInterface;
