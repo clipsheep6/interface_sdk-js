@@ -973,7 +973,7 @@ declare namespace webview {
          *
          * @since 10
          */
-        setHttpDns(secDnsMode:SecureDnsMode, secDnsServer:string): WebAttribute;
+        static setHttpDns(secDnsMode:SecureDnsMode, secDnsServer:string): WebAttribute;
     }
 }
 
