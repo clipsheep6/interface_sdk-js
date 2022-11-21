@@ -490,11 +490,10 @@ declare namespace webview {
          *
          * @note This is a global static API that must be called on the UI thread, and it will have no effect if any
          *       web components are loaded.
-         * @returns { boolean } True if the initialization was successful else false.
          *
          * @since 9
          */
-        static initializeWebEngine(): boolean;
+        static initializeWebEngine(): void;
 
         /**
          * Checks whether the web page can go forward.
