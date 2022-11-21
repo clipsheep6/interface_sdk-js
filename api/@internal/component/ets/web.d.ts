@@ -1966,6 +1966,78 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   mediaOption(options: WebMediaOption): WebAttribute;
+
+  /**
+   * Set the font of webview standard font library. The default font is "sans serif".
+   * @param family Standard font set series.
+   *
+   * @since 9
+   */
+  webStandardFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview serif font library. The default font is "serif".
+   * @param family Serif font set series.
+   *
+   * @since 9
+   */
+  webSerifFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * @param family Sans serif font set series.
+   *
+   * @since 9
+   */
+  webSansSerifFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview fixed font library. The default font is "monospace".
+   * @param family Fixed font set series.
+   *
+   * @since 9
+   */
+  webFixedfFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * @param family fantasy font set series.
+   *
+   * @since 9
+   */
+  webFantasyFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview cursive font library. The default font is "cursive".
+   * @param family Cursive font set series.
+   *
+   * @since 9
+   */
+  webCursiveFont(family: string): WebAttribute;
+
+  /**
+   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * @param size Font size.
+   *
+   * @since 9
+   */
+  defaultFixedFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  defaultFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the minimum value of webview font. The default value is 8, and the values are 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minFontSize(size: number): WebAttribute;
 }
 
 declare const Web: WebInterface;
