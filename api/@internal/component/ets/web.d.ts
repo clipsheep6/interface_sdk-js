@@ -177,6 +177,89 @@ declare enum CacheMode {
   Vertical,
 }
 
+
+/**
+* Defines the context menue media type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuMediaType {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * Thel image type.
+   * @since 9
+   */
+  Image,
+}
+
+/**
+* Defines the context menue source type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuSourceType {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * The touch type.
+   * @since 9
+   */
+  Touch,
+
+  /**
+   * The mouse type.
+   * @since 9
+   */
+  Mouse,
+}
+
+/**
+* Defines the context menue input field type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuInputFieldType {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+  /**
+   * The plainText type.
+   * @since 9
+   */
+  PlainText,
+  /**
+   * The password type.
+   * @since 9
+   */
+  Password,
+  /**
+   * The number type.
+   * @since 9
+   */
+  Number,
+}
+
+/**
+* Defines the context menue supported event bit flags, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuEditStatusFlags {
+  NONE = 0,
+  CAN_CUT = 1 << 1,
+  CAN_COPY = 1 << 2,
+  CAN_PASTE = 1 << 3,
+  CAN_DELETE = 1 << 4,
+  CAN_SELECT_ALL = 1 << 5,
+}
+
 /**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
@@ -708,6 +791,43 @@ declare class WebContextMenuParam {
    * @since 9
    */
   existsImageContents(): boolean;
+
+  /**
+   * Returns the type of context node.
+   * @since 9
+   */
+  getMediaType(): ContextMenuMediaType;
+
+  /**
+   * Returns the text of the selection.
+   * @since 9
+   */
+  getSelectionText(): string;
+
+  /**
+   * Returns the context menu source type.
+   * @since 9
+   */
+  getSourceType(): ContextMenuSourceType;
+
+  /**
+   * Returns input field type if the context menu was invoked on an input field.
+   * @since 9
+   */
+  getInputFieldType(): ContextMenuInputFieldType;
+
+  /**
+   * Return whether this context menu was invoked on an editable node.
+   * @since 9
+   */
+  isEditable(): boolean;
+
+   /**
+   * Returns the edit status flags.
+   *
+   * @since 9
+   */
+  getEditStatusFlags(): number;
 }
 
 /**
@@ -736,6 +856,41 @@ declare class WebContextMenuResult {
    * @since 9
    */
   copyImage(): void;
+
+  /**
+   * Executes the copy operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  copy(): void;
+
+  /**
+   * Executes the paste operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  paste(): void;
+
+  /**
+   * Executes the delete operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  delete(): void;
+
+  /**
+   * Executes the selectAll operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  selectAll(): void;
+
+  /**
+   * Executes the cut operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  cut(): void;
 }
 
 /**
