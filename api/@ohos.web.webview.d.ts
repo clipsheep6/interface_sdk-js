@@ -974,6 +974,67 @@ declare namespace webview {
          * @since 10
          */
         static setHttpDns(secDnsMode:SecureDnsMode, secDnsServer:string): WebAttribute;
+
+        /**
+         * Set the scrolled position of the webview.
+         *
+         * @param { number } x - The horizontal coordinate of the scrolled position.
+         * @param { number } y - The vertical coordinate of the scrolled position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollTo(x: number, y:number): void;
+
+        /**
+         * Move the scrolled positionof the webview.
+         *
+         * @param { number } deltaX - The amount of pixels to scroll by horizontally.
+         * @param { number } deltaY - The amount of pixels to scroll by vertically.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollBy(deltaX: number, deltaY:number): void;
+
+        /**
+         * Simulate speed sliding behavior to scroll the webview.
+         *
+         * @param { number } vx - The speed sliding behavior by horizontally.
+         * @param { number } vy - The speed sliding behavior by vertically.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        slideScroll(vx: number, vy:number): void;
+
+        /**
+         * Scroll the contents of this Webview up by half the view size.
+         *
+         * @param { boolean } top - Jump to the top of the page if true.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        pageUp(top:boolean): void;
+
+        /**
+         * Scroll the contents of this Webview down by half the view size.
+         *
+         * @param { boolean } bottom - Jump to the bottom of the page if true.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        pageDown(bottom:boolean): void;
     }
 }
 

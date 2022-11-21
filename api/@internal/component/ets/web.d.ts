@@ -160,6 +160,24 @@ declare enum CacheMode {
 }
 
 /**
+ * The Web's scrollbar name.
+ * @since 9
+ */
+ declare enum ScrollBarType {
+  /**
+   * Horizontal scrollbar.
+   * @since 9
+   */
+  Horizontal,
+
+  /**
+   * Vertical scrollbar.
+   * @since 9
+   */
+  Vertical,
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -2038,6 +2056,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @since 9
   */
   minFontSize(size: number): WebAttribute;
+
+  /**
+   * Set whether to enable scroll bar.
+   * @param type The direction scroll bar to set.
+   * @param scrollBarAccess Ture if enable the scroll bar in the specified direction.
+   *
+   * @since 9
+   */
+  scrollBarAccess(type: ScrollBarType, scrollBarAccess: boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
