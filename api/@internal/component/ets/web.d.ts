@@ -1966,40 +1966,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   mediaOption(options: WebMediaOption): WebAttribute;
-
-  /**
-   * Set whether to use httpdns for dns query.
-   * @param secDnsMode {@link SecureDnsMode}  Whether to use httpdns and whether to allow fallback to system dns.
-   * @param secDnsServer The httpdns server.
-   *
-   * @since 10
-   */
-  httpDns(secDnsMode:SecureDnsMode, secDnsServer:string): WebAttribute;
-}
-
-/**
- * SecureDnsMode determines whether to use httpdns to query dns, and whether to allow fallback
- * to system dns when httpdns query fails.
- * @since 10
- */
-declare enum SecureDnsMode {
-  /**
-   * Do not use httpdns.
-   * @since 10
-   */
-  Off,
-
-  /**
-   * Prioritize using httpdns for query, if the query fails, it will fallback to the system dns.
-   * @since 10
-   */
-  Automatic,
-
-  /**
-   * Only use httpdns to query dns.
-   * @since 10
-   */
-  Secure,
 }
 
 declare const Web: WebInterface;
