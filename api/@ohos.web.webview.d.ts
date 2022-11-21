@@ -448,6 +448,18 @@ declare namespace webview {
     }
 
     /**
+     * Define the basic data types supported: string, number and boolean.
+     * @since 9
+     */
+    type MessageBaseType = string | number | boolean;
+
+    /**
+     * Define the data types web message supported: ArrayBuffer, Array<MessageBaseType>, MessageBaseType and Error.
+     * @since 9
+     */
+    type WebMessage = ArrayBuffer | Array<MessageBaseType> | MessageBaseType | Error;
+
+    /**
      * Define html web message port.
      * @since 9
      */
@@ -460,23 +472,23 @@ declare namespace webview {
 
         /**
          * Post a message to other port.
-         * @param { string } message - Message to send.
+         * @param { WebMessage } message - Message to send.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100010 - Can not post message using this port.
          *
          * @since 9
          */
-        postMessageEvent(message: string): void;
+        postMessageEvent(message: WebMessage): void;
 
         /**
          * Receive message from other port.
-         * @param { (result: string) => void } callback - Callback function for receiving messages.
+         * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100006 - Can not register message event using this port.
          *
          * @since 9
          */
-        onMessageEvent(callback: (result: string) => void): void;
+        onMessageEvent(callback: (result: WebMessage) => void): void;
     }
 
     /**
@@ -882,19 +894,19 @@ declare namespace webview {
          * Loads a piece of code and execute JS code in the context of the currently displayed page.
          *
          * @param { string } script - JavaScript Script.
-         * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
+         * @param { AsyncCallback<WebMessage> } callback - Callbacks execute JavaScript script results.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
+         * @returns { Promise<WebMessage> } A promise is solved after the JavaScript script is executed.
          *                              This parameter will be the result of JavaScript script execution.
          *                              If the JavaScript script fails to execute or has no return value,
          *                              null will be returned.
          *
          * @since 9
          */
-        runJavaScript(script: string): Promise<string>;
-        runJavaScript(script: string, callback : AsyncCallback<string>): void;
+        runJavaScript(script: string): Promise<WebMessage>;
+        runJavaScript(script: string, callback : AsyncCallback<WebMessage>): void;
 
         /**
          * Gets the url of current Web page.
