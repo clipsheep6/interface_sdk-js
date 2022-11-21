@@ -545,12 +545,12 @@ declare namespace socket {
     /**
      * Certificate proving the identity of the client
      */
-    cert: string;
+    cert?: string;
 
     /**
      * Private key of client certificate
      */
-    key: string;
+    key?: string;
 
     /**
      * Password of the private key
