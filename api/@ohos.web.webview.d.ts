@@ -490,11 +490,13 @@ declare namespace webview {
          *
          * @note This is a global static API that must be called on the UI thread, and it will have no effect if any
          *       web components are loaded.
-         * @returns { boolean } True if the web engine is initialized else false.
+         * @returns { Promise<boolean> } A promise is solved after the web engine is initialized.
+         *                               The parameter indicates whether the initialization was successful or not.
          *
          * @since 9
          */
-         static initializeWebEngine(callback?: (result: boolean) => void): void;
+        static initializeWebEngine(): Promise<boolean>;
+        static initializeWebEngine(callback : AsyncCallback<boolean>): void;
 
         /**
          * Checks whether the web page can go forward.
