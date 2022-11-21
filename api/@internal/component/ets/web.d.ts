@@ -14,7 +14,7 @@
  */
 
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
-
+import image from '../api/@ohos.multimedia.image';
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
@@ -157,6 +157,107 @@ declare enum CacheMode {
    * @since 8
    */
   Only,
+}
+
+/**
+ * The Web's scrollbar name.
+ * @since 9
+ */
+ declare enum ScrollBarType {
+  /**
+   * Horizontal scrollbar.
+   * @since 9
+   */
+  Horizontal,
+
+  /**
+   * Vertical scrollbar.
+   * @since 9
+   */
+  Vertical,
+}
+
+
+/**
+* Defines the context menue media type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuMediaType {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * Thel image type.
+   * @since 9
+   */
+  Image,
+}
+
+/**
+* Defines the context menue source type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuSourceType {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * The touch type.
+   * @since 9
+   */
+  Touch,
+
+  /**
+   * The mouse type.
+   * @since 9
+   */
+  Mouse,
+}
+
+/**
+* Defines the context menue input field type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuInputFieldType {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+  /**
+   * The plainText type.
+   * @since 9
+   */
+  PlainText,
+  /**
+   * The password type.
+   * @since 9
+   */
+  Password,
+  /**
+   * The number type.
+   * @since 9
+   */
+  Number,
+}
+
+/**
+* Defines the context menue supported event bit flags, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuEditStatusFlags {
+  NONE = 0,
+  CAN_CUT = 1 << 1,
+  CAN_COPY = 1 << 2,
+  CAN_PASTE = 1 << 3,
+  CAN_DELETE = 1 << 4,
+  CAN_SELECT_ALL = 1 << 5,
 }
 
 /**
@@ -534,7 +635,7 @@ declare class HttpAuthHandler {
    * @since 9
    */
   cancel(): void;
-  
+
   /**
    * Ignore this certificate request temporarily.
    * @since 9
@@ -588,6 +689,30 @@ declare class PermissionRequest {
    * @since 9
    */
   grant(resources: Array<string>): void;
+}
+
+/**
+ * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
+ * @since 9
+ */
+declare class DataResubmissionHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Resend related form data.
+   * @since 9
+   */
+  resend(): void;
+   
+  /**
+   * Do not resend related form data.
+   * @since 9
+   */
+  cancel(): void;
 }
 
 /**
@@ -666,6 +791,43 @@ declare class WebContextMenuParam {
    * @since 9
    */
   existsImageContents(): boolean;
+
+  /**
+   * Returns the type of context node.
+   * @since 9
+   */
+  getMediaType(): ContextMenuMediaType;
+
+  /**
+   * Returns the text of the selection.
+   * @since 9
+   */
+  getSelectionText(): string;
+
+  /**
+   * Returns the context menu source type.
+   * @since 9
+   */
+  getSourceType(): ContextMenuSourceType;
+
+  /**
+   * Returns input field type if the context menu was invoked on an input field.
+   * @since 9
+   */
+  getInputFieldType(): ContextMenuInputFieldType;
+
+  /**
+   * Return whether this context menu was invoked on an editable node.
+   * @since 9
+   */
+  isEditable(): boolean;
+
+   /**
+   * Returns the edit status flags.
+   *
+   * @since 9
+   */
+  getEditStatusFlags(): number;
 }
 
 /**
@@ -694,6 +856,41 @@ declare class WebContextMenuResult {
    * @since 9
    */
   copyImage(): void;
+
+  /**
+   * Executes the copy operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  copy(): void;
+
+  /**
+   * Executes the paste operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  paste(): void;
+
+  /**
+   * Executes the delete operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  delete(): void;
+
+  /**
+   * Executes the selectAll operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  selectAll(): void;
+
+  /**
+   * Executes the cut operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  cut(): void;
 }
 
 /**
@@ -808,6 +1005,13 @@ declare class WebResourceRequest {
    * @since 8
    */
   isRedirect(): boolean;
+
+  /**
+   * 
+   * 
+   * @since 9
+   */
+  getRequestMethod(): string;
 }
 
 
@@ -1419,6 +1623,26 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the WebView media options.
+ * @since 10
+ */
+declare interface WebMediaOption {
+  /**
+   * Set the audio re-focusing renewal period, in seconds.
+   * The default value is 0 seconds.
+   * @since 10
+   */
+  resumeInterval?: number;
+
+  /**
+   * Set whether the audio is exclusive
+   * The default value is true.
+   * @since 10
+   */
+  audioExclusive?: boolean;
+}
+
+/**
  * Defines the Web interface.
  * @since 8
  */
@@ -1921,6 +2145,160 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
+
+  /**
+   * Notify the application key events are not consumed by the WebView.
+   * @param event Key event info.
+   *
+   * @since 9
+   */
+  onUnconsumedKeyEvent(callback: (event: KeyEvent) => void): WebAttribute;
+
+  /**
+   * Key events notify the application before the WebView consumes them.
+   * @param event Key event info.
+   *
+   * @return True if the application consumes key events else false.
+   * @since 9
+   */
+  onPreKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+
+  /**
+   * WebView media options.
+   * @param options media options.
+   *
+   * @since 10
+   */
+  mediaOption(options: WebMediaOption): WebAttribute;
+
+  /**
+   * Set the font of webview standard font library. The default font is "sans serif".
+   * @param family Standard font set series.
+   *
+   * @since 9
+   */
+  webStandardFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview serif font library. The default font is "serif".
+   * @param family Serif font set series.
+   *
+   * @since 9
+   */
+  webSerifFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * @param family Sans serif font set series.
+   *
+   * @since 9
+   */
+  webSansSerifFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview fixed font library. The default font is "monospace".
+   * @param family Fixed font set series.
+   *
+   * @since 9
+   */
+  webFixedfFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * @param family fantasy font set series.
+   *
+   * @since 9
+   */
+  webFantasyFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview cursive font library. The default font is "cursive".
+   * @param family Cursive font set series.
+   *
+   * @since 9
+   */
+  webCursiveFont(family: string): WebAttribute;
+
+  /**
+   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * @param size Font size.
+   *
+   * @since 9
+   */
+  defaultFixedFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  defaultFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the minimum value of webview font. The default value is 8, and the values are 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minFontSize(size: number): WebAttribute;
+
+  /**
+   * Set whether to enable scroll bar.
+   * @param type The direction scroll bar to set.
+   * @param scrollBarAccess Ture if enable the scroll bar in the specified direction.
+   *
+   * @since 9
+   */
+  scrollBarAccess(type: ScrollBarType, scrollBarAccess: boolean): WebAttribute;
+
+  /**
+   * Whether web component can load resource from network.
+   * @param block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  blockNetwork(block: boolean): WebAttribute;
+
+  /**
+  * Whether use algorithmic darkening when the theme is dark mode.
+  * @param accept {@code true} means enable algorithmic darkening; {@code false} otherwise.
+  * 
+  * @since 10
+  */
+  forceDarkAccess(accept: boolean): WebAttribute;
+ 
+  /**
+   * Triggered when the application receive the url of an apple-touch-icon.
+   * @param callback The triggered callback when the application receive an new url of an
+   * apple-touch-icon.
+   * @since 9
+   */
+  onTouchIconUrlReceive(callback: (event: {url: string,
+       precomposed: boolean}) => void): WebAttribute;
+ 
+  /**
+   * Triggered when the application receive a new favicon for the current web page.
+   * @param callback The triggered callback when the application receive a new favicon for the 
+   * current web page.
+   * @since 9
+   */
+  onFaviconReceive(callback: (event: {favicon: image.PixelMap}) => void): WebAttribute;
+
+  /**
+   * Triggered when previous page will no longer be drawn and next page begin to draw.
+   * @param callback The triggered callback when previous page will no longer be drawn and next
+   * page begin to draw.
+   * @since 9
+   */
+  onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Trigger when the form could be resubmitted.
+   * @param callback The triggered callback to decision whether resend form data or not.
+   * @since 9
+   */
+  onDataResubmission(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
