@@ -1643,6 +1643,31 @@ declare interface WebMediaOption {
 }
 
 /**
+ * Defines the WebView custom schemes.
+ * @since 9
+ */
+declare interface WebCustomScheme {
+
+  /**
+   * Set scheme name
+   * @since 9
+   */
+  schemeName : string;
+
+  /**
+   * Set whether support cors
+   * @since 9
+   */
+  isSupportCors: boolean;
+
+  /**
+   * Set whether support fetch
+   * @since 9
+   */
+  isSupportFetch: boolean;
+}
+
+/**
  * Defines the Web interface.
  * @since 8
  */
@@ -2299,6 +2324,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onDataResubmission(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
+
+  /**
+   * Set Custom schemes.
+   * @param schemes User Defined schemes¡£
+   *
+   * @since 9
+   */
+  customSchemes(schemes: Array<WebCustomScheme>): WebAttribute;
+
+  /**
+   * Set the pinch smooth mode.
+   * @param isEnable Whether to enable smooth mode
+   *
+   * @since 9
+   */
+  pinchSmoothMode(isEnable : boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;

@@ -238,45 +238,40 @@ declare namespace webview {
      * @since 9
      * @syscap SystemCapability.Web.Webview.Core
      */
-    class HistoryItem {
+    /**
+     * Provides information for history item in BackForwardList.
+     * @name HistoryItem
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    interface HistoryItem {
         /**
-         * Constructor.
+         * Get pixelmap of icon.
          *
          * @since 9
          */
-        constructor();
+        icon: image.PixelMap;
 
         /**
-         * Get favicon of this history item.
-         * 
-         * @returns { image.PixelMap } The favicon of this history item.
+         * Get url.
+         *
          * @since 9
          */
-        getIcon(): image.PixelMap;
+        historyUrl: string;
 
         /**
-         * Get original url of this history item.
+         * Get original url.
          *
-         * @returns { string } The original url of this history item.
          * @since 9
          */
-        getHistoryRawUrl(): string;
+        historyRawUrl: string;
 
         /**
-         * Get title of this history item.
+         * Get title.
          *
-         * @returns { string } The title of this history item.
          * @since 9
          */
-        getHistoryTitle(): string;
-
-         /**
-         * Get url of this history item.
-         *
-         * @returns { string } The url of this history item.
-         * @since 9
-         */
-        getHistoryUrl(): string;
+        title: string;
     }
 
     /**
@@ -285,30 +280,20 @@ declare namespace webview {
      * @since 9
      * @syscap SystemCapability.Web.Webview.Core
      */
-    class BackForwardList {
-        /**
-         * Constructor.
-         *
-         * @since 9
-         */
-        constructor();
-
+    interface BackForwardList {
         /**
          * Get current index in BackForwardList 
          *
-         * @returns { HistoryItem } current index in BackForwardList.
-         * 
          * @since 9
          */
-        getIndex(): number;
+        currentIndex: number;
 
         /**
          * Get size of in BackForwardList 
          *
-         * @returns { number } number of HistroyItem in list.
          * @since 9
          */
-        getSize(): number;
+        size: number;
         
         /**
          * Get history entry at given index.
@@ -629,7 +614,6 @@ declare namespace webview {
          *
          * @param { number } webDebuggingAccess - True if enables debugging of web contents into any webviews
          *                                        of this application otherwise false.
-         * @throws { BusinessError } 401 - Invalid input parameter.
          *
          * @since 9
          */
@@ -1061,10 +1045,11 @@ declare namespace webview {
          * Set whether to use httpdns for dns query.
          * @param secDnsMode {@link SecureDnsMode}  Whether to use httpdns and whether to allow fallback to system dns.
          * @param secDnsServer The httpdns server.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          *
          * @since 10
          */
-        static setHttpDns(secDnsMode:SecureDnsMode, secDnsServer:string): WebAttribute;
+        static setHttpDns(secDnsMode:SecureDnsMode, secDnsServer:string): void;
 
         /**
          * Set the scrolled position of the webview.
