@@ -504,7 +504,7 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @return Whether the file is the last one.
      * You need to check whether the file is the last one before calling getNextObject,
-     * which returns the next file only when True is returned for this method.
+     * which returns the next file only when False is returned for this method.
      */
     isAfterLast(): boolean;
     /**
@@ -534,7 +534,7 @@ declare namespace userFileManager {
      * Obtains the next T in the file retrieval result.
      * This method uses a callback to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -545,7 +545,7 @@ declare namespace userFileManager {
      * Obtains the next T in the file retrieval result.
      * This method uses a promise to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
