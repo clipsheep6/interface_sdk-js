@@ -108,7 +108,6 @@ declare class AppStorage {
 /**
  * Defines the subscribed abstract property.
  * @since 7
- * @systemapi
  */
 declare abstract class SubscribedAbstractProperty<T> {
   /**
@@ -168,14 +167,12 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Called when data is obtained.
    * @since 7
-   * @systemapi
    */
   abstract get(): T;
 
   /**
    * Called when data is created.
    * @since 7
-   * @systemapi
    */
   abstract set(newValue: T): void;
 
