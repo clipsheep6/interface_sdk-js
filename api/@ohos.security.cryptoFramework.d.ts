@@ -328,8 +328,7 @@ declare namespace cryptoFramework {
          * @since 9
          * @param seed Indicates the seed DataBlob
          */
-        setSeed(seed : DataBlob, callback : AsyncCallback<void>) : void;
-        setSeed(seed : DataBlob) : Promise<void>;
+        setSeed(seed : DataBlob) : void;
     }
 
     /**
@@ -744,8 +743,7 @@ declare namespace cryptoFramework {
          * @since 9
          * @return Returns X509 cert pubKey.
          */
-        getPublicKey(callback : AsyncCallback<PubKey>) : void;
-        getPublicKey() : Promise<PubKey>;
+        getPublicKey() : PubKey;
 
         /**
          * Check the X509 cert validity with date.
@@ -755,8 +753,7 @@ declare namespace cryptoFramework {
          * @since 9
          * @param date Indicates the cert date.
          */
-        checkValidityWithDate(date: string, callback : AsyncCallback<void>) : void;
-        checkValidityWithDate(date: string) : Promise<void>;
+        checkValidityWithDate(date: string) : void;
 
         /**
          * Get X509 cert version.
@@ -956,8 +953,7 @@ declare namespace cryptoFramework {
          * @since 9
          * @return Returns DataBlob of issuer.
          */
-        getCertIssuer(callback : AsyncCallback<DataBlob>) : void;
-        getCertIssuer() : Promise<DataBlob>;
+        getCertIssuer() : DataBlob;
 
         /**
          * Get the revocation date from x509crl entry.
@@ -967,8 +963,7 @@ declare namespace cryptoFramework {
          * @since 9
          * @return Returns string of revocation date.
          */
-        getRevocationDate(callback : AsyncCallback<string>) : void;
-        getRevocationDate() : Promise<string>;
+        getRevocationDate() : string;
     }
 
     /**
@@ -986,8 +981,7 @@ declare namespace cryptoFramework {
          * @param X509Cert Input cert data.
          * @return Returns result of Check cert is revoked or not.
          */
-        isRevoked(cert : X509Cert, callback : AsyncCallback<boolean>) : void;
-        isRevoked(cert : X509Cert) : Promise<boolean>;
+        isRevoked(cert : X509Cert) : boolean;
 
         /**
          * Returns the type of this CRL.
@@ -1071,8 +1065,7 @@ declare namespace cryptoFramework {
          * @param serialNumber serial number of crl.
          * @return Returns next update of crl.
          */
-        getRevokedCert(serialNumber : number, callback : AsyncCallback<X509CrlEntry>) : void;
-        getRevokedCert(serialNumber : number) : Promise<X509CrlEntry>;
+        getRevokedCert(serialNumber : number) : X509CrlEntry;
 
         /**
          * This method can be used to find CRL entries in indirect cert.
@@ -1083,8 +1076,7 @@ declare namespace cryptoFramework {
          * @param X509Cert Cert of x509.
          * @return Returns X509CrlEntry instance.
          */
-        getRevokedCertWithCert(cert : X509Cert, callback : AsyncCallback<X509CrlEntry>) : void;
-        getRevokedCertWithCert(cert : X509Cert) : Promise<X509CrlEntry>;
+        getRevokedCertWithCert(cert : X509Cert) : X509CrlEntry;
 
         /**
          * Get all entries in this CRL.
@@ -1105,8 +1097,7 @@ declare namespace cryptoFramework {
          * @since 9
          * @return Returns DataBlob of tbs info.
          */
-        getTbsInfo(callback : AsyncCallback<DataBlob>) : void;
-        getTbsInfo() : Promise<DataBlob>;
+        getTbsInfo() : DataBlob;
 
         /**
          * Get signature value from CRL.
