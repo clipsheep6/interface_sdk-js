@@ -114,6 +114,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   /**
    * Called when the incoming parameter is the normalized progress of the current incoming animation.
    * @since 7
+   * @deprecated since 9
    */
   onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnterInterface;
 }
@@ -132,6 +133,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   /**
    * Called when the input parameter is the normalized progress of the current exit animation.
    * @since 7
+   * @deprecated since 9
    */
   onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExitInterface;
 }
