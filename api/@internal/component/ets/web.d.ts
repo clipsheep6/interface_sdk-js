@@ -78,53 +78,63 @@ declare enum MixedMode {
 /**
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.web.webview.webview.HitTestTypeV9
  */
 declare enum HitTestType {
   /**
    * The edit text.
    * @since 8
+   * @deprecated since 9
    */
   EditText,
 
   /**
    * The email address.
    * @since 8
+   * @deprecated since 9
    */
   Email,
 
   /**
    * The HTML::a tag with src=http.
    * @since 8
+   * @deprecated since 9
    */
   HttpAnchor,
 
   /**
    * The HTML::a tag with src=http + HTML::img.
    * @since 8
+   * @deprecated since 9
    */
   HttpAnchorImg,
 
   /**
    * The HTML::img tag.
    * @since 8
+   * @deprecated since 9
    */
   Img,
 
   /**
    * The map address.
    * @since 8
+   * @deprecated since 9
    */
   Map,
 
   /**
    * The phone number.
    * @since 8
+   * @deprecated since 9
    */
   Phone,
 
   /**
    * Other unknown HitTest.
    * @since 8
+   * @deprecated since 9
    */
   Unknown,
 }
@@ -175,73 +185,6 @@ declare class FullScreenExitHandler {
    * @since 9
    */
   exitFullScreen(): void;
-}
-
-/**
- * Define html5 web message port.
- * @since 9
- */
-declare class WebMessagePort {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Close port.
-   * @since 9
-   */
-  close(): void;
-
-  /**
-   * Post a message to other port.
-   * @since 9
-   */
-  postMessageEvent(message: WebMessageEvent): void;
-
-  /**
-   * Receive message from other port.
-   * @since 9
-   */
-  onMessageEvent(callback: (result: string) => void): void;
-}
-
-
-/**
- * Define html5 web message, which include message and ports.
- * @since 9
- */
-declare class WebMessageEvent {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * Get message.
-   * @since 9
-   */
-  getData(): string;
-
-  /**
-   * Set message.
-   * @since 9
-   */
-  setData(data: string): void;
-
-  /**
-   * Get ports.
-   * @since 9
-   */
-  getPorts(): Array<WebMessagePort>;
-
-  /**
-   * Set ports.
-   * @since 9
-   */
-  setPorts(ports: Array<WebMessagePort>): void;
 }
 
 /**
@@ -432,30 +375,6 @@ declare class FileSelectorResult {
 }
 
 /**
- * Defines the hit test value, related to {@link getHitTestValue} method.
- * @since 9
- */
-declare class HitTestValue {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * get the hit test type.
-   * @since 9
-   */
-  getType(): HitTestType;
-
-  /**
-   * get the hit test extra data.
-   * @since 9
-   */
-  getExtra(): string;
-}
-
-/**
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  * @since 9
  */
@@ -602,10 +521,10 @@ declare class ControllerHandler {
    constructor();
 
   /**
-   * Set WebController object.
+   * Set WebviewController object.
    * @since 9
    */
-  setWebController(controller: WebController): void;
+  setWebController(controller: WebviewController): void;
 }
 
 /**
@@ -649,7 +568,7 @@ declare class WebContextMenuParam {
    *
    * @since 9
    */
-  getUnfilterendLinkUrl(): string;
+  getUnfilteredLinkUrl(): string;
 
   /**
    * Returns the SRC URL if the selected element has a SRC attribute.
@@ -990,60 +909,16 @@ declare class JsGeolocation {
 /**
  * Defines the Web cookie.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.web.webview.webview.WebCookieManager
  */
 declare class WebCookie {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
-
-  /**
-   * Get whether cookies can be send or accepted.
-   * @return true if can send and accept cookies else false.
-   *
-   * @since 9
-   */
-  isCookieAllowed(): boolean;
-
-  /**
-   * Get whether third party cookies can be send or accepted.
-   * @return true if can send and accept third party cookies else false.
-   *
-   * @since 9
-   */
-  isThirdPartyCookieAllowed(): boolean;
-
-  /**
-   * Get whether file scheme cookies can be send or accepted.
-   * @return true if can send and accept else false.
-   * @since 9
-   */
-  isFileURICookieAllowed(): boolean;
-
-  /**
-   * Set whether cookies can be send or accepted.
-   * @param accept whether can send and accept cookies
-   *
-   * @since 9
-   */
-  putAcceptCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether third party cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *
-   * @since 9
-   */
-  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether file scheme cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *
-   * @since 9
-   */
-  putAcceptFileURICookieEnabled(accept: boolean): void;
 
   /**
    * Sets the cookie.
@@ -1054,63 +929,12 @@ declare class WebCookie {
   setCookie();
 
   /**
-   * Sets the cookie.
-   * @since 9
-   */
-  setCookie(url: string, value: string): boolean;
-
-  /**
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.web.webview.webview.WebCookieManager#saveCookieAsync
    */
   saveCookie();
-
-  /**
-   * Saves the cookies.
-   * @since 9
-   */
-  saveCookieSync(): boolean;
-
-  /**
-   * Gets all cookies for the given URL.
-   *
-   * @param url the URL for which the cookies are requested.
-   * @return the cookie value for the given URL.
-   *
-   * @since 9
-   */
-  getCookie(url: string): string;
-
-  /**
-   * Check whether exists any cookies.
-   *
-   * @return true if exists cookies else false;
-   * @since 9
-   */
-  existCookie(): boolean;
-
-  /**
-   * Delete all cookies.
-   *
-   * @since 9
-   */
-  deleteEntireCookie(): void;
-
-  /**
-   * Delete session cookies.
-   *
-   * @since 9
-   */
-  deleteSessionCookie(): void;
-
-  /**
-   * Delete all expired cookies.
-   *
-   * @since 9
-   */
-  deleteExpiredCookie(): void;
 }
 
 /**
@@ -1154,18 +978,6 @@ declare class WebCookie {
   zoom(factor: number): void;
 
   /**
-   * Let the Web zoom in.
-   * @since 9
-   */
-   zoomIn(): boolean;
-
-  /**
-   * Let the Web zoom out.
-   * @since 9
-   */
-   zoomOut(): boolean;
-
-  /**
    * Clears the history in the Web.
    * @since 8
    * @deprecated since 9
@@ -1182,21 +994,6 @@ declare class WebCookie {
    * @useinstead ohos.web.webview.webview.WebviewController#runJavaScript
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
-
-  /**
-   * Create web message ports
-   *
-   * @since 9
-   */
-  createWebMessagePorts(): Array<WebMessagePort>;
-
-  /**
-   * Post web message port to html5
-   * @param options The options with a message event and a uri.
-   *
-   * @since 9
-   */
-  postMessage(options: { message: WebMessageEvent, uri: string}): void;
 
   /**
    * Loads the data or URL.
@@ -1263,36 +1060,6 @@ declare class WebCookie {
   getHitTest(): HitTestType;
 
   /**
-   * Gets the hit test value of HitTest.
-   * @since 9
-   */
-  getHitTestValue(): HitTestValue;
-
-  /**
-   * Gets the id for the current Web.
-   * @since 9
-   */
-  getWebId(): number;
-
-  /**
-   * Gets the default user agent.
-   * @since 9
-   */
-  getDefaultUserAgent(): string;
-
-  /**
-   * Gets the title of current Web page.
-   * @since 9
-   */
-  getTitle(): string;
-
-  /**
-   * Gets the content height of current Web page.
-   * @since 9
-   */
-  getPageHeight(): number;
-
-  /**
    * Gets the request focus.
    * @since 8
    * @deprecated since 9
@@ -1341,58 +1108,6 @@ declare class WebCookie {
    * @useinstead ohos.web.webview.webview.WebviewController#forward
    */
   forward();
-
-  /**
-   * Goes forward or back backOrForward in the history of the web page.
-   * @since 9
-   */
-  backOrForward(step: number): void;
-
-  /**
-   * Gets network cookie manager
-   * @since 9
-   */
-  getCookieManager() : WebCookie
-
-  /**
-   * Search all instances of 'searchString' on the page and highlights them,
-   * result will be notify through callback onSearchResultReceive.
-   * @param searchString string to be search.
-   * @since 9
-   */
-  searchAllAsync(searchString: string): void;
-
-  /**
-   * Clears the highlighting surrounding text matches created by searchAllAsync.
-   * @since 9
-   */
-  clearMatches(): void;
-
-  /**
-   * Highlights and scrolls to the next match search.
-   * @param forward step of search is back or forward.
-   * @since 9
-   */
-  searchNext(forward: boolean): void;
-
-  /**
-   * Clears the ssl cache in the Web.
-   * @since 9
-   */
-   clearSslCache(): void;
-
-  /**
-   * Clears the client authentication certificate cache in the Web.
-   * @since 9
-   */
-  clearClientAuthenticationCache(): void;
-
-  /**
-   * Gets the url of current Web page.
-   * @return the url of current Web page.
-   * @since 9
-   */
-  getUrl(): string;
 }
 
 /**
@@ -1409,13 +1124,14 @@ declare interface WebOptions {
    * Sets the controller of the Web.
    * @type { (WebController) }
    * @since 8
+   * @deprecated since 9
    */
-    /**
+  /**
    * Sets the controller of the Web.
-   * @type { (WebController | WebviewController) }
+   * @type { (WebviewController) }
    * @since 9
-    */
-  controller: WebController | WebviewController;
+   */
+  controller: WebviewController;
 }
 
 /**
@@ -1506,16 +1222,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @type {controller : WebController}
    * @since 8
+   * @deprecated since 9
    */
-    /**
+  /**
    * Injects the JavaScript object into window and invoke the function in window.
    * @param javaScriptProxy The JavaScript object to be injected.
    *
-   * @type {controller : WebController | WebviewController}
+   * @type {controller : WebviewController}
    * @since 9
    */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
-    controller: WebController | WebviewController }): WebAttribute;
+    controller: WebviewController }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
@@ -1866,7 +1583,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Notify search result to host application through onSearchResultReceive.
    * @param callback Function Triggered when the host application call searchAllAsync
-   * or searchNext api on WebController and the request is valid.
+   * or searchNext api on WebviewController and the request is valid.
    *
    * @since 9
    */

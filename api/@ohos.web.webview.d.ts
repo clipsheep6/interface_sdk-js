@@ -239,12 +239,12 @@ declare namespace webview {
           /**
            * Constructor.
            *
-           * @param { WebController } controller WebAsyncController needs a WebController 
+           * @param { WebviewController } controller WebAsyncController needs a WebviewController 
            *                          to associate with corresponding nweb.
            *
            * @since 9
            */
-          constructor(controller: WebController);
+          constructor(controller: WebviewController);
 
           /**
            * Stores the current page as a web archive.
