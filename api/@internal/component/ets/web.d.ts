@@ -1080,7 +1080,7 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseData(data: string);
+  setResponseData(data: string | number);
 
   /**
    * Sets the response encoding.
