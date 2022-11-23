@@ -18,7 +18,6 @@
 import {AsyncCallback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
-import rpc from "./@ohos.rpc";
 
 /**
  * This module provides the capability to manage web modules.
@@ -31,7 +30,7 @@ declare namespace webview {
      * Defines the Web's request/response header.
      * @since 9
      */
-    interface HeaderV9 {
+    interface WebHeader {
         /**
          * Gets the key of the request/response header.
          * @since 9
@@ -49,7 +48,7 @@ declare namespace webview {
      * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
      * @since 9
      */
-    enum HitTestTypeV9 {
+    enum WebHitTestType {
         /**
          * The edit text.
          * @since 9
@@ -110,7 +109,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        type: HitTestTypeV9;
+        type: WebHitTestType;
 
         /**
          * Get the hit test extra data.
@@ -734,7 +733,7 @@ declare namespace webview {
          * Loads the data or URL.
          *
          * @param { string | Resource } url - The URL to load.
-         * @param { Array<HeaderV9> } [headers] - Additional HTTP request header for URL.
+         * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -743,18 +742,18 @@ declare namespace webview {
          *
          * @since 9
          */
-        loadUrl(url: string | Resource, headers?: Array<HeaderV9>): void;
+        loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
         /**
          * Gets the type of HitTest.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { HitTestTypeV9 } The type of HitTest.
+         * @returns { WebHitTestType } The type of HitTest.
          *
          * @since 9
          */
-        getHitTest(): HitTestTypeV9;
+        getHitTest(): WebHitTestType;
 
         /**
          * Stores the current page as a web archive.
@@ -1094,6 +1093,7 @@ declare namespace webview {
          * Scroll the contents of this Webview up by half the view size.
          *
          * @param { boolean } top - Jump to the top of the page if true.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *
@@ -1105,6 +1105,7 @@ declare namespace webview {
          * Scroll the contents of this Webview down by half the view size.
          *
          * @param { boolean } bottom - Jump to the bottom of the page if true.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *
@@ -1138,12 +1139,14 @@ declare namespace webview {
          * Put network state for web. Which is used to set window.navigator.isOnline property in
          * JavaScript.
          *
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *
+         * @param { boolean } enable - Whether enable window.navigator.isOnline.
          * @since 9
          */
-        putNetworkAvailable(): void;
+        setNetworkAvailable(enable: boolean): void;
         
         /**
          * Qurey if current document has image.
@@ -1179,18 +1182,19 @@ declare namespace webview {
          *
          * @since 9
          */
-        serializeWebState(): rpc.MessageSequence;
+        serializeWebState(): Uint8Array;
 
         /**
          * Restore the back forward state to current webview from state MessageSequence.
          *
          * @param { rpc.MessageSequence } state - A messageSequence which is represented back forward state.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
-        restoreWebState(state: rpc.MessageSequence): void;
+        restoreWebState(state: Uint8Array): void;
 
         /**
          * Remove resource cache in application. So this method will Remove all cache for all webviews in the
@@ -1198,6 +1202,7 @@ declare namespace webview {
          * 
          * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
          *                               in ram.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *

@@ -1007,7 +1007,8 @@ declare class WebResourceRequest {
   isRedirect(): boolean;
 
   /**
-   * 
+   * Get request mothod.
+   * @return Return the request method/ 
    * 
    * @since 9
    */
@@ -1080,7 +1081,7 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseData(data: string);
+  setResponseData(data: string | number);
 
   /**
    * Sets the response encoding.
@@ -2172,21 +2173,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   multiWindowAccess(multiWindow: boolean): WebAttribute;
 
   /**
-   * Notify the application key events are not consumed by the WebView.
-   * @param event Key event info.
-   *
-   * @since 9
-   */
-  onUnconsumedKeyEvent(callback: (event: KeyEvent) => void): WebAttribute;
-
-  /**
    * Key events notify the application before the WebView consumes them.
    * @param event Key event info.
    *
    * @return True if the application consumes key events else false.
    * @since 9
    */
-  onPreKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+  onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
 
   /**
    * WebView media options.
@@ -2226,7 +2219,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  webFixedfFont(family: string): WebAttribute;
+  webFixedFont(family: string): WebAttribute;
 
   /**
    * Set the font of webview fantasy font library. The default font is "fantasy".
@@ -2299,7 +2292,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * apple-touch-icon.
    * @since 9
    */
-  onTouchIconUrlReceive(callback: (event: {url: string,
+  onTouchIconUrlReceived(callback: (event: {url: string,
        precomposed: boolean}) => void): WebAttribute;
  
   /**
@@ -2308,7 +2301,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * current web page.
    * @since 9
    */
-  onFaviconReceive(callback: (event: {favicon: image.PixelMap}) => void): WebAttribute;
+  onFaviconReceived(callback: (event: {favicon: image.PixelMap}) => void): WebAttribute;
 
   /**
    * Triggered when previous page will no longer be drawn and next page begin to draw.
@@ -2323,15 +2316,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered callback to decision whether resend form data or not.
    * @since 9
    */
-  onDataResubmission(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
+  onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
 
   /**
    * Set Custom schemes.
-   * @param schemes User Defined schemes¡£
+   * @param schemes User Defined schemesï¿½ï¿½
    *
    * @since 9
    */
-  customSchemes(schemes: Array<WebCustomScheme>): WebAttribute;
+  customizeSchemes(schemes: Array<WebCustomScheme>): WebAttribute;
 
   /**
    * Set the pinch smooth mode.
@@ -2339,7 +2332,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  pinchSmoothMode(isEnable : boolean): WebAttribute;
+  pinchSmoothMode(isEnabled : boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
