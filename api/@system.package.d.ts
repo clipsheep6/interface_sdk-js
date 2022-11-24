@@ -55,7 +55,7 @@ export interface CheckPackageHasInstalledOptions {
     fail?: (data: any, code: number) => void;
 
     /**
-     * Called when the excution is completed.
+     * Called when the execution is completed.
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @since 3
      */
@@ -70,7 +70,7 @@ export interface CheckPackageHasInstalledOptions {
  */
 export default class Package {
     /**
-     * Checks whethers an application exists, or whether a native application has been installed.
+     * Checks whether an application exists, or whether a native application has been installed.
      * @param options Options
      * @syscap SystemCapability.BundleManager.BundleFramework
      * @deprecated since 9
