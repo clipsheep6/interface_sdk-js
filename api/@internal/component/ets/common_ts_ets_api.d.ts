@@ -428,7 +428,6 @@ declare class Environment {
   /**
    * Constructor.
    * @since 7
-   * @systemapi
    * @hide
    */
   constructor();
@@ -465,7 +464,6 @@ declare class PersistentStorage {
   /**
    * Constructor parameters.
    * @since 7
-   * @systemapi
    * @hide
    */
   constructor(appStorage: AppStorage, storage: Storage);
