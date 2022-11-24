@@ -19,7 +19,7 @@ import image from './@ohos.multimedia.image';
 /**
  * @name  effectKit
  * @since 9
- * @import  effectKit from '@ohos.effectKit';
+ * effectKit from '@ohos.effectKit';
  */
 declare namespace effectKit {
 
