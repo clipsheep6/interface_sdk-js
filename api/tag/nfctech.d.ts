@@ -23,13 +23,13 @@ import { AsyncCallback, Callback } from '../basic';
  * {@code NfcATag} objects and obtain the ATQA and SAK.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcATag extends TagSession {
   /**
    * Obtains the SAK of an NFC-A tag.
    *
-   * @return Returns the SAK of the NFC-A tag.
+   * @returns Returns the SAK of the NFC-A tag.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -39,7 +39,7 @@ export interface NfcATag extends TagSession {
   /**
    * Obtains the ATQA of an NFC-A tag.
    *
-   * @return Returns the ATQA of the NFC-A tag.
+   * @returns Returns the ATQA of the NFC-A tag.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -54,13 +54,13 @@ export interface NfcATag extends TagSession {
  * {@code NfcBTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcBTag extends TagSession {
   /**
    * Obtains the application data of a tag.
    *
-   * @return Returns the application data of the tag.
+   * @returns Returns the application data of the tag.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -70,7 +70,7 @@ export interface NfcBTag extends TagSession {
   /**
    * Obtains the protocol information of a tag.
    *
-   * @return Returns the protocol information of the tag.
+   * @returns Returns the protocol information of the tag.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -85,13 +85,13 @@ export interface NfcBTag extends TagSession {
  * {@code NfcFTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcFTag extends TagSession {
   /**
    * Obtains the system code from this {@code NfcFTag} instance.
    *
-   * @return Returns the system code.
+   * @returns Returns the system code.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -101,7 +101,7 @@ export interface NfcFTag extends TagSession {
   /**
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
    *
-   * @return Returns the PMm.
+   * @returns Returns the PMm.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -116,13 +116,13 @@ export interface NfcFTag extends TagSession {
  * {@code NfcVTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcVTag extends TagSession {
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
-   * @return Returns the response flags.
+   * @returns Returns the response flags.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -132,7 +132,7 @@ export interface NfcVTag extends TagSession {
   /**
    * Obtains the data storage format identifier (DSFID) from this {@code NfcVTag} instance.
    *
-   * @return Returns the DSFID.
+   * @returns Returns the DSFID.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -144,14 +144,14 @@ export interface NfcVTag extends TagSession {
  * Provides methods for accessing IsoDep tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface IsoDepTag extends TagSession {
  /**
   * Gets IsoDep Historical bytes of the tag, which is based on NfcA RF technology.
   * It could be null if not based on NfcA.
   *
-  * @return { number[] } Returns the Historical bytes, the length could be 0.
+  * @returns { number[] } Returns the Historical bytes, the length could be 0.
   * @since 9
   */
   getHistoricalBytes(): number[];
@@ -160,7 +160,7 @@ export interface IsoDepTag extends TagSession {
   * Gets IsoDep HiLayer Response bytes of the tag, which is based on NfcB RF technology.
   * It could be null if not based on NfcB.
   *
-  * @return { number[] } Returns HiLayer Response bytes, the length could be 0.
+  * @returns { number[] } Returns HiLayer Response bytes, the length could be 0.
   * @since 9
   */
   getHiLayerResponse(): number[];
@@ -168,7 +168,7 @@ export interface IsoDepTag extends TagSession {
  /**
   * Checks if extended apdu length supported or not.
   *
-  * @return { boolean } Returns true if extended apdu length supported, otherwise false.
+  * @returns { boolean } Returns true if extended apdu length supported, otherwise false.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
@@ -183,7 +183,8 @@ export interface NdefMessage {
  /**
   * Obtains all records of an NDEF message.
   *
-  * @return { tag.NdefRecord[] } Records the list of NDEF records.
+  * @returns { tag.NdefRecord[] } Records the list of NDEF records.
+  * @syscap SystemCapability.Communication.NFC.Tag
   * @since 9
   */
   getNdefRecords(): tag.NdefRecord[];
@@ -193,13 +194,13 @@ export interface NdefMessage {
  * Provides methods for accessing NDEF tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NdefTag extends TagSession {
  /**
   * Gets the type of NDEF tag.
   *
-  * @return { tag.NfcForumType } The type of NDEF tag.
+  * @returns { tag.NfcForumType } The type of NDEF tag.
   * @since 9
   */
   getNdefTagType(): tag.NfcForumType;
@@ -207,7 +208,7 @@ export interface NdefTag extends TagSession {
  /**
   * Gets the NDEF message that was read from NDEF tag when tag discovery.
   *
-  * @return { NdefMessage } The instance of NdefMessage.
+  * @returns { NdefMessage } The instance of NdefMessage.
   * @since 9
   */
   getNdefMessage(): NdefMessage;
@@ -215,7 +216,7 @@ export interface NdefTag extends TagSession {
  /**
   * Checks if NDEF tag is writable.
   *
-  * @return { boolean } Returns true if the tag is writable, otherwise returns false.
+  * @returns { boolean } Returns true if the tag is writable, otherwise returns false.
   * @since 9
   */
   isNdefWritable(): boolean;
@@ -223,7 +224,7 @@ export interface NdefTag extends TagSession {
  /**
   * Reads NDEF message on this tag.
   *
-  * @return { NdefMessage } The NDEF message in tag.
+  * @returns { NdefMessage } The NDEF message in tag.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
@@ -249,7 +250,7 @@ export interface NdefTag extends TagSession {
  /**
   * Checks NDEF tag can be set read-only.
   *
-  * @return { boolean } Returns true if the tag can be set readonly, otherwise returns false.
+  * @returns { boolean } Returns true if the tag can be set readonly, otherwise returns false.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
@@ -273,7 +274,7 @@ export interface NdefTag extends TagSession {
   * Converts the NFC forum type into string defined in NFC forum.
   *
   * @param { tag.NfcForumType } type - NFC forum type of NDEF tag.
-  * @return { string } The NFC forum string type.
+  * @returns { string } The NFC forum string type.
   * @throws { BusinessError } 401 - The parameter check failed.
   * @since 9
   */
@@ -284,7 +285,7 @@ export interface NdefTag extends TagSession {
  * Provides methods for accessing MifareClassic tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface MifareClassicTag extends TagSession {
  /**
@@ -306,7 +307,7 @@ export interface MifareClassicTag extends TagSession {
   * Reads a block, one block size is 16 bytes.
   *
   * @param { number } blockIndex - The index of block to read.
-  * @return { number[] } Returns the block data.
+  * @returns { number[] } Returns the block data.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
@@ -387,7 +388,7 @@ export interface MifareClassicTag extends TagSession {
  /**
   * Gets the number of sectors in MifareClassic tag.
   *
-  * @return { number } Returns the number of sectors.
+  * @returns { number } Returns the number of sectors.
   * @since 9
   */
   getSectorCount(): number;
@@ -396,7 +397,7 @@ export interface MifareClassicTag extends TagSession {
   * Gets the number of blocks in the sector.
   *
   * @param { number } sectorIndex - The index of sector.
-  * @return { number } Returns the number of blocks.
+  * @returns { number } Returns the number of blocks.
   * @throws { BusinessError } 401 - The parameter check failed.
   * @since 9
   */
@@ -405,7 +406,7 @@ export interface MifareClassicTag extends TagSession {
  /**
   * Gets the type of the MifareClassic tag.
   *
-  * @return { tag.MifareClassicType } Returns type of MifareClassic tag.
+  * @returns { tag.MifareClassicType } Returns type of MifareClassic tag.
   * @since 9
   */
   getType(): tag.MifareClassicType;
@@ -413,7 +414,7 @@ export interface MifareClassicTag extends TagSession {
  /**
   * Gets size of the tag in bytes.
   *
-  * @return { number } Returns the size of the tag.
+  * @returns { number } Returns the size of the tag.
   * @since 9
   */
   getTagSize(): number;
@@ -421,7 +422,7 @@ export interface MifareClassicTag extends TagSession {
  /**
   * Checks if the tag is emulated or not.
   *
-  * @return { boolean } Returns true if tag is emulated, otherwise false.
+  * @returns { boolean } Returns true if tag is emulated, otherwise false.
   * @since 9
   */
   isEmulatedTag(): boolean;
@@ -430,7 +431,7 @@ export interface MifareClassicTag extends TagSession {
   * Gets the first block of the specific sector.
   *
   * @param { number } sectorIndex - The index of sector.
-  * @return { number } Returns index of first block in the sector.
+  * @returns { number } Returns index of first block in the sector.
   * @throws { BusinessError } 401 - The parameter check failed.
   * @since 9
   */
@@ -440,7 +441,7 @@ export interface MifareClassicTag extends TagSession {
   * Gets the sector index, that the sector contains the specific block.
   *
   * @param { number } blockIndex - The index of block.
-  * @return { number } Returns the sector index.
+  * @returns { number } Returns the sector index.
   * @throws { BusinessError } 401 - The parameter check failed.
   * @since 9
   */
@@ -451,14 +452,14 @@ export interface MifareClassicTag extends TagSession {
  * Provides methods for accessing MifareUltralight tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface MifareUltralightTag extends TagSession {
  /**
   * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
   *
   * @param { number } pageIndex - The index of page to read.
-  * @return { number[] } Returns 4 pages data.
+  * @returns { number[] } Returns 4 pages data.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
@@ -485,7 +486,7 @@ export interface MifareUltralightTag extends TagSession {
   /**
   * Gets the type of the MifareUltralight tag.
   *
-  * @return { tag.MifareUltralightType } Returns the type of MifareUltralight tag.
+  * @returns { tag.MifareUltralightType } Returns the type of MifareUltralight tag.
   * @since 9
   */
   getType(): tag.MifareUltralightType;
@@ -495,7 +496,7 @@ export interface MifareUltralightTag extends TagSession {
  * Provides methods for accessing NdefFormatable tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NdefFormatableTag extends TagSession {
  /**
