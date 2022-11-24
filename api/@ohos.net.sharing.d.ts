@@ -198,8 +198,6 @@ declare namespace sharing {
   }
 
   /**
-   * USB function is not supported
-   * 
    * @systemapi Hide this for inner system use.
    */
   export enum SharingIfaceType {
@@ -209,7 +207,7 @@ declare namespace sharing {
     SHARING_WIFI = 0,
 
     /**
-     * Network sharing type for USB.(This function is  not supported temporarily)
+     * this type is not supported temporarily
      */
     SHARING_USB = 1,
 
