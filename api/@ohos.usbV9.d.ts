@@ -244,14 +244,14 @@ declare namespace usbV9 {
       * Performs control transfer.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the USB device.
-     * @param contrlparam Control transfer parameters.
+     * @param controlparam Control transfer parameters.
      * @param timeout Timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
      * @return Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
      * @throws {BusinessError} 401 - The parameter types do not match or parameter is not specified.
      * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
-    function controlTransfer(pipe: USBDevicePipe, contrlparam: USBControlParams, timeout?: number): Promise<number>;
+    function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
     /**
      * Performs bulk transfer.
@@ -346,7 +346,7 @@ declare namespace usbV9 {
 
 
     /**
-     * Represents a USB interface. One USBconfig {@link USBConfig} can contain multiple **USBInterface** instances, each providing a specific function.
+     * Represents a USB interface. One config {@link USBConfig} can contain multiple **USBInterface** instances, each providing a specific function.
      *
      * @typedef USBInterface
      * @syscap SystemCapability.USB.USBManager
