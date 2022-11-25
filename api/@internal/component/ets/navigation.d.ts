@@ -193,6 +193,32 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   subTitle(value: string): NavigationAttribute;
 
   /**
+   * Extended Title Id
+   * It is Id of component from content of Navigation to be added before custom title in different screen sizes
+   * @since 9
+   */
+  extTitle(value: string | {
+    xs?: string;
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+   }): NavigationAttribute;
+
+  /**
+   * Extended Title size
+   * Size of extended title to be added before custom title in different screen sizes
+   * @since 9
+   */
+  extTitleSize(value: Length | {
+    xs?: Length;
+    sm?: Length;
+    md?: Length;
+    lg?: Length;
+    xl?: Length;
+   }): NavigationAttribute;
+
+  /**
    * Hide navigation title bar
    * @since 8
    */
