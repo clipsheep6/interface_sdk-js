@@ -809,21 +809,21 @@ declare namespace notificationManager {
 
   /**
    * Request permission to send notification.
-   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @param { AsyncCallback<boolean> } callback - The callback returns the status of notification switch.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  function requestEnableNotification(callback: AsyncCallback<void>): void;
+  function requestEnableNotification(callback: AsyncCallback<boolean>): void;
 
   /**
    * Request permission to send notification.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<boolean> } Returns the status of notification switch.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
-  function requestEnableNotification(): Promise<void>;
+  function requestEnableNotification(): Promise<boolean>;
 
   /**
    * Sets whether the device supports distributed notification.
