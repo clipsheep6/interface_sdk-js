@@ -29,7 +29,7 @@ declare namespace connection {
   type UDPSocket = socket.UDPSocket;
 
   /**
-   * Create a network connection with optional network specifier and timeout.
+   * Create a network connection with optional netSpecifier and timeout.
    *
    * @param netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
    * @param timeout The time in milliseconds to attempt looking for a suitable network before
