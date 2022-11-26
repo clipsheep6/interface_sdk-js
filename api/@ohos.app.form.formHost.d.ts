@@ -535,5 +535,53 @@ declare namespace formHost {
      * @since 9
      */
     function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
+
+    /**
+     * Obtains the FormInfo objects provided by specified requirements.
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { formInfo.FormInfoFilter } filter Indicates the requirements the forms that the formInfos belong to have to meet.
+     * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback of getFormsInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+
+    /**
+     * Obtains the FormInfo objects provided by specified requirements.
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { formInfo.FormInfoFilter } filter Indicates the requirements the forms that the formInfos belong to have to meet.
+     * @returns { Promise<Array<formInfo.FormInfo>> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
+
+    /**
+     * Obtains the remote form preview image.
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Want } want Indicates want of the form.
+     * @param { callback } callback - The callback of getFormPreviewImage.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function getFormPreviewImage(want: Want, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the remote form preview image.
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Want } want Indicates want of the form.
+     * @returns { Promise<number> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function getFormPreviewImage(want: Want): Promise<number>;
 }
 export default formHost;
