@@ -87,7 +87,7 @@ declare namespace call {
    * subsystem domain (IMS) call on a telephone service network. If the device supports only packet switching
    * (even if the device supports OTT calls), {@code false} is returned.
    *
-   * @return Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
    * @since 7
    */
   function hasVoiceCapability(): boolean;

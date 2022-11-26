@@ -114,7 +114,7 @@ declare namespace sms {
   /**
    * Returns whether a device is capable of sending and receiving SMS messages.
    *
-   * @return Returns {@code true} if the device is capable of sending and receiving SMS messages;
+   * @returns Returns {@code true} if the device is capable of sending and receiving SMS messages;
    *     returns {@code false} otherwise.
    * @since 7
    */
@@ -533,7 +533,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_UNREAD = 3,
     /** STO SENT stored sent message (only applicable to SMs) */
     SIM_MESSAGE_STATUS_SENT = 5,
-    /** STO UNSENT stored unsent messages (only applicable to SMs) */
+    /** STO UNSENT stored unsent message (only applicable to SMs) */
     SIM_MESSAGE_STATUS_UNSENT = 7,
   }
 

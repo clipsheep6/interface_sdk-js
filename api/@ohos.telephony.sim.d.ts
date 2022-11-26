@@ -207,7 +207,7 @@ declare namespace sim {
    * Obtains the maximum number of SIM cards that can be used simultaneously on the device,
    * that is, the maximum number of SIM card slots.
    *
-   * @return Returns the maximum number of SIM card slots.
+   * @returns Returns the maximum number of SIM card slots.
    * @since 7
    */
   function getMaxSimCount(): number;
@@ -443,7 +443,7 @@ declare namespace sim {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @return Returns the operator key; returns an empty string if no SIM card is inserted or
+   * @returns Returns the operator key; returns an empty string if no SIM card is inserted or
    * no operator key matched.
    * @since 9
    */
@@ -463,7 +463,7 @@ declare namespace sim {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @return Returns the operator name; returns an empty string if no SIM card is inserted or
+   * @returns Returns the operator name; returns an empty string if no SIM card is inserted or
    * no operator name matched.
    * @since 9
    */
