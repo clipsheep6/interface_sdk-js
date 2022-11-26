@@ -431,7 +431,7 @@ declare namespace sim {
   function unlockSimLock(slotId: number, lockInfo: PersoLockInfo): Promise<LockStatusResponse>;
 
   /**
-   * Obtains the opkey of the SIM card in a specified slot.
+   * Obtains the operator key of the SIM card in a specified slot.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -443,15 +443,15 @@ declare namespace sim {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @return Returns the opkey; returns an empty string if no SIM card is inserted or
-   * no opkey matched.
+   * @return Returns the operator key; returns an empty string if no SIM card is inserted or
+   * no operator key matched.
    * @since 9
    */
   function getOpKey(slotId: number, callback: AsyncCallback<string>): void;
   function getOpKey(slotId: number): Promise<string>;
 
   /**
-   * Obtains the opname of the SIM card in a specified slot.
+   * Obtains the operator name of the SIM card in a specified slot.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -463,8 +463,8 @@ declare namespace sim {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @return Returns the opname; returns an empty string if no SIM card is inserted or
-   * no opname matched.
+   * @return Returns the operator name; returns an empty string if no SIM card is inserted or
+   * no operator name matched.
    * @since 9
    */
   function getOpName(slotId: number, callback: AsyncCallback<string>): void;
@@ -572,7 +572,7 @@ declare namespace sim {
    * @since 7
    */
   export enum CardType {
-    /** Icc card type: Unknow type Card. */
+    /** Icc card type: unknown type Card. */
     UNKNOWN_CARD = -1,
 
     /** Icc card type: Single sim card type. */
@@ -671,13 +671,13 @@ declare namespace sim {
   export enum PersoLockType {
     PN_PIN_LOCK, //Network Personalization (refer 3GPP TS 22.022 [33])
     PN_PUK_LOCK,
-    PU_PIN_LOCK, //network sUbset Personalization (refer 3GPP TS 22.022 [33])
+    PU_PIN_LOCK, //Network Subset Personalization (refer 3GPP TS 22.022 [33])
     PU_PUK_LOCK,
-    PP_PIN_LOCK, //service Provider Personalization (refer 3GPP TS 22.022 [33])
+    PP_PIN_LOCK, //Service Provider Personalization (refer 3GPP TS 22.022 [33])
     PP_PUK_LOCK,
     PC_PIN_LOCK, //Corporate Personalization (refer 3GPP TS 22.022 [33])
     PC_PUK_LOCK,
-    SIM_PIN_LOCK, //SIM/USIM personalisation (refer 3GPP TS 22.022 [33])
+    SIM_PIN_LOCK, //SIM/USIM Personalization (refer 3GPP TS 22.022 [33])
     SIM_PUK_LOCK,
   }
 }
