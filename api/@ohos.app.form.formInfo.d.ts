@@ -154,6 +154,27 @@ declare namespace formInfo {
          * @since 9
          */
         customizeData: {[key: string]: [value: string]};
+
+        /**
+         * Whether can be continued of this form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+         continuableType: ContinuableType;
+    }
+
+    /**
+     * Type of continuable.
+     *
+     * @name ContinuableType
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+    */
+     enum ContinuableType {
+        UNDEFINED,
+        SHARED,
+        COORDINATED
     }
 
     /**
@@ -407,6 +428,16 @@ declare namespace formInfo {
      * @since 9
      */
     interface FormInfoFilter {
+         /**
+          * optional bundleName that used to ask getFormsInfo to return
+          * form infos with the same bundleName.
+          *
+          * @since 9
+          * @syscap SystemCapability.Ability.Form
+          * @systemapi hide for inner use
+          */
+        bundleName?: string;
+
         /**
          * optional moduleName that used to ask getFormsInfo to return
          * form infos with the same moduleName.
@@ -414,6 +445,16 @@ declare namespace formInfo {
          * @since 9
          */
         moduleName?: string;
+
+        /**
+         * optional deviceId that used to ask getFormsInfo to return
+         * form infos with the same deviceId.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         * @systemapi hide for inner use
+         */
+        deviceId?: string;
     }
 
     /**
