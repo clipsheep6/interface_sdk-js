@@ -36,7 +36,8 @@ declare namespace avSession {
    * @returns {void | Promise<AVSession>} no callback returns Promise otherwise returns void
    * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
@@ -136,7 +137,8 @@ declare namespace avSession {
    * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   function on(type: 'sessionServiceDie', callback: () => void): void;
@@ -180,13 +182,15 @@ declare namespace avSession {
   /**
    * AVSession object.
    * @interface AVSession
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface AVSession {
     /**
      * unique session Id
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     readonly sessionId: string;
@@ -198,7 +202,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     setAVMetadata(data: AVMetadata, callback: AsyncCallback<void>): void;
@@ -210,7 +215,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback<void>): void;
@@ -220,10 +226,12 @@ declare namespace avSession {
      * Set the ability to start the session corresponding to
      * @param ability The WantAgent for launch the ability
      * @since 9
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      */
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
     setLaunchAbility(ability: WantAgent): Promise<void>;
@@ -233,7 +241,8 @@ declare namespace avSession {
      * @returns The instance of {@link AVSessionController}
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getController(callback: AsyncCallback<AVSessionController>): void;
@@ -244,7 +253,8 @@ declare namespace avSession {
      * @returns The instance of {@link OutputDeviceInfo}
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
@@ -262,7 +272,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind', callback: () => void): void;
@@ -275,7 +286,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'seek', callback: (time: number) => void): void;
@@ -288,7 +300,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'setSpeed', callback: (speed: number) => void): void;
@@ -301,7 +314,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'setLoopMode', callback: (mode: LoopMode) => void): void;
@@ -315,7 +329,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'toggleFavorite', callback: (assetId: string) => void): void;
@@ -328,7 +343,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'handleKeyEvent', callback: (event: KeyEvent) => void): void;
@@ -342,7 +358,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'outputDeviceChange', callback: (device: OutputDeviceInfo) => void): void;
@@ -352,7 +369,8 @@ declare namespace avSession {
      * Activate the session, indicating that the session can accept control commands
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     activate(callback: AsyncCallback<void>): void;
@@ -362,7 +380,8 @@ declare namespace avSession {
      * Deactivate the session, indicating that the session not ready to accept control commands
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     deactivate(callback: AsyncCallback<void>): void;
@@ -372,7 +391,8 @@ declare namespace avSession {
      * Destroy this session, the server will clean up the session resources
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     destroy(callback: AsyncCallback<void>): void;
@@ -382,100 +402,116 @@ declare namespace avSession {
   /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface AVMetadata {
     /**
      * Unique ID used to represent this media.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     assetId: string;
     /**
      * The title of this media, for display in media center.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     title?: string;
     /**
      * The artist of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     artist?: string;
     /**
      * The author of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     author?: string;
     /**
      * The album of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     album?: string;
     /**
      * The writer of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     writer?: string;
     /**
      * The composer of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     composer?: string;
     /**
      * The duration of this media, used to automatically calculate playback position
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     duration?: number;
     /**
      * The image of the media as a {@link PixelMap} or an uri formatted String,
      * used to display in media center.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     mediaImage?: image.PixelMap | string;
     /**
      * The publishDate of the media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     publishDate?: Date;
     /**
      * The subtitle of the media, used for display
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     subtitle?: string;
     /**
      * The discription of the media, used for display
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     description?: string;
     /**
      * The lyric of the media, it should be in standard lyric format
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     lyric?: string;
     /**
      * The previous playable media id.
      * Used to tell the controller if there is a previous playable media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     previousAssetId?: string;
     /**
      * The next playable media id.
      * Used to tell the controller if there is a next playable media
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     nextAssetId?: string;
@@ -485,43 +521,50 @@ declare namespace avSession {
    * Used to indicate the playback state of the current media.
    * If the playback state of the media changes, it needs to be updated synchronously
    * @interface AVPlaybackState
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface AVPlaybackState {
     /**
      * Current playback state. See {@link PlaybackState}
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     state?: PlaybackState;
     /**
      * Current playback speed
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     speed?: number;
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     position?: PlaybackPosition;
     /**
      * The current buffered time, the maximum playable position
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     bufferedTime?: number;
     /**
      * Current playback loop mode. See {@link LoopMode}
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     loopMode?: LoopMode;
     /**
      * Current Favorite Status
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     isFavorite?: boolean;
@@ -530,19 +573,22 @@ declare namespace avSession {
   /**
    * Playback position definition
    * @interface PlaybackPosition
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface PlaybackPosition {
     /**
      * Elapsed time(position) of this media set by the app.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     elapsedTime: number;
     /**
      * Record the system time when elapsedTime is set.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     updateTime: number;
@@ -550,7 +596,8 @@ declare namespace avSession {
   /**
    * Target Device Information Definition
    * @interface OutputDeviceInfo
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface OutputDeviceInfo {
@@ -575,7 +622,8 @@ declare namespace avSession {
   /**
    * Loop Play Mode Definition
    * @enum {number}
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   enum LoopMode {
@@ -607,7 +655,8 @@ declare namespace avSession {
   /**
    * Definition of current playback state
    * @enum {number}
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   enum PlaybackState {
@@ -704,13 +753,15 @@ declare namespace avSession {
   /**
    * Session controller,used to control media playback and get media information
    * @interface AVSessionController
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface AVSessionController {
     /**
      * Unique session Id
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     readonly sessionId: string;
@@ -720,6 +771,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
@@ -731,6 +784,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getAVMetadata(callback: AsyncCallback<AVMetadata>): void;
@@ -741,7 +796,8 @@ declare namespace avSession {
      * @returns The instance of {@link OutputDeviceInfo}
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
@@ -756,6 +812,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @throws {BusinessError} {@link #ERR_CODE_COMMAND_INVALID} - command not supported
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     sendAVKeyEvent(event: KeyEvent, callback: AsyncCallback<void>): void;
@@ -767,6 +825,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getLaunchAbility(callback: AsyncCallback<WantAgent>): void;
@@ -778,6 +838,8 @@ declare namespace avSession {
      * @returns current playback position in ms.Note that the returns value of each call will be different.
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getRealPlaybackPositionSync(): number;
@@ -788,6 +850,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     isActive(callback: AsyncCallback<boolean>): void;
@@ -797,6 +861,8 @@ declare namespace avSession {
      * Destroy the server controller
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     destroy(callback: AsyncCallback<void>): void;
@@ -808,6 +874,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     getValidCommands(callback: AsyncCallback<Array<AVControlCommandType>>): void;
@@ -823,6 +891,8 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_COMMAND_INVALID} - command not supported
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
      * @throws {BusinessError} {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     sendControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
@@ -838,6 +908,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'metadataChange', filter: Array<keyof AVMetadata> | 'all', callback: (data: AVMetadata) => void);
@@ -852,6 +924,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void);
@@ -864,6 +938,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'sessionDestroy', callback: () => void);
@@ -877,6 +953,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'activeStateChange', callback: (isActive: boolean) => void);
@@ -890,6 +968,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'validCommandChange', callback: (commands: Array<AVControlCommandType>) => void);
@@ -903,7 +983,8 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @systemapi
      * @since 9
      */
     on(type: 'outputDeviceChange', callback: (device: OutputDeviceInfo) => void): void;
@@ -912,7 +993,8 @@ declare namespace avSession {
 
   /**
    * The type of control command
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
@@ -921,7 +1003,8 @@ declare namespace avSession {
   /**
    * The definition of command to be sent to the session
    * @interface AVControlCommand
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface AVControlCommand {
@@ -945,7 +1028,8 @@ declare namespace avSession {
   /**
    * Enumerates ErrorCode types, returns in BusinessError.code.
    * @enum {number}
-   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   enum AVSessionErrorCode {
