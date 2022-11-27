@@ -317,8 +317,8 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
-   function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
+  function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+  function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
    * Called when the IMS registration state of specificed IMS service type corresponding
