@@ -199,9 +199,9 @@ declare namespace avSession {
     /**
      * Set the metadata of this session.
      * In addition to the required properties, users can fill in partially supported properties
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param data {@link AVMetadata}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -213,9 +213,9 @@ declare namespace avSession {
 
     /**
      * Set the playback state of this session.
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param state {@link AVPlaybackState}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -701,6 +701,7 @@ declare namespace avSession {
    * @interface AVSessionDescriptor
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
    * @since 9
    */
   interface AVSessionDescriptor {
