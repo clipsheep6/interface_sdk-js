@@ -67,7 +67,25 @@ export default class AbilityContext extends Context {
      * Starts a new ability.
      * @param want { Want } - Indicates the ability to start.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -79,7 +97,25 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -91,7 +127,25 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -102,7 +156,6 @@ export default class AbilityContext extends Context {
      * Get the caller object of the startup capability
      * @param { Want } want - Indicates the ability to start.
      * @returns { Promise<Caller> } Returns the Caller interface.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -116,7 +169,26 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -131,7 +203,26 @@ export default class AbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -146,7 +237,26 @@ export default class AbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -158,7 +268,25 @@ export default class AbilityContext extends Context {
      * Starts an ability and returns the execution result when the ability is destroyed.
      * @param { Want } want - Indicates the ability to start.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -170,7 +298,25 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -182,7 +328,25 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<AbilityResult> } Returns the result of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -195,7 +359,25 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -210,7 +392,25 @@ export default class AbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -225,7 +425,25 @@ export default class AbilityContext extends Context {
      * @param { number } accountId - Indicates the account to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<AbilityResult> } Returns the result of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000010 - Can not operation with continue flag.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000051 - Network error. The network is abnormal.
+     * @throws { BusinessError } 16000052 - Free install not support. The application does not support freeinstall
+     * @throws { BusinessError } 16000053 - Not top ability. The application is not top ability.
+     * @throws { BusinessError } 16000054 - Free install busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000055 - Free install timeout.
+     * @throws { BusinessError } 16000056 - Can not free install other ability.
+     * @throws { BusinessError } 16000057 - Not support cross device free install.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -237,7 +455,18 @@ export default class AbilityContext extends Context {
      * Starts a new service extension ability.
      * @param { Want } want - Indicates the want info to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -249,7 +478,18 @@ export default class AbilityContext extends Context {
      * Starts a new service extension ability.
      * @param { Want } want - Indicates the want info to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -263,7 +503,15 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -277,7 +525,19 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000005 - IStatic permission denied. The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000008 - Crowdtest App Expiration.
+     * @throws { BusinessError } 16000009 - Can not start ability in wukong mode.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -289,7 +549,15 @@ export default class AbilityContext extends Context {
      * Stops a service within the same application.
      * @param { Want } want - Indicates the want info to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -301,7 +569,15 @@ export default class AbilityContext extends Context {
      * Stops a service within the same application.
      * @param { Want } want - Indicates the want info to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -315,7 +591,16 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -329,7 +614,16 @@ export default class AbilityContext extends Context {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -340,7 +634,12 @@ export default class AbilityContext extends Context {
     /**
      * Destroys this Page ability.
      * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -350,7 +649,12 @@ export default class AbilityContext extends Context {
     /**
      * Destroys this Page ability.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -362,7 +666,12 @@ export default class AbilityContext extends Context {
      * and destroys this Page ability.
      * @param { AbilityResult } parameter - Indicates the result to return.
      * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -374,7 +683,12 @@ export default class AbilityContext extends Context {
      * and destroys this Page ability.
      * @param { AbilityResult } parameter - Indicates the result to return.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000007 - Service busyness. There are concurrent tasks, waiting for retry.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -432,7 +746,13 @@ export default class AbilityContext extends Context {
      * @param { Want } want - The element name of the service ability
      * @param { ConnectOptions } options - The remote object instance
      * @returns { number } Returns the number code of the ability connected
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -446,7 +766,14 @@ export default class AbilityContext extends Context {
      * @param { number } accountId - The account to connect
      * @param { ConnectOptions } options - The remote object instance
      * @returns { number } Returns the number code of the ability connected
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000002 - Ability type error. The specified ability type is wrong.
+     * @throws { BusinessError } 16000004 - Visibility verification failed.
+     * @throws { BusinessError } 16000006 - Can not cross user operations.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -458,7 +785,12 @@ export default class AbilityContext extends Context {
      * The callback interface was connect successfully.
      * @param { number } connection - The number code of the ability connected
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000003 - Input error. The specified id does not exist.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -469,7 +801,12 @@ export default class AbilityContext extends Context {
      * The callback interface was connect successfully.
      * @param { number } connection - The number code of the ability connected
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 201 - 	The application does not have permission to call the interface.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 16000001 - Input error. The specified ability name does not exist.
+     * @throws { BusinessError } 16000003 - Input error. The specified id does not exist.
+     * @throws { BusinessError } 16000011 - Context does not exist.
+     * @throws { BusinessError } 16000050 - Internal Error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
