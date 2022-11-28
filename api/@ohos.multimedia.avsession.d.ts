@@ -22,18 +22,22 @@ import audio from './@ohos.multimedia.audio';
 
 /**
  * @name avSession
- * @syscap SystemCapability.Multimedia.AVSession.Core
+ * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+ * @syscap SystemCapability.Multimedia.AVSession.Manager
+ * @systemapi
  * @import import avsession from '@ohos.multimedia.avsession';
  * @since 9
  */
 declare namespace avSession {
   /**
    * Create an AVSession instance. An ability can only create one AVSession
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param context The context of application
    * @param tag A user-defined name for this session
    * @param type The type of session {@link AVSessionType}
    * @param {AsyncCallback<AVSession>} [callback] - callback.
    * @returns {void | Promise<AVSession>} no callback returns Promise otherwise returns void
+   * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -93,7 +97,6 @@ declare namespace avSession {
 
   /**
    * Session token. Used to judge the legitimacy of the session.
-   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -132,6 +135,7 @@ declare namespace avSession {
 
   /**
    * Register or unregister Session service death callback, notifying the application to clean up resources.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param type Registration Type
    * @param callback Used to handle the session service death event.
    * @throws {BusinessError} 201 - permission denied
@@ -182,6 +186,7 @@ declare namespace avSession {
   /**
    * AVSession object.
    * @interface AVSession
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -198,7 +203,9 @@ declare namespace avSession {
     /**
      * Set the metadata of this session.
      * In addition to the required properties, users can fill in partially supported properties
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param data {@link AVMetadata}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -211,7 +218,9 @@ declare namespace avSession {
 
     /**
      * Set the playback state of this session.
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param state {@link AVPlaybackState}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -224,21 +233,24 @@ declare namespace avSession {
 
     /**
      * Set the ability to start the session corresponding to
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param ability The WantAgent for launch the ability
-     * @since 9
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
+	 * @since 9
      */
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
     setLaunchAbility(ability: WantAgent): Promise<void>;
 
     /**
      * Get the current session's own controller
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link AVSessionController}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -250,7 +262,9 @@ declare namespace avSession {
 
     /**
      * Get output device information
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link OutputDeviceInfo}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -267,8 +281,10 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Command to register.
      * @param callback Used to handle callback commands
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -281,8 +297,10 @@ declare namespace avSession {
 
     /**
      * Register or unregister seek command callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'seek'
      * @param callback Used to handle seek command.The callback provide the seek time(ms)
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -295,8 +313,10 @@ declare namespace avSession {
 
     /**
      * Register or unregister setSpeed command callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'setSpeed'
      * @param callback Used to handle setSpeed command.The callback provide the speed value
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -309,8 +329,10 @@ declare namespace avSession {
 
     /**
      * Register or unregister setLoopMode command callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'setLoopMode'
      * @param callback Used to handle setLoopMode command.The callback provide the {@link LoopMode}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -323,9 +345,11 @@ declare namespace avSession {
 
     /**
      * Register or unregister toggle favorite command callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'toggleFavorite'
      * @param callback Used to handle toggleFavorite command.The callback provide
      * the assetId for which the favorite status needs to be switched.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -338,8 +362,10 @@ declare namespace avSession {
 
     /**
      * Register or unregister media key handling callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type
      * @param callback Used to handle key events.The callback provide the KeyEvent
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -352,9 +378,11 @@ declare namespace avSession {
 
     /**
      * Register or unregister session output device change callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type
      * @param callback Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -367,6 +395,8 @@ declare namespace avSession {
 
     /**
      * Activate the session, indicating that the session can accept control commands
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -378,6 +408,8 @@ declare namespace avSession {
 
     /**
      * Deactivate the session, indicating that the session not ready to accept control commands
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -389,6 +421,8 @@ declare namespace avSession {
 
     /**
      * Destroy this session, the server will clean up the session resources
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -521,6 +555,7 @@ declare namespace avSession {
    * Used to indicate the playback state of the current media.
    * If the playback state of the media changes, it needs to be updated synchronously
    * @interface AVPlaybackState
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -573,6 +608,7 @@ declare namespace avSession {
   /**
    * Playback position definition
    * @interface PlaybackPosition
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -753,6 +789,7 @@ declare namespace avSession {
   /**
    * Session controller,used to control media playback and get media information
    * @interface AVSessionController
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -767,7 +804,9 @@ declare namespace avSession {
     readonly sessionId: string;
     /**
      * Get the playback status of the current session
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns AVPlaybackState {@link AVPlaybackState}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -780,7 +819,9 @@ declare namespace avSession {
 
     /**
      * Get the metadata of the current session
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns AVMetadata {@link AVMetadata}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -793,7 +834,9 @@ declare namespace avSession {
 
     /**
      * Get output device information
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link OutputDeviceInfo}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -805,7 +848,9 @@ declare namespace avSession {
 
     /**
      * Send media key event to this session
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param event The KeyEvent
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -821,7 +866,9 @@ declare namespace avSession {
 
     /**
      * Get the {@link WantAgent} of this session that can launch the session ability
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns WantAgent {@link WantAgent}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -835,7 +882,9 @@ declare namespace avSession {
     /**
      * Get the adjusted playback position. The time automatically calculated by the system
      * taking into account factors such as playback status, playback speed, and application update time.
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns current playback position in ms.Note that the returns value of each call will be different.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -846,7 +895,9 @@ declare namespace avSession {
 
     /**
      * Check if the current session is active
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns the active state
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -859,6 +910,8 @@ declare namespace avSession {
 
     /**
      * Destroy the server controller
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -870,7 +923,9 @@ declare namespace avSession {
 
     /**
      * Get commands supported by the current session
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns An array of AVControlCommandType {@link AVControlCommandType}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -883,7 +938,9 @@ declare namespace avSession {
 
     /**
      * Send control commands to this session
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param command The command to be send. See {@link AVControlCommand}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -900,11 +957,13 @@ declare namespace avSession {
 
     /**
      * Register or unregister metadata changed callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'metadataChange'
      * @param filter The properties of {@link AVMetadata} that you cared about
      * @param callback The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -917,10 +976,12 @@ declare namespace avSession {
 
     /**
      * Register or unregister playback state changed callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'playbackStateChange'
      * @param filter The properties of {@link AVPlaybackState} that you cared about
      * @param callback The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -933,8 +994,10 @@ declare namespace avSession {
 
     /**
      * Register or unregister current session destroyed callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'sessionDestroy'
      * @param callback The callback used to handle current session destroyed event.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -947,9 +1010,11 @@ declare namespace avSession {
 
     /**
      * Register or unregister the active state of this session changed callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'activeStateChange'
      * @param callback The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -962,9 +1027,11 @@ declare namespace avSession {
 
     /**
      * Register or unregister the valid commands of the session changed callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'validCommandChange'
      * @param callback The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
@@ -977,9 +1044,11 @@ declare namespace avSession {
 
     /**
      * Register or unregister session output device change callback
+	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type
      * @param callback Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
+	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
