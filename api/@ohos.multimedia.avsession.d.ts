@@ -23,8 +23,7 @@ import audio from './@ohos.multimedia.audio';
 /**
  * @name avSession
  * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
- * @syscap SystemCapability.Multimedia.AVSession.Manager
- * @systemapi
+ * @syscap SystemCapability.Multimedia.AVSession.Core
  * @import import avsession from '@ohos.multimedia.avsession';
  * @since 9
  */
@@ -40,8 +39,7 @@ declare namespace avSession {
    * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
@@ -141,8 +139,7 @@ declare namespace avSession {
    * @throws {BusinessError} 201 - permission denied
    * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   function on(type: 'sessionServiceDie', callback: () => void): void;
@@ -187,15 +184,13 @@ declare namespace avSession {
    * AVSession object.
    * @interface AVSession
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface AVSession {
     /**
      * unique session Id
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     readonly sessionId: string;
@@ -209,8 +204,7 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     setAVMetadata(data: AVMetadata, callback: AsyncCallback<void>): void;
@@ -224,8 +218,7 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback<void>): void;
@@ -239,8 +232,7 @@ declare namespace avSession {
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
 	 * @since 9
      */
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
@@ -248,13 +240,12 @@ declare namespace avSession {
 
     /**
      * Get the current session's own controller
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link AVSessionController}
 	 * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getController(callback: AsyncCallback<AVSessionController>): void;
@@ -262,13 +253,12 @@ declare namespace avSession {
 
     /**
      * Get output device information
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link OutputDeviceInfo}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
@@ -281,15 +271,14 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Command to register.
      * @param callback Used to handle callback commands
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind', callback: () => void): void;
@@ -297,15 +286,14 @@ declare namespace avSession {
 
     /**
      * Register or unregister seek command callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'seek'
      * @param callback Used to handle seek command.The callback provide the seek time(ms)
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'seek', callback: (time: number) => void): void;
@@ -313,15 +301,14 @@ declare namespace avSession {
 
     /**
      * Register or unregister setSpeed command callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'setSpeed'
      * @param callback Used to handle setSpeed command.The callback provide the speed value
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'setSpeed', callback: (speed: number) => void): void;
@@ -329,15 +316,14 @@ declare namespace avSession {
 
     /**
      * Register or unregister setLoopMode command callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'setLoopMode'
      * @param callback Used to handle setLoopMode command.The callback provide the {@link LoopMode}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'setLoopMode', callback: (mode: LoopMode) => void): void;
@@ -345,16 +331,15 @@ declare namespace avSession {
 
     /**
      * Register or unregister toggle favorite command callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type 'toggleFavorite'
      * @param callback Used to handle toggleFavorite command.The callback provide
      * the assetId for which the favorite status needs to be switched.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'toggleFavorite', callback: (assetId: string) => void): void;
@@ -362,15 +347,14 @@ declare namespace avSession {
 
     /**
      * Register or unregister media key handling callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type
      * @param callback Used to handle key events.The callback provide the KeyEvent
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'handleKeyEvent', callback: (event: KeyEvent) => void): void;
@@ -378,16 +362,15 @@ declare namespace avSession {
 
     /**
      * Register or unregister session output device change callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type
      * @param callback Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'outputDeviceChange', callback: (device: OutputDeviceInfo) => void): void;
@@ -395,12 +378,11 @@ declare namespace avSession {
 
     /**
      * Activate the session, indicating that the session can accept control commands
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-	 * @throws {BusinessError} 201 - permission denied
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     activate(callback: AsyncCallback<void>): void;
@@ -408,12 +390,11 @@ declare namespace avSession {
 
     /**
      * Deactivate the session, indicating that the session not ready to accept control commands
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-	 * @throws {BusinessError} 201 - permission denied
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     deactivate(callback: AsyncCallback<void>): void;
@@ -421,12 +402,11 @@ declare namespace avSession {
 
     /**
      * Destroy this session, the server will clean up the session resources
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-	 * @throws {BusinessError} 201 - permission denied
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     destroy(callback: AsyncCallback<void>): void;
@@ -436,116 +416,101 @@ declare namespace avSession {
   /**
    * The metadata of the current media.Used to set the properties of the current media file
    * @interface AVMetadata
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface AVMetadata {
     /**
      * Unique ID used to represent this media.
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     assetId: string;
     /**
      * The title of this media, for display in media center.
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     title?: string;
     /**
      * The artist of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     artist?: string;
     /**
      * The author of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     author?: string;
     /**
      * The album of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     album?: string;
     /**
      * The writer of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     writer?: string;
     /**
      * The composer of this media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     composer?: string;
     /**
      * The duration of this media, used to automatically calculate playback position
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     duration?: number;
     /**
      * The image of the media as a {@link PixelMap} or an uri formatted String,
      * used to display in media center.
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     mediaImage?: image.PixelMap | string;
     /**
      * The publishDate of the media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     publishDate?: Date;
     /**
      * The subtitle of the media, used for display
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     subtitle?: string;
     /**
      * The discription of the media, used for display
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     description?: string;
     /**
      * The lyric of the media, it should be in standard lyric format
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     lyric?: string;
     /**
      * The previous playable media id.
      * Used to tell the controller if there is a previous playable media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     previousAssetId?: string;
     /**
      * The next playable media id.
      * Used to tell the controller if there is a next playable media
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     nextAssetId?: string;
@@ -556,50 +521,43 @@ declare namespace avSession {
    * If the playback state of the media changes, it needs to be updated synchronously
    * @interface AVPlaybackState
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface AVPlaybackState {
     /**
      * Current playback state. See {@link PlaybackState}
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     state?: PlaybackState;
     /**
      * Current playback speed
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     speed?: number;
     /**
      * Current playback position of this media. See {@link PlaybackPosition}
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     position?: PlaybackPosition;
     /**
      * The current buffered time, the maximum playable position
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     bufferedTime?: number;
     /**
      * Current playback loop mode. See {@link LoopMode}
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     loopMode?: LoopMode;
     /**
      * Current Favorite Status
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     isFavorite?: boolean;
@@ -609,22 +567,19 @@ declare namespace avSession {
    * Playback position definition
    * @interface PlaybackPosition
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface PlaybackPosition {
     /**
      * Elapsed time(position) of this media set by the app.
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     elapsedTime: number;
     /**
      * Record the system time when elapsedTime is set.
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     updateTime: number;
@@ -632,8 +587,8 @@ declare namespace avSession {
   /**
    * Target Device Information Definition
    * @interface OutputDeviceInfo
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface OutputDeviceInfo {
@@ -658,6 +613,7 @@ declare namespace avSession {
   /**
    * Loop Play Mode Definition
    * @enum {number}
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -691,8 +647,8 @@ declare namespace avSession {
   /**
    * Definition of current playback state
    * @enum {number}
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   enum PlaybackState {
@@ -743,8 +699,8 @@ declare namespace avSession {
   /**
    * The description of the session
    * @interface AVSessionDescriptor
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
    * @since 9
    */
   interface AVSessionDescriptor {
@@ -790,28 +746,26 @@ declare namespace avSession {
    * Session controller,used to control media playback and get media information
    * @interface AVSessionController
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface AVSessionController {
     /**
      * Unique session Id
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
      * @since 9
      */
     readonly sessionId: string;
     /**
      * Get the playback status of the current session
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns AVPlaybackState {@link AVPlaybackState}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
@@ -819,14 +773,13 @@ declare namespace avSession {
 
     /**
      * Get the metadata of the current session
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns AVMetadata {@link AVMetadata}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getAVMetadata(callback: AsyncCallback<AVMetadata>): void;
@@ -834,13 +787,12 @@ declare namespace avSession {
 
     /**
      * Get output device information
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link OutputDeviceInfo}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
@@ -848,17 +800,16 @@ declare namespace avSession {
 
     /**
      * Send media key event to this session
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param event The KeyEvent
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
      * @throws {BusinessError} {@link #ERR_CODE_COMMAND_INVALID} - command not supported
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     sendAVKeyEvent(event: KeyEvent, callback: AsyncCallback<void>): void;
@@ -866,14 +817,13 @@ declare namespace avSession {
 
     /**
      * Get the {@link WantAgent} of this session that can launch the session ability
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns WantAgent {@link WantAgent}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getLaunchAbility(callback: AsyncCallback<WantAgent>): void;
@@ -882,27 +832,25 @@ declare namespace avSession {
     /**
      * Get the adjusted playback position. The time automatically calculated by the system
      * taking into account factors such as playback status, playback speed, and application update time.
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns current playback position in ms.Note that the returns value of each call will be different.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getRealPlaybackPositionSync(): number;
 
     /**
      * Check if the current session is active
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns the active state
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     isActive(callback: AsyncCallback<boolean>): void;
@@ -910,12 +858,11 @@ declare namespace avSession {
 
     /**
      * Destroy the server controller
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-	 * @throws {BusinessError} 201 - permission denied
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     destroy(callback: AsyncCallback<void>): void;
@@ -923,14 +870,13 @@ declare namespace avSession {
 
     /**
      * Get commands supported by the current session
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns An array of AVControlCommandType {@link AVControlCommandType}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     getValidCommands(callback: AsyncCallback<Array<AVControlCommandType>>): void;
@@ -938,9 +884,9 @@ declare namespace avSession {
 
     /**
      * Send control commands to this session
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param command The command to be send. See {@link AVControlCommand}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
@@ -948,8 +894,7 @@ declare namespace avSession {
      * @throws {BusinessError} {@link #ERR_CODE_COMMAND_INVALID} - command not supported
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_INACTIVE} - session inactive
      * @throws {BusinessError} {@link #ERR_CODE_MESSAGE_OVERLOAD} - command or event overload
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     sendControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
@@ -957,18 +902,17 @@ declare namespace avSession {
 
     /**
      * Register or unregister metadata changed callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'metadataChange'
      * @param filter The properties of {@link AVMetadata} that you cared about
      * @param callback The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'metadataChange', filter: Array<keyof AVMetadata> | 'all', callback: (data: AVMetadata) => void);
@@ -976,17 +920,16 @@ declare namespace avSession {
 
     /**
      * Register or unregister playback state changed callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'playbackStateChange'
      * @param filter The properties of {@link AVPlaybackState} that you cared about
      * @param callback The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void);
@@ -994,15 +937,14 @@ declare namespace avSession {
 
     /**
      * Register or unregister current session destroyed callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'sessionDestroy'
      * @param callback The callback used to handle current session destroyed event.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'sessionDestroy', callback: () => void);
@@ -1010,16 +952,15 @@ declare namespace avSession {
 
     /**
      * Register or unregister the active state of this session changed callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'activeStateChange'
      * @param callback The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'activeStateChange', callback: (isActive: boolean) => void);
@@ -1027,16 +968,15 @@ declare namespace avSession {
 
     /**
      * Register or unregister the valid commands of the session changed callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type 'validCommandChange'
      * @param callback The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'validCommandChange', callback: (commands: Array<AVControlCommandType>) => void);
@@ -1044,16 +984,15 @@ declare namespace avSession {
 
     /**
      * Register or unregister session output device change callback
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param type Registration Type
      * @param callback Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Manager
-     * @systemapi
+     * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 9
      */
     on(type: 'outputDeviceChange', callback: (device: OutputDeviceInfo) => void): void;
@@ -1062,8 +1001,7 @@ declare namespace avSession {
 
   /**
    * The type of control command
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
@@ -1072,8 +1010,8 @@ declare namespace avSession {
   /**
    * The definition of command to be sent to the session
    * @interface AVControlCommand
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   interface AVControlCommand {
@@ -1097,8 +1035,8 @@ declare namespace avSession {
   /**
    * Enumerates ErrorCode types, returns in BusinessError.code.
    * @enum {number}
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   enum AVSessionErrorCode {
