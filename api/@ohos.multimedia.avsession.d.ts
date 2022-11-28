@@ -95,6 +95,7 @@ declare namespace avSession {
 
   /**
    * Session token. Used to judge the legitimacy of the session.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @since 9
@@ -226,14 +227,14 @@ declare namespace avSession {
 
     /**
      * Set the ability to start the session corresponding to
-	 * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+     * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @param ability The WantAgent for launch the ability
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} 401 - parameter check failed
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
-	 * @since 9
+     * @since 9
      */
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
     setLaunchAbility(ability: WantAgent): Promise<void>;
@@ -242,7 +243,7 @@ declare namespace avSession {
      * Get the current session's own controller
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @returns The instance of {@link AVSessionController}
-	 * @throws {BusinessError} 201 - permission denied
+     * @throws {BusinessError} 201 - permission denied
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -614,8 +615,7 @@ declare namespace avSession {
    * Loop Play Mode Definition
    * @enum {number}
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @syscap SystemCapability.Multimedia.AVSession.Manager
-   * @systemapi
+   * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
    */
   enum LoopMode {
