@@ -825,7 +825,7 @@ declare interface BorderImageOption {
    * Border image source
    * @since 9
    */
-  source?: string | Resource | linearGradient,
+  source?: string | Resource | LinearGradient,
 
   /**
    * Border image width
@@ -2070,6 +2070,18 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 7
    */
   strokeDashArray(value: Array<any>): T;
+}
+
+/**
+ * Linear Gradient Interface
+ * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+ * @since 9
+ */
+declare interface LinearGradient {
+  angle?: number | string;
+  direction?: GradientDirection;
+  colors: Array<any>;
+  repeating?: boolean;
 }
 
 /**
