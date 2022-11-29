@@ -18,91 +18,91 @@
  * @since 7
  */
 declare class AppStorage {
-  /**
+    /**
    * Called when a link is set.
    * @since 7
    */
-  static Link(propName: string): any;
+    static Link(propName: string): any;
 
   /**
    * Called when a hyperlink is set.
    * @since 7
-   */
-  static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+      */
+    static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Called when a property is set.
    * @since 7
-   */
-  static Prop(propName: string): any;
+      */
+    static Prop(propName: string): any;
 
   /**
    * Called when dynamic properties are set.
    * @since 7
-   */
-  static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+      */
+    static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
    * Called when owning or not.
    * @since 7
-   */
-  static Has(propName: string): boolean;
+      */
+    static Has(propName: string): boolean;
 
   /**
    * Called when data is obtained.
    * @since 7
-   */
-  static Get<T>(propName: string): T | undefined;
+      */
+    static Get<T>(propName: string): T | undefined;
 
   /**
    * Called when setting.
    * @since 7
-   */
-  static Set<T>(propName: string, newValue: T): boolean;
+      */
+    static Set<T>(propName: string, newValue: T): boolean;
 
   /**
    * Called when setting or creating.
    * @since 7
-   */
-  static SetOrCreate<T>(propName: string, newValue: T): void;
+      */
+    static SetOrCreate<T>(propName: string, newValue: T): void;
 
   /**
    * Called when a deletion is made.
    * @since 7
-   */
-  static Delete(propName: string): boolean;
+      */
+    static Delete(propName: string): boolean;
 
   /**
    * Called when a dictionary is sorted.
    * @since 7
-   */
-  static Keys(): IterableIterator<string>;
+      */
+    static Keys(): IterableIterator<string>;
 
   /**
    * Called when a cleanup occurs.
    * @since 7
    * @deprecated since 9
    * @useinstead AppStorage.Clear
-   */
-  static staticClear(): boolean;
+      */
+    static staticClear(): boolean;
 
   /**
    * Called when a cleanup occurs.
    * @since 9
-   */
-  static Clear(): boolean;
+      */
+    static Clear(): boolean;
 
   /**
    * Called when the data can be changed.
    * @since 7
-   */
-  static IsMutable(propName: string): boolean;
+      */
+    static IsMutable(propName: string): boolean;
 
   /**
    * Called when you check how much data is stored.
    * @since 7
-   */
-  static Size(): number;
+      */
+    static Size(): number;
 }
 
 /**
@@ -111,32 +111,32 @@ declare class AppStorage {
  * @systemapi
  */
 declare abstract class SubscribedAbstractProperty<T> {
-  /**
+    /**
    * Setting Subscribers.
    * @since 7
    * @systemapi
    */
-  protected subscribers_: Set<number>;
+    protected subscribers_: Set<number>;
 
   /**
    * Private user ID.
    * @since 7
    * @systemapi
-   */
-  private id_;
+      */
+    private id_;
 
   /**
    * Private user information.
    * @since 7
    * @systemapi
-   */
-  private info_?;
+      */
+    private info_?;
 
   /**
    * @since 7
    * @systemapi
-   */
-  constructor(
+      */
+    constructor(
       /**
        * Subscriber IPropertySubscriber.
        * @since 7
@@ -149,77 +149,77 @@ declare abstract class SubscribedAbstractProperty<T> {
        * @systemapi
        */
       info?: string,
-  );
+      );
 
   /**
    * Called when the subscriber ID is entered.
    * @since 7
    * @systemapi
-   */
-  id(): number;
+      */
+    id(): number;
 
   /**
    * Called when a subscriber information description is entered.
    * @since 7
    * @systemapi
-   */
-  info(): string;
+      */
+    info(): string;
 
   /**
    * Called when data is obtained.
    * @since 7
    * @systemapi
-   */
-  abstract get(): T;
+      */
+    abstract get(): T;
 
   /**
    * Called when data is created.
    * @since 7
    * @systemapi
-   */
-  abstract set(newValue: T): void;
+      */
+    abstract set(newValue: T): void;
 
   /**
    * Called when a two-way synchronization is created.
    * @since 7
    * @systemapi
-   */
-  createTwoWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyTwoWay<T>;
+      */
+    createTwoWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyTwoWay<T>;
 
   /**
    * Called when a one-way synchronization is created.
    * @since 7
    * @systemapi
-   */
-  createOneWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyOneWay<T>;
+      */
+    createOneWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyOneWay<T>;
 
   /**
    * Called when the subscriber is unlinked.
    * @since 7
    * @systemapi
-   */
-  unlinkSuscriber(subscriberId: number): void;
+      */
+    unlinkSuscriber(subscriberId: number): void;
 
   /**
    * Called when the notification has changed.
    * @since 7
    * @systemapi
-   */
-  protected notifyHasChanged(newValue: T): void;
+      */
+    protected notifyHasChanged(newValue: T): void;
 
   /**
    * Called when the notification property is read.
    * @since 7
    * @systemapi
-   */
-  protected notifyPropertyRead(): void;
+      */
+    protected notifyPropertyRead(): void;
 
   /**
    * Called when the number of users is queried.
    * @since 7
    * @systemapi
-   */
-  numberOfSubscrbers(): number;
+      */
+    numberOfSubscrbers(): number;
 }
 
 /**
@@ -228,19 +228,19 @@ declare abstract class SubscribedAbstractProperty<T> {
  * @systemapi
  */
 interface IPropertySubscriber {
-  /**
+    /**
    * Called when the ID of the property subscriber is queried.
    * @since 7
    * @systemapi
    */
-  id(): number;
+    id(): number;
 
   /**
    * Provides a single attribute change user interface.
    * @since 7
    * @systemapi
-   */
-  aboutToBeDeleted(owningView?: IPropertySubscriber): void;
+      */
+    aboutToBeDeleted(owningView?: IPropertySubscriber): void;
 }
 
 /**
@@ -249,48 +249,48 @@ interface IPropertySubscriber {
  * @systemapi
  */
 declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T>
-  implements ISinglePropertyChangeSubscriber<T> {
-  /**
+    implements ISinglePropertyChangeSubscriber<T> {
+    /**
    * Sources of synchronization attributes bidirectionally.
    * @since 7
    * @systemapi
    */
-  private source_;
+    private source_;
 
   /**
    * constructor parameters.
    * @since 7
    * @systemapi
-   */
-  constructor(source: SubscribedAbstractProperty<T>, subscribeMe?: IPropertySubscriber, info?: string);
+      */
+    constructor(source: SubscribedAbstractProperty<T>, subscribeMe?: IPropertySubscriber, info?: string);
 
   /**
    * Called when processing information about to be deleted.
    * @since 7
    * @systemapi
-   */
-  aboutToBeDeleted(unsubscribeMe?: IPropertySubscriber): void;
+      */
+    aboutToBeDeleted(unsubscribeMe?: IPropertySubscriber): void;
 
   /**
    * Information Changed.
    * @since 7
    * @systemapi
-   */
-  hasChanged(newValue: T): void;
+      */
+    hasChanged(newValue: T): void;
 
   /**
    * Called when data is obtained.
    * @since 7
    * @systemapi
-   */
-  get(): T;
+      */
+    get(): T;
 
   /**
    * Called when data is created.
    * @since 7
    * @systemapi
-   */
-  set(newValue: T): void;
+      */
+    set(newValue: T): void;
 }
 
 /**
@@ -356,94 +356,87 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T>
  * @systemapi
  */
 interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
-  /**
+    /**
    * Provides a single attribute change user interface.
    * @since 7
    * @systemapi
    */
-  hasChanged(newValue: T): void;
+    hasChanged(newValue: T): void;
 }
 
 /**
  * Defines the Subscribale base class.
  * @since 7
  * @systemapi
- * @hide
- */
-declare abstract class SubscribaleAbstract {
-  /**
-   * Returns the ownership attribute set by the.
-   * @since 7
-   * @systemapi
-   * @hide
-   */
-  private owningProperties_: Set<number>;
+    */
+    declare abstract class SubscribaleAbstract {
+      /**
+    * Returns the ownership attribute set by the.
+    * @since 7
+    * @systemapi
+      */
+      private owningProperties_: Set<number>;
 
   /**
    * Constructor.
    * @since 7
    * @systemapi
-   * @hide
-   */
-  constructor();
+        */
+          constructor();
 
   /**
    * Called when the notification property has changed.
    * @since 7
    * @systemapi
-   * @hide
-   */
-  protected notifyPropertyHasChanged(propName: string, newValue: any): void;
+        */
+          protected notifyPropertyHasChanged(propName: string, newValue: any): void;
 
   /**
    * Called when adding an already owned property.
    * @since 7
    * @systemapi
-   * @hide
-   */
-  public addOwningProperty(subscriber: IPropertySubscriber): void;
+        */
+          public addOwningProperty(subscriber: IPropertySubscriber): void;
 
   /**
    * Called when an already owned property is deleted.
    * @since 7
    * @systemapi
-   * @hide
-   */
-  public removeOwningProperty(property: IPropertySubscriber): void;
+        */
+          public removeOwningProperty(property: IPropertySubscriber): void;
 
   /**
    * Called when an already owned property is deleted by ID
    * @since 7
    * @systemapi
-   * @hide
-   */
-  public removeOwningPropertyById(subscriberId: number): void;
-}
+        */
+          public removeOwningPropertyById(subscriberId: number): void;
+        }
 
 /**
  * Defines the Environment interface.
  * @since 7
  */
 declare class Environment {
-  /**
+    /**
    * Constructor.
    * @since 7
    * @systemapi
-   * @hide
-   */
-  constructor();
+     */
+     constructor();
 
   /**
    * Called when a property value is checked.
    * @since 7
-   */
-  static EnvProp<S>(key: string, value: S): boolean;
+      */
+    static EnvProp<S>(key: string, value: S): boolean;
 
   /**
    * Called when multiple property values are checked.
    * @since 7
-   */
-  static EnvProps(
+      */
+    static EnvProps(
+
     props: {
       key: string;
       defaultValue: any;
@@ -453,8 +446,8 @@ declare class Environment {
   /**
    * Set the key value.
    * @since 7
-   */
-  static Keys(): Array<string>;
+      */
+    static Keys(): Array<string>;
 }
 
 /**
@@ -462,31 +455,31 @@ declare class Environment {
  * @since 7
  */
 declare class PersistentStorage {
-  /**
+    /**
    * Constructor parameters.
    * @since 7
    * @systemapi
-   * @hide
-   */
-  constructor(appStorage: AppStorage, storage: Storage);
+     */
+     constructor(appStorage: AppStorage, storage: Storage);
 
   /**
    * Called when a persistence property is stored.
    * @since 7
-   */
-  static PersistProp<T>(key: string, defaultValue: T): void;
+      */
+    static PersistProp<T>(key: string, defaultValue: T): void;
 
   /**
    * Called when a property is deleted.
    * @since 7
-   */
-  static DeleteProp(key: string): void;
+      */
+    static DeleteProp(key: string): void;
 
   /**
    * Called when multiple persistence properties are stored.
    * @since 7
-   */
-  static PersistProps(
+      */
+    static PersistProps(
+
     properties: {
       key: string;
       defaultValue: any;
@@ -496,108 +489,107 @@ declare class PersistentStorage {
   /**
    * Set the key value.
    * @since 7
-   */
-  static Keys(): Array<string>;
+      */
+    static Keys(): Array<string>;
 }
 
 /**
  * Used for ide.
  * @since 7
  * @systemapi
- * @hide
- */
-declare const appStorage: AppStorage;
+    */
+    declare const appStorage: AppStorage;
 
 /**
  * Define LocalStorage.
  * @since 9
  */
  declare class LocalStorage {
-  /**
+    /**
    * Constructor.
    * @since 9
    */
-  constructor(initializingProperties?: Object);
+    constructor(initializingProperties?: Object);
 
   /**
    * Get current LocalStorage shared from stage.
    * @StageModelOnly
    * @since 9
-   */
-  static GetShared(): LocalStorage;
+      */
+    static GetShared(): LocalStorage;
 
   /**
-   * Return true if prooperty with given name exists
+   * Return true if property with given name exists
    * @since 9
-   */
-  has(propName: string): boolean;
+      */
+    has(propName: string): boolean;
 
   /**
    * Return a Map Iterator
    * @since 9
-   */
-  keys(): IterableIterator<string>;
+      */
+    keys(): IterableIterator<string>;
 
   /**
    * Return number of properties
    * @since 9
-   */
-  size(): number;
+      */
+    size(): number;
 
   /**
    * Return value of given property
    * @since 9
-   */
-  get<T>(propName: string): T;
+      */
+    get<T>(propName: string): T;
 
   /**
    * Set value of given property
    * @since 9
-   */
-  set<T>(propName: string, newValue: T): boolean;
+      */
+    set<T>(propName: string, newValue: T): boolean;
 
   /**
    * Add property if not property with given name
    * @since 9
-   */
-  setOrCreate<T>(propName: string, newValue?: T): boolean;
+      */
+    setOrCreate<T>(propName: string, newValue?: T): boolean;
 
   /**
    * Create and return a 'link' (two-way sync) to named property
    * @since 9
-   */
-  link<T>(propName: string, linkUser?: T, subscribersName?: string): T;
+      */
+    link<T>(propName: string, linkUser?: T, subscribersName?: string): T;
 
   /**
    * Like link(), will create and initialize a new source property in LocalStorge if missing
    * @since 9
-   */
-  setAndLink<T>(propName: string, defaultValue: T, linkUser?: T, subscribersName?: string): T;
+      */
+    setAndLink<T>(propName: string, defaultValue: T, linkUser?: T, subscribersName?: string): T;
 
   /**
    * Create and return a 'prop' (one-way sync) to named property
    * @since 9
-   */
-  prop<T>(propName: string, propUser?: T, subscribersName?: string): T;
+      */
+    prop<T>(propName: string, propUser?: T, subscribersName?: string): T;
 
   /**
    * Like prop(), will create and initialize a new source property in LocalStorage if missing
    * @since 9
-   */
-  setAndProp<T>(propName: string, defaultValue: T, propUser?: T, subscribersName?: string): T;
-  
+      */
+    setAndProp<T>(propName: string, defaultValue: T, propUser?: T, subscribersName?: string): T;
+
   /**
    * Delete property from StorageBase
    * @since 9
    * @returns false if method failed
-   */
-  delete(propName: string): boolean;
+      */
+    delete(propName: string): boolean;
 
   /**
    * Delete all properties from the StorageBase
    * @since 9
-   */
-  clear(): boolean;
+      */
+    clear(): boolean;
 }
 
 declare module "StateManagement" {

@@ -19,12 +19,12 @@
  * @since 3
  */
 export interface MediaQueryEvent {
-  /**
+    /**
    * The result of match result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  matches: boolean;
+    matches: boolean;
 }
 
 /**
@@ -33,55 +33,55 @@ export interface MediaQueryEvent {
  * @since 3
  */
 export interface MediaQueryList {
-  /**
+    /**
    * Serialized media query condition.
    * This parameter is read-only.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  media?: string;
+    media?: string;
 
   /**
    * Whether the query is successful. True if the query condition is matched successfully, false otherwise.
    * This parameter is read-only.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  matches?: boolean;
+      */
+    matches?: boolean;
 
   /**
    * Called when the matches value changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  onchange?: (matches: boolean) => void;
+      */
+    onchange?: (matches: boolean) => void;
 
   /**
    * Adds a listening function to MediaQueryList.
    * The listening function must be added before onShow is called, that is, added to the onInit or onReady function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  addListener(callback: (event: MediaQueryEvent) => void): void;
+      */
+    addListener(callback: (event: MediaQueryEvent) => void): void;
 
   /**
    * Removes a listening function from MediaQueryList.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  removeListener(callback: (event: MediaQueryEvent) => void): void;
+      */
+    removeListener(callback: (event: MediaQueryEvent) => void): void;
 }
 
 /**
- * Defines the mediaqurey interface.
+ * Defines the mediaquery interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 export default class MediaQuery {
-  /**
+    /**
    * Queries a media item and returns a MediaQueryList object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  static matchMedia(condition: string): MediaQueryList;
+    static matchMedia(condition: string): MediaQueryList;
 }

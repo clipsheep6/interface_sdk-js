@@ -18,46 +18,51 @@
  * @since 7
  */
 declare enum ScrollDirection {
-  /**
+    /**
    * Vertical scrolling is supported.
    * @since 7
    */
-  Vertical,
+    Vertical,
 
   /**
    * Horizontal scrolling is supported.
    * @since 7
-   */
-  Horizontal,
+      */
+
+    Horizontal,
 
   /**
    * Free scrolling is supported.
    * @since 7
-   */
-  Free,
+      */
+
+    Free,
 
   /**
    * Non-scrollable.
    * @since 7
-   */
-  None,
+      */
+
+    None,
 }
 
 /**
  * @since 7
  */
 declare class Scroller {
-  /**
+    /**
    * constructor.
    * @since 7
    */
-  constructor();
+    constructor();
 
   /**
    * Called when the setting slides to the specified position.
    * @since 7
-   */
-  scrollTo(value: {
+      */
+
+    scrollTo(value: {
+    
     xOffset: number | string;
     yOffset: number | string;
     animation?: { duration: number; curve: Curve };
@@ -66,32 +71,37 @@ declare class Scroller {
   /**
    * Called when scrolling to the edge of the container.
    * @since 7
-   */
-  scrollEdge(value: Edge);
+      */
+
+    scrollEdge(value: Edge);
 
   /**
    * Called when page turning mode is set.
    * @since 7
-   */
-  scrollPage(value: { next: boolean; direction?: Axis });
+      */
+
+    scrollPage(value: { next: boolean; direction?: Axis });
 
   /**
    * Called when viewing the scroll offset.
    * @since 7
-   */
-  currentOffset();
+      */
+
+    currentOffset();
 
   /**
    * Called when sliding to the specified index.
    * @since 7
-   */
-  scrollToIndex(value: number);
+      */
+
+    scrollToIndex(value: number);
 
   /**
    * Called when the setting slides by offset.
    * @since 9
-   */
-  scrollBy(dx: Length, dy: Length);
+      */
+
+    scrollBy(dx: Length, dy: Length);
 }
 
 /**
@@ -99,71 +109,79 @@ declare class Scroller {
  * @since 7
  */
 interface ScrollInterface {
-  /**
+    /**
    * Called when a scrollable container is set.
    * @since 7
    */
-  (scroller?: Scroller): ScrollAttribute;
+    (scroller?: Scroller): ScrollAttribute;
 }
 
 /**
- * Defines the scroll attibute functions.
+ * Defines the scroll attribute functions.
  * @since 7
  */
 declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
-  /**
+    /**
    * Called when the scroll method is slid.
    * @since 7
    */
-  scrollable(value: ScrollDirection): ScrollAttribute;
+    scrollable(value: ScrollDirection): ScrollAttribute;
 
   /**
    * Called when the setting slides to the specified position.
    * @since 7
-   */
-  onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
+      */
+
+    onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
 
   /**
    * Called when scrolling to the edge of the container.
    * @since 7
-   */
-  onScrollEdge(event: (side: Edge) => void): ScrollAttribute;
+      */
+
+    onScrollEdge(event: (side: Edge) => void): ScrollAttribute;
 
   /**
    * Called when scrolling has stopped.
    * @since 7
-   */
-  onScrollEnd(event: () => void): ScrollAttribute;
+      */
+
+    onScrollEnd(event: () => void): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.
    * @since 7
-   */
-  scrollBar(barState: BarState): ScrollAttribute;
+      */
+
+    scrollBar(barState: BarState): ScrollAttribute;
 
   /**
    * Called when the color of the scroll bar is set.
    * @since 7
-   */
-  scrollBarColor(color: Color | number | string): ScrollAttribute;
+      */
+
+    scrollBarColor(color: Color | number | string): ScrollAttribute;
 
   /**
    * Called when the width of the scroll bar is set.
    * @since 7
-   */
-  scrollBarWidth(value: number | string): ScrollAttribute;
+      */
+
+    scrollBarWidth(value: number | string): ScrollAttribute;
 
   /**
    * Called when the sliding effect is set.
    * @since 7
-   */
-  edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
+      */
+
+    edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
 
   /**
-   * Event called when sroll will scroll.
+   * Event called when Scroll will scroll.
    * @since 9
-   */
-  onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ScrollAttribute;
+      */
+
+    onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ScrollAttribute;
 }
 
 declare const Scroll: ScrollInterface;

@@ -18,35 +18,35 @@
  * @since 8
  */
 declare enum RefreshStatus {
-  /**
+    /**
    * The refresh status of the drop-down refresh.
    * @since 8
    */
-  Inactive,
+    Inactive,
 
   /**
    * Drop down, but the drop-down distance is less than the refresh distance.
    * @since 8
-   */
-  Drag,
+      */
+    Drag,
 
   /**
    * The pull-down exceeds the refresh distance.
    * @since 8
-   */
-  OverDrag,
+      */
+    OverDrag,
 
   /**
    * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
    * @since 8
-   */
-  Refresh,
+      */
+    Refresh,
 
   /**
    * After refresh, return to the initial state.
    * @since 8
-   */
-  Done,
+      */
+    Done,
 }
 
 /**
@@ -54,29 +54,29 @@ declare enum RefreshStatus {
  * @since 8
  */
 interface RefreshInterface {
-  /**
+    /**
    * Called when the drop-down refresh is set.
    * @since 8
    */
-  (value: { refreshing: boolean; offset?: number | string; friction?: number | string }): RefreshAttribute;
+    (value: { refreshing: boolean; offset?: number | string; friction?: number | string }): RefreshAttribute;
 }
 
 /**
- * Defines the refresh attibute functions.
+ * Defines the refresh attribute functions.
  * @since 8
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
-  /**
+    /**
    * Called when the refresh state changes.
    * @since 8
    */
-  onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
+    onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
 
   /**
    * Called when the refresh state is entered.
    * @since 8
-   */
-  onRefreshing(callback: () => void): RefreshAttribute;
+      */
+    onRefreshing(callback: () => void): RefreshAttribute;
 }
 
 declare const Refresh: RefreshInterface;

@@ -18,29 +18,29 @@
  * @since 8
  */
 declare enum ItemState {
-  /**
+    /**
    * Default State
    * @since 8
    */
-  Normal,
+    Normal,
 
   /**
    * Disabled State
    * @since 8
-   */
-  Disabled,
+      */
+    Disabled,
 
   /**
    * Waiting State
    * @since 8
-   */
-  Waiting,
+      */
+    Waiting,
 
   /**
    * Skip State
    * @since 8
-   */
-  Skip,
+      */
+    Skip,
 }
 
 /**
@@ -48,35 +48,35 @@ declare enum ItemState {
  * @since 8
  */
 interface StepperItemInterface {
-  /**
+    /**
    * Called when the stepperItem component is used.
    * @since 8
    */
-  (): StepperItemAttribute;
+    (): StepperItemAttribute;
 }
 
 /**
- * Defines the stepper item attrbute functions.
+ * Defines the stepper item attribute functions.
  * @since 8
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
-  /**
+    /**
    * Called when the value of stepperItem prevLabel is set
    * @since 8
    */
-  prevLabel(value: string): StepperItemAttribute;
+    prevLabel(value: string): StepperItemAttribute;
 
   /**
    * Called when the value of stepperItem nextLabel is set
    * @since 8
-   */
-  nextLabel(value: string): StepperItemAttribute;
+      */
+    nextLabel(value: string): StepperItemAttribute;
 
   /**
    * Called when the value of stepperItem status is set
    * @since 8
-   */
-  status(value?: ItemState): StepperItemAttribute;
+      */
+    status(value?: ItemState): StepperItemAttribute;
 }
 
 declare const StepperItemInstance: StepperItemAttribute;

@@ -20,10 +20,10 @@ import { Element } from './viewmodel';
  * @since 8
  */
 export declare class dom {
-  /**
-   * create a dynamic dom by tag, rturn element
+    /**
+   * create a dynamic dom by tag, return element
    * @param tag dom tag
    * @since 8
    */
-  static createElement(tag: string): Element
+    static createElement(tag: string): Element
 }

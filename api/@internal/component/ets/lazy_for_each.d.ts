@@ -18,63 +18,67 @@
  * @since 7
  */
 declare interface DataChangeListener {
-  /**
+    /**
    * Data ready.
    * @since 7
    */
-  onDataReloaded(): void;
+    onDataReloaded(): void;
 
   /**
    * Data added.
    * @since 7
-   * @deprecated since 8
-   */
-  onDataAdded(index: number): void;
+   * @deprecated since 8 
+   * @useinstead onDataAdd
+      */
+    onDataAdded(index: number): void;
 
   /**
    * Data added.
    * @since 8
-   */
-  onDataAdd(index: number): void;
+      */
+    onDataAdd(index: number): void;
 
   /**
    * Data moved.
    * @since 7
-   * @deprecated since 8
-   */
-  onDataMoved(from: number, to: number): void;
+   * @deprecated since 8 
+   * @useinstead onDataMove
+      */
+    onDataMoved(from: number, to: number): void;
 
   /**
    * Data moved.
    * @since 8
-   */
-  onDataMove(from: number, to: number): void;
+      */
+    onDataMove(from: number, to: number): void;
 
   /**
    * Data deleted.
    * @since 7
-   * @deprecated since 8
-   */
-  onDataDeleted(index: number): void;
+   * @deprecated since 8 
+   * @useinstead onDataDelete
+      */
+    onDataDeleted(index: number): void;
 
   /**
    * Data deleted.
    * @since 8
-   */
-  onDataDelete(index: number): void;
+      */
+    onDataDelete(index: number): void;
 
   /**
    * Call when has data change.
    * @since 7
-   * @deprecated since 8
-   */
-  onDataChanged(index: number): void;
+   * @deprecated since 8 
+   * @useinstead onDataChange
+      */
+    onDataChanged(index: number): void;
 
   /**
    * Call when has data change.
    * @since 8
-   */
-  onDataChange(index: number): void;
+      */
+    onDataChange(index: number): void;
 }
 
 /**
@@ -82,29 +86,29 @@ declare interface DataChangeListener {
  * @since 7
  */
 declare interface IDataSource {
-  /**
+    /**
    * Total data count.
    * @since 7
    */
-  totalCount(): number;
+    totalCount(): number;
 
   /**
    * Return the data of index.
    * @since 7
-   */
-  getData(index: number): any;
+      */
+    getData(index: number): any;
 
   /**
    * Register data change listener.
    * @since 7
-   */
-  registerDataChangeListener(listener: DataChangeListener): void;
+      */
+    registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
    * Unregister data change listener.
    * @since 7
-   */
-  unregisterDataChangeListener(listener: DataChangeListener): void;
+      */
+    unregisterDataChangeListener(listener: DataChangeListener): void;
 }
 
 /**
@@ -112,15 +116,15 @@ declare interface IDataSource {
  * @since 7
  */
 interface LazyForEachInterface {
-  /**
+    /**
    * Enter the value to obtain the LazyForEach.
    * @since 7
    */
-  (
+    (
     dataSource: IDataSource,
     itemGenerator: (item: any, index?: number) => void,
     keyGenerator?: (item: any, index?: number) => string,
-  ): LazyForEachInterface;
+    ): LazyForEachInterface;
 }
 
 declare const LazyForEach: LazyForEachInterface;

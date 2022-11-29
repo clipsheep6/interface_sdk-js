@@ -18,17 +18,17 @@
  * @since 8
  */
 declare enum ScrollBarDirection {
-  /**
+    /**
    * Vertical scrolling is supported.
    * @since 8
    */
-  Vertical,
+    Vertical,
 
   /**
    * Horizontal scrolling is supported.
    * @since 8
-   */
-  Horizontal,
+      */
+    Horizontal,
 }
 
 /**
@@ -36,23 +36,23 @@ declare enum ScrollBarDirection {
  * @since 8
  */
 declare interface ScrollBarOptions {
-  /**
+    /**
    * Sets the scroller of scroll bar.
    * @since 8
    */
-  scroller: Scroller;
+    scroller: Scroller;
 
   /**
    * Sets the direction of scroll bar.
    * @since 8
-   */
-  direction?: ScrollBarDirection;
+      */
+    direction?: ScrollBarDirection;
 
   /**
    * Sets the state of scroll bar.
    * @since 8
-   */
-  state?: BarState;
+      */
+    state?: BarState;
 }
 
 /**
@@ -60,15 +60,15 @@ declare interface ScrollBarOptions {
  * @since 8
  */
 interface ScrollBarInterface {
-  /**
+    /**
    * Called when a ScrollBar container is set.
    * @since 8
    */
-  (value: ScrollBarOptions): ScrollBarAttribute;
+    (value: ScrollBarOptions): ScrollBarAttribute;
 }
 
 /**
- * Defines the scrollbar attibute functions.
+ * Defines the scrollbar attribute functions.
  * @since 8
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}

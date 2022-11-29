@@ -18,29 +18,29 @@
  * @since 7
  */
 interface QRCodeInterface {
-  /**
+    /**
    * Called when a QR code is set.
    * @since 7
    */
-  (value: string): QRCodeAttribute;
+    (value: string): QRCodeAttribute;
 }
 
 /**
- * Defines the qrcode attibute functions.
+ * Defines the qrcode attribute functions.
  * @since 7
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
-  /**
+    /**
    * Called when the QR code color is set.
    * @since 7
    */
-  color(value: ResourceColor): QRCodeAttribute;
+    color(value: ResourceColor): QRCodeAttribute;
 
   /**
    * Called when setting the QR code background color.
    * @since 7
-   */
-  backgroundColor(value: ResourceColor): QRCodeAttribute;
+      */
+    backgroundColor(value: ResourceColor): QRCodeAttribute;
 }
 
 declare const QRCode: QRCodeInterface;

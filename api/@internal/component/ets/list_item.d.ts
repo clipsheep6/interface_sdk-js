@@ -19,23 +19,23 @@
  * @since 7
  */
 declare enum Sticky {
-  /**
+    /**
    * No sticky.
    * @since 7
    */
-  None,
+    None,
 
   /**
    * Normal mode
    * @since 7
-   */
-  Normal,
+      */
+    Normal,
 
   /**
    * Set opacity.
    * @since 7
-   */
-  Opacity,
+      */
+    Opacity,
 }
 
 /**
@@ -43,23 +43,23 @@ declare enum Sticky {
  * @since 7
  */
 declare enum EditMode {
-  /**
+    /**
    * Unrestricted operations.
    * @since 7
    */
-  None,
+    None,
 
   /**
-   * Deleteable.
+   * Deletable.
    * @since 7
-   */
-  Deletable,
+      */
+    Deletable,
 
   /**
    * Movable.
    * @since 7
-   */
-  Movable,
+      */
+    Movable,
 }
 
 /**
@@ -67,17 +67,17 @@ declare enum EditMode {
  * @since 9
  */
 declare enum SwipeEdgeEffect {
-  /**
+    /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    * @since 9
    */
-  Spring,
+    Spring,
 
   /**
    * Sliding to the edge has no effect.
    * @since 9
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -85,24 +85,24 @@ declare enum SwipeEdgeEffect {
  * @since 9
  */
 declare interface SwipeActionOptions {
-  /**
+    /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
    * @since 9
    */
-  start?: CustomBuilder;
-  /**
+    start?: CustomBuilder;
+    /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
    * slides up (when list direction Horizontal).
    * @since 9
    */
-  end?: CustomBuilder;
+    end?: CustomBuilder;
 
   /**
    * Sets whether sliding to a boundary has a spring effect.
    * @since 9
-   */
-  edgeEffect?: SwipeEdgeEffect;
+      */
+    edgeEffect?: SwipeEdgeEffect;
 }
 
 /**
@@ -114,47 +114,47 @@ declare interface SwipeActionOptions {
  * @since 7
  */
 interface ListItemInterface {
-  /**
+    /**
    * Called when an interface is used.
    * @since 7
    */
-  (value?: string): ListItemAttribute;
+    (value?: string): ListItemAttribute;
 }
 
 /**
  * @since 7
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
-  /**
+    /**
    * Called when setting whether item is ceiling effect.
    * @since 7
    */
-  sticky(value: Sticky): ListItemAttribute;
+    sticky(value: Sticky): ListItemAttribute;
 
   /**
    * Called when judging whether it is editable.
    * @since 7
-   */
-  editable(value: boolean | EditMode): ListItemAttribute;
+      */
+    editable(value: boolean | EditMode): ListItemAttribute;
 
   /**
    * Called when judging whether it is selectable.
    * @since 8
-   */
-  selectable(value: boolean): ListItemAttribute;
+      */
+    selectable(value: boolean): ListItemAttribute;
 
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    * @param value items defines in the SwipeActionOption.
    * @since 9
-   */
-  swipeAction(value: SwipeActionOptions): ListItemAttribute;
+      */
+    swipeAction(value: SwipeActionOptions): ListItemAttribute;
 
   /**
    * Called when the listItem is selected.
    * @since 8
-   */
-  onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
+      */
+    onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**

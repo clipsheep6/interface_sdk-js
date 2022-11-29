@@ -19,18 +19,18 @@
  * @systemapi
  */
 interface PluginComponentTemplate {
-  /**
+    /**
    * Defines the plugin source name.
    * @since 9
    * @systemapi
    */
-  source: string;
-  /**
+    source: string;
+    /**
    * Defines the ability name.
    * @since 9
    * @systemapi
    */
-  ability: string;
+    ability: string;
 }
 
 /**
@@ -39,33 +39,33 @@ interface PluginComponentTemplate {
  * @systemapi
  */
 interface PluginComponentInterface {
-  /**
+    /**
    * Called when setting the plugin.
    * @since 9
    * @systemapi
    */
-  (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
+    (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
 
 /**
- * Defines the plugin component attibute functions.
+ * Defines the plugin component attribute functions.
  * @since 9
  * @systemapi
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
-  /**
+    /**
    * pluginComponent onComplete callback,
    * @since 9
    * @systemapi
    */
-  onComplete(callback: () => void): PluginComponentAttribute;
+    onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
    * @since 9
    * @systemapi
-   */
-  onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
+      */
+    onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
 
 declare const PluginComponent: PluginComponentInterface;

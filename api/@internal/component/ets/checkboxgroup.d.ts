@@ -18,21 +18,21 @@
  * @since 8
  */
 declare enum SelectStatus {
-  /**
-   * All checkboxs is selected.
+    /**
+   * All checkboxes are selected.
    * @since 8
    */
-  All,
-  /**
+    All,
+    /**
    * Part of the checkbox is selected.
    * @since 8
    */
-  Part,
-  /**
+    Part,
+    /**
    * None of the checkbox is selected.
    * @since 8
    */
-  None,
+    None,
 }
 
 /**
@@ -40,11 +40,11 @@ declare enum SelectStatus {
  * @since 8
  */
 declare interface CheckboxGroupOptions {
-  /**
+    /**
    * Setting the group of CheckboxGroup.
    * @since 8
    */
-  group?: string;
+    group?: string;
 }
 
 /**
@@ -52,16 +52,16 @@ declare interface CheckboxGroupOptions {
  * @since 8
  */
 declare interface CheckboxGroupResult {
-  /**
+    /**
    * Checkbox name.
    * @since 8
    */
-  name: Array<string>;
-  /**
+    name: Array<string>;
+    /**
    * Set the group of status.
    * @since 8
    */
-  status: SelectStatus;
+    status: SelectStatus;
 }
 
 /**
@@ -69,11 +69,11 @@ declare interface CheckboxGroupResult {
  * @since 8
  */
 interface CheckboxGroupInterface {
-  /**
+    /**
    * Called when the CheckboxGroup component is used.
    * @since 8
    */
-  (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
+    (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
 }
 
 /**
@@ -81,23 +81,23 @@ interface CheckboxGroupInterface {
  * @since 8
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
-  /**
+    /**
    * setting whether all checkbox is selected.
    * @since 8
    */
-  selectAll(value: boolean): CheckboxGroupAttribute;
+    selectAll(value: boolean): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
-   */
-  selectedColor(value: ResourceColor): CheckboxGroupAttribute;
+      */
+    selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.
    * @since 8
-   */
-  onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
+      */
+    onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
 }
 
 declare const CheckboxGroup: CheckboxGroupInterface;

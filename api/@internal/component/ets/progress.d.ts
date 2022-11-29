@@ -18,30 +18,31 @@
  * @since 7
  */
  declare interface ProgressOptions {
-  /**
+    /**
    * Sets the value of Progress.
    * @since 7
    */
-  value: number;
+    value: number;
 
   /**
    * Sets the total of Progress.
    * @since 7
-   */
-  total?: number;
+      */
+    total?: number;
 
   /**
    * Sets the style of Progress.
    * @since 7
-   * @deprecated since 8
-   */
-  style?: ProgressStyle
+   * @deprecated since 8 
+   * @useinstead type
+      */
+    style?: ProgressStyle
 
   /**
    * Sets the type of Progress.
    * @since 8
-   */
-  type?: ProgressType
+      */
+    type?: ProgressType
 }
 
 /**
@@ -49,35 +50,35 @@
  * @since 8
  */
 declare enum ProgressType {
-  /**
+    /**
    * Linear progress bar style.
    * @since 8
    */
-  Linear,
+    Linear,
 
   /**
    * Ring progress bar.
    * @since 8
-   */
-  Ring,
+      */
+    Ring,
 
   /**
    * Eclipse progress bar.
    * @since 8
-   */
-  Eclipse,
+      */
+    Eclipse,
 
   /**
    * ScaleRing progress bar.
    * @since 8
-   */
-  ScaleRing,
+      */
+    ScaleRing,
 
   /**
    * Capsule progress bar.
    * @since 8
-   */
-  Capsule,
+      */
+    Capsule,
 }
 
 /**
@@ -85,23 +86,23 @@ declare enum ProgressType {
  * @since 8
  */
 declare interface ProgressStyleOptions {
-  /**
+    /**
    * Defines the strokeWidth property.
    * @since 8
    */
-  strokeWidth?: Length;
+    strokeWidth?: Length;
 
   /**
-   * Defines the scaleCoun property.
+   * Defines the scaleCount property.
    * @since 8
-   */
-  scaleCount?: number;
+      */
+    scaleCount?: number;
 
   /**
    * Defines the scaleWidth property.
    * @since 8
-   */
-  scaleWidth?: Length;
+      */
+    scaleWidth?: Length;
 }
 
 /**
@@ -109,35 +110,35 @@ declare interface ProgressStyleOptions {
  * @since 7
  */
 declare enum ProgressStyle {
-  /**
+    /**
    * Linear progress bar style.
    * @since 7
    */
-  Linear,
+    Linear,
 
   /**
    * Ring progress bar.
    * @since 8
-   */
-  Ring,
+      */
+    Ring,
 
   /**
    * Eclipse progress bar.
    * @since 7
-   */
-  Eclipse,
+      */
+    Eclipse,
 
   /**
    * ScaleRing progress bar.
    * @since 8
-   */
-  ScaleRing,
+      */
+    ScaleRing,
 
   /**
    * Capsule progress bar.
    * @since 8
-   */
-  Capsule,
+      */
+    Capsule,
 }
 
 /**
@@ -145,35 +146,35 @@ declare enum ProgressStyle {
  * @since 7
  */
 interface ProgressInterface {
-  /**
+    /**
    * Called when the progress bar is set.
    * @since 7
    */
-  (options: ProgressOptions): ProgressAttribute;
+    (options: ProgressOptions): ProgressAttribute;
 }
 
 /**
- * Defines the progress attibute functions.
+ * Defines the progress attribute functions.
  * @since 7
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
-  /**
+    /**
    * Called when the current progress value is set.
    * @since 7
    */
-  value(value: number): ProgressAttribute;
+    value(value: number): ProgressAttribute;
 
   /**
    * Called when the progress bar foreground is set.
    * @since 7
-   */
-  color(value: ResourceColor): ProgressAttribute;
+      */
+    color(value: ResourceColor): ProgressAttribute;
 
   /**
    * Called when the style of progress bar is set.
    * @since 8
-   */
-  style(value: ProgressStyleOptions): ProgressAttribute;
+      */
+    style(value: ProgressStyleOptions): ProgressAttribute;
 }
 
 declare const Progress: ProgressInterface;
