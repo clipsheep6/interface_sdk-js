@@ -35,6 +35,7 @@
  * and taskId.
  *
  * @deprecated
+ * @useinstead ohos.hiTraceMeter 
  * @since 7
  * @syscap SystemCapability.HiviewDFX.HiTrace
  */
@@ -48,6 +49,7 @@ declare namespace bytrace {
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
    * @deprecated
+   * @useinstead ohos.hiTraceMeter.startTrace
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the task name.
@@ -63,6 +65,7 @@ declare namespace bytrace {
    * is specified by {@code name}. This method must be invoked after the the startTrace.
    *
    * @deprecated
+   * @useinstead ohos.hiTraceMeter.finishTrace
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the task name. It must be the same with the {@code name} of startTrace.
@@ -75,6 +78,7 @@ declare namespace bytrace {
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
    * @deprecated
+   * useinstead ohos.hiTraceMeter.traceByValue
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the name used to identify the count.
