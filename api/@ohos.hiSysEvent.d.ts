@@ -280,7 +280,7 @@ declare namespace hiSysEvent {
    */
   interface Querier {
     /**
-     * handle query result, the query result will be send in severval times.
+     * handle query result, the query result will be send in several times.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
