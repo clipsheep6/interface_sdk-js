@@ -78,7 +78,7 @@ declare namespace bytrace {
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
    * @deprecated
-   * useinstead ohos.hiTraceMeter.traceByValue
+   * @useinstead ohos.hiTraceMeter.traceByValue
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the name used to identify the count.
