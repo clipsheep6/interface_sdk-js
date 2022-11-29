@@ -18,35 +18,35 @@
  * @since 7
  */
 declare enum InputType {
-  /**
+    /**
    * Basic input mode.
    * @since 7
    */
-  Normal,
+    Normal,
 
   /**
    * Pure digital input mode.
    * @since 7
-   */
-  Number,
+      */
+    Number,
 
   /**
    * Phone number entry mode.
    * @since 9
-   */
-  PhoneNumber,
+      */
+    PhoneNumber,
 
   /**
    * E-mail address input mode.
    * @since 7
-   */
-  Email,
+      */
+    Email,
 
   /**
    * Password entry mode.
    * @since 7
-   */
-  Password,
+      */
+    Password,
 }
 
 /**
@@ -54,35 +54,35 @@ declare enum InputType {
  * @since 7
  */
 declare enum EnterKeyType {
-  /**
+    /**
    * Go.
    * @since 7
    */
-  Go,
+    Go,
 
   /**
    * Search.
    * @since 7
-   */
-  Search,
+      */
+    Search,
 
   /**
    * Send.
    * @since 7
-   */
-  Send,
+      */
+    Send,
 
   /**
    * Next.
    * @since 7
-   */
-  Next,
+      */
+    Next,
 
   /**
    * Done.
    * @since 7
-   */
-  Done,
+      */
+    Done,
 }
 
 /**
@@ -90,16 +90,16 @@ declare enum EnterKeyType {
  * @since 8
  */
 declare class TextInputController {
-  /**
+    /**
    * constructor.
    * @since 8
    */
-  constructor();
-  /**
+    constructor();
+    /**
    * Called when the position of the insertion cursor is set.
    * @since 8
    */
-  caretPosition(value: number): void;
+    caretPosition(value: number): void;
 }
 
 /**
@@ -107,23 +107,23 @@ declare class TextInputController {
  * @since 7
  */
 declare interface TextInputOptions {
-  /**
+    /**
    * The place holder text string.
    * @since 7
    */
-  placeholder?: ResourceStr;
+    placeholder?: ResourceStr;
 
   /**
    * Sets the current value of TextArea.
    * @since 7
-   */
-  text?: ResourceStr;
+      */
+    text?: ResourceStr;
 
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
-   */
-  controller?: TextInputController;
+      */
+    controller?: TextInputController;
 }
 
 /**
@@ -131,17 +131,17 @@ declare interface TextInputOptions {
  * @since 9
  */
 declare enum TextInputStyle {
-  /**
+    /**
    * Text input default style.
    * @since 9
    */
-  Default,
+    Default,
 
   /**
    * Text input inline style.
    * @since 9
-   */
-  Inline
+      */
+    Inline
 }
 
 /**
@@ -149,11 +149,11 @@ declare enum TextInputStyle {
  * @since 7
  */
 interface TextInputInterface {
-  /**
+    /**
    * Called when writing a single line of text.
    * @since 7
    */
-  (value?: TextInputOptions): TextInputAttribute;
+    (value?: TextInputOptions): TextInputAttribute;
 }
 
 /**
@@ -161,144 +161,145 @@ interface TextInputInterface {
  * @since 7
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
-  /**
+    /**
    * Called when the input type is set.
    * @since 7
    */
-  type(value: InputType): TextInputAttribute;
+    type(value: InputType): TextInputAttribute;
 
   /**
    * Called when the color of the placeholder is set.
    * @since 7
-   */
-  placeholderColor(value: ResourceColor): TextInputAttribute;
+      */
+    placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
    * @since 7
-   */
-  placeholderFont(value?: Font): TextInputAttribute;
+      */
+    placeholderFont(value?: Font): TextInputAttribute;
 
   /**
    * Called when the type of soft keyboard input button is set.
    * @since 7
-   */
-  enterKeyType(value: EnterKeyType): TextInputAttribute;
+      */
+    enterKeyType(value: EnterKeyType): TextInputAttribute;
 
   /**
    * Called when the color of the insertion cursor is set.
    * @since 7
-   */
-  caretColor(value: ResourceColor): TextInputAttribute;
+      */
+    caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when judging whether the text editing change finished.
    * @since 7
-   * @deprecated since 8
-   */
-  onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
+   * @deprecated since 8 
+   * @useinstead onEditChange
+      */
+    onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when judging whether the text editing change finished.
    * @since 8
-   */
-  onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
+      */
+    onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when submitted.
    * @since 7
-   */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
+      */
+    onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
    * @since 7
-   */
-  onChange(callback: (value: string) => void): TextInputAttribute;
+      */
+    onChange(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when the input of maximum text length is set.
    * @since 7
-   */
-  maxLength(value: number): TextInputAttribute;
+      */
+    maxLength(value: number): TextInputAttribute;
 
   /**
    * Called when the font color is set.
    * @since 7
-   */
-  fontColor(value: ResourceColor): TextInputAttribute;
+      */
+    fontColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
-   */
-  fontSize(value: Length): TextInputAttribute;
+      */
+    fontSize(value: Length): TextInputAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
-   */
-  fontStyle(value: FontStyle): TextInputAttribute;
+      */
+    fontStyle(value: FontStyle): TextInputAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
-   */
-  fontWeight(value: number | FontWeight | string): TextInputAttribute;
+      */
+    fontWeight(value: number | FontWeight | string): TextInputAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
-   */
-  fontFamily(value: ResourceStr): TextInputAttribute;
+      */
+    fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
    * Called when the inputFilter of text is set.
    * @since 8
-   */
-  inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
+      */
+    inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
-   */
-  onCopy(callback: (value: string) => void): TextInputAttribute;
+      */
+    onCopy(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
-   */
-  onCut(callback: (value: string) => void): TextInputAttribute;
+      */
+    onCut(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
-   */
-  onPaste(callback: (value: string) => void): TextInputAttribute;
+      */
+    onPaste(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when the copy option is set.
    * @since 9
-   */
-  copyOption(value: CopyOptions): TextInputAttribute;
+      */
+    copyOption(value: CopyOptions): TextInputAttribute;
 
   /**
    * Called when the password show/hide icon is set.
    * @since 9
-   */
-  showPasswordIcon(value: boolean): TextInputAttribute;
+      */
+    showPasswordIcon(value: boolean): TextInputAttribute;
 
   /**
    * Called when the text align is set.
    * @since 9
-   */
-  textAlign(value: TextAlign): TextInputAttribute;
+      */
+    textAlign(value: TextAlign): TextInputAttribute;
 
   /**
    * Text input style
    * @since 9
-   */
-  style(value: TextInputStyle): TextInputAttribute;
+      */
+    style(value: TextInputStyle): TextInputAttribute;
 }
 
 declare const TextInput: TextInputInterface;

@@ -18,23 +18,23 @@
  * @since 8
  */
 declare enum ToggleType {
-  /**
+    /**
    * Checkbox
    * @since 8
    */
-  Checkbox,
+    Checkbox,
 
   /**
    * Switch
    * @since 8
-   */
-  Switch,
+      */
+    Switch,
 
   /**
    * Button
    * @since 8
-   */
-  Button,
+      */
+    Button,
 }
 
 /**
@@ -42,35 +42,35 @@ declare enum ToggleType {
  * @since 8
  */
 interface ToggleInterface {
-  /**
+    /**
    * Set parameters to obtain the toggle.
    * @since 8
    */
-  (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
+    (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 }
 
 /**
- * Defines the toggle attibute functions
+ * Defines the toggle attribute functions
  * @since 8
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
-  /**
+    /**
    * Called when the selected state of the component changes.
    * @since 8
    */
-  onChange(callback: (isOn: boolean) => void): ToggleAttribute;
+    onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
    * @since 8
-   */
-  selectedColor(value: ResourceColor): ToggleAttribute;
+      */
+    selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
    * @since 8
-   */
-  switchPointColor(color: ResourceColor): ToggleAttribute;
+      */
+    switchPointColor(color: ResourceColor): ToggleAttribute;
 }
 
 declare const Toggle: ToggleInterface;

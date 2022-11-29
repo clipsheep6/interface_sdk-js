@@ -21,13 +21,13 @@
  * @since 7
  */
 declare namespace curves {
-  /**
+    /**
    * enum Curve.
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  enum Curve {
+    enum Curve {
     Linear,
     Ease,
     EaseIn,
@@ -41,15 +41,16 @@ declare namespace curves {
     Rhythm,
     Smooth,
     Friction,
-  }
+    }
 
   /**
    * Interface for curve object.
    * @typedef ICurve
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  interface ICurve {
+      */
+    interface ICurve {
+
     /**
     * Get curve value by fraction.
     * @param { number } fraction
@@ -66,8 +67,8 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  function initCurve(curve?: Curve): ICurve;
+      */
+    function initCurve(curve?: Curve): ICurve;
 
   /**
    * Initializes the interpolator curve when called.
@@ -75,10 +76,11 @@ declare namespace curves {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   */
-  function init(curve?: Curve): string;
- 
+   * @deprecated since 9 
+   * @useinstead initCurve
+      */
+    function init(curve?: Curve): string;
+
   /**
    * Constructs a step curve when called.
    * @param { number } count
@@ -86,9 +88,9 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-   function stepsCurve(count: number, end: boolean): ICurve;
- 
+      */
+      function stepsCurve(count: number, end: boolean): ICurve;
+
   /**
    * Constructs a step curve when called.
    * @param { number } count
@@ -96,10 +98,11 @@ declare namespace curves {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   */
-  function steps(count: number, end: boolean): string;
- 
+   * @deprecated since 9 
+   * @useinstead stepsCurve
+      */
+    function steps(count: number, end: boolean): string;
+
   /**
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
@@ -108,9 +111,9 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
- 
+      */
+    function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
+
   /**
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
@@ -119,10 +122,11 @@ declare namespace curves {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   */
-  function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
- 
+   * @deprecated since 9 
+   * @useinstead cubicBezierCurve
+      */
+    function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
+
   /**
    * Constructs a spring curve when called.
    * @param { number } velocity
@@ -132,9 +136,9 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   */
-  function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
- 
+      */
+    function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
+
   /**
    * Constructs a spring curve when called.
    * @param { number } velocity
@@ -144,9 +148,10 @@ declare namespace curves {
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   */
-  function spring(velocity: number, mass: number, stiffness: number, damping: number): string;
+   * @deprecated since 9 
+   * @useinstead springCurve
+      */
+    function spring(velocity: number, mass: number, stiffness: number, damping: number): string;
 
   /**
    * Constructs a spring motion when called.
@@ -158,8 +163,8 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @systemapi
-   */
-  function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
+      */
+    function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
   /**
    * Constructs a responsive spring motion when called.
@@ -171,8 +176,8 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @systemapi
-   */
-  function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
+      */
+    function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
 }
 

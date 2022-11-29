@@ -18,16 +18,16 @@
  * @since 8
  */
 declare enum SideBarContainerType {
-  /**
+    /**
    * The sidebar invisible
    * @since 8
    */
-  Embed,
-  /**
+    Embed,
+    /**
    * The sidebar visible
    * @since 8
    */
-  Overlay,
+    Overlay,
 }
 
 /**
@@ -35,16 +35,16 @@ declare enum SideBarContainerType {
  * @since 9
  */
 declare enum SideBarPosition {
-  /**
+    /**
    * The sidebar is on the Start of the container
    * @since 9
    */
-  Start,
-  /**
+    Start,
+    /**
    * The sidebar is on the End of the container
    * @since 9
    */
-  End,
+    End,
 }
 
 /**
@@ -52,33 +52,34 @@ declare enum SideBarPosition {
  * @since 8
  */
 declare interface ButtonStyle {
-  /**
+    /**
    * Set the left of control button
    * @since 8
    */
-  left?: number;
-  /**
+    left?: number;
+    /**
    * Set the top of control button
    * @since 8
    */
-  top?: number;
-  /**
+    top?: number;
+    /**
    * Set the width of control button
    * @since 8
    */
-  width?: number;
+    width?: number;
 
   /**
-   * Set the heigth of control button
+   * Set the height of control button
    * @since 8
-   */
-  height?: number;
+      */
+    height?: number;
 
   /**
    * Set the button icon when sidebar status has changed
    * @since 8
-   */
-  icons?: {
+      */
+    icons?: {
+
     shown: string | PixelMap | Resource;
     hidden: string | PixelMap | Resource;
     switching?: string | PixelMap | Resource;
@@ -90,11 +91,11 @@ declare interface ButtonStyle {
  * @since 8
  */
 interface SideBarContainerInterface {
-  /**
+    /**
    * Called when showing the sidebar of a block entry.
    * @since 8
    */
-  (type?: SideBarContainerType): SideBarContainerAttribute;
+    (type?: SideBarContainerType): SideBarContainerAttribute;
 }
 
 /**
@@ -102,72 +103,72 @@ interface SideBarContainerInterface {
  * @since 8
  */
 declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAttribute> {
-  /**
+    /**
    * Callback showControlButton function when setting the status of sidebar
    * @since 8
    */
-  showSideBar(value: boolean): SideBarContainerAttribute;
-  /**
+    showSideBar(value: boolean): SideBarContainerAttribute;
+    /**
    * Callback controlButton function when setting the style of button
    * @since 8
    */
-  controlButton(value: ButtonStyle): SideBarContainerAttribute;
-  /**
+    controlButton(value: ButtonStyle): SideBarContainerAttribute;
+    /**
    * Callback showControlButton function when setting the status of button
    * @since 8
    */
-  showControlButton(value: boolean): SideBarContainerAttribute;
-  /**
+    showControlButton(value: boolean): SideBarContainerAttribute;
+    /**
    * Trigger callback when sidebar style of showing change finished.
    * @since 8
    */
-  onChange(callback: (value: boolean) => void): SideBarContainerAttribute;
-  /**
+    onChange(callback: (value: boolean) => void): SideBarContainerAttribute;
+    /**
    * Sets the length of sidebar.
    * @since 8
    */
-  sideBarWidth(value: number): SideBarContainerAttribute;
-  /**
+    sideBarWidth(value: number): SideBarContainerAttribute;
+    /**
    * Sets the min length of sidebar.
    * default value is 200vp.
    * @since 8
    */
-  minSideBarWidth(value: number): SideBarContainerAttribute;
-  /**
+    minSideBarWidth(value: number): SideBarContainerAttribute;
+    /**
    * Sets the max length of sidebar.
    * default value is 280vp.
    * @since 8
    */
-  maxSideBarWidth(value: number): SideBarContainerAttribute;
-  /**
+    maxSideBarWidth(value: number): SideBarContainerAttribute;
+    /**
    * Sets the length of sidebar.
    * @since 9
    */
-  sideBarWidth(value: Length): SideBarContainerAttribute;
-  /**
+    sideBarWidth(value: Length): SideBarContainerAttribute;
+    /**
    * Sets the min length of sidebar.
    * default value is 200vp.
    * @since 9
    */
-  minSideBarWidth(value: Length): SideBarContainerAttribute;
-  /**
+    minSideBarWidth(value: Length): SideBarContainerAttribute;
+    /**
    * Sets the max length of sidebar.
    * default value is 280vp.
    * @since 9
    */
-  maxSideBarWidth(value: Length): SideBarContainerAttribute;
-  /**
+    maxSideBarWidth(value: Length): SideBarContainerAttribute;
+    /**
    * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
    * default value is true.
    * @since 9
    */
-  autoHide(value: boolean): SideBarContainerAttribute;
-  /**
+    autoHide(value: boolean): SideBarContainerAttribute;
+    /**
    * Called when determining the location of the sidebar.
    * default value is Start.
    * @since 9
    */
-  sideBarPosition(value: SideBarPosition): SideBarContainerAttribute;
+    sideBarPosition(value: SideBarPosition): SideBarContainerAttribute;
 }
 
 declare const SideBarContainer: SideBarContainerInterface;

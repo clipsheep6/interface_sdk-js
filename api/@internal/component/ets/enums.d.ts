@@ -18,77 +18,77 @@
  * @since 7
  */
 declare enum Color {
-  /**
+    /**
    * White.
    * @since 7
    */
-  White,
+    White,
 
   /**
    * Black.
    * @since 7
-   */
-  Black,
+      */
+    Black,
 
   /**
    * Blue.
    * @since 7
-   */
-  Blue,
+      */
+    Blue,
 
   /**
    * Brown.
    * @since 7
-   */
-  Brown,
+      */
+    Brown,
 
   /**
    * Gray.
    * @since 7
-   */
-  Gray,
+      */
+    Gray,
 
   /**
    * Green.
    * @since 7
-   */
-  Green,
+      */
+    Green,
 
   /**
    * Grey.
    * @since 7
-   */
-  Grey,
+      */
+    Grey,
 
   /**
    * Orange.
    * @since 7
-   */
-  Orange,
+      */
+    Orange,
 
   /**
    * color.
    * @since 7
-   */
-  Pink,
+      */
+    Pink,
 
   /**
    * Red.
    * @since 7
-   */
-  Red,
+      */
+    Red,
 
   /**
    * Yellow.
    * @since 7
-   */
-  Yellow,
+      */
+    Yellow,
 
   /**
    * Transparent.
    * @since 9
-   */
-  Transparent,
+      */
+    Transparent,
 }
 
 /**
@@ -96,41 +96,41 @@ declare enum Color {
  * @since 7
  */
 declare enum ImageFit {
-  /**
+    /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    * @since 7
    */
-  Contain,
+    Contain,
 
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    * @since 7
-   */
-  Cover,
+      */
+    Cover,
 
   /**
    * Adaptive display
    * @since 7
-   */
-  Auto,
+      */
+    Auto,
 
   /**
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    * @since 7
-   */
-  Fill,
+      */
+    Fill,
 
   /**
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    * @since 7
-   */
-  ScaleDown,
+      */
+    ScaleDown,
 
   /**
    * Keep the original size and display it in the center.
    * @since 7
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -138,23 +138,23 @@ declare enum ImageFit {
  * @since 7
  */
 declare enum BorderStyle {
-  /**
+    /**
    * Displays as a series of dots with a radius of half the borderWidth.
    * @since 7
    */
-  Dotted,
+    Dotted,
 
   /**
    * Shows as a series of short square dashed lines.
    * @since 7
-   */
-  Dashed,
+      */
+    Dashed,
 
   /**
    * Shows as a solid line.
    * @since 7
-   */
-  Solid,
+      */
+    Solid,
 }
 
 /**
@@ -162,23 +162,23 @@ declare enum BorderStyle {
  * @since 7
  */
 declare enum LineJoinStyle {
-  /**
+    /**
    * Connect path segments using bevels.
    * @since 7
    */
-  Miter,
+    Miter,
 
   /**
    * Connect path segments using sharp corners.
    * @since 7
-   */
-  Round,
+      */
+    Round,
 
   /**
    * Connect path segments using fillets.
    * @since 7
-   */
-  Bevel,
+      */
+    Bevel,
 }
 
 /**
@@ -186,29 +186,29 @@ declare enum LineJoinStyle {
  * @since 7
  */
 declare enum TouchType {
-  /**
+    /**
    * Triggered when the finger is pressed.
    * @since 7
    */
-  Down,
+    Down,
 
   /**
    * Triggered when the finger is raised.
    * @since 7
-   */
-  Up,
+      */
+    Up,
 
   /**
    * Triggered when the finger presses on the screen.
    * @since 7
-   */
-  Move,
+      */
+    Move,
 
   /**
    * Triggers when the touch event cancels.
    * @since 7
-   */
-  Cancel,
+      */
+    Cancel,
 }
 
 /**
@@ -216,41 +216,41 @@ declare enum TouchType {
  * @since 8
  */
 declare enum MouseButton {
-  /**
+    /**
    * Mouse Left Button.
    * @since 8
    */
-  Left,
+    Left,
 
   /**
    * Mouse Right Button.
    * @since 8
-   */
-  Right,
+      */
+    Right,
 
   /**
    * Mouse Middle Button.
    * @since 8
-   */
-  Middle,
+      */
+    Middle,
 
   /**
    * Mouse Back Button.
    * @since 8
-   */
-  Back,
+      */
+    Back,
 
   /**
    * Mouse Forward Button.
    * @since 8
-   */
-  Forward,
+      */
+    Forward,
 
   /**
    * Mouse None Button.
    * @since 8
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -258,29 +258,29 @@ declare enum MouseButton {
  * @since 8
  */
 declare enum MouseAction {
-  /**
+    /**
    * Triggered when the mouse is pressed.
    * @since 8
    */
-  Press,
+    Press,
 
   /**
    * Triggered when the mouse is released.
    * @since 8
-   */
-  Release,
+      */
+    Release,
 
   /**
    * Triggered when the mouse is Moved.
    * @since 8
-   */
-  Move,
+      */
+    Move,
 
   /**
    * Triggered when the mouse is Hovered.
    * @since 8
-   */
-  Hover
+      */
+    Hover
 }
 
 /**
@@ -288,29 +288,29 @@ declare enum MouseAction {
  * @since 7
  */
 declare enum AnimationStatus {
-  /**
+    /**
    * Initial state of the animation.
    * @since 7
    */
-  Initial,
+    Initial,
 
   /**
    * The animation is playing.
    * @since 7
-   */
-  Running,
+      */
+    Running,
 
   /**
    * The animation is paused.
    * @since 7
-   */
-  Paused,
+      */
+    Paused,
 
   /**
    * The animation is stopped.
    * @since 7
-   */
-  Stopped,
+      */
+    Stopped,
 }
 
 /**
@@ -318,83 +318,83 @@ declare enum AnimationStatus {
  * @since 7
  */
 declare enum Curve {
-  /**
+    /**
    * Indicates that the speed of the animation is the same from start to finish.
    * @since 7
    */
-  Linear,
+    Linear,
 
   /**
    * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
    * @since 7
-   */
-  Ease,
+      */
+    Ease,
 
   /**
    * Indicates that the animation starts at a low speed, CubicBezier(0.42, 0.0, 1.0, 1.0).
    * @since 7
-   */
-  EaseIn,
+      */
+    EaseIn,
 
   /**
    * Indicates that the animation ends at a low speed, CubicBezier(0.0, 0.0, 0.78, 1.0).
    * @since 7
-   */
-  EaseOut,
+      */
+    EaseOut,
 
   /**
    * Indicates that the animation starts and ends at a slow speed, CubicBezier(0.42, 0.0, 0.78, 1.0).
    * @since 7
-   */
-  EaseInOut,
+      */
+    EaseInOut,
 
   /**
    * Slow-in, fast-out
    * @since 7
-   */
-  FastOutSlowIn,
+      */
+    FastOutSlowIn,
 
   /**
    * Linear Out Slow In
    * @since 7
-   */
-  LinearOutSlowIn,
+      */
+    LinearOutSlowIn,
 
   /**
-   * Fast OutL inear In.
+   * Fast Out Linear In.
    * @since 7
-   */
-  FastOutLinearIn,
+      */
+    FastOutLinearIn,
 
   /**
    * Extreme Deceleration.
    * @since 7
-   */
-  ExtremeDeceleration,
+      */
+    ExtremeDeceleration,
 
   /**
    * Sharp.
    * @since 7
-   */
-  Sharp,
+      */
+    Sharp,
 
   /**
    * Rhythm.
    * @since 7
-   */
-  Rhythm,
+      */
+    Rhythm,
 
   /**
    * Smooth.
    * @since 7
-   */
-  Smooth,
+      */
+    Smooth,
 
   /**
    * Damping curve, CubicBezier(0.2, 0.0, 0.2, 1.0).
    * @since 7
-   */
-  Friction,
+      */
+    Friction,
 }
 
 /**
@@ -402,29 +402,29 @@ declare enum Curve {
  * @since 7
  */
 declare enum FillMode {
-  /**
+    /**
    * Restores to the initial state after the playback is complete.
    * @since 7
    */
-  None,
+    None,
 
   /**
    * Retains the state at the end of the animation when the playback is complete.
    * @since 7
-   */
-  Forwards,
+      */
+    Forwards,
 
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    * @since 7
-   */
-  Backwards,
+      */
+    Backwards,
 
   /**
    * Both forward and backward fill modes are applied.
    * @since 7
-   */
-  Both,
+      */
+    Both,
 }
 
 /**
@@ -432,29 +432,29 @@ declare enum FillMode {
  * @since 7
  */
 declare enum PlayMode {
-  /**
+    /**
    * The animation plays normally.
    * @since 7
    */
-  Normal,
+    Normal,
 
   /**
    * The animation plays backwards.
    * @since 7
-   */
-  Reverse,
+      */
+    Reverse,
 
   /**
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
    * @since 7
-   */
-  Alternate,
+      */
+    Alternate,
 
   /**
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
    * @since 7
-   */
-  AlternateReverse,
+      */
+    AlternateReverse,
 }
 
 /**
@@ -462,17 +462,17 @@ declare enum PlayMode {
  * @since 7
  */
 declare enum KeyType {
-  /**
+    /**
    * Press the key.
    * @since 7
    */
-  Down,
+    Down,
 
   /**
    * The key is released.
    * @since 7
-   */
-  Up,
+      */
+    Up,
 }
 
 /**
@@ -480,17 +480,17 @@ declare enum KeyType {
  * @since 7
  */
 declare enum KeySource {
-  /**
+    /**
    * The input device type is unknown.
    * @since 7
    */
-  Unknown,
+    Unknown,
 
   /**
    * Set Device Type to Keyboard.
    * @since 7
-   */
-  Keyboard,
+      */
+    Keyboard,
 }
 
 /**
@@ -498,47 +498,47 @@ declare enum KeySource {
  * @since 7
  */
 declare enum Edge {
-  /**
+    /**
    * The top is centered horizontally.
    * @since 7
    */
-  Top,
+    Top,
 
   /**
    * Center horizontal and vertical.
    * @since 7
-   */
-  Center,
+      */
+    Center,
 
   /**
    * The bottom is centered horizontally.
    * @since 7
-   */
-  Bottom,
+      */
+    Bottom,
 
   /**
    * Cross axis direction text baseline alignment.
    * @since 7
-   */
-  Baseline,
+      */
+    Baseline,
 
   /**
    * Align the head of the cross axis direction.
    * @since 7
-   */
-  Start,
+      */
+    Start,
 
   /**
    * Middle
    * @since 7
-   */
-  Middle,
+      */
+    Middle,
 
   /**
    * Align the head of the cross axis direction.
    * @since 7
-   */
-  End,
+      */
+    End,
 }
 
 /**
@@ -546,47 +546,47 @@ declare enum Edge {
  * @since 7
  */
 declare enum Week {
-  /**
+    /**
    * Monday.
    * @since 7
    */
-  Mon,
+    Mon,
 
   /**
    * Tuesday.
    * @since 7
-   */
-  Tue,
+      */
+    Tue,
 
   /**
    * Wednesday.
    * @since 7
-   */
-  Wed,
+      */
+    Wed,
 
   /**
    * Thursday.
    * @since 7
-   */
-  Thur,
+      */
+    Thur,
 
   /**
    * Friday.
    * @since 7
-   */
-  Fri,
+      */
+    Fri,
 
   /**
    * Saturday.
    * @since 7
-   */
-  Sat,
+      */
+    Sat,
 
   /**
    * Sunday.
    * @since 7
-   */
-  Sun,
+      */
+    Sun,
 }
 
 /**
@@ -594,23 +594,23 @@ declare enum Week {
  * @since 7
  */
 declare enum Direction {
-  /**
+    /**
    * Elements are laid out from left to right.
    * @since 7
    */
-  Ltr,
+    Ltr,
 
   /**
    * Elements are laid out from right to left.
    * @since 7
-   */
-  Rtl,
+      */
+    Rtl,
 
   /**
    * Use the default layout direction.
    * @since 7
-   */
-  Auto,
+      */
+    Auto,
 }
 
 /**
@@ -618,23 +618,23 @@ declare enum Direction {
  * @since 7
  */
 declare enum BarState {
-  /**
+    /**
    * Not displayed.
    * @since 7
    */
-  Off,
+    Off,
 
   /**
    * On-demand display (displayed when you touch it and disappears after 2 seconds).
    * @since 7
-   */
-  Auto,
+      */
+    Auto,
 
   /**
    * Resident display.
    * @since 7
-   */
-  On,
+      */
+    On,
 }
 
 /**
@@ -642,23 +642,23 @@ declare enum BarState {
  * @since 7
  */
 declare enum EdgeEffect {
-  /**
+    /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    * @since 7
    */
-  Spring,
+    Spring,
 
   /**
    * Fade.
    * @since 7
-   */
-  Fade,
+      */
+    Fade,
 
   /**
    * Sliding to the edge has no effect.
    * @since 7
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -666,59 +666,59 @@ declare enum EdgeEffect {
  * @since 7
  */
 declare enum Alignment {
-  /**
+    /**
    * Top Start.
    * @since 7
    */
-  TopStart,
+    TopStart,
 
   /**
    * The top is centered horizontally.
    * @since 7
-   */
-  Top,
+      */
+    Top,
 
   /**
    * Top tail end.
    * @since 7
-   */
-  TopEnd,
+      */
+    TopEnd,
 
   /**
    * The starting end is centered longitudinally.
    * @since 7
-   */
-  Start,
+      */
+    Start,
 
   /**
    * Center horizontal and vertical.
    * @since 7
-   */
-  Center,
+      */
+    Center,
 
   /**
    * The tail end is centered longitudinally.
    * @since 7
-   */
-  End,
+      */
+    End,
 
   /**
    * Bottom starting end.
    * @since 7
-   */
-  BottomStart,
+      */
+    BottomStart,
 
   /**
    * The bottom is centered horizontally.
    * @since 7
-   */
-  Bottom,
+      */
+    Bottom,
 
   /**
    * Bottom end.
    * @since 7
-   */
-  BottomEnd,
+      */
+    BottomEnd,
 }
 
 /**
@@ -726,23 +726,23 @@ declare enum Alignment {
  * @since 7
  */
 declare enum TransitionType {
-  /**
+    /**
    * Specifies that the current transition action takes effect in all change scenarios of the component.
    * @since 7
    */
-  All,
+    All,
 
   /**
    * Specifies the insertion scenario in which the current transition action takes effect.
    * @since 7
-   */
-  Insert,
+      */
+    Insert,
 
   /**
    * Specifies the deletion scenario in which the current transition action takes effect.
    * @since 7
-   */
-  Delete,
+      */
+    Delete,
 }
 
 /**
@@ -750,17 +750,17 @@ declare enum TransitionType {
  * @since 7
  */
 declare enum RelateType {
-  /**
+    /**
    * Scales the current component to fill the parent component.
    * @since 7
    */
-  FILL,
+    FILL,
 
   /**
    * Scales the current component to fit the parent component.
    * @since 7
-   */
-  FIT,
+      */
+    FIT,
 }
 
 /**
@@ -768,23 +768,23 @@ declare enum RelateType {
  * @since 7
  */
 declare enum Visibility {
-  /**
+    /**
    * Show
    * @since 7
    */
-  Visible,
+    Visible,
 
   /**
    * Hide, but participate in layout for placeholder.
    * @since 7
-   */
-  Hidden,
+      */
+    Hidden,
 
   /**
    * Hides but does not participate in layout and does not take place.
    * @since 7
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -792,23 +792,23 @@ declare enum Visibility {
  * @since 7
  */
 declare enum LineCapStyle {
-  /**
+    /**
    * The two ends of the dividing line are parallel lines.
    * @since 7
    */
-  Butt,
+    Butt,
 
   /**
    * The two ends of the dividing line are semicircles.
    * @since 7
-   */
-  Round,
+      */
+    Round,
 
   /**
    * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
    * @since 7
-   */
-  Square,
+      */
+    Square,
 }
 
 /**
@@ -816,17 +816,17 @@ declare enum LineCapStyle {
  * @since 7
  */
 declare enum Axis {
-  /**
+    /**
    * Longitudinal arrangement
    * @since 7
    */
-  Vertical,
+    Vertical,
 
   /**
    * Horizontal arrangement.
    * @since 7
-   */
-  Horizontal,
+      */
+    Horizontal,
 }
 
 /**
@@ -834,23 +834,23 @@ declare enum Axis {
  * @since 7
  */
 declare enum HorizontalAlign {
-  /**
+    /**
    * Aligns the start end in the language direction.
    * @since 7
    */
-  Start,
+    Start,
 
   /**
    * Center alignment. The default alignment mode is used.
    * @since 7
-   */
-  Center,
+      */
+    Center,
 
   /**
    * Aligns the ends in the language direction.
    * @since 7
-   */
-  End,
+      */
+    End,
 }
 
 /**
@@ -858,50 +858,50 @@ declare enum HorizontalAlign {
  * @since 7
  */
 declare enum FlexAlign {
-  /**
+    /**
    * The element is aligned at the head of the principal axis,
    * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
    * @since 7
    */
-  Start,
+    Start,
 
   /**
    * The elements are centered in the direction of the principal axis,
    * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
    * @since 7
-   */
-  Center,
+      */
+    Center,
 
   /**
    * The element is aligned at the tail of the principal axis,
    * the last element is aligned at the end of the row, and the other elements are aligned with the next.
    * @since 7
-   */
-  End,
+      */
+    End,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
    * with the same distance between adjacent elements.
    * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
    * @since 7
-   */
-  SpaceBetween,
+      */
+    SpaceBetween,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
    *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
    * the first element and the distance between the last element and the end of the row.
    * @since 7
-   */
-  SpaceAround,
+      */
+    SpaceAround,
 
   /**
    * Elements in the Flex axis direction are evenly spaced.
    * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
    * and the spacing between the last element and the end of the row are the same.
    * @since 7
-   */
-  SpaceEvenly,
+      */
+    SpaceEvenly,
 }
 
 /**
@@ -909,41 +909,41 @@ declare enum FlexAlign {
  * @since 7
  */
 declare enum ItemAlign {
-  /**
+    /**
    * Use the default configuration in the Flex container.
    * @since 7
    */
-  Auto,
+    Auto,
 
   /**
    * The element is in the Flex container with the cross-axis direction head aligned.
    * @since 7
-   */
-  Start,
+      */
+    Start,
 
   /**
    * The element is centered in the Flex container with the cross axis direction aligned.
    * @since 7
-   */
-  Center,
+      */
+    Center,
 
   /**
    * The element is bottom aligned in the Flex container with the cross axis direction.
    * @since 7
-   */
-  End,
+      */
+    End,
 
   /**
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
    * @since 7
-   */
-  Baseline,
+      */
+    Baseline,
 
   /**
    * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
    * @since 7
-   */
-  Stretch,
+      */
+    Stretch,
 }
 
 /**
@@ -951,29 +951,29 @@ declare enum ItemAlign {
  * @since 7
  */
 declare enum FlexDirection {
-  /**
+    /**
    * The main axis is consistent with the row direction as the layout mode.
    * @since 7
    */
-  Row,
+    Row,
 
   /**
    * The main axis is consistent with the column direction as the layout mode.
    * @since 7
-   */
-  Column,
+      */
+    Column,
 
   /**
    * The layout is in the opposite direction to the Row direction.
    * @since 7
-   */
-  RowReverse,
+      */
+    RowReverse,
 
   /**
    * Layout in the opposite direction to the column.
    * @since 7
-   */
-  ColumnReverse,
+      */
+    ColumnReverse,
 }
 
 /**
@@ -981,23 +981,23 @@ declare enum FlexDirection {
  * @since 7
  */
 declare enum FlexWrap {
-  /**
+    /**
    * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
    * @since 7
    */
-  NoWrap,
+    NoWrap,
 
   /**
    * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
    * @since 7
-   */
-  Wrap,
+      */
+    Wrap,
 
   /**
    * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
    * @since 7
-   */
-  WrapReverse,
+      */
+    WrapReverse,
 }
 
 /**
@@ -1005,23 +1005,23 @@ declare enum FlexWrap {
  * @since 7
  */
 declare enum VerticalAlign {
-  /**
+    /**
    * Top alignment.
    * @since 7
    */
-  Top,
+    Top,
 
   /**
    * Center alignment. The default alignment mode is used.
    * @since 7
-   */
-  Center,
+      */
+    Center,
 
   /**
    * Bottom alignment.
    * @since 7
-   */
-  Bottom,
+      */
+    Bottom,
 }
 
 /**
@@ -1029,29 +1029,29 @@ declare enum VerticalAlign {
  * @since 7
  */
 declare enum ImageRepeat {
-  /**
+    /**
    * Do not draw the picture again.
    * @since 7
    */
-  NoRepeat,
+    NoRepeat,
 
   /**
    * Repeat the drawing only on the horizontal axis.
    * @since 7
-   */
-  X,
+      */
+    X,
 
   /**
    * Repeat the drawing only on the vertical axis.
    * @since 7
-   */
-  Y,
+      */
+    Y,
 
   /**
    * Draw the picture repeatedly on both axes.
    * @since 7
-   */
-  XY,
+      */
+    XY,
 }
 
 /**
@@ -1059,23 +1059,23 @@ declare enum ImageRepeat {
  * @since 7
  */
 declare enum ImageSize {
-  /**
+    /**
    * Keep the scale of the original image unchanged.
    * @since 7
    */
-  Auto,
+    Auto,
 
   /**
    * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    * @since 7
-   */
-  Cover,
+      */
+    Cover,
 
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    * @since 7
-   */
-  Contain,
+      */
+    Contain,
 }
 
 /**
@@ -1083,59 +1083,59 @@ declare enum ImageSize {
  * @since 7
  */
 declare enum GradientDirection {
-  /**
+    /**
    * Right to left.
    * @since 7
    */
-  Left,
+    Left,
 
   /**
    * From the bottom up.
    * @since 7
-   */
-  Top,
+      */
+    Top,
 
   /**
    * From left to right.
    * @since 7
-   */
-  Right,
+      */
+    Right,
 
   /**
    * From the top down.
    * @since 7
-   */
-  Bottom,
+      */
+    Bottom,
 
   /**
    * Top Left
    * @since 7
-   */
-  LeftTop,
+      */
+    LeftTop,
 
   /**
    * Left Bottom
    * @since 7
-   */
-  LeftBottom,
+      */
+    LeftBottom,
 
   /**
    * Right Top
    * @since 7
-   */
-  RightTop,
+      */
+    RightTop,
 
   /**
    * Right Bottom
    * @since 7
-   */
-  RightBottom,
+      */
+    RightBottom,
 
   /**
    * None
    * @since 7
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -1143,18 +1143,18 @@ declare enum GradientDirection {
  * @since 7
  */
 declare enum SharedTransitionEffectType {
-  /**
+    /**
    * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
    * only the static effect configured for redirecting to the target page takes effect.
    * @since 7
    */
-  Static,
+    Static,
 
   /**
    * Move the source page element to the destination page element location and scale it appropriately.
    * @since 7
-   */
-  Exchange,
+      */
+    Exchange,
 }
 
 /**
@@ -1162,17 +1162,17 @@ declare enum SharedTransitionEffectType {
  * @since 7
  */
 declare enum FontStyle {
-  /**
+    /**
    * Default style.
    * @since 7
    */
-  Normal,
+    Normal,
 
   /**
    * Italic style.
    * @since 7
-   */
-  Italic,
+      */
+    Italic,
 }
 
 /**
@@ -1180,41 +1180,41 @@ declare enum FontStyle {
  * @since 7
  */
 declare enum FontWeight {
-  /**
+    /**
    * Defines a lighter value than [Inherited Value]..
    * @since 7
    */
-  Lighter,
+    Lighter,
 
   /**
    * Normal font. Equivalent to a digital value of 400.
    * @since 7
-   */
-  Normal,
+      */
+    Normal,
 
   /**
    * Defines a more general value than [Inherited Value].
    * @since 7
-   */
-  Regular,
+      */
+    Regular,
 
   /**
    * Defines a value that is more centered than [Inherited Value].
    * @since 7
-   */
-  Medium,
+      */
+    Medium,
 
   /**
    * Bold. Equivalent to a numeric value of 700.
    * @since 7
-   */
-  Bold,
+      */
+    Bold,
 
   /**
    * Defines a value that is heavier than [Inherited Value].
    * @since 7
-   */
-  Bolder,
+      */
+    Bolder,
 }
 
 /**
@@ -1222,23 +1222,23 @@ declare enum FontWeight {
  * @since 7
  */
 declare enum TextAlign {
-  /**
+    /**
    * Center the text.
    * @since 7
    */
-  Center,
+    Center,
 
   /**
    * The text is aligned in the same direction as the writing
    * @since 7
-   */
-  Start,
+      */
+    Start,
 
   /**
    * The text is aligned in the opposite direction of writing
    * @since 7
-   */
-  End,
+      */
+    End,
 }
 
 /**
@@ -1246,7 +1246,7 @@ declare enum TextAlign {
  * @since 7
  */
 declare enum TextOverflow {
-  /**
+    /**
    * When the text is too long, it will be cropped and displayed.
    * @since 7
    */
@@ -1255,15 +1255,15 @@ declare enum TextOverflow {
   /**
    * If the text is too long, the text that cannot be displayed shall be replaced by ellipsis.
    * @since 7
-   */
+      */
 
   Ellipsis,
 
   /**
    * Text is not cropped when it is too long.
    * @since 7
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -1271,29 +1271,29 @@ declare enum TextOverflow {
  * @since 7
  */
 declare enum TextDecorationType {
-  /**
+    /**
    * Do not use text decorative lines.
    * @since 7
    */
-  None,
+    None,
 
   /**
    * Underline the words.
    * @since 7
-   */
-  Underline,
+      */
+    Underline,
 
   /**
    * Text is in all uppercase.
    * @since 7
-   */
-  Overline,
+      */
+    Overline,
 
   /**
    * A modifier line that passes through the text.
    * @since 7
-   */
-  LineThrough,
+      */
+    LineThrough,
 }
 
 /**
@@ -1301,23 +1301,23 @@ declare enum TextDecorationType {
  * @since 7
  */
 declare enum TextCase {
-  /**
+    /**
    * The default is normal.
    * @since 7
    */
-  Normal,
+    Normal,
 
   /**
    * The text is all lowercase.
    * @since 7
-   */
-  LowerCase,
+      */
+    LowerCase,
 
   /**
    * The text is all uppercase.
    * @since 7
-   */
-  UpperCase,
+      */
+    UpperCase,
 }
 
 /**
@@ -1325,17 +1325,17 @@ declare enum TextCase {
  * @since 8
  */
 declare enum ResponseType {
-  /**
+    /**
    * Right click.
    * @since 8
    */
-  RightClick,
+    RightClick,
 
   /**
    * Long press.
    * @since 8
-   */
-  LongPress,
+      */
+    LongPress,
 }
 
 /**
@@ -1343,29 +1343,29 @@ declare enum ResponseType {
  * @since 8
  */
 declare enum HoverEffect {
-  /**
+    /**
    * Default effect
    * @since 8
    */
-  Auto,
+    Auto,
 
   /**
    * Zoom in and out effect
    * @since 8
-   */
-  Scale,
+      */
+    Scale,
 
   /**
    * Highlight effect
    * @since 8
-   */
-  Highlight,
+      */
+    Highlight,
 
   /**
    * None effect
    * @since 8
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -1373,77 +1373,77 @@ declare enum HoverEffect {
  * @since 8
  */
 declare enum Placement {
-  /**
+    /**
    * Left placement
    * @since 8
    */
-  Left,
+    Left,
 
   /**
    * Right placement
    * @since 8
-   */
-  Right,
+      */
+    Right,
 
   /**
    * Top placement
    * @since 8
-   */
-  Top,
+      */
+    Top,
 
   /**
    * Bottom placement
    * @since 8
-   */
-  Bottom,
+      */
+    Bottom,
 
   /**
    * TopLeft placement
    * @since 8
-   */
-  TopLeft,
+      */
+    TopLeft,
 
   /**
    * TopRight placement
    * @since 8
-   */
-  TopRight,
+      */
+    TopRight,
 
   /**
    * BottomLeft placement
    * @since 8
-   */
-  BottomLeft,
+      */
+    BottomLeft,
 
   /**
    * BottomRight placement
    * @since 8
-   */
-  BottomRight,
+      */
+    BottomRight,
 
   /**
    * LeftTop placement
    * @since 9
-   */
-  LeftTop,
+      */
+    LeftTop,
 
   /**
    * LeftBottom placement
    * @since 9
-   */
-  LeftBottom,
+      */
+    LeftBottom,
 
   /**
    * RightTop placement
    * @since 9
-   */
-  RightTop,
+      */
+    RightTop,
 
   /**
    * RightBottom placement
    * @since 9
-   */
-  RightBottom,
+      */
+    RightBottom,
 }
 
 /**
@@ -1452,23 +1452,23 @@ declare enum Placement {
  * @since 9
  */
 declare enum CopyOptions {
-  /**
+    /**
    * Not allow share.
    * @since 9
    */
-  None = 0,
+    None = 0,
 
   /**
    * Share in app.
    * @since 9
-   */
-  InApp = 1,
+      */
+    InApp = 1,
 
   /**
    * Share in local device.
    * @since 9
-   */
-  LocalDevice = 2,
+      */
+    LocalDevice = 2,
 }
 
 /**
@@ -1476,33 +1476,33 @@ declare enum CopyOptions {
  * @since 9
  */
 declare enum HitTestMode {
-  /**
+    /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
    * @since 9
    */
-  Default,
+    Default,
 
   /**
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
    * @since 9
-   */
-  Block,
+      */
+    Block,
 
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
    * @since 9
-   */
-  Transparent,
+      */
+    Transparent,
 
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
    * @since 9
-   */
-  None,
+      */
+    None,
 }
 
 /**
@@ -1510,15 +1510,15 @@ declare enum HitTestMode {
  * @since 9
  */
 declare enum TitleHeight {
-  /**
-   * Title height when only main title is avaliable.
+    /**
+   * Title height when only main title is available.
    * @since 9
    */
-  MainOnly,
+    MainOnly,
 
   /**
-   * Title height when main title and subtitle are both avaliable.
+   * Title height when main title and subtitle are both available.
    * @since 9
-   */
-  MainWithSub,
+      */
+    MainWithSub,
 }

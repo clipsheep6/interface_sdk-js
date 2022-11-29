@@ -18,17 +18,17 @@
  * @since 9
  */
 declare interface NavigationCommonTitle {
-  /**
+    /**
    * Sets the main title.
    * @since 9
    */
-  main: string;
+    main: string;
 
   /**
    * Sets the sub title.
    * @since 9
-   */
-  sub: string;
+      */
+    sub: string;
 }
 
 /**
@@ -36,40 +36,40 @@ declare interface NavigationCommonTitle {
  * @since 9
  */
 declare interface NavigationCustomTitle {
-  /**
+    /**
    * Sets the custom title builder.
    * @since 9
    */
-  builder: CustomBuilder;
+    builder: CustomBuilder;
 
   /**
    * Sets the custom title height.
    * @since 9
-   */
-  height: TitleHeight | Length;
+      */
+    height: TitleHeight | Length;
 }
 
 /**
- * Nativation mode
+ * Navigation mode
  * @since 9
  */
 declare enum NavigationMode {
-  /**
+    /**
    * The navigation bar and the content area are displayed in stack.
    * @since 9
    */
-  Stack,
-  /**
+    Stack,
+    /**
    * The navigation bar and the content area are displayed side by side.
    * @since 9
    */
-  Split,
+    Split,
    /**
    * If the window width is greater than 520vp, the navigation component is displayed in split mode.
    * Otherwise it's displayed in stack mode.
    * @since 9
    */
-  Auto,
+    Auto,
 }
 
 /**
@@ -77,16 +77,16 @@ declare enum NavigationMode {
  * @since 9
  */
 declare enum NavBarPosition {
-  /**
+    /**
    * The navigation bar is on the Start of the container
    * @since 9
    */
-  Start,
-  /**
+    Start,
+    /**
    * The navigation bar is on the End of the container
    * @since 9
    */
-  End,
+    End,
 }
 
 /**
@@ -94,41 +94,41 @@ declare enum NavBarPosition {
  * @since 8
  */
 declare enum NavigationTitleMode {
-  /**
+    /**
    * The title is free mode.
    * @since 8
    */
-  Free = 0,
+    Free = 0,
 
   /**
    * The title is full mode.
    * @since 8
-   */
-  Full,
+      */
+    Full,
 
   /**
    * The title is mini mode.
    * @since 8
-   */
-  Mini,
+      */
+    Mini,
 }
 
 declare interface NavigationMenuItem {
   /**
    * The value of navigation menu item.
    * @since 8
-   */
-  value: string;
-  /**
+      */
+    value: string;
+    /**
    * The icon of navigation menu item.
    * @since 8
-   */
-  icon?: string;
-  /**
+      */
+    icon?: string;
+    /**
    * Trigger by navigation menu item click.
    * @since 8
-   */
-  action?: () => void;
+      */
+    action?: () => void;
 }
 
 /**
@@ -136,11 +136,11 @@ declare interface NavigationMenuItem {
  * @since 8
  */
 interface NavigationInterface {
-  /**
+    /**
    * Called when the navigator view interface is used.
    * @since 8
    */
-  (): NavigationAttribute;
+    (): NavigationAttribute;
 }
 
 /**
@@ -148,97 +148,97 @@ interface NavigationInterface {
  * @since 8
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
-  /**
+    /**
    * Sets the width of navigation bar.
    * @since 9
    */
-  navBarWidth(value: Length): NavigationAttribute;
+    navBarWidth(value: Length): NavigationAttribute;
 
   /**
    * Sets the position of navigation bar.
    * @since 9
-   */
-  navBarPosition(value: NavBarPosition): NavigationAttribute;
-   
+      */
+    navBarPosition(value: NavBarPosition): NavigationAttribute;
+
   /**
    * Sets the mode of navigation.
    * @since 9
-   */
-  mode(value: NavigationMode): NavigationAttribute;
-   
+      */
+    mode(value: NavigationMode): NavigationAttribute;
+
   /**
    * Sets the back button icon.
    * @since 9
-   */
-  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
-   
+      */
+    backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
+
   /**
    * Hide the navigation bar.
    * @since 9
-   */
-  hideNavBar(value: boolean): NavigationAttribute;
+      */
+    hideNavBar(value: boolean): NavigationAttribute;
 
   /**
    * Navigation title
    * @since 8
-   */
-  title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
+      */
+    title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
 
   /**
    * Navigation subtitle
    * @since 8
    * @deprecated since 9
    * @useinstead title
-   */
-  subTitle(value: string): NavigationAttribute;
+      */
+    subTitle(value: string): NavigationAttribute;
 
   /**
    * Hide navigation title bar
    * @since 8
-   */
-  hideTitleBar(value: boolean): NavigationAttribute;
+      */
+    hideTitleBar(value: boolean): NavigationAttribute;
 
   /**
    * Hide navigation back button
    * @since 8
-   */
-  hideBackButton(value: boolean): NavigationAttribute;
+      */
+    hideBackButton(value: boolean): NavigationAttribute;
 
   /**
    * Navigation title mode
    * @since 8
-   */
-  titleMode(value: NavigationTitleMode): NavigationAttribute;
+      */
+    titleMode(value: NavigationTitleMode): NavigationAttribute;
 
   /**
    * Navigation title bar's menus
    * @since 8
-   */
-  menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
+      */
+    menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
 
   /**
    * Tool bar
    * @since 8
-   */
-  toolBar(value: object | CustomBuilder): NavigationAttribute;
+      */
+    toolBar(value: object | CustomBuilder): NavigationAttribute;
 
   /**
    * Hide tool bar
    * @since 8
-   */
-  hideToolBar(value: boolean): NavigationAttribute;
+      */
+    hideToolBar(value: boolean): NavigationAttribute;
 
   /**
    * Trigger callback when title mode change finished at free mode.
    * @since 8
-   */
-  onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
+      */
+    onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
 
   /**
    * Trigger callback when the visibility of navigation bar change.
    * @since 9
-   */
-  onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
+      */
+    onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
 declare const Navigation: NavigationInterface;

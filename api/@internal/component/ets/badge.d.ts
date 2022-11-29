@@ -18,23 +18,23 @@
  * @since 7
  */
 declare enum BadgePosition {
-  /**
+    /**
    * The dot is displayed vertically centered on the right.
    * @since 7
    */
-  RightTop,
+    RightTop,
 
   /**
    * Dots are displayed in the upper right corner.
    * @since 7
-   */
-  Right,
+      */
+    Right,
 
   /**
    * The dot is displayed in the left vertical center.
    * @since 7
-   */
-  Left,
+      */
+    Left,
 }
 
 /**
@@ -42,29 +42,29 @@ declare enum BadgePosition {
  * @since 7
  */
 declare interface BadgeStyle {
-  /**
+    /**
    * Text Color
    * @since 7
    */
-  color?: ResourceColor;
+    color?: ResourceColor;
 
   /**
    * Text size.
    * @since 7
-   */
-  fontSize?: number | string;
+      */
+    fontSize?: number | string;
 
   /**
    * Size of a badge.
    * @since 7
-   */
-  badgeSize?: number | string;
+      */
+    badgeSize?: number | string;
 
   /**
    * Color of the badge.
    * @since 7
-   */
-  badgeColor?: ResourceColor;
+      */
+    badgeColor?: ResourceColor;
 }
 
 /**
@@ -72,17 +72,17 @@ declare interface BadgeStyle {
  * @since 7
  */
 declare interface BadgeParam {
-  /**
+    /**
    * Set the display position of the prompt point.
    * @since 7
    */
-  position?: BadgePosition;
+    position?: BadgePosition;
 
   /**
    * Defines the style of the Badge component, including the text color, size, dot color, and size.
    * @since 7
-   */
-  style: BadgeStyle;
+      */
+    style: BadgeStyle;
 }
 
 /**
@@ -90,17 +90,17 @@ declare interface BadgeParam {
  * @since 7
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
-  /**
+    /**
    * Set the number of reminder messages.
    * @since 7
    */
-  count: number;
+    count: number;
 
   /**
    * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * @since 7
-   */
-  maxCount?: number;
+      */
+    maxCount?: number;
 }
 
 /**
@@ -108,26 +108,26 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @since 7
  */
 declare interface BadgeParamWithString extends BadgeParam {
-  /**
+    /**
    * Text string of the prompt content.
    * @since 7
    */
-  value: string;
+    value: string;
 }
 
 /**
- * Defines Badge Componrnt.
+ * Defines Badge Component.
  * @since 7
  */
 interface BadgeInterface {
-  /**
+    /**
    * position: Set the display position of the prompt point.
    * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * count: Set the number of reminder messages.
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
    * @since 7
    */
-  (value: BadgeParamWithNumber): BadgeAttribute;
+    (value: BadgeParamWithNumber): BadgeAttribute;
 
   /**
    * value: Text string of the prompt content.
@@ -135,12 +135,12 @@ interface BadgeInterface {
    * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
    * @since 7
-   */
-  (value: BadgeParamWithString): BadgeAttribute;
+      */
+    (value: BadgeParamWithString): BadgeAttribute;
 }
 
 /**
- * Defines Badge Componrnt attribute.
+ * Defines Badge Component attribute.
  * @since 7
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}

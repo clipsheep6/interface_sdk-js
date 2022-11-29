@@ -18,23 +18,23 @@
  * @since 9
  */
 declare interface ListItemGroupOptions {
-  /**
+    /**
    * Describes the ListItemGroup header.
    * @since 9
    */
-  header?: CustomBuilder;
+    header?: CustomBuilder;
 
   /**
    * Describes the ListItemGroup footer.
    * @since 9
-   */
-  footer?: CustomBuilder;
+      */
+    footer?: CustomBuilder;
 
   /**
    * Describes the ListItemGroup space.
    * @since 9
-   */
-  space?: number | string;
+      */
+    space?: number | string;
 }
 
 /**
@@ -42,30 +42,30 @@ declare interface ListItemGroupOptions {
  * @since 9
  */
 interface ListItemGroupInterface {
-  /**
+    /**
    * Called when interface is called.
    * @since 9
    */
-  (options?: ListItemGroupOptions): ListItemGroupAttribute;
+    (options?: ListItemGroupOptions): ListItemGroupAttribute;
 }
 
 /**
- * Defines the item group attibute functions.
+ * Defines the item group attribute functions.
  * @since 9
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
-  /**
+    /**
    * Called when the ListItemGroup split line style is set.
    * @since 9
    */
-  divider(
+    divider(
     value: {
       strokeWidth: Length;
       color?: ResourceColor;
       startMargin?: Length;
       endMargin?: Length;
     } | null,
-  ): ListItemGroupAttribute;
+    ): ListItemGroupAttribute;
 }
 
 /**
@@ -73,4 +73,3 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
  */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 declare const ListItemGroup: ListItemGroupInterface;
-  

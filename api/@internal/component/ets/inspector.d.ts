@@ -15,17 +15,24 @@
 
 /**
  * Get inspector node infos.
+
  * @since 7
+
  * @systemapi
- * @deprecated
- */
-declare function getInspectorNodes(): object;
+
+ * @deprecated since 9
+
+ * @useinstead getInspectorTree
+ 
+*/
+ declare function getInspectorNodes(): object;
 
 /**
  * Get inspector node info by node id.
  * @since 7
  * @systemapi
- * @deprecated
+ * @deprecated since 9
+ * @useinstead getInspectorTree
  */
 declare function getInspectorNodeById(id: number): object;
 
@@ -36,22 +43,22 @@ declare function getInspectorNodeById(id: number): object;
  * @test
  */
 declare namespace Profiler {
-  /**
+    /**
    * Registers vsync callback for profiler.
    * @param callback the callback info is json string with ui update info.
    * @since 8
    * @systemapi
    * @test
    */
-  function registerVsyncCallback(callback: (info: string) => void): void;
+    function registerVsyncCallback(callback: (info: string) => void): void;
 
   /**
    * Unregisters vsync callback.
    * @since 8
    * @systemapi
    * @test
-   */
-  function unregisterVsyncCallback(): void;
+      */
+    function unregisterVsyncCallback(): void;
 }
 
 /**
