@@ -34,7 +34,7 @@
  * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
  * and taskId.
  *
- * @deprecated
+ * @deprecated since 7
  * @useinstead ohos.hiTraceMeter 
  * @since 7
  * @syscap SystemCapability.HiviewDFX.HiTrace
@@ -48,7 +48,7 @@ declare namespace bytrace {
    * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
-   * @deprecated
+   * @deprecated since 7
    * @useinstead ohos.hiTraceMeter.startTrace
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
@@ -64,7 +64,7 @@ declare namespace bytrace {
    * This method is invoked at the end of a transaction to indicate that a task has ended, whose name
    * is specified by {@code name}. This method must be invoked after the the startTrace.
    *
-   * @deprecated
+   * @deprecated since 7
    * @useinstead ohos.hiTraceMeter.finishTrace
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
@@ -77,7 +77,7 @@ declare namespace bytrace {
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
-   * @deprecated
+   * @deprecated since 7
    * @useinstead ohos.hiTraceMeter.traceByValue
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiTrace
