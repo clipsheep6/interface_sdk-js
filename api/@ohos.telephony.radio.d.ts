@@ -67,7 +67,7 @@ declare namespace radio {
   /**
    * Actively requests to update location information.
    *
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi
@@ -79,7 +79,7 @@ declare namespace radio {
   /**
    * Actively requests to update location information.
    *
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
    * @systemapi
@@ -88,7 +88,7 @@ declare namespace radio {
   function sendUpdateCellLocationRequest(slotId?: number): Promise<void>;
 
   /**
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -308,8 +308,8 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
-   function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
+  function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+  function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
    * Called when the IMS registration state of specified IMS service type corresponding
