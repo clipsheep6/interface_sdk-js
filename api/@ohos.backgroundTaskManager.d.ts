@@ -21,7 +21,7 @@ import Context from './application/BaseContext';
  * Manages background tasks.
  *
  * @since 7
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+ * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManageraaa.TransientTask
  * @deprecated since 9
  * @useinstead ohos.resourceschedule.backgroundTaskManager
  */
@@ -60,7 +60,7 @@ declare namespace backgroundTaskManager {
     /**
      * Obtains the remaining time before an application enters the suspended state.
      *
-     * @since 7
+     * @since 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param requestId Indicates the identifier of the delay request.
      * @returns The remaining delay time

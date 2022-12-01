@@ -25,16 +25,16 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
  * The class of an ability.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @syscap SystemCapability.Abbbility.AbilityRuntime.AbilityCore
  * @FAModelOnly
  */
 declare namespace ability {
 
     /**
-     * DataAbilityHelper
+     * DataAbilityHelperaaa
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      *
-     * @since 9
+     * @since 
      * @FAModelOnly
      */
     export type DataAbilityHelper = _DataAbilityHelper

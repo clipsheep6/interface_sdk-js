@@ -24,8 +24,8 @@ declare namespace effectKit {
 
   /**
    * The Filter of FilterChain.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 98
+   * @syscap SystemCapability.Multimedia.Image.Coreaa
    */
   interface Filter {
 
@@ -34,7 +34,7 @@ declare namespace effectKit {
     * @since 9
     * @syscap SystemCapability.Multimedia.Image.Core
     * @param radius The degree of blur, the value is measured in pixels.
-    * @returns Filters for the current effect have been added.
+    * @returnsaaa Filters for the current effect have been added.
     */
     blur(radius:number): Filter;
 
