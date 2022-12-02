@@ -22,19 +22,50 @@ export default fileIo;
  * @since 9
  */
 declare namespace fileIo {
+    export { access };
+    export { accessSync };
+    export { close };
+    export { closeSync };
+    export { copyFile };
+    export { copyFileSync };
+    export { createStream };
+    export { createStreamSync };
+    export { fdatasync };
+    export { fdatasyncSync };
+    export { fdopenStream };
+    export { fdopenStreamSync };
+    export { fsync };
+    export { fsyncSync };
+    export { lstat };
+    export { lstatSync };
+    export { mkdir };
+    export { mkdirSync };
+    export { mkdtemp };
+    export { mkdtempSync };
     export { open };
     export { openSync };
     export { read };
     export { readSync };
+    export { readText };
+    export { readTextSync };
+    export { rename };
+    export { renameSync };
+    export { rmdir };
+    export { rmdirSync };
     export { stat };
     export { statSync };
+    export { symlink };
+    export { symlinkSync };
     export { truncate };
     export { truncateSync };
+    export { unlink };
+    export { unlinkSync };
     export { write };
     export { writeSync };
     export { File };
     export { OpenMode };
     export { Stat };
+    export { Stream };
     
     /**
      * Mode Indicates the open flags.
@@ -54,6 +85,265 @@ declare namespace fileIo {
         const SYNC = 0o4010000;             // SYNC IO
     }
 }
+
+/**
+ * access file.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function access
+ * @param {string} path - path.
+ * @param {AsyncCallback<boolean>} [callback] - callback.
+ * @returns {void | Promise<boolean>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function access(path: string): Promise<boolean>;
+declare function access(path: string, callback: AsyncCallback<boolean>): void;
+ /**
+  * access file with sync interface.
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function accessSync
+  * @param {string} path - path.
+  * @returns {boolean} access success
+  * @throws {BusinessError} access fail
+  */
+declare function accessSync(path: string): boolean;
+
+/**
+ * close.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function close
+ * @param {number | File} file - file object or fd.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function close(file: number | File): Promise<void>;
+declare function close(file: number | File, callback: AsyncCallback<void>): void;
+/**
+ * closeSync.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ * @function closeSync
+ * @param {number | File} file - file object or fd.
+ * @returns {void} close success
+ * @throws {BusinessError} close fail
+ */
+declare function closeSync(fd: number | File): void;
+
+/**
+ * copyFile.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function copyFile
+ * @param {string | number} src - src.
+ * @param {string | number} dest - dest.
+ * @param {number} [mode = 0] - mode.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
+declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
+declare function copyFile(src: string | number, dest: string | number, mode: number, callback: AsyncCallback<void>): void;
+ /**
+  * copyFileSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function copyFileSync
+  * @param {string | number} src - src.
+  * @param {string | number} dest - dest.
+  * @param {number} [mode = 0] - mode.
+  * @returns {void} copyFile success
+  * @throws {BusinessError} copyFile fail
+  */
+declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
+
+
+/**
+ * createStream.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function createStream
+ * @param {string} path - path.
+ * @param {string} mode - mode.
+ * @param {AsyncCallback<Stream>} [callback] - callback.
+ * @returns {void | Promise<Stream>} no callback return Promise otherwise return Stream
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function createStream(path: string, mode: string): Promise<Stream>;
+declare function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
+ /**
+  * createStreamSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function createStreamSync
+  * @param {string} path - path.
+  * @param {string} mode - mode.
+  * @returns {Stream} createStream
+  * @throws {BusinessError} Parameter check failed
+  */
+declare function createStreamSync(path: string, mode: string): Stream;
+
+
+/**
+ * fdatasync.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function fdatasync
+ * @param {number} fd - fd.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function fdatasync(fd: number): Promise<void>;
+declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
+ /**
+  * fdatasyncSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function fdatasyncSync
+  * @param {number} fd - fd.
+  * @returns {void} fdatasync success
+  * @throws {BusinessError} fdatasync fail
+  */
+declare function fdatasyncSync(fd: number): void;
+
+/**
+ * fdopenStream.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function fdopenStream
+ * @param {number} fd - fd.
+ * @param {string} mode - mode.
+ * @param {AsyncCallback<Stream>} [callback] - callback.
+ * @returns {void | Promise<Stream>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
+declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
+ /**
+  * fdopenStreamSync.
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function fdopenStreamSync
+  * @param {number} fd - fd.
+  * @param {string} mode - mode.
+  * @returns {Stream} open stream from fd
+  * @throws {BusinessError} open fail
+  */
+declare function fdopenStreamSync(fd: number, mode: string): Stream;
+
+/**
+ * fsync.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function fsync
+ * @param {number} fd - fd.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function fsync(fd: number): Promise<void>;
+declare function fsync(fd: number, callback: AsyncCallback<void>): void;
+ /**
+  * fsyncSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function fsyncSync
+  * @param {number} fd - fd.
+  * @returns {void} fsync success
+  * @throws {BusinessError} fsync fail
+  */
+declare function fsyncSync(fd: number): void;
+
+/**
+ * lstat.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function lstat
+ * @param {string} path - path.
+ * @param {AsyncCallback<Stat>} [callback] - callback.
+ * @returns {void | Promise<Stat>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function lstat(path: string): Promise<Stat>;
+declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
+ /**
+  * lstatSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function lstatSync
+  * @param {string} path - path.
+  * @returns {Stat} lstat success
+  * @throws {BusinessError}} lstat fail
+  */
+declare function lstatSync(path: string): Stat;
+ 
+/**
+ * mkdir.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function mkdir
+ * @param {string} path - path.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function mkdir(path: string): Promise<void>;
+declare function mkdir(path: string, callback: AsyncCallback<void>): void;
+
+ /**
+  * mkdirSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function mkdirSync
+  * @param {string} path - path.
+  * @returns {void} mkdir success
+  * @throws {BusinessError} mkdir fail
+  */
+declare function mkdirSync(path: string): void;
+ /**
+  * mkdtemp.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function mkdtemp
+  * @param {string} prefix - dir prefix.
+  * @param {AsyncCallback<string>} [callback] - callback.
+  * @returns {void | Promise<string>} no callback return Promise otherwise return void
+  * @throws {BusinessError} Parameter check failed
+  */
+declare function mkdtemp(prefix: string): Promise<string>;
+declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
+ /**
+  * mkdtempSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function mkdtempSync
+  * @param {string} prefix - dir prefix.
+  * @returns {string} directory name
+  * @throws {BusinessError} mkdtemp fail
+  */
+declare function mkdtempSync(prefix: string): string;
 
 /**
  * Open file.
@@ -193,6 +483,128 @@ declare function readSync(fd: number, buffer: ArrayBuffer, options?: {
 }): number;
 
 /**
+ * readText.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function readText
+ * @param {string} filePath - file path.
+ * @param {Object} [options] - options.
+ * @param {number} [options.offset = 0] - offset in bytes.
+ * @param {number} [options.length = 0] - length in bytes.
+ * @param {number} [options.encoding = 'utf-8'] - encoding.
+ * @param {AsyncCallback<string>} [callback] - callback.
+ * @returns {void | Promise<string>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+
+declare function readText(filePath: string, options?: {
+    offset?: number;
+    length?: number;
+    encoding?: string;
+}): Promise<string>;
+declare function readText(filePath: string, options: {
+    offset?: number;
+    length?: number;
+    encoding?: string;
+}, callback: AsyncCallback<string>): void;
+
+/**
+ * readTextSync.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function readTextSync
+ * @param {string} filePath - file path.
+ * @param {Object} [options] - options.
+ * @param {number} [options.offset = 0] - offset in bytes.
+ * @param {number} [options.length = 0] - length in bytes.
+ * @param {number} [options.encoding = 'utf-8'] - encoding.
+ * @returns {string} readout result
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function readTextSync(filePath: string, options?: {
+    offset?: number;
+    length?: number;
+    encoding?: string;
+}): string;
+
+/**
+ * readTextSync.
+ *
+ * @note N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 7
+ * @permission N/A
+ * @function readTextSync
+ * @param {string} filePath - file path.
+ * @param {Object} [options] - options.
+ * @param {number} [options.offset = 0] - offset in bytes.
+ * @param {number} [options.length = -1] - length in bytes.
+ * @param {number} [options.encoding = 'utf-8'] - encoding.
+ * @returns {string} readout result
+ * @throws {TypedError} Parameter check failed
+ */
+declare function readTextSync(filePath: string, options?: {
+    position?: number;
+    length?: number;
+    encoding?: string;
+}): string;
+
+
+/**
+ * rename.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function rename
+ * @param {string} oldPath - oldPath.
+ * @param {string} newPath - newPath.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function rename(oldPath: string, newPath: string): Promise<void>;
+declare function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
+ /**
+  * renameSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function renameSync
+  * @param {string} oldPath - oldPath.
+  * @param {string} newPath - newPath.
+  * @returns {void} rename success
+  * @throws {BusinessError} rename fail
+  */
+declare function renameSync(oldPath: string, newPath: string): void;
+
+/**
+ * rmdir.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function rmdir
+ * @param {string} path - path.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function rmdir(path: string): Promise<void>;
+declare function rmdir(path: string, callback: AsyncCallback<void>): void;
+ /**
+  * rmdirSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function rmdirSync
+  * @param {string} path - path.
+  * @returns {void} rmdir success
+  * @throws {BusinessError} rmdir fail
+  */
+declare function rmdirSync(path: string): void;
+
+/**
  * Get file information.
  * @static
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -266,6 +678,34 @@ declare function statSync(file: string | number): Stat;
  * @throws { BusinessError } 13900033  - Too many symbolic links encountered
  * @throws { BusinessError } 13900042  - Unknown error
  */
+
+/**
+ * symlink.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function symlink
+ * @param {string} target - target.
+ * @param {string} srcPath - srcPath.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function symlink(target: string, srcPath: string): Promise<void>;
+declare function symlink(target: string, srcPath: string, callback: AsyncCallback<void>): void;
+ /**
+  * symlinkSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function symlinkSync
+  * @param {string} target - target.
+  * @param {string} srcPath - srcPath.
+  * @returns {void} symlink success
+  * @throws {BusinessError} symlink fail
+  */
+declare function symlinkSync(target: string, srcPath: string): void;
+
 declare function truncate(file: string | number, len?: number): Promise<void>;
 declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
 declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
@@ -324,6 +764,32 @@ declare function truncateSync(file: string | number, len?: number): void;
  * @throws { BusinessError } 13900041  - Quota exceeded
  * @throws { BusinessError } 13900042  - Unknown error
  */
+
+/**
+ * unlink.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @function unlink
+ * @param {string} path - path.
+ * @param {AsyncCallback<void>} [callback] - callback.
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws {BusinessError} Parameter check failed
+ */
+declare function unlink(path: string): Promise<void>;
+declare function unlink(path: string, callback: AsyncCallback<void>): void;
+ /**
+  * unlinkSync.
+  *
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @since 9
+  * @function unlinkSync
+  * @param {string} path - path.
+  * @returns {void} unlink success
+  * @throws {BusinessError} unlink fail
+  */
+declare function unlinkSync(path: string): void;
+
 declare function write(fd: number, buffer: ArrayBuffer | string, options?: {
     offset?: number;
     length?: number;
@@ -492,4 +958,133 @@ declare interface Stat {
      * @returns {boolean} is or not
      */
     isSymbolicLink(): boolean;
+}
+
+/**
+ * Stream
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ */
+declare interface Stream {
+    /**
+     * close.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param {AsyncCallback<void>} [callback] - callback.
+     * @returns {void | Promise<void>} close success
+     * @throws {BusinessError} close fail
+     */
+    close(): Promise<void>;
+    close(callback: AsyncCallback<void>): void;
+    /**
+     * closeSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @returns {void} close success
+     * @throws {BusinessError} close fail
+     */
+    closeSync(): void;
+    /**
+     * flush.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param {AsyncCallback<void>} [callback] - callback.
+     * @returns {void | Promise<void>} no callback return Promise otherwise return void
+     * @throws {BusinessError} Parameter check failed
+     */
+    flush(): Promise<void>;
+    flush(callback: AsyncCallback<void>): void;
+    /**
+     * flushSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @returns {void} flush success
+     * @throws {BusinessError} flush fail
+     */
+    flushSync(): void;
+    /**
+     * write.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param {ArrayBuffer | string} buffer - file description.
+     * @param {Object} [options] - options.
+     * @param {number} [options.length = 0] - length(bytes) ignored when buffer is string.
+     * @param {number} [options.offset = 0] - offset(bytes) where start to write < 0 use read, else use pread.
+     * @param {string} [options.encoding = 'utf-8'] -  encoding.
+     * @param {AsyncCallback<number>} [callback] - callback.
+     * @returns {void | Promise<number>} no callback return Promise otherwise return void
+     * @throws {BusinessError} Parameter check failed
+     */
+    write(buffer: ArrayBuffer | string, options?: {
+        offset?: number;
+        length?: number;
+        encoding?: string;
+    }): Promise<number>;
+    write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
+    write(buffer: ArrayBuffer | string, options: {
+        offset?: number;
+        length?: number;
+        encoding?: string;
+    }, callback: AsyncCallback<number>): void;
+    /**
+     * writeSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param {ArrayBuffer | string} buffer - file description.
+     * @param {Object} [options] - options.
+     * @param {number} [options.length = 0] - length(bytes) ignored when buffer is string.
+     * @param {number} [options.offset = 0] - position(bytes) where start to write < 0 use read, else use pread.
+     * @param {string} [options.encoding = 'utf-8'] -  encoding.
+     * @returns {number} on success number of bytes written
+     * @throws {BusinessError} write fail
+     */
+    writeSync(buffer: ArrayBuffer | string, options?: {
+        offset?: number;
+        length?: number;
+        encoding?: string;
+    }): number;
+    /**
+     * read.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param {ArrayBuffer} buffer - file description.
+     * @param {Object} [options] - options.
+     * @param {number} [options.offset = 0] - offset.
+     * @param {number} [options.length = 0] - length.
+     * @param {AsyncCallback<number>} [callback] - callback.
+     * @returns {void | Promise<number>} no callback return Promise otherwise return void
+     * @throws {BusinessError} Parameter check failed
+     */
+    read(buffer: ArrayBuffer, options?: {
+        offset?: number;
+        length?: number;
+    }): Promise<number>;
+    read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
+    read(buffer: ArrayBuffer, options: {
+        offset?: number;
+        length?: number;
+    }, callback: AsyncCallback<number>): void;
+    /**
+     * readSync.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param {ArrayBuffer} buffer - file description.
+     * @param {Object} [options] - options.
+     * @param {number} [options.offset = 0] - offset.
+     * @param {number} [options.length = 0] - length.
+     * @returns {number} number of bytesRead
+     * @throws {BusinessError} read fail
+     */
+    readSync(buffer: ArrayBuffer, options?: {
+        offset?: number;
+        length?: number;
+    }): number;
 }
