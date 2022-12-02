@@ -496,6 +496,8 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * @static
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.hash.hash
  * @permission N/A
  * @function hash
  * @param {string} path - path.
@@ -670,8 +672,6 @@ declare function openSync(path: string, flags?: number, mode?: number): number;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @deprecated since 9
- * @useinstead ohos.file.fs.listFile
  * @permission N/A
  * @function opendir
  * @param {string} path - directory name.
@@ -684,8 +684,6 @@ declare function opendir(path: string, callback: AsyncCallback<Dir>): void;
 /**
  * opendirSync.
  *
- * @deprecated since 9
- * @useinstead ohos.file.fs.listFile
  * @param {string} path - directory name.
  * @returns {Dir} opendir Dir Object
  * @throws {TypedError | Error} opendir fail
@@ -920,7 +918,7 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.file.fs.symlinkSync
+ * @useinstead ohos.file.fs.truncate
  * @function truncate
  * @param {string} path - path.
  * @param {number} [len = 0] - len.
@@ -1050,8 +1048,6 @@ declare function createWatcher(filename: string, events: number, callback: Async
  * Dir
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @deprecated since 9
- * @useinstead ohos.file.fs.listFile
  * @permission N/A
  */
 declare interface Dir {
@@ -1106,8 +1102,6 @@ declare interface Dir {
  * Dirent
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @deprecated since 9
- * @useinstead ohos.file.fs.listFile
  * @permission N/A
  */
 declare interface Dirent {
