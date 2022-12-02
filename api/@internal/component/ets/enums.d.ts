@@ -131,6 +131,20 @@ declare enum ImageFit {
    * @since 7
    */
   None,
+
+  /**
+   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * Fill empty space of the component with blurred image.
+   * @since 9
+   */
+  Blur,
+
+  /**
+   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * Fill empty space of the component with blurred image. The border between the original and blurred images is smooth.
+   * @since 9
+   */
+  BlurFade,
 }
 
 /**
