@@ -190,4 +190,13 @@ export interface ApplicationInfo {
    * @since 9
    */
   readonly appProvisionType: string;
+
+  /**
+   * Indicates whether the application is a system application, which it's app-feature in signature profile is
+   * hos_system_app or ohos_system_app, or haps in the directory /system/app.
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly systemApp: boolean;
 }
