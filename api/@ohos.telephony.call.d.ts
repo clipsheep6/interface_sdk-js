@@ -827,7 +827,7 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 8
    */
   export enum DisconnectedReason {
     UNASSIGNED_NUMBER = 1,
