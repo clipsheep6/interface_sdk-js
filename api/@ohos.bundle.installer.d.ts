@@ -66,6 +66,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700015 - Failed to install the HAPs because they have different configuration information.
      * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
      * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
      * @throws { BusinessError } 17700101 - The system service is excepted.
      * @throws { BusinessError } 17700103 - I/O operation is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -90,6 +91,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700015 - Multiple haps have inconsistent configured information.
      * @throws { BusinessError } 17700016 - No disk space left for installation.
      * @throws { BusinessError } 17700017 - Downgrade installation is prohibited.
+     * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
      * @throws { BusinessError } 17700101 - The system service is excepted.
      * @throws { BusinessError } 17700103 - I/O operation is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
