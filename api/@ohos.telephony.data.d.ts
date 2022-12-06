@@ -93,7 +93,7 @@ declare namespace data {
   function enableCellularData(): Promise<void>;
 
   /**
-   * Diables cellular data services.
+   * Disables cellular data services.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.

@@ -533,7 +533,7 @@ declare namespace sms {
     SIM_MESSAGE_STATUS_UNREAD = 3,
     /** STO SENT stored sent message (only applicable to SMs) */
     SIM_MESSAGE_STATUS_SENT = 5,
-    /** STO UNSENT stored unsent message (only applicable to SMs) */
+    /** STO UNSENT stored unsent messages (only applicable to SMs) */
     SIM_MESSAGE_STATUS_UNSENT = 7,
   }
 

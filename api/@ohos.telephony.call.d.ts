@@ -151,7 +151,7 @@ declare namespace call {
   function answer(callback: AsyncCallback<void>): void;
 
   /**
-   * Hangups the foreground call.
+   * Hang up the foreground call.
    *
    * @param callId Indicates the identifier of the call to hangup.
    * @permission ohos.permission.ANSWER_CALL
@@ -162,7 +162,7 @@ declare namespace call {
   function hangup(callId?: number): Promise<void>;
 
   /**
-   * Hangups the foreground call without callId.
+   * Hang up the foreground call without callId.
    *
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -170,7 +170,7 @@ declare namespace call {
   function hangup(callback: AsyncCallback<void>): void;
 
   /**
-   * Rejects the incoming call.
+   * Reject the incoming call.
    *
    * @param callId Indicates the identifier of the call to reject.
    * @param options Indicates the text message to reject.
@@ -183,7 +183,7 @@ declare namespace call {
   function reject(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
-   * Rejects the incoming call without callId.
+   * Reject the incoming call without callId.
    *
    * @param options Indicates the text message to reject.
    * @permission ohos.permission.ANSWER_CALL

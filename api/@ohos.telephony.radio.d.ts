@@ -65,7 +65,7 @@ declare namespace radio {
   function getNetworkState(slotId?: number): Promise<NetworkState>;
 
   /**
-   * Proactively requests to update location information.
+   * Actively requests to update location information.
    *
    * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
@@ -77,7 +77,7 @@ declare namespace radio {
   function sendUpdateCellLocationRequest(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Proactively requests to update location information.
+   * Actively requests to update location information.
    *
    * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
@@ -224,8 +224,9 @@ declare namespace radio {
    * Checks whether the device supports 5G New Radio (NR).
    *
    * @return Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
-   * @deprecated Advised to use isNrSupported(slotId: number) instead.
    * @since 7
+   * @deprecated since 8
+   * @useinstead telephony.Radio#isNrSupported
    */
   function isNrSupported(): boolean;
 
@@ -300,7 +301,7 @@ declare namespace radio {
   function getPreferredNetwork(slotId: number): Promise<PreferredNetworkMode>;
 
   /**
-   * Get the IMS registration state info of specificed IMS service type.
+   * Get the IMS registration state info of specified IMS service type.
    *
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
@@ -321,7 +322,7 @@ declare namespace radio {
    function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
-   * Called when the IMS registration state of specificed IMS service type corresponding
+   * Called when the IMS registration state of specified IMS service type corresponding
    *   to a monitored {@code slotId} updates.
    *
    * @param slotId Indicates the card slot index number,
@@ -461,7 +462,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_LTE_CA = 10,
 
     /**
-     * Indicates that RAT is interworking WLAN (I-WLAN).
+     * Indicates that RAT is networking WLAN (I-WLAN).
      */
     RADIO_TECHNOLOGY_IWLAN = 11,
 
