@@ -22,7 +22,7 @@ const { checkAPINameOfHump } = require("./check_hump");
 const { checkPermission } = require("./check_permission");
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
-const { hasAPINote } = require("./utils");
+const { hasAPINote,ApiCheckResult } = require("./utils");
 let result = require("../check_result.json");
 
 function checkAPICodeStyle(url) {
@@ -39,7 +39,8 @@ function getMdFiles(url) {
 }
 
 function tsTransform(uFiles, callback) {
-  uFiles.forEach(filePath => {
+  uFiles.forEach((filePath,index) => {
+    console.log(`scaning file in no ${++ index}!`)
     if (/\.d\.ts/.test(filePath)) {
       const content = fs.readFileSync(filePath, "utf-8");
       const fileName = path.basename(filePath).replace(/.d.ts/g, ".ts");
@@ -73,7 +74,7 @@ function checkAllNode(node, sourcefile, fileName) {
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
     // check syscap
-    // checkSyscap(node, sourcefile, fileName);
+    checkSyscap(node, sourcefile, fileName);
     // check deprecated
     checkDeprecated(node, sourcefile, fileName);
     // check permission
@@ -83,7 +84,7 @@ function checkAllNode(node, sourcefile, fileName) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
     // check hump naming
-    checkAPINameOfHump(node, sourcefile, fileName);
+    // checkAPINameOfHump(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
@@ -91,6 +92,7 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
+  result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;

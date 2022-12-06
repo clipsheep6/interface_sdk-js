@@ -13,11 +13,7 @@
  * limitations under the License.
  */
 
-const path = require('path');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const fs = require("fs");
-const result = require("../check_result.json");
-const { getAPINote, error_type } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkDeprecated(node, sourcefile, fileName) {
@@ -63,7 +59,8 @@ function checkDeprecated(node, sourcefile, fileName) {
     });
 
     if (hasDeprecatedError) {
-        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DEPRECATED, errorInfo);
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DEPRECATED, errorInfo, 'JsDoc',
+          ErrorLevel.MIDDLE);
     }
 }
 exports.checkDeprecated = checkDeprecated;

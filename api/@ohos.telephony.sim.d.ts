@@ -696,25 +696,85 @@ declare namespace sim {
    * @since 9
    */
   export enum OperatorConfigKey {
+    /**
+     * Indicates the voice mail number.
+     */
     KEY_VOICE_MAIL_NUMBER_STRING = "voice_mail_number_string",
+    /**
+     * Indicates the status of ims switch.
+     */
     KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = "ims_switch_on_by_default_bool",
+    /**
+     * Indicates whether the ims switch status is hidden.
+     */
     KEY_HIDE_IMS_SWITCH_BOOL = "hide_ims_switch_bool",
+    /**
+     * Indicates whether volte mode is supported.
+     */
     KEY_VOLTE_SUPPORTED_BOOL = "volte_supported_bool",
+    /**
+     * Indicates the list supported by nr mode.
+     */
     KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = "nr_mode_supported_list_int_array",
+    /**
+     * Indicates whether VOLTE supports configuration.
+     */
     KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = "volte_provisioning_supported_bool",
+    /**
+     * Indicates whether SS service supports UT.
+     */
     KEY_SS_OVER_UT_SUPPORTED_BOOL = "ss_over_ut_supported_bool",
+    /**
+     * Indicates whether the IMS requires GBA.
+     */
     KEY_IMS_GBA_REQUIRED_BOOL = "ims_gba_required_bool",
+    /**
+     * Indicates whether UT configuration is supported.
+     */
     KEY_UT_PROVISIONING_SUPPORTED_BOOL = "ut_provisioning_supported_bool",
+    /**
+     * Indicates the ims emergency preference.
+     */
     KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = "ims_prefer_for_emergency_bool",
+    /**
+     * Indicates call waiting service.
+     */
     KEY_CALL_WAITING_SERVICE_CLASS_INT = "call_waiting_service_class_int",
+    /**
+     * Indicates call forwarding visibility.
+     */
     KEY_CALL_TRANSFER_VISIBILITY_BOOL = "call_transfer_visibility_bool",
+    /**
+     * Indicates the list of ims call end reasons.
+     */
     KEY_IMS_CALL_DISCONNECT_REASONINFO_MAPPING_STRING_ARRAY = "ims_call_disconnect_reasoninfo_mapping_string_array",
+    /**
+     * Indicates the forced Volte switch on state.
+     */
     KEY_FORCE_VOLTE_SWITCH_ON_BOOL = "force_volte_switch_on_bool",
+    /**
+     * Indicates whether the operator name is displayed.
+     */
     KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = "enable_operator_name_cust_bool",
+    /**
+     * Indicates the name of the operator.
+     */
     KEY_OPERATOR_NAME_CUST_STRING = "operator_name_cust_string",
+    /**
+     * Indicates the spn display rule.
+     */
     KEY_SPN_DISPLAY_CONDITION_CUST_INT = "spn_display_condition_cust_int",
+    /**
+     * Indicates the PLMN name.
+     */
     KEY_PNN_CUST_STRING_ARRAY = "pnn_cust_string_array",
+    /**
+     * Indicates operator PLMN information.
+     */
     KEY_OPL_CUST_STRING_ARRAY = "opl_cust_string_array",
+    /**
+     * Indicates the emergency call list.
+     */
     KEY_EMERGENCY_CALL_STRING_ARRAY = "emergency_call_string_array",
   }
 }

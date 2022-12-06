@@ -152,7 +152,7 @@ declare class List<T> {
   equal(obj: Object): boolean;
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.
+   * @param callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -164,7 +164,7 @@ declare class List<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, List?: List<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, List?: List<T>) => void,
   thisArg?: Object): void;
   /**
    * Sorts this list according to the order induced by the specified comparator
@@ -189,7 +189,7 @@ declare class List<T> {
    */
   clear(): void;
   /**
-   * Returns a view of the portion of this list between the specified fromIndex,inclusize,and toIndex,exclusive
+   * Returns a view of the portion of this list between the specified fromIndex,inclusive,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
@@ -201,7 +201,7 @@ declare class List<T> {
   getSubList(fromIndex: number, toIndex: number): List<T>;
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.
+   * @param callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -213,7 +213,7 @@ declare class List<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  replaceAllElements(callbackfn: (value: T, index?: number, list?: List<T>) => T,
+  replaceAllElements(callbackFn: (value: T, index?: number, list?: List<T>) => T,
     thisArg?: Object): void;
   /**
    * convert list to array
