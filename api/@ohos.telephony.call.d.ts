@@ -971,7 +971,7 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 9
    */
   export enum DisconnectedReason {
     /**
