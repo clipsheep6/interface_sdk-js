@@ -23,9 +23,9 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
  * Common event definition
  * @name commonEvent
  * @since 7
- * @syscap SystemCapability.Notification.CommonEvent
+ * @syscap SystemCapability.Notificationaaa.CommonEvent
  * @permission N/A
- * @deprecated since 9
+ * @deprecated since 
  * @useinstead ohos.commonEventManager
  */
 declare namespace commonEvent {

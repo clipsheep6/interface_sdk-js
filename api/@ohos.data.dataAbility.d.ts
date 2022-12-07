@@ -28,10 +28,10 @@ declare namespace dataAbility {
      * This method is similar to = of the SQL statement.
      *
      * @since 7
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Coreaaa
      * @param name Indicates the table name.
      * @param dataAbilityPredicates Indicates the dataAbility predicates.
-     * @returns Returns an RdbPredicates.
+     * @returnsa Returns an RdbPredicates.
      */
     function createRdbPredicates(name: string, dataAbilityPredicates: DataAbilityPredicates): rdb.RdbPredicates;
 
