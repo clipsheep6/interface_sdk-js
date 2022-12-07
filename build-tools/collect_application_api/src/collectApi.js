@@ -534,6 +534,7 @@ async function getExcelBuffer(api) {
         '权限', '支持起始版本', '访问级别', '备注']
     for (let i = 1; i <= api.length; i++) {
         const apiData = api[i - 1];
+        // console.log(apiData);
         sheet.getRow(i + 1).values = [apiData.packageName, apiData.className, apiData.methodName,
         apiData.methodText, apiData.pos, apiData.apiType, apiData.sysCap, apiData.permission,
         apiData.version, apiData.isSystemApi, apiData.notes]

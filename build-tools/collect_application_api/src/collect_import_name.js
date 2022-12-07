@@ -82,6 +82,7 @@ function getImportFileName(url) {
                 } else if (ts.isPropertyAccessExpression(node.expression) && node.expression.expression) {
                     const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                     let functionType = ''
+                    let number = 0;
                     if (ts.isIdentifier(node.expression.expression)) {
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
@@ -92,11 +93,13 @@ function getImportFileName(url) {
                             packageName: ''
                         })
                     } else {
+                        let functionTypeObj = addFunctionType(node);
                         apiList.push({
                             fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                             moduleName: node.expression.name.escapedText,
                             apiName: node.name.escapedText,
-                            functionType: functionType,
+                            functionType: functionTypeObj ? functionTypeObj.type : functionType,
+                            number: functionTypeObj ? functionTypeObj.number : number,
                             packageName: ''
                         })
                     }
@@ -106,7 +109,6 @@ function getImportFileName(url) {
                         node.parent.arguments.forEach(argument => {
                             if (ts.isStringLiteral(argument)) {
                                 const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-                                let functionType = ''
                                 apiList.push({
                                     fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1}, col:${posOfNode.character + 1})`,
                                     moduleName: node.expression.escapedText,
@@ -148,7 +150,8 @@ function getImportFileName(url) {
                 const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
                 let functionType = ''
                 let instantiateObject = ''
-                if (ts.isPropertyDeclaration(node.parent.parent) && ts.isVariableDeclaration(node.parent.parent.name)) {
+                if ((ts.isPropertyDeclaration(node.parent.parent) || ts.isVariableDeclaration(node.parent.parent.name)) &&
+                    ts.isIdentifier(node.parent.parent.name)) {
                     instantiateObject = node.parent.parent.name.escapedText
                 }
                 classList.push({
@@ -262,7 +265,7 @@ function addFunctionType(node) {
             number = typeArguments.length;
             return { type, number };
         }
-    } else if (node.parent.arguments.length == 0) {
+    } else if (ts.isCallExpression(node.parent) && node.parent.arguments.length == 0) {
         type = 'Promise';
         number = 0;
         return { type, number };
@@ -375,21 +378,21 @@ function filterApi() {
         });
     });
 
-    classList.forEach(item => {
-        let file = `${__dirname.replace('src', "")}\sdk\\api\\@${item.packageName}.d.ts`
-        let fileContent = fs.readFileSync(file, 'utf-8');
-        const filePath = path.basename(file).replace(/\.d.ts$/g, 'ts');
-        ts.transpileModule(fileContent, {
-            compilerOptions: {
-                "target": ts.ScriptTarget.ES2017
-            },
-            fileName: filePath,
-            transformers: { before: [isInterfaceDeclaration(item.interfaceName)] }
-        })
-        if (!isInterface) {
-            item.interfaceName = '';
-        }
-    });
+    // classList.forEach(item => {
+    //     let file = `${__dirname.replace('src', "")}\sdk\\api\\@${item.packageName}.d.ts`
+    //     let fileContent = fs.readFileSync(file, 'utf-8');
+    //     const filePath = path.basename(file).replace(/\.d.ts$/g, 'ts');
+    //     ts.transpileModule(fileContent, {
+    //         compilerOptions: {
+    //             "target": ts.ScriptTarget.ES2017
+    //         },
+    //         fileName: filePath,
+    //         transformers: { before: [isInterfaceDeclaration(item.interfaceName)] }
+    //     })
+    //     if (!isInterface) {
+    //         item.interfaceName = '';
+    //     }
+    // });
 
     classList.forEach(item => {
         apiList.forEach(api => {
@@ -403,6 +406,7 @@ function filterApi() {
             }
         });
     });
+
 
     importFileList.forEach(importFile => {
         apiList.forEach(api => {

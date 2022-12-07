@@ -1,0 +1,7 @@
+{
+  "src": [
+    "pages/indexLand",
+    "pages/SettingView",
+    "pages/ThirdPreviewView"
+  ]
+}

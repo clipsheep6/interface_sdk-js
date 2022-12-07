@@ -39,6 +39,17 @@ function judgeArgument(applicationApi, newApi) {
         return false;
     }
 }
+
+function addSameApi(applicationApi, newApi) {
+    if (applicationApi.moduleName === newApi.className &&
+        applicationApi.apiName === newApi.methodName && judgeArgument(applicationApi, newApi) &&
+        applicationApi.packageName === newApi.packageName) {
+        let applyApi = JSON.parse(JSON.stringify(newApi));
+        applyApi.pos = applicationApi.fileName;
+        applyApi.notes = applicationApi.notes ? applicationApi.notes : '';
+
+    }
+}
 function getApiData(fileData) {
     const SDK_API_FILES = [];
     getAllApiFiles(SDK_API_FILES);
@@ -90,7 +101,19 @@ function getApiData(fileData) {
                     finalApis.push(applyApi);
                 }
             } else if (!applicationApis[i].value) {
-                if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
+                if (applicationApis[i].notes === '实例化对象方式调用') {
+                    if (applicationApis[i].moduleName === newApis[j].className &&
+                        applicationApis[i].apiName === newApis[j].methodName && 
+                        judgeArgument(applicationApis[i], newApis[j]) &&
+                        applicationApis[i].packageName === newApis[j].packageName) {
+                        let applyApi = JSON.parse(JSON.stringify(newApis[j]));
+                        applyApi.pos = applicationApis[i].fileName;
+                        applyApi.notes = applicationApis[i].notes ? applicationApis[i].notes : '';
+                        finalApis.push(applyApi);
+                        break;
+                    }
+
+                } else if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
                     applicationApis[i].apiName == newApis[j].methodName &&
                     judgeArgument(applicationApis[i], newApis[j]) &&
                     applicationApis[i].packageName == newApis[j].packageName) {
