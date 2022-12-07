@@ -179,6 +179,12 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 7
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
+
+  /**
+   * Called when the icon of block is set.
+   * @since 8
+   */
+  icon(value: string): SliderAttribute;
 }
 
 declare const Slider: SliderInterface;

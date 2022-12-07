@@ -71,6 +71,24 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 8
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
+
+  /**
+   * Called when the selected text prompt switch is set.
+   * @since 8
+   */
+  showText(value: boolean): ToggleAttribute;
+
+  /**
+   * Called when the selected text prompt content is set.
+   * @since 8
+   */
+  textOn(value: string): ToggleAttribute;
+
+  /**
+   * Called when the selected text prompt content is set.
+   * @since 8
+   */
+  textOff(value: string): ToggleAttribute;
 }
 
 declare const Toggle: ToggleInterface;
