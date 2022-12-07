@@ -480,6 +480,31 @@ declare namespace webview {
     }
 
     /**
+     * Defines the WebView custom schemes.
+     * @since 9
+     */
+    declare interface WebCustomScheme {
+
+      /**
+       * Set scheme name
+       * @since 9
+       */
+      schemeName : string;
+
+      /**
+       * Set whether support cors
+       * @since 9
+       */
+      isSupportCors: boolean;
+
+      /**
+       * Set whether support fetch
+       * @since 9
+       */
+      isSupportFetch: boolean;
+    }
+
+    /**
      * Provides methods for controlling the web controller.
      *
      * @since 9
@@ -906,6 +931,25 @@ declare namespace webview {
          * @since 9
          */
         getUrl(): string;
+
+        /**
+         * Register web initializatied callback event.
+         *
+         *
+         * @param { AsyncCallback } web initializatied callback event.
+         *
+         * @since 9
+         */
+        static registerWebInitedCallback(callback: AsyncCallback<void>): void;
+		/**
+         * Set Custom schemes.
+         *
+         *
+         * @param schemes User Defined schemes.
+         *
+         * @since 9
+         */
+        static customizeSchemes(schemes: Array<WebCustomScheme>): void;
     }
 }
 
