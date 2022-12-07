@@ -17,6 +17,7 @@
 
 import {AsyncCallback} from "./basic";
 import {Resource} from 'GlobalResource';
+import image from "./@ohos.multimedia.image";
 
 /**
  * This module provides the capability to manage web modules.
@@ -29,7 +30,7 @@ declare namespace webview {
      * Defines the Web's request/response header.
      * @since 9
      */
-    interface HeaderV9 {
+    interface WebHeader {
         /**
          * Gets the key of the request/response header.
          * @since 9
@@ -47,7 +48,7 @@ declare namespace webview {
      * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
      * @since 9
      */
-    enum HitTestTypeV9 {
+    enum WebHitTestType {
         /**
          * The edit text.
          * @since 9
@@ -108,7 +109,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        type: HitTestTypeV9;
+        type: WebHitTestType;
 
         /**
          * Get the hit test extra data.
@@ -230,6 +231,81 @@ declare namespace webview {
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
       }
 
+    /**
+     * Provides information for history item in BackForwardList.
+     * @name HistoryItem
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    /**
+     * Provides information for history item in BackForwardList.
+     * @name HistoryItem
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    interface HistoryItem {
+        /**
+         * Get pixelmap of icon.
+         *
+         * @since 9
+         */
+        icon: image.PixelMap;
+
+        /**
+         * Get url.
+         *
+         * @since 9
+         */
+        historyUrl: string;
+
+        /**
+         * Get original url.
+         *
+         * @since 9
+         */
+        historyRawUrl: string;
+
+        /**
+         * Get title.
+         *
+         * @since 9
+         */
+        title: string;
+    }
+
+    /**
+     * Provides back and forward history list information method. related to {@link HistoryItem}.
+     * @name BackForwardList
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    interface BackForwardList {
+        /**
+         * Get current index in BackForwardList 
+         *
+         * @since 9
+         */
+        currentIndex: number;
+
+        /**
+         * Get size of in BackForwardList 
+         *
+         * @since 9
+         */
+        size: number;
+        
+        /**
+         * Get history entry at given index.
+         * 
+         * @param { number } index Index of back forward list entry.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @returns { HistoryItem } HistroyItem at given index in back forward list.
+         * 
+         * @since 9
+         */
+        getItemAtIndex(index: number): HistoryItem;
+    }
+
       /**
        * Provides asynchronous methods for manage the webview.
        *
@@ -239,7 +315,7 @@ declare namespace webview {
           /**
            * Constructor.
            *
-           * @param { WebController } controller WebAsyncController needs a WebController 
+           * @param { WebController } controller WebAsyncController needs a WebController
            *                          to associate with corresponding nweb.
            *
            * @since 9
@@ -395,7 +471,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept cookies.
          * By default this is set to be true.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -415,7 +491,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept thirdparty cookies.
          * By default this is set to be false.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -448,6 +524,18 @@ declare namespace webview {
     }
 
     /**
+     * Define the basic data types supported: string, number and boolean.
+     * @since 9
+     */
+    type MessageBaseType = string | number | boolean;
+
+    /**
+     * Define the data types web message supported: ArrayBuffer, Array<MessageBaseType>, MessageBaseType and Error.
+     * @since 9
+     */
+    type WebMessage = ArrayBuffer | Array<MessageBaseType> | MessageBaseType | Error;
+
+    /**
      * Define html web message port.
      * @since 9
      */
@@ -460,23 +548,48 @@ declare namespace webview {
 
         /**
          * Post a message to other port.
-         * @param { string } message - Message to send.
+         * @param { WebMessage } message - Message to send.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100010 - Can not post message using this port.
          *
          * @since 9
          */
-        postMessageEvent(message: string): void;
+        postMessageEvent(message: WebMessage): void;
 
         /**
          * Receive message from other port.
-         * @param { (result: string) => void } callback - Callback function for receiving messages.
+         * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100006 - Can not register message event using this port.
          *
          * @since 9
          */
-        onMessageEvent(callback: (result: string) => void): void;
+        onMessageEvent(callback: (result: WebMessage) => void): void;
+    }
+
+    /**
+     * SecureDnsMode determines whether to use httpdns to query dns, and whether to allow fallback
+     * to system dns when httpdns query fails.
+     * @since 10
+     */
+    declare enum SecureDnsMode {
+      /**
+       * Do not use httpdns.
+       * @since 10
+       */
+      Off,
+    
+      /**
+       * Prioritize using httpdns for query, if the query fails, it will fallback to the system dns.
+       * @since 10
+       */
+      Automatic,
+    
+      /**
+       * Only use httpdns to query dns.
+       * @since 10
+       */
+      Secure,
     }
 
     /**
@@ -485,6 +598,26 @@ declare namespace webview {
      * @since 9
      */
      class WebviewController {
+        /**
+         * Initialize the web engine before loading the web components.
+         *
+         * @note This is a global static API that must be called on the UI thread, and it will have no effect if any
+         *       web components are loaded.
+         *
+         * @since 9
+         */
+        static initializeWebEngine(): void;
+
+        /**
+         * Sets debugging of web contents into any webviews of this application.
+         *
+         * @param { number } webDebuggingAccess - True if enables debugging of web contents into any webviews
+         *                                        of this application otherwise false.
+         *
+         * @since 9
+         */
+        static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
+
         /**
          * Checks whether the web page can go forward.
          *
@@ -600,7 +733,7 @@ declare namespace webview {
          * Loads the data or URL.
          *
          * @param { string | Resource } url - The URL to load.
-         * @param { Array<HeaderV9> } [headers] - Additional HTTP request header for URL.
+         * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -609,18 +742,18 @@ declare namespace webview {
          *
          * @since 9
          */
-        loadUrl(url: string | Resource, headers?: Array<HeaderV9>): void;
+        loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
         /**
          * Gets the type of HitTest.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { HitTestTypeV9 } The type of HitTest.
+         * @returns { WebHitTestType } The type of HitTest.
          *
          * @since 9
          */
-        getHitTest(): HitTestTypeV9;
+        getHitTest(): WebHitTestType;
 
         /**
          * Stores the current page as a web archive.
@@ -798,7 +931,7 @@ declare namespace webview {
          * Registers the JavaScript object and method list.
          *
          * @param { object } object - Application side JavaScript objects participating in registration.
-         * @param { string } name - The name of the registered object, which is consistent with the 
+         * @param { string } name - The name of the registered object, which is consistent with the
          *                          object name called in the window.
          * @param { Array<string> } methodList - Thr method of the application side JavaScript object participating
          *                                       in the registration.
@@ -882,19 +1015,19 @@ declare namespace webview {
          * Loads a piece of code and execute JS code in the context of the currently displayed page.
          *
          * @param { string } script - JavaScript Script.
-         * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
+         * @param { AsyncCallback<WebMessage> } callback - Callbacks execute JavaScript script results.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
+         * @returns { Promise<WebMessage> } A promise is solved after the JavaScript script is executed.
          *                              This parameter will be the result of JavaScript script execution.
          *                              If the JavaScript script fails to execute or has no return value,
          *                              null will be returned.
          *
          * @since 9
          */
-        runJavaScript(script: string): Promise<string>;
-        runJavaScript(script: string, callback : AsyncCallback<string>): void;
+        runJavaScript(script: string): Promise<WebMessage>;
+        runJavaScript(script: string, callback : AsyncCallback<WebMessage>): void;
 
         /**
          * Gets the url of current Web page.
@@ -906,6 +1039,175 @@ declare namespace webview {
          * @since 9
          */
         getUrl(): string;
+        
+        /**
+         * Set whether to use httpdns for dns query.
+         * @param secDnsMode {@link SecureDnsMode}  Whether to use httpdns and whether to allow fallback to system dns.
+         * @param secDnsServer The httpdns server.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 10
+         */
+        static setHttpDns(secDnsMode:SecureDnsMode, secDnsServer:string): void;
+
+        /**
+         * Set the scrolled position of the webview.
+         *
+         * @param { number } x - The horizontal coordinate of the scrolled position.
+         * @param { number } y - The vertical coordinate of the scrolled position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollTo(x: number, y:number): void;
+
+        /**
+         * Move the scrolled positionof the webview.
+         *
+         * @param { number } deltaX - The amount of pixels to scroll by horizontally.
+         * @param { number } deltaY - The amount of pixels to scroll by vertically.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollBy(deltaX: number, deltaY:number): void;
+
+        /**
+         * Simulate speed sliding behavior to scroll the webview.
+         *
+         * @param { number } vx - The speed sliding behavior by horizontally.
+         * @param { number } vy - The speed sliding behavior by vertically.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        slideScroll(vx: number, vy:number): void;
+
+        /**
+         * Scroll the contents of this Webview up by half the view size.
+         *
+         * @param { boolean } top - Jump to the top of the page if true.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        pageUp(top:boolean): void;
+
+        /**
+         * Scroll the contents of this Webview down by half the view size.
+         *
+         * @param { boolean } bottom - Jump to the bottom of the page if true.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        pageDown(bottom:boolean): void;
+
+        /**
+         * Gets the original url of current Web page.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { string } Return the the original url of the current page.
+         *
+         * @since 9
+         */
+        getOriginalUrl(): string;
+
+        /**
+         * Gets the original url of current Web page.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { string } Return the the original url of the current page.
+         *
+         * @since 9
+         */
+        getFavicon(): image.PixelMap;
+
+        /**
+         * Put network state for web. Which is used to set window.navigator.isOnline property in
+         * JavaScript.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @param { boolean } enable - Whether enable window.navigator.isOnline.
+         * @since 9
+         */
+        setNetworkAvailable(enable: boolean): void;
+        
+        /**
+         * Qurey if current document has image.
+         *
+         * @param { AsyncCallback<void> } callback - Called after query image has finished.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @return { Promise<void> } A promise resolved after query image has finished.
+         *
+         * @since 9
+         */
+        hasImage(): Promise<boolean>;
+        hasImage(callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Get back forward stack list from current webview.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @return { BackForwardList } Back forward list for current webview.
+         *
+         * @since 9
+         */
+        getBackForwardEntries(): BackForwardList;
+
+        /**
+         * Serialize back forward list of the current webview.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @return { rpc.MessageSequence } A messageSequence which is from current back forward state.
+         *
+         * @since 9
+         */
+        serializeWebState(): Uint8Array;
+
+        /**
+         * Restore the back forward state to current webview from state MessageSequence.
+         *
+         * @param { rpc.MessageSequence } state - A messageSequence which is represented back forward state.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        restoreWebState(state: Uint8Array): void;
+
+        /**
+         * Remove resource cache in application. So this method will Remove all cache for all webviews in the
+         * same application.
+         * 
+         * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
+         *                               in ram.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         */
+        removeCache(clearRom: boolean): void;
     }
 }
 
