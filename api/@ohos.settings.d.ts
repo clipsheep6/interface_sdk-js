@@ -903,7 +903,7 @@ declare namespace settings {
  
    /**
     * set settingsdata value(synchronization method)
-    * @need permission ohos.permission.WRITE_SYSTEM_SETTING
+    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
     * @since 8
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
