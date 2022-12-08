@@ -801,8 +801,8 @@ declare namespace settings {
    * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
    */
-  function getURI(name: string, callback: AsyncCallback<object>): void;
-  function getURI(name: string): Promise<object>;
+  function getURI(name: string, callback: AsyncCallback<string>): void;
+  function getURI(name: string): Promise<string>;
 
   /**
    * get settingsdata uri(synchronization method)
@@ -811,7 +811,7 @@ declare namespace settings {
    * @return Return settingsdata uri.
    * @deprecated
    */
-   function getUriSync(name: string): object;
+   function getUriSync(name: string): string;
 
    /**
    * get value from settingsdata
@@ -822,8 +822,8 @@ declare namespace settings {
    * @return Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    */
-  function getValue(context: Context, name: string, callback: AsyncCallback<object>): void;
-  function getValue(context: Context, name: string): Promise<object>;  
+  function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
+  function getValue(context: Context, name: string): Promise<string>;  
 
    /**
     * get value from settingsdata(synchronization method)
@@ -833,7 +833,7 @@ declare namespace settings {
     * @param defValue Indicates the default value of the character string.
     * @return settingsdata value
     */
-   function getValueSync(context: Context, name: string, defValue: string): object;
+   function getValueSync(context: Context, name: string, defValue: string): string;
   
    /**
    * set settingsdata value.
@@ -844,8 +844,8 @@ declare namespace settings {
    * @param value Indicates the value of the character string.
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    */
-   function setValue(context: Context, name: string, value: object, callback: AsyncCallback<boolean>): void;
-   function setValue(context: Context, name: string, value: object): Promise<boolean>;
+   function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
+   function setValue(context: Context, name: string, value: string): Promise<boolean>;
    
    /**
     * set settingsdata value(synchronization method)
@@ -870,8 +870,8 @@ declare namespace settings {
    * @deprecated
    * @useinstead getValue(context: context...)
    */
-  function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
-  function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
+  function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<string>): void;
+  function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<string>;
 
   /**
    * Saves a character string name and its value to the database.
@@ -886,8 +886,8 @@ declare namespace settings {
    * @deprecated
    * @useinstead setValue(context: context...)
    */
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
+  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string, callback: AsyncCallback<boolean>): void;
+  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string): Promise<boolean>;
   
    /**
     * get value from settingsdata(synchronization method)
