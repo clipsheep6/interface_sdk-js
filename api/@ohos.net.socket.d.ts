@@ -25,6 +25,11 @@ import cryptoFramework from "./@ohos.security.cryptoFramework";
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;
+  /**
+   * Deposit certificate
+   *
+   * @since 9
+   */
   export type X509CertRawData = cryptoFramework.EncodingBlob;
 
   /**
@@ -341,10 +346,100 @@ declare namespace socket {
   /**
    * @since 9
    */
-  export interface TLSSocket extends TCPSocket {
+  export interface TLSSocket {
+
+    /**
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     *
+     * @param address Destination address. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2303198 - Address already in use.
+     * @throws {BusinessError} 2300002 - System internal error.
+     */
+    bind(address: NetAddress, callback: AsyncCallback<void>): void;
+    bind(address: NetAddress): Promise<void>;
+
+    /**
+     * Obtains the peer address of a TLSSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link NetAddress}
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2300002 - System internal error.
+     */
+    getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
+    getRemoteAddress(): Promise<NetAddress>;
+
+    /**
+     * Obtains the status of the TLSSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link SocketStateBase}
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2300002 - System internal error.
+     */
+    getState(callback: AsyncCallback<SocketStateBase>): void;
+    getState(): Promise<SocketStateBase>;
+
+    /**
+     * Sets other attributes of the TLSSocket connection.
+     *
+     * @param options Optional parameters {@link TCPExtraOptions}.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2300002 - System internal error.
+     */
+    setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
+    setExtraOptions(options: TCPExtraOptions): Promise<void>;
+
+    /**
+     * Listens for message receiving events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+
+    /**
+     * Cancels listening for message receiving events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+
+    /**
+     * Listens for connection or close events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    on(type: 'connect' | 'close', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for connection or close events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    off(type: 'connect' | 'close', callback?: Callback<void>): void;
+
+    /**
+     * Listens for error events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Cancels listening for error events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Returns an object representing a local certificate.
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303504 - Error looking up x509
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
     getCertificate(): Promise<X509CertRawData>;
@@ -352,8 +447,10 @@ declare namespace socket {
     /**
      * Returns an object representing the peer certificate. If the peer does not provide a certificate,
      * an empty object will be returned. If the socket is destroyed, null is returned.
-     * If needChain is true, it contains the complete certificate chain. Otherwise,
-     * it only contains the peer's certificate.
+     * It only contains the peer's certificate.
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
     getRemoteCertificate(): Promise<X509CertRawData>;
@@ -362,13 +459,22 @@ declare namespace socket {
      * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
      * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
      * Server sockets or disconnected client sockets will return a value of null.
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     getProtocol(callback: AsyncCallback<string>): void;
     getProtocol(): Promise<string>;
 
     /**
-     * Returns an object containing the negotiated cipher suite information.
-     * For example:{"name": "AES128-SHA256", "standardName": "TLS_RSA_WITH_AES_128_CBC_SHA256", "version": "TLSv1.2"}
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303502 - Error in tls reading.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
     getCipherSuite(): Promise<Array<string>>;
@@ -376,12 +482,30 @@ declare namespace socket {
     /**
      * The list of signature algorithms shared between the server and the client, in descending order of priority.
      * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
-     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303104 - Interrupted system call.
+     * @throws {BusinessError} 2303109 - Bad file number.
+     * @throws {BusinessError} 2303111 - Resource temporarily unavailable try again.
+     * @throws {BusinessError} 2303113 - System permission denied.
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2303191 - Protocol wrong type for socket.
+     * @throws {BusinessError} 2303198 - Address already in use.
+     * @throws {BusinessError} 2303199 - Cannot assign requested address.
+     * @throws {BusinessError} 2303210 - Connection timed out.
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303502 - Error in tls reading.
+     * @throws {BusinessError} 2303503 - Error in tls writing
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2303506 - Error clearing tls connection.
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TLSConnectOptions): Promise<void>;
@@ -390,10 +514,27 @@ declare namespace socket {
      * Sends data over a TLSSocket connection.
      *
      * @param data Optional parameters {@link string}.
-     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303503 - Error in tls writing.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2303506 - Error clearing tls connection.
+     * @throws {BusinessError} 2300002 - System internal error.
      */
     send(data: string, callback: AsyncCallback<void>): void;
     send(data: string): Promise<void>;
+
+    /**
+     * Closes a TLSSocket connection
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2303506 - Error clearing tls connection.
+     * @throws {BusinessError} 2300002 - System internal error.
+     */
+     close(callback: AsyncCallback<void>): void;
+     close(): Promise<void>;
   }
 
   /**
@@ -408,12 +549,12 @@ declare namespace socket {
     /**
      * Certificate proving the identity of the client
      */
-    cert: string;
+    cert?: string;
 
     /**
      * Private key of client certificate
      */
-    key: string;
+    key?: string;
 
     /**
      * Password of the private key
@@ -431,7 +572,7 @@ declare namespace socket {
     useRemoteCipherPrefer?: boolean;
 
     /**
-     * Supported signature algorithms. This list can contain summary algorithms（SHA256、MD5、etc）、
+     * Supported signature algorithms. This string can contain summary algorithms（SHA256、MD5、etc）、
      * Public key algorithm（RSA-PSS、ECDSA、etc）、Combination of the two（For example 'RSA+SHA384'）
      * or TLS v1.3 Scheme name（For example  rsa_pss_pss_sha512）
      */

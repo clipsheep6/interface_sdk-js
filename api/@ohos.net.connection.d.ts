@@ -29,7 +29,7 @@ declare namespace connection {
   type UDPSocket = socket.UDPSocket;
 
   /**
-   * Create a network connection with optional netSpefifier and timeout.
+   * Create a network connection with optional netSpecifier and timeout.
    *
    * @param netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
    * @param timeout The time in milliseconds to attempt looking for a suitable network before
@@ -52,10 +52,11 @@ declare namespace connection {
    *
    * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
-   * @return Returns the {@link NetHandle} object;
+   * @returns Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
+   * @throws {BusinessError} 201 - Permission denied.
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -89,9 +90,22 @@ declare namespace connection {
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
   /**
+   * Checks whether data traffic usage on the current network is metered.
+   *
+   * @param callback Returns {@code true} if data traffic usage on the current network is metered;
+   *      returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   * @throws {BusinessError} 201 - Permission denied.
+   */
+  function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
+  function isDefaultNetMetered(): Promise<boolean>;
+
+  /**
    * Checks whether the default data network is activated.
    *
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
@@ -199,7 +213,7 @@ declare namespace connection {
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
-     * @return Returns the first NetAddress.
+     * @param callback Returns the first NetAddress.
      * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;

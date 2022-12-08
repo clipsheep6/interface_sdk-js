@@ -17,6 +17,8 @@
 /**
  * Declare item ceiling attribute.
  * @since 7
+ * @deprecated since 9
+ * @useinstead list/StickyStyle
  */
 declare enum Sticky {
   /**
@@ -41,6 +43,7 @@ declare enum Sticky {
 /**
  * Declare whether the ListItem element is editable.
  * @since 7
+ * @deprecated since 9
  */
 declare enum EditMode {
   /**
@@ -50,7 +53,7 @@ declare enum EditMode {
   None,
 
   /**
-   * Deleteable.
+   * Deletable.
    * @since 7
    */
   Deletable,
@@ -128,12 +131,15 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when setting whether item is ceiling effect.
    * @since 7
+   * @deprecated since 9
+   * @useinstead list/List#sticky
    */
   sticky(value: Sticky): ListItemAttribute;
 
   /**
    * Called when judging whether it is editable.
    * @since 7
+   * @deprecated since 9
    */
   editable(value: boolean | EditMode): ListItemAttribute;
 

@@ -33,6 +33,7 @@ declare enum ScrollDirection {
   /**
    * Free scrolling is supported.
    * @since 7
+   * @deprecated since 9
    */
   Free,
 
@@ -72,9 +73,16 @@ declare class Scroller {
   /**
    * Called when page turning mode is set.
    * @since 7
+   * @deprecated since 9
    */
   scrollPage(value: { next: boolean; direction?: Axis });
 
+  /**
+   * Called when page turning mode is set.
+   * @since 9
+   */
+  scrollPage(value: { next: boolean });
+  
   /**
    * Called when viewing the scroll offset.
    * @since 7
@@ -107,7 +115,7 @@ interface ScrollInterface {
 }
 
 /**
- * Defines the scroll attibute functions.
+ * Defines the scroll attribute functions.
  * @since 7
  */
 declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
@@ -160,7 +168,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
 
   /**
-   * Event called when sroll will scroll.
+   * Event called when Scroll will scroll.
    * @since 9
    */
   onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ScrollAttribute;

@@ -146,7 +146,17 @@ declare function getContext(component?: Object): Context;
  * @since 9
  */
 declare type Context = import('../api/application/Context').default;
- 
+
+/**
+ * Post Card Action.
+ * @param { Object } component - indicate the card entry component.
+ * @param { Object } action - indicate the router or message event.
+ * @StageModelOnly
+ * @systemapi
+ * @since 9
+ */
+ declare function postCardAction(component: Object, action: Object): void;
+
 /**
  * Defines the data type of the interface restriction.
  * @since 7
@@ -629,7 +639,7 @@ declare namespace focusControl {
    * Request focus to the specific component by param: 'id/key'.
    * @since 9
    */
-  declare function requestFocus(value: string): boolean;
+  function requestFocus(value: string): boolean;
 }
 
 /**
@@ -666,6 +676,28 @@ declare enum SourceType {
    * @since 8
    */
   TouchScreen,
+}
+
+/**
+ * Defines the event tool type.
+ * @since 9
+ */
+declare enum SourceTool {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * The finger type.
+   */
+  Finger,
+
+  /**
+   * The pen type.
+   */
+  Pen,
 }
 
 /**
@@ -747,6 +779,29 @@ declare interface BaseEvent {
    * @since 8
    */
   source: SourceType;
+
+  /**
+   * Touch pressure.
+   * @since 9
+   */
+  pressure: number;
+
+  /**
+   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * @since 9
+   */
+  tiltX: number;
+
+  /**
+   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * @since 9
+   */
+  tiltY: number;
+
+  /**
+   * The event tool type info.
+   */
+  sourceTool: SourceTool;
 }
 
 /**
@@ -1035,7 +1090,7 @@ declare interface KeyEvent {
 }
 
 /**
- * Component State Styels.
+ * Component State Styles.
  * @since 8
  */
 declare interface StateStyles {
@@ -1249,7 +1304,8 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
-   * @deprecated since 9, instead of hitTestBehavior.
+   * @deprecated since 9
+   * @useinstead hitTestBehavior
    */
   touchable(value: boolean): T;
 
@@ -1544,7 +1600,7 @@ declare class CommonMethod<T> {
   sepia(value: number): T;
 
   /**
-   * Inverts the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
+   * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
    * A value of 0% does not change the image. (Percentage)
    * @since 7
    */
@@ -1713,6 +1769,8 @@ declare class CommonMethod<T> {
   /**
    * Sets the number of occupied columns and offset columns for a specific device width type.
    * @since 7
+   * @deprecated since 9
+   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
    */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
@@ -1818,7 +1876,7 @@ declare class CommonMethod<T> {
    * path:Motion path for displacement animation, using the svg path string.
    * from:Start point of the motion path. The default value is 0.0.
    * to:End point of the motion path. The default value is 1.0.
-   * rotatble:Whether to follow the path for rotation.
+   * rotatable:Whether to follow the path for rotation.
    * @since 7
    */
   motionPath(value: MotionPathOptions): T;
@@ -1892,7 +1950,7 @@ declare class CommonMethod<T> {
   stateStyles(value: StateStyles): T;
 
   /**
-   * id for distrubte identification.
+   * id for distribute identification.
    * @since 8
    */
   restoreId(value: number): T;
@@ -1944,7 +2002,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
-   * @syetemapi
+   * @systemapi
    */
   constructor();
 
@@ -2020,18 +2078,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @since 9
  */
 declare interface LayoutBorderInfo {
-  borderWidth: number,
+  borderWidth: EdgeWidths,
   margin: Margin,
   padding: Padding,
-}
-
-/**
- * Sub component position info.
- * @since 9
- */
-declare interface LayoutPosition {
-  x: number,
-  y: number,
 }
 
 /**
@@ -2039,7 +2088,7 @@ declare interface LayoutPosition {
  * @since 9
  */
 declare interface LayoutInfo {
-  position: LayoutPosition,
+  position: Position,
   constraint: ConstraintSizeOptions,
 }
 
@@ -2076,7 +2125,7 @@ declare interface LayoutChild {
    * Sub component position.
    * @since 9
    */
-  position: LayoutPosition,
+  position: Position,
 
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
@@ -2148,6 +2197,13 @@ declare class CustomComponent extends CommonAttribute {
    * @since 7
    */
   onBackPress?(): void;
+
+  /**
+   * PageTransition Method.
+   * Implement Animation when enter this page or move to other pages.
+   * @since 9
+   */
+  pageTransition?(): void;
 }
 
 /**
@@ -2159,7 +2215,7 @@ declare class CustomComponent extends CommonAttribute {
 declare class View {
   /**
    * Just use for generate tsbundle
-   * @ignore ide should ignore this arrtibute
+   * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
    */

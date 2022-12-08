@@ -14,16 +14,15 @@
 */
 
 import { AsyncCallback } from './basic';
-import { WantAgent } from '@ohos.wantAgent';
-import KeyEvent from './@ohos.multimodalInput.keyEvent';
-import { ElementName } from './bundle/elementName';
+import { WantAgent } from './@ohos.wantAgent';
+import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { ElementName } from './bundleManager/elementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
 
 /**
  * @name avSession
  * @syscap SystemCapability.Multimedia.AVSession.Core
- * @import import avsession from '@ohos.multimedia.avsession';
  * @since 9
  */
 declare namespace avSession {
@@ -134,7 +133,7 @@ declare namespace avSession {
    * @param type Registration Type
    * @param callback Used to handle the session service death event.
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - packagearameter check failed
+   * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9

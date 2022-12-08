@@ -65,8 +65,8 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or options.
-         * @throws {BusinessError} 12300008 - the account indicated by name already exist.
-         * @throws {BusinessError} 12300011 - the account number has reached the upper limit.
+         * @throws {BusinessError} 12300004 - the account indicated by name already exist.
+         * @throws {BusinessError} 12300007 - the account number has reached the upper limit.
          * @since 9
          */
         createAccount(name: string, callback: AsyncCallback<void>): void;
@@ -95,8 +95,10 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner or options.
-         * @throws {BusinessError} 12300011 - the account number has reached the upper limit.
-         * @throws {BusinessError} 12400002 - the account authenticator service does not exist. 
+         * @throws {BusinessError} 12300007 - the account number has reached the upper limit.
+         * @throws {BusinessError} 12300010 - account service busy.
+         * @throws {BusinessError} 12300113 - the account authenticator service does not exist.
+         * @throws {BusinessError} 12300114 - authenticator service exception.
          * @since 9
          */
         createAccountImplicitly(owner: string, callback: AuthCallback): void;
@@ -166,7 +168,7 @@ declare namespace appAccount {
          * @returns void.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or bundlename.
+         * @throws {BusinessError} 12300002 - invalid name or bundle name.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
          * @throws {BusinessError} 12400001 - the application indicated by bundlename does not exist.
          * @since 9
@@ -182,9 +184,8 @@ declare namespace appAccount {
          * @returns void.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or bundlename.
+         * @throws {BusinessError} 12300002 - invalid name or bundle name.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12400001 - the application indicated by bundlename does not exist.
          * @since 9
          */
         checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void;
@@ -197,7 +198,7 @@ declare namespace appAccount {
          * through the distributed networking. On the connected devices, you can call this method to check
          * whether application data can be synchronized.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param name Indicates the name of the application account.
          * @returns Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
          * @since 7
@@ -214,7 +215,7 @@ declare namespace appAccount {
          * through the distributed networking. On the connected devices, you can call this method to check
          * whether application data can be synchronized.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param name Indicates the name of the application account.
          * @returns Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
          * @throws {BusinessError} 201 - permission denied.
@@ -249,7 +250,7 @@ declare namespace appAccount {
          * @returns void.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or credentialType.
+         * @throws {BusinessError} 12300002 - invalid name, credentialType or credential.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
          * @since 9
          */
@@ -267,6 +268,7 @@ declare namespace appAccount {
          * @returns void.
          * @since 7
          * @deprecated since 9
+         * @useinstead appAccount.AppAccountManager#setCustomData
          */
         setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
         setAccountExtraInfo(name: string, extraInfo: string): Promise<void>;
@@ -275,7 +277,7 @@ declare namespace appAccount {
          * Sets whether a specified application account allows application data synchronization.
          * <p>
          * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-         * through the distributed networking. On the networked devices, you can call this method to set whether to
+         * through the distributed networking. On the connected devices, you can call this method to set whether to
          * allow cross-device data synchronization. If synchronization is allowed, application data can be synchronized
          * among these devices in the event of any changes related to the application account.
          * If synchronization is not allowed, the application data is stored only on the local device.
@@ -286,7 +288,7 @@ declare namespace appAccount {
          * <b>Application data that can be synchronized</b>: application account name, token,
          * and data associated with this application account
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param name Indicates the name of the application account.
          * @param isEnable Specifies whether to allow application data synchronization.
          * @returns void.
@@ -301,7 +303,7 @@ declare namespace appAccount {
          * Sets whether a specified application account enables application data synchronization.
          * <p>
          * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-         * through the distributed networking. On the networked devices, you can call this method to set whether to
+         * through the distributed networking. On the connected devices, you can call this method to set whether to
          * enable cross-device data synchronization. If synchronization is enabled, application data can be synchronized
          * among these devices in the event of any changes related to the application account.
          * If synchronization is not enabled, the application data is stored only on the local device.
@@ -312,7 +314,7 @@ declare namespace appAccount {
          * <b>Application data that can be synchronized</b>: application account name, token,
          * and data associated with this application account
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param name Indicates the name of the application account.
          * @param isEnabled Specifies whether to enable application data synchronization.
          * @returns void.
@@ -349,7 +351,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, key or value.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12400008 - the number of customized data has reached the upper limit.
+         * @throws {BusinessError} 12400003 - the number of customized data has reached the upper limit.
          * @since 9
          */
         setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>): void;
@@ -364,7 +366,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @returns Returns a list of application accounts.
          * @since 7
          * @deprecated since 9
@@ -382,7 +384,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @returns Returns a list of application accounts.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -401,7 +403,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @param owner Indicates the account owner of your application or third-party applications.
          * @returns Returns a list of application accounts.
          * @since 7
@@ -420,14 +422,14 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @param owner Indicates the account owner of your application or third-party applications.
          * @returns Returns a list of application accounts.
          * @throws {BusinessError} 201 - permission denied.	
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner.
-         * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
+         * @throws {BusinessError} 12400001 - the application indicated by bundle name does not exist.
          * @since 9
          */
         getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
@@ -454,7 +456,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or credentialType.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12300019 - credential does not exist.
+         * @throws {BusinessError} 12300102 - credential does not exist.
          * @since 9
          */
         getCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void;
@@ -467,6 +469,7 @@ declare namespace appAccount {
          *         for example, if the account does not exist.
          * @since 7
          * @deprecated since 9
+         * @useinstead appAccount.AppAccountManager#getCustomData
          */
         getAccountExtraInfo(name: string, callback: AsyncCallback<string>): void;
         getAccountExtraInfo(name: string): Promise<string>;
@@ -492,7 +495,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or key.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12400009 - the customData does not exist.
+         * @throws {BusinessError} 12400002 - the customData does not exist.
          * @since 9
          */
         getCustomData(name: string, key: string, callback: AsyncCallback<string>): void;
@@ -507,6 +510,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or key.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
+         * @throws {BusinessError} 12400002 - the customData does not exist.
          * @since 9
          */
         getCustomDataSync(name: string, key: string): string;
@@ -536,8 +540,8 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid type or owners.
-         * @throws {BusinessError} 12300003 - the account indicated by owners dose not exist.
-         * @throws {BusinessError} 12300005 - the listener has been registered.
+         * @throws {BusinessError} 12300011 - the callback has been registered.
+         * @throws {BusinessError} 12400001 - the application indicated by owner does not exist.
          * @since 9
          */
         on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
@@ -557,7 +561,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid type.
-         * @throws {BusinessError} 12300005 - the listener has been registered.
+         * @throws {BusinessError} 12300012 - the callback has not been registered.
          * @since 9
          */
         off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>): void;
@@ -588,10 +592,9 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, owner, authType or options.
          * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
-         * @throws {BusinessError} 12300016 - authentication timeout.
-         * @throws {BusinessError} 12300017 - authentication service is busy.
-         * @throws {BusinessError} 12300018 - authentication service is locked.
-         * @throws {BusinessError} 12400001 - the application indicated by name does not exist.
+         * @throws {BusinessError} 12300010 - account service busy.
+         * @throws {BusinessError} 12300113 - the account authenticator service does not exist.
+         * @throws {BusinessError} 12300114 - authenticator service exception.
          * @since 9
          */
         auth(name: string, owner: string, authType: string, callback: AuthCallback): void;
@@ -620,8 +623,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, owner or authType.
          * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12400001 - the application indicated by name does not exist.
+         * @throws {BusinessError} 12300107 - the authType is not found.
          * @since 9
          */
         getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
@@ -654,9 +656,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, owner, authType or token.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300019 - credential does not exist.
-         * @throws {BusinessError} 12400007 - the number of token has reached the upper limit.
+         * @throws {BusinessError} 12400004 - the number of token has reached the upper limit.
          * @since 9
          */
         setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
@@ -691,8 +691,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, owner, authType or token.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300019 - credential does not exist.
+         * @throws {BusinessError} 12300107 - the authType is not found.
          * @since 9
          */
         deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
@@ -727,8 +726,9 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, authType or bundleName.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300019 - credential does not exist.
+         * @throws {BusinessError} 12300107 - the authType is not found.
+         * @throws {BusinessError} 12400001 - the application indicated by name does not exist.
+         * @throws {BusinessError} 12400005 - the size of authorization list reaches the upper limit.
          * @since 9
          */
         setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void>): void;
@@ -761,8 +761,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, authType or bundleName.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300019 - credential does not exist.
+         * @throws {BusinessError} 12300107 - the authType is not found.
          * @since 9
          */
         checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void;
@@ -795,7 +794,7 @@ declare namespace appAccount {
         getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>;
 
         /**
-         * Gets the open authorization list with a specified authentication type for a paticular application account.
+         * Gets the open authorization list with a specified authentication type for a particular application account.
          * <p>
          * Only the owner of the application account has the permission to call this method.
          * @param name Indicates the account name of your application.
@@ -809,7 +808,7 @@ declare namespace appAccount {
         getOAuthList(name: string, authType: string): Promise<Array<string>>;
 
         /**
-         * Gets the open authorization list with a specified authentication type for a paticular application account.
+         * Gets the open authorization list with a specified authentication type for a particular application account.
          * <p>
          * Only the owner of the application account has the permission to call this method.
          * @param name Indicates the account name of your application.
@@ -819,8 +818,7 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or authType.
          * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300019 - credential does not exist.
+         * @throws {BusinessError} 12300107 - the authType is not found.
          * @since 9
          */
         getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
@@ -847,7 +845,8 @@ declare namespace appAccount {
          * @returns Returns the authenticator callback related to the session id.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12400005 - the session indicated by sessionId does not exist.
+         * @throws {BusinessError} 12300002 - invalid session id.
+         * @throws {BusinessError} 12300108 - the session indicated by sessionId does not exist.
          * @since 9
          */
         getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void;
@@ -871,23 +870,25 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner.
-         * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
+         * @throws {BusinessError} 12300113 - the account authenticator service does not exist.
          * @since 9
          */
         queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
         queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
 
         /**
-         * Checks whether a paticular account has all specified labels.
+         * Checks whether a particular account has all specified labels.
          * @param name Indicates the account name.
          * @param owner Indicates the account owner.
          * @param labels Indicates an array of labels to check.
          * @returns boolean
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or owner.
+         * @throws {BusinessError} 12300002 - invalid name, owner or labels.
          * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
-         * @throws {BusinessError} 12400001 - the application indicated by name does not exist.
+         * @throws {BusinessError} 12300010 - account service busy.
+         * @throws {BusinessError} 12300113 - the account authenticator service does not exist.
+         * @throws {BusinessError} 12300114 - authenticator service exception.
          * @since 9
          */
         checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void;
@@ -901,9 +902,9 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or credentialType.
-         * @throws {BusinessError} 12300019 - credential does not exist.
-         * @throws {BusinessError} 12400001 - the application indicated by name does not exist.
-         * since 9
+         * @throws {BusinessError} 12300003 - the account indicated by name dose not exist.
+         * @throws {BusinessError} 12300102 - credential does not exist.
+         * @since 9
          */
         deleteCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void;
         deleteCredential(name: string, credentialType: string): Promise<void>;
@@ -915,6 +916,8 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid options.
+         * @throws {BusinessError} 12300010 - account service busy.
+         * @throws {BusinessError} 12300114 - authenticator service exception.
          * @since 9
          */
         selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>): void;
@@ -931,8 +934,9 @@ declare namespace appAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name, owner or options.
          * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
-         * @throws {BusinessError} 12400001 - the application indicated by name does not exist.
-         * @throws {BusinessError} 12400002 - he account authenticator service does not exist. 
+         * @throws {BusinessError} 12300010 - account service busy.
+         * @throws {BusinessError} 12300113 - the account authenticator service does not exist.
+         * @throws {BusinessError} 12300114 - authenticator service exception.
          * @since 9
          */
         verifyCredential(name: string, owner: string, callback: AuthCallback): void;
@@ -949,8 +953,9 @@ declare namespace appAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner or options.
-         * @throws {BusinessError} 12300003 - the account indicated by owner dose not exist.
-         * @throws {BusinessError} 12400002 - the account authenticator service does not exist. 
+         * @throws {BusinessError} 12300010 - account service busy.
+         * @throws {BusinessError} 12300113 - the account authenticator service does not exist.
+         * @throws {BusinessError} 12300114 - authenticator service exception.
          * @since 9
          */
         setAuthenticatorProperties(owner: string, callback: AuthCallback): void;
@@ -1063,7 +1068,7 @@ declare namespace appAccount {
      */
      interface AuthResult {
         /**
-         * The account infomation.
+         * The account information.
          * @since 9
          */
         account?: AppAccountInfo;
@@ -1154,7 +1159,7 @@ declare namespace appAccount {
      */
     interface VerifyCredentialOptions {
         /**
-         * The credentail type to be verified.
+         * The credential type to be verified.
          * @since 9
          */
         credentialType?: string;
@@ -1281,7 +1286,7 @@ declare namespace appAccount {
         KEY_ACTION = "action",
 
         /**
-         * Indicates the key of authentiaction type.
+         * Indicates the key of authentication type.
          *
          * @since 8
          */
@@ -1441,6 +1446,8 @@ declare namespace appAccount {
          * @param callback Indicates the authenticator callback.
          * @returns void.
          * @since 8
+         * @deprecated since 9
+         * @useinstead appAccount.Authenticator#createAccountImplicitly
          */
         addAccountImplicitly(authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
 
@@ -1462,6 +1469,8 @@ declare namespace appAccount {
          * @param callback Indicates the authenticator callback.
          * @returns void.
          * @since 8
+         * @deprecated since 9
+         * @useinstead appAccount.Authenticator#auth
          */
         authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
 

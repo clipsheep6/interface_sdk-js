@@ -63,7 +63,7 @@ declare namespace backgroundTaskManager {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param requestId Indicates the identifier of the delay request.
-     * @return The remaining delay time
+     * @returns The remaining delay time
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
      */
@@ -77,7 +77,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param reason Indicates the reason for delayed transition to the suspended state.
      * @param callback The callback delay time expired.
-     * @return Info of delay request
+     * @returns Info of delay request
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
      */
@@ -110,29 +110,6 @@ declare namespace backgroundTaskManager {
      */
     function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
     function stopBackgroundRunning(context: Context): Promise<void>;
-
-    /**
-     * Apply or unapply efficiency resources.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @return True if efficiency resources apply success, else false.
-     * @systemapi Hide this for inner system use.
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.applyEfficiencyResources
-     */
-     function applyEfficiencyResources(request: EfficiencyResourcesRequest): boolean;
-
-     /**
-      * Reset all efficiency resources apply.
-      *
-      * @since 9
-      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-      * @systemapi Hide this for inner system use.
-      * @deprecated since 9
-      * @useinstead ohos.resourceschedule.backgroundTaskManager.resetAllEfficiencyResources
-      */
-     function resetAllEfficiencyResources(): void;
 
     /**
      * Supported background mode.
@@ -217,94 +194,6 @@ declare namespace backgroundTaskManager {
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         TASK_KEEPING = 9,
-    }
-    
-    /**
-     * The type of resource.
-     *
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.ResourceType
-     */
-     export enum ResourceType {
-        /**
-         * The cpu resource for not being suspended.
-         */
-        CPU = 1,
-
-        /**
-         * The resource for not being proxyed common_event.
-         */
-        COMMON_EVENT = 1 << 1,
-
-        /**
-         * The resource for not being proxyed timer.
-         */
-        TIMER = 1 << 2,
-
-        /**
-         * The resource for not being proxyed workscheduler.
-         */
-        WORK_SCHEDULER = 1 << 3,
-
-        /**
-         * The resource for not being proxyed bluetooth.
-         */
-        BLUETOOTH = 1 << 4,
-
-        /**
-         * The resource for not being proxyed gps.
-         */
-        GPS = 1 << 5,
-
-        /**
-         * The resource for not being proxyed audio.
-         */
-        AUDIO = 1 << 6
-    }
-
-    /**
-     * The request of efficiency resources.
-     *
-     * @name EfficiencyResourcesRequest
-     * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @deprecated since 9
-     * @useinstead ohos.resourceschedule.backgroundTaskManager.EfficiencyResourcesRequest
-     */
-    export interface EfficiencyResourcesRequest {
-        /**
-         * The set of resource types that app wants to apply.
-         */
-        resourceTypes: number;
-
-        /**
-         * True if the app begin to use, else false.
-         */
-        isApply: boolean;
-
-        /**
-         * The duration that the resource can be used most.
-         */
-        timeOut: number;
-
-        /**
-         * True if the apply action is persist, else false. Default value is false.
-         */
-        isPersist?: boolean;
-
-        /**
-         * True if apply action is for process, false is for package. Default value is false.
-         */
-        isProcess?: boolean;
-
-        /**
-         *  The apply reason.
-         */
-        reason: string;
     }
 }
 

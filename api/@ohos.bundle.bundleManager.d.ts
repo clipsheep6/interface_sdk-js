@@ -19,7 +19,7 @@ import { Metadata as _Metadata } from './bundleManager/metadata';
 import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
 import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
 import { ElementName as _ElementName }  from './bundleManager/elementName';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import * as _AbilityInfo from './bundleManager/abilityInfo';
 import * as _BundleInfo from './bundleManager/bundleInfo';
@@ -159,7 +159,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
-     * Used to obtain the abilityInfo containing disabled abilityInfo.
+     * Used to obtain the abilityInfo containing permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -226,6 +226,326 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   }
 
   /**
+   * This enumeration value is used to identify various types of extension ability
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum ExtensionAbilityType {
+    /**
+     * Indicates extension info with type of form
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FORM = 0,
+
+    /**
+     * Indicates extension info with type of work schedule
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    WORK_SCHEDULER = 1,
+
+    /**
+     * Indicates extension info with type of input method
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    INPUT_METHOD = 2,
+
+    /**
+     * Indicates extension info with type of service
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+    */
+    SERVICE = 3,
+
+    /**
+     * Indicates extension info with type of accessibility
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ACCESSIBILITY = 4,
+
+    /**
+     * Indicates extension info with type of dataShare
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    DATA_SHARE = 5,
+
+    /**
+     * Indicates extension info with type of filesShare
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FILE_SHARE = 6,
+
+    /**
+     * Indicates extension info with type of staticSubscriber
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    STATIC_SUBSCRIBER = 7,
+
+    /**
+     * Indicates extension info with type of wallpaper
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    WALLPAPER = 8,
+
+    /**
+     * Indicates extension info with type of backup
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    BACKUP = 9,
+
+    /**
+     * Indicates extension info with type of window
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    WINDOW = 10,
+
+    /**
+     * Indicates extension info with type of enterprise admin
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ENTERPRISE_ADMIN = 11,
+
+    /**
+     * Indicates extension info with type of thumbnail
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    THUMBNAIL = 13,
+
+    /**
+     * Indicates extension info with type of preview
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    PREVIEW = 14,
+
+    /**
+     * Indicates extension info with type of unspecified
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    UNSPECIFIED = 255,
+  }
+
+  /**
+   * PermissionGrantState
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum PermissionGrantState {
+    /**
+     * PERMISSION_DENIED
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    PERMISSION_DENIED = -1,
+
+    /**
+     * PERMISSION_GRANTED
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    PERMISSION_GRANTED = 0,
+  }
+
+  /**
+   * Support window mode
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum SupportWindowMode {
+    /**
+     * Indicates supported window mode of full screen mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FULL_SCREEN = 0,
+    /**
+     * Indicates supported window mode of split mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SPLIT = 1,
+    /**
+     * Indicates supported window mode of floating mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FLOATING = 2,
+  }
+
+  /**
+   * Launch type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum LaunchType {
+    /**
+     * Indicates that the ability has only one instance
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SINGLETON = 0,
+
+    /**
+     * Indicates that the ability can have multiple instances
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    STANDARD = 1,
+
+    /**
+     * Indicates that the ability can have specified instances
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SPECIFIED = 2,
+  }
+
+  /**
+   * Indicates ability type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @FAModelOnly
+   * @since 9
+   */
+  export enum AbilityType {
+    /**
+     * Indicates that the ability has a UI
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    PAGE = 1,
+
+    /**
+     * Indicates that the ability does not have a UI
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SERVICE = 2,
+
+    /**
+     * Indicates that the ability is used to provide data access services
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    DATA = 3,
+  }
+
+  /**
+   * Display orientation
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum DisplayOrientation {
+    /**
+     * Indicates that the system automatically determines the display orientation
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    UNSPECIFIED,
+
+    /**
+     * Indicates the landscape orientation
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    LANDSCAPE,
+
+    /**
+     * Indicates the portrait orientation
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    PORTRAIT,
+
+    /**
+     * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FOLLOW_RECENT,
+
+    /**
+     * Indicates the inverted landscape orientation
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    LANDSCAPE_INVERTED,
+
+    /**
+     * Indicates the inverted portrait orientation
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    PORTRAIT_INVERTED,
+
+    /**
+     * Indicates the orientation can be auto-rotated
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    AUTO_ROTATION,
+
+    /**
+     * Indicates the landscape orientation rotated with sensor
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    AUTO_ROTATION_LANDSCAPE,
+
+    /**
+     * Indicates the portrait orientation rotated with sensor
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    AUTO_ROTATION_PORTRAIT,
+
+    /**
+     * Indicates the sensor restricted mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    AUTO_ROTATION_RESTRICTED,
+
+    /**
+     * Indicates the sensor landscape restricted mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED,
+
+    /**
+     * Indicates the sensor portrait restricted mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    AUTO_ROTATION_PORTRAIT_RESTRICTED,
+
+    /**
+     * Indicates the locked orientation mode
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    LOCKED,
+  }
+
+  /**
    * Obtains own bundleInfo.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
@@ -255,7 +575,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -274,7 +594,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -292,7 +612,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -311,7 +631,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -327,7 +647,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -343,7 +663,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -358,7 +678,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -374,7 +694,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -447,7 +767,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType..
+   * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
    * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
@@ -529,7 +849,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700030 - The specified bundleName does not support cleaning cache files.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -544,7 +864,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700030 - The specified bundleName does not support cleaning cache files.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -564,7 +884,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setApplicationEnabled(bundleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable a specified application.
@@ -579,7 +899,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
+  function setApplicationEnabled(bundleName: string, isEnabled: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified ability.
@@ -595,7 +915,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable a specified ability.
@@ -611,7 +931,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
+  function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean): Promise<void>;
 
   /**
    * Checks whether a specified application is enabled.
@@ -674,9 +994,10 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, userId: number, callback: AsyncCallback<Want>): void;
@@ -691,9 +1012,10 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
@@ -709,8 +1031,10 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, userId?: number): Promise<Want>;
@@ -723,8 +1047,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { AsyncCallback<Array<string>> } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700003 - The specified anilityName is not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -740,8 +1064,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700003 - The specified anilityName is not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -758,7 +1082,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -774,7 +1098,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -903,7 +1227,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -921,7 +1246,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -964,13 +1290,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    */
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
-  /**
-   * Indicates the PermissionGrantState.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  export type PermissionGrantState = _BundleInfo.PermissionGrantState;
-
     /**
    * Indicates the SignatureInfo.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -993,27 +1312,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   export type AbilityInfo = _AbilityInfo.AbilityInfo;
 
   /**
-   * Contains basic Ability information, which indicates ability type.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-   export type AbilityType = _AbilityInfo.AbilityType;
-
-  /**
-   * Contains basic Ability information. Indicates display orientation.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-    export type DisplayOrientation = _AbilityInfo.DisplayOrientation;
-
-  /**
-   * Contains basic Ability information. Indicates support window mode.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-    export type SupportWindowMode = _AbilityInfo.SupportWindowMode;
-
-  /**
    * Contains basic Ability information. Indicates the window size..
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -1026,13 +1324,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @since 9
    */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo.ExtensionAbilityInfo;
-
-  /**
-   * Indicates extension ability type
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  export type ExtensionAbilityType = _ExtensionAbilityInfo.ExtensionAbilityType;
 
   /**
    * Indicates the defined permission details in file config.json.

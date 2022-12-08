@@ -25,8 +25,7 @@ declare namespace data {
   /**
    * Checks whether cellular data services are enabled.
    *
-   * @return Returns {@code true} if cellular data services are enabled; returns {@code false} otherwise.
-   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns Returns {@code true} if cellular data services are enabled; returns {@code false} otherwise.
    */
   function getDefaultCellularDataSlotId(callback: AsyncCallback<number>): void;
   function getDefaultCellularDataSlotId(): Promise<number>;
@@ -34,10 +33,7 @@ declare namespace data {
   /**
    * Checks whether cellular data services are enabled.
    *
-   * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
-   *
-   * @return Returns default cellular data slot id.
-   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns Returns default cellular data slot id.
    * @since 9
    */
   function getDefaultCellularDataSlotIdSync(): number;
@@ -97,7 +93,7 @@ declare namespace data {
   function enableCellularData(): Promise<void>;
 
   /**
-   * Diables cellular data services.
+   * Disables cellular data services.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.

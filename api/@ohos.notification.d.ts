@@ -36,7 +36,7 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
 /**
  * Manages notifications.
  *
- * <p>Generally, only system applications have permissions on notification subscription and unsubscription.
+ * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
  * You can specify the content of a notification to be published and the content is carried by
  * {@link NotificationRequest}. A notification ID is unique in an application and must be specified
  * when using {@link NotificationRequest} to carry the notification content. If a notification
@@ -47,7 +47,6 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
  * @name notification
  * @since 7
  * @syscap SystemCapability.Notification.Notification
- * @import import notification from '@ohos.notification';
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.notificationManager and ohos.notificationSubscribe
@@ -99,7 +98,7 @@ declare namespace notification {
     function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
 
   /**
-   * Cancels a notification with the specified ID.
+   * Cancel a notification with the specified ID.
    *
    * @param id of the notification to cancel, which must be unique in the application.
    * @param callback callback function
@@ -109,7 +108,7 @@ declare namespace notification {
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified label and ID.
+   * Cancel a notification with the specified label and ID.
    *
    * @param id ID of the notification to cancel, which must be unique in the application.
    * @param label Label of the notification to cancel.
@@ -121,7 +120,7 @@ declare namespace notification {
   function cancel(id: number, label?: string): Promise<void>;
 
   /**
-   * Cancels a representative notification.
+   * Cancel a representative notification.
    *
    * @since 9
    * @param id ID of the notification to cancel, which must be unique in the application.
@@ -212,7 +211,7 @@ declare namespace notification {
    *
    * @param slotType Type of the notification slot to obtain.
    * @param callback callback function
-   * @return Returns the created {@link NotificationSlot}.
+   * @returns Returns the created {@link NotificationSlot}.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getSlot
    */
@@ -222,7 +221,7 @@ declare namespace notification {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    *
-   * @return Returns all notification slots of this application.
+   * @returns Returns all notification slots of this application.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getSlots
    */
@@ -991,7 +990,7 @@ declare namespace notification {
   }
 
   /**
-   * The remind type of the nofication.
+   * The remind type of the notification.
    *
    * @since 8
    * @systemapi Hide this for inner system use.
@@ -1135,7 +1134,7 @@ declare namespace notification {
    * Describes a NotificationFlags instance.
    *
    * @since 9
-   * @permission N/A
+   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.Notification
    * @deprecated since 9
    * @useinstead ohos.notificationManager.NotificationFlags

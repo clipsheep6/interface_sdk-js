@@ -14,18 +14,16 @@
  */
 
 /**
- * This module provides the capability to app receovery.
- *
+ * This module provides the capability to app recovery.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
- * @import appReceovery from '@ohos.appReceovery'
  */
-declare namespace appReceovery {
+declare namespace appRecovery {
     /**
      * The type of no restart mode.
-     *
+     * @enum { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
      */
     enum RestartFlag {
         /**
@@ -44,7 +42,7 @@ declare namespace appReceovery {
         JS_CRASH_NO_RESTART = 0x0002,
 
         /**
-         * APP_FREEZE_NO_RESTART: Do not restart if process terminates due to appliction not respondong
+         * APP_FREEZE_NO_RESTART: Do not restart if process terminates due to application not responding
          */
         APP_FREEZE_NO_RESTART = 0x0004,
 
@@ -56,9 +54,9 @@ declare namespace appReceovery {
 
     /**
      * The type of when to save.
-     *
+     * @enum { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
      */
     enum SaveOccasionFlag {
         /**
@@ -74,9 +72,9 @@ declare namespace appReceovery {
 
     /**
      * The type of where to save.
-     *
+     * @enum { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
      */
     enum SaveModeFlag {
         /**
@@ -92,33 +90,31 @@ declare namespace appReceovery {
 
     /**
      * Enable appRecovery and app supports save and restore
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
      * @param restart no restart mode
      * @param saveOccasion The type of When to save
      * @param saveMode The type of where to save
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag) : void;
 
     /**
      * Restart App when called
-     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
      */
     function restartApp(): void;
 
     /**
      * Save App state data when called
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AppReceovery
-     * @return true if save data successfully, otherwise false
+     * @returns true if save data successfully, otherwise false
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     function saveAppState(): boolean;
 }
 
-export default appReceovery;
+export default appRecovery;

@@ -15,34 +15,24 @@
 
 const path = require("path");
 const fs = require("fs");
-const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "";
-  fs.access(url, fs.constants.R_OK | fs.constants.W_OK, (err) => {
-    const checkResult1 = err ? 'no access!' : 'can read/write';
-    result += `checkResult1 = ${checkResult1} ||| ${url} ||| \n`;
-  });
   const sourceDirname = __dirname;
   __dirname = "interface/sdk-js/build-tools/api_check_plugin";
+  const mdFilesPath = path.resolve(sourceDirname, '../../../../', "all_files.txt");
   try {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
-    const path2 = path2 = path.resolve(sourceDirname, '../../../../', "ci_tool/ci_build/readme_file.txt");
-    fs.access(path2, fs.constants.R_OK | fs.constants.W_OK, (err) => {
-      const checkResult2 = err ? 'no access!' : 'can read/write';
-      result += `checkResult2 = ${checkResult2} ||| ${path2} ||| \n`;
-    });
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
-    result += scanEntry(url);
-    const content = fs.readFileSync(url, "utf-8");
-    result += `mdFilePath = ${url}, content = ${content}, __dirname = ${__dirname}, sourceDirname = ${sourceDirname}`;
+    result = scanEntry(mdFilesPath);
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result = `CATCHERROR : ${error}, mdFilePath = ${url}, __dirname = ${__dirname}, sourceDirname = ${sourceDirname}`;
+    result = `API_CHECK_ERROR : ${error}`;
   }
+  const { writeResultFile } = require('./src/utils');
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
 checkEntry(process.argv[2]);

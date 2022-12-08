@@ -262,11 +262,23 @@
         "DistributedBundleFramework",
         "BundleTool",
         "Zlib",
-        "PackingTool"
+        "PackingTool",
+        "BundleFramework.Core",
+        "BundleFramework.FreeInstall",
+        "BundleFramework.Resource",
+        "BundleFramework.DefaultApp",
+        "BundleFramework.Launcher",
+        "BundleFramework.SandboxApp",
+        "BundleFramework.QuickFix",
+        "BundleFramework.AppControl"
+      ],
+      "Developtools":[
+        "Syscap"
       ],
       "Graphic":[
         "Graphic2D.WebGL",
-        "Graphic2D.WebGL2"
+        "Graphic2D.WebGL2",
+        "Graphic2D.ColorManager.Core"
       ],
       "WindowManager":[
         "WindowManager.Core",
@@ -292,7 +304,13 @@
         "Bluetooth.Core",
         "Bluetooth.Lite",
         "NFC.Core",
-        "ConnectedTag"
+        "ConnectedTag",
+        "NFC.Tag",
+        "NFC.CardEmulation",
+        "NFCManager.Ethernet",
+        "NFCManager.NetSharing",
+        "NFCManager.MDNS",
+        "NFCManager.Vpn"
       ],
       "Location":[
         "Location.Core",
@@ -301,6 +319,9 @@
         "Location.Gnss",
         "Location.Lite"
       ],
+      "Msdp":[
+        "DeviceStatus.Stationary"
+      ],
       "MultimodalInput":[
         "Input.Core",
         "Input.InputDevice",
@@ -308,7 +329,9 @@
         "Input.InputMonitor",
         "Input.InputConsumer",
         "Input.InputSimulator",
-        "Input.InputFilter"
+        "Input.InputFilter",
+        "Input.Cooperator",
+        "Input.Pointer"
       ],
       "PowerManager":[
         "BatteryManager.Extension",
@@ -345,12 +368,15 @@
         "Camera.Core",
         "Camera.DistributedCore",
         "Image.Core",
-        ".Image.ImageSource",
+        "Image.ImageSource",
         "Image.ImagePacker",
         "Image.ImageReceiver",
         "MediaLibrary.Core",
         "MediaLibrary.SmartAlbum",
-        "MediaLibrary.DistributedCore"
+        "MediaLibrary.DistributedCore",
+        "Media.AVPlayer",
+        "Media.AVRecorder",
+        "Image.ImageCreator"
       ],
       "Telephony":[
         "CoreService",
@@ -379,7 +405,8 @@
         "BackgroundTaskManager.ContinuousTask",
         "BackgroundTaskManager.TransientTask",
         "UsageStatistics.App",
-        "UsageStatistics.AppGroup"
+        "UsageStatistics.AppGroup",
+        "BackgroundTaskManager.EfficiencyResourcesApply"
       ],
       "Utils":[
         "Lang"
@@ -410,7 +437,12 @@
         "DeviceSecurityLevel",
         "Huks",
         "AccessToken",
-        "Cipher"
+        "Cipher",
+        "CertificateManager",
+        "CryptoFramework",
+        "CryptoFramework.Cert",
+        "DataLossPrevention",
+        "Cert"
       ],
       "Account":[
         "OsAccount",
@@ -439,7 +471,8 @@
         "File.Environment",
         "File.DistributedFile",
         "AppFileService",
-        "UserFileService"
+        "UserFileService",
+        "UserFileManager"
       ],
       "USB":[
         "USBManager"
@@ -472,7 +505,8 @@
         "AbilityRuntime.Mission",
         "AbilityTools.AbilityAssistant",
         "Form",
-        "DistributedAbilityManager"
+        "DistributedAbilityManager",
+        "AbilityRuntime.QuickFix"
       ],
       "Applications":[
         "ContactsData",

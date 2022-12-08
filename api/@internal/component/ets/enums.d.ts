@@ -361,7 +361,7 @@ declare enum Curve {
   LinearOutSlowIn,
 
   /**
-   * Fast OutL inear In.
+   * Fast Out Linear In.
    * @since 7
    */
   FastOutLinearIn,
@@ -507,6 +507,7 @@ declare enum Edge {
   /**
    * Center horizontal and vertical.
    * @since 7
+   * @deprecated since 9
    */
   Center,
 
@@ -519,6 +520,7 @@ declare enum Edge {
   /**
    * Cross axis direction text baseline alignment.
    * @since 7
+   * @deprecated since 9
    */
   Baseline,
 
@@ -531,6 +533,7 @@ declare enum Edge {
   /**
    * Middle
    * @since 7
+   * @deprecated since 9
    */
   Middle,
 
@@ -1511,13 +1514,13 @@ declare enum HitTestMode {
  */
 declare enum TitleHeight {
   /**
-   * Title height when only main title is avaliable.
+   * Title height when only main title is available.
    * @since 9
    */
   MainOnly,
 
   /**
-   * Title height when main title and subtitle are both avaliable.
+   * Title height when main title and subtitle are both available.
    * @since 9
    */
   MainWithSub,

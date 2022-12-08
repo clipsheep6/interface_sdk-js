@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Shenzhen Kaihong Digital Industry Development Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,23 +14,35 @@
  */
 
 /**
- * @name The dispatch info class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @systemapi hide this for inner system use
+ * @import font from '@ohos.font';
  */
- export interface DispatchInfo {
+declare namespace font {
     /**
-     * @default Indicates the dispatchInfo version
-     * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     */
-    readonly version: string;
-  
+   * @since 9
+   */
+  interface FontOptions {
+
     /**
-     * @default Indicates the free install interface version number
+     * The font name to register.
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    readonly dispatchAPI: string;
+    familyName: string;
+
+    /**
+     * The path of the font file.
+     * @since 9
+     */
+    familySrc: string;
+  }
+  /**
+   * Register a customized font in the FontManager.
+   * @param options FontOptions
+   * @since 9
+   */
+  function registerFont(options: FontOptions):void;
+
 }
+
+export default font;

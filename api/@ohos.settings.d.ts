@@ -20,7 +20,6 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
  *
  * @since 7
  * @syscap SystemCapability.Applications.settings.Core
- * @import import settings from '@ohos.settings'
  * @permission N/A
  */
 declare namespace settings {
@@ -798,7 +797,7 @@ declare namespace settings {
    * template.
    *
    * @param name Indicates the name of the setting to set.
-   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
    */
   function getURI(name: string, callback: AsyncCallback<string>): void;
@@ -867,7 +866,7 @@ declare namespace settings {
    * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
    * the database.
    * @param name Indicates the name of the character string.
-   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
    * @deprecated since 9
@@ -883,7 +882,7 @@ declare namespace settings {
    * the database.
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
@@ -891,7 +890,7 @@ declare namespace settings {
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string): Promise<boolean>;
-  
+
    /**
     * get value from settingsdata(synchronization method)
     * @since 8

@@ -32,8 +32,6 @@ import Want from './@ohos.application.Want';
 /**
  * Provides methods to operate or manage NFC tag.
  *
- * @import import tag from '@ohos.nfc.tag';
- *
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
@@ -56,18 +54,18 @@ declare namespace tag {
   /** Indicates an NDEF tag. */
   const NDEF = 6;
 
-  /** Indicates a MifareClassic tag. */
-  const MIFARE_CLASSIC = 8;
-
-  /** Indicates a MifareUltralight tag. */
-  const MIFARE_ULTRALIGHT = 9;
-
   /**
-   * Indicates an NdefFormatable tag.
+   * Indicates an NDEF Formatable tag.
    *
    * @since 9
    */
-  const NDEF_FORMATABLE = 10;
+  const NDEF_FORMATABLE = 7;
+
+  /** Indicates a MIFARE Classic tag. */
+  const MIFARE_CLASSIC = 8;
+
+  /** Indicates a MIFARE Ultralight tag. */
+  const MIFARE_ULTRALIGHT = 9;
 
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
@@ -99,7 +97,7 @@ declare namespace tag {
   }
 
   /**
-   * NfcForum Type definition. The Ndef tag may use one of them.
+   * NfcForum Type definition. The NDEF tag may use one of them.
    *
    * @since 9
    * @syscap SystemCapability.Communication.NFC.Core
@@ -247,75 +245,85 @@ declare namespace tag {
   /**
    * Obtains an {@link IsoDepTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the IsoDep technology, an {@link IsoDepTag} object
+   * During tag reading, if the tag supports the IsoDep technology, an {@link IsoDepTag} object
    * will be created based on the tag information.
    *
-   * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */
-  function getIsoDepTag(tagInfo: TagInfo): IsoDepTag
+  function getIsoDep(tagInfo: TagInfo): IsoDepTag
 
   /**
    * Obtains an {@link NdefTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the NDEF technology, an {@link NdefTag} object
+   * During tag reading, if the tag supports the NDEF technology, an {@link NdefTag} object
    * will be created based on the tag information.
    *
-   * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */
-  function getNdefTag(tagInfo: TagInfo): NdefTag
+  function getNdef(tagInfo: TagInfo): NdefTag
 
   /**
    * Obtains an {@link MifareClassicTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the MifareClassic technology,
+   * During tag reading, if the tag supports the MIFARE Classic technology,
    * an {@link MifareClassicTag} object will be created based on the tag information.
    *
-   * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */
-  function getMifareClassicTag(tagInfo: TagInfo): MifareClassicTag
+  function getMifareClassic(tagInfo: TagInfo): MifareClassicTag
 
    /**
    * Obtains an {@link MifareUltralightTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the MifareUltralight technology,
+   * During tag reading, if the tag supports the MIFARE Ultralight technology,
    * an {@link MifareUltralightTag} object will be created based on the tag information.
    *
-   * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */
-  function getMifareUltralightTag(tagInfo: TagInfo): MifareUltralightTag
+  function getMifareUltralight(tagInfo: TagInfo): MifareUltralightTag
 
   /**
    * Obtains an {@link NdefFormatableTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the NdefFormatable technology,
+   * During tag reading, if the tag supports the NDEF Formatable technology,
    * an {@link NdefFormatableTag} object will be created based on the tag information.
    *
-   * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Core
    * @since 9
    */
-  function getNdefFormatableTag(tagInfo: TagInfo): NdefFormatableTag
+  function getNdefFormatable(tagInfo: TagInfo): NdefFormatableTag
 
   /**
    * Parse a {@link TagInfo} object from Want.
    *
-   * @param want The want object that contains the values of TagInfo.
-   * @return The TagInfo object that's parsed.
+   * @param { Want } want - The want object that contains the values of TagInfo.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.Core
-   * @permission ohos.permission.NFC_TAG
    * @since 9
    */
   function getTagInfo(want: Want): TagInfo
@@ -374,6 +382,7 @@ declare namespace tag {
     *
     * @since 7
     * @deprecated since 9
+    * @useinstead tag.TagInfo#technology
     */
     supportedProfiles: number[];
   }
@@ -396,6 +405,88 @@ declare namespace tag {
 
     /** payload of NdefRecord */
     payload: number[];
+  }
+
+  namespace ndef {
+  /**
+    * Creates an NDEF record with uri data.
+    *
+    * @param { string } uri - Uri data for new NDEF record.
+    * @returns { NdefRecord } The instance of NdefRecord.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function makeUriRecord(uri: string): NdefRecord;
+
+  /**
+    * Creates an NDEF record with text data.
+    *
+    * @param { string } text - Text data for new an NDEF record.
+    * @param { string } locale - Language code for the NDEF record. if locale is null, use default locale.
+    * @returns { NdefRecord } The instance of NdefRecord.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function makeTextRecord(text: string, locale: string): NdefRecord;
+
+  /**
+    * Creates an NDEF record with mime data.
+    *
+    * @param { string } mimeType type of mime data for new an NDEF record.
+    * @param { string } mimeData mime data for new an NDEF record.
+    * @returns { NdefRecord } The instance of NdefRecord.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function makeMimeRecord(mimeType: string, mimeData: number[]): NdefRecord;
+
+  /**
+    * Creates an NDEF record with external data.
+    *
+    * @param { string } domainName - Domain name of issuing organization for the external data.
+    * @param { string } type - Domain specific type of data for the external data.
+    * @param { number[] } externalData - Data payload of an NDEF record.
+    * @returns { NdefRecord } The instance of NdefRecord.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function makeExternalRecord(domainName: string, type: string, externalData: number[]): NdefRecord;
+  /**
+    * Creates an NDEF message with raw bytes.
+    *
+    * @param { number[] } data - The raw bytes to parse NDEF message.
+    * @returns { NdefMessage } The instance of NdefMessage.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function createNdefMessage(data: number[]): NdefMessage;
+
+  /**
+    * Creates an NDEF message with record list.
+    *
+    * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
+    * @returns { NdefMessage } The instance of NdefMessage.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function createNdefMessage(ndefRecords: NdefRecord[]): NdefMessage;
+
+  /**
+    * Parses an NDEF message into raw bytes.
+    *
+    * @param { NdefMessage } ndefMessage - An NDEF message to parse.
+    * @returns { number[] } Returns the raw bytes of an NDEF message.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @syscap SystemCapability.Communication.NFC.Core
+    * @since 9
+    */
+    function messageToBytes(ndefMessage: NdefMessage): number[];
   }
 
   export type NfcATag = _NfcATag

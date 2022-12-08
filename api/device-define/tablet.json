@@ -133,6 +133,7 @@
     "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.UserFileService",
+    "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
@@ -174,6 +175,7 @@
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
-    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply"
+    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
+    "SystemCapability.Msdp.DeviceStatus.Stationary"
   ]
 }
