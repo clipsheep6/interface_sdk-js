@@ -809,7 +809,6 @@ declare namespace settings {
    * @since 8
    * @param name Indicates the name of the setting to set.
    * @return Return settingsdata uri.
-   * @deprecated
    */
    function getUriSync(name: string): string;
 
@@ -821,6 +820,7 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @return Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
+   * @StageModelOnly
    */
   function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
   function getValue(context: Context, name: string): Promise<string>;  
@@ -832,6 +832,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @return settingsdata value
+    * @StageModelOnly
     */
    function getValueSync(context: Context, name: string, defValue: string): string;
   
@@ -843,6 +844,7 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @StageModelOnly
    */
    function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
    function setValue(context: Context, name: string, value: string): Promise<boolean>;
@@ -855,6 +857,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @StageModelOnly
     */
    function setValueSync(context: Context, name: string, value: string): boolean;
    
@@ -867,7 +870,7 @@ declare namespace settings {
    * @return Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
-   * @deprecated
+   * @deprecated since 9
    * @useinstead getValue(context: context...)
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<string>): void;
@@ -883,7 +886,7 @@ declare namespace settings {
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
-   * @deprecated
+   * @deprecated since 9
    * @useinstead setValue(context: context...)
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string, callback: AsyncCallback<boolean>): void;
@@ -896,7 +899,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @return settingsdata value
-    * @deprecated
+    * @deprecated since 9
     * @useinstead getValueSync(context: context...)
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
@@ -909,7 +912,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-    * @deprecated
+    * @deprecated since 9
     * @useinstead setValueSync(context: context...)
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
