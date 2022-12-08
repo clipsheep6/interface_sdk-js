@@ -871,13 +871,13 @@ declare namespace settings {
    * @since 7
    * @deprecated since 9
    * @useinstead getValue(context: context...)
+   * @FAModelOnly
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<string>): void;
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<string>;
 
   /**
    * Saves a character string name and its value to the database.
-   *
    * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
    * the database.
    * @param name Indicates the name of the character string.
@@ -887,6 +887,7 @@ declare namespace settings {
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
    * @useinstead setValue(context: context...)
+   * @FAModelOnly
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: string): Promise<boolean>;
@@ -900,6 +901,7 @@ declare namespace settings {
     * @return settingsdata value
     * @deprecated since 9
     * @useinstead getValueSync(context: context...)
+    * @FAModelOnly
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
  
@@ -913,6 +915,7 @@ declare namespace settings {
     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
     * @deprecated since 9
     * @useinstead setValueSync(context: context...)
+    * @FAModelOnly
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 
