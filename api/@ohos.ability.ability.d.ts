@@ -22,7 +22,7 @@ import { ConnectOptions as _ConnectOptions }  from './ability/connectOptions';
 import { StartAbilityParameter as _StartAbilityParameter }  from './ability/startAbilityParameter';
 
 /**
- * The class of an ability.
+ * The class of an abilityaaaaa.
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -55,7 +55,7 @@ declare namespace ability {
     export type DataAbilityOperation = _DataAbilityOperation
 
     /**
-     * @name DataAbilityResult
+     * @name DataAbilityResultaaaaa
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
