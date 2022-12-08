@@ -307,10 +307,10 @@
         "ConnectedTag",
         "NFC.Tag",
         "NFC.CardEmulation",
-        "NFCManager.Ethernet",
-        "NFCManager.NetSharing",
-        "NFCManager.MDNS",
-        "NFCManager.Vpn"
+        "NetManager.Ethernet",
+        "NetManager.NetSharing",
+        "NetManager.MDNS",
+        "NetManager.Vpn"
       ],
       "Location":[
         "Location.Core",
@@ -360,6 +360,8 @@
         "AVSession.Core",
         "AVSession.Manager",
         "Audio.Core",
+        "Audio.Tone",
+        "Audio.Interrupt",
         "Audio.Renderer",
         "Audio.Capturer",
         "Audio.Device",
@@ -472,7 +474,8 @@
         "File.DistributedFile",
         "AppFileService",
         "UserFileService",
-        "UserFileManager"
+        "UserFileManager",
+        "UserFileManager.Core"
       ],
       "USB":[
         "USBManager"
