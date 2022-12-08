@@ -26,19 +26,19 @@ import { ProcessInfo as _ProcessInfo } from './app/processInfo';
 import window from './@ohos.window';
 
 /**
- * A Feature Ability represents an ability with a UI and is designed to interact with users.
+ * Asssss Feature Ability represents an ability with a UI and is designed to interact with users.
  * @name featureAbility
  * @since 6
- * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntimesssss.FAModel
  * @permission N/A
  * @FAModelOnly
  */
 declare namespace featureAbility {
   /**
-   * Obtain the want sent from the source ability.
+   * Obtain the want sent from the source abilitysssss.
    *
    * @since 6
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapabilitysssss.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @returns -
    * @FAModelOnly
