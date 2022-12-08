@@ -795,7 +795,6 @@ declare namespace settings {
   /**
    * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
    * template.
-   *
    * @param name Indicates the name of the setting to set.
    * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
