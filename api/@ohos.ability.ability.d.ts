@@ -22,7 +22,7 @@ import { ConnectOptions as _ConnectOptions }  from './ability/connectOptions';
 import { StartAbilityParameter as _StartAbilityParameter }  from './ability/startAbilityParameter';
 
 /**
- * The class of an ability.
+ * The class of an abilitcccccy.
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
