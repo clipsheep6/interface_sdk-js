@@ -22,7 +22,7 @@ import { ConnectOptions as _ConnectOptions }  from './ability/connectOptions';
 import { StartAbilityParameter as _StartAbilityParameter }  from './ability/startAbilityParameter';
 
 /**
- * The class of an ability.
+ * The class of an abilityaaaa.
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -40,7 +40,7 @@ declare namespace ability {
     export type DataAbilityHelper = _DataAbilityHelper
 
     /**
-     * Defines a PacMap object for storing a series of values.
+     * Defines a PacMap objectsss for storing a series of values.
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
