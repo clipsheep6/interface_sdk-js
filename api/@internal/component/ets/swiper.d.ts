@@ -215,11 +215,24 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   curve(value: Curve | string): SwiperAttribute;
+
   /**
    * Called when the index value changes.
    * @since 7
    */
   onChange(event: (index: number) => void): SwiperAttribute;
+
+  /**
+   * Called when animation started
+   * @since 9
+   */
+  onAnimationStart(event: (index: number) => void): SwiperAttribute;
+
+  /**
+   * Called when animation finished
+   * @since 9
+   */
+  onAnimationFinished(event: (index: number) => void): SwiperAttribute;
 
   /**
    * Setting indicator style navigation.
