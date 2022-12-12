@@ -44,7 +44,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   }
   const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
   const errorMessage = `API check error of [${errorType}] in ${fileName}(line:${posOfNode.line + 1}, col:` +
-    `${posOfNode.character + 1}): ${errorInfo}`;
+    `${posOfNode.character + 1}): ${errorInfo}~~${info1}~~${info2}~~${info3}~~${info4}~~${info5}`;
   const scanResultSet = new Set(result.scanResult);
   scanResultSet.add(errorMessage);
   result.scanResult = [...scanResultSet];
@@ -53,7 +53,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     errorType: errorType,
     fileName: `${fileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     type: type,
-    errorInfo: `${errorInfo}~~${info1}~~${info2}~~${info3}~~${info4}~~${info5}`,
+    errorInfo: errorInfo,
     version: getApiInfo(node).version,
     basename: path.basename(fileName).replace(/\.d\.ts/g, ""),
     level: level

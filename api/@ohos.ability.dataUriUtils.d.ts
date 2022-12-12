@@ -17,7 +17,7 @@
  * A utility class used for handling objects that use the DataAbilityHelper scheme.
  * @name dataUriUtils
  * @since 7
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Abilitysss.AbilityRuntime.Core
  * @permission N/A
  * @deprecated since 9
  * @useinstead @ohos.app.ability.dataUriUtils.d.ts
