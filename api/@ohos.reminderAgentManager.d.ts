@@ -33,7 +33,7 @@ declare namespace reminderAgentManager {
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Indicates the reminder instance to publish.
    * @param { AsyncCallback<number> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    */
   function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
 
@@ -44,7 +44,7 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Indicates the reminder instance to publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    * @returns { Promise<number> } The reminder id.
    */
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
@@ -56,7 +56,7 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { number } reminderId - Indicates the reminder id.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
@@ -66,7 +66,7 @@ declare namespace reminderAgentManager {
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { number } reminderId - Indicates the reminder id.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    * @returns { Promise<void> } The promise returned by the function.
    */
   function cancelReminder(reminderId: number): Promise<void>;
@@ -77,7 +77,7 @@ declare namespace reminderAgentManager {
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { AsyncCallback<Array<ReminderRequest>> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
@@ -86,7 +86,7 @@ declare namespace reminderAgentManager {
    *
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    * @returns { Promise<Array<ReminderRequest>> } The promise returned by the function.
    */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
@@ -97,7 +97,7 @@ declare namespace reminderAgentManager {
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
@@ -106,7 +106,7 @@ declare namespace reminderAgentManager {
    *
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    * @returns { Promise<void> } The promise returned by the function.
    */
   function cancelAllReminders(): Promise<void>;
@@ -118,7 +118,7 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { NotificationSlot } slot - Indicates the slot.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -128,7 +128,7 @@ declare namespace reminderAgentManager {
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { NotificationSlot } slot - Indicates the slot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    * @returns { Promise<void> } The promise returned by the function.
    */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
@@ -140,7 +140,7 @@ declare namespace reminderAgentManager {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { notification.SlotType } slotType Indicates the type of the slot.
    * @param { AsyncCallback<void> } callback - Indicates the callback function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
 
@@ -150,7 +150,7 @@ declare namespace reminderAgentManager {
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
    * @param { notification.SlotType } slotType Indicates the type of the slot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
    * @returns { Promise<void> } The promise returned by the function.
    */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;

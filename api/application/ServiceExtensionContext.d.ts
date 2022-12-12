@@ -33,7 +33,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Service extension uses this method to start a specific ability.
      * @param { Want } want - Indicates the ability to start.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -46,7 +46,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -59,7 +59,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -72,7 +72,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the ability to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -86,7 +86,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { number } accountId - Indicates the accountId to start.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -100,7 +100,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { number } accountId - Indicates the accountId to start.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -112,7 +112,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Starts a new service extension ability.
      * @param { Want } want - Indicates the want info to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -124,7 +124,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Starts a new service extension ability.
      * @param { Want } want - Indicates the want info to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -138,7 +138,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -152,7 +152,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -164,7 +164,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Stops a service within the same application.
      * @param { Want } want - Indicates the want info to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -176,7 +176,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Stops a service within the same application.
      * @param { Want } want - Indicates the want info to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -190,7 +190,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -204,7 +204,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -215,7 +215,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
     /**
      * Destroys this service extension.
      * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -226,7 +226,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
     /**
      * Destroys this service extension.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -297,7 +297,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { Want } want - Indicates the service extension to connect.
      * @param { ConnectOptions } options - Indicates the callback of connection.
      * @returns { number } Returns the connection id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -313,7 +313,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { number } accountId - Indicates the account to connect.
      * @param { ConnectOptions } options - Indicates the callback of connection.
      * @returns { number } Returns the connection id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -325,7 +325,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Disconnect an ability to a service extension, in contrast to {@link connectAbility}.
      * @param { number } connection - the connection id returned from connectAbility api.
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -336,7 +336,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Disconnect an ability to a service extension, in contrast to {@link connectAbility}.
      * @param { number } connection - the connection id returned from connectAbility api.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -347,7 +347,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Get the caller object of the startup capability
      * @param { Want } want - Indicates the ability to start.
      * @returns { Promise<Caller> } Returns the Caller interface.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly

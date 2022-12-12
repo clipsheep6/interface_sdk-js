@@ -33,7 +33,7 @@ declare namespace missionManager {
      * @param { string } type - mission.
      * @param { MissionListener } listener - Indicates the MissionListener to be registered.
      * @returns { number } Returns the index number of the MissionListener.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -44,7 +44,7 @@ declare namespace missionManager {
      * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @param { AsyncCallback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -55,7 +55,7 @@ declare namespace missionManager {
      * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -66,7 +66,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } missionId - Indicates mission id to be queried.
      * @param { AsyncCallback<MissionInfo> } callback - The callback is used to return the MissionInfo of the given id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -77,7 +77,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } missionId - Indicates mission id to be queried.
      * @returns { Promise<MissionInfo> } Returns the MissionInfo of the given id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -88,7 +88,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } numMax - Indicates the maximum number of returned missions.
      * @param { AsyncCallback<Array<MissionInfo>> } callback - The callback is used to return the array of the MissionInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -99,7 +99,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } numMax - Indicates the maximum number of returned missions.
      * @returns { Promise<Array<MissionInfo>> } Returns the array of the MissionInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -110,7 +110,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } missionId - Indicates mission id to be queried.
      * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of the given id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -121,7 +121,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } missionId - Indicates mission id to be queried.
      * @returns { Promise<MissionSnapshot> } Returns the MissionSnapshot of the given id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -132,7 +132,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } missionId - Indicates mission id to be queried.
      * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of the given id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -143,7 +143,7 @@ declare namespace missionManager {
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } missionId - Indicates mission id to be queried.
      * @returns { Promise<MissionSnapshot> } Returns the MissionSnapshot of the given id.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -153,7 +153,7 @@ declare namespace missionManager {
      * Lock the mission.
      * @param { number } missionId - Indicates mission id to be locked.
      * @param { AsyncCallback<void> } callback - The callback of lockMission.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -163,7 +163,7 @@ declare namespace missionManager {
      * Lock the mission.
      * @param { number } missionId - Indicates mission id to be locked.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -173,7 +173,7 @@ declare namespace missionManager {
      * Unlock the mission.
      * @param { number } missionId - Indicates mission id to be unlocked.
      * @param { AsyncCallback<void> } callback - The callback of unlockMission.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -183,7 +183,7 @@ declare namespace missionManager {
      * Unlock the mission.
      * @param { number } missionId - Indicates mission id to be unlocked.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -193,7 +193,7 @@ declare namespace missionManager {
      * Clear the given mission in the ability manager service.
      * @param { number } missionId - Indicates mission id to be cleared.
      * @param { AsyncCallback<void> } callback - The callback of clearMission.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -203,7 +203,7 @@ declare namespace missionManager {
      * Clear the given mission in the ability manager service.
      * @param { number } missionId - Indicates mission id to be cleared.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -212,7 +212,7 @@ declare namespace missionManager {
     /**
      * Clear all missions in the ability manager service.
      * @param { AsyncCallback<void> } callback - The callback of clearAllMissions.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -221,7 +221,7 @@ declare namespace missionManager {
     /**
      * Clear all missions in the ability manager service.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -231,7 +231,7 @@ declare namespace missionManager {
      * Schedule the given mission to foreground.
      * @param { number } missionId - Indicates mission id to be moved to foreground.
      * @param { AsyncCallback<void> } callback - The callback of moveMissionToFront.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -242,7 +242,7 @@ declare namespace missionManager {
      * @param { number } missionId - Indicates mission id to be moved to foreground.
      * @param { StartOptions } options - Indicates the start options.
      * @param { AsyncCallback<void> } callback - The callback of moveMissionToFront.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
@@ -253,7 +253,7 @@ declare namespace missionManager {
      * @param { number } missionId - Indicates mission id to be moved to foreground.
      * @param { StartOptions } options - Indicates the start options.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */

@@ -64,7 +64,7 @@ declare namespace appManager {
      * @param { string } type - applicationState.
      * @param { ApplicationStateObserver } observer - The application state observer.
      * @returns { number } Returns the number code of the observer.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -78,7 +78,7 @@ declare namespace appManager {
      * @param { ApplicationStateObserver } observer - The application state observer.
      * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
      * @returns { number } Returns the number code of the observer.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -91,7 +91,7 @@ declare namespace appManager {
      * @param { string } type - applicationState.
      * @param { number } observerId - Indicates the number code of the observer.
      * @param { AsyncCallback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -104,7 +104,7 @@ declare namespace appManager {
      * @param { string } type - applicationState.
      * @param { number } observerId - Indicates the number code of the observer.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -115,7 +115,7 @@ declare namespace appManager {
      * getForegroundApplications.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { AsyncCallback<Array<AppStateData>> } callback - The callback is used to return the list of AppStateData.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -126,7 +126,7 @@ declare namespace appManager {
      * getForegroundApplications.
      * @permission ohos.permission.GET_RUNNING_INFO
      * @returns { Promise<Array<AppStateData>> } Returns the list of AppStateData.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -139,7 +139,7 @@ declare namespace appManager {
      * @param { string } bundleName - The process bundle name.
      * @param { number } accountId - The account id.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -152,7 +152,7 @@ declare namespace appManager {
      * @param { string } bundleName - The process bundle name.
      * @param { number } accountId - The account id.
      * @param { AsyncCallback<void> } callback - The callback of killProcessWithAccount.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -162,7 +162,7 @@ declare namespace appManager {
     /**
      * Is user running in stability test.
      * @param { AsyncCallback<boolean> } callback - The callback is used to return true if user is running stability test.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -171,7 +171,7 @@ declare namespace appManager {
     /**
      * Is user running in stability test.
      * @returns { Promise<boolean> } Returns true if user is running stability test.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -182,7 +182,7 @@ declare namespace appManager {
      * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
      * @param { string } bundleName - bundle name.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -194,7 +194,7 @@ declare namespace appManager {
      * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
      * @param { string } bundleName - bundle name.
      * @param { AsyncCallback<void> } callback - The callback of killProcessesByBundleName.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -206,7 +206,7 @@ declare namespace appManager {
      * @permission ohos.permission.CLEAN_APPLICATION_DATA
      * @param { string } bundleName - bundle name.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -218,7 +218,7 @@ declare namespace appManager {
      * @permission ohos.permission.CLEAN_APPLICATION_DATA
      * @param { string } bundleName - bundle name.
      * @param { AsyncCallback<void> } callback - The callback of clearUpApplicationData.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -228,7 +228,7 @@ declare namespace appManager {
     /**
      * Is it a ram-constrained device
      * @returns { Promise<boolean> } Returns true if the device is ram-constrained.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -237,7 +237,7 @@ declare namespace appManager {
     /**
      * Is it a ram-constrained device
      * @param { AsyncCallback<boolean> } callback - The callback is used to return true if the device is ram-constrained.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -246,7 +246,7 @@ declare namespace appManager {
     /**
      * Get the memory size of the application
      * @returns { Promise<number> } Returns the application memory size.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -255,7 +255,7 @@ declare namespace appManager {
     /**
      * Get the memory size of the application
      * @param { AsyncCallback<number> } callback - The callback is used to return the application memory size.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -265,7 +265,7 @@ declare namespace appManager {
      * Get information about running processes
      * @permission ohos.permission.GET_RUNNING_INFO
      * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -276,7 +276,7 @@ declare namespace appManager {
      * Get information about running processes
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9

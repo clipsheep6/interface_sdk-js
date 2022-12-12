@@ -55,7 +55,7 @@ export interface Caller {
      * @param { string } method - The notification event string listened to by the callee.
      * @param { rpc.Sequenceable } data - Notification data to the callee.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -67,7 +67,7 @@ export interface Caller {
      * @param { string } method - The notification event string listened to by the callee.
      * @param { rpc.Sequenceable } data - Notification data to the callee.
      * @returns { Promise<rpc.MessageParcel> } Returns the callee's notification result data.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -85,7 +85,7 @@ export interface Caller {
     /**
      * Register death listener notification callback.
      * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -96,7 +96,7 @@ export interface Caller {
      * Register death listener notification callback.
      * @param { string } type - release.
      * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -107,7 +107,7 @@ export interface Caller {
      * Unregister death listener notification callback.
      * @param { string } type - release.
      * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -117,7 +117,7 @@ export interface Caller {
     /**
      * Unregister all death listener notification callback.
      * @param { string } type - release.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -137,7 +137,7 @@ export interface Callee {
      * Register data listener callback.
      * @param { string } method - A string registered to listen for notification events.
      * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
@@ -147,7 +147,7 @@ export interface Callee {
     /**
      * Unregister data listener callback.
      * @param { string } method - A string registered to listen for notification events.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9

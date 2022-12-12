@@ -128,7 +128,7 @@ declare namespace quickFixManager {
      * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
      *                                                   path and file name.
      * @param { AsyncCallback<void> } callback - The callback of applyQuickFix.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -141,7 +141,7 @@ declare namespace quickFixManager {
      * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
      *                                                   path and file name.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -153,7 +153,7 @@ declare namespace quickFixManager {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { string } bundleName - Bundle name wish to query.
      * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - The callback is used to return the ApplicationQuickFixInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -165,7 +165,7 @@ declare namespace quickFixManager {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { string } bundleName - Bundle name wish to query.
      * @returns { Promise<ApplicationQuickFixInfo> } Returns the ApplicationQuickFixInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
