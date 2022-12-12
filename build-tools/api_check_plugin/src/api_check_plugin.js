@@ -18,7 +18,6 @@ const fs = require("fs");
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
-const { checkAPINameOfHump } = require("./check_hump");
 const { checkPermission } = require("./check_permission");
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
@@ -83,8 +82,6 @@ function checkAllNode(node, sourcefile, fileName) {
   if (ts.isIdentifier(node)) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
-    // check hump naming
-    // checkAPINameOfHump(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
@@ -92,7 +89,7 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
-  result.scanResult.push("api_check: true");
+  result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;
