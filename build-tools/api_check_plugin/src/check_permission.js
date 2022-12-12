@@ -14,6 +14,7 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
