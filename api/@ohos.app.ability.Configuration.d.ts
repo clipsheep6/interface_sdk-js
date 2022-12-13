@@ -31,6 +31,14 @@ export interface Configuration {
     language?: string;
 
     /**
+     * Indicates wether the current system adopts 24-hour clock.
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 9
+     */
+     hour?: string;
+
+    /**
      * Indicates the current colorMode of the application.
      * @type { ConfigurationConstant.ColorMode }
      * @syscap SystemCapability.Ability.AbilityBase
