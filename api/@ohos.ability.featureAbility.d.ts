@@ -26,10 +26,10 @@ import { ProcessInfo as _ProcessInfo } from './app/processInfo';
 import window from './@ohos.window';
 
 /**
- * A Feature Ability represents an ability with a UI and is designed to interact with users.
+ * A Feature Ability represents an aaaability with a UI and is designed to interact with users.
  * @name featureAbility
  * @since 6
- * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModelsss
  * @permission N/A
  * @FAModelOnly
  */
