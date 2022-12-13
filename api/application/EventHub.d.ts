@@ -26,7 +26,7 @@ export default class EventHub {
     * Subscribe to an event.
     * @param { string } event - Indicates the event.
     * @param { Function } callback - Indicates the callback.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @StageModelOnly
     * @since 9
@@ -37,7 +37,7 @@ export default class EventHub {
     * Unsubscribe from an event.
     * @param { string } event - Indicates the event.
     * @param { Function } callback - Indicates the callback.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @StageModelOnly
     * @since 9
@@ -48,7 +48,7 @@ export default class EventHub {
     * Trigger the event callbacks.
     * @param { string } event - Indicates the event.
     * @param { Object[] } args - Indicates the callback arguments.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @StageModelOnly
     * @since 9

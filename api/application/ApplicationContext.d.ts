@@ -85,7 +85,7 @@ export default class ApplicationContext extends Context {
      * @param { string } type - abilityLifecycle.
      * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
      * @returns { number } Returns the number code of the callback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -97,7 +97,7 @@ export default class ApplicationContext extends Context {
      * @param { string } type - abilityLifecycle.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @param { AsyncCallback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -109,7 +109,7 @@ export default class ApplicationContext extends Context {
      * @param { string } type - abilityLifecycle.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -121,7 +121,7 @@ export default class ApplicationContext extends Context {
      * @param { string } type - environment.
      * @param { EnvironmentCallback } callback - The environment callback.
      * @returns { number } Returns the number code of the callback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -133,7 +133,7 @@ export default class ApplicationContext extends Context {
      * @param { string } type - environment.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -145,7 +145,7 @@ export default class ApplicationContext extends Context {
      * @param { string } type - environment.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -155,7 +155,7 @@ export default class ApplicationContext extends Context {
     /**
      * Get information about running processes
      * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -165,7 +165,7 @@ export default class ApplicationContext extends Context {
     /**
      * Get information about running processes
      * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -175,7 +175,7 @@ export default class ApplicationContext extends Context {
     /**
      * Kill processes by self
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -185,7 +185,7 @@ export default class ApplicationContext extends Context {
     /**
      * Kill processes by self
      * @param { AsyncCallback<void> } callback - The callback of killProcessesBySelf.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9

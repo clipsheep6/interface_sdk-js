@@ -28,7 +28,7 @@ declare namespace errorManager {
      * @param { string } type - error.
      * @param { ErrorObserver } observer - The error observer.
      * @returns { number } Returns the number code of the observer.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -39,7 +39,7 @@ declare namespace errorManager {
      * @param { string } type - error.
      * @param { number } observerId - Indicates the number code of the observer.
      * @param { AsyncCallback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -50,7 +50,7 @@ declare namespace errorManager {
      * @param { string } type - error.
      * @param { number } observerId - Indicates the number code of the observer.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not a valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
