@@ -1,10 +1,25 @@
+'''
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+'''
 # --coding: utf-8 --
 import re
 
 # 子系统对应关系
 systemDict = {'js-apis-DataUriUtils.md': '元能力', 'js-apis-featureAbility.md': '元能力',
               'js-apis-particleAbility.md': '元能力', 'js-apis-ability-wantConstant.md': '元能力',
-              'js-apis-abilityAccessCtrl.md': '程序访问控制', 'js-apis-accessibility.md': '无障碍软件服务',
+              'js-apis-abilityAccessCtrl.md': '程序访问控制',
+              'js-apis-accessibility.md': '无障碍软件服务',
               'js-apis-appAccount.md': '账号', 'js-apis-distributed-account.md': '账号',
               'js-apis-osAccount.md': '账号', 'js-apis-animator.md': 'ArkUI开发框架',
               'js-apis-application-ability.md': '元能力', 'js-apis-application-abilityConstant.md': '元能力',
@@ -157,9 +172,9 @@ systemDict = {'js-apis-DataUriUtils.md': '元能力', 'js-apis-featureAbility.md
               'js-apis-data-ValuesBucket.md': '分布式数据管理',
               'js-apis-hisysevent.md': 'DFX',
               'js-apis-system-fetch.md': '网络管理',
-              'js-apis-accessibility-extension-context.md': '无障碍软件服务',
               'js-apis-application-abilityManager.md': '元能力',
               'js-apis-application-AccessibilityExtensionAbility.md': '无障碍软件服务',
+              'js-apis-accessibility-extension-context.md': '无障碍软件服务',
               'js-apis-bundle-BundleInstaller.md': '事件通知',
               'js-apis-bundle-distributedBundle.md': '事件通知',
               'js-apis-Bundle-InnerBundleManager.md': '事件通知',
@@ -186,10 +201,10 @@ systemDict = {'js-apis-DataUriUtils.md': '元能力', 'js-apis-featureAbility.md
               'js-apis-bundleManager.md': '包管理',
               'js-apis-colorSpaceManager.md': '图形图像',
               'js-apis-batteryStatistics.md': '电源服务',
-              'js-apis-freeInstall.md': '包管理',
-              'js-apis-accessibility-GesturePath.md': '无障碍软件服务',
               'js-apis-accessibility-GesturePoint.md': '无障碍软件服务',
+              'js-apis-freeInstall.md': '包管理',
               'js-apis-matrix4.md': 'ArkUI开发框架',
+              'js-apis-accessibility-GesturePath.md': '无障碍软件服务',
               'js-apis-application-WindowExtensionAbility.md': '窗口管理',
               'js-apis-Bundle-BundleStatusCallback.md': '包管理',
               'js-apis-bundleManager-abilityInfo.md': '包管理',
@@ -278,8 +293,8 @@ api9 = []
 nocallback = ['js-apis-distributedobject.md', 'js-apis-rpc.md', 'js-apis-data-distributedobject.md',
               'js-apis-runninglock.md', 'js-apis-medialibrary.md', 'js-apis-resource-manager.md',
               'js-apis-commonEvent.md', 'js-apis-pasteboard.md', 'js-apis-distributedKVStore.md',
-              'js-apis-accessibility.md', 'js-apis-cryptoFramework.md', 'js-apis-display.md',
-              'js-apis-userFileManager.md']
+              'js-apis-accessibility.md', 'js-apis-cryptoFramework.md',
+              'js-apis-userFileManager.md', 'js-apis-display.md']
 # 回调位置错误文档
 callbackBeyond = ['js-apis-image.md', 'js-apis-i18n.md', 'js-apis-effectKit.md', 'js-apis-accessibility.md']
 

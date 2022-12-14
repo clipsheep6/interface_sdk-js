@@ -1,10 +1,27 @@
+'''
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+'''
 # --coding: utf-8 --
 import datetime
 import json
 import os
 import re
+import sys
 from time import *
 
+import shutil
+import subprocess
 from guesslang import Guess
 from styleframe import StyleFrame, Styler
 import pandas as pd
@@ -43,7 +60,34 @@ class MaterialDetection:
                 return True
         return False
 
-    def operation(self, MDFilePath, resultPath, batPath, resultName, jsonName):
+    def build_SDK(self, typescriptPath, compilePath, resultPath):
+        # 将typescript复制到compiler工程中进行编译
+        compile_tsPath = os.path.join(compilePath, 'deps')
+        delFolderOrFile(os.path.join(compile_tsPath, 'ohos-typescript-4.2.3-r2.tgz'))
+        shutil.copy(typescriptPath, os.path.join(compile_tsPath, 'ohos-typescript-4.2.3-r2.tgz'))
+        args = 'npm install'
+        p = subprocess.Popen(args, cwd=compilePath, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        out, err = p.communicate(timeout=50)
+        out = bytes.decode(out, encoding='utf-8', errors='ignore')
+        err = bytes.decode(err, encoding='utf-8', errors='ignore')
+        if 'npm ERR!' in out + err:
+            sys.exit()
+        # 构建
+        args = 'npm run build'
+        p = subprocess.Popen(args, cwd=compilePath, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        out, err = p.communicate(timeout=300)
+        # 编译
+        args = 'npm run compile'
+        p = subprocess.Popen(args, cwd=compilePath, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        out, err = p.communicate(timeout=300)
+        # 编译出sdk设定文档中sdk位置
+        Sdk_path = os.path.join(compilePath, 'sample/build')
+        local_sdk = os.path.join(resultPath, 'project/eTSProject/local.properties')
+        with open(local_sdk, 'w', encoding='UTF-8') as f:
+            f.write('sdk.dir=' + Sdk_path)
+
+    def operation(self, MDFilePath, resultPath, batPath, resultName, jsonName, typeScriptPath, compilerPath):
+        self.build_SDK(typeScriptPath, compilerPath, resultPath)
         self.resultName = resultName
         self.jsonName = jsonName
         # 开始检查时间
