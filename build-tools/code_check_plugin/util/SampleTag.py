@@ -26,7 +26,8 @@ class SampleTag:
         if 'js-apis-util.md' in mdPath:
             lines = self.start_class(lines)
         # 特殊文档不进行回调验证
-        if mdPath[md_index + 1:] not in nocallback:
+        if mdPath[
+           md_index + 1:] not in nocallback and 'js-apis-accessibility.md' not in mdPath and 'js-apis-cryptoFramework.md' not in mdPath:
             lines = self.callback(lines, mdPath)
 
         lines = self.api9(lines, mdPath)
@@ -249,7 +250,7 @@ class SampleTag:
         return lines
 
     # 使用说明需要拼接
-    def UseInstructions(self, lines,mdPath):
+    def UseInstructions(self, lines, mdPath):
         Use = False
         FaUse = False
         start_code = False
@@ -339,7 +340,7 @@ class SampleTag:
                                                                                                                    '')
             elif len(s1) > 0:
                 item = item.replace('<sup>' + s1[0] + '<sup>', '').replace('<sup>(deprecated) </sup>', '').replace('\n',
-                                                                                                                  '')
+                                                                                                                   '')
         else:
             item = item.replace('<sup>(deprecated) </sup>', '').replace('\n', '')
         s2 = re.findall(r'<a(.*?)</a>', item)
@@ -494,7 +495,7 @@ class SampleTag:
                     if determineClass.replace('\n', '').replace(' ', '').lower() == item.replace('#', '').replace('\n',
                                                                                                                   '').replace(
                         ' ', '').lower():
-                        if mdpath in callbackBeyond:
+                        if mdpath in callbackBeyond or 'js-apis-effectKit.md' in mdPath or 'js-apis-accessibility.md' in mdPath:
                             hd_index = lines.index(item_true)
                         twotitle = True
                         continue
@@ -538,7 +539,8 @@ class SampleTag:
                             if '.' in className:
                                 index_c = className.find('.')
                                 className = className[index_c + 1:]
-                        if mdpath in callbackBeyond and hd_index != 0:
+                        if (
+                                mdpath in callbackBeyond or 'js-apis-effectKit.md' in mdPath or 'js-apis-accessibility.md' in mdPath) and hd_index != 0:
                             result = []
                             for i in ResultDict[determineClass]:
                                 if i > hd_index:

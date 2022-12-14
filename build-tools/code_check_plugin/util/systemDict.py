@@ -288,11 +288,10 @@ api9 = []
 nocallback = ['js-apis-distributedobject.md', 'js-apis-rpc.md', 'js-apis-data-distributedobject.md',
               'js-apis-runninglock.md', 'js-apis-medialibrary.md', 'js-apis-resource-manager.md',
               'js-apis-commonEvent.md', 'js-apis-pasteboard.md', 'js-apis-distributedKVStore.md', 'js-apis-display.md',
-              'js-apis-userFileManager.md', 'js-apis-accessibility.md', 'js-apis-cryptoFramework.md', ]
+              'js-apis-userFileManager.md']
 
 # 回调位置错误文档
-callbackBeyond = ['js-apis-image.md', 'js-apis-i18n.md',
-                  'js-apis-effectKit.md', 'js-apis-accessibility.md']
+callbackBeyond = ['js-apis-image.md', 'js-apis-i18n.md']
 
 
 # 文档中存在找不到的链接，需要替换内容执行
