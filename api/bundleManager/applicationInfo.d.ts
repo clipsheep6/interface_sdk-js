@@ -104,6 +104,14 @@ export interface ApplicationInfo {
   readonly permissions: Array<string>;
 
   /**
+   * Indicates the application source code path
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly codePath: string;
+
+  /**
    * Indicates the metadata of module
    * @type {Map<string, Array<Metadata>>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
