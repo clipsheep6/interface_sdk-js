@@ -351,8 +351,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        setSeed(seed : DataBlob, callback : AsyncCallback<void>) : void;
-        setSeed(seed : DataBlob) : Promise<void>;
+        setSeed(seed : DataBlob) : void;
     }
 
     /**
@@ -761,8 +760,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        getPublicKey(callback : AsyncCallback<PubKey>) : void;
-        getPublicKey() : Promise<PubKey>;
+        getPublicKey() : PubKey;
 
         /**
          * Check the X509 cert validity with date.
@@ -770,8 +768,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        checkValidityWithDate(date: string, callback : AsyncCallback<void>) : void;
-        checkValidityWithDate(date: string) : Promise<void>;
+        checkValidityWithDate(date: string) : void;
 
         /**
          * Get X509 cert version.
@@ -933,8 +930,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        getCertIssuer(callback : AsyncCallback<DataBlob>) : void;
-        getCertIssuer() : Promise<DataBlob>;
+        getCertIssuer() : DataBlob;
 
         /**
          * Get the revocation date from x509crl entry.
@@ -942,8 +938,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        getRevocationDate(callback : AsyncCallback<string>) : void;
-        getRevocationDate() : Promise<string>;
+        getRevocationDate() : string;
     }
 
     /**
@@ -959,8 +954,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        isRevoked(cert : X509Cert, callback : AsyncCallback<boolean>) : void;
-        isRevoked(cert : X509Cert) : Promise<boolean>;
+        isRevoked(cert : X509Cert) : boolean;
 
         /**
          * Returns the type of this CRL.
@@ -1028,8 +1022,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        getRevokedCert(serialNumber : number, callback : AsyncCallback<X509CrlEntry>) : void;
-        getRevokedCert(serialNumber : number) : Promise<X509CrlEntry>;
+        getRevokedCert(serialNumber : number) : X509CrlEntry;
 
         /**
          * This method can be used to find CRL entries in indirect cert.
@@ -1038,8 +1031,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        getRevokedCertWithCert(cert : X509Cert, callback : AsyncCallback<X509CrlEntry>) : void;
-        getRevokedCertWithCert(cert : X509Cert) : Promise<X509CrlEntry>;
+        getRevokedCertWithCert(cert : X509Cert) : X509CrlEntry;
 
         /**
          * Get all entries in this CRL.
@@ -1056,8 +1048,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        getTbsInfo(callback : AsyncCallback<DataBlob>) : void;
-        getTbsInfo() : Promise<DataBlob>;
+        getTbsInfo() : DataBlob;
 
         /**
          * Get signature value from CRL.
