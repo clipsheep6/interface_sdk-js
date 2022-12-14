@@ -21,7 +21,7 @@ import { AsyncCallback } from '../../basic'
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.data.rdb.ResultSetV9
+ * @useinstead ohos.data.relationStore.ResultSet
  */
  export interface ResultSet {
 
@@ -33,7 +33,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.columnNames
+     * @useinstead ohos.data.relationStore.ResultSet.columnNames
      */
     columnNames: Array<string>;
 
@@ -45,7 +45,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.columnCount
+     * @useinstead ohos.data.relationStore.ResultSet.columnCount
      */
     columnCount: number;
 
@@ -55,7 +55,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core 
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.rowCount
+     * @useinstead ohos.data.relationStore.ResultSet.rowCount
      */
     rowCount: number;
 
@@ -66,7 +66,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.rowIndex
+     * @useinstead ohos.data.relationStore.ResultSet.rowIndex
      */
     rowIndex: number;
 
@@ -76,7 +76,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.isAtFirstRow
+     * @useinstead ohos.data.relationStore.ResultSet.isAtFirstRow
      */
     isAtFirstRow: boolean;
 
@@ -86,7 +86,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.isAtLastRow
+     * @useinstead ohos.data.relationStore.ResultSet.isAtLastRow
      */
     isAtLastRow: boolean;
 
@@ -96,7 +96,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.isEnded
+     * @useinstead ohos.data.relationStore.ResultSet.isEnded
      */
     isEnded: boolean;
 
@@ -107,7 +107,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.isStarted
+     * @useinstead ohos.data.relationStore.ResultSet.isStarted
      */
     isStarted: boolean;
 
@@ -119,7 +119,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.isClosed
+     * @useinstead ohos.data.relationStore.ResultSet.isClosed
      */
     isClosed: boolean;
 
@@ -132,7 +132,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.getColumnIndex
+     * @useinstead ohos.data.relationStore.ResultSet.getColumnIndex
      */
     getColumnIndex(columnName: string): number;
 
@@ -145,7 +145,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.getColumnName
+     * @useinstead ohos.data.relationStore.ResultSet.getColumnName
      */
     getColumnName(columnIndex: number): string;
 
@@ -159,7 +159,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.goTo
+     * @useinstead ohos.data.relationStore.ResultSet.goTo
      */
     goTo(offset: number): boolean;
 
@@ -171,7 +171,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.goToRow
+     * @useinstead ohos.data.relationStore.ResultSet.goToRow
      */
     goToRow(position: number): boolean;
 
@@ -183,7 +183,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.goToFirstRow
+     * @useinstead ohos.data.relationStore.ResultSet.goToFirstRow
      */
     goToFirstRow(): boolean;
 
@@ -195,7 +195,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.goToLastRow
+     * @useinstead ohos.data.relationStore.ResultSet.goToLastRow
      */
     goToLastRow(): boolean;
 
@@ -207,7 +207,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.goToNextRow
+     * @useinstead ohos.data.relationStore.ResultSet.goToNextRow
      */
     goToNextRow(): boolean;
 
@@ -219,7 +219,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.goToPreviousRow
+     * @useinstead ohos.data.relationStore.ResultSet.goToPreviousRow
      */
     goToPreviousRow(): boolean;
 
@@ -233,7 +233,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.getBlob
+     * @useinstead ohos.data.relationStore.ResultSet.getBlob
      */
     getBlob(columnIndex: number): Uint8Array;
 
@@ -247,7 +247,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.getString
+     * @useinstead ohos.data.relationStore.ResultSet.getString
      */
     getString(columnIndex: number): string;
 
@@ -261,7 +261,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.getLong
+     * @useinstead ohos.data.relationStore.ResultSet.getLong
      */
     getLong(columnIndex: number): number;
 
@@ -275,7 +275,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.getDouble
+     * @useinstead ohos.data.relationStore.ResultSet.getDouble
      */
     getDouble(columnIndex: number): number;
 
@@ -288,7 +288,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.isColumnNull
+     * @useinstead ohos.data.relationStore.ResultSet.isColumnNull
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -299,7 +299,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.rdb.ResultSetV9.close
+     * @useinstead ohos.data.relationStore.ResultSet.close
      */
     close(): void;
 }
