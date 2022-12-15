@@ -289,11 +289,12 @@ nocallback = ['js-apis-distributedobject.md', 'js-apis-rpc.md', 'js-apis-data-di
               'js-apis-runninglock.md', 'js-apis-medialibrary.md', 'js-apis-resource-manager.md',
               'js-apis-commonEvent.md', 'js-apis-pasteboard.md', 'js-apis-distributedKVStore.md', 'js-apis-display.md',
               'js-apis-userFileManager.md']
+nocallback.append('js-apis-accessibility.md')
+nocallback.append('js-apis-cryptoFramework.md')
 
 # 回调位置错误文档
 callbackBeyond = ['js-apis-image.md', 'js-apis-i18n.md']
-
-
+                  # 'js-apis-effectKit.md', 'js-apis-accessibility.md'
 # 文档中存在找不到的链接，需要替换内容执行
 
 def special(code, mdPath, specail_input, specail_output):
