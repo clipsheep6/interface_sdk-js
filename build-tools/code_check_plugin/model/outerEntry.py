@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 '''
  * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 '''
-# --coding: utf-8 --
 import argparse
 import sys
 from model.MaterialDetection import MaterialDetection

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding=utf-8
+
 '''
  * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 '''
-# --coding: utf-8 --
 import re
 
 from util.systemDict import api9, nocallback, callbackBeyond
@@ -249,7 +251,7 @@ class SampleTag:
         return lines
 
     # 使用说明需要拼接
-    def UseInstructions(self, lines,mdPath):
+    def UseInstructions(self, lines, mdPath):
         Use = False
         FaUse = False
         start_code = False
@@ -339,7 +341,7 @@ class SampleTag:
                                                                                                                    '')
             elif len(s1) > 0:
                 item = item.replace('<sup>' + s1[0] + '<sup>', '').replace('<sup>(deprecated) </sup>', '').replace('\n',
-                                                                                                                  '')
+                                                                                                                   '')
         else:
             item = item.replace('<sup>(deprecated) </sup>', '').replace('\n', '')
         s2 = re.findall(r'<a(.*?)</a>', item)
@@ -509,7 +511,7 @@ class SampleTag:
                     if '(' in item:
                         a = item.find('(')
                         item = item[:a].replace('<T extends KVStore>', '')
-                    ThreeTitleName = '.' + item.replace('#', '').replace('\n', '').replace(' ', '') + '('
+                    ThreeTitleName = ".%s(" % item.replace('#', '').replace('\n', '').replace(' ', '')
                     if determineClass not in ClassResult:
                         classstart = True
 
@@ -587,7 +589,7 @@ class SampleTag:
                                 for j in classnewcode:
 
                                     if determineClass in j and 'import' not in j \
-                                            and determineClass.lower() + ' = ' + 'null' not in j.lower() \
+                                            and '%s = null' % determineClass.lower() not in j.lower() \
                                             and 'console.' not in j.lower():
                                         # 验证是否为单独的字母
                                         cout = j.count(determineClass)
@@ -624,16 +626,14 @@ class SampleTag:
 
                                 # 如果验证到最后一个关键字出现的位置仍然不存在标记情况，就可以使用let,var那一行作为标记
                                 if classcode:
-                                    lines.insert(class_index,
-                                                 '//此处测试' + determineClass + '&' + ClassResult[determineClass][
-                                                     -1] + '&' + '类中所有方法的示例\n')
+                                    lines.insert(class_index, '//此处测试%s&%s&类中所有方法的示例\n' % (
+                                        determineClass, ClassResult[determineClass][-1]))
                                     index_k += 1
                                 elif letlocation != 0 and not classcode:
                                     index_pos = letlocation
                                     class_index += index_pos
-                                    lines.insert(class_index,
-                                                 '//此处测试' + determineClass + '&' + ClassResult[determineClass][
-                                                     -1] + '&' + '类中所有方法的示例\n')
+                                    lines.insert(class_index, '//此处测试%s&%s&类中所有方法的示例\n' % (
+                                        determineClass, ClassResult[determineClass][-1]))
                                     index_k += 1
 
                         break

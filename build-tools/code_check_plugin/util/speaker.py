@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 '''
  * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -48,6 +50,7 @@ class Speaker:
             # write_log(datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S') + '[' + self.Name + ']: ' + words)
             print(datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S') + '[' + self.Name + ']: ' + words)
 
+
 def write_log(words):
     now_time = datetime.datetime.now().strftime('%Y-%m-%d')
     rootPath = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..'))
@@ -60,6 +63,7 @@ def write_log(words):
 
 g_Speaker = Speaker()
 pt = None
+
 
 def is_windows_playfrom():
     global pt
@@ -78,10 +82,11 @@ def speak_d(*args):
     global g_Speaker
     words = ''
     for arg in args:
-        words += str(arg) + " "
+        words = '%s%s ' % (words, str(arg))
     if words != '':
         words = words[:-1]
     g_Speaker.speaker(words)
+
 
 def set_cmd_color(color):
     bool = ctypes.windll.kernel32.SetConsoleTextAttribute(ctypes.windll.kernel32.GetStdHandle(STD_OUTPUT_HANDLE), color)
@@ -91,13 +96,14 @@ def set_cmd_color(color):
 def reset_color():
     set_cmd_color(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)
 
+
 def speak_e(*args):
     if SPEAK_E_LOG_ENABLE is False:
         return
     global g_Speaker
     words = ''
     for arg in args:
-        words += str(arg) + " "
+        words = '%s%s ' % (words, str(arg))
     if words != '':
         words = words[:-1]
     if is_windows_playfrom():
@@ -112,7 +118,7 @@ def speak_i(*args):
     global g_Speaker
     words = ''
     for arg in args:
-        words += str(arg) + " "
+        words = '%s%s ' % (words, str(arg))
     if words != '':
         words = words[:-1]
     if is_windows_playfrom():

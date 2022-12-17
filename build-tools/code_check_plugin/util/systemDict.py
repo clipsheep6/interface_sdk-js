@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding=utf-8
+
 '''
  * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 '''
-# --coding: utf-8 --
 import re
 
 # 子系统对应关系
@@ -289,7 +291,7 @@ nocallback = ['js-apis-distributedobject.md', 'js-apis-rpc.md', 'js-apis-data-di
               'js-apis-runninglock.md', 'js-apis-medialibrary.md', 'js-apis-resource-manager.md',
               'js-apis-commonEvent.md', 'js-apis-pasteboard.md', 'js-apis-distributedKVStore.md', 'js-apis-display.md',
               'js-apis-userFileManager.md', 'js-apis-cryptoFramework.md']
-
+# 'js-apis-accessibility'
 # 回调位置错误文档
 callbackBeyond = ['js-apis-image.md', 'js-apis-i18n.md', 'js-apis-effectKit.md']
 
