@@ -1,0 +1,15 @@
+{
+  "strarray": [
+    {
+      "name": "test",
+      "value": [
+        {
+          "value": "Hello"
+        },
+        {
+          "value": "World"
+        }
+      ]
+    }
+  ]
+}

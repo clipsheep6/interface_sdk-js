@@ -1,0 +1,16 @@
+{
+  "integer": [
+    {
+      "name": "integer_1",
+      "value": 150
+    },
+    {
+      "name": "same_name",
+      "value": 999
+    },
+    {
+      "name": "integer_test",
+      "value": 999
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+guesslang==2.0.0a1
+protobuf==3.19.1
+styleframe==4.0.0
+opencv-python==4.5.5.62
