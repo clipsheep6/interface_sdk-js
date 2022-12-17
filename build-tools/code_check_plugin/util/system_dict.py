@@ -290,8 +290,7 @@ api9 = []
 no_callback = ['js-apis-distributedobject.md', 'js-apis-rpc.md', 'js-apis-data-distributedobject.md',
                'js-apis-runninglock.md', 'js-apis-medialibrary.md', 'js-apis-resource-manager.md',
                'js-apis-commonEvent.md', 'js-apis-pasteboard.md', 'js-apis-distributedKVStore.md', 'js-apis-display.md',
-               'js-apis-userFileManager.md', 'js-apis-cryptoFramework.md']
-# 'js-apis-accessibility'
+               'js-apis-userFileManager.md', 'js-apis-cryptoFramework.md'] 
 # 回调位置错误文档
 callback_beyond = ['js-apis-image.md', 'js-apis-i18n.md', 'js-apis-effectKit.md']
 
