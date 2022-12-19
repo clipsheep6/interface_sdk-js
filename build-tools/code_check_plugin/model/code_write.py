@@ -32,23 +32,21 @@ class CodeWrite:
         self.imageImgPathList = []
         self.hml_name = ''
 
-    def start_write_project(self, code, code_type, hml_name, css_name, js_name, ets_project, js_project, ets_code,
-                            md_path):
+    def start_write_project(self, code, code_type, hml_name, css_name, js_name, ets_code, md_path):
         if code_type == 'TypeScript':
             # 先查看代码中是否有图片资源需要取，格式未app.media
-            self.get_picture(code, ets_project)
+            self.get_picture(code)
 
         # 然后将code写到相应文件中
-        self.write_code(code, code_type, hml_name, css_name, js_name, ets_project, js_project, ets_code, md_path)
+        self.write_code(code, code_type, hml_name, css_name, js_name, ets_code, md_path)
 
     # 将相应的图片资源创建出来
-    def get_picture(self, code, ets_project):
+    def get_picture(self, code):
         picture_name_list = re.findall(r"""(?<=app\.media\.).*?(?=')|(?<=app\.media\.).*?(?=")""", str(code))
         # 创建picture文件
-
-        file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
-                                                 "..")) + r'/project/' + ets_project + r"\entry\src\main\resources" \
-                                                                                       r"\base\media "
+        path = r"/entry/src/main/resources/base/media"
+        file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                              "..")), r'/project/ets_project/%s' % path)
         picture_name_list = set(picture_name_list)
         for item in picture_name_list:
             fp = open(os.path.join(file_path, item), 'w')
@@ -64,12 +62,13 @@ class CodeWrite:
             del_folder_or_file(os.path.join(item))
 
     # 将相应的code值写入到相应的文件中
-    def write_code(self, code, code_type, hml_name, css_name, js_name, ets_project, js_project, ets_code, md_path):
+    def write_code(self, code, code_type, hml_name, css_name, js_name, ets_code, md_path):
 
         if code_type == "API9" or ets_code and 'js-apis' in md_path:
-            self.src_import_img(code, code_type, ets_project, js_project, ets_code)
-            file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                        r'/project/' + ets_project + r'\entry\src\main\ets\pages\index.ets'
+            self.src_import_img(code, code_type, ets_code)
+            path = r'/entry/src/main/ets/pages/index.ets'
+            file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                  "..")), r'/project/ets_project/%s' % path)
             old = "@Entry\n// @ts-ignore\n@Component\nstruct Index {\n  @State message: string = 'Hello World'\
               \nbuild() {\n    Row() {\n      Column() {\n        Text(this.message)\n          .fontSize(50)\n   \
                      .fontWeight(FontWeight.Bold)\n      }\n      .width('100%')\n    }\n    .height('100%')\n  }\n}"
@@ -82,113 +81,126 @@ class CodeWrite:
                     f.write(str(code))
 
         elif ets_code and 'ts-' in md_path:
-            self.src_import_img(code, code_type, ets_project, js_project, ets_code)
-            file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                        r'/project/' + ets_project + r'\entry\src\main\ets\pages\index.ets'
+            self.src_import_img(code, code_type, ets_code)
+            path = r'/entry/src/main/ets/pages/index.ets'
+            file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                  "..")), r'/project/ets_project/%s' % path)
             with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
                 f.truncate()
                 f.write(str(code))
         elif code_type == "TypeScript" and not ets_code:
-            self.src_import_img(code, code_type, ets_project, js_project, ets_code)
+            self.src_import_img(code, code_type, ets_code)
             if "app.ets" in code:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + ets_project + r'\entry\src\main\ets\MainAbility\app.ets'
+                path = r'/entry/src/main/ets/MainAbility/app.ets'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/ets_project/%s' % path)
             else:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + ets_project + r'\entry\src\main\ets\MainAbility\pages\index.ets'
+                path = r'/entry/src/main/ets/MainAbility/pages/index.ets'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/ets_project/%s' % path)
             if code_type != 'API9':
                 with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
                     f.truncate()
                     f.write(str(code))
         elif code_type == "HTML":
             # 判断代码中是否存入图片
-            self.import_image_file(code, js_project)
+            self.import_image_file(code)
             if '.hml' in code and 'xxx.hml' not in code and '>' in code:
                 complist = re.findall('!--(.*?).hml', code)
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], "..")) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages' + '\\' + complist[
-                                0] + '\\' + complist[0] + '.hml'
+                path = r'/entry/src/main/js/MainAbility/pages/%s/%s.hml' % (complist[0], complist[0] + '.hml')
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
+
                 if not os.path.exists(file_path.replace('\\' + complist[0] + '.hml', '')):
                     os.makedirs(file_path.replace('\\' + complist[0] + '.hml', ''))
 
             elif 'xxx.hml' in code:
                 if 'src' in code:
-                    srcList = re.findall("src=(.*?)>", code)
-                    srcList1 = re.findall("src=(.*?)'", code)
-                    if len(srcList) >= 1:
-                        if 'png' not in srcList[0] and 'jpg' not in srcList[0]:
-                            code = code.replace(srcList[0].replace('"', "").replace("'", ""), '../' + hml_name)
-                    elif len(srcList1) >= 1:
-                        if 'png' not in srcList1[0] and 'jpg' not in srcList1[0]:
-                            code = code.replace(srcList1[0].replace('"', "").replace("'", ""), '../' + hml_name)
-
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.hml'
+                    src_list = re.findall("src=(.*?)>", code)
+                    src_list1 = re.findall("src=(.*?)'", code)
+                    if len(src_list) >= 1:
+                        if 'png' not in src_list[0] and 'jpg' not in src_list[0]:
+                            code = code.replace(src_list[0].replace('"', "").replace("'", ""), '../' + hml_name)
+                    elif len(src_list1) >= 1:
+                        if 'png' not in src_list1[0] and 'jpg' not in src_list1[0]:
+                            code = code.replace(src_list1[0].replace('"', "").replace("'", ""), '../' + hml_name)
+                path = r'/entry/src/main/js/MainAbility/pages/index/index.hml'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
             else:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.hml'
+                path = r'/entry/src/main/js/MainAbility/pages/index/index.hml'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
+
             if code_type != 'API9':
                 with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
                     f.truncate()
                     print(code)
                     f.write(str(code) + '\n')
         elif code_type == "CSS":
-            self.css_import_img(code, js_project)
+            self.css_import_img(code)
             if '.css' in code and 'xx.css' not in code and '<' in code \
                     or '.css' in code and 'xxx.css' not in code and '/*' in code:
                 comp = code.find('css')
                 complist = code[:comp].replace('<', '').replace('!', '') \
                     .replace('-', '').replace('/', '').replace('*', '').replace(' ', '').replace('.', '')
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r"\entry\src\main\js\MainAbility\pages" + '\\' + complist + '\\' + \
-                            complist + '.css'
+                path = r'/entry/src/main/js/MainAbility/pages/%s/%s.css' % (complist, complist)
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
+
                 if not os.path.exists(file_path.replace('\\' + complist + '.css', '')):
                     os.makedirs(file_path.replace('\\' + complist + '.css', ''))
 
 
             elif 'xxx.css' in code or 'xxx.CSS' in code:
                 if 'src' in code and css_name in code and '../' in code and css_name != '':
-                    srcList = re.findall('src=(.*?)>', code)
-                    if 'png' not in srcList[0] and 'jpg' not in srcList[0]:
-                        code = code.replace(srcList[0].replace('"', '').replace("'", ''), '../' + css_name)
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.css'
+                    src_list = re.findall('src=(.*?)>', code)
+                    if 'png' not in src_list[0] and 'jpg' not in src_list[0]:
+                        code = code.replace(src_list[0].replace('"', '').replace("'", ''), '../' + css_name)
+                path = r'/entry/src/main/js/MainAbility/pages/index/index.css'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
             else:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.css'
+                path = r'/entry/src/main/js/MainAbility/pages/index/index.css'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
             if code_type != 'API9':
                 with open(file_path, 'w+', encoding='utf8', errors='ignore') as f:
                     f.truncate()
                     print(code)
                     f.write(str(code) + '\n')
         elif code_type == 'JavaScript' and not ets_code:
-            self.src_import_img(code, code_type, ets_project, js_project, ets_code)
+            self.src_import_img(code, code_type, ets_code)
 
             if '.js' in code and 'xxx.js' not in code and '// js' not in code and '//' in code:
                 complist = re.findall('//(.*?).js', code)
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages' + '\\' + complist[
-                                0].replace(' ', '') + '\\' + complist[0].replace(' ', '') + '.js'
+                path = r'/entry/src/main/js/MainAbility/pages/%s/%s.js' % (
+                    complist[0].replace(' ', ''), complist[0].replace(' ', ''))
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
+
                 if not os.path.exists(file_path.replace('\\' + complist[0].replace(' ', '') + '.js', '')):
                     os.makedirs(file_path.replace('\\' + complist[0].replace(' ', '') + '.js', ''))
 
             elif 'xxx.js' in code or 'xxx.JS' in code:
                 if 'src' in code and js_name in code and '../' in code and js_name != '':
-                    srcList = re.findall('src=(.*?)>', code)
-                    if 'png' not in srcList[0] and 'jpg' not in srcList[0]:
-                        code = code.replace(srcList[0].replace('"', '').replace("'", ''), '../' + js_name)
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.js'
+                    src_list = re.findall('src=(.*?)>', code)
+                    if 'png' not in src_list[0] and 'jpg' not in src_list[0]:
+                        code = code.replace(src_list[0].replace('"', '').replace("'", ''), '../' + js_name)
+                path = r'/entry/src/main/js/MainAbility/pages/index/index.js'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
             else:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.js'
+                path = r'/entry/src/main/js/MainAbility/pages/index/index.js'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/js_project/%s' % path)
             if code_type != 'API9':
                 with open(file_path, 'w+', encoding='utf8', errors='ignore') as f:
                     f.truncate()
                     print(code)
                     f.write(str(code) + '\n')
 
-    def import_image_file(self, code, js_project):
+    def import_image_file(self, code):
         # 遍历code，查询是否包含引入的hml文件
         # 遍历code，查询是否包含引入的image文件
         # 正则表达式匹配<image，到</image>
@@ -199,8 +211,9 @@ class CodeWrite:
             if len(image_src) == 0:
                 image_src = re.findall("src='(.*?)'", item)[0]
             parent_path_list = re.findall(r"\.\.", image_src)
-            file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                        r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\\'
+            path = r'/entry/src/main/js/MainAbility/pages/index/'
+            file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                  "..")), r'/project/js_project/%s' % path)
             for i in parent_path_list:
                 file_path = os.path.abspath(os.path.join(file_path, ".."))
             index = self.find_index(image_src, True)
@@ -222,32 +235,40 @@ class CodeWrite:
     def over_write_file(ets_project, js_project, ets_code, md_path):
         if not ets_code and 'js-' in md_path and 'js-apis' not in md_path:
             # html替换为原文件
-            file_path_hml = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.hml'
+            path = r'/entry/src/main/js/MainAbility/pages/index/index.hml'
+            file_path_hml = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/%s/%s' % (js_project, path))
+
             folder_path_hml = os.path.abspath(
                 os.path.join(os.path.split(os.path.abspath(__file__))[0], '..', 'backup/js/index.hml'))
             shutil.copyfile(folder_path_hml, file_path_hml)
             print('成功替换')
             # css替换为原文件
-            file_path_css = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.css'
+            path = r'/entry/src/main/js/MainAbility/pages/index/index.css'
+            file_path_css = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/%s/%s' % (js_project, path))
+
             folder_path_css = os.path.abspath(
                 os.path.join(os.path.split(os.path.abspath(__file__))[0], '..', 'backup/js/index.css'))
             shutil.copyfile(folder_path_css, file_path_css)
             # js替换为原文件
-            file_path_js = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                           r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\index.js'
+            path = r'/entry/src/main/js/MainAbility/pages/index/index.js'
+            file_path_js = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                     "..")), r'/project/%s/%s' % (js_project, path))
+
             folder_path_js = os.path.abspath(
                 os.path.join(os.path.split(os.path.abspath(__file__))[0], '..', 'backup/js/index.js'))
             shutil.copyfile(folder_path_js, file_path_js)
         elif not ets_code and 'ts-' in md_path:
-            file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                        r'/project/' + ets_project + r'\entry\src\main\ets\MainAbility\pages\index.ets'
+            path = r'/entry/src/main/ets/MainAbility/pages/index.ets'
+            file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                  "..")), r'/project/%s/%s' % (ets_project, path))
             folder_path = os.path.abspath(
                 os.path.join(os.path.split(os.path.abspath(__file__))[0], '..', 'backup/ts/index.ets'))
             shutil.copyfile(folder_path, file_path)
-            file_path_app = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + ets_project + r'\entry\src\main\ets\MainAbility\app.ets'
+            path = r'/entry/src/main/ets/MainAbility/app.ets'
+            file_path_app = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/%s/%s' % (ets_project, path))
             folder_path_app = os.path.abspath(
                 os.path.join(os.path.split(os.path.abspath(__file__))[0], '..', 'backup/ts/app.ets'))
             shutil.copyfile(folder_path_app, file_path_app)
@@ -269,7 +290,7 @@ class CodeWrite:
         cv2.destroyAllWindows()
 
     # css引入图片
-    def css_import_img(self, code, js_project):
+    def css_import_img(self, code):
         image_list = re.findall(r"url\((.*?)\)", code)
         for item in image_list:
             item = str(item).replace(' ', '').replace("'", '').replace('"', '')
@@ -278,8 +299,10 @@ class CodeWrite:
             file_path1 = item[index + 1:len(item) - 1]
             file_path2 = item[1:index]
             first_dir = item[:self.find_index(file_path2, False)]
-            file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                        r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index'
+            path = r'/entry/src/main/js/MainAbility/pages/index'
+            file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                  "..")), r'/project/js_project/%s' % path)
+
             for parent in parent_path_list:
                 file_path = os.path.abspath(os.path.join(file_path, '..'))
             if not os.path.exists(os.path.join(file_path, file_path2, file_path1)):
@@ -294,7 +317,7 @@ class CodeWrite:
                 self.imageImgPathList.append(os.path.join(file_path, file_path2, file_path1))
 
     # src方式引入图片，包括src: "/common/asserts/heart78.png" , src = 'common/image/example.jpg';两种方式
-    def src_import_img(self, code, code_type, ets_project, js_project, ets_code):
+    def src_import_img(self, code, code_type, ets_code):
         image_list = re.findall("src:(.*?);|src=(.*?);", code.replace(' ', ''))
         for item in image_list:
             item = str(item).replace(' ', '')
@@ -304,14 +327,18 @@ class CodeWrite:
             first_dir = item[:self.find_index(file_path2, False)]
             parent_path_list = re.findall(r"\.\.", item)
             if ets_code:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + ets_project + r'\entry\src\main\ets\\pages\\'
+                path = r'/entry/src/main/ets//pages//'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/ets_project/%s' % path)
+
             elif code_type == 'TypeScript':
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + ets_project + r'\entry\src\main\ets\MainAbility\pages\\'
+                path = r'/entry/src/main/ets/MainAbility/pages//'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/ets_project/%s' % path)
             else:
-                file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                            r'/project/' + js_project + r'\entry\src\main\js\MainAbility\pages\index\\'
+                path = r'/entry/src/main/js/MainAbility/pages/index//'
+                file_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
+                                                                      "..")), r'/project/ets_project/%s' % path)
             for parent in parent_path_list:
                 file_path = os.path.abspath(os.path.join(file_path, '..'))
             if not os.path.exists(os.path.join(file_path, file_path2, file_path1)):

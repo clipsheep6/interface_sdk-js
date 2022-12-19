@@ -89,7 +89,7 @@ class SampleTag:
                             index_k += 1
                         elif len(hml_number) == 0 and len(css_number) == 0 and len(js_number) == 0 and len(
                                 js_number2) == 0 and len(hml_number2) == 0 and len(js_number3) == 0 and len(
-                                css_number2) == 0:
+                            css_number2) == 0:
                             lines.insert(tag_index + 1, '//该示例代码不做自动化测试\n')
                             index_k += 1
 
@@ -142,7 +142,7 @@ class SampleTag:
                 index_k += 1
                 # 新增RunningLock下的示例代码不验证
                 if 'js-apis-runninglock.md' in md_path and '## RunningLock' in lines[index_k] and 'Type' not in lines[
-                        index_k]:
+                    index_k]:
                     no_running_lock = True
                     continue
                 if no_running_lock and '##' in lines[index_k] and '###' not in lines[index_k]:
@@ -279,10 +279,10 @@ class SampleTag:
                 start_code = False
                 if fa_use:
                     if '{' in code:
-                        code_list = code.split('\n')
-                        for i in range(len(code_list)):
-                            if '}' in code_list[i]:
-                                start_index += (i + 1)
+                        code_lists = code.split('\n')
+                        for code_list in code_lists:
+                            if '}' in code_list:
+                                start_index += (code_lists.index(code_list) + 1)
                                 lines.insert(start_index, '//使用说明\n')
                                 index_k += 1
                                 fa_use = False

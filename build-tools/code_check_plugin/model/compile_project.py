@@ -18,6 +18,7 @@ import os
 import re
 import subprocess
 import time
+
 from util.speaker import speak_i, speak_e
 from util.system_dict import system_dict
 from util.utils import del_folder_or_file
@@ -29,7 +30,7 @@ class CompileProject:
         self.hapPath = ''
         self.imgPath = ''
 
-    def start_compile(self, project_type, md_path, code, ets_project, js_project, ets_code, originally_code):
+    def start_compile(self, project_type, md_path, code, ets_code, originally_code):
         # 新增result子系统验证
         md_path_index = md_path.rfind('\\')
         md_path = md_path[md_path_index + 1:]
@@ -40,13 +41,14 @@ class CompileProject:
         else:
             system = '查询不到子系统'
         if project_type == 'TypeScript' or ets_code:
-            cwd = os.path.abspath(
-                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + '/project/' + ets_project
+            cwd = os.path.join(os.path.abspath(
+                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), '/project/ets_project')
         else:
-            cwd = os.path.abspath(
-                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + '/project/' + js_project
+            cwd = os.path.join(os.path.abspath(
+                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), '/project/js_project')
 
-        self.imgPath = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + r'\img'
+        self.imgPath = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
+                                    'img') 
         # 删除entry下的build文件夹
         rm_path = os.path.join(cwd, 'entry\\build')
         del_folder_or_file(rm_path)
@@ -150,14 +152,15 @@ class CompileProject:
     # 获取hap包
     def get_hap_package(self, build_path):
         file_size = 0
-        for dirPath, dirNames, fileNames in os.walk(build_path):
-            for file_path in fileNames:
-                md_path = os.path.join(dirPath, file_path)
+        for dir_path, dir_names, file_names in os.walk(build_path):
+            for file_path in file_names:
+                md_path = os.path.join(dir_path, file_path)
                 if md_path.endswith('.hap'):
                     self.hapPath = md_path
                     self.hapName = md_path
                     file_size = os.path.getsize(md_path)
-                    file_size = file_size / float(1024 * 1024)
+                    if file_size != 0:
+                        file_size = file_size / float(1024 * 1024)
         speak_i('file_size: ' + str(file_size))
         if file_size > 0:
             return True

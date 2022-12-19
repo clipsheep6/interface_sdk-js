@@ -290,13 +290,12 @@ api9 = []
 no_callback = ['js-apis-distributedobject.md', 'js-apis-rpc.md', 'js-apis-data-distributedobject.md',
                'js-apis-runninglock.md', 'js-apis-medialibrary.md', 'js-apis-resource-manager.md',
                'js-apis-commonEvent.md', 'js-apis-pasteboard.md', 'js-apis-distributedKVStore.md', 'js-apis-display.md',
-               'js-apis-userFileManager.md', 'js-apis-cryptoFramework.md'] 
+               'js-apis-userFileManager.md', 'js-apis-cryptoFramework.md']
 # 回调位置错误文档
 callback_beyond = ['js-apis-image.md', 'js-apis-i18n.md', 'js-apis-effectKit.md']
 
 
 # 文档中存在找不到的链接，需要替换内容执行
-
 def special(code, md_path, special_input, special_output):
     if 'js-apis-distributedMissionManager.md' in md_path and 'remoteDeviceId' in code:
         code = code.replace('remoteDeviceId', "'example'")
@@ -322,9 +321,9 @@ def special(code, md_path, special_input, special_output):
             specail_code2 = '\n    console.log(`Promise returned with an array of supported cameras: ${' \
                             'cameras.length}`);\n})\n '
             code = specail_code1 + code + specail_code2
-            for i in range(len(import_code)):
-                if import_code[i].replace('\n', '') not in code:
-                    code = import_code[i] + code
+            for code_import in import_code:
+                if code_import.replace('\n', '') not in code:
+                    code = code_import + code
         if special_output:
             import_code = re.findall('import.+from.+\n', code)
             for i in range(len(import_code)):
@@ -337,9 +336,9 @@ def special(code, md_path, special_input, special_output):
                             " })     console.log(`Promise returned with an array of supported cameras: ${" \
                             "cameras.length}`);\n  })\n "
             code = specail_code1 + code + specail_code2
-            for i in range(len(import_code)):
-                if import_code[i].replace('\n', '') not in code:
-                    code = import_code[i] + code
+            for code_import in import_code:
+                if code_import.replace('\n', '') not in code:
+                    code = code_import + code
 
     if 'context' in code and 'js-apis-window.md' not in md_path:
         code = code.replace('(context', '(globalThis.context').replace(', context', ', globalThis.context')
@@ -401,9 +400,9 @@ def instructions_for_use(code, instructions_for_use_code):
         index = code.find('\n')
         code = code[index + 1:]
     code = instructions_for_use_code.replace('//使用说明\n', code + '\n')
-    for i in range(len(import_code)):
-        if import_code[i].replace('\n', '') not in code:
-            code = import_code[i] + code
+    for code_import in import_code:
+        if code_import.replace('\n', '') not in code:
+            code = code_import + code
     return code
 
 

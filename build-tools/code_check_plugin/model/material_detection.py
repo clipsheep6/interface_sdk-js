@@ -89,12 +89,12 @@ class MaterialDetection:
         out, err = number.communicate(timeout=300)
         # 编译出sdk设定文档中sdk位置
         sdk_path = os.path.join(compile_path, 'sample/build')
-        local_sdk = os.path.join(result_path, 'project/eTSProject/local.properties')
+        local_sdk = os.path.join(result_path, 'project/ets_project/local.properties')
         with open(local_sdk, 'w', encoding='UTF-8') as file_open:
             file_open.write('sdk.dir=' + sdk_path)
 
     def operation(self, md_file_path, result_path, bat_path, result_name, json_name, typescript_path, compiler_path):
-        self.build_sdk(typescript_path, compiler_path, result_path)
+        # self.build_sdk(typescript_path, compiler_path, result_path)
         self.result_name = result_name
         self.json_name = json_name
         # 开始检查时间
@@ -105,7 +105,7 @@ class MaterialDetection:
         env_flag = check_environment()
         with open(md_file_path, 'r', encoding='utf8') as file_open:
             md_file_path = file_open.readlines()
-        md_file_path = [MDFile.replace('\n', '') for MDFile in md_file_path if '.md' in MDFile]
+        md_file_path = [md_file.replace('\n', '') for md_file in md_file_path if '.md' in md_file]
         if env_flag:
             self.md_file_path = md_file_path
             self.result_path = result_path
@@ -261,8 +261,8 @@ class MaterialDetection:
                         if 'js-apis-camera.md' in md_path and '##' in item and special_input:
                             special_input = False
                         if 'js-apis-camera.md' in md_path and (
-                                '## createPreviewOutput' in item or '## createPhotoOutput' in item or '## ' 
-                                'createVideoOutput' in item or '## createMetadataOutput' in item):
+                                '## createPreviewOutput' in item or '## createPhotoOutput' in item or '## '
+                                                                                                      'createVideoOutput' in item or '## createMetadataOutput' in item):
                             special_output = True
                             continue
                         if 'js-apis-camera.md' in md_path and '##' in item and special_output:
@@ -476,7 +476,7 @@ class MaterialDetection:
                                     and '该示例代码不做自动化测试' not in code:
                                 comp = code.find('css')
                                 comp_list = code[:comp].replace('<', '').replace('!', '').replace('-', '').replace('/',
-                                                                                                                  '') \
+                                                                                                                   '') \
                                     .replace('*', '').replace(' ', '').replace('.', '')
                                 css_name = comp_list + '/' + comp_list + '.css'
                             elif len(js_number) > 0 and 'xxx.js' not in code and '// js' not in code \
@@ -510,8 +510,8 @@ class MaterialDetection:
                                     if 'import' in code and 'from' in code:
                                         callback_import = re.findall('import.+from.+\n', code)
                                         if len(callback_import) > 0:
-                                            for i in range(len(callback_import)):
-                                                code = code.replace(callback_import[i], '')
+                                            for callback in callback_import:
+                                                code = code.replace(callback, '')
                                     for call_back in callback_code[call_code]:
                                         index1 = call_back.find('//此处测试')
                                         index2 = call_back.find('示例\n')
@@ -531,13 +531,13 @@ class MaterialDetection:
 
                                         # 文件将最开始去除的导入模块再加入到代码中
                                         if len(callback_import) > 0:
-                                            for i in range(len(callback_import)):
-                                                if handling_import(callback_import[i]) not in \
-                                                        handling_code(new_code) and callback_import[i].replace(
+                                            for callback_import_code in callback_import:
+                                                if handling_import(callback_import_code) not in \
+                                                        handling_code(new_code) and callback_import_code.replace(
                                                     '"', "'").replace(';', '').replace('\n',
                                                                                        '') + "\n".lower() not in \
                                                         new_code.replace('"', "'").replace(';', '').lower():
-                                                    new_code = callback_import[i] + new_code
+                                                    new_code = callback_import_code + new_code
                                         result_dict = {'compile_result': "pass", 'file_path': md_path,
                                                        'code_type': code_type,
                                                        'originally_code': code.replace(class_name_code, ''),
@@ -618,9 +618,9 @@ class MaterialDetection:
                                 continue
                             # ts前后关系
                             if raw_file != '':
-                                file_path = os.path.abspath(
-                                    os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                                            r'/project/eTSProject\entry\src\main\ets\MainAbility\pages\raw_file'
+                                file_path = os.path.join(os.path.abspath(
+                                    os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
+                                    r'/project/ets_project/entry/src/main/ets/MainAbility/pages/raw_file')
                                 if not os.path.exists(file_path):
                                     os.makedirs(file_path)
                                     file_path_html = os.path.join(file_path, 'index.html')
@@ -667,7 +667,7 @@ class MaterialDetection:
                                         if items in code:
                                             code_num += 1
                                             for code_item in start_code[items]:
-                                                new_code = code_item.replace('//此处测试以' + items + '开头的示例代码\n',
+                                                new_code = code_item.replace('//此处测试以%s开头的示例代码\n' % items,
                                                                              code.replace(' ', '') + '\n')
                                                 code_type = self.check_ts_or_js_code(new_code, md_path)
                                                 if md_path in self.api_9 or '//API9' in new_code:
@@ -691,11 +691,12 @@ class MaterialDetection:
                                                                                                             css_name,
                                                                                                             js_name,
                                                                                                             ets_code,
-                                                                                                     originally_code)
+                                                                                                            originally_code)
                                                 self.result_dict['detail'].append(result_dict)
                                                 code_write.del_picture()
                                                 # 编译完成后将原文件替换到相应位置，防止影响下次编译
-                                                code_write.over_write_file('eTSProject', 'JSProject', ets_code, md_path)
+                                                code_write.over_write_file('ets_project', 'js_project', ets_code,
+                                                                           md_path)
                                                 code = ''
                                             break
 
@@ -705,8 +706,8 @@ class MaterialDetection:
                                     if 'import' in code and 'from' in code:
                                         callback_import = re.findall('import.+from.+\n', code)
                                         if len(callback_import) > 0:
-                                            for i in range(len(callback_import)):
-                                                code = code.replace(callback_import[i], '')
+                                            for callback_import_code in callback_import:
+                                                code = code.replace(callback_import_code, '')
                                     code_num -= 1
 
                                     for call_back in callback_code[call_code]:
@@ -743,14 +744,14 @@ class MaterialDetection:
 
                                         # 文件将最开始去除的导入模块再加入到代码中
                                         if len(callback_import) > 0:
-                                            for i in range(len(callback_import)):
-                                                if handling_import(callback_import[i]) not in handling_code(
+                                            for callback_import_code in callback_import:
+                                                if handling_import(callback_import_code) not in handling_code(
                                                         new_code) and \
-                                                        callback_import[i].replace('"', "'").replace(';', '').replace(
+                                                        callback_import_code.replace('"', "'").replace(';', '').replace(
                                                             '\n', '') + '\n'.lower() not in new_code.replace('"',
                                                                                                              "'") \
                                                         .replace(';', '').lower():
-                                                    new_code = callback_import[i] + new_code
+                                                    new_code = callback_import_code + new_code
 
                                         if class_code != '' and class_topic:
                                             new_code = class_code + new_code
@@ -789,7 +790,7 @@ class MaterialDetection:
                                         self.result_dict['detail'].append(result_dict)
                                     code_write.del_picture()
                                     # 编译完成后将原文件替换到相应位置，防止影响下次编译
-                                    code_write.over_write_file('eTSProject', 'JSProject', ets_code, md_path)
+                                    code_write.over_write_file('ets_project', 'js_project', ets_code, md_path)
                                     code = ''
                                 else:
                                     if 'js-apis-media_library.md' in md_path and not deprecated_code and len(
@@ -804,7 +805,7 @@ class MaterialDetection:
                                                 '"',
                                                 "").replace("'", '').replace(
                                                 ';', '').replace(
-                                                '\n', '') + '\n'.lower() not in code.replace(';', '').replace("'", '')\
+                                                '\n', '') + '\n'.lower() not in code.replace(';', '').replace("'", '') \
                                                     .replace('"', '').lower():
                                                 code = import_code + code
                                             if md_path in self.api_9 or '//API9' in code:
@@ -824,12 +825,12 @@ class MaterialDetection:
                                             self.result_dict['detail'].append(result_dict)
                                             code_write.del_picture()
                                             # 编译完成后将原文件替换到相应位置，防止影响下次编译
-                                            code_write.over_write_file('eTSProject', 'JSProject', ets_code, md_path)
+                                            code_write.over_write_file('ets_project', 'js_project', ets_code, md_path)
                                             code = ''
                                     if class_topic and class_code != '':
                                         code = class_code + code
                                     if import_code != '' and (
-                                            code_type == 'JavaScript' or code_type == 'TypeScript' or 
+                                            code_type == 'JavaScript' or code_type == 'TypeScript' or
                                             code_type == 'API9') and handling_import(
                                         import_code) not in handling_code(code) and import_code.replace(
                                         '"',
@@ -857,7 +858,7 @@ class MaterialDetection:
                                     self.result_dict['detail'].append(result_dict)
                                     code_write.del_picture()
                                     # 编译完成后将原文件替换到相应位置，防止影响下次编译
-                                    code_write.over_write_file('eTSProject', 'JSProject', ets_code, md_path)
+                                    code_write.over_write_file('ets_project', 'js_project', ets_code, md_path)
                                     code = ''
                                     print('执行这里编译')
                             else:
@@ -935,23 +936,23 @@ class MaterialDetection:
                             code = code + item
                 if pass_num == 0 and code_num == nocheck_num + dp_nocheck_num and fail_num == 0:
                     file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                       'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                       'PassRate': 1, 'system': system}
+                                        'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                        'PassRate': 1, 'system': system}
                     self.result_dict['file_detail'].append(file_result_dict)
                 elif pass_num == 0 and code_num == 0 and fail_num == 0 and nocheck_num == 0 and dp_nocheck_num == 0:
                     file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                       'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                       'PassRate': 1, 'system': system}
+                                        'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                        'PassRate': 1, 'system': system}
                     self.result_dict['file_detail'].append(file_result_dict)
                 elif pass_num == 0:
                     file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                       'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                       'PassRate': 0, 'system': system}
+                                        'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                        'PassRate': 0, 'system': system}
                     self.result_dict['file_detail'].append(file_result_dict)
                 else:
                     file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                       'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                       'PassRate': round(pass_num / (pass_num + fail_num), 2), 'system': system}
+                                        'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                        'PassRate': round(pass_num / (pass_num + fail_num), 2), 'system': system}
                     self.result_dict['file_detail'].append(file_result_dict)
             else:
                 path_type = self.judge_type_path(md_path)
@@ -986,23 +987,23 @@ class MaterialDetection:
                     code = code + item
             if pass_num == 0 and code_num == nocheck_num + dp_nocheck_num and fail_num == 0:
                 file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                   'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                   'PassRate': 1, 'system': system}
+                                    'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                    'PassRate': 1, 'system': system}
                 self.result_dict['file_detail'].append(file_result_dict)
             elif pass_num == 0 and code_num == 0 and fail_num == 0 and nocheck_num == 0 and dp_nocheck_num == 0:
                 file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                   'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                   'PassRate': 1, 'system': system}
+                                    'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                    'PassRate': 1, 'system': system}
                 self.result_dict['file_detail'].append(file_result_dict)
             elif pass_num == 0:
                 file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                   'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                   'PassRate': 0, 'system': system}
+                                    'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                    'PassRate': 0, 'system': system}
                 self.result_dict['file_detail'].append(file_result_dict)
             else:
                 file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                                   'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                                   'PassRate': round(pass_num / (pass_num + fail_num), 2), 'system': system}
+                                    'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                    'PassRate': round(pass_num / (pass_num + fail_num), 2), 'system': system}
                 self.result_dict['file_detail'].append(file_result_dict)
         if len(self.result_dict['detail']) > 0:
             self.write_result(self.result_path)
@@ -1024,13 +1025,12 @@ class MaterialDetection:
             system = '查询不到子系统'
         if self.fileType == 'TS':
             if 'app.ets' in code or ("@Entry" in code and '@Component' in code and "build()" in code):
-                code_write.startWriteProject(code, code_type, hml_name, css_name, js_name, 'eTSProject', 'JSProject',
+                code_write.startWriteProject(code, code_type, hml_name, css_name, js_name, 'ets_project', 'js_project',
                                              ets_code,
                                              md_path)
                 # 开始调用编译
                 compile_project = CompileProject()
-                result_dict, compile_result = compile_project.start_compile(code_type, md_path, code, 'eTSProject',
-                                                                            'JSProject',
+                result_dict, compile_result = compile_project.start_compile(code_type, md_path, code, 
                                                                             ets_code, originally_code)
                 if compile_result == 'fail':
                     if self.fileType == 'TS':
@@ -1059,13 +1059,12 @@ class MaterialDetection:
                                "err_type": 'pass',
                                'compile_log': 'code中不含有@Entry等字段，不进行编译', 'system': system}
         else:
-            code_write.startWriteProject(code, code_type, hml_name, css_name, js_name, 'eTSProject', 'JSProject',
+            code_write.startWriteProject(code, code_type, hml_name, css_name, js_name, 'ets_project', 'js_project',
                                          ets_code,
                                          md_path)
             # 开始调用编译
             compile_project = CompileProject()
-            result_dict, compile_result = compile_project.start_compile(code_type, md_path, code, 'eTSProject',
-                                                                        'JSProject',
+            result_dict, compile_result = compile_project.start_compile(code_type, md_path, code, 
                                                                         ets_code, originally_code)
             if compile_result == 'fail':
                 if self.fileType == 'TS':
@@ -1148,8 +1147,9 @@ class MaterialDetection:
                     compile_list.append(code_item)
                     page_name = page_list[0].replace(' ', '')
                     # 创建文件
-                    file_path = os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')) + \
-                                r'/project/eTSProject\entry\src\main\ets\MainAbility\pages\\' + str(page_name) + '.ets'
+                    file_path = os.path.join(
+                        os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
+                        r'/project/ets_project/entry/src/main/ets/MainAbility/pages/%s.ets' % str(page_name))
                     file_list.append(file_path)
                     with open(file_path, 'w+', encoding='utf8', errors='ignore') as file_open:
                         file_open.truncate()
@@ -1159,7 +1159,6 @@ class MaterialDetection:
             # 开始调用编译
             compile_project = CompileProject()
             result_dict, compile_result = compile_project.start_compile(code_type, md_path, '\n'.join(compile_list),
-                                                                        'eTSProject', 'JSProject',
                                                                         ets_code, originally_code)
             if compile_result == 'fail':
                 if self.fileType == 'TS':
@@ -1210,15 +1209,10 @@ class MaterialDetection:
                 page_list = re.findall(r'//(.*?)Page', code_item)
                 if len(page_list) == 0:
                     code_write = CodeWrite()
-                    code_write.start_write_project(code_item, code_type, hml_name, css_name, js_name, 'eTSProject',
-                                                   'JSProject',
-                                                   ets_code,
-                                                   md_path)
+                    code_write.start_write_project(code_item, code_type, hml_name, css_name, js_name, ets_code, md_path)
                     # 开始调用编译
                     compile_project = CompileProject()
                     result_dict, compile_result = compile_project.start_compile(code_type, md_path, code_item,
-                                                                                'eTSProject',
-                                                                                'JSProject',
                                                                                 ets_code, code_item)
 
                     if compile_result == 'fail':
@@ -1238,7 +1232,7 @@ class MaterialDetection:
                     self.result_dict['detail'].append(result_dict)
                     code_write.del_picture()
                     # 编译完成后将原文件替换到相应位置，防止影响下次编译
-                    code_write.over_write_file('eTSProject', 'JSProject', ets_code, md_path)
+                    code_write.over_write_file('ets_project', 'js_project', ets_code, md_path)
             else:
                 if self.fileType == 'TS':
                     self.result_dict['TSFail'] += 1
@@ -1252,23 +1246,27 @@ class MaterialDetection:
                 self.result_dict['detail'].append(result_dict)
         if pass_num == 0 and code_num == nocheck_num + dp_nocheck_num and fail_num == 0:
             file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                               'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                               'PassRate': 1, 'system': system}
+                                'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                'PassRate': 1, 'system': system}
             self.result_dict['file_detail'].append(file_result_dict)
         elif pass_num == 0 and code_num == 0 and fail_num == 0 and nocheck_num == 0 and dp_nocheck_num == 0:
             file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                               'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                               'PassRate': 1, 'system': system}
+                                'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                'PassRate': 1, 'system': system}
             self.result_dict['file_detail'].append(file_result_dict)
         elif pass_num == 0:
             file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                               'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                               'PassRate': 0, 'system': system}
+                                'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                'PassRate': 0, 'system': system}
             self.result_dict['file_detail'].append(file_result_dict)
         else:
+            try:
+                pass_rate = round(pass_num / (pass_num + fail_num), 2)
+            except:
+                pass_rate = 0
             file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
-                               'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
-                               'PassRate': round(pass_num / (pass_num + fail_num), 2), 'system': system}
+                                'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
+                                'PassRate': pass_rate, 'system': system}
             self.result_dict['file_detail'].append(file_result_dict)
 
     # 判断类型
