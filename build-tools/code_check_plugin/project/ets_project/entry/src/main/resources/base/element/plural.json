@@ -1,0 +1,17 @@
+{
+  "plural": [
+    {
+      "name": "test",
+      "value": [
+        {
+          "quantity": "one",
+          "value": "%d huangjie"
+        },
+        {
+          "quantity": "other",
+          "value": "%d appleother"
+        }
+      ]
+    }
+  ]
+}
