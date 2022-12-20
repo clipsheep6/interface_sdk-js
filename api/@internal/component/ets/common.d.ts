@@ -691,11 +691,13 @@ declare enum SourceTool {
 
   /**
    * The finger type.
+   * @since 9
    */
   FINGER,
 
   /**
    * The pen type.
+   * @since 9
    */
   PEN,
 }
