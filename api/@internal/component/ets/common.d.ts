@@ -802,6 +802,7 @@ declare interface BaseEvent {
 
   /**
    * The event tool type info.
+   * @since 9
    */
   sourceTool: SourceTool;
 }
