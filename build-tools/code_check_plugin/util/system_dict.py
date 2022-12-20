@@ -419,7 +419,7 @@ def repeat_definition(code, md_path, class_name):
                 del_code = md_list[i]
                 break
         code = code.replace(del_code, '')
-        return code
+    return code
 
 
 def handling_import(code):

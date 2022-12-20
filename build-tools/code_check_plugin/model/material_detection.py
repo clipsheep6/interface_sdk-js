@@ -260,7 +260,7 @@ class MaterialDetection:
                             special_input = False
                         if 'js-apis-camera.md' in md_path and (
                                 '## createPreviewOutput' in item or '## createPhotoOutput' in item or '## '
-                                                                                                      'createVideoOutput' in item or '## createMetadataOutput' in item):
+                                'createVideoOutput' in item or '## createMetadataOutput' in item):
                             special_output = True
                             continue
                         if 'js-apis-camera.md' in md_path and '##' in item and special_output:
@@ -353,7 +353,8 @@ class MaterialDetection:
                         else:
                             label = re.findall(r'<a(.*?)</a>', item)
                             if len(label) > 0:
-                                item = item.replace('<sup>(deprecated) </sup>', '').replace('<a' + label[0] + '</a>', '')
+                                item = item.replace('<sup>(deprecated) </sup>', '').\
+                                    replace('<a' + label[0] + '</a>', '')
                                 if item in callback_code:
                                     if item.count('#') > 2:
                                         item = item.replace('#', '').replace(' ', '').replace('\n', '')
@@ -689,7 +690,7 @@ class MaterialDetection:
                                                                                                             css_name,
                                                                                                             js_name,
                                                                                                             ets_code,
-                                                                                                            originally_code)
+                                                                                                        originally_code)
                                                 self.result_dict['detail'].append(result_dict)
                                                 code_write.del_picture()
                                                 # 编译完成后将原文件替换到相应位置，防止影响下次编译
@@ -730,7 +731,7 @@ class MaterialDetection:
                                                     new_code = code
                                                 else:
                                                     # 验证是否重复定义类
-                                                    if 'js-apis-distributed.md' in md_path:
+                                                    if 'js-apis-distributed-data.md' in md_path:
                                                         code = repeat_definition(code, md_path, actual_class_name)
                                                         new_code = call_back.replace(class_name, str(code) + '\n')
                                                     else:
