@@ -24,7 +24,6 @@ class SampleTag:
     def sample_tag(self, md_path, lines):
         md_index = md_path.rfind('\\')
         lines = self.get_sample_tag(md_path, lines)
-
         if 'js-apis-util.md' in md_path:
             lines = self.start_class(lines)
         # 特殊文档不进行回调验证

@@ -41,20 +41,20 @@ class CompileProject:
         else:
             system = '查询不到子系统'
         if project_type == 'TypeScript' or ets_code:
-            cwd = os.path.join(os.path.abspath(
-                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), '/project/ets_project')
+            cwd = os.path.normpath(os.path.join(os.path.abspath(
+                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), 'project/ets_project'))
         else:
-            cwd = os.path.join(os.path.abspath(
-                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), '/project/js_project')
+            cwd = os.path.normpath(os.path.join(os.path.abspath(
+                os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), 'project/js_project'))
 
         self.imgPath = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
                                     'img') 
         # 删除entry下的build文件夹
-        rm_path = os.path.join(cwd, 'entry\\build')
+        rm_path = os.path.normpath(os.path.join(cwd, 'entry\\build'))
         del_folder_or_file(rm_path)
-        gradle_path = os.path.join(cwd, 'entry\\.gradle')
+        gradle_path = os.path.normpath(os.path.join(cwd, 'entry\\.gradle'))
         del_folder_or_file(gradle_path)
-        build_path = os.path.join(cwd, 'entry\\build')
+        build_path = os.path.normpath(os.path.join(cwd, 'entry\\build'))
         del_folder_or_file(build_path)
         out, err, file_size = self.build_hap(cwd, build_path)
         # 获取有用的输出信息
@@ -130,7 +130,8 @@ class CompileProject:
         out = ''
         err = ''
         try:
-            args = 'npm run build_hap'
+            args = 'npm run buildHap'
+            print(cwd)
             p = subprocess.Popen(args, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
             out, err = p.communicate(timeout=50)
             speak_i(bytes.decode(out, encoding='utf-8', errors='ignore'))

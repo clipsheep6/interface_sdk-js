@@ -211,7 +211,7 @@ class MaterialDetection:
         import_code = ''
         instructions_for_use_code = ''
         instructions_for_use_start = False
-
+        start = False
         class_code = ''
         callback_code = {}
         start_code = {}
@@ -246,7 +246,6 @@ class MaterialDetection:
             ets_code = False
 
         if ets_code and md_path not in no_test or not ets_code and md_path not in self.api_9 and md_path not in no_test:
-
             lines = sample_tag.sample_tag(md_path, lines)
             if '需单点查看' in md_path:
                 self.special_flag = True
@@ -318,7 +317,7 @@ class MaterialDetection:
                             continue
                         if '##' in item and print_no_test:
                             print_no_test = False
-                            sl_specification = False
+                            start = False
                             code = ''
                         if title_start:
                             title = item.replace('#', '').replace(' ', '')
@@ -376,7 +375,7 @@ class MaterialDetection:
                         if not complete_callback and '(' in item and ':' in item \
                                 and 'Promise' not in item and 'callback' not in item and \
                                 'Callback' not in item and get_complete_callback_code and start_callback and \
-                                not sl_specification and '|' not in item:
+                                not start and '|' not in item:
                             complete_callback = True
                             complete_callback_code = item
                             get_complete_callback_code = False
@@ -396,14 +395,12 @@ class MaterialDetection:
                             deprecated_code = False
 
                         # 检测项目开始
-                        if not sl_specification and "```" in item.replace("\n", '').replace(" ", ''):
+                        if not start and "```" in item.replace("\n", '').replace(" ", ''):
                             code = ''
-                            if 'js-apis-hilog.md' in md_path:
-                                code = ''
-                            sl_specification = True
+                            start = True
                             continue
                         # 完整回调用例修改
-                        if complete_callback and sl_specification:
+                        if complete_callback and start:
                             if "(" in complete_callback_code:
                                 index = complete_callback_code.find('(')
                                 complete_callback_code1 = complete_callback_code[:index + 1]
@@ -413,18 +410,20 @@ class MaterialDetection:
                             complete_callback_code = ''
 
                         # 项目执行
-                        if sl_specification and "```" in item.replace('\n', '').replace(" ", '') and not print_no_test:
+                        if start and "```" in item.replace('\n', '').replace(" ", '') and not print_no_test:
                             originally_code = code
+                            print(code)
                             code = special(code, md_path, special_input, special_output)
+
                             # 如果项目第一行是创建的类对象就删除
                             code_type = self.check_ts_or_js_code(code, md_path)
                             if md_path in self.api_9 or '//API9' in code:
                                 code_type = 'API9'
                             self.result_dict["total"] += 1
-                            sl_specification = False
+                            start = False
                             # 如果不验证api9并且api9的标志或者文件属于api9则不验证
                             if not ets_code and "//API9" in code:
-                                sl_specification = False
+                                start = False
                                 continue
 
                             if code_skip:
@@ -488,6 +487,7 @@ class MaterialDetection:
                             # 验证是否为导入模块
                             if 'import' in code and 'from' in code and code.count('\n') == 1:
                                 import_code = code
+                                print('import_code', import_code)
                                 result_dict = {'compile_result': "pass", 'file_path': md_path, 'code_type': code_type,
                                                'originally_code': code, "code": code, "err_type": 'pass',
                                                'compile_log': 'import导入包，已和该文件后续代码进行合并', 'system': system}
@@ -595,9 +595,9 @@ class MaterialDetection:
                                 all_list = re.findall(all_compile, code)
                                 for call in all_list:
                                     if call in callback_code:
-                                        callback_code[call].append(code)
+                                        start_code[call].append(code)
                                     else:
-                                        callback_code.update({call: [code]})
+                                        start_code.update({call: [code]})
                                 speak_i(start_code)
                                 code = ''
                                 continue
@@ -618,9 +618,9 @@ class MaterialDetection:
                                 continue
                             # ts前后关系
                             if raw_file != '':
-                                file_path = os.path.join(os.path.abspath(
+                                file_path = os.path.normpath(os.path.join(os.path.abspath(
                                     os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
-                                    r'/project/ets_project/entry/src/main/ets/MainAbility/pages/raw_file')
+                                    r'/project/ets_project/entry/src/main/ets/MainAbility/pages/raw_file'))
                                 if not os.path.exists(file_path):
                                     os.makedirs(file_path)
                                     file_path_html = os.path.join(file_path, 'index.html')
@@ -652,13 +652,12 @@ class MaterialDetection:
                                 self.result_dict['fail'] += 1
                                 code = ''
                                 self.result_dict['detail'].append(result_dict)
+
                             # 工程正式执行
                             elif code_type != '' and '该示例代码不做自动化测试' not in code and '包含绝对路径' not in code:
-                                print('执行', start_callback)
                                 speak_i(code)
                                 # 开始将code写入到工程文件中
                                 code_num += 1
-
                                 code_write = CodeWrite()
                                 # 此处测试以某个字眼开始的内容
                                 if len(start_code) != 0 and call_code == '':
@@ -918,21 +917,21 @@ class MaterialDetection:
                                     code_num += 1
                                 code = ''
                                 self.result_dict['detail'].append(result_dict)
-                        if sl_specification:
+                        if start:
                             code = code + item
                 except MemoryError:
                     for item in lines:
                         if title_start:
                             title = item.replace('#', '').replace(' ', '')
                             title_start = False
-                        if not sl_specification and "```" in item.replace('\n', '').replace(' ', ''):
-                            sl_specification = True
+                        if not start and "```" in item.replace('\n', '').replace(' ', ''):
+                            start = True
                             continue
-                        if sl_specification and "```" in item.replace('\n', '').replace(' ', ''):
-                            sl_specification = False
+                        if start and "```" in item.replace('\n', '').replace(' ', ''):
+                            start = False
                             code_num += 1
                             nocheck_num += 1
-                        if sl_specification:
+                        if start:
                             code = code + item
                 if pass_num == 0 and code_num == nocheck_num + dp_nocheck_num and fail_num == 0:
                     file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
@@ -966,14 +965,14 @@ class MaterialDetection:
                 if title_start:
                     title = item.replace('#', '').replace(' ', '')
                     title_start = False
-                if not sl_specification and "```" in item.replace('\n', '').replace(' ', ''):
+                if not start and "```" in item.replace('\n', '').replace(' ', ''):
                     code_type = self.check_ts_or_js_code(code, md_path)
                     if md_path in self.api_9 or '//API9' in code:
                         code_type = 'API9'
-                    sl_specification = True
+                    start = True
                     continue
-                if sl_specification and "```" in item.replace('\n', '').replace(' ', ''):
-                    sl_specification = False
+                if start and "```" in item.replace('\n', '').replace(' ', ''):
+                    start = False
                     if md_path not in no_test:
                         result_dict = {'compile_result': "no check", 'file_path': md_path, 'code_type': code_type,
                                        'originally_code': code,
@@ -983,7 +982,7 @@ class MaterialDetection:
                         self.result_dict['detail'].append(result_dict)
                     code_num += 1
                     nocheck_num += 1
-                if sl_specification:
+                if start:
                     code = code + item
             if pass_num == 0 and code_num == nocheck_num + dp_nocheck_num and fail_num == 0:
                 file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
@@ -1025,12 +1024,10 @@ class MaterialDetection:
             system = '查询不到子系统'
         if self.fileType == 'TS':
             if 'app.ets' in code or ("@Entry" in code and '@Component' in code and "build()" in code):
-                code_write.startWriteProject(code, code_type, hml_name, css_name, js_name, 'ets_project', 'js_project',
-                                             ets_code,
-                                             md_path)
+                code_write.start_write_project(code, code_type, hml_name, css_name, js_name, ets_code, md_path)
                 # 开始调用编译
                 compile_project = CompileProject()
-                result_dict, compile_result = compile_project.start_compile(code_type, md_path, code, 
+                result_dict, compile_result = compile_project.start_compile(code_type, md_path, code,
                                                                             ets_code, originally_code)
                 if compile_result == 'fail':
                     if self.fileType == 'TS':
@@ -1059,12 +1056,10 @@ class MaterialDetection:
                                "err_type": 'pass',
                                'compile_log': 'code中不含有@Entry等字段，不进行编译', 'system': system}
         else:
-            code_write.startWriteProject(code, code_type, hml_name, css_name, js_name, 'ets_project', 'js_project',
-                                         ets_code,
-                                         md_path)
+            code_write.start_write_project(code, code_type, hml_name, css_name, js_name, ets_code, md_path)
             # 开始调用编译
             compile_project = CompileProject()
-            result_dict, compile_result = compile_project.start_compile(code_type, md_path, code, 
+            result_dict, compile_result = compile_project.start_compile(code_type, md_path, code,
                                                                         ets_code, originally_code)
             if compile_result == 'fail':
                 if self.fileType == 'TS':
@@ -1100,7 +1095,7 @@ class MaterialDetection:
             system = '查询不到子系统'
         title = ''
         title_start = True
-        sl_specification = False
+        start = False
         code = ''
         code_list = []
         code_type = ''
@@ -1108,20 +1103,20 @@ class MaterialDetection:
             if title_start:
                 title = item.replace('#', '').replace(' ', '')
                 title_start = False
-            if not sl_specification and "```" in item.replace('\n', '').replace(' ', ''):
-                sl_specification = True
+            if not start and "```" in item.replace('\n', '').replace(' ', ''):
+                start = True
                 continue
-            if sl_specification and "```" in item.replace('\n', '').replace(' ', ''):
+            if start and "```" in item.replace('\n', '').replace(' ', ''):
                 if code_type == '':
                     code_type = self.judge_code_type(md_path, code)
                     if md_path in self.api_9 or '//API9' in code:
                         code_type = 'API9'
                 self.result_dict['total'] += 1
-                sl_specification = False
+                start = False
                 code_num += 1
                 code_list.append(code)
                 code = ''
-            if sl_specification:
+            if start:
                 code = code + item
         import_code = ''
         compile_list = []
@@ -1147,9 +1142,9 @@ class MaterialDetection:
                     compile_list.append(code_item)
                     page_name = page_list[0].replace(' ', '')
                     # 创建文件
-                    file_path = os.path.join(
+                    file_path = os.path.normpath(os.path.join(
                         os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
-                        r'/project/ets_project/entry/src/main/ets/MainAbility/pages/%s.ets' % str(page_name))
+                        r'/project/ets_project/entry/src/main/ets/MainAbility/pages/%s.ets' % str(page_name)))
                     file_list.append(file_path)
                     with open(file_path, 'w+', encoding='utf8', errors='ignore') as file_open:
                         file_open.truncate()
