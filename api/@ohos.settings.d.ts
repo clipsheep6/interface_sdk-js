@@ -775,12 +775,23 @@ declare namespace settings {
    * template.
    *
    * @param name Indicates the name of the setting to set.
-   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
    * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
+  
+    /**
+   * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
+   * template.
+   *
+   * @param name Indicates the name of the setting to set.
+   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @since 9
+   */
+  function getURI(name: string, callback: AsyncCallback<string>): void;
+  function getURI(name: string): Promise<string>;
 
   /**
    * Obtains the value of a specified character string in the database.
@@ -788,7 +799,7 @@ declare namespace settings {
    * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
    * the database.
    * @param name Indicates the name of the character string.
-   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
+   * @return Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
    * @deprecated since 9
@@ -796,6 +807,19 @@ declare namespace settings {
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
+  
+   /**
+   * get value from settingsdata
+   * @since 9
+   * @param context Indicates the Context or dataAbilityHelper used to access
+   * the database.
+   * @param name Indicates the name of the character string.
+   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * otherwise.
+   * @StageModelOnly
+   */
+  function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
+  function getValue(context: Context, name: string): Promise<string>; 
 
   /**
    * Saves a character string name and its value to the database.
@@ -804,7 +828,7 @@ declare namespace settings {
    * the database.
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
-   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
@@ -812,13 +836,26 @@ declare namespace settings {
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
+  
+     /**
+   * set settingsdata value.
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @since 9
+   * @param context Indicates Context or dataAbilityHelper instance
+   * @param name Indicates the name of the character string.
+   * @param value Indicates the value of the character string.
+   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @StageModelOnly
+   */
+   function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
+   function setValue(context: Context, name: string, value: string): Promise<boolean>;
 
   /**
    * Enables or disables airplane mode.
    *
    * @param enable Specifies whether to enable airplane mode. The value {@code true} means to enable airplane
    * mode, and {@code false} means to disable airplane mode.
-   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
@@ -828,7 +865,7 @@ declare namespace settings {
    * Checks whether a specified application can show as float window.
    *
    * @param context Indicates the application context.
-   * @returns Returns {@code true} if the application can draw over other applications; returns {@code false}
+   * @return Returns {@code true} if the application can draw over other applications; returns {@code false}
    * otherwise.
    * @since 7
    */
@@ -839,7 +876,7 @@ declare namespace settings {
    * get settingsdata uri(synchronization method)
    * @since 8
    * @param name Indicates the name of the setting to set.
-   * @returns Returns settingsdata uri.
+   * @return Returns settingsdata uri.
    */
    function getUriSync(name: string): string;
 
@@ -849,11 +886,22 @@ declare namespace settings {
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
-    * @returns settingsdata value
+    * @return settingsdata value
     * @deprecated since 9
     * @FAModelOnly
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
+   
+    /**
+    * get value from settingsdata(synchronization method)
+    * @since 9
+    * @param context Indicates Context or dataAbilityHelper instance
+    * @param name Indicates the name of the character string.
+    * @param defValue Indicates the default value of the character string.
+    * @return settingsdata value
+    * @StageModelOnly
+    */
+   function getValueSync(context: Context, name: string, defValue: string): string;
  
    /**
     * set settingsdata value(synchronization method)
@@ -862,11 +910,23 @@ declare namespace settings {
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
-    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
     * @deprecated since 9
     * @FAModelOnly
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
+   
+    /**
+    * set settingsdata value(synchronization method)
+    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+    * @since 9
+    * @param context Indicates Context or dataAbilityHelper instance
+    * @param name Indicates the name of the character string.
+    * @param value Indicates the value of the character string.
+    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @StageModelOnly
+    */
+   function setValueSync(context: Context, name: string, value: string): boolean;
 }
 
 export default settings;
