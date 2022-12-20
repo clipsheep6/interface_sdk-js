@@ -26,9 +26,9 @@ from util.utils import del_folder_or_file
 
 class CompileProject:
     def __init__(self):
-        self.hapName = ''
-        self.hapPath = ''
-        self.imgPath = ''
+        self.hap_name = ''
+        self.hap_path = ''
+        self.img_path = ''
 
     def start_compile(self, project_type, md_path, code, ets_code, originally_code):
         # 新增result子系统验证
@@ -47,7 +47,7 @@ class CompileProject:
             cwd = os.path.normpath(os.path.join(os.path.abspath(
                 os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')), 'project/js_project'))
 
-        self.imgPath = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
+        self.img_path = os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0], '..')),
                                     'img') 
         # 删除entry下的build文件夹
         rm_path = os.path.normpath(os.path.join(cwd, 'entry\\build'))
@@ -60,27 +60,27 @@ class CompileProject:
         # 获取有用的输出信息
         if 'BUILD SUCCESSFUL' not in out:
             if 'ERROR File' in out:
-                out_list = out.split('\n')
+                out_lists = out.split('\n')
                 out_start = False
                 new_out = ''
-                for m in out_list:
-                    if 'ERROR File:' in m:
+                for out_list in out_lists:
+                    if 'ERROR File:' in out_list:
                         out_start = True
                         continue
                     if out_start:
-                        new_out = new_out + m + '\n'
+                        new_out = new_out + out_list + '\n'
                         out_start = False
                 out = new_out
             if 'ERROR File' in err:
-                err_list = err.split('\n')
+                err_lists = err.split('\n')
                 err_start = False
                 new_err = ''
-                for m in err_list:
-                    if 'ERROR File:' in m:
+                for err_list in err_lists:
+                    if 'ERROR File:' in err_list:
                         err_start = True
                         continue
                     if err_start:
-                        new_err = new_err + m + '\n'
+                        new_err = new_err + err_list + '\n'
                         err_start = False
                 err = new_err
         if 'BUILD SUCCESSFUL' in out or file_size:
@@ -131,17 +131,16 @@ class CompileProject:
         err = ''
         try:
             args = 'npm run buildHap'
-            print(cwd)
-            p = subprocess.Popen(args, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-            out, err = p.communicate(timeout=50)
+            build_hap = subprocess.Popen(args, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = build_hap.communicate(timeout=50)
             speak_i(bytes.decode(out, encoding='utf-8', errors='ignore'))
             speak_i(bytes.decode(err, encoding='utf-8', errors='ignore'))
             out = bytes.decode(out, encoding='utf-8', errors='ignore')
             err = bytes.decode(err, encoding='utf-8', errors='ignore')
-            speak_i('pid：' + str(p.pid))
-        except Exception as e:
-            speak_e(e)
-            p.kill()
+            speak_i('pid：' + str(build_hap.pid))
+        except Exception:
+            speak_e(Exception)
+            build_hap.kill()
         time.sleep(3)
         # 判断是否编译出了hap包，如果有那也是编译成功的
         file_size = self.get_hap_package(build_path)
@@ -157,8 +156,8 @@ class CompileProject:
             for file_path in file_names:
                 md_path = os.path.join(dir_path, file_path)
                 if md_path.endswith('.hap'):
-                    self.hapPath = md_path
-                    self.hapName = md_path
+                    self.hap_path = md_path
+                    self.hap_name = md_path
                     file_size = os.path.getsize(md_path)
                     if file_size != 0:
                         file_size = file_size / float(1024 * 1024)

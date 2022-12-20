@@ -70,7 +70,6 @@ class SampleTag:
                     continue
 
                 if start_code and "```" in lines[index_k].replace("\n", "").replace(" ", ""):
-                    # print (code)
                     start_code = False
                     if "import" in code and "from" in code and len(code) < 80:
                         pass
@@ -110,7 +109,6 @@ class SampleTag:
                     continue
 
                 if start_code and "```" in lines[index_k].replace("\n", "").replace(" ", ""):
-                    # print(code)
                     start_code = False
                     if "import" in code and "from" in code and len(code) < 80:
                         pass
@@ -317,9 +315,9 @@ class SampleTag:
                 if 'import' in code and 'from' in code and len(code) < 80:
                     pass
                 else:
-                    c = re.findall(r'(.*?)s', class_new_code[0])
-                    if len(c) != 0:
-                        if 'cla' == c[0].replace(' ', ''):
+                    class_start = re.findall(r'(.*?)s', class_new_code[0])
+                    if len(class_start) != 0:
+                        if 'cla' == class_start[0].replace(' ', ''):
                             lines.insert(tag_index + 1, '//该class需添加在同一阶级目录示例代码之前\n')
                             index_k += 1
                 code = ''
@@ -330,19 +328,21 @@ class SampleTag:
     # 去除废弃标志以及版本号
     def take_out(self, item):
         if '<sup>' in item and self.is_number(item) and '##' in item:
-            s = re.findall(r'<sup>(.*?)</sup>', item)
-            s1 = re.findall(r'<sup>(.*?)<sup>', item)
-            if len(s) > 0:
-                item = item.replace('<sup>' + s[0] + '</sup>', '').replace('<sup>(deprecated) </sup>', '').replace('\n',
-                                                                                                                   '')
-            elif len(s1) > 0:
-                item = item.replace('<sup>' + s1[0] + '<sup>', '').replace('<sup>(deprecated) </sup>', '').replace('\n',
-                                                                                                                   '')
+            sup = re.findall(r'<sup>(.*?)</sup>', item)
+            sup1 = re.findall(r'<sup>(.*?)<sup>', item)
+            if len(sup) > 0:
+                item = item.replace('<sup>' + sup[0] + '</sup>', '').replace('<sup>(deprecated) </sup>', '').replace(
+                    '\n',
+                    '')
+            elif len(sup1) > 0:
+                item = item.replace('<sup>' + sup1[0] + '<sup>', '').replace('<sup>(deprecated) </sup>', '').replace(
+                    '\n',
+                    '')
         else:
             item = item.replace('<sup>(deprecated) </sup>', '').replace('\n', '')
-        s2 = re.findall(r'<a(.*?)</a>', item)
-        if len(s2) > 0:
-            item = item.replace('<a' + s2[0] + '</a>', '')
+        sup2 = re.findall(r'<a(.*?)</a>', item)
+        if len(sup2) > 0:
+            item = item.replace('<a' + sup2[0] + '</a>', '')
         if '<' in item and '>' in item:
             index1 = item.find('<')
             item = item[:index1]
@@ -502,12 +502,12 @@ class SampleTag:
                 if two_title and '###' in item and not self.is_chinese(item):
                     # 获取三级标题
                     if '<a' in item and '</a>' in item:
-                        a = item.find('<')
-                        item = item[:a]
+                        brackets = item.find('<')
+                        item = item[:brackets]
                     # 排除类似#### on('enableChange')这种情况，只需要函数名称
                     if '(' in item:
-                        a = item.find('(')
-                        item = item[:a].replace('<T extends KVStore>', '')
+                        brackets = item.find('(')
+                        item = item[:brackets].replace('<T extends KVStore>', '')
                     three_title_name = ".%s(" % item.replace('#', '').replace('\n', '').replace(' ', '')
                     if determine_class not in class_result:
                         class_start = True
@@ -582,16 +582,16 @@ class SampleTag:
                                 del class_new_code[-1]
                                 class_code = False
                                 let_location = 0
-                                for j in class_new_code:
+                                for class_new in class_new_code:
 
-                                    if determine_class in j and 'import' not in j \
-                                            and '%s = null' % determine_class.lower() not in j.lower() \
-                                            and 'console.' not in j.lower():
+                                    if determine_class in class_new and 'import' not in class_new \
+                                            and '%s = null' % determine_class.lower() not in class_new.lower() \
+                                            and 'console.' not in class_new.lower():
                                         # 验证是否为单独的字母
-                                        counts = j.count(determine_class)
-                                        line_index = j.find(determine_class)
-                                        before_index = str(j)
-                                        for c in range(counts):
+                                        counts = class_new.count(determine_class)
+                                        line_index = class_new.find(determine_class)
+                                        before_index = str(class_new)
+                                        for count_string in range(counts):
                                             # 匹配的内容前和后必须是空格，不能是其他单词
                                             try:
                                                 before_index_1 = before_index[line_index - 1]
@@ -605,11 +605,11 @@ class SampleTag:
                                             if before_index_1.lower().isalpha() and \
                                                     before_index_2.lower().isalpha():
                                                 # 判断let是否为一个标记位置
-                                                if 'let' in j or 'var' in j:
-                                                    let_location = class_new_code.index(j) + 3
+                                                if 'let' in class_new or 'var' in class_new:
+                                                    let_location = class_new_code.index(class_new) + 3
                                                     continue
                                                 else:
-                                                    index_pos = class_new_code.index(j) + 3
+                                                    index_pos = class_new_code.index(class_new) + 3
                                                     class_index += index_pos
                                                     class_code = True
                                                     break

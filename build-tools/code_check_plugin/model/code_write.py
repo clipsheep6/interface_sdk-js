@@ -29,7 +29,7 @@ class CodeWrite:
     def __init__(self):
         self.picture_name_list = ''
         self.file_path = ""
-        self.imageImgPathList = []
+        self.image_img_path_list = []
         self.hml_name = ''
 
     def start_write_project(self, code, code_type, hml_name, css_name, js_name, ets_code, md_path):
@@ -50,8 +50,8 @@ class CodeWrite:
                                                       "..")), r'project/ets_project/%s' % path))
         picture_name_list = set(picture_name_list)
         for item in picture_name_list:
-            fp = open(os.path.join(file_path, item), 'w')
-            fp.close()
+            file_open = open(os.path.join(file_path, item), 'w')
+            file_open.close()
         self.picture_name_list = picture_name_list
         self.file_path = file_path
 
@@ -59,7 +59,7 @@ class CodeWrite:
     def del_picture(self):
         for item in self.picture_name_list:
             del_folder_or_file(os.path.join(self.file_path, item))
-        for item in self.imageImgPathList:
+        for item in self.image_img_path_list:
             del_folder_or_file(os.path.join(item))
 
     # 将相应的code值写入到相应的文件中
@@ -75,12 +75,12 @@ class CodeWrite:
               \nbuild() {\n    Row() {\n      Column() {\n        Text(this.message)\n          .fontSize(50)\n   \
                      .fontWeight(FontWeight.Bold)\n      }\n      .width('100%')\n    }\n    .height('100%')\n  }\n}"
 
-            with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
-                f.truncate()
+            with open(file_path, 'w', encoding='utf8', errors='ignore') as file_open:
+                file_open.truncate()
                 if "@Entry" not in str(code) and "@Component" not in str(code):
-                    f.write(str(code) + '\n' + old)
+                    file_open.write(str(code) + '\n' + old)
                 else:
-                    f.write(str(code))
+                    file_open.write(str(code))
 
         elif ets_code and 'ts-' in md_path:
             self.src_import_img(code, code_type, ets_code)
@@ -88,9 +88,9 @@ class CodeWrite:
             file_path = os.path.normpath(
                 os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
                                                           "..")), r'project/ets_project/%s' % path))
-            with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
-                f.truncate()
-                f.write(str(code))
+            with open(file_path, 'w', encoding='utf8', errors='ignore') as file_open:
+                file_open.truncate()
+                file_open.write(str(code))
         elif code_type == "TypeScript" and not ets_code:
             self.src_import_img(code, code_type, ets_code)
             if "app.ets" in code:
@@ -104,9 +104,9 @@ class CodeWrite:
                     os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
                                                               "..")), r'project/ets_project/%s' % path))
             if code_type != 'API9':
-                with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
-                    f.truncate()
-                    f.write(str(code))
+                with open(file_path, 'w', encoding='utf8', errors='ignore') as file_open:
+                    file_open.truncate()
+                    file_open.write(str(code))
         elif code_type == "HTML":
             # 判断代码中是否存入图片
             self.import_image_file(code)
@@ -141,10 +141,10 @@ class CodeWrite:
                                                               "..")), r'project/js_project/%s' % path))
 
             if code_type != 'API9':
-                with open(file_path, 'w', encoding='utf8', errors='ignore') as f:
-                    f.truncate()
+                with open(file_path, 'w', encoding='utf8', errors='ignore') as file_open:
+                    file_open.truncate()
                     print(code)
-                    f.write(str(code) + '\n')
+                    file_open.write(str(code) + '\n')
         elif code_type == "CSS":
             self.css_import_img(code)
             if '.css' in code and 'xx.css' not in code and '<' in code \
@@ -176,10 +176,10 @@ class CodeWrite:
                     os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
                                                               "..")), r'project/js_project/%s' % path))
             if code_type != 'API9':
-                with open(file_path, 'w+', encoding='utf8', errors='ignore') as f:
-                    f.truncate()
+                with open(file_path, 'w+', encoding='utf8', errors='ignore') as file_open:
+                    file_open.truncate()
                     print(code)
-                    f.write(str(code) + '\n')
+                    file_open.write(str(code) + '\n')
         elif code_type == 'JavaScript' and not ets_code:
             self.src_import_img(code, code_type, ets_code)
 
@@ -209,10 +209,10 @@ class CodeWrite:
                     os.path.join(os.path.abspath(os.path.join(os.path.split(os.path.abspath(__file__))[0],
                                                               "..")), r'project/js_project/%s' % path))
             if code_type != 'API9':
-                with open(file_path, 'w+', encoding='utf8', errors='ignore') as f:
-                    f.truncate()
+                with open(file_path, 'w+', encoding='utf8', errors='ignore') as file_open:
+                    file_open.truncate()
                     print(code)
-                    f.write(str(code) + '\n')
+                    file_open.write(str(code) + '\n')
 
     def import_image_file(self, code):
         # 遍历code，查询是否包含引入的hml文件
@@ -238,13 +238,13 @@ class CodeWrite:
             if not os.path.exists(os.path.join(file_path, file_path2, file_path1)):
                 if not os.path.exists(os.path.join(file_path, file_path2)):
                     os.makedirs(os.path.join(file_path, file_path2))
-                    self.imageImgPathList.append(os.path.join(file_path, first_dir))
+                    self.image_img_path_list.append(os.path.join(file_path, first_dir))
                 if 'jpg' in file_path1 or 'png' in file_path1:
                     self.create_pic(os.path.join(file_path, file_path2, file_path1))
                 else:
-                    fp = open(os.path.join(file_path, file_path2, file_path1), 'w')
-                    fp.close()
-                self.imageImgPathList.append(os.path.join(file_path, file_path2, file_path1))
+                    file_open = open(os.path.join(file_path, file_path2, file_path1), 'w')
+                    file_open.close()
+                self.image_img_path_list.append(os.path.join(file_path, file_path2, file_path1))
 
     @staticmethod
     def over_write_file(ets_project, js_project, ets_code, md_path):
@@ -329,13 +329,13 @@ class CodeWrite:
             if not os.path.exists(os.path.join(file_path, file_path2, file_path1)):
                 if not os.path.exists(os.path.join(file_path, file_path2)):
                     os.makedirs(os.path.join(file_path, file_path2))
-                    self.imageImgPathList.append(os.path.join(file_path, first_dir))
+                    self.image_img_path_list.append(os.path.join(file_path, first_dir))
                 if 'jpg' in file_path1 or 'png' in file_path1:
                     self.create_pic(os.path.join(file_path, file_path2, file_path1))
                 else:
-                    fp = open(os.path.join(file_path, file_path2, file_path1), 'w')
-                    fp.close()
-                self.imageImgPathList.append(os.path.join(file_path, file_path2, file_path1))
+                    file_open = open(os.path.join(file_path, file_path2, file_path1), 'w')
+                    file_open.close()
+                self.image_img_path_list.append(os.path.join(file_path, file_path2, file_path1))
 
     # src方式引入图片，包括src: "/common/asserts/heart78.png" , src = 'common/image/example.jpg';两种方式
     def src_import_img(self, code, code_type, ets_code):
@@ -368,13 +368,13 @@ class CodeWrite:
             if not os.path.exists(os.path.join(file_path, file_path2, file_path1)):
                 if not os.path.exists(os.path.join(file_path, file_path2)):
                     os.makedirs(os.path.join(file_path, file_path2))
-                    self.imageImgPathList.append(os.path.join(file_path, first_dir))
+                    self.image_img_path_list.append(os.path.join(file_path, first_dir))
                 if 'jpg' in file_path1 or 'png' in file_path1:
                     self.create_pic(os.path.join(file_path, file_path2, file_path1))
                 else:
-                    fp = open(os.path.join(file_path, file_path2, file_path1), 'w')
-                    fp.close()
-                self.imageImgPathList.append(os.path.join(file_path, file_path2, file_path1))
+                    file_open = open(os.path.join(file_path, file_path2, file_path1), 'w')
+                    file_open.close()
+                self.image_img_path_list.append(os.path.join(file_path, file_path2, file_path1))
 
     # 获取图片名称，主要是获取文件名称所在的位置
     @staticmethod

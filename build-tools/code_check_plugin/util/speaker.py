@@ -55,35 +55,35 @@ def write_log(words):
     log_path = os.path.join(root_path, 'log', now_time)
     if not os.path.exists(log_path):
         os.makedirs(log_path)
-    with open(os.path.join(log_path, now_time + '.log'), 'a+', encoding='utf8', errors='ignore') as f:
-        f.write(str(words) + '\n')
+    with open(os.path.join(log_path, now_time + '.log'), 'a+', encoding='utf8', errors='ignore') as file_open:
+        file_open.write(str(words) + '\n')
 
 
-g_speaker = Speaker()
-pt = None
+global_speaker = Speaker()
+window_play = None
 
 
 def is_windows_play_from():
-    global pt
-    if pt is None:
+    global window_play
+    if window_play is None:
         system = platform.architecture()
         if str(system).find('Windows') != -1:
-            pt = True
+            window_play = True
         else:
-            pt = False
-    return pt
+            window_play = False
+    return window_play
 
 
 def speak_d(*args):
     if SPEAK_D_LOG_ENABLE is False:
         return
-    global g_speaker
+    global global_speaker
     words = ''
     for arg in args:
         words = '%s%s ' % (words, str(arg))
     if words != '':
         words = words[:-1]
-    g_speaker.speaker(words)
+    global_speaker.speaker(words)
 
 
 def set_cmd_color(color):
@@ -99,28 +99,28 @@ def reset_color():
 def speak_e(*args):
     if SPEAK_E_LOG_ENABLE is False:
         return
-    global g_speaker
+    global global_speaker
     words = ''
     for arg in args:
         words = '%s%s ' % (words, str(arg))
     if words != '':
         words = words[:-1]
     if is_windows_play_from():
-        g_speaker.speaker('\003[0;31m' + "#Error#: " + words + '\033[0m')
+        global_speaker.speaker('\003[0;31m' + "#Error#: " + words + '\033[0m')
     else:
-        g_speaker.speaker('\003[0;31m' + "#Error#: " + words + '\033[0m')
+        global_speaker.speaker('\003[0;31m' + "#Error#: " + words + '\033[0m')
 
 
 def speak_i(*args):
     if SPEAK_I_LOG_ENABLE is False:
         return
-    global g_speaker
+    global global_speaker
     words = ''
     for arg in args:
         words = '%s%s ' % (words, str(arg))
     if words != '':
         words = words[:-1]
     if is_windows_play_from():
-        g_speaker.speaker(words)
+        global_speaker.speaker(words)
     else:
-        g_speaker.speaker('\003[0;34m' + words + '\033[0m')
+        global_speaker.speaker('\003[0;34m' + words + '\033[0m')

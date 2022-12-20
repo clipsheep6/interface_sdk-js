@@ -40,7 +40,7 @@ class MaterialDetection:
     def __init__(self):
         self.md_file_path = ''
         self.result_path = ''
-        self.fileType = ''
+        self.file_type = ''
         self.bat_path = ''
         self.special_flag = False
         self.result_dict = {"start_time": '', "end_time": '', 'fileNum': 0, 'total': 0, 'pass': 0, 'fail': 0,
@@ -73,7 +73,7 @@ class MaterialDetection:
         del_folder_or_file(os.path.join(compile_ts_path, 'ohos-typescript-4.2.3-r2.tgz'))
         shutil.copy(typescript_path, os.path.join(compile_ts_path, 'ohos-typescript-4.2.3-r2.tgz'))
         args = 'npm install'
-        number = subprocess.Popen(args, cwd=compile_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        number = subprocess.Popen(args, cwd=compile_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = number.communicate(timeout=50)
         out = bytes.decode(out, encoding='utf-8', errors='ignore')
         err = bytes.decode(err, encoding='utf-8', errors='ignore')
@@ -81,11 +81,11 @@ class MaterialDetection:
             sys.exit()
         # 构建
         args = 'npm run build'
-        number = subprocess.Popen(args, cwd=compile_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        number = subprocess.Popen(args, cwd=compile_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = number.communicate(timeout=300)
         # 编译
         args = 'npm run compile'
-        number = subprocess.Popen(args, cwd=compile_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        number = subprocess.Popen(args, cwd=compile_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = number.communicate(timeout=300)
         # 编译出sdk设定文档中sdk位置
         sdk_path = os.path.join(compile_path, 'sample/build')
@@ -94,7 +94,6 @@ class MaterialDetection:
             file_open.write('sdk.dir=' + sdk_path)
 
     def operation(self, md_file_path, result_path, bat_path, result_name, json_name, typescript_path, compiler_path):
-        # self.build_sdk(typescript_path, compiler_path, result_path)
         self.result_name = result_name
         self.json_name = json_name
         # 开始检查时间
@@ -152,7 +151,7 @@ class MaterialDetection:
             for i in range(1, len(self.result_dict["detail"]) + 2):
                 style_frame.set_row_height(i, 30)
             style_frame.to_excel(writer, sheet_name='result', index=True, encoding='utf-8')
-        except:
+        except ValueError:
             speak_i('错误文档')
         style_frame1 = StyleFrame(data_sheet_object1)
         style_frame1.set_column_width(columns=["B"], width=50)
@@ -352,9 +351,9 @@ class MaterialDetection:
                                         '<sup>' + sup1[0] + '<sup>', '')
                                     continue
                         else:
-                            s = re.findall(r'<a(.*?)</a>', item)
-                            if len(s) > 0:
-                                item = item.replace('<sup>(deprecated) </sup>', '').replace('<a' + s[0] + '</a>', '')
+                            label = re.findall(r'<a(.*?)</a>', item)
+                            if len(label) > 0:
+                                item = item.replace('<sup>(deprecated) </sup>', '').replace('<a' + label[0] + '</a>', '')
                                 if item in callback_code:
                                     if item.count('#') > 2:
                                         item = item.replace('#', '').replace(' ', '').replace('\n', '')
@@ -738,7 +737,7 @@ class MaterialDetection:
                                                         new_code = call_back.replace(class_name, code + '\n')
                                             else:
                                                 new_code = code
-                                        except:
+                                        except ValueError:
                                             new_code = code
 
                                         # 文件将最开始去除的导入模块再加入到代码中
@@ -902,7 +901,7 @@ class MaterialDetection:
                                     nocheck_num += 1
                                     self.result_dict['pass'] += 1
                                 else:
-                                    if self.fileType == 'TS':
+                                    if self.file_type == 'TS':
                                         self.result_dict['TSFail'] += 1
                                     else:
                                         self.result_dict['JSFail'] += 1
@@ -1022,7 +1021,7 @@ class MaterialDetection:
             system = 'ArkUI开发框架'
         else:
             system = '查询不到子系统'
-        if self.fileType == 'TS':
+        if self.file_type == 'TS':
             if 'app.ets' in code or ("@Entry" in code and '@Component' in code and "build()" in code):
                 code_write.start_write_project(code, code_type, hml_name, css_name, js_name, ets_code, md_path)
                 # 开始调用编译
@@ -1030,21 +1029,21 @@ class MaterialDetection:
                 result_dict, compile_result = compile_project.start_compile(code_type, md_path, code,
                                                                             ets_code, originally_code)
                 if compile_result == 'fail':
-                    if self.fileType == 'TS':
+                    if self.file_type == 'TS':
                         self.result_dict['TSFail'] += 1
                     else:
                         self.result_dict['JSFail'] += 1
                     self.result_dict['fail'] += 1
                     fail_num += 1
                 else:
-                    if self.fileType == 'TS':
+                    if self.file_type == 'TS':
                         self.result_dict['TSPass'] += 1
                     else:
                         self.result_dict['JSPass'] += 1
                     self.result_dict['pass'] += 1
                     pass_num += 1
             else:
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSFail'] += 1
                 else:
                     self.result_dict['JSFail'] += 1
@@ -1062,14 +1061,14 @@ class MaterialDetection:
             result_dict, compile_result = compile_project.start_compile(code_type, md_path, code,
                                                                         ets_code, originally_code)
             if compile_result == 'fail':
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSFail'] += 1
                 else:
                     self.result_dict['JSFail'] += 1
                 self.result_dict['fail'] += 1
                 fail_num += 1
             else:
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSPass'] += 1
                 else:
                     self.result_dict['JSPass'] += 1
@@ -1156,14 +1155,14 @@ class MaterialDetection:
             result_dict, compile_result = compile_project.start_compile(code_type, md_path, '\n'.join(compile_list),
                                                                         ets_code, originally_code)
             if compile_result == 'fail':
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSFail'] += len(compile_list)
                 else:
                     self.result_dict['JSFail'] += len(compile_list)
                 self.result_dict['fail'] += len(compile_list)
                 fail_num += len(compile_list)
             else:
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSPass'] += len(compile_list)
                 else:
                     self.result_dict['JSPass'] += len(compile_list)
@@ -1185,7 +1184,7 @@ class MaterialDetection:
                 pass_num += 1
                 self.result_dict['pass'] += 1
                 self.result_dict['detail'].append(result_dict)
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSPass'] += 1
                 else:
                     self.result_dict['JSPass'] += 1
@@ -1211,14 +1210,14 @@ class MaterialDetection:
                                                                                 ets_code, code_item)
 
                     if compile_result == 'fail':
-                        if self.fileType == 'TS':
+                        if self.file_type == 'TS':
                             self.result_dict['TSFail'] += 1
                         else:
                             self.result_dict['JSFail'] += 1
                         self.result_dict['fail'] += 1
                         fail_num += 1
                     else:
-                        if self.fileType == 'TS':
+                        if self.file_type == 'TS':
                             self.result_dict['TSPass'] += 1
                         else:
                             self.result_dict['JSPass'] += 1
@@ -1229,7 +1228,7 @@ class MaterialDetection:
                     # 编译完成后将原文件替换到相应位置，防止影响下次编译
                     code_write.over_write_file('ets_project', 'js_project', ets_code, md_path)
             else:
-                if self.fileType == 'TS':
+                if self.file_type == 'TS':
                     self.result_dict['TSFail'] += 1
                 else:
                     self.result_dict['JSFail'] += 1
@@ -1257,7 +1256,7 @@ class MaterialDetection:
         else:
             try:
                 pass_rate = round(pass_num / (pass_num + fail_num), 2)
-            except:
+            except ValueError:
                 pass_rate = 0
             file_result_dict = {'file_path': md_path, 'fileName': title, 'code_num': code_num, 'pass': pass_num,
                                 'fail': fail_num, 'nocheck': nocheck_num, "nocheck(deprecated)": dp_nocheck_num,
@@ -1271,7 +1270,7 @@ class MaterialDetection:
         md_index = md_path.rfind('\\')
         if md_path[md_index + 1:] in self.api_9 or '//API9' in code:
             code_type = 'API9'
-            self.fileType = 'TS'
+            self.file_type = 'TS'
             self.result_dict['TSNum'] += 1
         if code_type == '':
             code_type = self.check_ts_or_js_code(code, md_path)
@@ -1279,7 +1278,7 @@ class MaterialDetection:
                 code_type = self.check_ts_or_js_guess(code)
 
         if code_type == 'JS' or code_type == 'JavaScript':
-            self.fileType = 'JS'
+            self.file_type = 'JS'
             self.result_dict['JSNum'] += 1
 
             code_type = self.check_ts_or_js_code(code, md_path)
@@ -1289,7 +1288,7 @@ class MaterialDetection:
             elif code_type1 == 'CSS':
                 code_type = code_type1
         elif code_type == 'TS' or code_type == 'TypeScript':
-            self.fileType = 'TS'
+            self.file_type = 'TS'
             self.result_dict['TSNum'] += 1
             code_type = 'TypeScript'
         return code_type
