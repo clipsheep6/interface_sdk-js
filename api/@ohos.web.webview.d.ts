@@ -32,7 +32,7 @@ declare namespace webview {
 	 * @callback the callback of web initialization completion
      * @since 9
      */
-    once(type: "webInited", callback: AsyncCallback<void>) : void;
+    once(type: "webInited", callback: Callback<void>) : void;
 
     /**
      * Defines the Web's request/response header.
