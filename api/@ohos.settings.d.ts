@@ -775,7 +775,7 @@ declare namespace settings {
    * template.
    *
    * @param name Indicates the name of the setting to set.
-   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
    * @deprecated since 9
    */
@@ -787,7 +787,7 @@ declare namespace settings {
    * template.
    *
    * @param name Indicates the name of the setting to set.
-   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 9
    */
   function getURI(name: string, callback: AsyncCallback<string>): void;
@@ -799,7 +799,7 @@ declare namespace settings {
    * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
    * the database.
    * @param name Indicates the name of the character string.
-   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
    * @deprecated since 9
@@ -814,7 +814,7 @@ declare namespace settings {
    * @param context Indicates the Context or dataAbilityHelper used to access
    * the database.
    * @param name Indicates the name of the character string.
-   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @StageModelOnly
    */
@@ -828,7 +828,7 @@ declare namespace settings {
    * the database.
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
@@ -844,7 +844,7 @@ declare namespace settings {
    * @param context Indicates Context or dataAbilityHelper instance
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @StageModelOnly
    */
    function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
@@ -855,7 +855,7 @@ declare namespace settings {
    *
    * @param enable Specifies whether to enable airplane mode. The value {@code true} means to enable airplane
    * mode, and {@code false} means to disable airplane mode.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
@@ -865,7 +865,7 @@ declare namespace settings {
    * Checks whether a specified application can show as float window.
    *
    * @param context Indicates the application context.
-   * @return Returns {@code true} if the application can draw over other applications; returns {@code false}
+   * @returns Returns {@code true} if the application can draw over other applications; returns {@code false}
    * otherwise.
    * @since 7
    */
@@ -876,7 +876,7 @@ declare namespace settings {
    * get settingsdata uri(synchronization method)
    * @since 8
    * @param name Indicates the name of the setting to set.
-   * @return Returns settingsdata uri.
+   * @returns Returns settingsdata uri.
    */
    function getUriSync(name: string): string;
 
@@ -886,7 +886,7 @@ declare namespace settings {
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
-    * @return settingsdata value
+    * @returns settingsdata value
     * @deprecated since 9
     * @FAModelOnly
     */
@@ -898,7 +898,7 @@ declare namespace settings {
     * @param context Indicates Context or dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
-    * @return settingsdata value
+    * @returns settingsdata value
     * @StageModelOnly
     */
    function getValueSync(context: Context, name: string, defValue: string): string;
@@ -910,7 +910,7 @@ declare namespace settings {
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
-    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
     * @deprecated since 9
     * @FAModelOnly
     */
@@ -923,7 +923,7 @@ declare namespace settings {
     * @param context Indicates Context or dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
-    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
     * @StageModelOnly
     */
    function setValueSync(context: Context, name: string, value: string): boolean;
