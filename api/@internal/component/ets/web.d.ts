@@ -24,19 +24,19 @@ declare enum WebDarkMode {
    * open dark mode.
    * @since 9
    */
-  ON,
+  On,
 
     /**
    * close dark mode.
    * @since 9
    */
-  OFF,
+  Off,
 
   /**
    * follow up system.
    * @since 9
    */
-  AUTO,
+  Auto,
 }
 
 /**
