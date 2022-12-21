@@ -25,6 +25,15 @@ import {Resource} from 'GlobalResource';
  * @syscap SystemCapability.Web.Webview.Core
  */
 declare namespace webview {
+
+	/**
+     * Provides a method for the callback of web initialization completion
+     * @type web inited
+	 * @callback the callback of web initialization completion
+     * @since 9
+     */
+	once(type: "webInited", callback: AsyncCallback<void>) : void;
+
     /**
      * Defines the Web's request/response header.
      * @since 9
@@ -495,7 +504,7 @@ declare namespace webview {
        * Set whether support cors
        * @since 9
        */
-      isSupportCors: boolean;
+      isSupportCORS: boolean;
 
       /**
        * Set whether support fetch
@@ -932,15 +941,6 @@ declare namespace webview {
          */
         getUrl(): string;
 
-        /**
-         * Register web initializatied callback event.
-         *
-         *
-         * @param { AsyncCallback } web initializatied callback event.
-         *
-         * @since 9
-         */
-        static registerWebInitedCallback(callback: AsyncCallback<void>): void;
 		/**
          * Set Custom schemes.
          *
@@ -950,6 +950,15 @@ declare namespace webview {
          * @since 9
          */
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+
+		/**
+         * Set audio Mute.
+         *
+         * @param mute set whether to mute.
+         *
+         * @since 9
+         */
+		setAudioMuted(mute: boolean): void;
     }
 }
 

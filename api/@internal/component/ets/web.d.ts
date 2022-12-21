@@ -16,6 +16,30 @@
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
 
 /**
+ * The Web's behavior to set dark mode.
+ * @since 9
+ */
+declare enum WebDarkMode {
+  /**
+   * open dark mode.
+   * @since 9
+   */
+  ON,
+
+    /**
+   * close dark mode.
+   * @since 9
+   */
+  OFF,
+
+  /**
+   * follow up system.
+   * @since 9
+   */
+  AUTO,
+}
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
  */
@@ -1925,6 +1949,32 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
+
+  /**
+   * Set dark mode.
+   * @param mode dark mode.
+   *
+   * @since 9
+   */
+  darkMode(mode: WebDarkMode) : WebAttribute;
+
+  /**
+   * Set whether to allow window opening.
+   *
+   * @param flag  whether to allow window opening.
+   *
+   * @since 9
+   */
+  allowWindowOpenMethod(flag: boolean): WebAttribute;
+
+  /**
+   * Set logical font size.
+   *
+   * @param size logical font size.
+   *
+   * @since 9
+   */
+  minLogicalFontSize(size: number) : WebAttribute;
 }
 
 declare const Web: WebInterface;
