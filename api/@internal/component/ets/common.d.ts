@@ -679,6 +679,30 @@ declare enum SourceType {
 }
 
 /**
+ * Defines the event tool type.
+ * @since 9
+ */
+declare enum SourceTool {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * The finger type.
+   * @since 9
+   */
+  FINGER,
+
+  /**
+   * The pen type.
+   * @since 9
+   */
+  PEN,
+}
+
+/**
  * Defines the Border Image Repeat Mode.
  * @since 9
  */
@@ -757,6 +781,30 @@ declare interface BaseEvent {
    * @since 8
    */
   source: SourceType;
+
+  /**
+   * Touch pressure.
+   * @since 9
+   */
+  pressure: number;
+
+  /**
+   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * @since 9
+   */
+  tiltX: number;
+
+  /**
+   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * @since 9
+   */
+  tiltY: number;
+
+  /**
+   * The event tool type info.
+   * @since 9
+   */
+  sourceTool: SourceTool;
 }
 
 /**
