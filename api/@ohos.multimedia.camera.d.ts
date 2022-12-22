@@ -27,20 +27,11 @@ declare namespace camera {
   /**
    * Creates a CameraManager instance.
    * @param context Current application context.
-   * @param callback Callback used to return the CameraManager instance.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   */
-  function getCameraManager(context: Context, callback: AsyncCallback<CameraManager>): void;
-
-  /**
-   * Creates a CameraManager instance.
-   * @param context Current application context.
    * @returns Promise used to return the CameraManager instance.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
-  function getCameraManager(context: Context): Promise<CameraManager>;
+  function getCameraManager(): CameraManager;
 
   /**
    * Enum for camera status.
@@ -1103,7 +1094,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     isExposureModeSupported(aeMode: ExposureMode): Promise<boolean>;
- 
+
     /**
      * Gets current exposure mode.
      * @param callback Callback used to return the current exposure mode.
@@ -1221,7 +1212,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getExposureValue(): Promise<number>;
-  
+
       /**
      * Checks whether a specified focus mode is supported.
      * @param afMode Focus mode.
@@ -1323,7 +1314,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getFocalLength(): Promise<number>;
- 
+
     /**
      * Gets all supported zoom ratio range.
      * @param callback Callback used to return the zoom ratio range.
@@ -1407,7 +1398,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getActiveVideoStabilizationMode(): Promise<VideoStabilizationMode>;
- 
+
     /**
      * Set video stabilization mode.
      * @param mode video stabilization mode to set.
