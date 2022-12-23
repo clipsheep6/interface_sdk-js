@@ -50,6 +50,22 @@ declare namespace router {
   interface RouterOptions {
 
     /**
+     * Just used in pushUrl and replaceUrl rather than the deprecated functions push and replace.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @type {string}
+     * @since 9
+     */
+    bundleName?: string;
+
+    /**
+     * Just used in pushUrl and replaceUrl rather than the deprecated functions push and replace.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @type {string}
+     * @since 9
+     */
+    moduleName?: string;
+
+    /**
      * URI of the destination page, which supports the following formats:
      * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
      *    Example:
@@ -154,7 +170,7 @@ declare namespace router {
    */
   function pushUrl(options: RouterOptions): Promise<void>;
 
-   /**
+  /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
    * @param { RouterMode } mode - RouterMode.
