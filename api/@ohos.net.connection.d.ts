@@ -54,7 +54,7 @@ declare namespace connection {
    *
    * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
-   * @return Returns the {@link NetHandle} object;
+   * @returns Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
