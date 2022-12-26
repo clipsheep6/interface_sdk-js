@@ -40,6 +40,8 @@ declare namespace connection {
   /**
    * Obtains the data network that is activated by default.
    *
+   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
    * @param callback Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -52,7 +54,7 @@ declare namespace connection {
    *
    * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
-   * @returns Returns the {@link NetHandle} object;
+   * @return Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
@@ -63,6 +65,8 @@ declare namespace connection {
   /**
    * Obtains the list of data networks that are activated.
    *
+   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    */
@@ -71,6 +75,8 @@ declare namespace connection {
 
   /**
    * Queries the connection properties of a network.
+   *
+   * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the network to be queried.
    * @param callback Returns the {@link ConnectionProperties} object.
@@ -81,6 +87,8 @@ declare namespace connection {
 
   /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   *
+   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the handle. See {@link NetHandle}.
    * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
