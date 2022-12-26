@@ -48,4 +48,13 @@ export default class AppStateData {
      * @systemapi hide for inner use.
      */
     state: number;
+
+    /**
+     * Whether the application is focused.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isFocused: boolean;
 }

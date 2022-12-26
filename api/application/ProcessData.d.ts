@@ -75,4 +75,13 @@ export default class ProcessData {
      * @systemapi hide for inner use.
      */
     isKeepAlive: boolean;
+
+    /**
+     * Whether the process is focused.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isFocused: boolean;
 }

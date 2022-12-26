@@ -72,4 +72,13 @@ export interface AbilityRunningInfo {
     * @systemapi hide this for inner system use
     */
     abilityState: abilityManager.AbilityState;
+
+    /**
+     * Whether the ability is focused.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isFocused: boolean;
 }

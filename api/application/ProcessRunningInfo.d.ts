@@ -58,4 +58,13 @@ export interface ProcessRunningInfo {
      * @useinstead ProcessRunningInformation.bundleNames
      */
     bundleNames: Array<string>;
+
+    /**
+     * Whether the process is focused.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isFocused: boolean;
 }

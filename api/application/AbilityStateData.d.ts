@@ -84,4 +84,13 @@ export default class AbilityStateData {
      * @systemapi hide for inner use.
      */
     abilityType: number;
+
+    /**
+     * Whether the ability is focused.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isFocused: boolean;
 }
