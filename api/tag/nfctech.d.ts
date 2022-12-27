@@ -23,15 +23,13 @@ import { AsyncCallback, Callback } from '../basic';
  * {@code NfcATag} objects and obtain the ATQA and SAK.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcATag extends TagSession {
   /**
    * Obtains the SAK of an NFC-A tag.
    *
    * @returns Returns the SAK of the NFC-A tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getSak(): number;
@@ -40,8 +38,6 @@ export interface NfcATag extends TagSession {
    * Obtains the ATQA of an NFC-A tag.
    *
    * @returns Returns the ATQA of the NFC-A tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getAtqa(): number[];
@@ -54,15 +50,13 @@ export interface NfcATag extends TagSession {
  * {@code NfcBTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcBTag extends TagSession {
   /**
    * Obtains the application data of a tag.
    *
    * @returns Returns the application data of the tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getRespAppData(): number[];
@@ -71,8 +65,6 @@ export interface NfcBTag extends TagSession {
    * Obtains the protocol information of a tag.
    *
    * @returns Returns the protocol information of the tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getRespProtocol(): number[];
@@ -85,15 +77,13 @@ export interface NfcBTag extends TagSession {
  * {@code NfcFTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcFTag extends TagSession {
   /**
    * Obtains the system code from this {@code NfcFTag} instance.
    *
    * @returns Returns the system code.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getSystemCode(): number[];
@@ -102,8 +92,6 @@ export interface NfcFTag extends TagSession {
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
    *
    * @returns Returns the PMm.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getPmm(): number[];
@@ -116,15 +104,13 @@ export interface NfcFTag extends TagSession {
  * {@code NfcVTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcVTag extends TagSession {
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
    * @returns Returns the response flags.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getResponseFlags(): number;
@@ -133,8 +119,6 @@ export interface NfcVTag extends TagSession {
    * Obtains the data storage format identifier (DSFID) from this {@code NfcVTag} instance.
    *
    * @returns Returns the DSFID.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getDsfId(): number;
@@ -144,7 +128,7 @@ export interface NfcVTag extends TagSession {
  * Provides methods for accessing IsoDep tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface IsoDepTag extends TagSession {
  /**
@@ -184,6 +168,7 @@ export interface NdefMessage {
   * Obtains all records of an NDEF message.
   *
   * @returns { tag.NdefRecord[] } Records the list of NDEF records.
+  * @syscap SystemCapability.Communication.NFC.Tag
   * @since 9
   */
   getNdefRecords(): tag.NdefRecord[];
@@ -193,7 +178,7 @@ export interface NdefMessage {
  * Provides methods for accessing NDEF tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NdefTag extends TagSession {
  /**
@@ -284,7 +269,7 @@ export interface NdefTag extends TagSession {
  * Provides methods for accessing MifareClassic tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface MifareClassicTag extends TagSession {
  /**
@@ -345,10 +330,10 @@ export interface MifareClassicTag extends TagSession {
   incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void;
 
  /**
-  * Decrements the contents of a block, and stores the result in the internal transfer buffer.
+  * Decreases the contents of a block, and stores the result in the internal transfer buffer.
   *
-  * @param { number } blockIndex - The index of block to decrement.
-  * @param { number } value - The value to decrement, none-negative.
+  * @param { number } blockIndex - The index of block to decrease.
+  * @param { number } value - The value to decrease, none-negative.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
@@ -451,7 +436,7 @@ export interface MifareClassicTag extends TagSession {
  * Provides methods for accessing MifareUltralight tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface MifareUltralightTag extends TagSession {
  /**
@@ -495,7 +480,7 @@ export interface MifareUltralightTag extends TagSession {
  * Provides methods for accessing NdefFormatable tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NdefFormatableTag extends TagSession {
  /**

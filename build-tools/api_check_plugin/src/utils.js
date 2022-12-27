@@ -87,6 +87,12 @@ const ErrorLevel = {
 }
 exports.ErrorLevel = ErrorLevel;
 
+const FileType = {
+  API: 'Api',
+  JSDOC: 'JsDoc'
+}
+exports.FileType = FileType;
+
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
 
@@ -159,3 +165,14 @@ function getApiInfo(node) {
   return apiInfo;
 }
 exports.getApiInfo = getApiInfo;
+
+function getApiVersion(node) {
+  if (getApiInfo(node).version) {
+    return getApiInfo(node).version;
+  } else if (node.parent) {
+    return getApiVersion(node.parent);
+  } else {
+    return 'NA';
+  }
+}
+exports.getApiVersion = getApiVersion;
