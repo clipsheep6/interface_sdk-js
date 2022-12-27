@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,28 +17,36 @@ import { AsyncCallback } from './basic';
 
 /**
  * System time and timezone.
- * @since 7
+ * @since 9
  * @syscap SystemCapability.MiscServices.Time
- * @deprecated since 9
- * @useinstead ohos.time
  */
-declare namespace systemTime {
+declare namespace time {
     /**
      * Sets the system time.
      * @permission ohos.permission.SET_TIME
-     * @param time Target time stamp (ms)
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.time/time.setTime
+     * @param { number } time - Target time stamp (ms)
+     * @param { AsyncCallback<void> } callback - The callback of setTime
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
+
     function setTime(time : number, callback : AsyncCallback<void>) : void;
+    /**
+     * Sets the system time.
+     * @permission ohos.permission.SET_TIME
+     * @param { number } time - Target time stamp (ms)
+     * @returns { Promise<void> } The promise returned by the function
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
+     */
     function setTime(time : number) : Promise<void>;
 
     /**
      * Obtains the number of milliseconds that have elapsed since the Unix epoch.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.time/time.getCurrentTime
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
     function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
     function getCurrentTime(callback: AsyncCallback<number>): void;
@@ -46,9 +54,8 @@ declare namespace systemTime {
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.time/time.getRealActiveTime
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
     function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
     function getRealActiveTime(callback: AsyncCallback<number>): void;
@@ -56,9 +63,8 @@ declare namespace systemTime {
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.time/time.getRealTime
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
     function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
     function getRealTime(callback: AsyncCallback<number>): void;
@@ -68,18 +74,17 @@ declare namespace systemTime {
      * Sets the system time.
      * @permission ohos.permission.SET_TIME
      * @param date The target date
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.time/time.setDate
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
     function setDate(date: Date): Promise<void>;
 
     /**
      * Obtains the system date.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.time/time.getDate
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
     function getDate(callback: AsyncCallback<Date>): void;
     function getDate(): Promise<Date>;
@@ -88,21 +93,20 @@ declare namespace systemTime {
      * Sets the system time zone.
      * @permission ohos.permission.SET_TIME_ZONE
      * @param timezone The system time zone
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.time/time.setTimezone
+     * @throws {BusinessError} 201 - Permission denied
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
     function setTimezone(timezone: string): Promise<void>;
 
       /**
      * Obtains the system time zone.
-     * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.time/time.getTimezone
+     * @throws { BusinessError } 401 - Invalid parameters
+     * @since 9
      */  
     function getTimezone(callback: AsyncCallback<string>): void;
     function getTimezone(): Promise<string>;
 }
 
-export default systemTime;
+export default time;
