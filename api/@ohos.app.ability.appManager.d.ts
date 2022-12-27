@@ -267,7 +267,6 @@ declare namespace appManager {
      * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @since 9
      */
     function getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
@@ -278,7 +277,6 @@ declare namespace appManager {
      * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @since 9
      */
     function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
