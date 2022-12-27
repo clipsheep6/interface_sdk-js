@@ -171,6 +171,45 @@ declare namespace relationalStore
          S4 = 4,
     }
 
+    enum ConflictResolution {
+        /**
+         * Performs no operation when a conflict occurs.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        ON_CONFLICT_NONE,
+        /**
+         * Aborts the current SQL statement and rolls back the current transaction when a constraint violation occurs.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        ON_CONFLICT_ROLLBACK,
+        /**
+         * Aborts the current SQL statement and discards any changes made by the current SQL statement when a constraint violation occurs.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        ON_CONFLICT_ABORT,
+        /**
+         * Aborts the current SQL statement when a constraint violation occurs.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        ON_CONFLICT_FAIL,
+        /**
+         * Skips the one row that encounters a constraint violation and continues processing subsequent rows of the SQL statement.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        ON_CONFLICT_IGNORE,
+        /**
+         * Deletes pre-existing rows that encounter a UNIQUE or PRIMARY KEY constraint violation prior to inserting or updating of the current row and continues command execution.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        ON_CONFLICT_REPLACE,
+    }
+
     /**
      * Provides methods for managing the relational database (RDB).
      *
@@ -203,6 +242,32 @@ declare namespace relationalStore
          * @since 9
          */
         insert(table: string, values: ValuesBucket): Promise<number>;
+
+        /**
+         * Inserts a row of data into the target table with conflictResolution.
+         *
+         * @param {string} table - Indicates the row of data to be inserted into the table.
+         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @param {ConflictResolution} conflictResolution Indicates the type of the method for resolving conflict.
+         * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        insert(table: string, values: ValuesBucket, conflictResolution: ConflictResolution, callback: AsyncCallback<number>): void;
+
+        /**
+         * Inserts a row of data into the target table with conflictResolution.
+         *
+         * @param {string} table - Indicates the row of data to be inserted into the table.
+         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @param {ConflictResolution} conflictResolution Indicates the type of the method for resolving conflict.
+         * @returns {Promise<void>} return the row ID if the operation is successful. return -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        insert(table: string, values: ValuesBucket, conflictResolution: ConflictResolution): Promise<number>;
 
         /**
          * Inserts a batch of data into the target table.
@@ -251,6 +316,32 @@ declare namespace relationalStore
          * @since 9
          */
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
+
+        /**
+         * Updates data in the database based on a specified instance object of RdbPredicates and conflictResolution.
+         *
+         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+         * @param {ConflictResolution} conflictResolution Indicates the type of the method for resolving conflict.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        update(values: ValuesBucket, predicates: RdbPredicates, conflictResolution: ConflictResolution, callback: AsyncCallback<number>): void;
+
+        /**
+         * Updates data in the database based on a specified instance object of RdbPredicates and conflictResolution.
+         *
+         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+         * @param {ConflictResolution} conflictResolution Indicates the type of the method for resolving conflict.
+         * @returns {Promise<number>} return the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        update(values: ValuesBucket, predicates: RdbPredicates, conflictResolution: ConflictResolution): Promise<number>;
 
         /**
          * Updates data in the database based on a a specified instance object of RdbPredicates.
