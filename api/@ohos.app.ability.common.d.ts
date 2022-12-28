@@ -117,15 +117,6 @@ declare namespace common {
     export type EventHub = _EventHub.default
 
     /**
-     * The result of requestPermissionsFromUser with asynchronous callback.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     */
-    export type PermissionRequestResult = _PermissionRequestResult.default
-
-    /**
      * Defines a PacMap object for storing a series of values.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly

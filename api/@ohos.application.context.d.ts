@@ -107,16 +107,6 @@ declare namespace context {
      * @StageModelOnly
      */
     export type EventHub = _EventHub.default
-
-    /**
-     * The result of requestPermissionsFromUser with asynchronous callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @deprecated since 9
-     */
-    export type PermissionRequestResult = _PermissionRequestResult.default
 }
 
 export default context;
