@@ -20,26 +20,25 @@ import { AsyncCallback } from './basic';
  * @since 9
  * @syscap SystemCapability.MiscServices.Time
  */
-declare namespace time {
+declare namespace systemDateTime {
     /**
      * Sets the system time.
-     * @permission ohos.permission.SET_TIME
      * @param { number } time - Target time stamp (ms)
      * @param { AsyncCallback<void> } callback - The callback of setTime
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid parameters
      * @since 9
+     * @systemapi Hide this for inner system use
      */
-
     function setTime(time : number, callback : AsyncCallback<void>) : void;
     /**
      * Sets the system time.
-     * @permission ohos.permission.SET_TIME
      * @param { number } time - Target time stamp (ms)
      * @returns { Promise<void> } The promise returned by the function
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid parameters
      * @since 9
+     * @systemapi Hide this for inner system use
      */
     function setTime(time : number) : Promise<void>;
 
@@ -72,11 +71,11 @@ declare namespace time {
 
     /**
      * Sets the system time.
-     * @permission ohos.permission.SET_TIME
      * @param date The target date
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid parameters
      * @since 9
+     * @systemapi Hide this for inner system use
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
     function setDate(date: Date): Promise<void>;
@@ -91,11 +90,11 @@ declare namespace time {
 
     /**
      * Sets the system time zone.
-     * @permission ohos.permission.SET_TIME_ZONE
      * @param timezone The system time zone
-     * @throws {BusinessError} 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Invalid parameters
      * @since 9
+     * @systemapi Hide this for inner system use
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
     function setTimezone(timezone: string): Promise<void>;
@@ -109,4 +108,4 @@ declare namespace time {
     function getTimezone(): Promise<string>;
 }
 
-export default time;
+export default systemDateTime;

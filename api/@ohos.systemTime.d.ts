@@ -29,7 +29,6 @@ declare namespace systemTime {
      * @param time Target time stamp (ms)
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.time/time.setTime
      */
     function setTime(time : number, callback : AsyncCallback<void>) : void;
     function setTime(time : number) : Promise<void>;
@@ -70,7 +69,6 @@ declare namespace systemTime {
      * @param date The target date
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.time/time.setDate
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
     function setDate(date: Date): Promise<void>;
@@ -90,7 +88,6 @@ declare namespace systemTime {
      * @param timezone The system time zone
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.time/time.setTimezone
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
     function setTimezone(timezone: string): Promise<void>;
