@@ -47,7 +47,7 @@ declare namespace abilityManager {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { Configuration } config - Indicates the new configuration.
      * @param { AsyncCallback<void> } callback - The callback of updateConfiguration.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -59,7 +59,7 @@ declare namespace abilityManager {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { Configuration } config - Indicates the new configuration.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -70,7 +70,7 @@ declare namespace abilityManager {
      * Get information about running abilities
      * @permission ohos.permission.GET_RUNNING_INFO
      * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -81,7 +81,7 @@ declare namespace abilityManager {
      * Get information about the running ability
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The callback is used to return the array of AbilityRunningInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -93,7 +93,7 @@ declare namespace abilityManager {
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { number } upperLimit - Get the maximum limit of the number of messages.
      * @returns { Promise<Array<ExtensionRunningInfo>> } Returns the array of ExtensionRunningInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -105,7 +105,7 @@ declare namespace abilityManager {
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { number } upperLimit - Get the maximum limit of the number of messages.
      * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - The callback is used to return the array of ExtensionRunningInfo.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -115,7 +115,7 @@ declare namespace abilityManager {
     /**
      * Get the top ability information of the display.
      * @returns { Promise<ElementName> } Returns the elementName info of the top ability.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
@@ -125,7 +125,7 @@ declare namespace abilityManager {
     /**
      * Get the top ability information of the display.
      * @param { AsyncCallback<ElementName> } callback - The callback is used to return the elementName info of the top ability.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000050 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
