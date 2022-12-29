@@ -1092,7 +1092,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        serializeWebState() : Uint8Array
+        serializeWebState() : Uint8Array;
 
         /**
          * Restoring the web access stack, that is, the history of access.
@@ -1103,7 +1103,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
-        restoreWebState(state: Uint8Array) : void
+        restoreWebState(state: Uint8Array) : void;
     }
 }
 
