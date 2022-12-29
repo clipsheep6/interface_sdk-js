@@ -129,83 +129,93 @@ export class Locale {
     /**
      * Indicates the language of the locale.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    language: string
+    readonly language: string
 
     /**
      * Indicates the script of the locale.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    script: string
+    readonly script: string
 
     /**
      * Indicates the region of the locale.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    region: string
+    readonly region: string
 
     /**
      * Indicates the basic locale information, which is returned as a substring of
      * a complete locale string.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    baseName: string
+    readonly baseName: string
 
     /**
      * Indicates the case first style of the locale.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    caseFirst: string
+    readonly caseFirst: string
 
     /**
      * Indicates the calendar.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    calendar: string
+    readonly calendar: string
 
     /**
      * Indicates the collation.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    collation: string
+    readonly collation: string
 
     /**
      * Indicates the hour cycle.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    hourCycle:  string
+    readonly hourCycle:  string
 
     /**
      * Indicates the numbering system.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    numberingSystem: string
+    readonly numberingSystem: string
 
     /**
      * Indicates whether it is numeric.
      *
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    numeric: boolean
+    readonly numeric: boolean
 
     /**
      * Convert the locale information to string.
@@ -251,10 +261,11 @@ export interface DateTimeOptions {
     /**
      * Indicates the locale.
      * @type { string } [ locale ]
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    locale?: string
+    readonly locale?: string
 
     /**
      * Indicates the dateStyle.
@@ -582,10 +593,11 @@ export interface NumberOptions {
     /**
      * Indicates the locale.
      * @type { string } [ locale ]
+     * @readonly
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
-    locale?: string
+    readonly locale?: string
 
     /**
      * Indicates the currency.
