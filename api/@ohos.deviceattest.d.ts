@@ -18,11 +18,10 @@ import { AsyncCallback, Callback } from './basic';
  * 描述
  *
  * @since 9
- * @syscap 
- * @import import devattest from '@ohos.deviceattest'
- * @permission 
+ * @syscap SystemCapability.XTS.DeviceAttest
+ * @import import deviceattest from '@ohos.deviceattest'
  */
-declare namespace devattest {
+declare namespace deviceattest {
     /**
      * Obtains the AttestResultInfo object.
      *
@@ -52,4 +51,4 @@ declare namespace devattest {
     }
 }
 
-export default devattest;
+export default deviceattest;
