@@ -908,7 +908,7 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseData(data: string);
+  setResponseData(data: string | number);
 
   /**
    * Sets the response encoding.
@@ -949,6 +949,14 @@ declare class WebResourceRequest {
    * @since 9
    */
   setResponseCode(code: number);
+
+  /**
+   * Sets the response is ready or not.
+   * @param IsReady whether the response is ready.
+   *
+   * @since 9
+   */
+   setResponseIsReady(IsReady: boolean);
 }
 
 /**
