@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from './basic';
+import { AsyncCallback } from './basic';
 
 /**
  * System time and timezone.
  * @since 7
  * @syscap SystemCapability.MiscServices.Time
+ * @deprecated since 9
+ * @useinstead ohos.systemDateTime
  */
 declare namespace systemTime {
     /**
@@ -26,6 +28,8 @@ declare namespace systemTime {
      * @permission ohos.permission.SET_TIME
      * @param time Target time stamp (ms)
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.setTime
      */
     function setTime(time : number, callback : AsyncCallback<void>) : void;
     function setTime(time : number) : Promise<void>;
@@ -33,6 +37,8 @@ declare namespace systemTime {
     /**
      * Obtains the number of milliseconds that have elapsed since the Unix epoch.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.getCurrentTime
      */
     function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
     function getCurrentTime(callback: AsyncCallback<number>): void;
@@ -41,6 +47,8 @@ declare namespace systemTime {
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.getRealActiveTime
      */
     function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
     function getRealActiveTime(callback: AsyncCallback<number>): void;
@@ -49,6 +57,8 @@ declare namespace systemTime {
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.getRealTime
      */
     function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
     function getRealTime(callback: AsyncCallback<number>): void;
@@ -59,6 +69,8 @@ declare namespace systemTime {
      * @permission ohos.permission.SET_TIME
      * @param date The target date
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.setDate
      */
     function setDate(date: Date, callback: AsyncCallback<void>): void;
     function setDate(date: Date): Promise<void>;
@@ -66,6 +78,8 @@ declare namespace systemTime {
     /**
      * Obtains the system date.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.getDate
      */
     function getDate(callback: AsyncCallback<Date>): void;
     function getDate(): Promise<Date>;
@@ -75,14 +89,18 @@ declare namespace systemTime {
      * @permission ohos.permission.SET_TIME_ZONE
      * @param timezone The system time zone
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.setTimezone
      */
     function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
     function setTimezone(timezone: string): Promise<void>;
 
-      /**
+    /**
      * Obtains the system time zone.
      * @since 8
-     */  
+     * @deprecated since 9
+     * @useinstead ohos.systemDateTime.getTimezone
+     */
     function getTimezone(callback: AsyncCallback<string>): void;
     function getTimezone(): Promise<string>;
 }
