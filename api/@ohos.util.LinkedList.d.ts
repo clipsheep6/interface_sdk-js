@@ -42,7 +42,7 @@ declare class LinkedList<T> {
    * @param element element to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -110,7 +110,7 @@ declare class LinkedList<T> {
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -184,7 +184,7 @@ declare class LinkedList<T> {
    * @param index index to find
    * @returns the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -192,7 +192,7 @@ declare class LinkedList<T> {
   set(index: number, element: T): T;
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.
+   * @param callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the linkedlist,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -204,7 +204,7 @@ declare class LinkedList<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
   thisArg?: Object): void;
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will

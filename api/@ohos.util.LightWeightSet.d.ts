@@ -66,7 +66,7 @@ declare class LightWeightSet<T> {
    */
   has(key: T): boolean;
   /**
-   * Checks whether an the objects of an LightWeighSet containeer are of the same type as a specified Object LightWeightSet
+   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
    * @param obj need to determine whether to include the obj
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
@@ -75,12 +75,12 @@ declare class LightWeightSet<T> {
    */
   equal(obj: Object): boolean;
   /**
-   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a apecified value,
+   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of minimumCapacity is out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -129,7 +129,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: T, key?: T, set?: LightWeightSet<T>) => void,
+  forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
