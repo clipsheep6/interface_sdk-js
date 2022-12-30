@@ -1082,6 +1082,28 @@ declare namespace webview {
          * @since 9
          */
         removeCache(clearRom: boolean): void;
+
+        /**
+         * Serialize the access stack of the web, that is, the history of access.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { Uint8Array } Web access stack after serialization.
+         *
+         * @since 9
+         */
+        serializeWebState() : Uint8Array;
+
+        /**
+         * Restoring the web access stack, that is, the history of access.
+         * 
+         * @param { Uint8Array } state - Web access stack after serialization.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @since 9
+         */
+        restoreWebState(state: Uint8Array) : void;
     }
 }
 
