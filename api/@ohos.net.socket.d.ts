@@ -49,6 +49,26 @@ declare namespace socket {
    */
   function constructTLSSocketInstance(): TLSSocket;
 
+  /**
+   * Creates a LocalSocket object by socket type.
+   *
+   * @since 10
+   */
+  function constructLocalSocketInstance(sockType?: LocalSocketType): LocalSocket;
+
+  /**
+   * Creates a LocalSocket object by file description.
+   *
+   * @since 10
+   */
+  function constructLocalSocketInstance(fd : number): LocalSocket;
+
+  /**
+   * Creates a LocalSocketServer object by name.
+   *
+   * @since 10
+   */
+  function constructLocalSocketServerInstance(name: String): LocalSocketServer;
   export interface UDPSendOptions {
     /**
      * Data to send.
@@ -603,6 +623,224 @@ declare namespace socket {
   export enum Protocol {
     TLSv12 = "TLSv1.2",
     TLSv13 = "TLSv1.3",
+  }
+
+  /**
+   * @since 10
+   */
+  export enum LocalSocketType {
+
+    /**
+     * Streaming data transmission mode, namely TCP.
+     */
+    STREAM = "STREAM",
+
+    /**
+     * Packet data mode, namely: UDP.
+     */
+    DGRAM = "DGRAM"
+  }
+
+  /**
+   * @since 10
+   */
+  export enum LocalSocketNameMode {
+
+    /**
+     * Abstract name pattern, eg: com.company.xxx.
+     */
+    ABSTRACT = 0,
+
+    /**
+     * System file path mode, eg: xxx/xxx/xxx.
+     */
+    SYSTEAM = 1,
+
+    /**
+     * System cfg configuration path mode, eg: dev/unix/socket/xxx.
+     */
+    CONFIG = 2
+  }
+
+  /**
+   * @since 10
+   */
+  export interface LocalSocketAddress {
+
+    /**
+     * Local Socket File name.
+     */
+    name: string;
+
+    /**
+     * Local Socket File name mode.
+     */
+    namemode: LocalSocketNameMode;
+  }
+
+  /**
+   * @since 10
+   */
+  export interface LocalSocket {
+
+    /**
+     * Bind the specified LocalSocket address.
+     *
+     * @param address Local Socket Address.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2305100 - Address Already Bound.
+     * @throws {BusinessError} 2305204 - Error bind socket.
+     */
+    bind(address: LocalSocketAddress, callback: AsyncCallback<void>): void;
+    bind(address: LocalSocketAddress): Promise<void>;
+
+    /**
+     * Connect the specified LocalSocket address.
+     *
+     * @param address Local Socket Address.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2305101 - Address Already Connect.
+     * @throws {BusinessError} 2305205 - Error connect socket.
+     */
+    connect(address: LocalSocketAddress, callback: AsyncCallback<void>): void;
+    connect(address: LocalSocketAddress): Promise<void>;
+
+    /**
+     * Sends data over a LocalSocket connection.
+     *
+     * @param data Optional parameters {@link string}.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2305202 - Error socket not created.
+     * @throws {BusinessError} 2305211 - Error socket send data.
+     */
+    send(data: string | ArrayBuffer, callback: AsyncCallback<void>): void;
+    send(data: string | ArrayBuffer): Promise<void>;
+
+    /**
+     * Closes a LocalSocket connection
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2305202 - Error socket not created.
+     */
+    close(callback: AsyncCallback<void>): void;
+    close(): Promise<void>;
+
+    /**
+     * Obtains the status of the LocalSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link SocketStateBase}
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2305213 - Error get state.
+     */
+    getState(callback: AsyncCallback<SocketStateBase>): void;
+    getState(): Promise<SocketStateBase>;
+
+    /**
+     * Sets other attributes of the LocalSocket connection.
+     *
+     * @param options Optional parameters {@link ExtraOptionsBase}.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2305209 - Error set sokcet option.
+     */
+    setExtraOptions(options: ExtraOptionsBase, callback: AsyncCallback<void>): void;
+    setExtraOptions(options: ExtraOptionsBase): Promise<void>;
+
+    /**
+     * Listens for message receiving events of the LocalSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    on(type: 'message', callback: Callback<{ message: ArrayBuffer }>): void;
+
+    /**
+     * Cancels listening for message receiving events of the LocalSocket connection.
+     */
+    off(type: 'message', callback?: Callback<{ message: ArrayBuffer }>): void;
+
+    /**
+     * Listens for close events of the LocalSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    on(type: 'close', callback: Callback<void>): void;
+
+    /**
+    * Cancels listening for close events of the LocalSocket connection.
+    *
+    * @throws {BusinessError} 401 - Parameter error.
+    */
+    off(type: 'close', callback?: Callback<void>): void;
+
+    /**
+     * Listens for error events of the LocalSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+    * Cancels listening for error events of the LocalSocket connection.
+    *
+    * @throws {BusinessError} 401 - Parameter error.
+    */
+    off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * @since 10
+   */
+  export interface LocalSocketServer {
+
+    /**
+    * Closes a LocalSocket connection
+    *
+    * @throws {BusinessError} 401 - Parameter error.
+    * @throws {BusinessError} 2305202 - Error socket not created.
+    */
+    close(callback: AsyncCallback<void>): void;
+    close(): Promise<void>;
+
+    /**
+    * Listen for the event that the client has connected to the LocalSocket.
+    *
+    * @throws {BusinessError} 401 - Parameter error.
+    */
+    on(type: 'connect', callback: Callback<{ fd : number }>): void;
+
+    /**
+    * Cancels listen for the event that the client has connected to the LocalSocket.
+    *
+    * @throws {BusinessError} 401 - Parameter error.
+    */
+    off(type: 'connect', callback?: Callback<void>): void;
+
+     /**
+     * Listens for close events of the LocalSocketServer connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+     on(type: 'close', callback: Callback<void>): void;
+
+     /**
+     * Cancels listening for close events of the LocalSocketServer connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+     off(type: 'close', callback?: Callback<void>): void;
+
+     /**
+     * Listens for error events of the LocalSocketServer connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+     on(type: 'error', callback: ErrorCallback): void;
+
+     /**
+     * Cancels listening for error events of the LocalSocketServer connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     */
+     off(type: 'error', callback?: ErrorCallback): void;
   }
 }
 
