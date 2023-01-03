@@ -30,6 +30,7 @@ declare namespace deviceattest {
      * @systemapi
      */
     function GetAttestStatus(callback: AsyncCallback<AttestResultInfo>) : void;
+
     /**
      * Obtains the AttestResultInfo object.
      *
@@ -38,15 +39,41 @@ declare namespace deviceattest {
      * @systemapi
      */
     function GetAttestStatus() : Promise<AttestResultInfo>;
+
     /**
-     * AttestResultInfo structure
-     *
+     * Deviceattest result information.
+     * @typedef AttestResultInfo
+     * @syscap SystemCapability.XTS.DeviceAttest
      * @since 9
      */
     export interface AttestResultInfo {
+
+        /**
+         * Number of authResult.
+         * @type { number }
+         * @since 9
+         */
         authResult : number;
+
+        /**
+         * Number of softwareResult.
+         * @type { number }
+         * @since 9
+         */
         softwareResult : number;
+
+        /**
+         * Software result detail array.
+         * @type { Array<number> }
+         * @since 9
+         */
         softwareResultDetail? : Array<number>;
+
+        /**
+         * String of ticket.
+         * @type { string }
+         * @since 9
+         */
         ticket : string;
     }
 }
