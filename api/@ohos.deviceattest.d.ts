@@ -15,7 +15,7 @@
 import { AsyncCallback, Callback } from './basic';
 
  /**
- * 描述
+ * xts_device_attest authResult information
  *
  * @since 9
  * @syscap SystemCapability.XTS.DeviceAttest
@@ -67,7 +67,7 @@ declare namespace deviceattest {
          * @type { Array<number> }
          * @since 9
          */
-        softwareResultDetail? : Array<number>;
+        softwareResultDetail : Array<number>;
 
         /**
          * String of ticket.
