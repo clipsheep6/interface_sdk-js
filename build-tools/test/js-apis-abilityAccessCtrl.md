@@ -69,8 +69,6 @@ checkAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;Grant
 
 ```js
 import abilityAccessCtrl from '@ohos.abilityAccessCtrl';
-
-let atManager = abilityAccessCtrl.createAtManager();
 let tokenID = 0; // 可以通过getApplicationInfo获取accessTokenId
 try {
     atManager.checkAccessToken(tokenID, "ohos.permission.GRANT_SENSITIVE_PERMISSIONS").then((data) => {
