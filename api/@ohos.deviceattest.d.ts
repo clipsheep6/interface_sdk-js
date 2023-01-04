@@ -19,9 +19,9 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @since 9
  * @syscap SystemCapability.XTS.DeviceAttest
- * @import import deviceattest from '@ohos.deviceattest'
+ * @import import deviceAttest from '@ohos.deviceAttest'
  */
-declare namespace deviceattest {
+declare namespace deviceAttest {
     /**
      * Obtains the AttestResultInfo object.
      *
@@ -29,7 +29,7 @@ declare namespace deviceattest {
      * @since 9
      * @systemapi
      */
-    function GetAttestStatus(callback: AsyncCallback<AttestResultInfo>) : void;
+    function getAttestStatus(callback: AsyncCallback<AttestResultInfo>) : void;
 
     /**
      * Obtains the AttestResultInfo object.
@@ -38,13 +38,14 @@ declare namespace deviceattest {
      * @since 9
      * @systemapi
      */
-    function GetAttestStatus() : Promise<AttestResultInfo>;
+    function getAttestStatus() : Promise<AttestResultInfo>;
 
     /**
      * Deviceattest result information.
      * @typedef AttestResultInfo
      * @syscap SystemCapability.XTS.DeviceAttest
      * @since 9
+     * @systemapi
      */
     export interface AttestResultInfo {
 
@@ -78,4 +79,4 @@ declare namespace deviceattest {
     }
 }
 
-export default deviceattest;
+export default deviceAttest;
