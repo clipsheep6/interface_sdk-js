@@ -29,6 +29,10 @@ declare namespace sharing {
    * @param callback Returns {@code true} indicating network sharing is supported; returns {@code false} otherwise.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
+   * @throws {BusinessError} 2202011 - Get network card configuration is null.
    */
   function isSharingSupported(callback: AsyncCallback<boolean>): void;
   function isSharingSupported(): Promise<boolean>;
@@ -39,6 +43,9 @@ declare namespace sharing {
    * @param callback Returns {@code true} indicating network sharing is running; returns {@code false} otherwise.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error..
    */
   function isSharing(callback: AsyncCallback<boolean>): void;
   function isSharing(): Promise<boolean>;
@@ -50,6 +57,16 @@ declare namespace sharing {
    * @param callback Returns the result.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
+   * @throws {BusinessError} 2202004 - Try to share an unavailable iface.
+   * @throws {BusinessError} 2202005 - WiFi sharing failed.
+   * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
+   * @throws {BusinessError} 2202009 - Network share enable forwarding error.
+   * @throws {BusinessError} 2202011 - Get network card configuration is null.
+   * @throws {BusinessError} 2202012 - Sharing callback is null.
    */
   function startSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
   function startSharing(type: SharingIfaceType): Promise<void>;
@@ -61,6 +78,14 @@ declare namespace sharing {
    * @param callback Returns the result.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
+   * @throws {BusinessError} 2202005 - WiFi sharing failed.
+   * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
+   * @throws {BusinessError} 2202011 - Get network card configuration is null.
+   * @throws {BusinessError} 2202012 - Sharing callback is null.
    */
   function stopSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
   function stopSharing(type: SharingIfaceType): Promise<void>;
@@ -71,6 +96,9 @@ declare namespace sharing {
    * @param callback Returns the number of downlink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getStatsRxBytes(callback: AsyncCallback<number>): void;
   function getStatsRxBytes(): Promise<number>;
@@ -81,6 +109,9 @@ declare namespace sharing {
    * @param callback Returns the number of uplink data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getStatsTxBytes(callback: AsyncCallback<number>): void;
   function getStatsTxBytes(): Promise<number>;
@@ -91,6 +122,9 @@ declare namespace sharing {
    * @param callback Returns the number of total data bytes of the sharing network interfaces.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getStatsTotalBytes(callback: AsyncCallback<number>): void;
   function getStatsTotalBytes(): Promise<number>;
@@ -102,6 +136,10 @@ declare namespace sharing {
    * @param callback Returns an array of interface names that meet this status.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getSharingIfaces(state: SharingIfaceState, callback: AsyncCallback<Array<string>>): void;
   function getSharingIfaces(state: SharingIfaceState): Promise<Array<string>>;
@@ -113,6 +151,10 @@ declare namespace sharing {
    * @param callback Returns {@code SharingIfaceState}.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getSharingState(type: SharingIfaceType, callback: AsyncCallback<SharingIfaceState>): void;
   function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
@@ -125,6 +167,10 @@ declare namespace sharing {
    *        are considered to support network sharing.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getSharableRegexes(type: SharingIfaceType, callback: AsyncCallback<Array<string>>): void;
   function getSharableRegexes(type: SharingIfaceType): Promise<Array<string>>;
@@ -134,6 +180,8 @@ declare namespace sharing {
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: 'sharingStateChange', callback: Callback<boolean>): void;
 
@@ -142,6 +190,8 @@ declare namespace sharing {
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: 'sharingStateChange', callback?: Callback<boolean>): void;
 
@@ -150,6 +200,8 @@ declare namespace sharing {
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: 'interfaceSharingStateChange', callback: Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }>): void;
 
@@ -158,6 +210,8 @@ declare namespace sharing {
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: 'interfaceSharingStateChange', callback?: Callback<{ type: SharingIfaceType, iface: string, state: SharingIfaceState }>): void;
 
@@ -166,6 +220,8 @@ declare namespace sharing {
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: 'sharingUpstreamChange', callback: Callback<NetHandle>): void;
 
@@ -174,6 +230,8 @@ declare namespace sharing {
    *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: 'sharingUpstreamChange', callback?: Callback<NetHandle>): void;
 
@@ -207,7 +265,7 @@ declare namespace sharing {
     SHARING_WIFI = 0,
 
     /**
-     * This type is not supported temporarily
+     * Network sharing type for USB.
      */
     SHARING_USB = 1,
 
