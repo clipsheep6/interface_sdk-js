@@ -131,7 +131,6 @@ export default class Context extends BaseContext {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param { string } bundleName - Indicates the bundle name.
      * @returns { Context } Returns the application context.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
@@ -143,7 +142,6 @@ export default class Context extends BaseContext {
      * Create a module context
      * @param { string } moduleName - Indicates the module name.
      * @returns { Context } Returns the application context.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -155,7 +153,6 @@ export default class Context extends BaseContext {
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } moduleName - Indicates the module name.
      * @returns { Context } Returns the application context.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
