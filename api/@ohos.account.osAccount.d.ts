@@ -1073,7 +1073,7 @@ declare namespace osAccount {
          * @systemapi Hide this for inner system use.
          * @since 9
          */
-        registerInputer(authType: AuthType, inputer: IInputer): void;
+        static registerInputer(authType: AuthType, inputer: IInputer): void;
 
         /**
          * Unregister credential inputer by authentication type.
@@ -1086,7 +1086,60 @@ declare namespace osAccount {
          * @systemapi Hide this for inner system use.
          * @since 9
          */
-        unregisterInputer(authType: AuthType): void;
+        static unregisterInputer(authType: AuthType): void;
+    }
+
+    /**
+     * Provides the definition of domain plugin.
+     *
+     * @name DomainPlugin
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    interface DomainPlugin {
+        /**
+         * Authenticates the specified domain account.
+         *
+         * @param domainAccountInfo Indicates the domain account information for authentication.
+         * @param credential Indicates the credential for authentication.
+         * @param callback Indicates the authentication callback.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    }
+
+    /**
+     * Provides abilities for the management of domain account.
+     * @name DomainAccountManager
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    class DomainAccountManager {
+        /**
+         * Registers the domain plugin, which provides the capabilities for domain authentication.
+         *
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @param plugin Indicates the domain plugin.
+         * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 12300104 - the domain plugin has been registered.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        static registerPlugin(plugin: DomainPlugin): void;
+
+        /**
+         * Unregister domain plugin.
+         *
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        static unregisterPlugin(): void;
     }
 
     /**
