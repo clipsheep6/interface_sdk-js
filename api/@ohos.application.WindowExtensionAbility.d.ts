@@ -30,7 +30,7 @@ export default class WindowExtensionAbility {
     /**
      * Indicates window extension ability context.
      *
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi hide for inner use.
      * @StageModelOnly
