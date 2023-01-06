@@ -27,6 +27,10 @@ declare namespace deviceAttest {
      *
      * @param callback Indicates the callback containing the AttestResultInfo object.
      * @since 9
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.DEVICE_ATTEST_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 2000001 -  system service exception.
      * @systemapi
      */
     function getAttestStatus(callback: AsyncCallback<AttestResultInfo>) : void;
@@ -34,11 +38,28 @@ declare namespace deviceAttest {
     /**
      * Obtains the AttestResultInfo object.
      *
-     * @return Returns that the AttestResultInfo object is returned in Promise mode.
+     * @returns Returns that the AttestResultInfo object is returned in Promise mode.
      * @since 9
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.DEVICE_ATTEST_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 2000001 -  system service exception.
      * @systemapi
      */
     function getAttestStatus() : Promise<AttestResultInfo>;
+
+    /**
+     * Obtains the AttestResultInfo object.
+     *
+     * @returns Obtains the AttestResultInfo object synchronously.
+     * @since 9
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.DEVICE_ATTEST_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 2000001 -  system service exception.
+     * @systemapi
+     */
+    function getAttestStatusSync() : AttestResultInfo;
 
     /**
      * Deviceattest result information.
@@ -50,28 +71,33 @@ declare namespace deviceAttest {
     export interface AttestResultInfo {
 
         /**
-         * Number of authResult.
+         * Result of the device hardware information authentication.
+         *
          * @type { number }
          * @since 9
          */
         authResult : number;
 
         /**
-         * Number of softwareResult.
+         * Result of the device software information authentication.
+         *
          * @type { number }
          * @since 9
          */
         softwareResult : number;
 
         /**
-         * Software result detail array.
+         * Software result detail array that includes versionId, patchLevel,
+         * rootHash, pcid and a reserved space.
+         *
          * @type { Array<number> }
          * @since 9
          */
         softwareResultDetail : Array<number>;
 
         /**
-         * String of ticket.
+         * Credential sent from the cloud.
+         *
          * @type { string }
          * @since 9
          */
