@@ -27,7 +27,6 @@ declare namespace deviceAttest {
      *
      * @param callback Indicates the callback containing the AttestResultInfo object.
      * @since 9
-     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.DEVICE_ATTEST_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 2000001 -  system service exception.
@@ -40,7 +39,6 @@ declare namespace deviceAttest {
      *
      * @returns Returns that the AttestResultInfo object is returned in Promise mode.
      * @since 9
-     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.DEVICE_ATTEST_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 2000001 -  system service exception.
@@ -53,7 +51,6 @@ declare namespace deviceAttest {
      *
      * @returns Obtains the AttestResultInfo object synchronously.
      * @since 9
-     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.DEVICE_ATTEST_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 2000001 -  system service exception.
