@@ -498,5 +498,5 @@ function isEmptyFile(node) {
 
 const apiSourcePath = '../api';
 const outputPath = path.resolve(__dirname, 'output');
-//collectDeclaration(apiSourcePath);
 readJSON();
+
