@@ -219,6 +219,14 @@ export interface AbilityInfo {
    * @since 9
    */
   readonly windowSize: WindowSize;
+
+   /**
+   * Indicates whether to support recover UI interface
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly recoverable: boolean;
 }
 
 /**
