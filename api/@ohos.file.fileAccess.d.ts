@@ -539,6 +539,21 @@ declare namespace fileAccess {
     }
 
     /**
+     * CopyResult describe the return information of the copy operation
+     * @since 10
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     */
+    interface CopyResult {
+        sourceFileUri: string;
+        destFileUri: string;
+        errCode: number;
+        errMsg: string;
+    }
+
+    /**
      * OPENFLAGS represents the way to open the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -805,6 +820,50 @@ declare namespace fileAccess {
          */
         move(sourceFile: string, destFile: string) : Promise<string>;
         move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
+
+        /**
+         * Copy file or directory in the promise way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} sourceUri - Indicates the file or directory to be copied.
+         * @param {string} destUri - Represents the destination directory.
+         * @param {boolean} force - Optional parameter that determines whether to forcibly copy files.
+         * @returns {Promise<Array<CopyResult>} Returns the file information where the error occurred
+         */
+        copy(sourceUri: string, destUri: string, force?: boolean) : Promise<Array<CopyResult>>;
+
+        /**
+         * Copy file or directory in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} sourceUri - Indicates the file or directory to be copied.
+         * @param {string} destUri - Represents the destination directory.
+         * @param {AsyncCallback<Array<CopyResult>} callback - The callback is used to return the file information where the error occurred.
+         */
+        copy(sourceUri: string, destUri: string, callback: AsyncCallback<Array<CopyResult>>) : void;
+
+        /**
+         * Copy file or directory in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} sourceUri - Indicates the file or directory to be copied.
+         * @param {string} destUri - Represents the destination directory.
+         * @param {boolean} force - Determines whether to forcibly copy files.
+         * @param {AsyncCallback<Array<CopyResult>} callback - The callback is used to return the file information where the error occurred.
+         */
+        copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>) : void;
 
         /**
          * Rename the selected file or directory.
