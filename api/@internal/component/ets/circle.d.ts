@@ -53,7 +53,20 @@ interface CircleInterface {
  * Circle drawing component attribute functions.
  * @since 7
  */
-declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
+declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
+
+  /**
+   * Fill color.
+   * @since 7
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+   * fill Opacity
+   * @since 7
+   */
+  fillOpacity(value: number | string | Resource): T;
+}
 
 declare const Circle: CircleInterface;
 declare const CircleInstance: CircleAttribute;
