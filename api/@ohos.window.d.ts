@@ -626,6 +626,8 @@ declare namespace window {
    * @throws {BusinessError} 401 - If param is invalid
    * @throws {BusinessError} 1300001 - If window has created
    * @throws {BusinessError} 1300006 - If window context is abnormally
+   * @throws {BusinessError} 1300008 - If the operation is on invalid display
+   * @throws {BusinessError} 1300009 - If the parent window is invalid
    */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
@@ -637,6 +639,8 @@ declare namespace window {
    * @throws {BusinessError} 401 - If param is invalid
    * @throws {BusinessError} 1300001 - If window has created
    * @throws {BusinessError} 1300006 - If window context is abnormally
+   * @throws {BusinessError} 1300008 - If the operation is on invalid display
+   * @throws {BusinessError} 1300009 - If the parent window is invalid
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -706,6 +710,7 @@ declare namespace window {
     * Find the window by name.
     * @param name Indicates window name.
     * @throws {BusinessError} 401 - If param is invalid
+    * @throws {BusinessError} 1300002 - If this window state is abnormal
     * @since 9
     */
    function findWindow(name: string): Window;
@@ -771,6 +776,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 401 - If param is invalid
    * @throws {BusinessError} 1300003 - If system state is abnormally
+   * @throws {BusinessError} 1300008 - If the operation is on invalid display
    * @since 9
    */
   function minimizeAll(id: number, callback: AsyncCallback<void>): void;
@@ -780,6 +786,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 401 - If param is invalid
    * @throws {BusinessError} 1300003 - If system state is abnormally
+   * @throws {BusinessError} 1300008 - If the operation is on invalid display
    * @since 9
    */
   function minimizeAll(id: number): Promise<void>;
@@ -1031,6 +1038,7 @@ declare namespace window {
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300010 - If operation in fullscreen mode
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1043,6 +1051,7 @@ declare namespace window {
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300010 - If operation in fullscreen mode
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1077,6 +1086,7 @@ declare namespace window {
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300010 - If operation in fullscreen mode
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1089,6 +1099,7 @@ declare namespace window {
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300010 - If operation in fullscreen mode
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
