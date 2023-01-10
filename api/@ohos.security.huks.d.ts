@@ -788,8 +788,26 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      */
     export enum HuksUnwrapSuite {
+        /**
+         * @name HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING = 1,
+
+        /**
+         * @name HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
+
+        /**
+         * @name HUKS_UNWRAP_SUITE_SM2_AES_256_GCM_NOPADDING
+         * @since 10
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_UNWRAP_SUITE_SM2_AES_256_GCM_NOPADDING = 3,
     }
 
     /**
