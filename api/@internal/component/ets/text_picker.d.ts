@@ -53,16 +53,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 8
    */
   defaultPickerItemHeight(value: number | string): TextPickerAttribute;
-  /**
-   * Called when the pop-up value is returned.
-   * @since 8
-   */
-  onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
-  /**
-   * Called when the Cancel button in the pop-up window is clicked.
-   * @since 8
-   */
-  onCancel(callback: () => void): TextPickerAttribute;
+  
   /**
    * Called when the OK button in the pop-up window is clicked.
    * @since 8
