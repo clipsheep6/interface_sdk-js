@@ -65,10 +65,17 @@ declare class Scroller {
   });
 
   /**
-   * Called when scrolling to the edge of the container.
+   * Called when scrolling to the edge of the container. This function has a default animation since API9,
+   * If animation is not required, use jumpEdge instead.
    * @since 7
    */
   scrollEdge(value: Edge);
+
+  /**
+   * Called when jump to the edge of the container.
+   * @since 9
+   */
+  jumpEdge(value: Edge);
 
   /**
    * Called when page turning mode is set.
@@ -82,7 +89,7 @@ declare class Scroller {
    * @since 9
    */
   scrollPage(value: { next: boolean });
-  
+
   /**
    * Called when viewing the scroll offset.
    * @since 7
@@ -90,10 +97,17 @@ declare class Scroller {
   currentOffset();
 
   /**
-   * Called when sliding to the specified index.
+   * Called when sliding to the specified index. This function has a default animation since API9,
+   * If animation is not required, use jumpToIndex instead.
    * @since 7
    */
   scrollToIndex(value: number);
+
+  /**
+   * Called when jump to the specified index.
+   * @since 9
+   */
+  jumpToIndex(value: number);
 
   /**
    * Called when the setting slides by offset.
