@@ -47,6 +47,10 @@ ohos_copy_internal("ets_component") {
   iv_input = "//interface/sdk-js/api/@internal/component/ets"
 }
 
+ohos_copy_internal("ets_form") {
+  iv_input = "//interface/sdk-js/api/@internal/form/ets"
+}
+
 ohos_copy("common_api") {
   sources = common_api_src
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
