@@ -2075,7 +2075,11 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 
 /**
  * Linear Gradient Interface
- * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+ * @param { number | string } angle - Angle of Linear Gradient.
+ * @param { GradientDirection } direction - Direction of Linear Gradient.
+ * @param { Array<any> } colors - description for gradients.
+ * @param { boolean } repeating: image slice repeating.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 declare interface LinearGradient {
