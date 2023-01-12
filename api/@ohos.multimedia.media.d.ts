@@ -623,8 +623,6 @@ declare namespace media {
    * Enumerates ErrorCode types, return in BusinessError::code
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @deprecated since 9
-   * @useinstead ohos.multimedia.media/media.AVErrorCode
    */
   enum MediaErrorCode {
     /**
