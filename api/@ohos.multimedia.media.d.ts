@@ -46,7 +46,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AudioPlayer
    * @returns Returns an AudioPlayer instance if the operation is successful; returns null otherwise.
    * @deprecated since 9
-   * @useinstead ohos.multimedia.media/media.createAVPlayer
+   * @useinstead ohos.multimedia.media/media#createAVPlayer
    */
   function createAudioPlayer(): AudioPlayer;
 
@@ -57,7 +57,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AudioRecorder
    * @returns Returns an AudioRecorder instance if the operation is successful; returns null otherwise.
    * @deprecated since 9
-   * @useinstead ohos.multimedia.media/media.createAVRecorder
+   * @useinstead ohos.multimedia.media/media#createAVRecorder
    */
   function createAudioRecorder(): AudioRecorder;
 
@@ -68,7 +68,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @param callback Callback used to return AudioPlayer instance if the operation is successful; returns null otherwise.
    * @deprecated since 9
-   * @useinstead ohos.multimedia.media/media.createAVPlayer
+   * @useinstead ohos.multimedia.media/media#createAVPlayer
    */
   function createVideoPlayer(callback: AsyncCallback<VideoPlayer>): void;
 
@@ -79,7 +79,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @returns A Promise instance used to return VideoPlayer instance if the operation is successful; returns null otherwise.
    * @deprecated since 9
-   * @useinstead ohos.multimedia.media/media.createAVPlayer
+   * @useinstead ohos.multimedia.media/media#createAVPlayer
    */
   function createVideoPlayer() : Promise<VideoPlayer>;
 
@@ -130,14 +130,14 @@ declare namespace media {
    */
    enum StateChangeReason {
     /**
-     * state change by user operation.
+     * State change by user operation.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     USER = 1,
 
     /**
-     * state change by background action.
+     * State change by background action.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.Core
      */
@@ -396,7 +396,7 @@ declare namespace media {
     fdSrc ?: AVFileDescriptor;
 
     /**
-     * Whether to loop media playback. The value true means to loop playback.
+     * Whether to loop media playback.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
@@ -433,7 +433,7 @@ declare namespace media {
     readonly state: AVPlayerState;
 
     /**
-     * SurfaceId surface id, video player will use this id get a surface instance.
+     * Video player will use this id get a surface instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
@@ -2513,7 +2513,7 @@ declare namespace media {
    */
    interface AVRecorderProfile {
     /**
-     * Indicates the audio bit rate.
+     * Indicates the audio bitrate.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      */
