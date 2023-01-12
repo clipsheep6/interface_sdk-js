@@ -620,7 +620,6 @@ declare namespace media {
   }
 
   /**
-   * The maintenance of this interface has been stopped since version api 9. Please use AVErrorCode
    * Enumerates ErrorCode types, return in BusinessError::code
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.Core
