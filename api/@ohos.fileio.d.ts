@@ -1058,22 +1058,23 @@ declare interface Dir {
      * @since 6
      * @permission N/A
      * @function read
-     * @param {AsyncCallback<Dirent>} [callback] - callback.
-     * @returns {void | Promise<Dirent>} no callback return Promise otherwise return void
-     * @throws {TypedError} Parameter check failed if read to end, Error.msg = "NoMore"
+     * @param {AsyncCallback<Dirent | undefined>} [callback] - callback.
+     * @returns {void | Promise<Dirent | undefined>} no callback return Promise or undefined if read completed,
+     *          otherwise return void
+     * @throws {TypedError} read fail
      */
-    read(): Promise<Dirent>;
-    read(callback: AsyncCallback<Dirent>): void;
+    read(): Promise<Dirent | undefined>;
+    read(callback: AsyncCallback<Dirent | undefined>): void;
     /**
      * readSync.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @function readSync
-     * @returns {Dirent} Dirent Object
-     * @throws {TypedError | Error} read fail if read to end, Error.msg = "NoMore"
+     * @returns {Dirent | undefined} Dirent Object or undefined if read completed
+     * @throws {TypedError | Error} read fail
      */
-    readSync(): Dirent;
+    readSync(): Dirent | undefined;
     /**
      * close.
      * @syscap SystemCapability.FileManagement.File.FileIO
