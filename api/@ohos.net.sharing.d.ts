@@ -30,6 +30,8 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
    * @throws {BusinessError} 2200004 - IPC communication error.
    * @throws {BusinessError} 2202011 - Get network card configuration is null.
@@ -44,8 +46,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error..
    */
   function isSharing(callback: AsyncCallback<boolean>): void;
   function isSharing(): Promise<boolean>;
@@ -59,14 +62,15 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    * @throws {BusinessError} 2202004 - Try to share an unavailable iface.
    * @throws {BusinessError} 2202005 - WiFi sharing failed.
    * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
+   * @throws {BusinessError} 2202007 - Usb sharing failed.
    * @throws {BusinessError} 2202009 - Network share enable forwarding error.
-   * @throws {BusinessError} 2202011 - Get network card configuration is null.
-   * @throws {BusinessError} 2202012 - Sharing callback is null.
+   * @throws {BusinessError} 2202011 - Get sharing configuration is null.
    */
   function startSharing(type: SharingIfaceType, callback: AsyncCallback<void>): void;
   function startSharing(type: SharingIfaceType): Promise<void>;
@@ -80,8 +84,9 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    * @throws {BusinessError} 2202005 - WiFi sharing failed.
    * @throws {BusinessError} 2202006 - Bluetooth sharing failed.
    * @throws {BusinessError} 2202011 - Get network card configuration is null.
@@ -97,8 +102,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getStatsRxBytes(callback: AsyncCallback<number>): void;
   function getStatsRxBytes(): Promise<number>;
@@ -110,8 +116,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getStatsTxBytes(callback: AsyncCallback<number>): void;
   function getStatsTxBytes(): Promise<number>;
@@ -123,8 +130,9 @@ declare namespace sharing {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getStatsTotalBytes(callback: AsyncCallback<number>): void;
   function getStatsTotalBytes(): Promise<number>;
@@ -138,8 +146,9 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getSharingIfaces(state: SharingIfaceState, callback: AsyncCallback<Array<string>>): void;
   function getSharingIfaces(state: SharingIfaceState): Promise<Array<string>>;
@@ -153,8 +162,9 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getSharingState(type: SharingIfaceType, callback: AsyncCallback<SharingIfaceState>): void;
   function getSharingState(type: SharingIfaceType): Promise<SharingIfaceState>;
@@ -169,8 +179,9 @@ declare namespace sharing {
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service. /
    * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2200004 - IPC communication error.
    */
   function getSharableRegexes(type: SharingIfaceType, callback: AsyncCallback<Array<string>>): void;
   function getSharableRegexes(type: SharingIfaceType): Promise<Array<string>>;
