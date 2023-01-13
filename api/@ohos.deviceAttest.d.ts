@@ -29,7 +29,7 @@ declare namespace deviceAttest {
      * @since 9
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 2000001 -  system service exception.
+     * @throws { BusinessError } 20000001 -  system service exception.
      * @systemapi
      */
     function getAttestStatus(callback: AsyncCallback<AttestResultInfo>) : void;
@@ -41,7 +41,7 @@ declare namespace deviceAttest {
      * @since 9
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 2000001 -  system service exception.
+     * @throws { BusinessError } 20000001 -  system service exception.
      * @systemapi
      */
     function getAttestStatus() : Promise<AttestResultInfo>;
@@ -53,7 +53,7 @@ declare namespace deviceAttest {
      * @since 9
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 2000001 -  system service exception.
+     * @throws { BusinessError } 20000001 -  system service exception.
      * @systemapi
      */
     function getAttestStatusSync() : AttestResultInfo;
