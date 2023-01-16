@@ -971,16 +971,18 @@ declare namespace update {
      * @since 9
      */
     export enum UpgradeStatus {
-        WAITING_DOWNLOAD = 20,
-        DOWNLOADING = 21,
-        DOWNLOAD_PAUSED = 22,
+        CHECK_SUCCESS = 12,
+        DOWNLOADING = 20,
+        DOWNLOAD_PAUSED = 21,
+        DOWNLOAD_CANCEL = 22,
         DOWNLOAD_FAIL = 23,
-        WAITING_INSTALL = 30,
-        UPDATING = 31,
-        WAITING_APPLY = 40,
-        APPLYING = 41,
-        UPGRADE_SUCCESS = 50,
-        UPGRADE_FAIL = 51
+        DOWNLOAD_SUCCESS = 24,
+        APPLYING = 80,
+        APPLY_FAILED = 81,
+        APPLY_SUCCESS = 82,
+        UPGRADING = 90,
+        UPGRADE_FAIL = 91,
+        UPGRADE_SUCCESS = 92,  
     }
 
     /**
