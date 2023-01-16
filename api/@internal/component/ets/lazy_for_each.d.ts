@@ -81,6 +81,17 @@ declare interface DataChangeListener {
   onDataChange(index: number): void;
 }
 
+export declare interface DataChangePrefetch {
+
+  /*
+   * Prefetch data at indexes
+   * @devices phone,tablet,car
+   * @since 9
+   */
+  prefetchAt(indexes: number[]): void;
+
+}
+
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
  * @since 7
@@ -109,6 +120,13 @@ declare interface IDataSource {
    * @since 7
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
+
+  /**
+   * prefetcher for Data
+   * @devices phone,tablet,car
+   * @since 9
+   */
+  prefecher?: DataChangePrefetch;
 }
 
 /**
