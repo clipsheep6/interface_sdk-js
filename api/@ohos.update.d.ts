@@ -1,4 +1,4 @@
-   /*
+/*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -979,8 +979,8 @@ declare namespace update {
         UPDATING = 80,
         WAITING_APPLY = 82,
         APPLYING = 90,
-        UPGRADE_SUCCESS = 92,
-        UPGRADE_FAIL = 91
+        UPGRADE_FAIL = 91,
+        UPGRADE_SUCCESS = 92
     }
 
     /**
