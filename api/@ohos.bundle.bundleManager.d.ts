@@ -16,7 +16,6 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundleManager/applicationInfo';
 import { Metadata as _Metadata } from './bundleManager/metadata';
-
 import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
 import { ElementName as _ElementName }  from './bundleManager/elementName';
 import Want from './@ohos.app.ability.Want';
