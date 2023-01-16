@@ -32,6 +32,12 @@ declare namespace sms {
    * @param callback Returns a list of split segments, which can be combined into a complete SMS message;
    *     returns an empty string if no permission is granted or the short message content is {@code null}.
    * @permission ohos.permission.SEND_MESSAGES
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -49,6 +55,11 @@ declare namespace sms {
    *     and the value {@code 3gpp2} indicates CDMA/LTE SMS.
    * @param callback Returns an SMS message instance; returns {@code null} if {@code pdu} is empty or
    *     {@code specification} is not supported.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function createMessage(pdu: Array<number>, specification: string, callback: AsyncCallback<ShortMessage>): void;
   function createMessage(pdu: Array<number>, specification: string): Promise<ShortMessage>;
@@ -61,6 +72,12 @@ declare namespace sms {
    *
    * @param options Indicates the parameters and callback for sending the SMS message.
    * @permission ohos.permission.SEND_MESSAGES
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function sendMessage(options: SendMessageOptions): void;
 
@@ -71,6 +88,13 @@ declare namespace sms {
    * @param slotId Indicates the default SIM card for sending SMS messages. The value {@code 0} indicates card slot 1,
    *     and the value {@code 1} indicates card slot 2.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -93,6 +117,12 @@ declare namespace sms {
    * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
    * @param smscAddr Indicates the SMSC address.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -105,6 +135,12 @@ declare namespace sms {
    * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
    * @param callback Returns the SMSC address.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -122,6 +158,12 @@ declare namespace sms {
 
   /**
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -130,6 +172,12 @@ declare namespace sms {
 
   /**
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -138,6 +186,12 @@ declare namespace sms {
 
   /**
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -146,6 +200,12 @@ declare namespace sms {
 
   /**
    * @permission ohos.permission.RECEIVE_SMS
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -154,6 +214,12 @@ declare namespace sms {
 
   /**
    * @permission ohos.permission.RECEIVE_SMS
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -161,6 +227,11 @@ declare namespace sms {
   function setCBConfig(options: CBConfigOptions): Promise<void>;
 
   /**
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -173,6 +244,11 @@ declare namespace sms {
    * @param slotId Indicates the default SIM card for Ims Sms. The value {@code 0} indicates card slot 1,
    *     and the value {@code 1} indicates card slot 2.
    * @param callback Returns true if SMS over IMS is supported, false otherwise.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -183,6 +259,11 @@ declare namespace sms {
    * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.
    *
    * @param callback Returns format, 3gpp, 3gpp2 or unknown.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -190,6 +271,13 @@ declare namespace sms {
   function getImsShortMessageFormat(): Promise<string>;
 
   /**
+   * Decode the message content
+   *
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -197,6 +285,13 @@ declare namespace sms {
   function decodeMms(mmsFilePathName: string | Array<number>): Promise<MmsInformation>;
 
   /**
+   * Encode the message content
+   *
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */

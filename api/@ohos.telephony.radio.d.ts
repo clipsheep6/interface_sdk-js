@@ -47,6 +47,12 @@ declare namespace radio {
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
    * </ul>
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getRadioTech(slotId: number,
     callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
@@ -59,6 +65,12 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns a {@code NetworkState} object.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getNetworkState(callback: AsyncCallback<NetworkState>): void;
   function getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void;
@@ -68,6 +80,12 @@ declare namespace radio {
    * Actively requests to update location information.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi
@@ -80,6 +98,12 @@ declare namespace radio {
    * Actively requests to update location information.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
    * @systemapi
@@ -89,6 +113,12 @@ declare namespace radio {
 
   /**
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -106,12 +136,23 @@ declare namespace radio {
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
    * <ul>
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void;
   function getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>;
 
   /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    */
   function setNetworkSelectionMode(options: NetworkSelectionModeOptions, callback: AsyncCallback<void>): void;
@@ -119,6 +160,12 @@ declare namespace radio {
 
   /**
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    */
   function getNetworkSearchInformation(slotId: number, callback: AsyncCallback<NetworkSearchResult>): void;
@@ -131,12 +178,22 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the country code defined in ISO 3166-2;
    * returns an empty string if the device is not registered with any network.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void;
   function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
 
   /**
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -151,6 +208,12 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the IMEI; returns an empty string if the IMEI does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -165,6 +228,12 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the MEID; returns an empty string if the MEID does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -183,6 +252,12 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the unique device ID; returns an empty string if the unique device ID does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -196,13 +271,27 @@ declare namespace radio {
    * <p>The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
    * @param callback Returns the index number of the primary card slot.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function getPrimarySlotId(callback: AsyncCallback<number>): void;
   function getPrimarySlotId(): Promise<number>;
 
   /**
+   * Set the index number of the main card slot.
+   *
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -215,6 +304,11 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
    * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
@@ -244,6 +338,12 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function isRadioOn(callback: AsyncCallback<boolean>): void;
@@ -256,6 +356,12 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -269,6 +375,12 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -277,13 +389,28 @@ declare namespace radio {
   function turnOffRadio(slotId?: number): Promise<void>;
 
   /**
+   * Get the name of the specified card slot operator.
+   *
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function getOperatorName(slotId: number, callback: AsyncCallback<string>): void;
   function getOperatorName(slotId: number): Promise<string>;
 
   /**
+   * Set the preferred network for the specified card slot.
+   *
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -291,7 +418,15 @@ declare namespace radio {
   function setPreferredNetwork(slotId: number, networkMode: PreferredNetworkMode): Promise<void>;
 
   /**
+   * Get the preferred network for the specified card slot.
+   *
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -311,7 +446,6 @@ declare namespace radio {
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -333,7 +467,6 @@ declare namespace radio {
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -342,13 +475,18 @@ declare namespace radio {
 
 
   /**
+   * Unsubscribe from imsRegStateChange event.
+   *
+   * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
+   * @param callback including an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -480,6 +618,12 @@ declare namespace radio {
      * Obtains the signal level of the current network.
      */
     signalLevel: number;
+
+    /**
+     * rsrp for LTE and NR; dbm for CDMA and EVDO; rscp for WCDMA; rssi for GSM.
+     * @since 9
+     */
+    dBm: number;
   }
 
   /**
