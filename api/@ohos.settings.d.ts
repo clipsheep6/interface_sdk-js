@@ -778,7 +778,7 @@ declare namespace settings {
    * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
    * @deprecated since 9
-   * @useinstead getURI
+   * @useinstead ohos.settings#getURI
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
@@ -802,10 +802,10 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
-   * @famodelonly
+   * @FAModelOnly
    * @since 7
    * @deprecated since 9
-   * @useinstead getValue
+   * @useinstead ohos.settings#getValue
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
@@ -831,11 +831,11 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @systemapi Hide this for inner system use.
-   * @famodelonly
    * @since 7
+   * @systemapi Hide this for inner system use.
+   * @FAModelOnly
    * @deprecated since 9
-   * @useinstead setValue
+   * @useinstead ohos.settings#setValue
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
@@ -885,14 +885,14 @@ declare namespace settings {
 
    /**
     * get value from settingsdata(synchronization method)
+    * @since 8
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @returns settingsdata value
-    * @famodelonly
-    * @since 8
+    * @FAModelOnly
     * @deprecated since 9
-    * @useinstead getValueSync
+    * @useinstead ohos.settings#getValueSync
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
    
@@ -910,14 +910,14 @@ declare namespace settings {
    /**
     * set settingsdata value(synchronization method)
     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+    * @since 8
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-    * @famodelonly
-    * @since 8
+    * @FAModelOnly
     * @deprecated since 9
-    * @useinstead setValueSync
+    * @useinstead ohos.settings#setValueSync
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
    
