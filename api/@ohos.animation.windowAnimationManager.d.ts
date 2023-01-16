@@ -157,6 +157,18 @@ declare namespace windowAnimationManager {
       finishCallback: WindowAnimationFinishedCallback): void;
 
     /**
+     * Called on application back transition.
+     *
+     * @param fromWindowTarget Window target of the source application.
+     * @param toWindowTarget Window target of the destination application.
+     * @param finishCallback Animation finished callback.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    OnAppBackTransition(fromWindowTarget: WindowAnimationTarget, toWindowTarget: WindowAnimationTarget,
+      finishCallback: WindowAnimationFinishedCallback): void;
+
+    /**
      * Called on minimizing a window.
      *
      * @param minimizingWindowTarget Window target of the minimizing window.
