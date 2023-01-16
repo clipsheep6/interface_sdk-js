@@ -15,7 +15,7 @@
 
 import rpc from "./@ohos.rpc";
 import Want from './@ohos.application.Want';
-import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
+import InputMethodExtensionContext from "./@ohos.InputMethodExtensionContext";
 
 /**
  * The extension ability class of input method.
@@ -29,7 +29,7 @@ export default class InputMethodExtensionAbility {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
-    context: InputMethodExtensionContext;
+    readonly context: InputMethodExtensionContext;
 
     /**
      * Called back when a input method extension is started for initialization.
