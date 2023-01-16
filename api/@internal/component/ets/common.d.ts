@@ -38,6 +38,11 @@ declare const Observed: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
+ * Defining Component ClassDecorator * @since 9
+ */
+ declare const Animatable: ClassDecorator;
+
+/**
  * Defining BuilderParam PropertyDecorator
  * @since 7
  */
@@ -96,6 +101,12 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * @since 7
  */
 declare const Watch: (value: string) => PropertyDecorator;
+
+/**
+ * Defining AnimatableData PropertyDecorator.
+ * @since 9
+ */
+ declare const AnimatableData: (value: {getter: string, setter: string}) => PropertyDecorator;
 
 /**
  * Defining Builder MethodDecorator
