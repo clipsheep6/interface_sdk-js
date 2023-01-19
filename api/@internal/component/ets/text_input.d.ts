@@ -280,6 +280,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the copy option is set.
    * @since 9
+   * @param value No copy, InApp copy, or LocalDevice copy.
    */
   copyOption(value: CopyOptions): TextInputAttribute;
 

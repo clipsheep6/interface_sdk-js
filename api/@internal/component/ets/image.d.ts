@@ -151,6 +151,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 
   /**
    * Allow replication.
+   * @param value No copy, InApp copy, or LocalDevice copy.
    * @since 9
    */
   copyOption(value: CopyOptions): ImageAttribute;

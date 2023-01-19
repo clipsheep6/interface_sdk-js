@@ -121,6 +121,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Allow replication.
+   * @param value No copy, InApp copy, or LocalDevice copy.
    * @since 9
    */
   copyOption(value: CopyOptions): TextAttribute;
