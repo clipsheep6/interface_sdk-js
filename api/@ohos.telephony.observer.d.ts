@@ -59,7 +59,7 @@ declare namespace observer {
   function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
 
   /**
-   * Cancle Called when the network state corresponding to a monitored {@code slotId} updates.
+   * Cancel Called when the network state corresponding to a monitored {@code slotId} updates.
    *
    * @param type networkStateChange
    * @param callback including an instance of the {@code NetworkState} class.
@@ -89,7 +89,7 @@ declare namespace observer {
     callback: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Cancle Called when the signal strength corresponding to a monitored {@code slotId} updates.
+   * Cancel Called when the signal strength corresponding to a monitored {@code slotId} updates.
    *
    * @param type signalInfoChange
    * @param callback including an array of instances of the classes derived from {@link SignalInformation}.
@@ -123,7 +123,7 @@ declare namespace observer {
     callback: Callback<Array<CellInformation>>): void;
 
   /**
-   * Cancle Called back when the cell information corresponding to a monitored {@code slotId} updates.
+   * Cancel Called back when the cell information corresponding to a monitored {@code slotId} updates.
    *
    * @param type cellInfoChange
    * @param callback including an array of instances of the classes derived from {@link CellInformation}.
@@ -158,7 +158,7 @@ declare namespace observer {
     callback: Callback<{ state: DataConnectState, network: RatType }>): void;
 
   /**
-   * Cancle Called when the cellular data link connection state updates.
+   * Cancel Called when the cellular data link connection state updates.
    *
    * @param type cellularDataConnectionStateChange
    * @param callback including state Indicates the cellular data link connection state,
@@ -192,7 +192,7 @@ declare namespace observer {
     callback: Callback<DataFlowType>): void;
 
   /**
-   * Cancle Called when the uplink and downlink data flow state of cellular data services updates.
+   * Cancel Called when the uplink and downlink data flow state of cellular data services updates.
    *
    * @param type cellularDataFlowChange
    * @param callback including the cellular data flow state.
@@ -224,7 +224,7 @@ declare namespace observer {
     callback: Callback<{ state: CallState, number: string }>): void;
 
   /**
-   * Cancle Receives a call state change. This callback is invoked when the call state of a specified card updates
+   * Cancel Receives a call state change. This callback is invoked when the call state of a specified card updates
    * and the observer is added to monitor the updates.
    *
    * @param type callStateChange

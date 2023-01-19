@@ -282,7 +282,7 @@ declare namespace radio {
   function getPrimarySlotId(): Promise<number>;
 
   /**
-   * Set the index number of the main card slot.
+   * Set the index number of the main SIM card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
@@ -389,7 +389,7 @@ declare namespace radio {
   function turnOffRadio(slotId?: number): Promise<void>;
 
   /**
-   * Get the name of the specified card slot operator.
+   * Get the operator name of the specified SIM card slot.
    *
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -402,7 +402,7 @@ declare namespace radio {
   function getOperatorName(slotId: number): Promise<string>;
 
   /**
-   * Set the preferred network for the specified card slot.
+   * Set the preferred network for the specified SIM card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
@@ -418,7 +418,7 @@ declare namespace radio {
   function setPreferredNetwork(slotId: number, networkMode: PreferredNetworkMode): Promise<void>;
 
   /**
-   * Get the preferred network for the specified card slot.
+   * Get the preferred network for the specified SIM card slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
@@ -998,7 +998,10 @@ declare namespace radio {
    * @since 9
    */
   export enum ImsRegState {
+    /** Indicates that the ims service is not registered. */
     IMS_UNREGISTERED,
+
+    /** Indicates that the ims service has been registered. */
     IMS_REGISTERED,
   }
 
@@ -1007,9 +1010,16 @@ declare namespace radio {
    * @since 9
    */
   export enum ImsRegTech {
+    /** Indicates that ims has no registered technology. */
     REGISTRATION_TECH_NONE,
+
+    /** Indicates that ims registers LTE technology. */
     REGISTRATION_TECH_LTE,
+
+    /** Indicates that ims registers IWLAN technology. */
     REGISTRATION_TECH_IWLAN,
+
+    /** Indicates that ims registers NR technology. */
     REGISTRATION_TECH_NR,
   }
 
@@ -1018,7 +1028,10 @@ declare namespace radio {
    * @since 9
    */
   export interface ImsRegInfo {
+    /** Indicates the registration status of the ims service. */
     imsRegState: ImsRegState;
+
+    /** Indicates the mode of ims radio technology. */
     imsRegTech: ImsRegTech;
   }
 
@@ -1027,9 +1040,16 @@ declare namespace radio {
    * @since 9
    */
   export enum ImsServiceType {
+    /** Indicates voice service. */
     TYPE_VOICE,
+
+    /** Indicates video service. */
     TYPE_VIDEO,
+
+    /** Indicates UT service. */
     TYPE_UT,
+
+    /** Indicates SMS service. */
     TYPE_SMS,
   }
 }

@@ -39,7 +39,7 @@ declare namespace data {
   function getDefaultCellularDataSlotIdSync(): number;
 
   /**
-   * Set default cellular data card.
+   * Switches cellular data services to another card, without changing the default settings.
    *
    * @param slotId Indicates the ID of the target card slot.
    *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.

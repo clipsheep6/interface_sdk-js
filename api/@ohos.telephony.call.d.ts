@@ -126,13 +126,13 @@ declare namespace call {
    * Checks whether a phone number is on the emergency number list.
    *
    * @param phoneNumber Indicates the phone number to check.
-   * @returns Returns {@code true} if the phone number is on the emergency number list;
+   * @param callback Returns {@code true} if the phone number is on the emergency number list;
+   * returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * returns {@code false} otherwise.
    * @since 7
    */
   function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
@@ -147,7 +147,7 @@ declare namespace call {
    *
    * @param phoneNumber Indicates the phone number to format.
    * @param options countryCode option
-   * @returns Returns the phone number after being formatted; returns an empty string if the input phone number is invalid.
+   * @param callback Returns the phone number after being formatted; returns an empty string if the input phone number is invalid.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -164,7 +164,7 @@ declare namespace call {
    *
    * @param phoneNumber Indicates the phone number to format.
    * @param countryCode Indicates a two-digit country code defined in ISO 3166-1.
-   * @returns Returns an E.164 number; returns an empty string if the input phone number is invalid.
+   * @param callback Returns an E.164 number; returns an empty string if the input phone number is invalid.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -178,8 +178,8 @@ declare namespace call {
   /**
    * Answers the incoming call.
    *
-   * @permission ohos.permission.ANSWER_CALL
    * @param callId Indicates the identifier of the call to answer.
+   * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -377,7 +377,7 @@ declare namespace call {
    * Get the call Id list of the conference.
    *
    * @param callId Indicates the identifier of the call.
-   * @returns Returns the call id list of conference calls.
+   * @param callback Returns the call id list of conference calls.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -395,7 +395,7 @@ declare namespace call {
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns Returns call waiting status.
+   * @param callback Returns call waiting status.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -461,7 +461,7 @@ declare namespace call {
    * Judge whether the emergency call is in progress.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns Returns {@code true} if the call is in emergency; returns {@code false} otherwise.
+   * @param callback Returns {@code true} if the call is in emergency; returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -607,7 +607,7 @@ declare namespace call {
   /**
    * Judge whether to allow another new call.
    *
-   * @returns Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
+   * @param callback Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -641,7 +641,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param type Indicates which type of call restriction to obtain.
-   * @returns Returns call restriction status.
+   * @param callback Returns call restriction status.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -680,7 +680,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param type Indicates which type of call forwarding to obtain.
-   * @returns Returns call forwarding status.
+   * @param callback Returns call forwarding status.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -713,31 +713,10 @@ declare namespace call {
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
 
   /**
-   * Checks whether can set call transfer time.
-   *
-   * <p>The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
-   *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns Returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
-  function canSetCallTransferTime(slotId: number): Promise<boolean>;
-
-  /**
    * Judge whether the bell is ringing.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @returns Returns {@code true} if the device is ringing; returns {@code false} otherwise.
+   * @param callback Returns {@code true} if the device is ringing; returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -881,7 +860,7 @@ declare namespace call {
   /**
    * Judge whether the Ims switch is enabled.
    *
-   * @returns Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
+   * @param callback Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.

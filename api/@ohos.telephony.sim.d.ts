@@ -1082,7 +1082,7 @@ declare namespace sim {
     /**
      * Indicates the list of ims call end reasons.
      */
-    KEY_IMS_CALL_DISCONNECT_REASONINFO_MAPPING_STRING_ARRAY = "ims_call_disconnect_reasoninfo_mapping_string_array",
+    KEY_IMS_CALL_DISCONNECT_REASON_INFO_MAPPING_STRING_ARRAY = "ims_call_disconnect_reason_info_mapping_string_array",
     /**
      * Indicates the forced Volte switch on state.
      */
