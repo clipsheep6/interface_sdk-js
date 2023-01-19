@@ -59,7 +59,7 @@ declare namespace deviceAttest {
     function getAttestStatusSync() : AttestResultInfo;
 
     /**
-     * Deviceattest result information.
+     * Device attest result information.
      * @typedef AttestResultInfo
      * @syscap SystemCapability.XTS.DeviceAttest
      * @since 9
@@ -85,7 +85,7 @@ declare namespace deviceAttest {
 
         /**
          * Software result detail array that includes versionId, patchLevel,
-         * rootHash, pcid and a reserved space.
+         * rootHash and a reserved space.
          *
          * @type { Array<number> }
          * @since 9
