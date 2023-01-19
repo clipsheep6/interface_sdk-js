@@ -457,7 +457,8 @@ declare namespace usageStatistics {
 
     /**
      * Declares interval type.
-     * @enum {number}
+     * 
+     * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -725,7 +726,8 @@ declare namespace usageStatistics {
 
     /**
      * Declares group type.
-     * @enum {number}
+     * 
+     * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9
