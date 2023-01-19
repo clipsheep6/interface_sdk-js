@@ -1812,6 +1812,27 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<Array<Readonly<DeviceType>>>;
+
+    /**
+     * Get output device for target audio renderer info and target uid process.
+     * @param rendererInfo Audio renderer information.
+     * @param uid Application Uid that use audio renderer to play.
+     * @param callback Callback used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, uid: number, callback: AsyncCallback<Array<Readonly<DeviceType>>>): void;
+    /**
+     * Get output device for target audio renderer info and target uid process.
+     * @param rendererInfo Audio renderer information.
+     * @param uid Application Uid that use audio renderer to play.
+     * @returns Promise used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, uid: number): Promise<Array<Readonly<DeviceType>>>;
   }
 
   /**
