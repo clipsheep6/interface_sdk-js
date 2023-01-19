@@ -15,91 +15,91 @@
 
 
 /**
-* Defines the option in length unit of grid-row component.
+* Defines the option in length unit of GridRow component, which is defined by BreakPoints interface.
 * @since 9
 */
 declare interface GridRowSizeOption {
     /**
-    * Grid Row Size Option xs
+    * GridRow size of the minimum-sized device.
     * @since 9
     */
     xs?: Length,
 
     /**
-    * Grid Row Size Option sm
+    * GridRow size of small-sized device.
     * @since 9
     */
     sm?: Length,
 
     /**
-    * Grid Row Size Option md
+    * GridRow size of medium-sized device.
     * @since 9
     */
     md?: Length,
 
     /**
-    * Grid Row Size Option lg
+    * GridRow size of large-sized device.
     * @since 9
     */
     lg?: Length,
 
     /**
-    * Grid Row Size Option xl
+    * GridRow size of extra-large-sized device.
     * @since 9
     */
     xl?: Length,
 
     /**
-    * Grid Row Size Option xxl
+    * GridRow size of ultra-large-sized device.
     * @since 9
     */
     xxl?: Length,
 }
 
 /**
-* Defines the option in number unit of grid-container component.
+* Defines the option in number unit of GridRow component, which is defined by BreakPoints interface.
 * @since 9
 */
 declare interface GridRowColumnOption {
     /**
-    * Grid Row Column Option xs
+    * GridRow column number of the minimum-sized device.
     * @since 9
     */
     xs?: number,
 
     /**
-    * Grid Row Column Option sm
+    * GridRow column number of small-sized device.
     * @since 9
     */
     sm?: number,
     
     /**
-    * Grid Row Column Option md
+    * GridRow column number of medium-sized device.
     * @since 9
     */
     md?: number,
     
     /**
-    * Grid Row Column Option lg
+    * GridRow column number of large-sized device.
     * @since 9
     */
     lg?: number,
     
     /**
-    * Grid Row Column Option xl
+    * GridRow column number of extra-large-sized device.
     * @since 9
     */
     xl?: number,
     
     /**
-    * Grid Row Column Option xxl
+    * GridRow column number of ultra-large-sized device.
     * @since 9
     */
     xxl?: number,
 }
 
 /**
-* Defines the gutter of grid-row component.
+* Defines the gutter of GridRow component.
 * @since 9
 */
 declare interface GutterOption {
@@ -117,7 +117,7 @@ declare interface GutterOption {
 }
 
 /**
-* Defines the breakpoint reference of grid-container component.
+* Defines the breakpoint reference of GridRow component.
 * @since 9
 */
 declare enum BreakpointsReference {
@@ -135,7 +135,7 @@ declare enum BreakpointsReference {
 }
 
 /**
-* Defines the direction of grid-container component.
+* Defines the direction of GridRow component.
 * @since 9
 */
 declare enum GridRowDirection {
@@ -146,14 +146,14 @@ declare enum GridRowDirection {
     Row,
 
     /**
-    * The elements in the grid component are arranged in reverse order of rows
+    * The elements in the GridRow component are arranged in reverse order of rows
     * @since 9
     */
     RowReverse,
 }
 
 /**
-* Defines the breakpoints of grid-row component.
+* Defines the breakpoints of GridRow component.
 * @since 9
 */
 declare interface BreakPoints {
@@ -171,7 +171,7 @@ declare interface BreakPoints {
 }
 
 /**
- * Defines the options of grid-row component.
+ * Defines the options of GridRow component.
  * @since 9
  */
 declare interface GridRowOptions {
@@ -188,13 +188,13 @@ declare interface GridRowOptions {
     columns?: number | GridRowColumnOption;
 
     /**
-     * grid-row layout breakpoints.
+     * GridRow layout breakpoints.
      * @since 9
      */
     breakpoints?: BreakPoints;
 
     /**
-     * grid-row layout direction.
+     * GridRow layout direction.
      * @since 9
      */
     direction?: GridRowDirection;
@@ -202,7 +202,7 @@ declare interface GridRowOptions {
 
 
 /**
- * Defines the the new version of grid-container component.
+ * Defines the the GridRow component.
  * @since 9
  */
 interface GridRowInterface {

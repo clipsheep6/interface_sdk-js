@@ -14,66 +14,67 @@
  */
 
 /**
-* Defines the option in number unit of grid-container child component.
+* Defines the option in number unit of GridCol child component,
+* which is defined by BreakPoints interface of GridRow parent component.
 * @since 9
 */
 declare interface GridColColumnOption {
     /**
-     * Grid Col Column Option xs
+     * GridCol column number of minimum-sized device.
      * @since 9
      */
     xs?: number,
 
     /**
-     * Grid Col Column Option sm
+     * GridCol column number of small-sized device.
      * @since 9
      */
     sm?: number,
 
     /**
-     * Grid Col Column Option md
+     * GridCol column number of medium-sized device.
      * @since 9
      */
     md?: number,
 
     /**
-     * Grid Col Column Option lg
+     * GridCol column number of large-sized device.
      * @since 9
      */
     lg?: number,
 
     /**
-     * Grid Col Column Option xl
+     * GridCol column number of extra-large-sized device.
      * @since 9
      */
     xl?: number,
 
     /**
-     * Grid Col Column Option xxl
+     * GridCol column number of ultra-large-sized device.
      * @since 9
      */
     xxl?: number,
 }
 
 /**
- * Defines the options of grid-container child component.
+ * Defines the options of GridCol child component.
  * @since 9
  */
 declare interface GridColOptions {
     /**
-     * Sets the span of current gird-container item.
+     * Sets the span of current GridCol child component.
      * @since 9
      */
     span?: number | GridColColumnOption;
 
     /**
-     * Sets the offset of current gird-container item.
+     * Sets the offset of current GridCol child component.
      * @since 9
      */
     offset?: number | GridColColumnOption;
 
     /**
-     * Sets the order of current gird-container item.
+     * Sets the order of current GridCol child component.
      * @since 9
      */
     order?: number | GridColColumnOption;
@@ -81,12 +82,12 @@ declare interface GridColOptions {
 
 
 /**
- * Defines the the new version of grid-container child component.
+ * Defines the GridCol child component.
  * @since 9
  */
 interface GridColInterface {
     /**
-     * Defines the constructor of GridContainer.
+     * Defines the constructor of GridCol.
      * @since 9
      */
     (option?: GridColOptions): GridColAttribute;
@@ -94,19 +95,19 @@ interface GridColInterface {
 
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
     /**
-    * Sets the span of current gird-container item.
+    * Sets the span of current GridCol child component.
     * @since 9
     */
     span(value: number | GridColColumnOption): GridRowAttribute;
 
     /**
-    * Sets the offset of  current gird-container item.
+    * Sets the offset of  current GridCol child component.
     * @since 9
     */
     offset(value: number | GridColColumnOption): GridRowAttribute;
 
     /**
-    * Sets the order of current gird-container item.
+    * Sets the order of current GridCol child component.
     * @since 9
     */
     order(value: number | GridColColumnOption): GridRowAttribute;
