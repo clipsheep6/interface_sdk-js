@@ -18,7 +18,7 @@ import cryptoFramework from '@ohos.security.cryptoFramework'
 
 /**
  * Provides a series of capabilities related to certificates,
- * and supports parsing, verification, and output of certificates, extensions, and CRLs.
+ * which supports parsing, verification, and output of certificates, extensions, and CRLs.
  * @namespace cert
  * @syscap SystemCapability.Security.Cert
  * @since 9
@@ -140,14 +140,14 @@ declare namespace cert {
     }
 
     /**
-     * Enum for get certificate item type.
+     * Enum for the certificate item type.
      * @typedef CertItemType
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
     enum CertItemType {
         /**
-         * Indicates to get certificate TBS value.
+         * Indicates to get certificate TBS(to be signed) value.
          * @syscap SystemCapability.Security.Cert
          * @since 10
          */
@@ -183,7 +183,7 @@ declare namespace cert {
     }
 
     /**
-     * Enum for get certificate extension oid type.
+     * Enum for the certificate extension oid type.
      * @typedef ExtensionOidType
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -212,7 +212,7 @@ declare namespace cert {
     }
 
     /**
-     * Enum for get certificate extension entry type.
+     * Enum for the certificate extension entry type.
      * @typedef ExtensionEntryType
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -539,7 +539,7 @@ declare namespace cert {
     }
 
     /**
-     * The CertExtension interface is used to obtain and verify certificate extension.
+     * The CertExtension interface is used to parse and verify certificate extension.
      * @typedef CertExtension
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -592,7 +592,7 @@ declare namespace cert {
 
     /**
      * Provides to create X509 certificate object.
-     * The returned object provides the data obtaining or verification capability.
+     * The returned object provides the data parsing or verification capability.
      * @param { EncodingBlob } inStream - indicate the input cert data.
      * @param { AsyncCallback<X509Cert> } callback - the callback of createX509Cert.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -605,7 +605,7 @@ declare namespace cert {
 
     /**
      * Provides to create X509 certificate object.
-     * The returned object provides the data obtaining or verification capability.
+     * The returned object provides the data parsing or verification capability.
      * @param { EncodingBlob } inStream - indicate the input cert data.
      * @returns { Promise<X509Cert> } the promise of X509 cert instance.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -618,7 +618,7 @@ declare namespace cert {
 
     /**
      * Provides to create certificate extension object.
-     * The returned object provides the data obtaining or verification capability.
+     * The returned object provides the data parsing or verification capability.
      * @param { EncodingBlob } inStream - indicate the input cert extensions data.
      * @param { AsyncCallback<CertExtension> } callback - the callback of of certificate extension instance.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -631,7 +631,7 @@ declare namespace cert {
 
     /**
      * Provides to create certificate extension object.
-     * The returned object provides the data obtaining or verification capability.
+     * The returned object provides the data parsing or verification capability.
      * @param { EncodingBlob } inStream - indicate the input cert extensions data.
      * @returns { Promise<CertExtension> } the promise of certificate extension instance.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -922,7 +922,7 @@ declare namespace cert {
 
     /**
      * Provides to create X509 CRL object.
-     * The returned object provides the data obtaining or verification capability.
+     * The returned object provides the data parsing or verification capability.
      * @param {EncodingBlob} inStream  - indicates the input CRL data.
      * @param { AsyncCallback<X509Crl> } callback - the callback of createX509Crl to return x509 CRL instance.
      * @throws { BusinessError } 401 - invalid parameters.
@@ -935,7 +935,7 @@ declare namespace cert {
 
     /**
      * Provides to create X509 CRL object.
-     * The returned object provides the data obtaining or verification capability.
+     * The returned object provides the data parsing or verification capability.
      * @param {EncodingBlob} inStream  - indicates the input CRL data.
      * @returns { Promise<X509Crl> } the promise of x509 CRL instance.
      * @throws { BusinessError } 401 - invalid parameters.
