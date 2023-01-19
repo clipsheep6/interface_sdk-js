@@ -2003,7 +2003,6 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
-   * @systemapi
    */
   constructor();
 
