@@ -1583,7 +1583,7 @@ declare interface Watcher {
      * @permission N/A
      * @throws {TypedError | Error} stop fail
      */
-    start(): void;
+    start(): Promise<void>;
 
     /**
      * stop.
