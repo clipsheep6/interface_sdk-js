@@ -654,7 +654,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Get the index number of text at cursor.
-         * @returns {number} the index number of text at cursor, if cursor not change, the value is 0; if cursor is a
+         * @returns { number } the index number of text at cursor, if cursor not change, the value is 0; if cursor is a
          * Rectangular area, the value is the index number of text at the end of cursor.
          * @throws ????????????????????
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -665,11 +665,11 @@ declare namespace inputMethodEngine {
 
         /**
          * Get the index number of text at cursor.
-         * @param {AsyncCallback<number>} callback - the callback of getTextIndexAtCursor, number represents the index
+         * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
          * number of text at cursor, if cursor not change, the value is 0; if cursor is a Rectangular area, the value
          * is the index number of text at the end of cursor.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @systemapi
          * @since 9
@@ -678,10 +678,10 @@ declare namespace inputMethodEngine {
 
         /**
          * Get the index number of text at cursor.
-         * @returns {Promise<number>} the promise returned by the function, number represents the index number of text
+         * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
          * at cursor, if cursor not change, the value is 0; if cursor is a Rectangular area, the value is the index
          * number of text at the end of cursor.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @systemapi
          * @since 9
