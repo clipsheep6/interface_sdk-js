@@ -653,33 +653,38 @@ declare namespace inputMethodEngine {
         moveCursor(direction: number): Promise<void>;
 
         /**
-         * Get the text index at cursor.
-         *
-         * @since 9
-         * @returns {number} the text index at cursor, if error, the value is -1.
+         * Get the index number of text at cursor.
+         * @returns {number} the index number of text at cursor, if cursor not change, the value is 0; if cursor is a
+         * Rectangular area, the value is the index number of text at the end of cursor.
+         * @throws ????????????????????
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @systemapi
+         * @since 9
          */
         getTextIndexAtCursor(): number
 
         /**
-         * Get the text index at cursor.
-         *
-         * @since 9
-         * @param {AsyncCallback<number>} callback - the callback of getTextIndexAtCursor, number is the text index at cursor.
+         * Get the index number of text at cursor.
+         * @param {AsyncCallback<number>} callback - the callback of getTextIndexAtCursor, number represents the index
+         * number of text at cursor, if cursor not change, the value is 0; if cursor is a Rectangular area, the value
+         * is the index number of text at the end of cursor.
+         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
-         * @throws {BusinessError} 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @systemapi
+         * @since 9
          */
         getTextIndexAtCursor(callback: AsyncCallback<number>): void;
 
         /**
-         * Get the text index at cursor.
-         *
-         * @since 9
-         * @returns {Promise<number>} the promise returned by the function, number is the text index at cursor.
+         * Get the index number of text at cursor.
+         * @returns {Promise<number>} the promise returned by the function, number represents the index number of text
+         * at cursor, if cursor not change, the value is 0; if cursor is a Rectangular area, the value is the index
+         * number of text at the end of cursor.
          * @throws {BusinessError} 12800003 - input method client error.
-         * @throws {BusinessError} 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @systemapi
+         * @since 9
          */
         getTextIndexAtCursor(): Promise<number>;
     }
