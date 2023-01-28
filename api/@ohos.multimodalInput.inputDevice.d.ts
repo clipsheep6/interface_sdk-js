@@ -25,18 +25,21 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 declare namespace inputDevice {
   /**
    * @since 9
+   * add or remove device
    */
   type ChangedType = 'add' | 'remove';
 
   /**
    * @since 9
+   * input device
    */
-  type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
+  type SourceTypes = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
    * @since 9
+   * Axis change of the input event
    */
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'toolMajor' | 'NULL';
+  type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null';
 
   /**
    * @since 9
@@ -127,7 +130,7 @@ declare namespace inputDevice {
     /**
      * @since 8
      */
-    source: SourceType;
+    source: SourceTypes;
 
     /**
      * @since 8
@@ -175,7 +178,7 @@ declare namespace inputDevice {
    * @param phys Physical path of the input device.
    * @param uniq Unique identifier of the input device.
    */
-  interface InputDeviceData {
+  interface InputDeviceInfo {
     /**
      * @since 8
      */
@@ -189,7 +192,7 @@ declare namespace inputDevice {
     /**
      * @since 8
      */
-    sources: Array<SourceType>;
+    sources: Array<SourceTypes>;
 
     /**
      * @since 8
