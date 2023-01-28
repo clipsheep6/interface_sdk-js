@@ -196,7 +196,7 @@ declare interface Rectangle {
    * Sets the width of the current touchRect.
    * @since 8
    */
-  width?: Length;
+  width?: Length | "auto";
 
   /**
    * Sets the height of the current touchRect.
