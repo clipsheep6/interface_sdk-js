@@ -1963,6 +1963,15 @@ declare class CommonMethod<T> {
    * @since 9
    */
    onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+
+  /**
+   * Enable components to change focus state
+   * @type boolean
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  focused(value: boolean): T;
 }
 
 /**
