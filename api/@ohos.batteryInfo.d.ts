@@ -234,10 +234,20 @@ declare namespace batteryInfo {
          */
         LEVEL_LOW,
         /**
+         * The battery is in warning low capacity level.
+         * @since 9
+         */
+        LEVEL_WARNING,
+        /**
          * The battery is in critical low capacity level.
          * @since 9
          */
-        LEVEL_CRITICAL
+        LEVEL_CRITICAL,
+        /**
+         * The battery is in shutdown low capacity level.
+         * @since 9
+         */
+        LEVEL_SHUTDOWN
     }
 
     /**
@@ -301,7 +311,17 @@ declare namespace batteryInfo {
          * Extra code of technology.
          * @since 9
          */
-        EXTRA_TECHNOLOGY
+        EXTRA_TECHNOLOGY,
+        /**
+         * Extra code of batteryCapacityLevel.
+         * @since 9
+         */
+        EXTRA_CAPACITY_LEVEL,
+        /**
+         * Extra code of batteryNowCurrent.
+         * @since 9
+         */
+        EXTRA_NOW_CURRENT
     }
 }
 export default batteryInfo;
