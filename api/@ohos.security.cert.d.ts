@@ -95,7 +95,7 @@ declare namespace cert {
          * @since 9
          */
         ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE = 19030007,
-    }
+    } 
 
     /**
      * Provides the data blob type.
@@ -579,7 +579,9 @@ declare namespace cert {
         getEntry(valueType: ExtensionEntryType, oid : DataBlob) : DataBlob;
 
         /**
-         * Check whether the certificate is a CA. If yes, the corresponding path length constraint is returned.
+         * Check whether the certificate is a CA(The keyusage contains signature usage and the value of cA in BasicConstraints is true).
+         * If not a CA, return -1, otherwise return the path length constraint in BasicConstraints.
+         * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
          * @returns { number } path length constraint.
          * @throws { BusinessError } 19020001 - memory error.
          * @throws { BusinessError } 19020002 - runtime error.
