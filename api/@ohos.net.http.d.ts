@@ -151,14 +151,14 @@ declare namespace http {
      *
      * @since 10
      */
-     on(type: "dataEnd", callback: Callback<Object>): void;
+     on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
      *
      * @since 10
      */
-     off(type: "dataEnd", callback?: Callback<Object>): void;
+     off(type: "dataEnd", callback?: Callback<void>): void;
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
