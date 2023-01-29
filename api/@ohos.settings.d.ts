@@ -817,7 +817,7 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
-   * @StageModeOnly
+   * @StageModelOnly
    * @since 9
    */
   function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
@@ -847,7 +847,7 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @StageModeOnly
+   * @StageModelOnly
    * @since 9
    */
    function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
@@ -902,7 +902,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @returns settingsdata value
-    * @StageModeOnly
+    * @StageModelOnly
     * @since 9
     */
    function getValueSync(context: Context, name: string, defValue: string): string;
@@ -928,7 +928,7 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-    * @StageModeOnly
+    * @StageModelOnly
     * @since 9
     */
    function setValueSync(context: Context, name: string, value: string): boolean;
