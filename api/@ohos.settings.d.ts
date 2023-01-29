@@ -802,9 +802,9 @@ declare namespace settings {
    * @param name Indicates the name of the character string.
    * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
-   * @FAModelOnly
    * @since 7
    * @deprecated since 9
+   * @FAModelOnly
    * @useinstead ohos.settings#getValue
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
@@ -833,8 +833,8 @@ declare namespace settings {
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
-   * @FAModelOnly
    * @deprecated since 9
+   * @FAModelOnly
    * @useinstead ohos.settings#setValue
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
@@ -877,9 +877,9 @@ declare namespace settings {
 
   /**
    * get settingsdata uri(synchronization method)
+   * @since 8
    * @param name Indicates the name of the setting to set.
    * @returns Returns settingsdata uri.
-   * @since 8
    */
    function getUriSync(name: string): string;
 
@@ -890,8 +890,8 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @returns settingsdata value
-    * @FAModelOnly
     * @deprecated since 9
+    * @FAModelOnly
     * @useinstead ohos.settings#getValueSync
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
@@ -915,8 +915,8 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-    * @FAModelOnly
     * @deprecated since 9
+    * @FAModelOnly
     * @useinstead ohos.settings#setValueSync
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
