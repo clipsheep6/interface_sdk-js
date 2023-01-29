@@ -131,6 +131,48 @@ declare namespace http {
      * @since 8
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
+
+    /**
+     * Registers an observer for receiving HTTP Response data events continuously.
+     *
+     * @since 10
+     */
+    on(type: "dataReceive", callback: Callback<Object>): void;
+
+    /**
+     * Unregisters an observer for receiving HTTP Response data events continuously.
+     *
+     * @since 10
+     */
+     off(type: "dataReceive", callback?: Callback<Object>): void;
+
+    /**
+     * Registers an observer for receiving HTTP Response data ends events.
+     *
+     * @since 10
+     */
+     on(type: "dataEnd", callback: Callback<Object>): void;
+
+    /**
+     * Unregisters an observer for receiving HTTP Response data ends events.
+     *
+     * @since 10
+     */
+     off(type: "dataEnd", callback?: Callback<Object>): void;
+
+    /**
+     * Registers an observer for progress of receiving HTTP Response data events.
+     *
+     * @since 10
+     */
+     on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+
+    /**
+     * Unregisters an observer for progress of receiving HTTP Response data events.
+     *
+     * @since 10
+     */
+     off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   export enum RequestMethod {
