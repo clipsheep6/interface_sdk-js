@@ -1191,13 +1191,19 @@ declare interface PopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?: Length;
+  arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
    * @since 9
    */
-   showInSubWindow?: boolean;
+  showInSubWindow?: boolean;
+
+  /**
+   * The mask to block gesture events of popup.
+   * @since 10
+   */
+  askBlockEvents?: boolean;
 }
 
 /**
@@ -1251,13 +1257,19 @@ declare interface CustomPopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?: Length;
+  arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
    * @since 9
    */
-   showInSubWindow?: boolean;
+  showInSubWindow?: boolean;
+
+  /**
+   * The mask to block gesture events of popup.
+   * @since 10
+   */
+  askBlockEvents?: boolean;
 }
 
 /**
