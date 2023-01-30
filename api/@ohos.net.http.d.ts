@@ -97,6 +97,7 @@ declare namespace http {
      * @param options Optional parameters {@link HttpRequestOptions}.
      * @param callback is void, should use on_headersReceive and on_dataReceive to get http response.
      * @permission ohos.permission.INTERNET
+     * @since 10
      */
     request2(url: string, callback: AsyncCallback<void>): void;
     request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
