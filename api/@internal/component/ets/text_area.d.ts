@@ -133,7 +133,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when overflowX property is set.
-   * @since 9
+   * @since 10
    */
   overflowX(value: string): TextAreaAttribute;
 
