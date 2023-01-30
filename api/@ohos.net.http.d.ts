@@ -91,6 +91,18 @@ declare namespace http {
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
     /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @param callback is void, should use on_headersReceive and on_dataReceive to get http response.
+     * @permission ohos.permission.INTERNET
+     */
+    request2(url: string, callback: AsyncCallback<void>): void;
+    request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
+    request2(url: string, options?: HttpRequestOptions): Promise<void>;
+
+    /**
      * Destroys an HTTP request.
      */
     destroy(): void;
@@ -137,14 +149,14 @@ declare namespace http {
      *
      * @since 10
      */
-    on(type: "dataReceive", callback: Callback<Object>): void;
+    on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
     /**
      * Unregisters an observer for receiving HTTP Response data events continuously.
      *
      * @since 10
      */
-     off(type: "dataReceive", callback?: Callback<Object>): void;
+     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
     /**
      * Registers an observer for receiving HTTP Response data ends events.
