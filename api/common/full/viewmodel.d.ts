@@ -973,8 +973,8 @@ export interface InputElement extends Element {
   delete(): void;
 
   /**
-   * set the component selected
-   * @since 9
+   * select all text
+   * @since 10
    */
   select():void;
 }
