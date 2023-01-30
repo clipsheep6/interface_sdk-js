@@ -91,23 +91,6 @@ declare namespace common {
     export type FormExtensionContext = _FormExtensionContext.default
 
     /**
-     * File area mode
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    export enum AreaMode {
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL1 = 0,
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL2 = 1
-    }
-
-    /**
      * The event center of a context, support the subscription and publication of events.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
