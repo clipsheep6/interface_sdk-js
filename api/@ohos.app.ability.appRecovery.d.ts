@@ -14,7 +14,7 @@
  */
 
 /**
- * This module provides the capability of app recovery.
+ * This module provides the capability of app recovery.  
  * You can use this capability to save state and restart the application
  * which let end user continue their workflow when app error occurs.
  * This api support restart the app when js crash or app freeze occurs currently.
