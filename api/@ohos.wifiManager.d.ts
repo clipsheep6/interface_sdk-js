@@ -531,7 +531,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-     function setHotspotIdleTimeout(delayTime: number): void;
+     function setHotspotIdleTimeout(delayTime: number): boolean;
 
     /**
      * Disables a Wi-Fi hotspot.
