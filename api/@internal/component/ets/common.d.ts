@@ -767,6 +767,48 @@ declare enum RepeatMode {
 }
 
 /**
+ * enum Shadow style
+ * @since 10
+ */
+ declare enum ShadowStyle {
+  /**
+   * Defines the super small default shadow style.
+   * @since 10
+   */
+  OuterDefaultXS,
+
+  /**
+   * Defines the small default shadow style.
+   * @since 10
+   */
+  OuterDefaultSM,
+
+  /**
+   * Defines the medium default shadow style.
+   * @since 10
+   */
+  OuterDefaultMD,
+
+  /**
+   * Defines the large default shadow style.
+   * @since 10
+   */
+  OuterDefaultLG,
+
+  /**
+   * Defines the small default shadow style.
+   * @since 10
+   */
+  OuterFloatingSM,
+
+  /**
+   * Defines the medium default shadow style.
+   * @since 10
+   */
+  OuterFloatingMD,
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -1900,7 +1942,7 @@ declare class CommonMethod<T> {
     color?: Color | string | Resource;
     offsetX?: number | Resource;
     offsetY?: number | Resource;
-  }): T;
+  } | ShadowStyle): T;
 
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
