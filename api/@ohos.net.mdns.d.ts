@@ -20,7 +20,7 @@ import Context from "./application/BaseContext";
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.
  *
- * @since 10
+ * @since 9
  * @syscap SystemCapability.Communication.NetManager.MDNS
  */
 declare namespace mdns {
