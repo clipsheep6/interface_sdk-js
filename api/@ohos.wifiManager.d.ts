@@ -519,7 +519,6 @@ declare namespace wifiManager {
     /**
      * timeout for disableHotspot when the hotspot is free.
      *
-     *
      * @param delayTime timeout unit: minutes.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
