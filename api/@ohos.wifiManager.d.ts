@@ -517,6 +517,23 @@ declare namespace wifiManager {
     function enableHotspot(): void;
 
     /**
+     * timeout for disableHotspot when the hotspot is free.
+     *
+     *
+     * @param delayTime timeout unit: minutes.
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+     * @systemapi Hide this for inner system use.
+     */
+     function setHotspotIdleTimeout(delayTime: number): void;
+
+    /**
      * Disables a Wi-Fi hotspot.
      *
      * <p>This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
