@@ -860,6 +860,8 @@ declare namespace call {
   /**
    * Judge whether the Ims switch is enabled.
    *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.

@@ -157,6 +157,9 @@ declare namespace sms {
   function hasSmsCapability(): boolean;
 
   /**
+   * Add a SMS Message to SIM card.
+   *
+   * @param options Indicates SIM message options.
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -171,6 +174,10 @@ declare namespace sms {
   function addSimMessage(options: SimMessageOptions): Promise<void>;
 
   /**
+   * Delete a SMS Message from the SIM card.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param msgIndex Indicates the message index.
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -185,6 +192,9 @@ declare namespace sms {
   function delSimMessage(slotId: number, msgIndex: number): Promise<void>;
 
   /**
+   * Update a SIM SMS of SIM card.
+   *
+   * @param options Update SIM message options.
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -199,6 +209,10 @@ declare namespace sms {
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
   /**
+   * Get all SMS records in SIM.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns a {@code SimShortMessage} object.
    * @permission ohos.permission.RECEIVE_SMS
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -213,6 +227,9 @@ declare namespace sms {
   function getAllSimMessages(slotId: number): Promise<Array<SimShortMessage>>;
 
   /**
+   * Turn on or off Cell BroadCast.
+   *
+   * @param options Cell broadcast configuration options.
    * @permission ohos.permission.RECEIVE_SMS
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -227,6 +244,12 @@ declare namespace sms {
   function setCBConfig(options: CBConfigOptions): Promise<void>;
 
   /**
+   * Get a SMS segment encode relation information.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param message Indicates short message.
+   * @param force7bit Whether to use 7 bit encoding.
+   * @param callback Returns a {@code SmsSegmentsInfo} object.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -271,8 +294,10 @@ declare namespace sms {
   function getImsShortMessageFormat(): Promise<string>;
 
   /**
-   * Decode the message content
+   * Decode the message content.
    *
+   * @param mmsFilePathName Indicates the path name of the multimedia message file.
+   * @param callback Returns a {@code MmsInformation} object.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -285,8 +310,10 @@ declare namespace sms {
   function decodeMms(mmsFilePathName: string | Array<number>): Promise<MmsInformation>;
 
   /**
-   * Encode the message content
+   * Encode the message content.
    *
+   * @param mms MMS messages.
+   * @param callback Returns the result of MMS encoding.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.

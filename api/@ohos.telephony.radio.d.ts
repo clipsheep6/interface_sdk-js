@@ -79,6 +79,8 @@ declare namespace radio {
   /**
    * Actively requests to update location information.
    *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -88,7 +90,7 @@ declare namespace radio {
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   function sendUpdateCellLocationRequest(callback: AsyncCallback<void>): void;
@@ -97,6 +99,8 @@ declare namespace radio {
   /**
    * Actively requests to update location information.
    *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -106,12 +110,17 @@ declare namespace radio {
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   function sendUpdateCellLocationRequest(slotId?: number): Promise<void>;
 
   /**
+   * Get the current cell information.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param callback Return cell information.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -129,7 +138,8 @@ declare namespace radio {
   /**
    * Obtains the network search mode of the SIM card in a specified slot.
    *
-   * @param slotId Indicates the ID of the SIM card slot.
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
    * @param callback Returns the network search mode of the SIM card. Available values are as follows:
    * <ul>
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
@@ -146,6 +156,9 @@ declare namespace radio {
   function getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>;
 
   /**
+   * Set the current network selection mode.
+   *
+   * @param options Indicates the network selection mode option.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -159,6 +172,11 @@ declare namespace radio {
   function setNetworkSelectionMode(options: NetworkSelectionModeOptions): Promise<void>;
 
   /**
+   * Get network search information.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param callback Returns the search results of the network.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -189,6 +207,11 @@ declare namespace radio {
   function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
 
   /**
+   * Get the option mode of NR.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param callback Returns the selection mode of NR.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -284,6 +307,8 @@ declare namespace radio {
   /**
    * Set the index number of the main SIM card slot.
    *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -337,6 +362,7 @@ declare namespace radio {
    *
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns {@code true} If the radio service is enabled; returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -391,6 +417,9 @@ declare namespace radio {
   /**
    * Get the operator name of the specified SIM card slot.
    *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns operator name.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -404,6 +433,9 @@ declare namespace radio {
   /**
    * Set the preferred network for the specified SIM card slot.
    *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param networkMode Indicates that you want to set the preferred network mode.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -420,6 +452,9 @@ declare namespace radio {
   /**
    * Get the preferred network for the specified SIM card slot.
    *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the preferred network mode to obtain.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -439,7 +474,7 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
    * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
-   * @param callback including an instance of the {@link ImsRegInfo} class.
+   * @param callback Returns an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
