@@ -890,6 +890,21 @@ declare namespace fileAccess {
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
 
         /**
+         * Obtain the property of a file or directory.
+         *
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param uri Indicates the selected file or directory.
+         * @param metaJson The json string include query property.
+         * @returns {(void | Promise<string>)} Returns the json string, include query property and value.
+         */
+        query(uri: string, metaJson: string) : Promise<string>;
+        query(uri: string, metaJson: string, callback: AsyncCallback<string>) : void;
+
+        /**
          * Get a RootIterator.
          *
          * @since 9
