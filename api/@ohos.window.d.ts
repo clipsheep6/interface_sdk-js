@@ -2225,7 +2225,6 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
      * @throws {BusinessError} 1300004 - If this window can not raise to app top
-     * @throws {BusinessError} 1300009 - If parent is invalid
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -2239,7 +2238,6 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - If window state is abnormally
      * @throws {BusinessError} 1300003 - If system state is abnormally
      * @throws {BusinessError} 1300004 - If this window can not raise to app top
-     * @throws {BusinessError} 1300009 - If parent is invalid
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
