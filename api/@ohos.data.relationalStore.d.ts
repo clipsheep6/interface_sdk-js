@@ -842,9 +842,8 @@ declare namespace relationalStore
         inAllDevices(): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the field whose data type is ValueType and value is equal
-         * to a specified value.
-         * This method is similar to = of the SQL statement.
+         * Configure the RdbPredicates to match the field which is of type string and is equal to a specified value.
+         * This method is similar to "=" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
@@ -856,9 +855,8 @@ declare namespace relationalStore
         equalTo(field: string, value: ValueType): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the field whose data type is ValueType and value is not equal to
-         * a specified value.
-         * This method is similar to != of the SQL statement.
+         * Configure the RdbPredicates to match the field which is of type string and is not equal to a specified value.
+         * This method is similar to "!=" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
@@ -871,7 +869,7 @@ declare namespace relationalStore
 
         /**
          * Adds a left parenthesis to the RdbPredicates.
-         * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
+         * This method is similar to "(" of the SQL statement and needs to be used together with endWrap().
          *
          * @returns {RdbPredicates} - the {@link RdbPredicates} with the left parenthesis.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -881,9 +879,8 @@ declare namespace relationalStore
 
         /**
          * Adds a right parenthesis to the RdbPredicates.
-         * This method is similar to ) of the SQL statement and needs to be used together
+         * This method is similar to ")" of the SQL statement and needs to be used together with beginWrap().
          *
-         * with beginWrap().
          * @returns {RdbPredicates} - the {@link RdbPredicates} with the right parenthesis.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
@@ -892,7 +889,7 @@ declare namespace relationalStore
 
         /**
          * Adds an or condition to the RdbPredicates.
-         * This method is similar to or of the SQL statement.
+         * This method is similar to "OR" of the SQL statement.
          *
          * @returns Returns the {@link RdbPredicates} with the or condition.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -902,7 +899,7 @@ declare namespace relationalStore
 
         /**
          * Adds an and condition to the RdbPredicates.
-         * This method is similar to or of the SQL statement.
+         * This method is similar to the "AND" of the SQL statement.
          *
          * @returns Returns the {@link RdbPredicates} with the or condition.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -911,9 +908,8 @@ declare namespace relationalStore
         and(): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the field whose data type is string and value
-         * contains a specified value.
-         * This method is similar to contains of the SQL statement.
+         * Configure the RdbPredicates to match the field which is of type string and contains a specified string.
+         * This method is similar to "CONTAINS" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
@@ -925,9 +921,8 @@ declare namespace relationalStore
         contains(field: string, value: string): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the field whose data type is string and value starts
-         * with a specified string.
-         * This method is similar to value% of the SQL statement.
+         * Configure the RdbPredicates to match the field which is of type string and starts with a specified string.
+         * This method is similar to "value%" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
@@ -939,9 +934,8 @@ declare namespace relationalStore
         beginsWith(field: string, value: string): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the field whose data type is string and value
-         * ends with a specified string.
-         * This method is similar to %value of the SQL statement.
+         * Configure the RdbPredicates to match the field which is of type string and ends with a specified string.
+         * This method is similar to "%value" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
@@ -953,8 +947,8 @@ declare namespace relationalStore
         endsWith(field: string, value: string): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the fields whose value is null.
-         * This method is similar to is null of the SQL statement.
+         * Configure the RdbPredicates to match the fields which is null.
+         * This method is similar to the "NULL" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -965,8 +959,8 @@ declare namespace relationalStore
         isNull(field: string): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the specified fields whose value is not null.
-         * This method is similar to is not null of the SQL statement.
+         * Configure the RdbPredicates to match the specified fields which is not null.
+         * This method is similar to is the "NOT NULL" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -977,9 +971,8 @@ declare namespace relationalStore
         isNotNull(field: string): RdbPredicates;
 
         /**
-         * Configure the RdbPredicates to match the fields whose data type is string and value is
-         * similar to a specified string.
-         * This method is similar to like of the SQL statement.
+         * Configure the RdbPredicates to match the fields which is of type string and is similar to a specified string.
+         * This method is similar to the "LIKE" of the SQL statement.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
@@ -991,8 +984,7 @@ declare namespace relationalStore
         like(field: string, value: string): RdbPredicates;
 
         /**
-         * Configure RdbPredicates to match the specified field whose data type is string and the value contains
-         * a wildcard.
+         * Configure RdbPredicates to match the specified field which is of type string and contains a wildcard.
          * Different from like, the input parameters of this method are case-sensitive.
          *
          * @param {string} field - Indicates the column name in the database table.
@@ -1005,8 +997,7 @@ declare namespace relationalStore
         glob(field: string, value: string): RdbPredicates;
 
         /**
-         * Configure RdbPredicates to match the specified field whose data type is string and the value contains
-         * a wildcard.
+         * Configure RdbPredicates to match the specified field which is of type string and is between the given range.
          *
          * @param {string} field - Indicates the column name.
          * @param {ValueType} low - Indicates the minimum value.
@@ -1019,8 +1010,7 @@ declare namespace relationalStore
         between(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
         /**
-         * Configure RdbPredicates to match the specified field whose data type is int and value is
-         * out of a given range.
+         * Configure RdbPredicates to match the specified field which is of type string and is out of the given range.
          *
          * @param {string} field - Indicates the column name in the database table.
          * @param {ValueType} low - Indicates the minimum value.
@@ -1376,6 +1366,8 @@ declare namespace relationalStore
          *
          * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
          * @returns {Uint8Array} returns the value of the specified column as a byte array.
+         * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+         * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -1388,6 +1380,8 @@ declare namespace relationalStore
          *
          * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
          * @returns {string} returns the value of the specified column as a string.
+         * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+         * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -1396,10 +1390,12 @@ declare namespace relationalStore
         /**
          * Obtains the value of the specified column in the current row as long.
          * The implementation class determines whether to throw an exception if the value of the specified column
-         * in the current row is null, the specified column is not of the integer type.
+         * in the current row is null, the specified column is not of the long type.
          *
          * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
          * @returns {number} returns the value of the specified column as a long.
+         * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+         * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
@@ -1412,6 +1408,8 @@ declare namespace relationalStore
          *
          * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
          * @returns {number} returns the value of the specified column as a double.
+         * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+         * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
