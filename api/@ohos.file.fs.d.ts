@@ -1201,6 +1201,44 @@ declare interface File {
      * @readonly
      */
     readonly fd: number;
+    /**
+     * Add blocking lock to file.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param  {boolean} [exclusive] - Indicates whether the lock type is exclusive lock
+     * @param {AsyncCallback<void>} [callback] - call back.
+     * @returns {void | Promise<void>} no callback return Promise otherwise return void
+     *                                         otherwise returns false
+     * @throws { BusinessError } 13900004  - Interrupted system call
+     * @throws { BusinessError } 13900005  - I/O error
+     * @throws { BusinessError } 13900008  - Bad file descriptor
+     * @throws { BusinessError } 13900025  - No space left on device
+     * @throws { BusinessError } 13900041  - Quota exceeded
+     * @throws { BusinessError } 13900042  - Unknown error
+     */
+    lock(exclusive?: boolean): Promise<void>;
+    lock(exclusive: boolean, callback: AsyncCallback<void>): void;
+    lock(callback: AsyncCallback<void>): void;
+    /**
+     * Add non-blocking lock to file.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @param  {boolean} [exclusive] - Indicates whether the lock type is exclusive lock
+     * @returns {void}
+     * @throws { BusinessError } 13900005  - I/O error
+     * @throws { BusinessError } 13900042  - Unknown error
+     */
+    tryLock(exclusive?: boolean): void;
+    /**
+     * Unlock file.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @returns {void}
+     * @throws { BusinessError } 13900005  - I/O error
+     * @throws { BusinessError } 13900042  - Unknown error
+     */
+    unlock(): void;
+
 }
 /**
  * Stat object.
