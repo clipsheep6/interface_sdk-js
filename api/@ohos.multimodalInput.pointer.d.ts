@@ -24,6 +24,7 @@ import { AsyncCallback } from "./basic";
 declare namespace pointer {
   /**
    * Pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    */
@@ -226,6 +227,7 @@ declare namespace pointer {
 
   /**
    * Sets the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -237,6 +239,7 @@ declare namespace pointer {
 
   /**
    * Sets the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -248,6 +251,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -258,6 +262,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -267,6 +272,7 @@ declare namespace pointer {
 
   /**
    * Sets the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -278,6 +284,7 @@ declare namespace pointer {
 
   /**
    * Sets the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -289,6 +296,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -299,6 +307,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -314,6 +323,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
    * and the value false indicates the opposite.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
