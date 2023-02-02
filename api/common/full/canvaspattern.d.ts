@@ -25,6 +25,13 @@ export interface CanvasPattern {
    * @param transform transformation matrix
    * @since 8
    */
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @form
+   * @since 9
+   */
   setTransform(transform?: Matrix2D): void;
 }
 

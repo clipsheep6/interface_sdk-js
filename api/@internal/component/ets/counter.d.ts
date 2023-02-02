@@ -17,10 +17,20 @@
  * Counter component, which provides corresponding increment or decrement counting operations.
  * @since 7
  */
+/**
+ * Counter component, which provides corresponding increment or decrement counting operations.
+ * @form
+ * @since 9
+ */
 interface CounterInterface {
   /**
    * Return Counter.
    * @since 7
+   */
+  /**
+   * Return Counter.
+   * @form
+   * @since 9
    */
   (): CounterAttribute;
 }
@@ -29,16 +39,31 @@ interface CounterInterface {
  * Defines the Counter attribute functions.
  * @since 7
  */
+/**
+ * Defines the Counter attribute functions.
+ * @form
+ * @since 9
+ */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Listen to the event that the value increases.
    * @since 7
+   */
+  /**
+   * Listen to the event that the value increases.
+   * @form
+   * @since 9
    */
   onInc(event: () => void): CounterAttribute;
 
   /**
    * Listens to the number decrease event.
    * @since 7
+   */
+  /**
+   * Listens to the number decrease event.
+   * @form
+   * @since 9
    */
   onDec(event: () => void): CounterAttribute;
 }

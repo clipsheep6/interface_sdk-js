@@ -17,10 +17,20 @@
  * Ellipse drawing.
  * @since 7
  */
+/**
+ * Ellipse drawing.
+ * @form
+ * @since 9
+ */
 interface EllipseInterface {
   /**
    * use new function to set the value.
    * @since 7
+   */
+  /**
+   * use new function to set the value.
+   * @form
+   * @since 9
    */
   new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 
@@ -28,11 +38,20 @@ interface EllipseInterface {
    * Set the value.
    * @since 7
    */
+  /**
+   * Set the value.
+   * @form
+   * @since 9
+   */
   (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 }
 
 /**
  * @since 7
+ */
+/**
+ * @form
+ * @since 9
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 

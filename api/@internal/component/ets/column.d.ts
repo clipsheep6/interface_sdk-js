@@ -17,11 +17,23 @@
  * Defines the Column Component.
  * @since 7
  */
+/**
+ * Defines the Column Component.
+ * @form
+ * @since 9
+ */
 interface ColumnInterface {
   /**
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
+   * @since 7
+   */
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Vertical layout element spacing.
+   * @form
    * @since 7
    */
   (value?: { space?: string | number }): ColumnAttribute;
@@ -31,10 +43,20 @@ interface ColumnInterface {
  * Defines the Column component attribute functions.
  * @since 7
  */
+/**
+ * Defines the Column component attribute functions.
+ * @form
+ * @since 9
+ */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
    * @since 7
+   */
+  /**
+   * Sets the alignment format of the subassembly in the horizontal direction.
+   * @form
+   * @since 9
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 

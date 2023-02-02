@@ -17,10 +17,20 @@
  * Create Blank.
  * @since 7
  */
+/**
+ * Create Blank.
+ * @form
+ * @since 9
+ */
 interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
    * @since 7
+   */
+  /**
+   * The minimum size of the blank fill assembly on the container spindle.
+   * @form
+   * @since 9
    */
   (min?: number | string): BlankAttribute;
 }
@@ -29,10 +39,20 @@ interface BlankInterface {
  * Inheritance CommonMethod Set Styles
  * @since 7
  */
+/**
+ * Inheritance CommonMethod Set Styles
+ * @form
+ * @since 9
+ */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
    * color: set color.
    * @since 7
+   */
+  /**
+   * color: set color.
+   * @form
+   * @since 9
    */
   color(value: ResourceColor): BlankAttribute;
 }

@@ -17,16 +17,31 @@
  * Defines circle options for Circle component.
  * @since 7
  */
+/**
+ * Defines circle option for Circle component.
+ * @form
+ * @since 9
+ */
 declare interface CircleOptions {
   /**
    * Defines the width property.
    * @since 7
+   */
+  /**
+   * Defines the width property.
+   * @form
+   * @since 9
    */
   width?: string | number;
 
   /**
    * Defines the height property.
    * @since 7
+   */
+  /**
+   * Defines the height property.
+   * @form
+   * @since 9
    */
   height?: string | number;
 }
@@ -35,10 +50,20 @@ declare interface CircleOptions {
  * Defines circle component.
  * @since 7
  */
+/**
+ * Defines circle component.
+ * @form
+ * @since 9
+ */
 interface CircleInterface {
   /**
    * use new function to set the value.
    * @since 7
+   */
+  /**
+   * use new function to set the value.
+   * @form
+   * @since 9
    */
   new (value?: CircleOptions): CircleAttribute;
 
@@ -46,12 +71,22 @@ interface CircleInterface {
    * Set the value..
    * @since 7
    */
+  /**
+   * Set the value..
+   * @form
+   * @since 9
+   */
   (value?: CircleOptions): CircleAttribute;
 }
 
 /**
  * Circle drawing component attribute functions.
  * @since 7
+ */
+/**
+ * Circle drawing component attribute functions.
+ * @form
+ * @since 9
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 

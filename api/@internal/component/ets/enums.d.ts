@@ -17,10 +17,20 @@
  * common enum of color
  * @since 7
  */
+/**
+ * common enum of color
+ * @form
+ * @since 9
+ */
 declare enum Color {
   /**
    * White.
    * @since 7
+   */
+  /**
+   * White.
+   * @form
+   * @since 9
    */
   White,
 
@@ -28,11 +38,21 @@ declare enum Color {
    * Black.
    * @since 7
    */
+  /**
+   * Black.
+   * @form
+   * @since 9
+   */
   Black,
 
   /**
    * Blue.
    * @since 7
+   */
+  /**
+   * Blue.
+   * @form
+   * @since 9
    */
   Blue,
 
@@ -40,11 +60,21 @@ declare enum Color {
    * Brown.
    * @since 7
    */
+  /**
+   * Brown.
+   * @form
+   * @since 9
+   */
   Brown,
 
   /**
    * Gray.
    * @since 7
+   */
+  /**
+   * Gray.
+   * @form
+   * @since 9
    */
   Gray,
 
@@ -52,11 +82,21 @@ declare enum Color {
    * Green.
    * @since 7
    */
+  /**
+   * Green.
+   * @form
+   * @since 9
+   */
   Green,
 
   /**
    * Grey.
    * @since 7
+   */
+  /**
+   * Grey.
+   * @form
+   * @since 9
    */
   Grey,
 
@@ -64,11 +104,21 @@ declare enum Color {
    * Orange.
    * @since 7
    */
+  /**
+   * Orange.
+   * @form
+   * @since 9
+   */
   Orange,
 
   /**
    * color.
    * @since 7
+   */
+  /**
+   * color.
+   * @form
+   * @since 9
    */
   Pink,
 
@@ -76,11 +126,21 @@ declare enum Color {
    * Red.
    * @since 7
    */
+  /**
+   * Red.
+   * @form
+   * @since 9
+   */
   Red,
 
   /**
    * Yellow.
    * @since 7
+   */
+  /**
+   * Yellow.
+   * @form
+   * @since 9
    */
   Yellow,
 
@@ -95,10 +155,20 @@ declare enum Color {
  * Image display mode
  * @since 7
  */
+/**
+ * Image display mode
+ * @form
+ * @since 9
+ */
 declare enum ImageFit {
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    * @since 7
+   */
+  /**
+   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * @form
+   * @since 9
    */
   Contain,
 
@@ -106,11 +176,21 @@ declare enum ImageFit {
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    * @since 7
    */
+  /**
+   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * @form
+   * @since 9
+   */
   Cover,
 
   /**
    * Adaptive display
    * @since 7
+   */
+  /**
+   * Adaptive display
+   * @form
+   * @since 9
    */
   Auto,
 
@@ -118,17 +198,32 @@ declare enum ImageFit {
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    * @since 7
    */
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   * @form
+   * @since 9
+   */
   Fill,
 
   /**
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    * @since 7
    */
+  /**
+   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   * @form
+   * @since 9
+   */
   ScaleDown,
 
   /**
    * Keep the original size and display it in the center.
    * @since 7
+   */
+  /**
+   * Keep the original size and display it in the center.
+   * @form
+   * @since 9
    */
   None,
 }
@@ -137,10 +232,20 @@ declare enum ImageFit {
  * Border Style
  * @since 7
  */
+/**
+ * Border Style
+ * @form
+ * @since 9
+ */
 declare enum BorderStyle {
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
    * @since 7
+   */
+  /**
+   * Displays as a series of dots with a radius of half the borderWidth.
+   * @form
+   * @since 9
    */
   Dotted,
 
@@ -148,11 +253,21 @@ declare enum BorderStyle {
    * Shows as a series of short square dashed lines.
    * @since 7
    */
+  /**
+   * Shows as a series of short square dashed lines.
+   * @form
+   * @since 9
+   */
   Dashed,
 
   /**
    * Shows as a solid line.
    * @since 7
+   */
+  /**
+   * Shows as a solid line.
+   * @form
+   * @since 9
    */
   Solid,
 }
@@ -161,10 +276,20 @@ declare enum BorderStyle {
  * Line Join Style
  * @since 7
  */
+/**
+ * Line Join Style
+ * @form
+ * @since 9
+ */
 declare enum LineJoinStyle {
   /**
    * Connect path segments using bevels.
    * @since 7
+   */
+  /**
+   * Connect path segments using bevels.
+   * @form
+   * @since 9
    */
   Miter,
 
@@ -172,11 +297,21 @@ declare enum LineJoinStyle {
    * Connect path segments using sharp corners.
    * @since 7
    */
+  /**
+   * Connect path segments using sharp corners.
+   * @form
+   * @since 9
+   */
   Round,
 
   /**
    * Connect path segments using fillets.
    * @since 7
+   */
+  /**
+   * Connect path segments using fillets.
+   * @form
+   * @since 9
    */
   Bevel,
 }
@@ -185,10 +320,20 @@ declare enum LineJoinStyle {
  * Function Called by Touch
  * @since 7
  */
+/**
+ * Function Called by Touch
+ * @form
+ * @since 9
+ */
 declare enum TouchType {
   /**
    * Triggered when the finger is pressed.
    * @since 7
+   */
+  /**
+   * Triggered when the finger is pressed.
+   * @form
+   * @since 9
    */
   Down,
 
@@ -196,17 +341,32 @@ declare enum TouchType {
    * Triggered when the finger is raised.
    * @since 7
    */
+  /**
+   * Triggered when the finger is raised.
+   * @form
+   * @since 9
+   */
   Up,
 
   /**
    * Triggered when the finger presses on the screen.
    * @since 7
    */
+  /**
+   * Triggered when the finger presses on the screen.
+   * @form
+   * @since 9
+   */
   Move,
 
   /**
    * Triggers when the touch event cancels.
    * @since 7
+   */
+  /**
+   * Triggers when the touch event cancels.
+   * @form
+   * @since 9
    */
   Cancel,
 }
@@ -317,10 +477,20 @@ declare enum AnimationStatus {
  * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
  * @since 7
  */
+/**
+ * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
+ * @form
+ * @since 9
+ */
 declare enum Curve {
   /**
    * Indicates that the speed of the animation is the same from start to finish.
    * @since 7
+   */
+  /**
+   * Indicates that the speed of the animation is the same from start to finish.
+   * @form
+   * @since 9
    */
   Linear,
 
@@ -328,11 +498,21 @@ declare enum Curve {
    * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
    * @since 7
    */
+  /**
+   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
+   * @form
+   * @since 9
+   */
   Ease,
 
   /**
    * Indicates that the animation starts at a low speed, CubicBezier(0.42, 0.0, 1.0, 1.0).
    * @since 7
+   */
+  /**
+   * Indicates that the animation starts at a low speed, CubicBezier(0.42, 0.0, 1.0, 1.0).
+   * @form
+   * @since 9
    */
   EaseIn,
 
@@ -340,11 +520,21 @@ declare enum Curve {
    * Indicates that the animation ends at a low speed, CubicBezier(0.0, 0.0, 0.78, 1.0).
    * @since 7
    */
+  /**
+   * Indicates that the animation ends at a low speed, CubicBezier(0.0, 0.0, 0.78, 1.0).
+   * @form
+   * @since 9
+   */
   EaseOut,
 
   /**
    * Indicates that the animation starts and ends at a slow speed, CubicBezier(0.42, 0.0, 0.78, 1.0).
    * @since 7
+   */
+  /**
+   * Indicates that the animation starts and ends at a slow speed, CubicBezier(0.42, 0.0, 0.78, 1.0).
+   * @form
+   * @since 9
    */
   EaseInOut,
 
@@ -352,11 +542,21 @@ declare enum Curve {
    * Slow-in, fast-out
    * @since 7
    */
+  /**
+   * Slow-in, fast-out
+   * @form
+   * @since 9
+   */
   FastOutSlowIn,
 
   /**
    * Linear Out Slow In
    * @since 7
+   */
+  /**
+   * Linear Out Slow In
+   * @form
+   * @since 9
    */
   LinearOutSlowIn,
 
@@ -364,11 +564,21 @@ declare enum Curve {
    * Fast Out Linear In.
    * @since 7
    */
+  /**
+   * Fast OutL inear In.
+   * @form
+   * @since 9
+   */
   FastOutLinearIn,
 
   /**
    * Extreme Deceleration.
    * @since 7
+   */
+  /**
+   * Extreme Deceleration.
+   * @form
+   * @since 9
    */
   ExtremeDeceleration,
 
@@ -376,11 +586,21 @@ declare enum Curve {
    * Sharp.
    * @since 7
    */
+  /**
+   * Sharp.
+   * @form
+   * @since 9
+   */
   Sharp,
 
   /**
    * Rhythm.
    * @since 7
+   */
+  /**
+   * Rhythm.
+   * @form
+   * @since 9
    */
   Rhythm,
 
@@ -388,11 +608,21 @@ declare enum Curve {
    * Smooth.
    * @since 7
    */
+  /**
+   * Smooth.
+   * @form
+   * @since 9
+   */
   Smooth,
 
   /**
    * Damping curve, CubicBezier(0.2, 0.0, 0.2, 1.0).
    * @since 7
+   */
+  /**
+   * Damping curve, CubicBezier(0.2, 0.0, 0.2, 1.0).
+   * @form
+   * @since 9
    */
   Friction,
 }
@@ -401,10 +631,20 @@ declare enum Curve {
  * Sets the state before and after the animation starts.
  * @since 7
  */
+/**
+ * Sets the state before and after the animation starts.
+ * @form
+ * @since 9
+ */
 declare enum FillMode {
   /**
    * Restores to the initial state after the playback is complete.
    * @since 7
+   */
+  /**
+   * Restores to the initial state after the playback is complete.
+   * @form
+   * @since 9
    */
   None,
 
@@ -412,17 +652,32 @@ declare enum FillMode {
    * Retains the state at the end of the animation when the playback is complete.
    * @since 7
    */
+  /**
+   * Retains the state at the end of the animation when the playback is complete.
+   * @form
+   * @since 9
+   */
   Forwards,
 
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    * @since 7
    */
+  /**
+   * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
+   * @form
+   * @since 9
+   */
   Backwards,
 
   /**
    * Both forward and backward fill modes are applied.
    * @since 7
+   */
+  /**
+   * Both forward and backward fill modes are applied.
+   * @form
+   * @since 9
    */
   Both,
 }
@@ -431,10 +686,20 @@ declare enum FillMode {
  * Play Mode
  * @since 7
  */
+/**
+ * Play Mode
+ * @form
+ * @since 9
+ */
 declare enum PlayMode {
   /**
    * The animation plays normally.
    * @since 7
+   */
+  /**
+   * The animation plays normally.
+   * @form
+   * @since 9
    */
   Normal,
 
@@ -442,17 +707,32 @@ declare enum PlayMode {
    * The animation plays backwards.
    * @since 7
    */
+  /**
+   * The animation plays backwards.
+   * @form
+   * @since 9
+   */
   Reverse,
 
   /**
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
    * @since 7
    */
+  /**
+   * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
+   * @form
+   * @since 9
+   */
   Alternate,
 
   /**
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
    * @since 7
+   */
+  /**
+   * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
+   * @form
+   * @since 9
    */
   AlternateReverse,
 }
@@ -497,10 +777,20 @@ declare enum KeySource {
  * Edge.
  * @since 7
  */
+/**
+ * Edge.
+ * @form
+ * @since 9
+ */
 declare enum Edge {
   /**
    * The top is centered horizontally.
    * @since 7
+   */
+  /**
+   * The top is centered horizontally.
+   * @form
+   * @since 9
    */
   Top,
 
@@ -509,11 +799,21 @@ declare enum Edge {
    * @since 7
    * @deprecated since 9
    */
+  /**
+   * Center horizontal and vertical.
+   * @form
+   * @since 9
+   */
   Center,
 
   /**
    * The bottom is centered horizontally.
    * @since 7
+   */
+  /**
+   * The bottom is centered horizontally.
+   * @form
+   * @since 9
    */
   Bottom,
 
@@ -522,11 +822,21 @@ declare enum Edge {
    * @since 7
    * @deprecated since 9
    */
+  /**
+   * Cross axis direction text baseline alignment.
+   * @form
+   * @since 9
+   */
   Baseline,
 
   /**
    * Align the head of the cross axis direction.
    * @since 7
+   */
+  /**
+   * Align the head of the cross axis direction.
+   * @form
+   * @since 9
    */
   Start,
 
@@ -535,11 +845,21 @@ declare enum Edge {
    * @since 7
    * @deprecated since 9
    */
+  /**
+   * Middle
+   * @form
+   * @since 9
+   */
   Middle,
 
   /**
    * Align the head of the cross axis direction.
    * @since 7
+   */
+  /**
+   * Align the head of the cross axis direction.
+   * @form
+   * @since 9
    */
   End,
 }
@@ -596,10 +916,20 @@ declare enum Week {
  * Sets the horizontal layout of elements.
  * @since 7
  */
+/**
+ * Sets the horizontal layout of elements.
+ * @form
+ * @since 9
+ */
 declare enum Direction {
   /**
    * Elements are laid out from left to right.
    * @since 7
+   */
+  /**
+   * Elements are laid out from left to right.
+   * @form
+   * @since 9
    */
   Ltr,
 
@@ -607,11 +937,21 @@ declare enum Direction {
    * Elements are laid out from right to left.
    * @since 7
    */
+  /**
+   * Elements are laid out from right to left.
+   * @form
+   * @since 9
+   */
   Rtl,
 
   /**
    * Use the default layout direction.
    * @since 7
+   */
+  /**
+   * Use the default layout direction.
+   * @form
+   * @since 9
    */
   Auto,
 }
@@ -644,10 +984,20 @@ declare enum BarState {
  * Sliding effect
  * @since 7
  */
+/**
+ * Sliding effect
+ * @form
+ * @since 9
+ */
 declare enum EdgeEffect {
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    * @since 7
+   */
+  /**
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * @form
+   * @since 9
    */
   Spring,
 
@@ -655,11 +1005,21 @@ declare enum EdgeEffect {
    * Fade.
    * @since 7
    */
+  /**
+   * Fade.
+   * @form
+   * @since 9
+   */
   Fade,
 
   /**
    * Sliding to the edge has no effect.
    * @since 7
+   */
+  /**
+   * Sliding to the edge has no effect.
+   * @form
+   * @since 9
    */
   None,
 }
@@ -668,10 +1028,20 @@ declare enum EdgeEffect {
  * Alignment enumeration description.
  * @since 7
  */
+/**
+ * Alignment enumeration description.
+ * @form
+ * @since 9
+ */
 declare enum Alignment {
   /**
    * Top Start.
    * @since 7
+   */
+  /**
+   * Top Start.
+   * @form
+   * @since 9
    */
   TopStart,
 
@@ -679,11 +1049,21 @@ declare enum Alignment {
    * The top is centered horizontally.
    * @since 7
    */
+  /**
+   * The top is centered horizontally.
+   * @form
+   * @since 9
+   */
   Top,
 
   /**
    * Top tail end.
    * @since 7
+   */
+  /**
+   * Top tail end.
+   * @form
+   * @since 9
    */
   TopEnd,
 
@@ -691,11 +1071,21 @@ declare enum Alignment {
    * The starting end is centered longitudinally.
    * @since 7
    */
+  /**
+   * The starting end is centered longitudinally.
+   * @form
+   * @since 9
+   */
   Start,
 
   /**
    * Center horizontal and vertical.
    * @since 7
+   */
+  /**
+   * Center horizontal and vertical.
+   * @form
+   * @since 9
    */
   Center,
 
@@ -703,11 +1093,21 @@ declare enum Alignment {
    * The tail end is centered longitudinally.
    * @since 7
    */
+  /**
+   * The tail end is centered longitudinally.
+   * @form
+   * @since 9
+   */
   End,
 
   /**
    * Bottom starting end.
    * @since 7
+   */
+  /**
+   * Bottom starting end.
+   * @form
+   * @since 9
    */
   BottomStart,
 
@@ -715,11 +1115,21 @@ declare enum Alignment {
    * The bottom is centered horizontally.
    * @since 7
    */
+  /**
+   * The bottom is centered horizontally.
+   * @form
+   * @since 9
+   */
   Bottom,
 
   /**
    * Bottom end.
    * @since 7
+   */
+  /**
+   * Bottom end.
+   * @form
+   * @since 9
    */
   BottomEnd,
 }
@@ -752,10 +1162,20 @@ declare enum TransitionType {
  * RelateType enumeration description
  * @since 7
  */
+/**
+ * RelateType enumeration description
+ * @form
+ * @since 9
+ */
 declare enum RelateType {
   /**
    * Scales the current component to fill the parent component.
    * @since 7
+   */
+  /**
+   * Scales the current component to fill the parent component.
+   * @form
+   * @since 9
    */
   FILL,
 
@@ -873,12 +1293,24 @@ declare enum FlexAlign {
    * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
    * @since 7
    */
+  /**
+   * The elements are centered in the direction of the principal axis,
+   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * @form
+   * @since 9
+   */
   Center,
 
   /**
    * The element is aligned at the tail of the principal axis,
    * the last element is aligned at the end of the row, and the other elements are aligned with the next.
    * @since 7
+   */
+  /**
+   * The element is aligned at the tail of the principal axis,
+   * the last element is aligned at the end of the row, and the other elements are aligned with the next.
+   * @form
+   * @since 9
    */
   End,
 
@@ -888,6 +1320,13 @@ declare enum FlexAlign {
    * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
    * @since 7
    */
+  /**
+   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
+   * with the same distance between adjacent elements.
+   * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
+   * @form
+   * @since 9
+   */
   SpaceBetween,
 
   /**
@@ -896,6 +1335,13 @@ declare enum FlexAlign {
    * the first element and the distance between the last element and the end of the row.
    * @since 7
    */
+  /**
+   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
+   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
+   * the first element and the distance between the last element and the end of the row.
+   * @form
+   * @since 9
+   */
   SpaceAround,
 
   /**
@@ -903,6 +1349,13 @@ declare enum FlexAlign {
    * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
    * and the spacing between the last element and the end of the row are the same.
    * @since 7
+   */
+  /**
+   * Elements in the Flex axis direction are evenly spaced.
+   * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
+   * and the spacing between the last element and the end of the row are the same.
+   * @form
+   * @since 9
    */
   SpaceEvenly,
 }
@@ -1265,6 +1718,11 @@ declare enum TextOverflow {
   /**
    * Text is not cropped when it is too long.
    * @since 7
+   */
+  /**
+   * Text is not cropped when it is too long.
+   * @form
+   * @since 9
    */
   None,
 }

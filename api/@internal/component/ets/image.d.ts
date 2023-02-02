@@ -167,6 +167,12 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * The size of the image source that is successfully loaded is returned, in pixels.
    * @since 7
    */
+  /**
+   * This callback is triggered when an image is successfully loaded.
+   * The size of the image source that is successfully loaded is returned, in pixels.
+   * @form
+   * @since 9
+   */
   onComplete(
     callback: (event?: {
       width: number;
