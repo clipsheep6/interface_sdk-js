@@ -97,7 +97,7 @@ declare namespace http {
      * @param options Optional parameters {@link HttpRequestOptions}.
      * @param callback is void, should use on_headersReceive and on_dataReceive to get http response.
      * @permission ohos.permission.INTERNET
-     * @since 9
+     * @since 10
      */
     request2(url: string, callback: AsyncCallback<void>): void;
     request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
@@ -148,42 +148,42 @@ declare namespace http {
     /**
      * Registers an observer for receiving HTTP Response data events continuously.
      *
-     * @since 9
+     * @since 10
      */
     on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
 
     /**
      * Unregisters an observer for receiving HTTP Response data events continuously.
      *
-     * @since 9
+     * @since 10
      */
      off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
 
     /**
      * Registers an observer for receiving HTTP Response data ends events.
      *
-     * @since 9
+     * @since 10
      */
      on(type: "dataEnd", callback: Callback<void>): void;
 
     /**
      * Unregisters an observer for receiving HTTP Response data ends events.
      *
-     * @since 9
+     * @since 10
      */
      off(type: "dataEnd", callback?: Callback<void>): void;
 
     /**
      * Registers an observer for progress of receiving HTTP Response data events.
      *
-     * @since 9
+     * @since 10
      */
      on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
      *
-     * @since 9
+     * @since 10
      */
      off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
