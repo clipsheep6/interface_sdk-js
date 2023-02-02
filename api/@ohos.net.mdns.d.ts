@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,7 +15,7 @@
 
 import {AsyncCallback, Callback} from "./basic";
 import connection from "./@ohos.net.connection";
-import Context from "./application/BaseContext";
+import Context from "./application/Context";
 
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.
@@ -31,9 +31,29 @@ declare namespace mdns {
    *
    * @param context Indicates the context of application or capability.
    * @param serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @param callback Returns the callback of addLocalService.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2204003 - Callback duplicated.
+   * @throws {BusinessError} 2204008 - Service instance duplicated.
+   * @throws {BusinessError} 2204010 - Send packet failed.
    */
   function addLocalService(context: Context, serviceInfo: LocalServiceInfo,
     callback: AsyncCallback<LocalServiceInfo>): void;
+  /**
+   * Adds an mDNS service.
+   *
+   * @param context Indicates the context of application or capability.
+   * @param serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @returns The promise returned by the function.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2204003 - Callback duplicated.
+   * @throws {BusinessError} 2204008 - Service instance duplicated.
+   * @throws {BusinessError} 2204010 - Send packet failed.
+   */
   function addLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
   /**
@@ -41,15 +61,37 @@ declare namespace mdns {
    *
    * @param context Indicates the context of application or capability.
    * @param serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @param callback Returns the callback of removeLocalService.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2204002 - Callback not found.
+   * @throws {BusinessError} 2204008 - Service instance not found.
+   * @throws {BusinessError} 2204010 - Send packet failed.
    */
   function removeLocalService(context: Context, serviceInfo: LocalServiceInfo,
     callback: AsyncCallback<LocalServiceInfo>): void;
+  /**
+   * Removes an mDNS service.
+   *
+   * @param context Indicates the context of application or capability.
+   * @param serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @returns The promise returned by the function.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2204002 - Callback not found.
+   * @throws {BusinessError} 2204008 - Service instance not found.
+   * @throws {BusinessError} 2204010 - Send packet failed.
+   */
   function removeLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
   /**
    * Creates an mDNS based discovery service with context and serviceType.
    *
+   * @param context Indicates the context of application or capability.
    * @param serviceType The service type being discovered.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function createDiscoveryService(context: Context, serviceType: string): DiscoveryService;
 
@@ -58,9 +100,29 @@ declare namespace mdns {
    *
    * @param context Indicates the context of application or capability.
    * @param serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @param callback Returns the callback of resolveLocalService.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2204003 - Callback duplicated.
+   * @throws {BusinessError} 2204006 - Request timeout.
+   * @throws {BusinessError} 2204010 - Send packet failed.
    */
   function resolveLocalService(context: Context, serviceInfo: LocalServiceInfo,
     callback: AsyncCallback<LocalServiceInfo>): void;
+  /**
+   * Resolves an mDNS service.
+   *
+   * @param context Indicates the context of application or capability.
+   * @param serviceInfo Information about the mDNS service. {@link LocalServiceInfo}
+   * @returns The promise returned by the function.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2204003 - Callback duplicated.
+   * @throws {BusinessError} 2204006 - Request timeout.
+   * @throws {BusinessError} 2204010 - Send packet failed.
+   */
   function resolveLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise<LocalServiceInfo>;
 
   export interface DiscoveryService {
@@ -114,6 +176,21 @@ declare namespace mdns {
      * IP address of the host.
      */
     host?: NetAddress;
+    /**
+     * DNS-SD TXT record pairs.
+     */
+    serviceAttribute?: Array<ServiceAttribute>;
+  }
+
+  export interface ServiceAttribute {
+    /**
+     * TXT record key.
+     */
+    key: string;
+    /**
+     * TXT record value.
+     */
+    value: Array<number>;
   }
 
   export enum MDNS_ERR {
