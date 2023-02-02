@@ -95,12 +95,27 @@ declare namespace http {
      *
      * @param url URL for initiating an HTTP request.
      * @param options Optional parameters {@link HttpRequestOptions}.
-     * @param callback is void, should use on_headersReceive and on_dataReceive to get http response.
+     * @param callback Returns the callback of request2, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
      * @permission ohos.permission.INTERNET
      * @since 10
      */
     request2(url: string, callback: AsyncCallback<void>): void;
     request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @returns The promise returned by the function, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @permission ohos.permission.INTERNET
+     * @since 10
+     */
     request2(url: string, options?: HttpRequestOptions): Promise<void>;
 
     /**
