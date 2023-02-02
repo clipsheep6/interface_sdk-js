@@ -778,21 +778,9 @@ declare namespace settings {
    * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.settings#getURI
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
-  
-    /**
-   * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
-   * template.
-   *
-   * @param name Indicates the name of the setting to set.
-   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
-   * @since 9
-   */
-  function getURI(name: string, callback: AsyncCallback<string>): void;
-  function getURI(name: string): Promise<string>;
 
   /**
    * Obtains the value of a specified character string in the database.
