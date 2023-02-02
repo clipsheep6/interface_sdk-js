@@ -50,18 +50,11 @@ declare namespace socket {
   function constructTLSSocketInstance(): TLSSocket;
 
   /**
-   * Creates a LocalSocket object by socket type.
-   *
-   * @since 10
-   */
-  function constructLocalSocketInstance(sockType?: LocalSocketType): LocalSocket;
-
-  /**
    * Creates a LocalSocket object by file description.
    *
    * @since 10
    */
-  function constructLocalSocketInstance(fd : number): LocalSocket;
+  function constructLocalSocketInstance(fd ?: number): LocalSocket;
 
   /**
    * Creates a LocalSocketServer object by name.
@@ -628,22 +621,6 @@ declare namespace socket {
   /**
    * @since 10
    */
-  export enum LocalSocketType {
-
-    /**
-     * Streaming data transmission mode, namely TCP.
-     */
-    STREAM = "STREAM",
-
-    /**
-     * Packet data mode, namely: UDP.
-     */
-    DGRAM = "DGRAM"
-  }
-
-  /**
-   * @since 10
-   */
   export enum LocalSocketNameMode {
 
     /**
@@ -682,17 +659,6 @@ declare namespace socket {
    * @since 10
    */
   export interface LocalSocket {
-
-    /**
-     * Bind the specified LocalSocket address.
-     *
-     * @param address Local Socket Address.
-     * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 2305100 - Address Already Bound.
-     * @throws {BusinessError} 2305204 - Error bind socket.
-     */
-    bind(address: LocalSocketAddress, callback: AsyncCallback<void>): void;
-    bind(address: LocalSocketAddress): Promise<void>;
 
     /**
      * Connect the specified LocalSocket address.
