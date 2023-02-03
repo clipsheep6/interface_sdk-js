@@ -30,6 +30,7 @@ declare namespace fileIo {
     export { copyFileSync };
     export { createStream };
     export { createStreamSync };
+    export { createWatcher };
     export { fdatasync };
     export { fdatasyncSync };
     export { fdopenStream };
@@ -66,6 +67,8 @@ declare namespace fileIo {
     export { OpenMode };
     export { Stat };
     export { Stream };
+    export { Watcher };
+    export { WatcherOut };
     
     /**
      * Mode Indicates the open flags.
@@ -84,6 +87,122 @@ declare namespace fileIo {
         const NOFOLLOW = 0o400000;          // File is not symbolic link
         const SYNC = 0o4010000;             // SYNC IO
     }
+
+/**
+ * WatcherEvents
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ */
+export enum WatcherEvents {
+    /**
+     * File was accessed.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_ACCESS = 0x00000001,
+  
+    /**
+     * File was modified.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_MODIFY = 0x00000002,
+  
+    /**
+     * Metadata changed.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_ATTRIB = 0x00000004,
+  
+    /**
+     * Writtable file was closed.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_CLOSE_WRITE = 0x00000008,
+  
+    /**
+     * Unwrittable file closed.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_CLOSE_NOWRITE = 0x00000010,
+  
+    /**
+     * Close.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_CLOSE = (IN_CLOSE_WRITE | IN_CLOSE_NOWRITE),
+  
+    /**
+     * File was opened.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_OPEN = 0x00000020,
+  
+    /**
+     * File was moved from X.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_MOVED_FROM = 0x00000040,
+  
+    /**
+     * File was moved to Y.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_MOVED_TO = 0x00000080,
+  
+    /**
+     * Moves.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_MOVE = (IN_MOVED_FROM | IN_MOVED_TO),
+  
+    /**
+     * Subfile was created.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_CREATE = 0x00000100,
+  
+    /**
+     * Subfile was deleted.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_DELETE = 0x00000200,
+  
+    /**
+     * Self was deleted.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_DELETE_SELF = 0x00000400,
+  
+    /**
+     * Self was moved.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_MOVE_SELF = 0x00000800,
+  
+    /**
+     * All events which a program can wait on.
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     */
+    IN_ALL_EVENTS =
+        (IN_ACCESS | IN_MODIFY | IN_ATTRIB | IN_CLOSE_WRITE | IN_CLOSE_NOWRITE |
+         IN_OPEN | IN_MOVED_FROM | IN_MOVED_TO | IN_CREATE | IN_DELETE |
+         IN_DELETE_SELF | IN_MOVE_SELF),
+  }
 }
 
 /**
@@ -302,6 +421,22 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * @throws { BusinessError } 13900042  - Unknown error
  */
 declare function createStreamSync(path: string, mode: string): Stream;
+
+
+/**
+ * createWatcher.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ * @function createWatcher
+ * @param {string} filename - filename.
+ * @param {Array<WatcherEvents>} events - events suitable for MASK parameter of INOTIFY_ADD_WATCH
+ * @param {AsyncCallback<WatcherOut>} [callback] - callback.
+ * @returns {Watcher} watch success
+ * @throws {TypedError | Error} watch fail
+ */
+declare function createWatcher(filename: string, events: Array<fileIo.WatcherEvents>, callback: AsyncCallback<WatcherOut>): Watcher;
 
 /**
  * Synchronize file metadata.
@@ -1547,4 +1682,57 @@ declare interface Stream {
         offset?: number;
         length?: number;
     }): number;
+}
+
+/**
+ * Watcher
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ */
+declare interface Watcher {
+    /**
+     * start.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @throws {TypedError | Error} stop fail
+     */
+    start(): Promise<void>;
+
+    /**
+     * stop.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @throws {TypedError | Error} stop fail
+     */
+    stop(): void;
+}
+
+/**
+ * WatcherOut
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ */
+declare interface WatcherOut {
+    /**
+     * @type {string}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @readonly
+     */
+    fileName: string;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @readonly
+     */
+    event: number;
 }
