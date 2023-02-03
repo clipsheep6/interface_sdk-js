@@ -535,7 +535,6 @@ declare namespace wifiManager {
     /**
      * timeout for disableHotspot when the hotspot is free.
      *
-     * @param delayTime timeout unit: minutes.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
