@@ -155,20 +155,6 @@ declare namespace connection {
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
   /**
-   * Obtains the default {@link HttpProxy} proxy settings.
-   *
-   * <p>If a global proxy is set, the global proxy parameters are returned.
-   * If the process is bound to a {@link NetHandle} using {@link setAppNet},
-   * the {@link NetHandle} proxy settings are returned.
-   * In other cases, the default proxy settings of {@link NetHandle} are returned.
-   *
-   * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
-   * @since 10
-   */
-  function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
-  function getDefaultHttpProxy(): Promise<HttpProxy>;
-
-  /**
    * Obtains the network independent global {@link HttpProxy} proxy settings.
    *
    * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
