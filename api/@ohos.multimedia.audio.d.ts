@@ -1817,7 +1817,7 @@ declare namespace audio {
      * Subscribes to perfer output device change events. When prefer device for target audio renderer info changes,
      * registered clients will receive the callback.
      * @param rendererInfo Audio renderer information.
-     * @param callback Callback used to obtain the changed prefer devices.
+     * @param callback Callback used to obtain the changed prefer devices information.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 10
@@ -1856,8 +1856,8 @@ declare namespace audio {
     /**
      * Subscribes to perfer output device change events. When prefer device for target audio renderer filter changes,
      * registered clients will receive the callback.
-     * @param rendererInfo Audio renderer information.
-     * @param callback Callback used to obtain the changed prefer devices.
+     * @param filter Audio renderer filter including several audio attributes.
+     * @param callback Callback used to obtain the changed prefer devices information.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @since 10
