@@ -1534,7 +1534,7 @@ declare namespace wifiManager {
         WIFI_SEC_TYPE_PSK = 3,
 
         /** Simultaneous Authentication of Equals (SAE) */
-        WIFI_SEC_TYPE_SAE = 4,
+        WIFI_SEC_TYPE_S_A_E = 4,
 
         /**
          * EAP authentication.
