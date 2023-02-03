@@ -778,7 +778,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      */
-    STREAM_USAGE_ENFORCED = 10,
+    STREAM_USAGE_ENFORCED_TONE = 10,
   }
 
   /**
