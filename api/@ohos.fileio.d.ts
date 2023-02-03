@@ -87,6 +87,7 @@ declare namespace fileIO {
     export { Stat };
     export { Stream };
     export { Watcher };
+    export { WatcherEvents };
 }
 
 /**
@@ -1042,12 +1043,13 @@ declare function writeSync(fd: number, buffer: ArrayBuffer | string, options?: {
  * @permission N/A
  * @function createWatcher
  * @param {string} filename - filename.
- * @param {number} events - events(depends on OS & filesystem) events = 1 rename events =2 change.
- * @param {AsyncCallback<number>} [callback] - callback.
+ * @param {Array<WatcherEvents>} events - events suitable for MASK parameter of INOTIFY_ADD_WATCH
+ * @param {AsyncCallback<[string, number]>} [callback] - callback.
  * @returns {Watcher} watch success
  * @throws {TypedError | Error} watch fail
  */
-declare function createWatcher(filename: string, events: number, callback: AsyncCallback<number>): Watcher;
+declare function createWatcher(filename: string, events: Array<WatcherEvents>, callback: AsyncCallback<[string, number]>): Watcher;
+
 /**
  * Dir
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1604,15 +1606,138 @@ declare interface ReadOut {
  */
 declare interface Watcher {
     /**
+     * start.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 7
+     * @permission N/A
+     * @throws {TypedError | Error} stop fail
+     */
+    start(): Promise<void>;
+
+    /**
      * stop.
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
-     * @param {AsyncCallback<void>} [callback] - callback.
-     * @returns {void | Promise<void>} stop success
      * @throws {TypedError | Error} stop fail
      */
-    stop(): Promise<void>;
-    stop(callback: AsyncCallback<void>): void;
+    stop(): void;
+}
+
+/**
+ * WatcherEvents
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 7
+ * @permission N/A
+ */
+declare enum WatcherEvents {
+  /**
+   * File was accessed.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_ACCESS = 0x00000001,
+
+  /**
+   * File was modified.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_MODIFY = 0x00000002,
+
+  /**
+   * Metadata changed.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_ATTRIB = 0x00000004,
+
+  /**
+   * Writtable file was closed.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_CLOSE_WRITE = 0x00000008,
+
+  /**
+   * Unwrittable file closed.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_CLOSE_NOWRITE = 0x00000010,
+
+  /**
+   * Close.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_CLOSE = (IN_CLOSE_WRITE | IN_CLOSE_NOWRITE),
+
+  /**
+   * File was opened.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_OPEN = 0x00000020,
+
+  /**
+   * File was moved from X.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_MOVED_FROM = 0x00000040,
+
+  /**
+   * File was moved to Y.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_MOVED_TO = 0x00000080,
+
+  /**
+   * Moves.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_MOVE = (IN_MOVED_FROM | IN_MOVED_TO),
+
+  /**
+   * Subfile was created.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_CREATE = 0x00000100,
+
+  /**
+   * Subfile was deleted.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_DELETE = 0x00000200,
+
+  /**
+   * Self was deleted.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_DELETE_SELF = 0x00000400,
+
+  /**
+   * Self was moved.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_MOVE_SELF = 0x00000800,
+
+  /**
+   * All events which a program can wait on.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 7
+   */
+  IN_ALL_EVENTS =
+      (IN_ACCESS | IN_MODIFY | IN_ATTRIB | IN_CLOSE_WRITE | IN_CLOSE_NOWRITE |
+       IN_OPEN | IN_MOVED_FROM | IN_MOVED_TO | IN_CREATE | IN_DELETE |
+       IN_DELETE_SELF | IN_MOVE_SELF),
 }
