@@ -839,45 +839,6 @@ declare namespace sim {
   function sendTerminalResponseCmd(slotId: number, cmd: string, callback: AsyncCallback<void>): void;
   function sendTerminalResponseCmd(slotId: number, cmd: string): Promise<void>;
 
-  /**
-   * Accept the call setup request.
-   *
-   * @param slotId Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function acceptCallSetupRequest(slotId: number, callback: AsyncCallback<void>): void;
-  function acceptCallSetupRequest(slotId: number): Promise<void>;
-
-  /**
-   * The call setup request was rejected.
-   *
-   * @param slotId Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function rejectCallSetupRequest(slotId: number, callback: AsyncCallback<void>): void;
-  function rejectCallSetupRequest(slotId: number): Promise<void>;
 
   /**
    * Unlock SIM card.
