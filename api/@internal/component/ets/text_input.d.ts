@@ -180,6 +180,48 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   placeholderFont(value?: Font): TextInputAttribute;
 
   /**
+   * Called when the complete on/off is set.
+   * @since 7
+   */
+  autoComplete(value: boolean): TextInputAttribute;
+
+  /**
+   * Called when the check on/off is set.
+   * @since 7
+   */
+  autoCheck(value: boolean): TextInputAttribute;
+
+  /**
+   * Called when the complete length is set.
+   * @since 7
+   */
+  completeLen(value: number): TextInputAttribute;
+
+  /**
+   * Called when the complete color is set.
+   * @since 7
+   */
+  completeColor(value: ResourceColor): TextInputAttribute;
+
+  /**
+   * Called when the error color is set.
+   * @since 7
+   */
+  errorColor(value: ResourceColor): TextInputAttribute;
+
+  /**
+   * Called when the mask style is set.
+   * @since 7
+   */
+  mask(value: string): TextInputAttribute;
+
+  /**
+   * Called when the mask length is set.
+   * @since 7
+   */
+  maskLen(value: number): TextInputAttribute;
+
+  /**
    * Called when the type of soft keyboard input button is set.
    * @since 7
    */
