@@ -114,21 +114,21 @@ export interface EnableAlertBeforeBackPageOptions {
   message: string;
 
   /**
-   * Called when the dialog box is displayed.
+   * Called when the user selects the confirm button in dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   success?: (errMsg: string) => void;
 
   /**
-   * Called when the operation is cancelled.
+   * Called when the user selects the cancel button in dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   cancel?: (errMsg: string) => void;
 
   /**
-   * Called when the dialog box is closed.
+   * Called when the execution is completed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -144,21 +144,21 @@ export interface EnableAlertBeforeBackPageOptions {
  */
 export interface DisableAlertBeforeBackPageOptions {
   /**
-   * Called when the dialog box is displayed.
+   * Called when the operation is cancelled successfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   success?: (errMsg: string) => void;
 
   /**
-   * Called when the operation is cancelled.
+   * Called when the operation is cancelled unsuccessfully.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   cancel?: (errMsg: string) => void;
 
   /**
-   * Called when the dialog box is closed.
+   * Called when the execution is completed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
