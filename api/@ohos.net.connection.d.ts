@@ -45,6 +45,10 @@ declare namespace connection {
    * @param callback Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
    */
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
   function getDefaultNet(): Promise<NetHandle>;
@@ -59,6 +63,9 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error. 
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -69,6 +76,10 @@ declare namespace connection {
    *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error. 
    */
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
   function getAllNets(): Promise<Array<NetHandle>>;
@@ -81,6 +92,12 @@ declare namespace connection {
    * @param netHandle Indicates the network to be queried.
    * @param callback Returns the {@link ConnectionProperties} object.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2101013 - The network is nullptr.
    */
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
@@ -93,6 +110,12 @@ declare namespace connection {
    * @param netHandle Indicates the handle. See {@link NetHandle}.
    * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2101013 - The network is nullptr.
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
@@ -105,6 +128,9 @@ declare namespace connection {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error. 
    */
   function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
   function isDefaultNetMetered(): Promise<boolean>;
@@ -114,6 +140,10 @@ declare namespace connection {
    *
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error. 
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
@@ -124,6 +154,9 @@ declare namespace connection {
    * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
    * @systemapi Hide this for inner system use. Only used for system app.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error. 
    */
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
   function enableAirplaneMode(): Promise<void>;
@@ -134,6 +167,9 @@ declare namespace connection {
    * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
    * @systemapi Hide this for inner system use. Only used for system app.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error. 
    */
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
   function disableAirplaneMode(): Promise<void>;
@@ -143,6 +179,12 @@ declare namespace connection {
    *
    * @param netHandle Indicates the network whose state is to be reported.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2101006 - The net id is not found.
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
@@ -152,6 +194,12 @@ declare namespace connection {
    *
    * @param netHandle Indicates the network whose state is to be reported.
    * @permission ohos.permission.GET_NETWORK_INFO and ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @throws {BusinessError} 2101006 - The net id is not found.
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
@@ -162,6 +210,11 @@ declare namespace connection {
    * @param host Indicates the host name or the domain.
    * @param callback Returns the NetAddress list.
    * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
@@ -183,11 +236,21 @@ declare namespace connection {
      * Receives status change notifications of a specified network.
      *
      * @permission ohos.permission.GET_NETWORK_INFO
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2100001 - Invalid parameter value.
+     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+     * @throws {BusinessError} 2100003 - System internal error.
+     * @throws {BusinessError} 2101008 - The callback is not found.
+     * @throws {BusinessError} 2101022 - The number of requests exceeded the maximum.
      */
     register(callback: AsyncCallback<void>): void;
 
     /**
      * Cancels listening for network status changes.
+     * @throws {BusinessError} 2100001 - Invalid parameter value.
+     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+     * @throws {BusinessError} 2100003 - System internal error.
+     * @throws {BusinessError} 2101007 - The same callback exists.
      */
     unregister(callback: AsyncCallback<void>): void;
   }
@@ -207,6 +270,10 @@ declare namespace connection {
      *
      * @param socketParam Indicates the TCPSocket or UDPSocket object.
      * @since 9
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2100001 - Invalid parameter value.
+     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+     * @throws {BusinessError} 2100003 - System internal error.
      */
     bindSocket(socketParam: TCPSocket | UDPSocket, callback: AsyncCallback<void>): void;
     bindSocket(socketParam: TCPSocket | UDPSocket): Promise<void>;
@@ -217,6 +284,11 @@ declare namespace connection {
      * @param host Indicates the host name or the domain.
      * @param callback Returns the NetAddress list.
      * @permission ohos.permission.GET_NETWORK_INFO
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2100001 - Invalid parameter value.
+     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+     * @throws {BusinessError} 2100003 - System internal error.
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
@@ -227,6 +299,11 @@ declare namespace connection {
      * @param host Indicates the host name or the domain.
      * @param callback Returns the first NetAddress.
      * @permission ohos.permission.GET_NETWORK_INFO
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2100001 - Invalid parameter value.
+     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+     * @throws {BusinessError} 2100003 - System internal error.
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
     getAddressByName(host: string): Promise<NetAddress>;
