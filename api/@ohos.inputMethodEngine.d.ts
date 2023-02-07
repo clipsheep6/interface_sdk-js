@@ -727,6 +727,29 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800003 - input method client error.
          */
         moveCursor(direction: number): Promise<void>;
+
+        /**
+         * Get the index number of text at cursor.
+         * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
+         * number of text at cursor.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextIndexAtCursor(callback: AsyncCallback<number>): void;
+
+        /**
+         * Get the index number of text at cursor.
+         * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
+         * at cursor.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextIndexAtCursor(): Promise<number>;
     }
 
     /**
