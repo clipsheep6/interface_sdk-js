@@ -1463,7 +1463,7 @@ declare class CommonMethod<T> {
   width(value: Length): T;
 
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @since 7
    */
   height(value: Length): T;
@@ -2196,7 +2196,6 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
-   * @systemapi
    */
   constructor();
 
