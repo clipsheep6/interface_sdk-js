@@ -74,20 +74,26 @@ function formatExcelData(orderExcelVersion) {
         for (let j = 0; j < nearOldVersionData.length; j++) {
             if (oldestData[i].name === nearOldVersionData[j].name) {
                 initialData = mergeData(oldestData[i].data, nearOldVersionData[j].data, oldestData[i].name, initialData);
-            } else if (!nearOldVersionNameSet.has(oldestData[i].name)) {                
+                oldestData.splice(i, 1);
+                nearOldVersionData.slice(j, 1);
+                if (i!== 0) {
+                    i--
+                }
+                if (j !== 0) {
+                    j--;
+                }                
+            } else {
                 initialData = initialData.concat(getNewSubsystemApi(oldestData[i].data, oldestData[i].name));
-                nearOldVersionNameSet.add(oldestData[i].name)
-            } else if (!oldestNameSet.has(nearOldVersionData[j].name)) {
                 initialData = initialData.concat(getNewSubsystemApi(nearOldVersionData[j].data,
                     nearOldVersionData[j].name));
-                oldestNameSet.add(nearOldVersionData[j].name);
             }
         }
 
     }
     let initialSet = new Set([...oldestNameSet, ...nearOldVersionNameSet]);
     allMergeData = mergeAllData(initialData, orderExcelVersion, number, initialSet);
-    exports.allMergeData = allMergeData;
+    const noRepeadData = deleteRepeatData(allMergeData)
+    exports.allMergeData = noRepeadData;
 }
 
 function getNewSubsystemApi(dataArr, subsystem) {
