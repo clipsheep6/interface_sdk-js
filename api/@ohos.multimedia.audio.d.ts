@@ -213,31 +213,50 @@ declare namespace audio {
    */
   enum AudioVolumeType {
     /**
-     * Audio streams for voice calls.
+     * Audio volume for voice calls.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     VOICE_CALL = 0,
     /**
-     * Audio streams for ringtones.
+     * Audio volume for ringtone, notification, system and dtmf tone.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     RINGTONE = 2,
     /**
-     * Audio streams for media purpose.
+     * Audio volume for music, movie, game and voicebook.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     MEDIA = 3,
     /**
-     * Audio stream for voice assistant.
+     * Audio volume for alarm purpose.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    ALARM = 4,
+    /**
+     * Audio volume for accessibility purpose.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    ACCESSIBILITY = 5,
+    /**
+     * Audio volume for voice assistant.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     VOICE_ASSISTANT = 9,
     /**
-     * Audio stream for all common.
+     * Audio volume for ultrasonic.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    ULTRASONIC = 10,
+    /**
+     * Audio volume for all stream types, used in specific device.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -644,14 +663,43 @@ declare namespace audio {
      * Notification content.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.CONTENT_TYPE_PROMPT
      */
     CONTENT_TYPE_SONIFICATION = 4,
     /**
      * Ringtone content.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.CONTENT_TYPE_MUSIC
      */
     CONTENT_TYPE_RINGTONE = 5,
+    /**
+     * Game content, such as effect sound.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    CONTENT_TYPE_GAME = 6,
+    /**
+     * Prompt content, for short sound such as notification or key click.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    CONTENT_TYPE_PROMPT = 7,
+    /**
+     * DTMF content, for dial tone.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    CONTENT_TYPE_DTMF = 8,
+    /**
+     * Ultrasonic content.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    CONTENT_TYPE_ULTRASONIC = 9,
   }
 
   /**
@@ -685,11 +733,52 @@ declare namespace audio {
      */
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
+     * Alarm usage.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_ALARM = 4,
+    /**
+     * Ringtone usage.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_RINGTONE = 5,
+    /**
      * Notification or ringtone usage.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_RINGTONE or
+     *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_NOTIFICATION
      */
-    STREAM_USAGE_NOTIFICATION_RINGTONE = 6
+    STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
+    /**
+     * Notification usage.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_NOTIFICATION = 7,
+    /**
+     * Accessibility usage, such as screen reader.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    STREAM_USAGE_ACCESSIBILITY = 8,
+    /**
+     * System usage, such as screen lock or key click.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    STREAM_USAGE_SYSTEM = 9,
+    /**
+     * Enforced audio usage, such as camera click.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    STREAM_USAGE_ENFORCED_TONE = 10,
   }
 
   /**
@@ -779,7 +868,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      */
-    uid: number;
+    uid?: number;
     /**
      * Renderer information.
      * @since 9
@@ -1706,6 +1795,86 @@ declare namespace audio {
      * @systemapi
      */
     selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Get output device for target audio renderer info.
+     * @param rendererInfo Audio renderer information
+     * @param callback Callback used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Get output device for target audio renderer info.
+     * @param rendererInfo Audio renderer information
+     * @returns Promise used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Subscribes to perfer output device change events. When prefer device for target audio renderer info changes,
+     * registered clients will receive the callback.
+     * @param rendererInfo Audio renderer information.
+     * @param callback Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * UnSubscribes to perfer output device change events.
+     * @param callback Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Get output device for target audio renderer info and target uid process.
+     * @param filter Filter to choose audio renderer.
+     * @param callback Callback used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    getPreferOutputDeviceByFilter(filter: AudioRendererFilter, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Get output device for target audio renderer info and target uid process.
+     * @param filter Filter to choose audio renderer.
+     * @returns Promise used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    getPreferOutputDeviceByFilter(filter: AudioRendererFilter): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Subscribes to perfer output device change events. When prefer device for target audio renderer filter changes,
+     * registered clients will receive the callback.
+     * @param filter Audio renderer filter including several audio attributes.
+     * @param callback Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    on(type: 'preferOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * UnSubscribes to perfer output device change events.
+     * @param callback Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    off(type: 'preferOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**
