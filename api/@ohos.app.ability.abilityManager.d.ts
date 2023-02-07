@@ -36,6 +36,7 @@ declare namespace abilityManager {
      */
     export enum AbilityState {
         INITIAL = 0,
+        ACTIVE = 2,
         FOREGROUND = 9,
         BACKGROUND = 10,
         FOREGROUNDING = 11,
