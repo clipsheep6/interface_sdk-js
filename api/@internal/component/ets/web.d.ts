@@ -1979,7 +1979,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    */
-  onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
+  onUrlLoadIntercept(callback: (event?: { data: WebResourceRequest }) => boolean): WebAttribute;
 
   /**
    * Triggered when the Web page receives an ssl Error.
