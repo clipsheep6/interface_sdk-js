@@ -777,7 +777,6 @@ declare namespace settings {
    * @param name Indicates the name of the setting to set.
    * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
-   * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
