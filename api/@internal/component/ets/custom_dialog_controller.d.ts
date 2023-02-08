@@ -61,22 +61,22 @@ declare interface CustomDialogControllerOptions {
   gridCount?: number;
 
   /**
-   * Mask color of dialog.
+   * mask color of popup
    * @since 10
    */
-  maskColor?: ResourceColor;
+  maskColor?: Color | string | Resource | number;
 
   /**
-   * Animation parameters of dialog opening.
+   * open animation option of popup
    * @since 10
    */
-  openAnimation?: AnimateParam;
+  openAnimation?: Animator; 
 
   /**
-  * Animation parameters of dialog closing.
-  * @since 10
-  */
-  closeAnimation?: AnimateParam;
+   * close animation option of popup
+   * @since 10
+   */
+  closeAnimation?: Animator; 
 }
 
 /**
