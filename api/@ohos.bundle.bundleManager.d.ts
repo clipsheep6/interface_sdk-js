@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,12 +16,12 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundleManager/applicationInfo';
 import { Metadata as _Metadata } from './bundleManager/metadata';
-import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
 import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
 import { ElementName as _ElementName }  from './bundleManager/elementName';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/abilityInfo';
 import * as _BundleInfo from './bundleManager/bundleInfo';
+import * as _HapModuleInfo from './bundleManager/hapModuleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
 
 /**
@@ -542,6 +542,39 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      * @since 9
      */
     LOCKED,
+  }
+
+  /**
+   * Indicates module type
+   * @enum {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export enum ModuleType {
+    /**
+     * Indicates unknown type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    UNKNOWN = 0,
+    /**
+     * Indicates entry type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ENTRY = 1,
+    /**
+     * Indicates feature type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    FEATURE = 2,
+    /**
+     * Indicates shared type
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    SHARED = 3,
   }
 
   /**
@@ -1294,7 +1327,14 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type HapModuleInfo = _HapModuleInfo;
+  export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
+
+  /**
+   * Obtains dependency information about an module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  export type Dependency = _HapModuleInfo.Dependency;
 
   /**
    * Obtains configuration information about an ability.
