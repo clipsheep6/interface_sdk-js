@@ -33,6 +33,24 @@ declare enum DataPanelType {
 }
 
 /**
+ * Defines the data type
+ * @since 9
+ */
+declare interface DataType {
+  /**
+   * the data color.
+   * @since 9
+   */
+  color: number | string | Color;
+
+  /**
+   * the data length.
+   * @since 9
+   */
+  length: number;
+}
+
+/**
  * Defines the options of DataPanel.
  * @since 7
  */
@@ -41,7 +59,7 @@ declare interface DataPanelOptions {
    * Current data value. the max length is 9.
    * @since 7
    */
-  values: number[];
+  values: number[] | Array<DataType>;
 
   /**
    * Maximum value of the current data.
