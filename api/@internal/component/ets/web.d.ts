@@ -537,7 +537,7 @@ declare class HttpAuthHandler {
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
  * @since 9
  */
- declare class ClientAuthenticationHandler {
+declare class ClientAuthenticationHandler {
   /**
    * Constructor.
    * @since 9
@@ -552,6 +552,14 @@ declare class HttpAuthHandler {
    * @since 9
    */
   confirm(priKeyFile : string, certChainFile : string): void;
+
+  /**
+   * Confirm to use the specified uri.
+   * @param authUri The uri that associate to credentials.
+   *
+   * @since 10
+   */
+  confirm(authUri : string): void;
 
   /**
    * Cancel this certificate request.
@@ -1978,6 +1986,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered callback when the URL loading is intercepted.
    *
    * @since 8
+   * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#onInterceptLoad
    */
   onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
 
@@ -2170,6 +2180,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the URL loading is intercepted.
+   * @param callback The triggered callback when the URL loading is intercepted.
+   *
+   * @since 10
+   */
+  onLoadIntercept(callback: (event: { data: WebResourceRequest }) => boolean): WebAttribute;
 
   /**
    * Set the font of webview standard font library. The default font is "sans serif".

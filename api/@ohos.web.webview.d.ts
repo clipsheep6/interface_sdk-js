@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
 import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
+import cert from "./@ohos.security.cert";
 
 /**
  * This module provides the capability to manage web modules.
@@ -1205,6 +1206,29 @@ declare namespace webview {
          * @since 9
          */
         static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+
+        /**
+         * Get certificate chain for the current website.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { Promise<Array<cert.X509Cert>> } the promise of the current website's certificate chain.
+         *
+         * @since 10
+         */
+        getCertificate(): Promise<Array<cert.X509Cert>>;
+
+        /**
+         * Get certificate chain for the current website.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @param {AsyncCallback<Array<cert.X509Cert>>} callback - the callback of getCertificate.
+         *
+         * @since 10
+         */
+        getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
     }
 }
 
