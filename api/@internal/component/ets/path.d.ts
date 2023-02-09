@@ -40,6 +40,30 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @since 7
    */
   commands(value: string): PathAttribute;
+
+  /**
+   * Fill color.
+   * @since 7
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+   * fill Opacity
+   * @since 7
+   */
+  fillOpacity(value: number | string | Resource): T;
+
+  /**
+   * Border corner drawing style.
+   * @since 7
+   */
+  strokeLineJoin(value: LineJoinStyle): T;
+  
+  /**
+   * Limits for drawing acute angles as bevels
+   * @since 7
+   */
+  strokeMiterLimit(value: number | string): T;
 }
 
 declare const Path: PathInterface;

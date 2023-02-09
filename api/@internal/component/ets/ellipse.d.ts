@@ -34,7 +34,19 @@ interface EllipseInterface {
 /**
  * @since 7
  */
-declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
+declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {
+  /**
+   * Fill color.
+   * @since 7
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+    * fill Opacity
+    * @since 7
+    */
+  fillOpacity(value: number | string | Resource): T;
+}
 
 declare const Ellipse: EllipseInterface;
 declare const EllipseInstance: EllipseAttribute;

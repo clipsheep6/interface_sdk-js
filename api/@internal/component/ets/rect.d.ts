@@ -78,6 +78,30 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @since 7
    */
   radius(value: number | string | Array<any>): RectAttribute;
+
+  /**
+   * Fill color.
+   * @since 7
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+   * fill Opacity
+   * @since 7
+   */
+  fillOpacity(value: number | string | Resource): T;
+
+  /**
+   * Border corner drawing style.
+   * @since 7
+   */
+  strokeLineJoin(value: LineJoinStyle): T;
+  
+  /**
+   * Limits for drawing acute angles as bevels
+   * @since 7
+   */
+  strokeMiterLimit(value: number | string): T;
 }
 
 declare const Rect: RectInterface;

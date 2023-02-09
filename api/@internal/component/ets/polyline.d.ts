@@ -40,6 +40,30 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @since 7
    */
   points(value: Array<any>): PolylineAttribute;
+
+  /**
+   * Fill color.
+   * @since 7
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+   * fill Opacity
+   * @since 7
+   */
+  fillOpacity(value: number | string | Resource): T;
+
+  /**
+   * Border corner drawing style.
+   * @since 7
+   */
+  strokeLineJoin(value: LineJoinStyle): T;
+  
+  /**
+   * Limits for drawing acute angles as bevels
+   * @since 7
+   */
+  strokeMiterLimit(value: number | string): T;
 }
 
 declare const Polyline: PolylineInterface;

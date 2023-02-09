@@ -2207,12 +2207,6 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   stroke(value: ResourceColor): T;
 
   /**
-   * Fill color.
-   * @since 7
-   */
-  fill(value: ResourceColor): T;
-
-  /**
    * Offset from the start point of the border drawing.
    * @since 7
    */
@@ -2225,28 +2219,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   strokeLineCap(value: LineCapStyle): T;
 
   /**
-   * Border corner drawing style.
-   * @since 7
-   */
-  strokeLineJoin(value: LineJoinStyle): T;
-
-  /**
-   * Limits for drawing acute angles as bevels
-   * @since 7
-   */
-  strokeMiterLimit(value: number | string): T;
-
-  /**
    * Sets the opacity of the border.
    * @since 7
    */
   strokeOpacity(value: number | string | Resource): T;
-
-  /**
-   * fill Opacity
-   * @since 7
-   */
-  fillOpacity(value: number | string | Resource): T;
 
   /**
    * Sets the width of the dividing line.
