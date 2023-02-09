@@ -313,6 +313,26 @@ declare interface Area {
  */
 declare interface Position {
   /**
+   * Coordinate left of the Position.
+   * @since 7
+   */
+  left?: Length;
+  /**
+   * Coordinate right of the Position.
+   * @since 7
+   */
+  right?: Length;
+  /**
+   * Coordinate top of the Position.
+   * @since 7
+   */
+  top?: Length;
+  /**
+   * Coordinate bottom of the Position.
+   * @since 7
+   */
+  bottom?: Length;
+  /**
    * Coordinate x of the Position.
    * @since 7
    */
