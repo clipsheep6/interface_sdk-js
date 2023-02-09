@@ -559,7 +559,7 @@ declare class HttpAuthHandler {
    *
    * @since 10
    */
-  confirm(authUri : string): void;
+  select(authUri : string): void;
 
   /**
    * Cancel this certificate request.
