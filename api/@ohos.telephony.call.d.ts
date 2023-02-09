@@ -409,6 +409,14 @@ declare namespace call {
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
+  function canSetCallTransferTime(slotId: number): Promise<boolean>;
+
+  /**
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
