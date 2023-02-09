@@ -14,7 +14,7 @@
  */
 
 /**
- * Defines the Column Component.
+ * Defines the Column Component Test.
  * @since 7
  */
 interface ColumnInterface {
