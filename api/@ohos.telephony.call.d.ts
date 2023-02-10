@@ -95,6 +95,7 @@ declare namespace call {
    * Go to the dial screen and the called number is displayed.
    *
    * @param phoneNumber Indicates the called number.
+   * @param callback - the callback of makeCall.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -133,6 +134,7 @@ declare namespace call {
    *
    * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
+   * @param callback - the callback of muteRinger.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -215,6 +217,7 @@ declare namespace call {
    * Answers the incoming call.
    *
    * @param callId Indicates the identifier of the call to answer.
+   * @param callback - the callback of answerCall.
    * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -246,6 +249,7 @@ declare namespace call {
   /**
    * Answers the incoming call without callId.
    *
+   * @param callback - the callback of answerCall.
    * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -262,6 +266,7 @@ declare namespace call {
    * Hang up the foreground call.
    *
    * @param callId Indicates the identifier of the call to hangup.
+   * @param callback - the callback of hangUpCall.
    * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -293,6 +298,7 @@ declare namespace call {
   /**
    * Hang up the foreground call without callId.
    *
+   * @param callback - the callback of hangUpCall.
    * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -310,6 +316,7 @@ declare namespace call {
    *
    * @param callId Indicates the identifier of the call to reject.
    * @param options Indicates the text message to reject.
+   * @param callback - the callback of rejectCall.
    * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -376,6 +383,7 @@ declare namespace call {
    * Reject the incoming call without callId.
    *
    * @param options Indicates the text message to reject.
+   * @param callback - the callback of rejectCall.
    * @permission ohos.permission.ANSWER_CALL
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -393,6 +401,7 @@ declare namespace call {
    *
    * @permission ohos.permission.ANSWER_CALL
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of holdCall.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -410,6 +419,7 @@ declare namespace call {
    *
    * @permission ohos.permission.ANSWER_CALL
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of unHoldCall.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -427,6 +437,7 @@ declare namespace call {
    *
    * @permission ohos.permission.ANSWER_CALL
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of switchCall.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -443,6 +454,7 @@ declare namespace call {
    * Merge calls, merge two calls into conference calls.
    *
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of combineConference.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -528,6 +540,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param activate Indicates whether to activate or call wait.
+   * @param callback - the callback of setCallWaiting.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -544,6 +557,7 @@ declare namespace call {
    * Start DTMF(Dual Tone Multi Frequency).
    *
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of startDTMF.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -559,6 +573,7 @@ declare namespace call {
    * Stop DTMF(Dual Tone Multi Frequency).
    *
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of stopDTMF.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -736,6 +751,7 @@ declare namespace call {
    * Split conference call.
    *
    * @param callId Indicates the identifier of the call.
+   * @param callback - the callback of separateConference.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -774,6 +790,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param info Indicates the set call restriction information.
+   * @param callback - the callback of setCallRestriction.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -813,6 +830,7 @@ declare namespace call {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param info Indicates the set call forwarding information.
+   * @param callback - the callback of setCallTransfer.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -826,7 +844,7 @@ declare namespace call {
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
 
   /**
-   * Judge whether the bell is ringing.
+   * Jduge whether there is a ringing call.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param callback Returns {@code true} if the device is ringing; returns {@code false} otherwise.
@@ -845,6 +863,7 @@ declare namespace call {
   /**
    * Set mute during a call.
    *
+   * @param callback - the callback of setMuted.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -859,6 +878,7 @@ declare namespace call {
   /**
    * Unmute during a call.
    *
+   * @param callback - the callback of cancelMuted.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -873,6 +893,7 @@ declare namespace call {
   /**
    * Set the audio device.
    *
+   * @param callback - the callback of setAudioDevice.
    * @param device Indicates the device of audio.
    * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - Parameter error.
@@ -890,7 +911,7 @@ declare namespace call {
    *
    * @param device Indicates the device of audio.
    * @param options Indicates additional information, such as address of bluetooth.
-   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
+   * @param callback - the callback of setAudioDevice.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -907,6 +928,7 @@ declare namespace call {
    *
    * @param mainCallId Indicates the identifier of the main call.
    * @param callNumberList Indicates a call list.
+   * @param callback - the callback of joinConference.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -923,6 +945,7 @@ declare namespace call {
    *
    * @param callId Indicates the identifier of the call.
    * @param mode Indicates the mode of the ims call.
+   * @param callback - the callback of updateImsCallMode.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -940,6 +963,7 @@ declare namespace call {
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of enableImsSwitch.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -958,6 +982,7 @@ declare namespace call {
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of disableImsSwitch.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
