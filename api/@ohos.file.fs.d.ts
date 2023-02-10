@@ -2012,8 +2012,8 @@ declare interface WatcherOut {
  * @function createWatcher
  * @param {string} filename - filename.
  * @param {number} events - events suitable for MASK parameter of INOTIFY_ADD_WATCH
- * @param {AsyncCallback<WatcherOut>} [callback] - callback.
+ * @param {WatcherOut} [listener] - listener.
  * @returns {Watcher} watch success
  * @throws {TypedError | Error} watch fail
  */
-declare function createWatcher(filename: string, events: number, callback: AsyncCallback<WatcherOut>): Watcher;
+declare function createWatcher(filename: string, events: number, listener: WatcherOut): Watcher;
