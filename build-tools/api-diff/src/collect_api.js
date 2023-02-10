@@ -698,7 +698,7 @@ async function exportDiffApiInfo(exportType, compileApiInfos, exportFileName) {
 }
 
 function exportDiffMd(subsystem, diffInfos) {
-	let finalContent = `| 操作 | 新版本 | 旧版本 | d.ts文件 |
+	let finalContent = `| 操作 | 旧版本 | 新版本 | d.ts文件 |
 | ---- | ------ | ------ | -------- |\n`
 	for (let i = 0; i < diffInfos.length; i++) {
 		let apiData = diffInfos[i];
@@ -720,7 +720,7 @@ function diffBySbusystem(compileApiInfos) {
 	let filePath = __dirname.replace('\\src', '') + '\\subsystem.json';
 	let subsystemArr = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 	let flagArr = ['新增', '删除', 'model有变化', '访问级别有变化', '废弃版本有变化', '起始版本有变化', '权限有变化',
-		'删除(权限)', '新增(错误码)', '新增(权限)', '错误码有变化', '访问级别有变化', '函数有变化'];
+		'删除(权限)', '新增(错误码)', '新增(权限)', '错误码有变化', 'SysCap有变化', '函数有变化'];
 	subsystemArr.forEach(subsystem => {
 		let diffInfos = [];
 		compileApiInfos.forEach(api => {
