@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { PermissionDef } from  './bundle/PermissionDef';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import { BundleInfo } from './bundle/bundleInfo';
 import { BundleInstaller } from './bundle/bundleInstaller';
@@ -518,7 +518,7 @@ declare namespace bundle {
     * @returns Returns the PixelMap object representing the icon of the specified ability.
     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
     * @deprecated since 9
-    * @useinstead ohos.bundle.bundleManager#getAbilityIcon
+    * @useinstead ohos.resourceManager#getMediaContent
     */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
