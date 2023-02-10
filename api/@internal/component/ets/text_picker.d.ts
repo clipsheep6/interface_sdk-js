@@ -70,9 +70,9 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
   /**
    * Called when the speed is set.
-   * @since 8
+   * @since 10
    */
-  speed(value: number | string): TextPickerAttribute;
+  speed(value: number): TextPickerAttribute;
 }
 
 /**
