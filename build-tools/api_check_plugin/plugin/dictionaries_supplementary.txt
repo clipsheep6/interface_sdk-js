@@ -24,6 +24,7 @@ altitudes
 amr
 annually
 antialias
+apdu
 apecified
 appselect
 arcs
@@ -45,6 +46,7 @@ audios
 authenticates
 authinfo
 autocorrect
+averr
 avoidareachange
 avrcp
 avsession
@@ -55,6 +57,7 @@ beta1
 bevels
 bgra
 bidirectionally
+bitrates
 bms
 bolder
 bonded
@@ -128,10 +131,12 @@ darkest
 dataability
 datashare
 datasync
+dbm
 dci
 ddmp
 deactivation
 decodes
+decomposed
 decompressed
 decompressing
 decr
@@ -316,6 +321,7 @@ ivi
 iwlan
 jis
 judged
+kaihong
 kbdillum
 kbdinputassist
 kbps
@@ -405,6 +411,7 @@ nextgroup
 nlink
 nmea
 nopadding
+normalizer
 notifies
 notifying
 numpad
@@ -454,6 +461,7 @@ perso
 personalisation
 pertaining
 photographing
+pickers
 pixelmap
 playpause
 playstate
@@ -484,6 +492,7 @@ prohibits
 promisify
 provisioned
 proxyed
+psc
 psk
 pss
 puk
@@ -530,6 +539,8 @@ ringtones
 rle
 rmdir
 rotatable
+rscp
+rsrp
 rtd
 rtt
 ruim
@@ -556,6 +567,7 @@ sfactor
 sha1
 shadertype
 sharedarraybuffer
+shenzhen
 shortkey
 shuts
 sigalgs
@@ -594,6 +606,7 @@ subassembies
 subcomponents
 subnode
 subpixel
+suscriber
 subscrbers
 subscribale
 subscribes
@@ -602,6 +615,7 @@ superimposed
 suscribes
 suspends
 switchvideomode
+synched
 synchronizes
 synchronizing
 synth
@@ -733,6 +747,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+wukong
 wwan
 x25519
 x509
