@@ -936,7 +936,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid challenge, authType or authTrustLevel.
-         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300101 - credential is incorrect.
          * @throws {BusinessError} 12300105 - unsupported authTrustLevel.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @throws {BusinessError} 12300110 - authentication is locked.
@@ -960,7 +960,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid userId, challenge, authType or authTrustLevel.
-         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300101 - credential is incorrect.
          * @throws {BusinessError} 12300105 - unsupported authTrustLevel.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @throws {BusinessError} 12300110 - authentication is locked.
@@ -1007,6 +1007,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
+         * @throws {BusinessError} 12300002 - invalid inputer.
          * @throws {BusinessError} 12300103 - the credential inputer has been registered.
          * @systemapi Hide this for inner system use.
          * @since 8
@@ -1017,6 +1018,7 @@ declare namespace osAccount {
          * Unregister inputer.
          * @permission ohos.permission.ACCESS_PIN_AUTH
          * @systemapi Hide this for inner system use.
+         * @throws {BusinessError} 201 - permission denied.
          * @since 8
          */
         unregisterInputer(): void;
@@ -1185,6 +1187,7 @@ declare namespace osAccount {
          * End an IDM operation.  
          * @permission ohos.permission.MANAGE_USER_IDM
          * @systemapi Hide this for inner system use.
+         * @throws {BusinessError} 201 - permission denied.
          * @since 8
          */
         closeSession(): void;
@@ -1263,14 +1266,14 @@ declare namespace osAccount {
     interface IInputData {
         /**
          * Notifies to set data.
-         * @param pinSubType Indicates the credential subtype for authentication.
+         * @param authSubType Indicates the credential subtype for authentication.
          * @param data Indicates the data to set.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300002 - invalid pinSubType.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
-        onSetData: (pinSubType: AuthSubType, data: Uint8Array) => void;
+        onSetData: (authSubType: AuthSubType, data: Uint8Array) => void;
     }
     
     /**
@@ -1283,12 +1286,12 @@ declare namespace osAccount {
     interface IInputer {
         /**
          * Notifies to get data.
-         * @param pinSubType Indicates the credential subtype for authentication.
+         * @param authSubType Indicates the credential subtype for authentication.
          * @param callback Indicates the password data callback.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
-        onGetData: (pinSubType: AuthSubType, callback: IInputData) => void;
+        onGetData: (authSubType: AuthSubType, callback: IInputData) => void;
     }
 
     /**
