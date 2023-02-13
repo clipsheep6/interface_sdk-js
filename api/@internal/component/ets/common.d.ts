@@ -2920,7 +2920,23 @@ declare class CommonMethod<T> {
    * Trigger a visible area change event.
    * @since 9
    */
-   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+
+  /**
+   * Set this attribute for components without text information.
+   * @param { ResourceStr } text - text for the component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  accessibilityText(text: ResourceStr): T;
+
+  /**
+   * Set a detailed description text for the attribute of the component to help users understand the operation to be performed.
+   * @param { ResourceStr } description - detailed description text for the attribute of the component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  accessibilityDescription(description: ResourceStr): T;
 }
 
 /**
