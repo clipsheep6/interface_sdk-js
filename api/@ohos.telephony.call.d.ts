@@ -31,6 +31,8 @@ declare namespace call {
    * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
    * that the call is or can be connected.
    * @permission ohos.permission.PLACE_CALL
+   * @deprecated since 9
+   * @useinstead telephony.call#dialCall
    */
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
@@ -138,8 +140,8 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
-  function answer(callId: number, callback: AsyncCallback<void>): void;
-  function answer(callId?: number): Promise<void>;
+  function answerCall(callId: number, callback: AsyncCallback<void>): void;
+  function answerCall(callId?: number): Promise<void>;
 
   /**
    * Answers the incoming call without callId.
@@ -148,7 +150,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function answer(callback: AsyncCallback<void>): void;
+  function answerCall(callback: AsyncCallback<void>): void;
 
   /**
    * Hang up the foreground call.
@@ -158,8 +160,8 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
-  function hangup(callId: number, callback: AsyncCallback<void>): void;
-  function hangup(callId?: number): Promise<void>;
+  function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
+  function hangUpCall(callId?: number): Promise<void>;
 
   /**
    * Hang up the foreground call without callId.
@@ -168,7 +170,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function hangup(callback: AsyncCallback<void>): void;
+  function hangUpCall(callback: AsyncCallback<void>): void;
 
   /**
    * Reject the incoming call.
@@ -179,9 +181,9 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
-  function reject(callId: number, callback: AsyncCallback<void>): void;
-  function reject(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
-  function reject(callId?: number, options?: RejectMessageOptions): Promise<void>;
+  function rejectCall(callId: number, callback: AsyncCallback<void>): void;
+  function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+  function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
    * Reject the incoming call without callId.
@@ -191,8 +193,8 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function reject(callback: AsyncCallback<void>): void;
-  function reject(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+  function rejectCall(callback: AsyncCallback<void>): void;
+  function rejectCall(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
    * @permission ohos.permission.ANSWER_CALL
