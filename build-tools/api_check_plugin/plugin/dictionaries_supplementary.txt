@@ -24,6 +24,7 @@ altitudes
 amr
 annually
 antialias
+apdu
 apecified
 appselect
 arcs
@@ -128,12 +129,15 @@ cyclewindows
 daltonization
 darkest
 dataability
+dataresubmissionhandler
 datashare
 datasync
+dbm
 dci
 ddmp
 deactivation
 decodes
+decomposed
 decompressed
 decompressing
 decr
@@ -230,6 +234,7 @@ fulfills
 gamepad
 gba
 geofence
+getunfilteredlinkurl
 glasses
 gnss
 graphicseditor
@@ -408,12 +413,15 @@ nextgroup
 nlink
 nmea
 nopadding
+normalizer
 notifies
 notifying
 numpad
 nvalidates
 nweb
 oaep
+ondataresubmission
+ondataresubmitted
 ofb
 offhook
 offscreen
@@ -457,6 +465,7 @@ perso
 personalisation
 pertaining
 photographing
+pickers
 pixelmap
 playpause
 playstate
@@ -471,6 +480,7 @@ pooled
 ppid
 pread
 precisiontype
+precomposed
 precon
 preempted
 preferentially
@@ -520,6 +530,8 @@ resmgr
 resourceschedule
 restores
 restricts
+resubmission
+resubmitted
 resultsets
 resumed
 retried
@@ -534,6 +546,8 @@ ringtones
 rle
 rmdir
 rotatable
+rscp
+rsrp
 rtd
 rtt
 ruim
@@ -599,6 +613,7 @@ subassembies
 subcomponents
 subnode
 subpixel
+suscriber
 subscrbers
 subscribale
 subscribes
@@ -607,6 +622,7 @@ superimposed
 suscribes
 suspends
 switchvideomode
+synched
 synchronizes
 synchronizing
 synth
@@ -666,6 +682,7 @@ unconditional
 unduck
 unducked
 unequal
+unfiltered
 unfocused
 unhold
 unicom
