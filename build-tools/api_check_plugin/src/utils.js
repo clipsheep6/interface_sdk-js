@@ -76,7 +76,8 @@ const ErrorType = {
   UNKNOW_PERMISSION: 'unknow permission',
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
-  INVALID_IMPORT: 'invalid import'
+  INVALID_IMPORT: 'invalid import',
+  WRONG_ORDER:'wrong order'
 }
 exports.ErrorType = ErrorType;
 

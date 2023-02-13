@@ -12,119 +12,153 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const { getAPINote } = require("../../src/utils");
+const ts = require("typescript");
+const parse = require('comment-parser');
+const { getAPINote, ErrorLevel, FileType, ErrorType } = require("../../src/utils");
+const { addAPICheckErrorLogs } = require('../compile_info');
+
 let errInfo = "";
 
-let apiBabelNoteArr = [];
-function checkBabelValue(node, babelName) {
+function checkExtendsValue(node) {
+  const targetName = 'extends';
+  let tagName = '';
+  let tagValue = '';
+  let apiValue = '';
+  // 获取jsdoc中的extends信息
   const apiNote = getAPINote(node);
-  const apiNoteArr = apiNote.split("*");
-  const apiText = node.getText();
-  const apiCoin = apiText.indexOf("{");
-  const apiName = apiText.substring(0, apiCoin);
-  // 根据api接口的extends内容，去查找是否有@extends标签
-  if (apiName.match(new RegExp(`${babelName}`))) {
-    if (!apiNote.match(new RegExp(`@${babelName}`)) && apiBabelNoteArr.indexOf(apiNote) == -1 && apiName.indexOf('import') == -1) {
-      apiBabelNoteArr.push(apiNote);
-      errInfo += `no @${babelName} ; `;
-      console.log("errorInfo UP =" + errInfo);
-    }
-  }
-  // 拿到jsdoc的extends标签内容，去对比与api接口的extends内容是否一致
-  apiNoteArr.forEach((note) => {
-    if (note.match(new RegExp(`@${babelName}`))) {
-      const namespaceNote = note.replace(`@${babelName}`, "").trim();
-      if (apiName.length > 0 && apiName.indexOf(`${babelName}`) == -1) {
-        errInfo += `should delete @${babelName}`;
-        console.log("errorInfo DOWN2=" + errInfo);
-      } else if (apiName.length > 0 && !apiName.match(new RegExp(`${namespaceNote}`))) {
-        errInfo += namespaceNote + ' ; ';
-        console.log("errorInfo DOWN1=" + errInfo);
-      } else if (apiName.length > 0 && namespaceNote.length == 0) {
-        errInfo += `@${babelName} value is null`;
-        console.log("errorInfo DOWN3=" + errInfo);
+  const parsed = parse.parse(`${apiNote}`);
+  if (parsed.length > 0) {
+    parsed[0].tags.forEach(item => {
+      if (item.tag == targetName) {
+        tagName = item.tag;
+        tagValue = item.name;
+        // console.log('tagName=', tagName, 'tagValue=', tagValue)
       }
+    })
+  }
+  // 获取api中的extends信息，校验标签合法性及值规范
+  if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
+    apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
+    // console.log('apiValue=', apiValue)
+    if (tagName != targetName && apiValue.length > 0) {
+      errInfo += `should add @${targetName}; `;
+      console.log("errorInfo1=" + errInfo);
+    } else if (tagName == targetName && apiValue.length == 0) {
+      errInfo += `should delete @${targetName}; `;
+      console.log("errorInfo2=" + errInfo);
+    } else if (tagName == targetName && tagValue != apiValue) {
+      errInfo += ` '@${tagValue}' should change to '${apiValue}'; `;
+      console.log("errorInfo3=" + errInfo);
     }
-  });
+  } else if (tagName == targetName && apiValue.length == 0) {
+    console.log(node.getText())
+    errInfo += `should delete @${targetName}; `;
+    console.log("errorInfo down=" + errInfo);
+  }
 }
-exports.checkBabelValue = checkBabelValue;
+exports.checkExtendsValue = checkExtendsValue;
 
-function checkEnumValue(node, babelName) {
+function checkEnumValue(node) {
+  const targetName = 'enum';
+  const enumValues = ['string', 'number'];
+  let tagName = '';
+  let tagValue = '';
+  let tagProblems = 0;
+
+  // 获取jsdoc中的enum信息
   const apiNote = getAPINote(node);
-  const apiNoteArr = apiNote.split("*");
-  const apiText = node.getText();
-  const apiCoin = apiText.indexOf("{");
-  const apiName = apiText.substring(0, apiCoin);
-  const enumValues = ['{string}', '{number}'];
-  // 根据api接口的enum容，去查找是否有@enum标签
-  if (apiName.match(new RegExp(`${babelName}`))) {
-    if (!apiNote.match(new RegExp(`@${babelName}`)) && apiBabelNoteArr.indexOf(apiNote) == -1 && apiName.indexOf('import') == -1) {
-      apiBabelNoteArr.push(apiNote);
-      errInfo += `no @${babelName} ; `;
-      console.log("errorInfo UP =" + errInfo);
-    }
-  }
-  // 拿到jsdoc的enum标签内容，去对比与api接口的enum内容是否一致
-  apiNoteArr.forEach((note) => {
-    if (note.match(new RegExp(`@${babelName}`)) && apiName.length > 0) {
-      const enumNote = note.replace(`@${babelName}`, "").trim();
-      if (apiName.indexOf(`${babelName}`) == -1) {
-        errInfo += `should delete @${babelName}`;
-        console.log("errorInfo DOWN1=" + errInfo);
-      } else if (apiName.length != 0 && enumNote.indexOf(enumValues[0]) == -1 && enumNote.indexOf(enumValues[1]) == -1) {
-        errInfo += enumNote + ' ; ';
-        console.log("errorInfo DOWN1=" + errInfo);
-      } else if (enumNote.length == 0) {
-        errInfo += `@${babelName} value is null`;
-        console.log("errorInfo DOWN3=" + errInfo);
+  const parsed = parse.parse(`${apiNote}`);
+  if (parsed.length > 0) {
+    parsed[0].tags.forEach(item => {
+      if (item.tag == targetName) {
+        tagName = item.tag;
+        tagValue = item.type;
+        tagProblems = item.problems.length
+        console.log('tagName=', tagName, 'tagValue=', tagValue, 'tagProblems=', tagProblems)
       }
+    })
+  }
+
+  // 获取api中的enum信息，校验标签合法性及值规范
+  if (ts.isEnumDeclaration(node)) {
+
+    // console.log('tagName=', tagName, 'tagValue=', tagValue,'tagProblems=',tagProblems)
+    if (tagName != targetName) {
+      errInfo += `should add @${targetName}; `;
+      console.log("errorInfo2=" + errInfo);
+    } else if (tagProblems > 0 || enumValues.indexOf(tagValue) == -1) {
+      errInfo += `@${targetName} value is wrong; `;
+      console.log("errorInfo1=" + errInfo);
     }
-  });
+  } else if (tagName == targetName) {
+    errInfo += `should delete @${targetName}; `;
+    console.log("errorInfo2=" + errInfo);
+  }
 }
 exports.checkEnumValue = checkEnumValue;
 
 function checkSinceValue(node) {
+  const targetName = 'since';
+  let tagName = '';
+  let tagValue = '';
+
+  // 获取jsdoc中的since信息
   const apiNote = getAPINote(node);
-  const apiNoteArr = apiNote.split("*");
-  // 判断jsdoc中是否存在必选标签since
-  if (apiNote.indexOf('@since') == -1 && apiNote.indexOf('Copyright') == -1) {
-    errInfo += '@since should add';
-    console.log("errorInfo DOWN1 =" + errInfo);
-  }
-  // 判断jsdoc中必选标签since值是否为空
-  apiNoteArr.forEach((note) => {
-    if (note.match(new RegExp('@since'))) {
-      const sinceNote = note.replace('@since', "").trim();
-      if (sinceNote.length == 0) {
-        errInfo += '@since value is null';
-        console.log("errorInfo DOWN2=" + errInfo);
+  const parsed = parse.parse(`${apiNote}`);
+  if (parsed.length > 0) {
+    parsed[0].tags.forEach(item => {
+      if (item.tag == targetName) {
+        tagName = item.tag;
+        tagValue = parseInt(item.name);
+        console.log('tagName=', tagName, 'tagValue=', tagValue);
+        if(isNaN(tagValue)){
+          errInfo += `@${targetName} value '${item.name}' is wrong; `;
+      console.log("errorInfo1=" + errInfo);
+        }
       }
-    }
-  });
+    })
+  }
+  if(tagName.length==0){
+    errInfo += `should add @${targetName}; `;
+      console.log("errorInfo2=" + errInfo);
+  }
 }
 exports.checkSinceValue = checkSinceValue;
 
 function checkReturnsValue(node) {
+  const targetName = 'returns';
+  const voidArr= ['void','Promise<void>']
+  let tagName = '';
+  let tagValue = '';
+
+  // 获取jsdoc中的returns信息
   const apiNote = getAPINote(node);
-  const apiNoteArr = apiNote.split("*");
-  // 拿到jsdoc的returns标签内容，去对比与api接口的returns内容是否一致
-  apiNoteArr.forEach((note) => {
-    if (note.match(new RegExp('@retuens'))) {
-      const retuensNote = note.replace('@retuens', "").trim();
-      const apiCoin = retuensNote.indexOf('}');
-      const apiDestribute = retuensNote.substring(apiCoin, namespaceNote.length - 1);
-      if (retuensNote.indexOf('{') != -1) {
-        errInfo += 'should delete @returns';
-        console.log("errorInfo DOWN2=" + errInfo);
-      } else if (retuensNote.indexOf('{') == -1 || retuensNote.indexOf('}') == -1) {
-        errInfo += "should add '{' or '}' ;";
-        console.log("errorInfo DOWN2=" + errInfo);
-      } else if (apiDestribute.length > 2 && apiDestribute.indexOf('} -') == -1) {
-        errInfo += "should add '-' ;";
-        console.log("errorInfo DOWN2=" + errInfo);
+  const parsed = parse.parse(`${apiNote}`);
+  if (parsed.length > 0) {
+    parsed[0].tags.forEach(item => {
+      if (item.tag == targetName) {
+        tagName = item.tag;
+        tagValue = item.type;
+        console.log('tagName=', tagName, 'tagValue=', tagValue)
+        const apiInfos = node.getText();
+        const apiCoin = apiInfos.indexOf(';');
+        const apiInfo = apiInfos.substring(0,apiCoin+1);
+        const apiKeyCoin = apiInfo.lastIndexOf(':');
+        const apiReturnsValue = apiInfo.substring(apiKeyCoin+1,apiInfo.length-1).replace(/ /g,'');
+        if(voidArr.indexOf(apiReturnsValue)!=-1){
+          console.log('apiReturnsValue=',apiReturnsValue)
+          errInfo += `should delete @${targetName}; `;
+          console.log("errorInfo1=" + errInfo);
+        }else if(tagValue.length==0){
+          errInfo += `@${targetName} type value is null; `;
+          console.log("errorInfo2=" + errInfo);
+        }else if(tagValue!=apiReturnsValue){
+          errInfo += `@${targetName}  value '${tagValue}' is wrong; `;
+          console.log("errorInfo3=" + errInfo);
+        }
       }
-    }
-  });
+    })
+  }
 }
 exports.checkReturnsValue = checkReturnsValue;
 
@@ -209,7 +243,7 @@ function checkUseinsteadValue(node) {
   }
   // 验证useinstead值
   apiNoteArr.forEach((note) => {
-    if (note.match(new RegExp('@useinstead'))) {
+    if (note.match(new RegExp('@useinstead')) && apiName.length > 0) {
       const useinsteadNote = note.replace('@useinstead', "").trim();
       const useinsteadArr = useinsteadNote.replace(/(\.|\/|\#)/g, '$').split('$');
       if (useinsteadNote.length == 0) {
@@ -226,42 +260,6 @@ function checkUseinsteadValue(node) {
   });
 }
 exports.checkUseinsteadValue = checkUseinsteadValue;
-
-function checkFiresValue(node) {
-  const apiNote = getAPINote(node);
-  const apiNoteArr = apiNote.split("*");
-  const apiText = node.getText();
-  const apiCoin = apiText.indexOf("{");
-  const apiName = apiText.substring(0, apiCoin);
-  let eventInfo = '';
-  // 获取namespace值,class值,interface值
-  if (apiName.length > 0 && apiName.match(new RegExp('class'))) {
-    var classInfo = apiName.substring(apiName.indexOf('class') + 6, apiName.length).replace(/ /g, '');
-    console.log('classInfo=' + classInfo);
-  }
-  if (apiName.length > 0 && apiText.indexOf('export') == -1) {
-    eventInfo = apiName.substring(apiText.indexOf('/'), apiName.indexOf(';'));
-    console.log('eventInfo=' + eventInfo);
-  }
-  // 校验fires值
-  apiNoteArr.forEach((note) => {
-    if (note.match(new RegExp('@fires'))) {
-      const firesNote = note.replace('@fires', "").trim();
-      const firesArr = firesNote.split('#');
-      if (firesNote.length == 0) {
-        errInfo += '@fires value is null';
-        console.log("errorInfo DOWN1=" + errInfo);
-      } else if (firesArr[0] != classInfo) {
-        errInfo += `@fires className ${classInfo} value is wrong ; `;
-        console.log("errorInfo DOWN2=" + errInfo);
-      } else if (eventInfo.indexOf(firesArr[1]) == -1) {
-        errInfo += ` @fires eventName value should change to ${eventInfo} ;`;
-        console.log("errorInfo DOWN3=" + errInfo);
-      }
-    }
-  });
-}
-exports.checkFiresValue = checkFiresValue;
 
 function checkTypeValue(node) {
   const apiNote = getAPINote(node);
@@ -281,11 +279,11 @@ function checkTypeValue(node) {
       if (typeNote.length == 0) {
         errInfo += '@type value is null';
         console.log("errorInfo DOWN1=" + errInfo);
-      } else if (typeNote.indexOf(namespaceInfo)==-1) {
+      } else if (typeNote.indexOf(namespaceInfo) == -1) {
         errInfo += `@type value is wrong ; `;
         console.log("errorInfo DOWN2=" + errInfo);
       }
     }
   });
 }
-exports.checkTypeValue=checkTypeValue;
+exports.checkTypeValue = checkTypeValue;
