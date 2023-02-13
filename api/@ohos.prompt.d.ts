@@ -36,11 +36,6 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * Text to display.
-     * @type { string | Resource }
-     * @since 9
-     */
     message: string | Resource;
 
     /**
@@ -67,19 +62,11 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * @type { string | Resource }
-     * @since 9
-     */
     text: string | Resource;
 
     /**
      * @type { string }
      * @since 8
-     */
-    /**
-     * @type { string | Resource }
-     * @since 9
      */
     color: string | Resource;
   }
@@ -105,22 +92,12 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
-    /**
-     * Title of the text to display.
-     * @type { string | Resource }
-     * @since 9
-     */
     title?: string | Resource;
 
     /**
      * Text body.
      * @type { string }
      * @since 8
-     */
-    /**
-     * Text body.
-     * @type { string | Resource }
-     * @since 9
      */
     message?: string | Resource;
 
@@ -153,11 +130,6 @@ declare namespace prompt {
      * Title of the text to display.
      * @type { string }
      * @since 8
-     */
-    /**
-     * Title of the text to display.
-     * @type { string | Resource }
-     * @since 9
      */
     title?: string | Resource;
 
