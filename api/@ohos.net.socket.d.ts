@@ -598,15 +598,15 @@ declare namespace socket {
     /**
      * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
      */
-    ALPNProtocols?: Array<string>;
+    AlpnProtocols?: Array<string>;
   }
 
   /**
    * @since 9
    */
   export enum Protocol {
-    TLSv12 = "TLSv1.2",
-    TLSv13 = "TLSv1.3",
+    TLSV12 = "TLSv1.2",
+    TLSV13 = "TLSv1.3",
   }
 }
 
