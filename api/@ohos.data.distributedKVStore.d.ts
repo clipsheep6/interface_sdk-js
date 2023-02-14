@@ -1325,7 +1325,7 @@ declare namespace distributedKVStore {
          * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified keyPrefix.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100001 - if the number of resultset or subscribe is over max size.
+         * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1344,7 +1344,7 @@ declare namespace distributedKVStore {
          * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified keyPrefix.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100001 - if the number of resultset or subscribe is over max size.
+         * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1359,7 +1359,7 @@ declare namespace distributedKVStore {
          * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100001 - if the number of resultset or subscribe is over max size.
+         * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1374,7 +1374,7 @@ declare namespace distributedKVStore {
          * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100001 - if the number of resultset or subscribe is over max size.
+         * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1390,7 +1390,7 @@ declare namespace distributedKVStore {
          * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
-         * @throws {BusinessError} 15100001 - if the number of resultset or subscribe is over max size.
+         * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1408,7 +1408,7 @@ declare namespace distributedKVStore {
          * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
-         * @throws {BusinessError} 15100001 - if the number of resultset or subscribe is over max size.
+         * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
