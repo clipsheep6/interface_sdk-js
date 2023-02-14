@@ -72,7 +72,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * Called when the speed is set.
    * @since 8
    */
-  speed(value: number | string): TextPickerAttribute;
+  speed(value: number): TextPickerAttribute;
 }
 
 /**
