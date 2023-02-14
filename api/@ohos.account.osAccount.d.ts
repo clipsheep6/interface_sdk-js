@@ -48,6 +48,7 @@ declare namespace osAccount {
          * @param localId Indicates the local ID of the OS account.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
@@ -214,6 +215,7 @@ declare namespace osAccount {
          * @param localId Indicates the local ID of the OS account.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
@@ -242,6 +244,7 @@ declare namespace osAccount {
          * @param enable Specifies whether to enable the constraint.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or constraints.
@@ -261,6 +264,7 @@ declare namespace osAccount {
          * @param localName Indicates the local name to set for the OS account.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or localName.
@@ -368,6 +372,7 @@ declare namespace osAccount {
         /**
          * Queries the maximum number of OS accounts that can be created on a device.
          * @returns Returns the maximum number of OS accounts that can be created.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @systemapi Hide this for inner system use.
@@ -408,6 +413,7 @@ declare namespace osAccount {
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns a list of OS accounts.         
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @systemapi Hide this for inner system use.
@@ -444,6 +450,7 @@ declare namespace osAccount {
          *        {@link OsAccountType} specifies the account types available in the system.
          * @returns Returns information about the created OS account; returns {@code null} if the creation fails.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localName.
@@ -464,6 +471,7 @@ declare namespace osAccount {
          * @param domainInfo Indicates the domain account info.
          * @returns Returns information about the created OS account; returns {@code null} if the creation fails.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid type or domainInfo.
@@ -506,6 +514,7 @@ declare namespace osAccount {
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns the OS account information; returns {@code null} if the query fails.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
@@ -580,6 +589,7 @@ declare namespace osAccount {
          * @returns Returns the profile photo if obtained;
          *         returns {@code null} if the profile photo fails to be obtained.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
@@ -597,6 +607,7 @@ declare namespace osAccount {
          * @param photo Indicates the profile photo to set for the OS account.
          * @returns void.         
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or photo.
@@ -666,6 +677,7 @@ declare namespace osAccount {
          * @param name Indicates the name of subscriber.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid type or name.
@@ -682,6 +694,7 @@ declare namespace osAccount {
          * @param name Indicates the name of subscriber.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid type or name.
@@ -695,6 +708,7 @@ declare namespace osAccount {
          * Obtain bundle id from uid.
          * @param uid Indicates the target uid.
          * @returns bundle id.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid uid.
@@ -710,6 +724,7 @@ declare namespace osAccount {
          * @returns Returns {@code true} if current process belongs to the main os account;
          *         returns {@code false} otherwise.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @systemapi Hide this for inner system use.
@@ -723,6 +738,7 @@ declare namespace osAccount {
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns the constraint source type infos of the os account;
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid name or constraint.
@@ -867,6 +883,7 @@ declare namespace osAccount {
         /**
          * Constructor to get the UserAuth class instance.
          * @returns Returns the UserAuth class instance.
+         * @throws {BusinessError} 202 - not system application.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -875,6 +892,7 @@ declare namespace osAccount {
         /**
          * Gets version information.
          * @returns Returns the version information.
+         * @throws {BusinessError} 202 - not system application.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -887,6 +905,7 @@ declare namespace osAccount {
          * @param authTrustLevel Indicates the trust level of authentication result.
          * @returns Returns a status result.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid authType or authTrustLevel.
@@ -901,6 +920,7 @@ declare namespace osAccount {
          * @param request Indicates the request information, including authentication type, and property type list.
          * @returns Returns an executor property.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid request.
@@ -915,6 +935,7 @@ declare namespace osAccount {
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
          * @param request Indicates the request information, including authentication type and the key-value to be set.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid request.
@@ -933,6 +954,7 @@ declare namespace osAccount {
          * @param callback Indicates the callback to get result and acquireInfo.
          * @returns Returns a context ID for cancellation.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid challenge, authType or authTrustLevel.
@@ -957,6 +979,7 @@ declare namespace osAccount {
          * @param callback Indicates the callback to get result and acquireInfo.
          * @returns Returns a context ID for cancellation.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid userId, challenge, authType or authTrustLevel.
@@ -976,6 +999,7 @@ declare namespace osAccount {
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
          * @param contextID Indicates the authentication context ID.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid contextId.
@@ -995,6 +1019,7 @@ declare namespace osAccount {
         /**
          * Constructor to get the PINAuth class instance.
          * @returns Returns the PINAuth class instance.
+         * @throws {BusinessError} 202 - not system application.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1005,6 +1030,7 @@ declare namespace osAccount {
          * @permission ohos.permission.ACCESS_PIN_AUTH
          * @param inputer Indicates the password input box callback
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid inputer.
@@ -1019,6 +1045,7 @@ declare namespace osAccount {
          * @permission ohos.permission.ACCESS_PIN_AUTH
          * @systemapi Hide this for inner system use.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @since 8
          */
         unregisterInputer(): void;
@@ -1028,36 +1055,90 @@ declare namespace osAccount {
      * Provides the management of credential inputers. 
      * @name InputerManager
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since 9
      */
     class InputerManager {
         /**
          * Register credential inputer by authentication type.
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
+         * @static
          * @param authType Indicates the authentication type.
          * @param inputer Indicates the credential input box callback.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid authType or inputer.
          * @throws {BusinessError} 12300103 - the credential inputer has been registered.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @systemapi Hide this for inner system use.
-         * @since 10
+         * @since 9
          */
-        registerInputer(authType: AuthType, inputer: IInputer): void;
+        static registerInputer(authType: AuthType, inputer: IInputer): void;
 
         /**
          * Unregister credential inputer by authentication type.
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
+         * @static
          * @param authType Indicates the authentication type.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300002 - invalid authType.
          * @systemapi Hide this for inner system use.
-         * @since 10
+         * @since 9
          */
-        unregisterInputer(authType: AuthType): void;
+        static unregisterInputer(authType: AuthType): void;
+    }
+
+    /**
+     * Provides the definition of domain plugin.
+     * @interface DomainPlugin
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    interface DomainPlugin {
+        /**
+         * Authenticates the specified domain account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { Uint8Array } credential - Indicates the credential for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    }
+
+    /**
+     * Provides abilities for the management of domain account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    class DomainAccountManager {
+        /**
+         * Registers the domain plugin, which provides the capabilities for domain authentication.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainPlugin } plugin - Indicates the domain plugin.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300201 - the domain plugin has been registered.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        static registerPlugin(plugin: DomainPlugin): void;
+
+        /**
+         * Unregisters domain plugin.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        static unregisterPlugin(): void;
     }
 
     /**
@@ -1070,6 +1151,7 @@ declare namespace osAccount {
         /**
          * Constructor to get the UserIdentityManager class instance.
          * @returns Returns the UserIdentityManager class instance.
+         * @throws {BusinessError} 202 - not system application.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1083,6 +1165,7 @@ declare namespace osAccount {
          * @permission ohos.permission.MANAGE_USER_IDM
          * @returns Returns a challenge value.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @systemapi Hide this for inner system use.
@@ -1101,6 +1184,7 @@ declare namespace osAccount {
          * @param credentialInfo Indicates the credential information.
          * @param callback Indicates the callback to get results and acquireInfo.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid credentialInfo.
@@ -1117,6 +1201,7 @@ declare namespace osAccount {
          * @param credentialInfo Indicates the credential information.
          * @param callback Indicates the callback to get results and acquireInfo.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid credentialInfo.
@@ -1132,6 +1217,8 @@ declare namespace osAccount {
          * <p>
          * End an IDM operation.  
          * @permission ohos.permission.MANAGE_USER_IDM
+         * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1142,6 +1229,7 @@ declare namespace osAccount {
          * @permission ohos.permission.MANAGE_USER_IDM
          * @param challenge Indicates the challenge value.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid challenge.
@@ -1156,6 +1244,7 @@ declare namespace osAccount {
          * @param token Indicates the authentication token.
          * @param callback Indicates the callback to get the deletion result.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300101 - token is invalid.
@@ -1171,6 +1260,7 @@ declare namespace osAccount {
          * @param token Indicates the authentication token.
          * @param callback Indicates the callback to get the deletion result.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid credentialId.
@@ -1188,6 +1278,7 @@ declare namespace osAccount {
          * @param callback Indicates the callback to get all registered credential information of
          * the specified type for the current user.
          * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid authType.
@@ -1213,6 +1304,7 @@ declare namespace osAccount {
          * Notifies to set data.
          * @param authSubType Indicates the credential subtype for authentication.
          * @param data Indicates the data to set.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300002 - invalid pinSubType.
          * @systemapi Hide this for inner system use.
@@ -1527,7 +1619,7 @@ declare namespace osAccount {
 
         /**
          * Indicates the DOMAIN authentication type.
-         * @since 10
+         * @since 9
          */
         DOMAIN = 1024
     }
@@ -1567,7 +1659,7 @@ declare namespace osAccount {
 
         /**
          * Indicates the mixed domain credential.
-         * @since 10
+         * @since 9
          */
         DOMAIN_MIXED = 10240001
     }
