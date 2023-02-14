@@ -242,6 +242,7 @@ declare namespace connection {
     * @returns { Promise<NetHandle> } the promise returned by the function.
     * @permission ohos.permission.INTERNET
     * @throws {BusinessError} 201 - Permission denied.
+    * @throws {BusinessError} 401 - Parameter error.
     * @throws {BusinessError} 2100001 - Invalid parameter value.
     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
     * @throws {BusinessError} 2100003 - System internal error.
@@ -266,6 +267,7 @@ declare namespace connection {
     * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
     *
     * @returns { Promise<NetHandle> } the promise returned by the function.
+    * @throws {BusinessError} 2100001 - Invalid parameter value.
     * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
     * @throws {BusinessError} 2100003 - System internal error.
     * @since 9
