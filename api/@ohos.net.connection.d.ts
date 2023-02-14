@@ -151,6 +151,7 @@ declare namespace connection {
    * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
    * @systemapi Hide this for inner system use. Only used for system app.
+   * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
@@ -164,6 +165,7 @@ declare namespace connection {
    * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
    * @systemapi Hide this for inner system use. Only used for system app.
+   * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
@@ -230,6 +232,21 @@ declare namespace connection {
     * @since 9
     */
    function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+
+  /**
+    * Binds a process to {@code NetHandle}.
+    *
+    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+    * and the resolution of all host names will be managed by the {@code NetHandle}.
+    *
+    * @returns { Promise<NetHandle> } the promise returned by the function.
+    * @permission ohos.permission.INTERNET
+    * @throws {BusinessError} 201 - Permission denied.
+    * @throws {BusinessError} 2100001 - Invalid parameter value.
+    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+    * @throws {BusinessError} 2100003 - System internal error.
+    * @since 9
+    */
    function setAppNet(netHandle: NetHandle): Promise<void>;
 
   /**
@@ -244,6 +261,15 @@ declare namespace connection {
     * @since 9
     */
    function getAppNet(callback: AsyncCallback<NetHandle>): void;
+
+  /**
+    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
+    *
+    * @returns { Promise<NetHandle> } the promise returned by the function.
+    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+    * @throws {BusinessError} 2100003 - System internal error.
+    * @since 9
+    */
    function getAppNet(): Promise<NetHandle>;
 
   /**
@@ -308,7 +334,6 @@ declare namespace connection {
      *
      * @permission ohos.permission.GET_NETWORK_INFO
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101008 - The callback is not found.
