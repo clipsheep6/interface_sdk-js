@@ -190,4 +190,12 @@ export interface ApplicationInfo {
    * @since 9
    */ 
   readonly systemApp: boolean;
+
+  /**
+   * Indicates whether the application aupport asan
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */ 
+  readonly asanEnabled: boolean;
 }
