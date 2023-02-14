@@ -75,7 +75,6 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
