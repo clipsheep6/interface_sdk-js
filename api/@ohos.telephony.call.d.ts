@@ -141,6 +141,7 @@ declare namespace call {
    * @since 9
    */
   function answerCall(callId: number, callback: AsyncCallback<void>): void;
+  
   /**
    * Answers the incoming call.
    *
@@ -169,6 +170,7 @@ declare namespace call {
    * @since 9
    */
   function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
+
   /**
    * Hang up the foreground call.
    *
@@ -198,6 +200,7 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
+
   /**
    * Reject the incoming call.
    *
@@ -208,6 +211,7 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+
   /**
    * Reject the incoming call.
    *
@@ -228,6 +232,7 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callback: AsyncCallback<void>): void;
+
   /**
    * Reject the incoming call without callId.
    *
