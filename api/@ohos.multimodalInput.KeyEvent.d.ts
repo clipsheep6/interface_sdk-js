@@ -12,7 +12,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import { InputEvent } from "./@ohos.multimodalInput.Inputevent"
+import { InputEvent } from "./@ohos.multimodalInput.InputEvent"
 import { KeyCode } from "./@ohos.multimodalInput.KeyCode"
 /**
 * Action
