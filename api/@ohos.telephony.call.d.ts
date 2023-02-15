@@ -138,7 +138,7 @@ declare namespace call {
    * @param callId Indicates the identifier of the call to answer.
    * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
   function answerCall(callId: number, callback: AsyncCallback<void>): void;
   function answerCall(callId?: number): Promise<void>;
@@ -158,7 +158,7 @@ declare namespace call {
    * @param callId Indicates the identifier of the call to hangup.
    * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
   function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
   function hangUpCall(callId?: number): Promise<void>;
@@ -179,7 +179,7 @@ declare namespace call {
    * @param options Indicates the text message to reject.
    * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
