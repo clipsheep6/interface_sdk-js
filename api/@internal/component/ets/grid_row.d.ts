@@ -229,6 +229,13 @@ declare interface GridRowOptions {
      * @since 9
      */
     direction?: GridRowDirection;
+
+    /**
+     * Alignment Format for Subassembly on GridRow Cross Axis.
+     * @form
+     * @since 10
+     */
+    alignItems?: ItemAlign;
 }
 
 /**
