@@ -1235,6 +1235,23 @@ declare namespace media {
      * @param type Type of the recording error event to listen for.
      */
     off(type: 'error'): void;
+
+    /**
+     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @param type Type of the recording event to listen for.
+     * @param callback Callback used to listen for the playback event return audio interrupt info.
+     */
+    on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void;
+
+    /**
+     * Unregister listens for audio interrupt event.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @param type Type of the recording event to listen for.
+     */
+    off(type: 'audioInterrupt'): void;
   }
 
   /**
