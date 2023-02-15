@@ -141,6 +141,14 @@ declare namespace call {
    * @since 9
    */
   function answerCall(callId: number, callback: AsyncCallback<void>): void;
+  /**
+   * Answers the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to answer.
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function answerCall(callId?: number): Promise<void>;
 
   /**
@@ -161,6 +169,14 @@ declare namespace call {
    * @since 9
    */
   function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
+  /**
+   * Hang up the foreground call.
+   *
+   * @param callId Indicates the identifier of the call to hangup.
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function hangUpCall(callId?: number): Promise<void>;
 
   /**
@@ -182,7 +198,25 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
+  /**
+   * Reject the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+  /**
+   * Reject the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
@@ -194,6 +228,14 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callback: AsyncCallback<void>): void;
+  /**
+   * Reject the incoming call without callId.
+   *
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function rejectCall(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
