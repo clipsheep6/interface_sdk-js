@@ -14,7 +14,7 @@
 */
 
 import { Callback, AsyncCallback } from "./basic";
-import { KeyCode } from "./@ohos.multimodalInput.keyCode"
+import { KeyCode } from "./@ohos.multimodalInput.KeyCode"
 
 /**
  * The input device management module is configured to obtain an ID and device information of an input device.
