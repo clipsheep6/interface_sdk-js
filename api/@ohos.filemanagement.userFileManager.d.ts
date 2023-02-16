@@ -907,6 +907,74 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     release(): Promise<void>;
+    /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @param callback returned operation results
+     */
+    copyAssets(uriList: Array<string>, path: string, callback: AsyncCallback<Array<OperationResult>>): void;
+    /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @returns Promise used to return the list of operation result
+     */
+    copyAssets(uriList: Array<string>, path: string): Promise<Array<OperationResult>>;
+    /**
+     * Move media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be moved
+     * @param path destination path of moving file
+     * @param callback returned operation results
+     */
+    moveAssets(uriList: Array<string>, path: string, callback: AsyncCallback<Array<OperationResult>>): void;
+    /**
+     * Move media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be moved
+     * @param path destination path of moving file
+     * @returns Promise used to return the list of operation result
+     */
+    moveAssets(uriList: Array<string>, path: string): Promise<Array<OperationResult>>;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param uriList uri list of thumbnails to be obtained
+     * @param offset position of uri list to start get thumbnails
+     * @param maxCount counts of thumbnails will be got
+     * @param callback thumbnails in PixelMap format
+     */
+    getThumbnails(uriList: Array<string>, offset: number, maxCount: number, callback: AsyncCallback<Array<image.PixelMap>>): void;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param uriList uri list of thumbnails to be obtained
+     * @param offset position of uri list to start get thumbnails
+     * @param maxCount counts of thumbnails will be got
+     * @returns Promise used to return thumbnails in PixelMap format
+     */
+    getThumbnails(uriList: Array<string>, offset: number, maxCount: number): Promise<Array<image.PixelMap>>;
   }
 
   /**
@@ -937,6 +1005,36 @@ declare namespace userFileManager {
      * @systemapi
      */
     readonly isOnline: boolean;
+  }
+
+  /**
+   * Operation result of 'copy assets'/'move assets'
+   * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+   * @systemapi
+   * @since 9
+   */
+  interface OperationResult {
+    /**
+     * SRC URI to be copied/moved
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    readonly srcURI: string;
+    /**
+     * New URI after copied/moved
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    readonly tgtURI: string;
+    /**
+     * Error code of copying/moving assets operation
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    readonly errorCode: number;
   }
 
   /**
