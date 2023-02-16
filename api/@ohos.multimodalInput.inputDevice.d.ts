@@ -36,7 +36,7 @@ declare namespace inputDevice {
   /**
    * @since 9
    */
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'toolMajor' | 'NULL';
+  type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null';
 
   /**
    * @since 9
