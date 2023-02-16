@@ -10,58 +10,100 @@
  * Background has some automatically restore mechanism.
  * Frontend tasks controlled by caller.
  * More details, please see the architecture documents of the request subsystem.
+ * @namespace agent
+ * @syscap SystemCapability.RequestAgent
  * @since 10
- * @syscap SystemCapability.RequestAgent;
  */
  export declare namespace agent {
     /**
+     * The action options.
+     * @enum { string }
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
+     */
+    enum Action {
+        /**
+         * Indicates upload task.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        UPLOAD = "upload",
+        /**
+         * Indicates download task.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        DOWNLOAD = "download",
+    }
+    /**
+     * The mode options.
+     * @enum { string }
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
+     */
+    enum Mode {
+        /**
+         * Indicates frontend task.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        FRONTEND = "frontend",
+        /**
+         * Indicates background task.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        BACKGROUND = "background",
+    }
+    /**
+     * The network options.
+     * @enum { string }
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
+     */
+    enum Network {
+        /**
+         * Indicates unrestrictedly.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        ANY = "any",
+        /**
+         * Indicates Wi-Fi only.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        WIFI = "Wi-Fi",
+        /**
+         * Indicates cellular only.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        CELLULAR = "cellular",
+    }
+    /**
      * The configurations for a task.
      * Using a flexible configuration for clear upload and download functions.
+     * If without emphasis, an option is for any task.
+     * @typedef Conf
+     * @syscap SystemCapability.RequestAgent
      * @since 10
-     * @syscap SystemCapability.RequestAgent;
      */
-    class Conf {
+    interface Conf {
         /**
-         * Creates configuration for upload or download.
+         * The task action, upload or download.
+         * @type { Action }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
-         * @permission ohos.permission.INTERNET
-         * @param background background or not.
-         * @param action indicates "upload" or "download", case insensitive, but it will be normalized to lowercase in records.
-         * @param url the uniform resource locator, using raw text, case sensitivity or not according to system.
-         * @param paths data source for upload or data target for download, upload supports multiple paths, but download needs only one path, using raw text, case sensitivity or not according to system.
-         * @throws {BusinessError} 201 - Permission denied.
-         * @throws {BusinessError} 401 - Parameter error.
          */
-        constructor(background: boolean, action: string, url: string, paths: Array<string>);
-        /**
-         * Indicates a background task or not.
-         * For background task, there will be more options below.
-         * If without emphasis, the option is for any task.
-         * The background task will be scheduled by request manager service.
-         * @since 10
-         * @syscap SystemCapability.RequestAgent;
-         */
-        background: boolean;
-        /**
-         * The task action, "upload" or "download", case insensitive.
-         * @since 10
-         * @syscap SystemCapability.RequestAgent;
-         */
-        action: string;
-        /**
-         * The name for a task, give a meaningful title please.
-         * The maximum length is 256 characters.
-         * @since 10
-         * @syscap SystemCapability.RequestAgent;
-         */
-        name: string;
+        action: Action;
         /**
          * The Universal Resource Locator for a task.
          * The maximum length is 2048 characters.
          * Using raw `url` option, even url parameters in it.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         url: string;
         /**
@@ -73,17 +115,39 @@
          * Currently support:
          * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
          * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+         * @type { Array<string> }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         paths: Array<string>;
+        /**
+         * The name for a task, give a meaningful title please.
+         * The maximum length is 256 characters.
+         * The default is the same with its action.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        name?: string;
+        /**
+         * Indicates a background task or not.
+         * For upload, its default is frontend.
+         * For download, its default is background.
+         * For frontend task, it has callbacks.
+         * For background task, it has notifications and failback.
+         * @type { Mode }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        mode?: Mode;
         /**
          * The solution choice when path already exists during download.
          * Currently support:
          * true, rewrite the existed file.
          * false, go to fail.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         cover?: boolean;
         /**
@@ -91,62 +155,67 @@
          * Case insensitive.
          * For upload, the default is PUT.
          * For download, the default is GET.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         method?: string;
         /**
          * The HTTP headers.
          * For upload request, the default `Content-Type` is `application/octet-stream`.
          * For download request, the default `Content-Type` is `application/json`.
+         * @type { JSON }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         headers?: JSON;
         /**
          * The HTTP parameters.
          * Do not cut and parse url parameters into here.
          * The default is empty.
+         * @type { JSON }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         parameters?: JSON;
         /**
          * The HTTP body.
          * The default is empty.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         body?: string;
         /**
-         * The network type.
-         * Currently support:
-         * 0: any, the default.
-         * 1: Wi-Fi.
-         * 2: mobile.
+         * The network.
+         * @type { Network }
+         * @default Network.ANY
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        network?: number;
+        network?: Network;
         /**
          * Allows work in metered network or not.
          * The default is false.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         metered?: boolean;
         /**
          * Allows work in roaming network or not.
          * The default is true.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         roaming?: boolean;
         /**
          * The timeout for a task.
          * The default is no timeout, but died task which stays on a status more than 30 days will be cleared.
+         * @type { number }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         timeout?: number;
         /**
@@ -156,24 +225,27 @@
          * .httpsProxy: http://user:password@proxy-domain:proxy-port/proxy-path?proxy-parameters
          * .noProxy: domainx;domainy;domainz;...
          * Each filed with a 4096 bytes limit.
+         * @type { JSON }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         proxy?: JSON;
         /**
          * Allows redirect or not.
          * The default is not.
          * But it is true or a background task.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         redirect?: boolean;
         /**
          * The index of paths for a task.
          * Usually used for a continuous job.
          * The default is 0.
+         * @type { number }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         index?: number;
         /**
@@ -182,8 +254,9 @@
          * It will set the "Range" header in download.
          * It will start read at the point in upload.
          * The default is 0.
+         * @type { number }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         begins?: number;
         /**
@@ -191,32 +264,35 @@
          * Usually used for a continous job.
          * It will set The "Range" header in download.
          * It will end read at the point in upload.
+         * The default is -1 indicating the end of the data for upload or download.
+         * @type { number }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         ends?: number;
         /**
-         * The policy of notification.
-         * Currently support:
-         * "non-progress": only completed or failed.
-         * If not set, emits every progress, completed or failed.
-         * Only for tasks with `background` is true.
+         * The policy of the progress notification for background task.
+         * If false: only completed or failed notification.
+         * If true, emits every progress, completed or failed notifications, the default.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        silence?: "non-progress";
+        gauge?: boolean;
         /**
          * Breaks when fail to fetch filesize before upload/download or not.
          * The default is not, set size as -1 indicating the case.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         filesize?: boolean;
         /**
          * Associates ability of want in notification.
          * The ability must be one of the application which creates the task.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         ability?: string;
         /**
@@ -227,8 +303,9 @@
          * Creates a task with token, then must provide it during normal query.
          * So saves the token carefully, it can not be retrieved by query.
          * Or leave it empty.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         token?: string;
     }
@@ -242,163 +319,230 @@
      * 2, float(processed)/sizes[counter] is the progress for the current processing file.
      * 3, float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
      * If fetch file size in failure, the size of the file in sizes will be set as -1.
+     * @typedef Progress
+     * @syscap SystemCapability.RequestAgent
      * @since 10
-     * @syscap SystemCapability.RequestAgent;
      */
-    class Progress {
+    interface Progress {
         /**
          * The current state of the task.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         state: string;
         /**
          * The current processing file index in a task.
+         * @type { number }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         counter: number;
         /**
          * The processed data size for the current file in a task.
+         * @type { number }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         processed: number;
         /**
          * The sizes of files in a task.
+         * @type { Array<number> }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         sizes: Array<number>;
         /**
          * The extras for an interaction.
          * Such as headers and body of response from server.
          * {"headers": {"key": v}, "body": "contents"}
+         * @type { JSON }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         extras?: JSON;
     }
     /**
+     * @enum { number }
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
+     */
+    enum Broken {
+        /**
+         * Indicates others failure.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        OTHERS = 0xFF,
+        /**
+         * Indicates network disconnection.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        DISCONNECT = 0x00,
+        /**
+         * Indicates task timeout.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        TIMEOUT = 0x01,
+        /**
+         * Indicates protocol error, such as 5xx respose from server.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        PROTOCOL = 0x02,
+        /**
+         * Indicates filesystem io error, such as open/seek/read/write/close.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        FSIO = 0x03,
+    }
+    /**
      * The task information data structure for query results.
      * Provides common query and advanced query, visible range of fields is different.
+     * @typedef TaskInfo
+     * @syscap SystemCapability.RequestAgent
      * @since 10
-     * @syscap SystemCapability.RequestAgent;
      */
     interface TaskInfo {
         /**
          * The UID of an application.
          * For system query only.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @systemapi
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly uid?: string;
         /**
          * The bundle name.
          * For system query only.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @systemapi
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly bundle?: string;
         /**
          * The url of a task.
          * For normal query only, empty as system.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly url?: string;
         /**
          * The paths of a task.
          * For normal query only, empty as system.
+         * @type { Array<string> }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly paths?: Array<string>;
         /**
          * The task id.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly tid: string;
         /**
          * The task name.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly name: string;
         /**
-         * The task action, must be "upload" or "download", lowercase normalized.
+         * The task action.
+         * @type { Action }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        readonly action: string;
+        readonly action: Action;
         /**
          * The MiMEType of a task.
+         * @type { Array<string> }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly mimetype: Array<string>;
         /**
          * An instance of `Progress` for a task.
+         * @type { Progress }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly progress: Progress;
         /**
-         * The notification policy of a task.
+         * The notification policy of a background task.
+         * @type { boolean }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        readonly notification: string;
+        readonly gauge: boolean;
         /**
          * The creating date and time of a task in "yyyy-MM-dd HH:mm:SS.nanosecond" pattern.
          * It is generted by system of current device.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly ctime: string
         /**
          * The modified date and time of a task in "yyyy-MM-dd HH:mm:SS.nanosecond" pattern.
          * It is generted by system of current device.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly mtime: string;
         /**
          * The tried times of a task.
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly tries: number;
         /**
          * The broken case of a task.
-         * Currently support:
-         * undefined, accidently.
-         * 0, others, not categorized.
-         * 1, network disconnect.
-         * 2, task timeout.
-         * 3, storage capacity not enough.
-         * 4, protocol error.
-         * 5, filesystem io error.
+         * @type { Broken }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        readonly broken?: number;
+        readonly broken?: Broken;
         /**
          * The reason of a waiting/failed/stopped/paused task.
-         * undefined, accidently.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly reason?: string;
         /**
          * The extras of a task.
          * For background, the last response from server.
          * For frontend, nothing now.
+         * @type { JSON }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly extras?: JSON;
     }
@@ -411,84 +555,85 @@
      * Can `resume` a paused task.
      * Can `stop` a running/waiting/retrying task.
      * @since 10
-     * @syscap SystemCapability.RequestAgent;
+     * @syscap SystemCapability.RequestAgent
      */
     class Task {
         /**
          * Creates a task for upload or download.
-         * @since 10
-         * @syscap SystemCapability.RequestAgent;
          * @permission ohos.permission.INTERNET
-         * @param context context of the caller.
-         * @param conf an instance of `Conf`.
-         * @param callback callback function with a `Task` argument.
+         * @param { Conf } conf configurations for a task.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 401 - Parameter error.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
          */
         constructor(conf: Conf);
         /**
          * The task id, unique on system.
          * Generated automatically by system.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         readonly tid: string;
         /**
          * The configurations for the task.
+         * @type { Conf }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         conf: Conf;
         /**
          * The progress callback for the frontend tasks.
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         progress?: (pg: Progress) => void;
         /**
          * The completed callback for the frontend tasks.
          * The completed is treated as a special progress.
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         completed?: (pg: Progress) => void;
         /**
          * The failed callback for the frontend tasks.
          * The "failed" is treated as a special progress.
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         failed?: (pg: Progress) => void;
         /**
          * Starts the task.
-         * @since 10
-         * @syscap SystemCapability.RequestAgent;
          * @permission ohos.permission.INTERNET
-         * @param callback callback function with a boolean argument.
+         * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
          */
         start(callback: AsyncCallback<boolean>): void;
         /**
          * Pauses the task.
+         * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
-         * @param callback callback function with a boolean argument.
          */
         pause(callback: AsyncCallback<boolean>): void;
         /**
          * Resumes the task.
-         * @since 10
-         * @syscap SystemCapability.RequestAgent;
          * @permission ohos.permission.INTERNET
-         * @param callback callback function with a boolean argument.
+         * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
          */
         resume(callback: AsyncCallback<boolean>): void;
         /**
          * Stops the task.
+         * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
-         * @param callback callback function with a boolean argument.
          */
         stop(callback: AsyncCallback<boolean>): void;
     }
@@ -496,117 +641,124 @@
      * The filter data structure.
      * Used for search, given fields works as **LOGICAL AND**.
      * Invalid value may cause a parameter error.
+     * @typedef Filter
+     * @syscap SystemCapability.RequestAgent
      * @since 10
      */
-    class Filter {
+    interface Filter {
         /**
          * Specifys the package name of an application.
          * Only for advanced search, common search will be fixed to the caller.
          * A "*" means any bundle.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @systemapi
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         bundle?: string;
         /**
          * Specifys a end date and time in "yyyy-MM-dd HH:mm:SS" pattern.
          * The default is the moment of calling.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         before?: string;
         /**
          * Specifys a start date and time in "yyyy-MM-dd HH:mm:SS" pattern.
          * The default is "`before` and 24 hours".
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         after?: string;
         /**
          * Specifys the state of tasks.
          * The default is any state.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
         state?: string;
         /**
          * Specifys the action of tasks, "upload" or "download", case insensitive.
          * The default is upload and download.
+         * @type { Action }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        action?: string;
+        action?: Action;
         /**
          * Specifys background taks or not.
          * The default is frontend and background.
+         * @type { Mode }
+         * @syscap SystemCapability.RequestAgent
          * @since 10
-         * @syscap SystemCapability.RequestAgent;
          */
-        background?: boolean;
+        mode?: Mode;
     }
     /**
      * Removes specifed task belongs to the caller.
-     * @since 10
-     * @syscap SystemCapability.RequestAgent;
-     * @param context context of the caller.
-     * @param id the task id.
-     * @param callback callback function with a boolean argument indicating sucess or not.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating sucess or not.
      * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
      */
     function remove(context: BaseContext, id: string, callback: AsyncCallback<boolean>): void;
     /**
      * Shows specified task details belongs to the caller.
-     * @since 10
-     * @syscap SystemCapability.RequestAgent;
-     * @param context context of the caller.
-     * @param id the task id.
-     * @param callback callback function with a `TaskInfo` argument.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
      */
     function show(context: BaseContext, id: string, callback: AsyncCallback<TaskInfo>): void;
     /**
      * Touches specified task with token.
-     * @since 10
-     * @syscap SystemCapability.RequestAgent;
-     * @param context context of the caller.
-     * @param id the task id.
-     * @param token the in-application isolation key.
-     * @param callback callback function with a `TaskInfo` argument.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @param { string } token the in-application isolation key.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
      */
     function touch(context: BaseContext, id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
     /**
      * Searches tasks, for system.
-     * @since 10
-     * @syscap SystemCapability.RequestAgent;
-     * @param context context of the caller.
-     * @param filter an instance of `Filter`.
-     * @param callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } filter an instance of `Filter`.
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
      * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
      */
     function search(context: BaseContext, filter: Filter, callback: AsyncCallback<Array<string>>): void;
     /**
      * Queries specified task details.
-     * @since 10
-     * @systemapi
-     * @syscap SystemCapability.RequestAgent;
-     * @param context context of the caller.
-     * @param id the task id.
-     * @param callback callback function with a `TaskInfo` argument.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @systemapi
+     * @since 10
      */
     function query(context: BaseContext, id: string, callback: AsyncCallback<TaskInfo>): void;
     /**
      * Deletes specifed tasks.
-     * @systemapi
-     * @since 10
-     * @syscap SystemCapability.RequestAgent;
-     * @param context context of the caller.
-     * @param id the task id.
-     * @param callback callback function with a `Array<string>` argument contains task ids had cleared.
+     * @param { BaseContext } context context of the caller.
+     * @param { Array<string> } ids the task id.
+     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids had cleared.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
+     * @systemapi
+     * @since 10
      */
     function clear(context: BaseContext, ids: Array<string>, callback: AsyncCallback<Array<string>>): void;
   }
