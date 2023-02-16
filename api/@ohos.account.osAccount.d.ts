@@ -848,6 +848,12 @@ declare namespace osAccount {
         * @since 8
         */
         accountName: string;
+
+        /**
+         * The account identifier in the domain
+         * @since 10
+         */
+        accountId?: string;
     }
 
     /**
@@ -1107,6 +1113,51 @@ declare namespace osAccount {
          * @since 9
          */
         auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account without a credential.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        auth(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account with an authorization token.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { Uint8Array } token - Indicates the authorization token generated when PIN or biometric authentication is successful.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        auth(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Gets a list of related domain account information based on the specified domain account information.
+         * @param {DomainAccountInfo} domainAccountInfo
+         * @returns Return a list of domain account info.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        getDomainAccounts(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<Array<DomainAccountInfo>>): void;
+
+        /**
+         * Notifies the specified domain account has been bound.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        onAccountBound(domainAccountInfo: DomainAccountInfo, localId: number): void;
+
+        /**
+         * Notifies the specified domain account has been unbound.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { number } localId - Indicates the local ID of the OS account.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        onAccountUnbound(domainAccountInfo: DomainAccountInfo): void;
     }
 
     /**
@@ -1139,6 +1190,98 @@ declare namespace osAccount {
          * @since 9
          */
         static unregisterPlugin(): void;
+
+        /**
+         * Authenticates the domain account bound to the current os account without credential.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @static
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exists.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static auth(callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the domain account bound to the specified os account without credential.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @static
+         * @param { number } localId - Indicates the local id of the specified os account.
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exists.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static auth(localId: number, callback: IUserAuthCallback): void;
+
+        /**
+         * Authenticates the specified domain account with credential.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information
+         * @param { Uint8Array } credential - Indicates the credential for authentication
+         * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @throws { BusinessError } 12300101 - authentication failed.
+         * @throws { BusinessError } 12300110 - authentication is locked.
+         * @throws { BusinessError } 12300111 - authentication timeout.
+         * @throws { BusinessError } 12300112 - authentication service is busy.
+         * @throws { BusinessError } 12300113 - authentication service does not exists.
+         * @throws { BusinessError } 12300114 - authentication service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+
+        /**
+         * Checks whether the specified domain account exists.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+         * @param { AsyncCallback<boolean> } callback - Indicates the callback for check whether the specified domain account exists.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static hasDomainAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Checks whether the specified domain account exists.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information
+         * @returns { Promise<boolean> } Returns whether the specified domain account exists.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300001 - system service exception.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        static hasDomainAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
     }
 
     /**
