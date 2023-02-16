@@ -54,6 +54,12 @@ declare namespace promptAction {
      * @since 9
      */
     bottom?: string | number;
+
+    /**
+     * Whether to display in the sub window.
+     * @since 10
+     */
+    showInSubWindow?: boolean;
   }
 
   /**
@@ -119,6 +125,12 @@ declare namespace promptAction {
      * @since 9
      */
     buttons?: [Button, Button?, Button?];
+
+    /**
+     * Whether to display in the sub window.
+     * @since 10
+     */
+    showInSubWindow?: boolean;
   }
 
   /**
@@ -157,6 +169,12 @@ declare namespace promptAction {
      * @since 9
      */
     buttons: [Button, Button?, Button?, Button?, Button?, Button?];
+
+    /**
+     * Whether to display in the sub window.
+     * @since 10
+     */
+    showInSubWindow?: boolean;
   }
 
   /**
