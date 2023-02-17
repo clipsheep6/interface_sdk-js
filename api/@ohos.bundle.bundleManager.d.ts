@@ -328,6 +328,13 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      * @since 9
      */
     PREVIEW = 14,
+	
+    /**
+     * Indicates extension info with type of push
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    PUSH = 15,
 
     /**
      * Indicates extension info with type of unspecified
