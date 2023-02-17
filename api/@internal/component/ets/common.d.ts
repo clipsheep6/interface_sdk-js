@@ -2727,17 +2727,17 @@ declare class CommonMethod<T> {
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    * @param { string } value
-   * @param { Alignment } align
-   * @param { number } x
-   * @param { number } y
+   * @param { Alignment } options.align
+   * @param { number } options.offset.x
+   * @param { number } options.offset.y
    * @since 7
    */
   /**
    * overlay support CustomBuilder to set mask text properties, e.g. font color, size etc
    * @param { CustomBuilder } value
-   * @param { Alignment } align
-   * @param { number } x
-   * @param { number } y
+   * @param { Alignment } options.align
+   * @param { number } options.offset.x
+   * @param { number } options.offset.y
    * @since 10
    */
   overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
