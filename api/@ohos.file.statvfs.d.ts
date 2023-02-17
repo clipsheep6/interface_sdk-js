@@ -21,7 +21,7 @@ import { AsyncCallback } from "./basic";
  * @since 9
  * @syscap SystemCapability.FileManagement.File.FileIO
  */
-declare namespace statfs {
+declare namespace Statfs {
   /**
    * Get the number of free bytes on the specified path.
    *
@@ -73,4 +73,4 @@ declare namespace statfs {
   function getTotalSize(path: string, callback: AsyncCallback<number>): void;
 }
 
-export default statfs;
+export default Statfs;
