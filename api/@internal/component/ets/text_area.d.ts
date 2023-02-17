@@ -160,6 +160,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Text selection pop-up extension.
+   * @param { Array<TextMenuOption> } value - an array of text selection menu extensions.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textMenuOptions(value: Array<TextMenuOption>): TextAreaAttribute;
 }
 
 declare const TextArea: TextAreaInterface;
