@@ -19,7 +19,7 @@ import { AsyncCallback } from './basic'
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
-declare namespace hash {
+declare namespace Hash {
     /**
      * Hash file.
      * @static
@@ -36,5 +36,5 @@ declare namespace hash {
     function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 }
 
-export default hash;
+export default Hash;
  
