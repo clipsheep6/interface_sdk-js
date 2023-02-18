@@ -614,12 +614,28 @@
          */
         start(callback: AsyncCallback<boolean>): void;
         /**
+         * Starts the task.
+         * @permission ohos.permission.INTERNET
+         * @throws {BusinessError} 201 - Permission denied.
+         * @syscap SystemCapability.RequestAgent
+         * @returns { Promise<boolean> } the promise returned by the function.
+         * @since 10
+         */
+        start(): Promise<boolean>;
+        /**
          * Pauses the task.
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
         pause(callback: AsyncCallback<boolean>): void;
+        /**
+         * Pauses the task.
+         * @syscap SystemCapability.RequestAgent
+         * @returns { Promise<boolean> } the promise returned by the function.
+         * @since 10
+         */
+        pause(): Promise<boolean>;
         /**
          * Resumes the task.
          * @permission ohos.permission.INTERNET
@@ -630,12 +646,28 @@
          */
         resume(callback: AsyncCallback<boolean>): void;
         /**
+         * Resumes the task.
+         * @permission ohos.permission.INTERNET
+         * @throws {BusinessError} 201 - Permission denied.
+         * @syscap SystemCapability.RequestAgent
+         * @returns { Promise<boolean> } the promise returned by the function.
+         * @since 10
+         */
+        resume(): Promise<boolean>;
+        /**
          * Stops the task.
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
         stop(callback: AsyncCallback<boolean>): void;
+        /**
+         * Stops the task.
+         * @syscap SystemCapability.RequestAgent
+         * @returns { Promise<boolean> } the promise returned by the function.
+         * @since 10
+         */
+        stop(): Promise<boolean>;
     }
     /**
      * The filter data structure.
@@ -708,6 +740,16 @@
      */
     function remove(context: BaseContext, id: string, callback: AsyncCallback<boolean>): void;
     /**
+     * Removes specifed task belongs to the caller.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @returns { Promise<boolean> } the promise returned by the function.
+     * @since 10
+     */
+    function remove(context: BaseContext, id: string): Promise<boolean>;
+    /**
      * Shows specified task details belongs to the caller.
      * @param { BaseContext } context context of the caller.
      * @param { string } id the task id.
@@ -717,6 +759,16 @@
      * @since 10
      */
     function show(context: BaseContext, id: string, callback: AsyncCallback<TaskInfo>): void;
+    /**
+     * Shows specified task details belongs to the caller.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @since 10
+     */
+    function show(context: BaseContext, id: string): Promise<TaskInfo>;
     /**
      * Touches specified task with token.
      * @param { BaseContext } context context of the caller.
@@ -729,6 +781,17 @@
      */
     function touch(context: BaseContext, id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
     /**
+     * Touches specified task with token.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @param { string } token the in-application isolation key.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @since 10
+     */
+    function touch(context: BaseContext, id: string, token: string): Promise<TaskInfo>;
+    /**
      * Searches tasks, for system.
      * @param { BaseContext } context context of the caller.
      * @param { string } filter an instance of `Filter`.
@@ -738,6 +801,16 @@
      * @since 10
      */
     function search(context: BaseContext, filter: Filter, callback: AsyncCallback<Array<string>>): void;
+    /**
+     * Searches tasks, for system.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } filter an instance of `Filter`.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @returns { Promise<Array<string>> } the promise returned by the function.
+     * @since 10
+     */
+    function search(context: BaseContext, filter: Filter): Promise<Array<string>>;
     /**
      * Queries specified task details.
      * @param { BaseContext } context context of the caller.
@@ -751,6 +824,18 @@
      */
     function query(context: BaseContext, id: string, callback: AsyncCallback<TaskInfo>): void;
     /**
+     * Queries specified task details.
+     * @param { BaseContext } context context of the caller.
+     * @param { string } id the task id.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.RequestAgent
+     * @returns { Promise<TaskInfo> } the promise returned by the function.
+     * @systemapi
+     * @since 10
+     */
+    function query(context: BaseContext, id: string): Promise<TaskInfo>;
+    /**
      * Deletes specifed tasks.
      * @param { BaseContext } context context of the caller.
      * @param { Array<string> } ids the task id.
@@ -761,4 +846,15 @@
      * @since 10
      */
     function clear(context: BaseContext, ids: Array<string>, callback: AsyncCallback<Array<string>>): void;
+    /**
+     * Deletes specifed tasks.
+     * @param { BaseContext } context context of the caller.
+     * @param { Array<string> } ids the task id.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @returns { Promise<Array<string>> } the promise returned by the function.
+     * @systemapi
+     * @since 10
+     */
+    function clear(context: BaseContext, ids: Array<string>): Promise<Array<string>>;
   }
