@@ -232,8 +232,7 @@
         proxy?: JSON;
         /**
          * Allows redirect or not.
-         * The default is not.
-         * But it is true or a background task.
+         * The default is yes.
          * @type { boolean }
          * @syscap SystemCapability.RequestAgent
          * @since 10
