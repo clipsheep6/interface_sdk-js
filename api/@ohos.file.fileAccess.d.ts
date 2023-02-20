@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
+import image from './@ohos.multimedia.image';
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
 import { Filter } from './@ohos.fileio';
@@ -351,6 +352,47 @@ declare namespace fileAccess {
          */
         getRoots(): Promise<RootIterator>;
         getRoots(callback:AsyncCallback<RootIterator>) : void;
+
+        /**
+         * Get a PixelMap object by the uri in the promise way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @param {Size} size - Indicates Thumbnail's size.
+         * @returns {Promise<image.PixelMap>} Returns the PixelMap object.
+         */
+        getThumbnail(uri: string, size?: image.Size) : Promise<image.PixelMap>;
+
+         /**
+         * Get a PixelMap object by the uri in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @returns {AsyncCallback<image.PixelMap>} callback - Returns the PixelMap object.
+         */
+        getThumbnail(uri: string, callback: AsyncCallback<image.PixelMap>): void;
+
+        /**
+         * Get a PixelMap object by the uri in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected media file.
+         * @param {Size} size - Indicates Thumbnail's size.
+         * @returns {AsyncCallback<image.PixelMap>} callback - Returns the PixelMap object.
+         */
+        getThumbnail(uri: string, size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     }
 }
 
