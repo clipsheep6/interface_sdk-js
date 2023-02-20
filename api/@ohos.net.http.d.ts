@@ -136,6 +136,34 @@ declare namespace http {
     request(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
 
     /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @param callback Returns the callback of request2, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @permission ohos.permission.INTERNET
+     * @since 10
+     */
+    request2(url: string, callback: AsyncCallback<void>): void;
+    request2(url: string, options: HttpRequestOptions, callback: AsyncCallback<void>): void;
+    /**
+     * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @returns The promise returned by the function, should use on_headersReceive and on_dataReceive
+     *        to get http response.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @permission ohos.permission.INTERNET
+     * @since 10
+     */
+    request2(url: string, options?: HttpRequestOptions): Promise<void>;
+
+    /**
      * Destroys an HTTP request.
      */
     destroy(): void;
@@ -176,6 +204,48 @@ declare namespace http {
      * @since 8
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
+
+    /**
+     * Registers an observer for receiving HTTP Response data events continuously.
+     *
+     * @since 10
+     */
+    on(type: "dataReceive", callback: Callback<ArrayBuffer>): void;
+
+    /**
+     * Unregisters an observer for receiving HTTP Response data events continuously.
+     *
+     * @since 10
+     */
+     off(type: "dataReceive", callback?: Callback<ArrayBuffer>): void;
+
+    /**
+     * Registers an observer for receiving HTTP Response data ends events.
+     *
+     * @since 10
+     */
+     on(type: "dataEnd", callback: Callback<void>): void;
+
+    /**
+     * Unregisters an observer for receiving HTTP Response data ends events.
+     *
+     * @since 10
+     */
+     off(type: "dataEnd", callback?: Callback<void>): void;
+
+    /**
+     * Registers an observer for progress of receiving HTTP Response data events.
+     *
+     * @since 10
+     */
+     on(type: "dataProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+
+    /**
+     * Unregisters an observer for progress of receiving HTTP Response data events.
+     *
+     * @since 10
+     */
+     off(type: "dataProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   export enum RequestMethod {
