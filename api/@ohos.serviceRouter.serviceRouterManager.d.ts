@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
+import ApplicationInfo from './bundleManager/ApplicationInfo';
 import Want from './@ohos.app.ability.Want';
 
 /**
@@ -27,6 +27,7 @@ import Want from './@ohos.app.ability.Want';
    * This enumeration value is used to identify various types of service info
    * @enum {number}
    * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
+   * @systemapi
    * @since 10
    */
   export enum ServiceType {
@@ -42,6 +43,7 @@ import Want from './@ohos.app.ability.Want';
    * Service information about a bundle
    * @typedef ServiceInfo
    * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
+   * @systemapi
    * @since 10
    */
   export interface ServiceInfo {
@@ -49,7 +51,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the name of the bundle
      * @type {string}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly bundleName: string;
 
@@ -57,7 +59,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the name of the module
      * @type {string}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly moduleName: string;
 
@@ -65,7 +67,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the name of the extension ability info
      * @type {string}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly name: string;
 
@@ -73,7 +75,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the label id of the extension ability info
      * @type {number}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly labelId: number;
 
@@ -81,7 +83,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the description id of the extension ability info
      * @type {number}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly descriptionId: number;
 
@@ -89,7 +91,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the icon id of the extension ability info
      * @type {number}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly iconId: number;
 
@@ -97,7 +99,7 @@ import Want from './@ohos.app.ability.Want';
      * Enumerates types of the extension ability info
      * @type {serviceRouterManager.ServiceType}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly serviceType: serviceRouterManager.ServiceType;
 
@@ -105,7 +107,7 @@ import Want from './@ohos.app.ability.Want';
      * The permissions that others need to use this extension ability info
      * @type {Array<string>}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly permissions: Array<string>;
 
@@ -113,7 +115,7 @@ import Want from './@ohos.app.ability.Want';
      * Obtains configuration information about an application
      * @type {ApplicationInfo}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly applicationInfo: ApplicationInfo;
 
@@ -121,7 +123,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the read permission extension ability info
      * @type {string}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly readPermission: string;
 
@@ -129,7 +131,7 @@ import Want from './@ohos.app.ability.Want';
      * Indicates the write permission of extension ability info
      * @type {string}
      * @syscap SystemCapability.ServiceRouterManager.ServiceRouterFramework.Core
-     * @since 9
+     * @since 10
      */
     readonly writePermission: string;
   }
@@ -165,4 +167,4 @@ import Want from './@ohos.app.ability.Want';
   function queryServiceInfos(want: Want, serviceType: ServiceType): Promise<Array<ServiceInfo>>;
 }
 
-export default bundleManager;
+export default serviceRouterManager;
