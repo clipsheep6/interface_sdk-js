@@ -310,6 +310,67 @@
         token?: string;
     }
     /**
+     * @enum { number }
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
+     */
+    enum State {
+        /**
+         * Indicates a task created by `new Task(conf)`.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        INITIALIZED = 0x00,
+        /**
+         * Indicates a task lack of resources or conditions to run or retry.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        WAITING = 0x10,
+        /**
+         * Indicates a task in processing now.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        RUNNING = 0x20,
+        /**
+         * Indicates a task failed once at least and in processing again now.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        RETRYING = 0x21,
+        /**
+         * Indicates a task tends to be resumed for continuous work.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        PAUSED = 0x30,
+        /**
+         * Indicates a task must be started again.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        STOPPED = 0x31,
+        /**
+         * Indicates a task can not be processed again.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        REMOVED = 0x40,
+        /**
+         * Indicates a task finish its data transfer.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        COMPLETED = 0X50,
+        /**
+         * Indicates a task interrupted by some error.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        FAILED = 0X51,
+    }
+    /**
      * The progress data structure.
      * Upload allows multiple files per upload task.
      * Only one file in a download task.
@@ -326,11 +387,11 @@
     interface Progress {
         /**
          * The current state of the task.
-         * @type { string }
+         * @type { State }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        state: string;
+        state: State;
         /**
          * The current processing file index in a task.
          * @type { number }
@@ -385,19 +446,19 @@
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        TIMEOUT = 0x01,
+        TIMEOUT = 0x10,
         /**
          * Indicates protocol error, such as 5xx respose from server.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        PROTOCOL = 0x02,
+        PROTOCOL = 0x20,
         /**
          * Indicates filesystem io error, such as open/seek/read/write/close.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        FSIO = 0x03,
+        FSIO = 0x40,
     }
     /**
      * The task information data structure for query results.
@@ -469,6 +530,14 @@
          * @since 10
          */
         readonly action: Action;
+        /**
+         * The task state.
+         * @type { State }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        readonly state: State;
         /**
          * The MiMEType of a task.
          * @type { Array<string> }
@@ -707,11 +776,11 @@
         /**
          * Specifys the state of tasks.
          * The default is any state.
-         * @type { string }
+         * @type { State }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        state?: string;
+        state?: State;
         /**
          * Specifys the action of tasks, "upload" or "download", case insensitive.
          * The default is upload and download.
