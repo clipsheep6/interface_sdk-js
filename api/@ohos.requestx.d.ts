@@ -249,7 +249,7 @@
         index?: number;
         /**
          * The start point of a file.
-         * Usually used for a continous job.
+         * Usually used for a continuous job.
          * It will set the "Range" header in download.
          * It will start read at the point in upload.
          * The default is 0.
@@ -260,7 +260,7 @@
         begins?: number;
         /**
          * The end point of a file.
-         * Usually used for a continous job.
+         * Usually used for a continuous job.
          * It will set The "Range" header in download.
          * It will end read at the point in upload.
          * The default is -1 indicating the end of the data for upload or download.
