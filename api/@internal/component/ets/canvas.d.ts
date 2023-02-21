@@ -1778,6 +1778,20 @@ declare class CanvasRenderer extends CanvasPath {
    * @since 9
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
+
+  /**
+   * The text decoration of the text, For details, see {@link enum#TextDecorationType}.
+   * @form
+   * @since 10
+   */
+  textDecoration: TextDecorationType;
+
+  /**
+   * The color of the text decoration, For details, see {@link unit#ResourceColor}.
+   * @form
+   * @since 10
+   */
+  textDecorationColor: ResourceColor;
 }
 
 /**
