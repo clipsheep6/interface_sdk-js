@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from './applicationInfo';
-import { Metadata } from './metadata';
+import { ApplicationInfo } from './ApplicationInfo';
+import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
@@ -73,12 +73,12 @@ export interface ExtensionAbilityInfo {
   readonly iconId: number;
 
   /**
-   * Indicates whether the extension ability info can be visible or not
+   * Indicates whether this ability can be called by other abilities
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly isVisible: boolean;
+  readonly exported: boolean;
 
   /**
    * Enumerates types of the extension ability info

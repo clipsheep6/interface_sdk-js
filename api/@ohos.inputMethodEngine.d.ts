@@ -15,6 +15,7 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import {Movement, Range} from './imf/InputMethodCommon';
 
 /**
  * Input method engine
@@ -241,9 +242,10 @@ declare namespace inputMethodEngine {
     const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
 
     /**
-     * @since 9
+     * Get InputMethodAbility object to subscribe events about IME.
      * @returns { InputMethodAbility } the object of the InputMethodAbility.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function getInputMethodAbility(): InputMethodAbility;
 
@@ -255,9 +257,10 @@ declare namespace inputMethodEngine {
     function getInputMethodEngine(): InputMethodEngine;
 
     /**
-     * @since 9
+     * Get KeyboardDelegate object to subscribe key event or events about editor.
      * @returns { KeyboardDelegate } the object of KeyboardDelegate.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function getKeyboardDelegate(): KeyboardDelegate;
 
@@ -273,16 +276,18 @@ declare namespace inputMethodEngine {
      */
     interface KeyboardController {
         /**
-         * @since 9
+         * Hide soft keyboard
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         hide(callback: AsyncCallback<void>): void;
 
         /**
-         * @since 9
+         * Hide soft keyboard
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         hide(): Promise<void>;
 
@@ -337,8 +342,12 @@ declare namespace inputMethodEngine {
     }
 
     /**
-     * @since 9
+     * <p>Control events about IME.</p>
+     * <p>Events provided for IME to subscribe with callback function. When those events occur, the corresponding callback
+     * will be invoked.</p>
+     * @interface InputMethodAbility
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
      interface InputMethodAbility {
         /**
@@ -538,7 +547,7 @@ declare namespace inputMethodEngine {
     }
 
     /**
-     * <p>Controls events about Editor.</p>
+     * Control events about Editor.
      * @interface InputClient
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -727,6 +736,72 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800003 - input method client error.
          */
         moveCursor(direction: number): Promise<void>;
+
+        /**
+         * Select text in editor by range.
+         * @param { Range } range - indicates the range of selected text in editor.
+         * @param { AsyncCallback<void> } callback - the callback of selectByRange.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError} 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        selectByRange(range: Range, callback: AsyncCallback<void>): void;
+
+        /**
+         * Select text in editor by range.
+         * @param { Range } range - indicates the range of selected text in editor.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        selectByRange(range: Range): Promise<void>;
+
+        /**
+         * Select text in editor by cursor movement.
+         * @param { Movement } movement - indicates the movement of cursor when selecting.
+         * @param { AsyncCallback<void> } callback - the callback of selectByMovement.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        selectByMovement(movement: Movement, callback: AsyncCallback<void>): void;
+
+        /**
+         * Select text in editor by cursor movement.
+         * @param { Movement } movement - indicates the movement of cursor when selecting.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        selectByMovement(movement: Movement): Promise<void>;
+
+        /**
+         * Get the index number of text at cursor.
+         * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
+         *        number of text at cursor.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextIndexAtCursor(callback: AsyncCallback<number>): void;
+
+        /**
+         * Get the index number of text at cursor.
+         * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
+         *          at cursor.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextIndexAtCursor(): Promise<number>;
     }
 
     /**

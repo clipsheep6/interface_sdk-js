@@ -15,11 +15,11 @@
 
 /// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
-import { AbilityInfo } from "../bundleManager/abilityInfo";
+import { AbilityInfo } from "../bundleManager/AbilityInfo";
 import { AbilityResult } from "../ability/abilityResult";
 import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
-import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
+import { HapModuleInfo } from "../bundleManager/HapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.app.ability.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
@@ -159,7 +159,6 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 16000055 - Installation-free timed out.
      * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
