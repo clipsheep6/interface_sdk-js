@@ -211,13 +211,21 @@
          */
         roaming?: boolean;
         /**
-         * The timeout for a task.
+         * The timeout for a task, in seconds.
          * The default is no timeout, but died task which stays on a status more than 30 days will be cleared.
          * @type { number }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
         timeout?: number;
+        /**
+         * Enable automatic retry or not.
+         * Just for background, frontend always fast-fail.
+         * @type { boolean }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        retry?: boolean;
         /**
          * The proxies for HTTP/HTTPS.
          * Currently support:
@@ -307,6 +315,13 @@
          * @since 10
          */
         token?: string;
+        /**
+         * The extras for the configuration.
+         * @type { JSON }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        extras?: JSON;
     }
     /**
      * @enum { number }
@@ -562,7 +577,7 @@
          */
         readonly gauge: boolean;
         /**
-         * The creating date and time of a task in "yyyy-MM-dd HH:mm:SS.nanosecond" pattern.
+         * The creating date and time of a task in UTC pattern.
          * It is generted by system of current device.
          * @type { string }
          * @readonly
@@ -571,7 +586,7 @@
          */
         readonly ctime: string
         /**
-         * The modified date and time of a task in "yyyy-MM-dd HH:mm:SS.nanosecond" pattern.
+         * The modified date and time of a task in UTC pattern.
          * It is generted by system of current device.
          * @type { string }
          * @readonly
@@ -579,6 +594,15 @@
          * @since 10
          */
         readonly mtime: string;
+        /**
+         * The retry switch of a task.
+         * Just for background, frontend always disabled.
+         * @type { boolean }
+         * @readonly
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        readonly retry: boolean;
         /**
          * The tried times of a task.
          * @type { number }
@@ -594,7 +618,7 @@
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        readonly broken?: Broken;
+        readonly broken: Broken;
         /**
          * The reason of a waiting/failed/stopped/paused task.
          * @type { string }
@@ -602,7 +626,7 @@
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        readonly reason?: string;
+        readonly reason: string;
         /**
          * The extras of a task.
          * For background, the last response from server.
@@ -616,22 +640,25 @@
     }
     /**
      * The task object prototype.
-     * New task' status is "initialized".
+     * New task' status is "initialized" and enqueued.
      * For background, no callback.
-     * Can `start` a initialized/failed/completed/stopped task.
-     * Can `pause` a running/waiting/retrying task.
+     * Can `start` a initialized task.
+     * Can `pause` a waiting/running/retrying task.
      * Can `resume` a paused task.
-     * Can `stop` a running/waiting/retrying task.
+     * Can `stop` a running/waiting/retrying task and dequeue it.
      * @since 10
      * @syscap SystemCapability.RequestAgent
      */
     class Task {
         /**
-         * Creates a task for upload or download.
+         * Creates a task for upload or download and enqueue it.
          * @permission ohos.permission.INTERNET
          * @param { Conf } conf configurations for a task.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 401 - Parameter error.
+         * @throws {BusinessError} 13400001 - file operation error.
+         * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - application task queue full error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
@@ -677,6 +704,8 @@
          * @permission ohos.permission.INTERNET
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
+         * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - application task queue full error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
@@ -685,6 +714,8 @@
          * Starts the task.
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
+         * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - application task queue full error.
          * @syscap SystemCapability.RequestAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
@@ -693,12 +724,14 @@
         /**
          * Pauses the task.
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
+         * @throws {BusinessError} 13400003 - task service ability error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
         pause(callback: AsyncCallback<boolean>): void;
         /**
          * Pauses the task.
+         * @throws {BusinessError} 13400003 - task service ability error.
          * @syscap SystemCapability.RequestAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
@@ -709,6 +742,7 @@
          * @permission ohos.permission.INTERNET
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
+         * @throws {BusinessError} 13400003 - task service ability error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
@@ -717,6 +751,7 @@
          * Resumes the task.
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
+         * @throws {BusinessError} 13400003 - task service ability error.
          * @syscap SystemCapability.RequestAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
@@ -725,12 +760,14 @@
         /**
          * Stops the task.
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
+         * @throws {BusinessError} 13400003 - task service ability error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
         stop(callback: AsyncCallback<boolean>): void;
         /**
          * Stops the task.
+         * @throws {BusinessError} 13400003 - task service ability error.
          * @syscap SystemCapability.RequestAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
@@ -757,7 +794,7 @@
          */
         bundle?: string;
         /**
-         * Specifys a end date and time in "yyyy-MM-dd HH:mm:SS" pattern.
+         * Specifys a end date and time in UTC pattern.
          * The default is the moment of calling.
          * @type { string }
          * @syscap SystemCapability.RequestAgent
@@ -765,7 +802,7 @@
          */
         before?: string;
         /**
-         * Specifys a start date and time in "yyyy-MM-dd HH:mm:SS" pattern.
+         * Specifys a start date and time in UTC pattern.
          * The default is "`before` and 24 hours".
          * @type { string }
          * @syscap SystemCapability.RequestAgent
@@ -803,6 +840,7 @@
      * @param { string } id the task id.
      * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating sucess or not.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @since 10
      */
@@ -812,6 +850,7 @@
      * @param { BaseContext } context context of the caller.
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @returns { Promise<boolean> } the promise returned by the function.
      * @since 10
@@ -823,6 +862,7 @@
      * @param { string } id the task id.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @since 10
      */
@@ -832,6 +872,7 @@
      * @param { BaseContext } context context of the caller.
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @since 10
@@ -844,6 +885,7 @@
      * @param { string } token the in-application isolation key.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @since 10
      */
@@ -854,6 +896,7 @@
      * @param { string } id the task id.
      * @param { string } token the in-application isolation key.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @since 10
@@ -865,6 +908,7 @@
      * @param { string } filter an instance of `Filter`.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @since 10
      */
@@ -874,6 +918,7 @@
      * @param { BaseContext } context context of the caller.
      * @param { string } filter an instance of `Filter`.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @returns { Promise<Array<string>> } the promise returned by the function.
      * @since 10
@@ -886,6 +931,7 @@
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @systemapi
      * @since 10
@@ -897,6 +943,7 @@
      * @param { string } id the task id.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @systemapi
@@ -910,6 +957,7 @@
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids had cleared.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @systemapi
      * @since 10
      */
@@ -920,6 +968,7 @@
      * @param { Array<string> } ids the task id.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400003 - task service ability error.
      * @returns { Promise<Array<string>> } the promise returned by the function.
      * @systemapi
      * @since 10
