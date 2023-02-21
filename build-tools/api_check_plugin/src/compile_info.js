@@ -49,7 +49,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     version: getApiInfo(node).version,
     basename: path.basename(fileName).replace(/\.d\.ts/g, ""),
     level: level,
-    apiName:node.symbol.escapedName,
+    apiName:node.symbol?node.symbol.escapedName:'',
     apiFullText:node.getFullText()
   });
   console.log('apiCheckArr=',apiCheckArr)
