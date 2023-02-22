@@ -482,50 +482,348 @@ declare namespace huks {
 
     /**
      * @name HuksErrorCode
+     * @enum { number }
      * @since 8
-     * @deprecated since 9
-     * @useinstead ohos.security.huks.HuksExceptionErrCode
      * @syscap SystemCapability.Security.Huks
      */
     export enum HuksErrorCode {
+        /**
+         * The value of operate success.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_SUCCESS = 0,
+
+        /**
+         * The value of common error.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_FAILURE = -1,
+
+        /**
+         * The value of environment error.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_BAD_STATE = -2,
+
+        /**
+         * The value of invalid argument.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_ARGUMENT = -3,
+        
+        /**
+         * The value of not support.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_NOT_SUPPORTED_API
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_NOT_SUPPORTED = -4,
+
+        /**
+         * The value of no permission.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_PERMISSION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_NO_PERMISSION = -5,
+
+        /**
+         * The value of insufficient data.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INSUFFICIENT_DATA = -6,
+
+        /**
+         * The value of buffer too small.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_BUFFER_TOO_SMALL = -7,
+
+        /**
+         * The value of insufficient memory.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INSUFFICIENT_MEMORY
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INSUFFICIENT_MEMORY = -8,
+
+        /**
+         * The value of communication failure.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_COMMUNICATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_COMMUNICATION_FAILURE = -9,
+
+        /**
+         * The value of storage failure.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_STORAGE_FAILURE = -10,
+
+        /**
+         * The value of hardware failure.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_HARDWARE_FAILURE = -11,
+
+        /**
+         * The value of already exist.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_ALREADY_EXISTS = -12,
+
+        /**
+         * The value of not exist.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ITEM_NOT_EXIST
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_NOT_EXIST = -13,
+
+        /**
+         * The value of null pointer.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_NULL_POINTER = -14,
+
+        /**
+         * The value of file size fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_FILE_SIZE_FAIL = -15,
+
+        /**
+         * The value of read file fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_READ_FILE_FAIL = -16,
+
+        /**
+         * The value of invalid public key.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_PUBLIC_KEY = -17,
+
+        /**
+         * The value of invalid private key.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_PRIVATE_KEY = -18,
+
+        /**
+         * The value of invalid key info.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_KEY_INFO = -19,
+
+        /**
+         * The value of hash not equal.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_HASH_NOT_EQUAL = -20,
+
+        /**
+         * The value of malloc fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INSUFFICIENT_MEMORY
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_MALLOC_FAIL = -21,
+
+        /**
+         * The value of write file fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_WRITE_FILE_FAIL = -22,
+
+        /**
+         * The value of remove file fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_REMOVE_FILE_FAIL = -23,
+
+        /**
+         * The value of open file fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_OPEN_FILE_FAIL = -24,
+
+        /**
+         * The value of close file fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CLOSE_FILE_FAIL = -25,
+
+        /**
+         * The value of make dir fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_MAKE_DIR_FAIL = -26,
+
+        /**
+         * The value of invalid key file.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_FILE_OPERATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_KEY_FILE = -27,
+
+        /**
+         * The value of ipc msg fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_COMMUNICATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_IPC_MSG_FAIL = -28,
+
+        /**
+         * The value of request overflows.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_REQUEST_OVERFLOWS = -29,
+
+        /**
+         * The value of param not exist.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_PARAM_NOT_EXIST = -30,
+
+        /**
+         * The value of crypto engine error.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_CRYPTO_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CRYPTO_ENGINE_ERROR = -31,
+
+        /**
+         * The value of communication timeout.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_COMMUNICATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_COMMUNICATION_TIMEOUT = -32,
+
+        /**
+         * The value of ipc init fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_COMMUNICATION_FAIL
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_IPC_INIT_FAIL = -33,
+
+        /**
+         * The value of ipc dlopen fail.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_IPC_DLOPEN_FAIL = -34,
+
+        /**
+         * The value of efuse read fail.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_EFUSE_READ_FAIL = -35,
+
+        /**
+         * The value of new root key material exist.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_ILLEGAL_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_NEW_ROOT_KEY_MATERIAL_EXIST = -36,
+
+        /**
+         * The value of update root key material fail.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_UPDATE_ROOT_KEY_MATERIAL_FAIL = -37,
+
+        /**
+         * The value of verification failed.
+         * @since 8
+         * @deprecated since 9
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_VERIFICATION_FAILED = -38,
 
         /**
@@ -563,31 +861,238 @@ declare namespace huks {
          */
         HUKS_ERROR_DEVICE_NO_CREDENTIAL = -44,
 
+        /**
+         * The value of check get alg fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_ALG_FAIL = -100,
+
+        /**
+         * The value of check get key size fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_KEY_SIZE_FAIL = -101,
+
+        /**
+         * The value of check get padding fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_PADDING_FAIL = -102,
+
+        /**
+         * The value of check get purpose fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_PURPOSE_FAIL = -103,
+
+        /**
+         * The value of check get digest fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_DIGEST_FAIL =  -104,
+
+        /**
+         * The value of check get mode fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_MODE_FAIL = -105,
+
+        /**
+         * The value of check get nonce fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_NONCE_FAIL = -106,
+
+        /**
+         * The value of check get aad fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_AAD_FAIL = -107,
+
+        /**
+         * The value of check get iv fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_IV_FAIL = -108,
+
+        /**
+         * The value of check get ae tag fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_AE_TAG_FAIL = -109,
+
+        /**
+         * The value of check get salt fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_SALT_FAIL = -110,
+
+        /**
+         * The value of check get iteration fail.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_CHECK_GET_ITERATION_FAIL = -111,
+
+        /**
+         * The value of invalid algorithm.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_ALGORITHM = -112,
+
+        /**
+         * The value of invalid key size.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_KEY_SIZE = -113,
+
+        /**
+         * The value of invalid padding.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_PADDING = -114,
+
+        /**
+         * The value of invalid purpose.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_PURPOSE = -115,
+
+        /**
+         * The value of invalid mode.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_MODE = -116,
+
+        /**
+         * The value of invalid digest.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_DIGEST =  -117,
+
+        /**
+         * The value of invalid signature size.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_SIGNATURE_SIZE = -118,
+
+        /**
+         * The value of invalid iv.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_IV = -119,
+
+        /**
+         * The value of invalid aad.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_AAD = -120,
+
+        /**
+         * The value of invalid nonce.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_NONCE = -121,
+
+        /**
+         * The value of invalid ae tag.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_AE_TAG = -122,
+
+        /**
+         * The value of invalid salt.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_SALT = -123,
+
+        /**
+         * The value of invalid iteration.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_ITERATION = -124,
+
+        /**
+         * The value of invalid operation.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INVALID_OPERATION = -125,
         /**
          * @name HUKS_ERROR_INVALID_WRAPPED_FORMAT
@@ -602,7 +1107,22 @@ declare namespace huks {
          */
         HUKS_ERROR_INVALID_USAGE_OF_KEY = -127,
 
+        /**
+         * The value of internal error.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_EXTERNAL_ERROR
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_INTERNAL_ERROR = -999,
+
+        /**
+         * The value of unknown error.
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.security.huks.HUKS_ERR_CODE_EXTERNAL_ERROR
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_ERROR_UNKNOWN_ERROR = -1000,
     }
 
