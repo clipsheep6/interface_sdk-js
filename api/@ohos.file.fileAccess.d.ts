@@ -539,6 +539,20 @@ declare namespace fileAccess {
     }
 
     /**
+     * CopyResult describe the return information of the copy operation
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     */
+    interface CopyResult {
+        uri: string;
+        errCode: number;
+        errMsg: string;
+    }
+
+    /**
      * OPENFLAGS represents the way to open the file.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -805,6 +819,21 @@ declare namespace fileAccess {
          */
         move(sourceFile: string, destFile: string) : Promise<string>;
         move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
+
+        /**
+         * Copy multiple files and directories.
+         *
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param srcUriArray Indicates the file or directory to be copied.
+         * @param destUri Represents the destination directory.
+         * @returns {(void | Promise<Array<CopyResult>)} Returns the copy information.
+         */
+        copy(srcUriArray: Array<string>, destUri: string) : Promise<Array<CopyResult>>;
+        copy(srcUriArray: Array<string>, destUri: string, callback: AsyncCallback<Array<CopyResult>>) : void;
 
         /**
          * Rename the selected file or directory.
