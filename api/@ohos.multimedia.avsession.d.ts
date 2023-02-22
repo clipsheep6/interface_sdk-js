@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from './basic';
 import { WantAgent } from './@ohos.wantAgent';
-import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import { KeyEvent } from './@ohos.multimodalInput.KeyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
 import audio from './@ohos.multimedia.audio';
