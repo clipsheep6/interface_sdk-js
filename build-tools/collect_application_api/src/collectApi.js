@@ -19,10 +19,20 @@ const ts = require('typescript');
 const ExcelJS = require('exceljs');
 const applicationModules = [];
 
-const typeCollection = false;
+const typeCollection = true;
 const isNotMerge = false;
-
+function collectArkUiApis() {
+    const apis = [];
+    const arkUiApiDir = path.resolve(__dirname, '../sdk/build-tools/ets-loader/declarations');
+    try {
+        readFile(arkUiApiDir, apis);
+    } catch (error) {
+        return;
+    }
+    return apis;
+}
 function parse(files) {
+    files = files.concat(collectArkUiApis());
     const fileContentList = [];
     files.forEach(file => {
         let fileContent = fs.readFileSync(file, 'utf-8');
@@ -38,8 +48,9 @@ function parse(files) {
     const hash = new Set([]);
     fileContentList.forEach(item => {
         const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-        let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-            item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
+        let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
+            item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ?
+            "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
         ts.transpileModule(item.fileContent, {
             compilerOptions: {
                 "target": ts.ScriptTarget.ES2017
@@ -50,8 +61,9 @@ function parse(files) {
     });
     fileContentList.forEach(item => {
         const fileName = item.fileName.replace(/\.d.ts$/g, '.ts');
-        let packageName = item.fileRoot.indexOf("component\\ets\\") >= 0 ||
-            item.fileRoot.indexOf("component/ets/") >= 0 ? "ArkUI" : fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
+        let packageName = item.fileRoot.indexOf("build-tools\\ets-loader\\declarations") >= 0 ||
+            item.fileRoot.indexOf("build-tools/ets-loader/declarations") >= 0 ? "ArkUI" :
+            fileName.replace(/\@|.ts$/g, "").replace(/D:\\/g, "");
         ts.transpileModule(item.fileContent, {
             compilerOptions: {
                 "target": ts.ScriptTarget.ES2017
@@ -325,6 +337,10 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
                                         });
                                     }
                                 });
+                            } else if (param.type.typeName.escapedText === 'InnerEvent') {
+                                let methodName = child.name.escapedText + "_" + param.type.typeName.escapedText;
+                                addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
+                                    hash, currentClassFunSet, child);
                             } else {
                                 let methodName = child.name.escapedText;
                                 addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
@@ -372,7 +388,7 @@ function collectEachChildNode(children, packageName, className, faterApiType, ap
                     addFunctionOnOffApi(packageName, className, methodName, faterApiInfo, apiType, api,
                         hash, currentClassFunSet, child);
                 } else {
-                    if (child.getText().indexOf("construnctor") == 0) {
+                    if (child.getText().indexOf("constructor") == 0) {
                         methodName = 'constructor';
                         apiType = 'Method';
                     } else if (child.getText().indexOf("const") == 0) {
@@ -495,11 +511,9 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
     if (!hash.has(recard)) {
         hash.add(recard);
         api.push({
-            namespace: '',
             packageName: packageName,
             className: className,
             methodName: methodName,
-            count: 0,
             methodText: methodText.replace(/export\s/g, ""),
             isSystemApi: apiInfo.isSystemApi,
             version: apiInfo.version,
@@ -508,7 +522,11 @@ function addApi(packageName, className, methodName, methodText, apiInfo, apiType
             sysCap: apiInfo.sysCap,
             permission: apiInfo.permission,
             model: apiInfo.model,
-            applicationFile: ''
+            applicationFile: '',
+            pos: '',
+            functionType: '',
+            optionalArg: 0,
+            arguments: 0
         })
     }
 }
@@ -520,12 +538,12 @@ async function buildExportData(fileContentList) {
 async function getExcelBuffer(api) {
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-    sheet.getRow(1).values = ['模块名', 'namespace', '类名', '方法名', '调用次数', '函数', '类型', 'SysCap',
+    sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '文件位置', '类型', 'SysCap',
         '权限', '支持起始版本', '访问级别']
     for (let i = 1; i <= api.length; i++) {
         const apiData = api[i - 1];
-        sheet.getRow(i + 1).values = [apiData.packageName, apiData.namespace, apiData.className, apiData.methodName,
-        apiData.count, apiData.methodText, apiData.apiType, apiData.sysCap, apiData.permission,
+        sheet.getRow(i + 1).values = [apiData.packageName, apiData.className, apiData.methodName,
+        apiData.methodText, apiData.pos, apiData.apiType, apiData.sysCap, apiData.permission,
         apiData.version, apiData.isSystemApi]
     }
     const buffer = await workbook.xlsx.writeBuffer();
@@ -557,8 +575,10 @@ async function excel(api) {
     let buffer = await getExcelBuffer(api)
     fs.writeFile('Js_Api.xlsx', buffer, function (err) {
         if (err) {
-            console.error(err);
+            console.error('WEITE FAILED: ', err);
             return;
+        } else {
+            console.log('WRITE SUCCEED!');
         }
     });
 }

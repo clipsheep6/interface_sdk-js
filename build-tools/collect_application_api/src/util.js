@@ -17,8 +17,100 @@
 const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
-const { isExportSpecifier } = require('typescript');
-
+const etsComponentSet = new Set([
+    "AbilityComponent",
+    "AlphabetIndexer",
+    "Animator",
+    "Badge",
+    "Blank",
+    "Button",
+    "Calendar",
+    "Camera",
+    "Canvas",
+    "Checkbox",
+    "CheckboxGroup",
+    "Circle",
+    "ColorPicker",
+    "ColorPickerDialog",
+    "Column",
+    "ColumnSplit",
+    "Counter",
+    "DataPanel",
+    "DatePicker",
+    "Divider",
+    "Ellipse",
+    "Flex",
+    "FormComponent",
+    "Gauge",
+    "GeometryView",
+    "Grid",
+    "GridItem",
+    "GridContainer",
+    "Hyperlink",
+    "Image",
+    "ImageAnimator",
+    "Line",
+    "List",
+    "ListItem",
+    "ListItemGroup",
+    "LoadingProgress",
+    "Marquee",
+    "Menu",
+    "Navigation",
+    "Navigator",
+    "Option",
+    "PageTransitionEnter",
+    "PageTransitionExit",
+    "Panel",
+    "Path",
+    "PatternLock",
+    "Piece",
+    "PluginComponent",
+    "Polygon",
+    "Polyline",
+    "Progress",
+    "QRCode",
+    "Radio",
+    "Rating",
+    "Rect",
+    "Refresh",
+    "RelativeContainer",
+    "RemoteWindow",
+    "Row",
+    "RowSplit",
+    "RichText",
+    "Scroll",
+    "ScrollBar",
+    "Search",
+    "Section",
+    "Select",
+    "Shape",
+    "Sheet",
+    "SideBarContainer",
+    "Slider",
+    "Span",
+    "Stack",
+    "Stepper",
+    "StepperItem",
+    "Swiper",
+    "TabContent",
+    "Tabs",
+    "Text",
+    "TextPicker",
+    "TextClock",
+    "TextArea",
+    "TextInput",
+    "TextTimer",
+    "TimePicker",
+    "Toggle",
+    "Video",
+    "Web",
+    "XComponent",
+    "GridRow",
+    "GridCol",
+    "CustomDialogController"
+]);
+exports.etsComponentSet = etsComponentSet;
 function readFile(dir, utFiles) {
     try {
         const files = fs.readdirSync(dir);
@@ -35,4 +127,23 @@ function readFile(dir, utFiles) {
         console.log('ETS ERROR: ' + e);
     }
 }
-exports.readFile=readFile;
+exports.readFile = readFile;
+
+function collectAllApi(url, sourcefile, moduleName, apiName, instantiateObject, interfaceName,
+    value, type, notes, node) {
+    const basePath = __dirname.replace('src', '');
+    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+    return {
+        fileName: `${url.replace(basePath, '')}(line:${posOfNode.line + 1},` +
+            ` col:${posOfNode.character + 1})`,
+        moduleName: moduleName,
+        apiName: apiName,
+        packageName: '',
+        instantiateObject: instantiateObject,
+        interfaceName: interfaceName,
+        value: value,
+        type: type,
+        notes:notes
+    }
+}
+exports.collectAllApi = collectAllApi;

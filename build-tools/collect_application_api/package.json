@@ -4,7 +4,8 @@
     "description": "",
     "scripts": {
         "test": "",
-        "check": "node ./format.js"
+        "pre": "mkdir application sdk && echo 'Please add application and sdk package to ./application and ./sdk'",
+        "collect": "cd src&&node collect_import_name.js"
     },
     "author": "",
     "license": "ISC",
@@ -12,6 +13,6 @@
         "exceljs": "^4.3.0",
         "fs": "^0.0.1-security",
         "path": "^0.12.7",
-        "typescript": "^4.7.4"
+        "typescript": "file:./deps/ohos-typescript-4.2.3-r2.tgz"
     }
 }

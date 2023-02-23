@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,94 +13,129 @@
  * limitations under the License.
  */
 
-const { readFile, excel, parse, getExcelBuffer, applicationModules, } = require('./collectApi');
+const { readFile, parse } = require('./collectApi');
 const path = require('path');
-const ts = require('typescript')
-const { importFiles, applicationApis, finalClassName } = require('./collect_import_name');
-function getApiData(fileData) {
+const fs = require('fs');
+const ts = require('typescript');
+let exportClass = '';
+
+function collectBaseApi(importFiles, applicationApis) {
     const SDK_API_FILES = [];
-    getAllApiFiles(SDK_API_FILES);
     const APP_API_FILES = [];
-    fileData.forEach((value, key) => {
+    getAllApiFiles(SDK_API_FILES);
+    importFiles.forEach(importData => {
         for (let i = 0; i < SDK_API_FILES.length; i++) {
             const filePath = SDK_API_FILES[i];
-            if (path.basename(filePath).replace(/\.d\.ts/, '') === key) {
+            if (path.basename(filePath).replace(/\.d\.ts/, '') === importData.importFile) {
                 APP_API_FILES.push(filePath);
                 break;
             }
         }
     });
-    const apis = parse(APP_API_FILES);
-    const newApis = filterData(apis, fileData);
-    const finalApis = [];
+    let noRepeatImportFiles = [...new Set(APP_API_FILES)]
+    const baseApis = parse(noRepeatImportFiles);
+    return compareApis(baseApis, applicationApis, SDK_API_FILES);
+}
+
+function compareApis(baseApis, applicationApis, sdkFiles) {
+    let callApisInApp = [];
+    applicationApis.forEach(applicationApi => {
+        sdkFiles.forEach(sdkFile => {
+            if (applicationApi.notes !== '实例化对象方式调用' &&
+                path.basename(sdkFile).replace(/\.d\.ts/, '') === applicationApi.packageName) {
+                applicationApi.moduleName = handleImportClass(sdkFile);
+            }
+        })
+    })
     for (let i = 0; i < applicationApis.length; i++) {
-        for (let j = 0; j < newApis.length; j++) {
-            if (!applicationApis[i].value) {
-                if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
-                    applicationApis[i].apiName == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                } else if (applicationApis[i].apiName == newApis[j].className) {
-                    finalApis.push(newApis[j]);
-                } else if (applicationApis[i].apiName == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                }
-            } else {
-                if (applicationApis[i].apiName == newApis[j].className &&
-                    applicationApis[i].value == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                }
+        for (let j = 0; j < baseApis.length; j++) {
+            if (applicationApis[i].type === 'ArkUI') {
+                compareComponentApi(applicationApis[i], baseApis[j], callApisInApp);
+            } else if (!applicationApis[i].value && applicationApis[i].type === 'API') {
+                compareApisWithoutValue(applicationApis[i], baseApis[j], callApisInApp);
+            } else if (applicationApis[i].value && applicationApis[i].type === 'API') {
+                compareValuableAPIs(applicationApis[i], baseApis[j], callApisInApp);
             }
         }
     }
-    for (let i = 0; i < applicationModules.length; i++) {
-        for (let j = 0; j < newApis.length; j++) {
-            if (applicationModules[i].packageName == newApis[j].packageName &&
-                applicationModules[i].methodName == newApis[j].className) {
-                newApis[j].namespace = applicationModules[i].className;
-            }
+    return callApisInApp;
+}
+
+exports.collectBaseApi = collectBaseApi;
+
+function compareApisWithoutValue(applicationApi, baseApi, callApisInApp) {
+    if (applicationApi.moduleName.match(new RegExp(baseApi.className, 'i')) &&
+        applicationApi.apiName === baseApi.methodName &&
+        applicationApi.packageName.replace('@', '') === baseApi.packageName) {
+        let applyApi = JSON.parse(JSON.stringify(baseApi));
+        applyApi.pos = applicationApi.fileName;
+        applyApi.notes = applicationApi.notes ? applicationApi.notes : '';
+        callApisInApp.push(applyApi);
+    }
+}
+
+function compareValuableAPIs(applicationApi, baseApi, callApisInApp) {
+    if (applicationApi.apiName === baseApi.className && applicationApi.value === baseApi.methodName &&
+        applicationApi.packageName.replace('@', '') === baseApi.packageName) {
+        let applyApi = JSON.parse(JSON.stringify(baseApi));
+        applyApi.pos = applicationApi.fileName;
+        callApisInApp.push(applyApi);
+    }
+}
+
+function handleImportClass(filePath) {
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    ts.transpileModule(fileContent, {
+        compilerOptions: {
+            "target": ts.ScriptTarget.ES2017
+        },
+        fileName: filePath.replace(/\.d\.ts/, '.ts'),
+        transformers: { before: [isExportClass()] }
+    })
+    return exportClass;
+}
+
+function isExportClass() {
+    return (context) => {
+        return (sourcefile) => {
+            const statements = sourcefile.statements;
+            statements.forEach(statement => {
+                if (ts.isClassDeclaration(statement)) {
+                    exportClass = statement.name.escapedText;
+                } else if (ts.isExportAssignment(statement)) {
+                    exportClass = statement.expression.escapedText
+                }
+            })
+            return sourcefile;
         }
     }
-    let noRepeatApis = [...new Set(finalApis)];
-    count(finalApis, noRepeatApis);
-    excel(noRepeatApis);
+}
+
+function compareComponentApi(applicationApi, baseApi, callApisInApp) {
+    let applyApi = JSON.parse(JSON.stringify(baseApi));
+    applyApi.pos = applicationApi.fileName;
+    if (applicationApi.moduleName === baseApi.className.replace(/Attribute/, "")
+        .replace(/Interface/, "") && applicationApi.apiName === baseApi.methodName) {
+        applyApi.className = applicationApi.moduleName;
+        callApisInApp.push(applyApi);
+    } else if (applicationApi.apiName === baseApi.methodName && baseApi.className === "CommonMethod" &&
+        applicationApi.notes !== '比较API') {
+        applyApi.className = applicationApi.moduleName;
+        applyApi.notes = "CommonMethod";
+        callApisInApp.push(applyApi);
+    } else if (applicationApi.moduleName === baseApi.className.replace(/Interface/, "") &&
+        applicationApi.apiName == 'N/A') {
+        applyApi.className = applicationApi.moduleName;
+        applyApi.methodName = '';
+        applyApi.pos = applicationApi.fileName;
+        callApisInApp.push(applyApi);
+    } else if (applicationApi.notes === '比较API' && applicationApi.apiName === baseApi.methodName
+        && baseApi.className.match(new RegExp(applicationApi.moduleName, 'i'))
+        && baseApi.className !== "CommonMethod") {
+        callApisInApp.push(applyApi);
+    }
 }
 
 function getAllApiFiles(files) {
     readFile(path.resolve(__dirname, '../sdk'), files);
-}
-
-function filterData(apis, rulers) {
-    const appApis = [];
-    rulers.forEach((value, key) => {
-        const modules = rulers.get(key);
-        modules.forEach(module => {
-            apis.forEach(api => {
-                if (key.replace(/^\@/, '') === api.packageName && module.match(new RegExp(api.className, 'i'))) {
-                    appApis.push(api);
-                } else if (key.replace(/^\@/, '') === api.packageName) {
-                    appApis.push(api);
-                }
-            });
-        });
-    });
-    return appApis;
-}
-
-function count(finalApis, noRepeatApis) {
-    let newArr = new Array(noRepeatApis.length);
-    for (let j = 0; j < noRepeatApis.length; j++) {
-        let number = 0;
-        for (let k = 0; k < finalApis.length; k++) {
-            if (noRepeatApis[j] == finalApis[k]) {
-                number++
-            }
-        }
-        noRepeatApis[j].count = number;
-    }
-}
-
-try {
-    getApiData(importFiles);
-} catch (error) {
-    console.error("FORMAT API ERROR: ", error);
 }

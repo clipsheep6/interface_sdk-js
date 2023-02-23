@@ -25,11 +25,11 @@
 
 ### 安装
 
-需要安装npm依赖环境：$npm install。
+需要安装npm依赖环境，在package.json同级目录下执行：npm install。
 
 ### 使用工具
 
-进入src目录下：$node format。
+在package.json同级目录下执行：npm run collect
 
 ## 相关文件夹
 
