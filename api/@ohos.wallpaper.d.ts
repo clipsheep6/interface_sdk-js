@@ -37,7 +37,6 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getColorsSync
      */
     function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
 
@@ -47,7 +46,6 @@ declare namespace wallpaper {
      * @returns { Promise<Array<RgbaColor>> } the Promise<Array<RgbaColor>> returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getColorsSync
      */
     function getColors(wallpaperType: WallpaperType): Promise<Array<RgbaColor>>;
 
@@ -68,7 +66,6 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getIdSync
      */
     function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
 
@@ -79,7 +76,6 @@ declare namespace wallpaper {
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getIdSync
      */
     function getId(wallpaperType: WallpaperType): Promise<number>;
 
@@ -102,7 +98,6 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getFileSync
      */
     function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
 
@@ -114,7 +109,6 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getFileSync
      */
     function getFile(wallpaperType: WallpaperType): Promise<number>;
 
@@ -135,7 +129,6 @@ declare namespace wallpaper {
      * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getMinHeightSync
      */
     function getMinHeight(callback: AsyncCallback<number>): void;
 
@@ -144,7 +137,6 @@ declare namespace wallpaper {
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getMinHeightSync
      */
     function getMinHeight(): Promise<number>;
 
@@ -161,7 +153,6 @@ declare namespace wallpaper {
      * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getMinWidthSync
      */
     function getMinWidth(callback: AsyncCallback<number>): void;
 
@@ -170,7 +161,6 @@ declare namespace wallpaper {
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getMinWidthSync
      */
     function getMinWidth(): Promise<number>;
 
@@ -188,7 +178,6 @@ declare namespace wallpaper {
      * Returns true if the application is allowed to set a wallpaper for the current user. returns false otherwise.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.isChangeAllowed
      */
     function isChangePermitted(callback: AsyncCallback<boolean>): void;
 
@@ -198,7 +187,6 @@ declare namespace wallpaper {
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.isChangeAllowed
      */
     function isChangePermitted(): Promise<boolean>;
 
@@ -217,7 +205,6 @@ declare namespace wallpaper {
      * Returns true if a user is allowed to set wallpapers. returns false otherwise.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.isUserChangeAllowed
      */
     function isOperationAllowed(callback: AsyncCallback<boolean>): void;
 
@@ -227,7 +214,6 @@ declare namespace wallpaper {
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.isUserChangeAllowed
      */
     function isOperationAllowed(): Promise<boolean>;
 
@@ -247,7 +233,6 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.restore
      */
     function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -257,7 +242,6 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.restore
      */
     function reset(wallpaperType: WallpaperType): Promise<void>;
 
@@ -292,7 +276,6 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.setImage
      */
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -303,7 +286,6 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.setImage
      */
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
@@ -340,7 +322,6 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getImage
      */
     function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
 
@@ -352,7 +333,6 @@ declare namespace wallpaper {
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.getImage
      */
     function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
