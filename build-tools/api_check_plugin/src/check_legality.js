@@ -99,7 +99,7 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
       return true;
     }
   );
-  console.log(checkInfoMap)
+  return checkInfoMap;
 }
 exports.checkJsDocLegality = checkJsDocLegality;
 
@@ -174,19 +174,35 @@ function checkApiLegality(node, sourcefile) {
 
 function checkJsDocOfCurrentNode(node, sourcefile) {
   const checkInfoMap = checkJsDocLegality(node, sourcefile, {});
-  const checkOrderResult = checkApiOrder();
+  const checkInfoArray = [];
+  const checkOrderResult = checkApiOrder(node, sourcefile, sourcefile.fileName);
+  checkOrderResult.forEach((result, index) => {
+    checkInfoMap[index.toString()].orderCheckResult = result;
+  });
   const comments = parseJsDoc(node);
+  let allLogs = [];
   comments.forEach((comment, index) => {
     const errorLogs = [];
     comment.tags.forEach(tag => {
-      const valueCheckResult = JsDocValueChecker[tag.tagName](tag, node);
-      if (valueCheckResult.result) {
-        // 输出告警
-        errorLogs.push(valueCheckResult.errorInfo);
+      const checker = JsDocValueChecker[tag.tag];
+      if (checker) {
+        const valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName);
+        if (!valueCheckResult.checkResult) {
+          valueCheckResult.index = index;
+          // 输出告警
+          errorLogs.push(valueCheckResult);
+        }
       }
     });
-
+    allLogs.push(errorLogs);
   });
-  return checkInfoMap;
+  checkOrderResult.forEach((result, index) => {
+    checkInfoMap[index.toString()].orderCheckResult = result;
+    checkInfoMap[index.toString()].illegalTags = allLogs[index];
+  });
+  for (const key in checkInfoMap) {
+    checkInfoArray.push(checkInfoMap[key]);
+  }
+  return checkInfoArray;
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;

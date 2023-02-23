@@ -34,10 +34,6 @@ function checkApiOrder(node, sourcefile, fileName) {
   let apiOrderArr = [];
   let checkOrderRusult = [];
   let errorInfo = "";
-  let result = {
-    checkResult: true,
-    errorInfo: ""
-  }
   const apiNote = getAPINote(node);
   const JsdocInfos = parse.parse(`${apiNote}`);
   // 遍历dts文件，获取各个jsdoc标签的优先级数组，最后生成一个二维数组
@@ -52,26 +48,35 @@ function checkApiOrder(node, sourcefile, fileName) {
   // 遍历apiOrderArr数组，讲每一个标签的绝对优先级获取到，放在apiPriority数组中
   apiOrderArr.forEach(apiOrder => {
     let apiPriority = [];
+    let isPassed = true;
     apiOrder.forEach(item => {
       const docIndex = labelOrderArray.indexOf(item);
       apiPriority.push(docIndex);
     });
-    console.log('apiPriority=',apiPriority)
     // 遍历apiPriority数组，如果不是升序排列。则证明标签顺序不对
     for (let j = 1; j < apiPriority.length; j++) {
       if ((apiPriority[j - 1] == -1 && j < apiPriority.length - 1) || (apiPriority[j - 1] > apiPriority[j])) {
         errorInfo=apiOrder[j - 1];
-
+        const result = {
+          checkResult: true,
+          errorInfo: ""
+        }
         result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
         result.checkResult = false;
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, result.errorInfo, FileType.JSDOC,
           ErrorLevel.LOW);
-        checkOrderRusult.push(result)
+        checkOrderRusult.push(result);
+        isPassed = false;
         break;
       }
     }
+    if (isPassed) {
+      checkOrderRusult.push({
+        checkResult: true,
+        errorInfo: ""
+      })
+    }
   })
-  console.log('checkOrderRusult=', checkOrderRusult)
   return checkOrderRusult;
 }
 exports.checkApiOrder = checkApiOrder;

@@ -52,6 +52,5 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     apiName:node.symbol?node.symbol.escapedName:'',
     apiFullText:node.getFullText()
   });
-  console.log('apiCheckArr=',apiCheckArr)
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;

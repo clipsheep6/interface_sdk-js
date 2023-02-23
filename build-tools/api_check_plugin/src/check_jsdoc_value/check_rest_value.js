@@ -118,7 +118,6 @@ function checkSinceValue(tag, node, sourcefile, fileName) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, sinceResult.errorInfo, FileType.JSDOC,
       ErrorLevel.LOW);
   }
-  console.log('sinceResult=', sinceResult)
   return sinceResult;
 }
 exports.checkSinceValue = checkSinceValue;
@@ -341,19 +340,19 @@ function checkPermissionTag(tag, node, sourcefile, fileName) {
 }
 
 const JsDocValueChecker = {
-  'extends': checkExtendsValue(tag, node, sourcefile, fileName),
-  'enum': checkEnumValue(tag, node, sourcefile, fileName),
-  'since': checkSinceValue(tag, node, sourcefile, fileName),
-  'returns': checkReturnsValue(tag, node, sourcefile, fileName),
-  'param': checkParamValue(tag, node, sourcefile, fileName),
-  'throws': checkThrowsValue(tag, node, sourcefile, fileName),
-  'useinstead': checkUseinsteadValue(tag, node, sourcefile, fileName),
-  'type': checkTypeValue(tag, node, sourcefile, fileName),
-  'default': checkDefaultValue(tag, node, sourcefile, fileName),
-  'FAModelOnly': checkNoValueTag(node, sourcefile, fileName),
-  'StageModelOnly': checkNoValueTag(node, sourcefile, fileName),
-  'systemapi': checkNoValueTag(node, sourcefile, fileName),
-  'permission':checkPermissionTag(tag, node, sourcefile, fileName)
+  'extends': checkExtendsValue,
+  'enum': checkEnumValue,
+  'since': checkSinceValue,
+  'returns': checkReturnsValue,
+  'param': checkParamValue,
+  'throws': checkThrowsValue,
+  'useinstead': checkUseinsteadValue,
+  'type': checkTypeValue,
+  'default': checkDefaultValue,
+  'FAModelOnly': checkNoValueTag,
+  'StageModelOnly': checkNoValueTag,
+  'systemapi': checkNoValueTag,
+  'permission':checkPermissionTag
 
 }
 exports.JsDocValueChecker = JsDocValueChecker;
