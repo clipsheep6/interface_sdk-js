@@ -57,6 +57,7 @@ declare namespace wallpaper {
      * @returns { Array<RgbaColor> } the Array<RgbaColor> returned by the function.
      * @throws {BusinessError} 401 - parameter error.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
@@ -89,6 +90,7 @@ declare namespace wallpaper {
      * @returns { number } the number returned by the function.
      * @throws {BusinessError} 401 - parameter error.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function getIdSync(wallpaperType: WallpaperType): number;
@@ -124,6 +126,7 @@ declare namespace wallpaper {
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 201 - permission denied.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function getFileSync(wallpaperType: WallpaperType): number;
@@ -149,6 +152,7 @@ declare namespace wallpaper {
      * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { number } the number returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function getMinHeightSync(): number;
@@ -174,6 +178,7 @@ declare namespace wallpaper {
      * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { number } the number returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function getMinWidthSync(): number;
@@ -202,6 +207,7 @@ declare namespace wallpaper {
      * Returns true if the application is allowed to set a wallpaper for the current user. returns false otherwise.
      * @returns { boolean } the boolean returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function isChangeAllowed(): boolean;
@@ -230,6 +236,7 @@ declare namespace wallpaper {
      * Returns true if a user is allowed to set wallpapers. returns false otherwise.
      * @returns { boolean } the boolean returned by the function.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function isUserChangeAllowed(): boolean;
@@ -261,6 +268,7 @@ declare namespace wallpaper {
      * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function restore(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
@@ -272,6 +280,7 @@ declare namespace wallpaper {
      * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function restore(wallpaperType: WallpaperType): Promise<void>;
@@ -306,6 +315,7 @@ declare namespace wallpaper {
      * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
@@ -318,6 +328,7 @@ declare namespace wallpaper {
      * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
@@ -385,6 +396,7 @@ declare namespace wallpaper {
      * @param callback Provides dominant colors of the wallpaper.
      * @throws {BusinessError} 401 - parameter error.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
@@ -402,6 +414,7 @@ declare namespace wallpaper {
      * @param callback Provides dominant colors of the wallpaper.
      * @throws {BusinessError} 401 - parameter error.
      * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
