@@ -1378,7 +1378,7 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
          */
-        getRowData<T>(): T;
+        getRowData<T>(columnNames ?: Array<string>): T;
 
         /**
          * Obtains the value of the specified column in the current row as a byte array.
