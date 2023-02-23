@@ -1376,7 +1376,7 @@ declare namespace relationalStore
          *
          * @returns {T} returns the value of current row as a T.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
+         * @since 10
          */
         getRowData<T>(): T;
 
