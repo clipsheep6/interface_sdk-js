@@ -293,8 +293,9 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<string>.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     * @deprecated since 9
      */
-    coerceToText(callback: AsyncCallback<string>): void;
+    toPlainText(callback: AsyncCallback<string>): void;
 
     /**
      * Converts data in PasteData to text format.
@@ -302,7 +303,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
-    coerceToText(): Promise<string>;
+    toPlainText(): Promise<string>;
   }
 
   interface PasteData {
