@@ -279,8 +279,8 @@
         ends?: number;
         /**
          * The policy of the progress notification for background task.
-         * If false: only completed or failed notification.
-         * If true, emits every progress, completed or failed notifications, the default.
+         * If false: only completed or failed notification, the default.
+         * If true, emits every progress, completed or failed notifications.
          * @type { boolean }
          * @syscap SystemCapability.RequestAgent
          * @since 10
@@ -322,6 +322,29 @@
          * @since 10
          */
         extras?: JSON;
+        /**
+         * The progress callback for the frontend tasks.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        progress?(): Promise<Progress>;
+        progress?(callback: AsyncCallback<Progress>): void;
+        /**
+         * The completed callback for the frontend tasks.
+         * The completed is treated as a special progress.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        completed?(): Promise<Progress>;
+        completed?(callback: AsyncCallback<Progress>): void;
+        /**
+         * The failed callback for the frontend tasks.
+         * The "failed" is treated as a special progress.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        failed?(): Promise<Progress>;
+        failed?(callback: AsyncCallback<Progress>): void;
     }
     /**
      * @enum { number }
@@ -412,7 +435,7 @@
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        counter: number;
+        index: number;
         /**
          * The processed data size for the current file in a task.
          * @type { number }
@@ -679,26 +702,6 @@
          * @since 10
          */
         conf: Conf;
-        /**
-         * The progress callback for the frontend tasks.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        progress?: (pg: Progress) => void;
-        /**
-         * The completed callback for the frontend tasks.
-         * The completed is treated as a special progress.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        completed?: (pg: Progress) => void;
-        /**
-         * The failed callback for the frontend tasks.
-         * The "failed" is treated as a special progress.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        failed?: (pg: Progress) => void;
         /**
          * Starts the task.
          * @permission ohos.permission.INTERNET
