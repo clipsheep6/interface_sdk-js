@@ -972,9 +972,23 @@ declare namespace userFileManager {
      * @param uriList uri list of thumbnails to be obtained
      * @param offset position of uri list to start get thumbnails
      * @param maxCount counts of thumbnails will be got
+     * @param size size of all thumbnails will be got
+     * @param callback thumbnails in PixelMap format
+     */
+    getThumbnails(uriList: Array<string>, offset: number, maxCount: number, size: image.Size, callback: AsyncCallback<Array<image.PixelMap>>): void;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param uriList uri list of thumbnails to be obtained
+     * @param offset position of uri list to start get thumbnails
+     * @param maxCount counts of thumbnails will be got
+     * @param size size of all thumbnails will be got
      * @returns Promise used to return thumbnails in PixelMap format
      */
-    getThumbnails(uriList: Array<string>, offset: number, maxCount: number): Promise<Array<image.PixelMap>>;
+    getThumbnails(uriList: Array<string>, offset: number, maxCount: number, size?: image.Size): Promise<Array<image.PixelMap>>;
   }
 
   /**
