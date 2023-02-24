@@ -330,6 +330,20 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
     PREVIEW = 14,
 
     /**
+     * Indicates extension info with type of print
+     * @since 10
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     */
+    PRINT = 15,
+
+    /**
+     * Indicates extension info with type of ui extension
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    UI = 16,
+
+    /**
      * Indicates extension info with type of unspecified
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
