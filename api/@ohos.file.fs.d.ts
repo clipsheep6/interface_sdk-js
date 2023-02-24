@@ -2001,6 +2001,14 @@ declare interface WatcherOut {
      * @readonly
      */
     event: number;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @readonly
+     */
+    cookie: number;
 }
 
 /**
