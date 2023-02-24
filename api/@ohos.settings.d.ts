@@ -777,7 +777,6 @@ declare namespace settings {
    * @param name Indicates the name of the setting to set.
    * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
-   * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
@@ -800,6 +799,7 @@ declare namespace settings {
   /**
    * Saves a character string name and its value to the database.
    *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
    * the database.
    * @param name Indicates the name of the character string.
