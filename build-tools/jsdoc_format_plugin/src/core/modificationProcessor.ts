@@ -30,6 +30,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor, sourc
       content: content
     };
   }
+
   onVisitNode(node: comment.CommentNode): void {
     if (node.astNode) {
       const checkResults = checkJsDocOfCurrentNode(node.astNode, node.astNode?.getSourceFile());
@@ -135,4 +136,4 @@ const jsDocModifier: Map<string, JsDocModificationInterface> = new Map([
   ['syscap', JsDocModificationHelper.addTagFormParentNode],
   ['systemapi', JsDocModificationHelper.addTagFormParentNode],
   ['test', JsDocModificationHelper.addTagFormParentNode],
-])
+]);
