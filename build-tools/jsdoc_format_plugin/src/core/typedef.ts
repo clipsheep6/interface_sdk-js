@@ -38,12 +38,61 @@ export interface ISourceCodeProcessor {
  */
 export class Options {
   scriptTarget: ts.ScriptTarget = ts.ScriptTarget.ES2017;
-  prettierOption = {
+
+  /**
+   * prettier插件配置项
+   */
+  formaterOption = {
+    /**
+     * 解析器
+     */
     parser: "typescript",
+    /**
+     * 单引号
+     */
     singleQuote: true,
+    /**
+     * 代码行最大宽度
+     */
     printWidth: 500,
-    tabWidth: 4
+    /**
+     * 缩进的空格数
+     */
+    tabWidth: 4,
+    /**
+     * 末尾逗号 'es5'|'none'|'all'
+     * es5 默认值，对象,数组末尾有. TS 中的类型参数末尾没有
+     * none 没有末尾逗号
+     * all 合法的位置都会出现
+     */
+    trailingComma: 'none',
+    /**
+     * {foo: bar} - true
+     * { foo: bar } - false
+     */
+    bracketSpacing: true,
+    /**
+     * 表达式后的分号
+     */
+    semi: true,
+    /**
+     * 对象属性的引号
+     * 'as-needed': 需要时添加
+     * 'consistent': 有一个属性需要添加时,所有都添加
+     * 'preserve': 保留原始
+     */
+    quoteProps: 'as-needed'
   };
+
+  printerOptions = {
+    omitTrailingSemicolon: false,
+    removeComments: false,
+    preserveSourceNewlines: true
+  };
+
+  commentOptions = {
+    emptyLineUnderDescrition: true
+  }
 }
 
 

@@ -700,7 +700,7 @@ export class InputParameter {
     return FileUtils.isDirectory(this.inputFilePath);
   }
 
-  getOptions(): Options {
+  static getOptions(): Options {
     return new Options()
   }
 }

@@ -47,7 +47,7 @@ export class JSDocModifierImpl implements IJSDocModifier {
   }
 
   getBaseContext(inputParam: InputParameter): Context {
-    return new ContextImpl(inputParam.inputFilePath, inputParam.outputFilePath, inputParam.getOptions());
+    return new ContextImpl(inputParam.inputFilePath, inputParam.outputFilePath, InputParameter.getOptions());
   }
 }
 

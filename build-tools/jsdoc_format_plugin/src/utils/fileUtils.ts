@@ -25,7 +25,7 @@ export class FileUtils {
   static readFilesInDir(dirName: string, filter?: (name: string) => boolean): Array<string> {
     const files: Array<string> = [];
     fs.readdirSync(dirName, { withFileTypes: true }).forEach((dir) => {
-      const filePath = path.join(dirName, dir.name)
+      const filePath = path.join(dirName, dir.name);
       if (dir.isFile()) {
         if (!filter) {
           files.push(filePath);
@@ -36,7 +36,7 @@ export class FileUtils {
         }
         return;
       }
-      files.push(...FileUtils.readFilesInDir(filePath));
+      files.push(...FileUtils.readFilesInDir(filePath, filter));
     });
     return files;
   }

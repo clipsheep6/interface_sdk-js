@@ -15,16 +15,51 @@
 
 import { Code } from "../utils/constant";
 import { FileUtils } from "../utils/fileUtils";
-import { Context, ISourceCodeProcessor, ProcessResult } from "./typedef";
+import { LogUtil } from "../utils/logUtil";
+import { CommentHelper } from "./coreImpls";
+import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from "./typedef";
 
 export class OutputProcessor implements ISourceCodeProcessor {
   process(context: Context, content: string): ProcessResult {
-    const prettier = require('prettier');
-    const prettierContent = prettier.format(content, context.getOptions().prettierOption);
-    FileUtils.writeStringToFile(prettierContent, context.getOutputFile());
-    return {
-      code: Code.OK,
-      content: prettierContent
-    };
+    try {
+      const formater = new Formatter(content);
+      const formatedString = formater.format(context);
+
+      const prettier = require('prettier');
+      const prettierContent = prettier.format(formatedString, context.getOptions().formaterOption);
+
+      FileUtils.writeStringToFile(prettierContent, context.getOutputFile());
+      return {
+        code: Code.OK,
+        content: prettierContent
+      };
+    } catch(error) {
+      LogUtil.e('OutputProcessor', `format error: ${context.getInputFile()}`);
+      return {
+        code: Code.OK,
+        content: content
+      };
+    }
   }
+}
+
+class Formatter implements sourceParser.INodeVisitorCallback {
+  source: string;
+
+  constructor(source: string) {
+    this.source = source;
+  }
+
+  onVisitNode(node: comment.CommentNode): void {
+    if (node.astNode && node.commentInfos && node.commentInfos.length > 0) {
+      CommentHelper.addComment(node.astNode, node.commentInfos);
+    }
+  }
+
+  format(context: Context): string {
+    const sourceParser = context.getSourceParser(this.source);
+    const sourceFile = sourceParser.visitEachNodeComment(this);
+    return sourceParser.printSourceFile(sourceFile);
+  }
+
 }
