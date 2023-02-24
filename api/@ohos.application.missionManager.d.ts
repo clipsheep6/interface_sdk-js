@@ -65,7 +65,7 @@ declare namespace missionManager {
     function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
     /**
-     * Get the missionInfo with the given missionId.
+     * Get missionInfos in the given deviceId with maximum number of numMax.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
