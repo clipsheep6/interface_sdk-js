@@ -15,7 +15,7 @@
 
 import ts from "typescript";
 import { Code } from "../utils/constant";
-import { comment, Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult, sourceParser } from "./typedef";
+import { comment, Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult } from "./typedef";
 import { CommentHelper } from "./coreImpls";
 const { checkJsDocOfCurrentNode } = require('../../../api_check_plugin/src/check_legality.js')
 
@@ -23,13 +23,16 @@ const { checkJsDocOfCurrentNode } = require('../../../api_check_plugin/src/check
  *  TODO: 注释整改。
  *  
  */
-export class CommentModificationProcessor implements ISourceCodeProcessor, sourceParser.INodeVisitorCallback {
+export class CommentModificationProcessor implements ISourceCodeProcessor {
   process(context: Context, content: string): ProcessResult {
+    const newParser = context.getSourceParser(content);
+    const newSourceFile = newParser.visitEachNodeComment(this, false);
     return {
       code: Code.OK,
-      content: content
+      content: newParser.printSourceFile(newSourceFile)
     };
   }
+
   onVisitNode(node: comment.CommentNode): void {
     if (node.astNode) {
       const checkResults = checkJsDocOfCurrentNode(node.astNode, node.astNode?.getSourceFile());
@@ -135,4 +138,4 @@ const jsDocModifier: Map<string, JsDocModificationInterface> = new Map([
   ['syscap', JsDocModificationHelper.addTagFormParentNode],
   ['systemapi', JsDocModificationHelper.addTagFormParentNode],
   ['test', JsDocModificationHelper.addTagFormParentNode],
-])
+]);
