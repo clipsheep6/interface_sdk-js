@@ -168,6 +168,7 @@ declare namespace sim {
    * @param callback Returns the ICCID; returns an empty string if no SIM card is inserted.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -189,6 +190,7 @@ declare namespace sim {
    * returns an empty string if no voice mailbox alpha identifier is written into the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -210,6 +212,7 @@ declare namespace sim {
    * returns an empty string if no voice mailbox number is written into the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -229,8 +232,10 @@ declare namespace sim {
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param mailName Indicates the name of voice mail.
    * @param mailNumber Indicates the number of voice mail.
+   * @param callback - the callback of setVoiceMailInfo.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -254,6 +259,7 @@ declare namespace sim {
    * no MSISDN is recorded in the EFMSISDN file.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -276,6 +282,7 @@ declare namespace sim {
    * no GID1 in the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -305,6 +312,7 @@ declare namespace sim {
    * @param callback Returns the international mobile subscriber ID.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -341,6 +349,7 @@ declare namespace sim {
    * @param callback Returns a {@code IccAccountInfo} object.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -360,6 +369,7 @@ declare namespace sim {
    * @param callback Returns a {@code IccAccountInfo} object.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -377,8 +387,10 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of setDefaultVoiceSlotId.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -397,8 +409,10 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of activateSim.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -416,8 +430,10 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of deactivateSim.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -436,8 +452,10 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param name Indicates SIM card name.
+   * @param callback - the callback of setShowName.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -458,6 +476,7 @@ declare namespace sim {
    * @param callback Returns SIM card name.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -476,8 +495,10 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param number Indicates SIM card number.
+   * @param callback - the callback of setShowNumber.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -498,6 +519,7 @@ declare namespace sim {
    * @param callback Returns SIM card number.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -519,6 +541,7 @@ declare namespace sim {
    * if no SIM card is inserted
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -540,6 +563,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -563,6 +587,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -586,6 +611,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -608,6 +634,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -630,6 +657,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -653,6 +681,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -676,6 +705,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -698,6 +728,7 @@ declare namespace sim {
    * @param callback Return dialing number information.
    * @permission ohos.permission.READ_CONTACTS
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -718,8 +749,10 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param type Indicates contact type.
    * @param diallingNumbers Indicates dialing number information.
+   * @param callback - the callback of addIccDiallingNumbers.
    * @permission ohos.permission.WRITE_CONTACTS
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -740,8 +773,10 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param type Indicates contact type.
    * @param diallingNumbers Indicates dialing number information.
+   * @param callback - the callback of delIccDiallingNumbers.
    * @permission ohos.permission.WRITE_CONTACTS
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -762,8 +797,10 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param type Indicates contact type.
    * @param diallingNumbers Indicates dialing number information.
+   * @param callback - the callback of updateIccDiallingNumbers.
    * @permission ohos.permission.WRITE_CONTACTS
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -786,6 +823,7 @@ declare namespace sim {
    * @param callback Returns sim card lock status.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -805,8 +843,10 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param cmd Indicates sending command.
+   * @param callback - the callback of sendEnvelopeCmd.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -825,8 +865,10 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param cmd Indicates sending command.
+   * @param callback - the callback of sendTerminalResponseCmd.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -839,7 +881,6 @@ declare namespace sim {
   function sendTerminalResponseCmd(slotId: number, cmd: string, callback: AsyncCallback<void>): void;
   function sendTerminalResponseCmd(slotId: number, cmd: string): Promise<void>;
 
-
   /**
    * Unlock SIM card.
    *
@@ -849,6 +890,7 @@ declare namespace sim {
    * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
