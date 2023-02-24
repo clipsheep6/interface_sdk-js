@@ -140,6 +140,11 @@
     },
     {
       "name": "overflowX",
+      "version": [
+        {
+          "name": "v10.0"
+        }
+      ],
       "required": false,
       "description": [
         {
