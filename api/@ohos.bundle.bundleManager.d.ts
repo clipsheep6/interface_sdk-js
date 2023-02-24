@@ -334,7 +334,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
      */
-    PUSH = 15,
+    PUSH = 16,
 
     /**
      * Indicates extension info with type of unspecified
