@@ -18,6 +18,7 @@ import { FileUtils } from "../utils/fileUtils";
 import { LogLevelUtil, LogUtil } from "../utils/logUtil";
 import { StringUtils } from "../utils/stringUtils";
 import { ApiSplitProcessor } from "./apiSplitProcessor";
+import { AsynchronousFunctionProcessor } from "./asynchronousFunctionProcessor";
 import { CommentCheckProcessor } from "./checkProcessor";
 import { ContextImpl, InputParameter, OutputFileHelper } from "./coreImpls";
 import { CommentModificationProcessor } from "./modificationProcessor";
@@ -160,6 +161,8 @@ const processorRegistry: Array<ISourceCodeProcessor> = [
   new CommentModificationProcessor(),
   // API调整
   new ApiSplitProcessor(),
+  // 同名异步函数处理
+  new AsynchronousFunctionProcessor(),
   // 新文件输出，日志输出
   new OutputProcessor()
 ];
