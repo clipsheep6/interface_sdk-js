@@ -108,7 +108,7 @@
         url: string;
         /**
          * The file paths for a task.
-         * For upload task, it supports multiple tasks per task.
+         * For upload task, it supports multiple files per task.
          * For download task, only one file in a task.
          * Each file path length complies system's requirements.
          * But there is a 4K bytes limit in total.
@@ -569,7 +569,7 @@
          */
         readonly progress: Progress;
         /**
-         * The notification policy of a background task.
+         * The progress notification policy of a background task.
          * @type { boolean }
          * @readonly
          * @syscap SystemCapability.RequestAgent
@@ -907,6 +907,7 @@
      * @param { BaseContext } context context of the caller.
      * @param { string } filter an instance of `Filter`.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
@@ -917,6 +918,7 @@
      * Searches tasks, for system.
      * @param { BaseContext } context context of the caller.
      * @param { string } filter an instance of `Filter`.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
      * @syscap SystemCapability.RequestAgent
