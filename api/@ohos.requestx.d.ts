@@ -680,18 +680,18 @@ export declare namespace agent {
          */
         constructor(conf: Conf);
         /**
-         * Enable the callbacks for a frontend task.
+         * Enable the specified callback for a frontend task.
          * @param { "progress"|"completed"|"failed" } evt event types.
-         * @param { (pg: Progress) => void } callback callback function with a `Progress` arguments.
+         * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
         on(evt: "progress" | "completed" | "failed", callback: (pg: Progress) => void): void;
         /**
-         * Disable the callbacks for a frontend task.
-         * @param evt 
-         * @param callback 
+         * Disable the specified callback for a frontend task.
+         * @param { "progress"|"completed"|"failed" } evt event types.
+         * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
