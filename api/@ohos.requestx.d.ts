@@ -14,7 +14,7 @@
  * @syscap SystemCapability.RequestAgent
  * @since 10
  */
- export declare namespace agent {
+export declare namespace agent {
     /**
      * The action options.
      * @enum { string }
@@ -322,29 +322,6 @@
          * @since 10
          */
         extras?: JSON;
-        /**
-         * The progress callback for the frontend tasks.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        progress?(): Promise<Progress>;
-        progress?(callback: AsyncCallback<Progress>): void;
-        /**
-         * The completed callback for the frontend tasks.
-         * The completed is treated as a special progress.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        completed?(): Promise<Progress>;
-        completed?(callback: AsyncCallback<Progress>): void;
-        /**
-         * The failed callback for the frontend tasks.
-         * The "failed" is treated as a special progress.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        failed?(): Promise<Progress>;
-        failed?(callback: AsyncCallback<Progress>): void;
     }
     /**
      * @enum { number }
@@ -389,23 +366,23 @@
          */
         STOPPED = 0x31,
         /**
-         * Indicates a task can not be processed again.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        REMOVED = 0x40,
-        /**
          * Indicates a task finish its data transfer.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        COMPLETED = 0X50,
+        COMPLETED = 0X40,
         /**
          * Indicates a task interrupted by some error.
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        FAILED = 0X51,
+        FAILED = 0X41,
+        /**
+         * Indicates a task can not be processed again.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        REMOVED = 0x50,
     }
     /**
      * The progress data structure.
@@ -674,19 +651,6 @@
      */
     class Task {
         /**
-         * Creates a task for upload or download and enqueue it.
-         * @permission ohos.permission.INTERNET
-         * @param { Conf } conf configurations for a task.
-         * @throws {BusinessError} 201 - Permission denied.
-         * @throws {BusinessError} 401 - Parameter error.
-         * @throws {BusinessError} 13400001 - file operation error.
-         * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - application task queue full error.
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        constructor(conf: Conf);
-        /**
          * The task id, unique on system.
          * Generated automatically by system.
          * @type { string }
@@ -702,6 +666,37 @@
          * @since 10
          */
         conf: Conf;
+        /**
+         * Creates a task for upload or download and enqueue it.
+         * @permission ohos.permission.INTERNET
+         * @param { Conf } conf configurations for a task.
+         * @throws {BusinessError} 201 - Permission denied.
+         * @throws {BusinessError} 401 - Parameter error.
+         * @throws {BusinessError} 13400001 - file operation error.
+         * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - application task queue full error.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        constructor(conf: Conf);
+        /**
+         * Enable the callbacks for a frontend task.
+         * @param { "progress"|"completed"|"failed" } evt event types.
+         * @param { (pg: Progress) => void } callback callback function with a `Progress` arguments.
+         * @throws {BusinessError} 401 - Parameter error.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        on(evt: "progress" | "completed" | "failed", callback: (pg: Progress) => void): void;
+        /**
+         * Disable the callbacks for a frontend task.
+         * @param evt 
+         * @param callback 
+         * @throws {BusinessError} 401 - Parameter error.
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        off(evt: "progress" | "completed" | "failed", callback?: (pg: Progress) => void): void;
         /**
          * Starts the task.
          * @permission ohos.permission.INTERNET
@@ -979,4 +974,4 @@
      * @since 10
      */
     function clear(context: BaseContext, ids: Array<string>): Promise<Array<string>>;
-  }
+}
