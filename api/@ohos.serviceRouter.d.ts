@@ -38,8 +38,8 @@ import Want from './@ohos.app.ability.Want';
      * @since 10
      */
     SHARE = 0,
-	
-	/**
+
+    /**
      * Indicates extension info with type of unspecified
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
