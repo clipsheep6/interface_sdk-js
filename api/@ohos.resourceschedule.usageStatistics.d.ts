@@ -196,6 +196,7 @@ declare namespace usageStatistics {
     /**
      * @interface BundleEvents
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
      interface BundleEvents {
@@ -255,13 +256,14 @@ declare namespace usageStatistics {
 
     /**
      * Checks whether the application with a specified bundle name is in the idle state.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - Indicates the bundle name of the application to query.
      * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
      * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
      * The time range of the particular period is defined by the system, which may be hours or days.</p>
      * @throws { BusinessError } 201 - Parameter error.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 10000001 - Memory operation failed.
@@ -277,13 +279,14 @@ declare namespace usageStatistics {
 
     /**
      * Checks whether the application with a specified bundle name is in the idle state.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - Indicates the bundle name of the application to query.
      * @returns { Promise<boolean> } the promise returned by queryAppGroup.
      * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
      * The time range of the particular period is defined by the system, which may be hours or days.</p>
      * @throws { BusinessError } 201 - Parameter error.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 10000001 - Memory operation failed.
@@ -305,6 +308,7 @@ declare namespace usageStatistics {
      * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
      * <p> Returns the app group of the calling application.</p>
      * @throws { BusinessError } 201 - Parameter error.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 10000001 - Memory operation failed.
@@ -315,6 +319,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000006 - Failed to get the application information.
      * @throws { BusinessError } 10100002 - Failed to get the application group information.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function queryAppGroup(callback: AsyncCallback<number>): void;
@@ -327,6 +332,7 @@ declare namespace usageStatistics {
      * @returns { Promise<number> } the promise returned by queryAppGroup.
      * <p> Returns the app group of the calling application.</p>
      * @throws { BusinessError } 201 - Parameter error.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 10000001 - Memory operation failed.
@@ -337,6 +343,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000006 - Failed to get the application information.
      * @throws { BusinessError } 10100002 - Failed to get the application group information.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function queryAppGroup(): Promise<number>;
@@ -455,7 +462,7 @@ declare namespace usageStatistics {
 
     /**
      * Declares interval type.
-     * 
+     *
      * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -490,7 +497,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries usage information about each bundle within a specified period at a specified interval.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
      * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
@@ -514,10 +521,10 @@ declare namespace usageStatistics {
      * @since 9
      */
     function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStatsInfo>>): void;
-    
+
     /**
      * Queries usage information about each bundle within a specified period at a specified interval.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
      * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
@@ -544,7 +551,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries state data of all bundles within a specified period identified by the start and end time.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
@@ -568,7 +575,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries state data of all bundles within a specified period identified by the start and end time.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
@@ -592,12 +599,13 @@ declare namespace usageStatistics {
 
     /**
      * Queries state data of the current bundle within a specified period.
-     * 
+     *
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
      * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
      * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 10000001 - Memory operation failed.
@@ -607,18 +615,20 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000006 - Failed to get the application information.
      * @throws { BusinessError } 10000007 - Failed to get the system time.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function queryCurrentBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
 
     /**
      * Queries state data of the current bundle within a specified period.
-     * 
+     *
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
      * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
      * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 10000001 - Memory operation failed.
@@ -628,13 +638,14 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000006 - Failed to get the application information.
      * @throws { BusinessError } 10000007 - Failed to get the system time.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function queryCurrentBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
 
     /**
      * Queries recently module usage records with maxNum.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
      * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
@@ -657,7 +668,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries recently module usage records with maxNum.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
      * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
@@ -680,7 +691,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries recently module usage records.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
      * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
@@ -702,7 +713,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries recently module usage records.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
      * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
@@ -724,7 +735,7 @@ declare namespace usageStatistics {
 
     /**
      * Declares group type.
-     * 
+     *
      * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -764,7 +775,7 @@ declare namespace usageStatistics {
 
     /**
      * Set app group by bundleName.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - name of the application.
      * @param { GroupType } newGroup - the group of the application whose name is bundleName.
@@ -787,7 +798,7 @@ declare namespace usageStatistics {
 
     /**
      * Set app group by bundleName.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - name of the application.
      * @param { GroupType } newGroup - the group of the application whose name is bundleName.
@@ -810,7 +821,7 @@ declare namespace usageStatistics {
 
     /**
      * Register appGroup change callback to service.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { Callback<AppGroupCallbackInfo> } groupCallback -
      * <p> callback when AppGroupCallbackInfo when the group of app changed.</p>
@@ -832,7 +843,7 @@ declare namespace usageStatistics {
 
     /**
      * Register appGroup change callback to service.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { Callback<AppGroupCallbackInfo> } groupCallback -
      * <p> callback when AppGroupCallbackInfo when the group of app changed.</p>
@@ -854,9 +865,9 @@ declare namespace usageStatistics {
 
     /**
      * Unregister appGroup change callback from service.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @param { AsyncCallback<void> } callback - the callback of unregisterAppGroupCallBack. 
+     * @param { AsyncCallback<void> } callback - the callback of unregisterAppGroupCallBack.
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -874,9 +885,9 @@ declare namespace usageStatistics {
 
     /**
      * Unregister appGroup change callback from service.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @returns { Promise<void> } the promise returned by unregisterAppGroupCallBack. 
+     * @returns { Promise<void> } the promise returned by unregisterAppGroupCallBack.
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -892,9 +903,9 @@ declare namespace usageStatistics {
      */
     function unregisterAppGroupCallBack(): Promise<void>;
 
-    /** 
+    /**
      * Queries device event states data within a specified period identified by the start and end time.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
@@ -916,9 +927,9 @@ declare namespace usageStatistics {
      */
     function queryDeviceEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
 
-    /** 
+    /**
      * Queries device event states data within a specified period identified by the start and end time.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
@@ -942,7 +953,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries app notification number within a specified period identified by the start and end time.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
@@ -966,7 +977,7 @@ declare namespace usageStatistics {
 
     /**
      * Queries app notification number within a specified period identified by the start and end time.
-     * 
+     *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
