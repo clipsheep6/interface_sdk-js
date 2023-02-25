@@ -1053,14 +1053,14 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
      */
-    offset: number;
+    offset?: number;
     /**
      * counts of thumbnails will be got
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
      */
-    maxCount: number;
+    maxCount?: number;
     /**
      * size size of all thumbnails will be got
      * @since 9
