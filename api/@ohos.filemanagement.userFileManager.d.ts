@@ -957,38 +957,20 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_MEDIA
-     * @param uriList uri list of thumbnails to be obtained
-     * @param offset position of uri list to start get thumbnails
-     * @param maxCount counts of thumbnails will be got
+     * @param options Options of URI list
      * @param callback thumbnails in PixelMap format
      */
-    getThumbnails(uriList: Array<string>, offset: number, maxCount: number, callback: AsyncCallback<Array<image.PixelMap>>): void;
+    getThumbnails(options: UriListOptions, callback: AsyncCallback<Array<image.PixelMap>>): void;
     /**
      * Get thumbnails
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_MEDIA
-     * @param uriList uri list of thumbnails to be obtained
-     * @param offset position of uri list to start get thumbnails
-     * @param maxCount counts of thumbnails will be got
-     * @param size size of all thumbnails will be got
-     * @param callback thumbnails in PixelMap format
-     */
-    getThumbnails(uriList: Array<string>, offset: number, maxCount: number, size: image.Size, callback: AsyncCallback<Array<image.PixelMap>>): void;
-    /**
-     * Get thumbnails
-     * @since 9
-     * @systemapi
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_MEDIA
-     * @param uriList uri list of thumbnails to be obtained
-     * @param offset position of uri list to start get thumbnails
-     * @param maxCount counts of thumbnails will be got
-     * @param size size of all thumbnails will be got
+     * @param options Options of URI list
      * @returns Promise used to return thumbnails in PixelMap format
      */
-    getThumbnails(uriList: Array<string>, offset: number, maxCount: number, size?: image.Size): Promise<Array<image.PixelMap>>;
+    getThumbnails(options: UriListOptions): Promise<Array<image.PixelMap>>;
   }
 
   /**
@@ -1049,6 +1031,43 @@ declare namespace userFileManager {
      * @systemapi
      */
     readonly errorCode: number;
+  }
+
+  /**
+   * Options of URI list
+   * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+   * @systemapi
+   * @since 9
+   */
+  interface UriListOptions {
+    /**
+     * uri list of thumbnails to be obtained
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    uriList: Array<string>;
+    /**
+     * position of uri list to start get thumbnails
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    offset: number;
+    /**
+     * counts of thumbnails will be got
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    maxCount: number;
+    /**
+     * size size of all thumbnails will be got
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    size?: image.Size;
   }
 
   /**
