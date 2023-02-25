@@ -191,7 +191,6 @@ declare namespace webview {
          *
          * @param { string } origin - The origin which to be deleted.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
         static deleteOrigin(origin: string): void;
@@ -210,7 +209,6 @@ declare namespace webview {
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
         static getOriginQuota(origin: string): Promise<number>;
@@ -220,7 +218,6 @@ declare namespace webview {
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
         static getOriginUsage(origin: string): Promise<number> ;
@@ -344,7 +341,6 @@ declare namespace webview {
          *
          * @param { string } url - The URL for which the cookies are requested.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @throws { BusinessError } 17100002 - Invalid url.
          * @returns The cookie value for the given URL.
          *
          * @since 9
@@ -357,7 +353,6 @@ declare namespace webview {
          * @param { string } url - The URL for which the cookie is to be set.
          * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @throws { BusinessError } 17100002 - Invalid url.
          * @throws { BusinessError } 17100005 - Invalid cookie value.
          *
          * @since 9
@@ -671,7 +666,6 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @throws { BusinessError } 17100002 - Invalid url.
          *
          * @since 9
          */
