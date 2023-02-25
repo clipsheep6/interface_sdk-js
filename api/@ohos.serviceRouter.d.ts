@@ -19,7 +19,7 @@ import Want from './@ohos.app.ability.Want';
 
 /**
  * This module is used to obtain service information of various applications installed on the current device.
- * @namespace serviceRouterManager
+ * @namespace serviceRouter
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 10
  */
@@ -132,7 +132,7 @@ import Want from './@ohos.app.ability.Want';
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { ServiceType } serviceType - Indicates ServiceType.
+   * @param { ExtensionServiceType } serviceType - Indicates ServiceType.
    * @param { AsyncCallback<Array<ServiceInfo>> } callback - The callback of querying service info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -141,13 +141,13 @@ import Want from './@ohos.app.ability.Want';
    * @systemapi
    * @since 10
    */
-  function queryServiceInfos(want: Want, serviceType: ServiceType, callback: AsyncCallback<Array<ServiceInfo>>): void;
+   function queryServiceInfos(want: Want, serviceType: ExtensionServiceType, callback: AsyncCallback<Array<ServiceInfo>>): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { ServiceType } serviceType - Indicates ServiceType.
+   * @param { ExtensionServiceType } serviceType - Indicates ServiceType.
    * @returns { Promise<Array<ServiceInfo>> } Returns a list of ServiceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -156,7 +156,7 @@ import Want from './@ohos.app.ability.Want';
    * @systemapi
    * @since 10
    */
-  function queryServiceInfos(want: Want, serviceType: ServiceType): Promise<Array<ServiceInfo>>;
+   function queryServiceInfos(want: Want, serviceType: ExtensionServiceType): Promise<Array<ServiceInfo>>;
   
    /**
    * Obtains configuration information about an application.
