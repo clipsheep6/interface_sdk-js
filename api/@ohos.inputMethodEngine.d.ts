@@ -439,6 +439,34 @@ declare namespace inputMethodEngine {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
+
+        /**
+         * Create a panel.
+         * <p>The system only allows one soft keyboard or one candidate list and one status bar to be created.
+         * Once you create a soft keyboard, you cannot create candidate list and status bar, and vice versa.</p>
+         * @param { PanelInfo } info - the info of panel to be created.
+         * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800004 - not an input method extension.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        createPanel(info: PanelInfo, callback: AsyncCallback<Panel>): void;
+
+        /**
+         * Create a panel.
+         * <p>The system only allows one soft keyboard or one candidate list and one status bar to be created.
+         * Once you create a soft keyboard, you cannot create candidate list and status bar, and vice versa.</p>
+         * @param { PanelInfo } info - the info of panel to be created.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800004 - not an input method extension.
+         * @returns { Promise<Panel> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        createPanel(info: PanelInfo): Promise<Panel>;
     }
 
     /**
@@ -863,6 +891,125 @@ declare namespace inputMethodEngine {
          * @since 8
          */
         off(type: 'textChange', callback?: (text: string) => void): void;
+    }
+
+    /**
+     * A panel is a container used to hold soft keyboard, candidate list, or status bar.
+     * @interface Panel
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @StageModelOnly
+     * crossplatform
+     * @since 10
+     */
+    interface Panel {
+
+        /**
+         * Set ui content.
+         * When this method is executed successfully, the content of panel will be replaced.
+         * @param { string } path - the path of ui content.
+         * @param { AsyncCallback<void> } callback - the callback of setUiContent.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        setUiContent(path: string, callback: AsyncCallback<void>): void;
+
+        /**
+         * Set ui content.
+         * When this method is executed successfully, the content of panel will be replaced.
+         * @param { string } path - the path of ui content.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        setUiContent(path: string): Promise<void>;
+
+        /**
+         * Resize panel to w,h.
+         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
+         * @param { number } w - width of panel.
+         * @param { number } h - height of panel.
+         * @param { AsyncCallback<void> } callback - the callback of resize.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        resize(w: number, h:number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Resize panel to w,h.
+         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
+         * @param { number } w - width of panel.
+         * @param { number } h - height of panel.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        resize(w: number, h:number): Promise<void>;
+
+        /**
+         * Move panel to x,y.
+         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
+         * @param { number } x - x of point.
+         * @param { number } y - y of point.
+         * @param { AsyncCallback<void> } callback - the callback of moveTo.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        moveTo(x: number, y:number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Move panel to x,y.
+         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
+         * @param { number } x - x of point.
+         * @param { number } y - y of point.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        moveTo(x: number, y:number): Promise<void>;
+
+        /**
+         * Register panel show/hide event.
+         * The "show" and "hide" events are triggered when the panel is shown or hidden.
+         * @param { 'show'|'hide' } type -events type.
+         * @param { () => void } callback - the callback will be called when events are triggered.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        on(type: 'show'|'hide', callback:() => void): void;
+
+        /**
+         * Unregister panel show/hide event.
+         * @param { 'show'|'hide' } type -events type.
+         * @param { () => void } callback - the callback to Unregister.
+         * @throws { BusinessError } 401 -parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        off(type: 'show'|'hide', callback?:() => void): void;
+
+        /**
+         * Set panel flag.
+         * @param { PanelFlag } flag - the callback of moveMissionToFront.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        setFlag(flag: PanelFlag): void;
     }
 
     /**
