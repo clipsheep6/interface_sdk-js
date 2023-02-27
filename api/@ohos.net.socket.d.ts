@@ -726,7 +726,7 @@ declare namespace socket {
      *
      * @param options Optional parameters {@link ExtraOptionsBase}.
      * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 2305209 - Error set sokcet option.
+     * @throws {BusinessError} 2305209 - Error set socket option.
      */
     setExtraOptions(options: ExtraOptionsBase, callback: AsyncCallback<void>): void;
     setExtraOptions(options: ExtraOptionsBase): Promise<void>;

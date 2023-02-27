@@ -406,6 +406,7 @@ multimodal
 multisample
 multitask
 mutes
+namemode
 narrowband
 nci
 ndef
