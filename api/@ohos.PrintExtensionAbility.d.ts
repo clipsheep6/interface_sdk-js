@@ -33,7 +33,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onCreate(want: Want): void;
@@ -44,7 +43,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onStartDiscoverPrinter(): void;
@@ -55,7 +53,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onStopDiscoverPrinter(): void;
@@ -66,7 +63,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onConnectPrinter(printerId: number): void;
@@ -77,7 +73,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onDisconnectPrinter(printerId: number): void;
@@ -88,7 +83,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onStartPrintJob(jobInfo: print.PrintJob): void;
@@ -99,7 +93,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onCancelPrintJob(jobInfo: print.PrintJob): void;
@@ -110,7 +103,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onRequestPrinterCapability(printerId: number): print.PrinterCapability;
@@ -121,7 +113,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onRequestPreview(jobInfo: print.PrintJob): string;
@@ -132,7 +123,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
-     * @return -
      * @StageModelOnly
      */
     onDestroy(): void;
