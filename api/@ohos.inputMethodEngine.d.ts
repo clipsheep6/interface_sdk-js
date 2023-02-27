@@ -990,7 +990,7 @@ declare namespace inputMethodEngine {
         /**
          * Unregister panel show/hide event.
          * @param { 'show'|'hide' } type -events type.
-         * @param { () => void } callback - the callback to Unregister.
+         * @param { () => void } [callback] - the callback to Unregister.
          * @throws { BusinessError } 401 -parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
