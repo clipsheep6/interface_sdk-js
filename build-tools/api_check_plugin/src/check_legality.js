@@ -67,12 +67,22 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
   );
   // 'param'
   legalityCheck(node, sourcefile, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-    ts.SyntaxKind.MethodDeclaration], ['param'], true, (currentNode) => {
+    ts.SyntaxKind.MethodDeclaration], ['param'], true, checkInfoMap, (currentNode) => {
       if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration]).has(currentNode.kind)) {
         return true;
       }
       return currentNode.parameters && currentNode.parameters.length > 0;
+    }
+  );
+  // 'returns'
+  legalityCheck(node, sourcefile, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+    ts.SyntaxKind.MethodDeclaration], ['returns'], true, checkInfoMap, (currentNode) => {
+      if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+      ts.SyntaxKind.MethodDeclaration]).has(currentNode.kind)) {
+        return true;
+      }
+      return currentNode.type && currentNode.type !== ts.SyntaxKind.VoidKeyword;
     }
   );
   // 'useinstead'
@@ -164,20 +174,12 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
   return checkInfoMap;
 }
 
-// API未标JSDoc检查
-function checkApiLegality(node, sourcefile) {
-  if (commentNodeWhiteList.has(node.kind) && !hasAPINote(node)) {
-    // 报错
-    // addAPICheckErrorLogs()
-  }
-}
-
 function checkJsDocOfCurrentNode(node, sourcefile) {
   const checkInfoMap = checkJsDocLegality(node, sourcefile, {});
   const checkInfoArray = [];
   const checkOrderResult = checkApiOrder(node, sourcefile, sourcefile.fileName);
   checkOrderResult.forEach((result, index) => {
-    checkInfoMap[index.toString()].orderCheckResult = result;
+    checkInfoMap[index.toString()].orderResult = result;
   });
   const comments = parseJsDoc(node);
   let allLogs = [];
@@ -195,10 +197,6 @@ function checkJsDocOfCurrentNode(node, sourcefile) {
       }
     });
     allLogs.push(errorLogs);
-  });
-  checkOrderResult.forEach((result, index) => {
-    checkInfoMap[index.toString()].orderCheckResult = result;
-    checkInfoMap[index.toString()].illegalTags = allLogs[index];
   });
   for (const key in checkInfoMap) {
     checkInfoArray.push(checkInfoMap[key]);

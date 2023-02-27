@@ -17,17 +17,8 @@ const { getAPINote, ErrorLevel, FileType, ErrorType } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 
 const labelOrderArray = ['description', 'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constants',
-  'type', 'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'FAModelOnly',
-  'StageModelOnly', ' crossplatform', 'since', 'deprecated', 'useinsteadexample'];
-
-// // output order error info
-// function checkOrderRusult(node, sourcefile, fileName) {
-//   if (!checkApiOrder(node).checkResult) {
-//     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, checkApiOrder(node).errorInfo,
-//       FileType.JSDOC, ErrorLevel.LOW);
-//   }
-// }
-// exports.checkOrderRusult = checkOrderRusult;
+  'type', 'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly',
+  'stagemodelonly', 'crossplatform', 'since', 'deprecated', 'useinstead','example'];
 
 // check jsdoc order
 function checkApiOrder(node, sourcefile, fileName) {
@@ -40,9 +31,9 @@ function checkApiOrder(node, sourcefile, fileName) {
   JsdocInfos.forEach(jsdocInfo => {
     let apiNameOrder = [];
     jsdocInfo.tags.forEach(tags => {
-      apiNameOrder.push(tags.tag)
+      apiNameOrder.push(tags.tag);
     })
-    apiOrderArr.push(apiNameOrder)
+    apiOrderArr.push(apiNameOrder);
 
   })
   // 遍历apiOrderArr数组，讲每一个标签的绝对优先级获取到，放在apiPriority数组中
@@ -59,7 +50,7 @@ function checkApiOrder(node, sourcefile, fileName) {
         errorInfo=apiOrder[j - 1];
         const result = {
           checkResult: true,
-          errorInfo: ""
+          errorInfo: "",
         }
         result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
         result.checkResult = false;
@@ -73,7 +64,7 @@ function checkApiOrder(node, sourcefile, fileName) {
     if (isPassed) {
       checkOrderRusult.push({
         checkResult: true,
-        errorInfo: ""
+        errorInfo: "",
       })
     }
   })

@@ -50,8 +50,6 @@ function checkJsdocResult(node, sourcefile, fileName) {
           // checkTypeValue(tag, node, sourcefile, fileName);
         } else if (jsdocTag.tag == 'default') {
           // checkDefaultValue(tag, node, sourcefile, fileName);
-        } else if (jsdocTag.tag == 'FAModelOnly' || jsdocTag.tag == 'StageModelOnly' || jsdocTag.tag == 'systemapi') {
-          // checkNoValueTag(node, sourcefile, fileName)
         } else if (jsdocTag.tag == 'permission') {
           checkPermissionTag(tag, node, sourcefile, fileName)
         }
@@ -66,7 +64,7 @@ exports.checkJsdocResult = checkJsdocResult;
 function checkExtendsValue(tag, node, sourcefile, fileName) {
   let extendsResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   let tagValue = tag.name;
   let apiValue = '';
@@ -74,21 +72,20 @@ function checkExtendsValue(tag, node, sourcefile, fileName) {
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
     apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
     if (tagValue != apiValue) {
-      extendsResult.checkResult = false
-      extendsResult.errorInfo = ` '@${tagValue}' should change to '${apiValue}'; `;
+      extendsResult.checkResult = false,
+        extendsResult.errorInfo = ` '@${tagValue}' should change to '${apiValue}'; `;
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, extendsResult.errorInfo, FileType.JSDOC,
         ErrorLevel.LOW);
     }
   }
-  console.log('extendsResult=', extendsResult)
   return extendsResult;
 }
 exports.checkExtendsValue = checkExtendsValue;
 
-function checkEnumValue(tag, node, sourcefile, fileName) {
+function checkEnumValue(tag, node, sourcefile, fileName, index) {
   let enumResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   const enumValues = ['string', 'number'];
   const tagValue = tag.type;
@@ -106,10 +103,10 @@ function checkEnumValue(tag, node, sourcefile, fileName) {
 }
 exports.checkEnumValue = checkEnumValue;
 
-function checkSinceValue(tag, node, sourcefile, fileName) {
+function checkSinceValue(tag, node, sourcefile, fileName, index) {
   let sinceResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   const tagValue = parseInt(tag.name);
   if (isNaN(tagValue)) {
@@ -122,12 +119,12 @@ function checkSinceValue(tag, node, sourcefile, fileName) {
 }
 exports.checkSinceValue = checkSinceValue;
 
-function checkReturnsValue(tag, node, sourcefile, fileName) {
+function checkReturnsValue(tag, node, sourcefile, fileName, index) {
   let returnsResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
-  const voidArr = ['void', 'Promise<void>']
+  const voidArr = ['void'];
   const tagValue = tag.type;
 
   const apiInfos = node.getText();
@@ -151,38 +148,44 @@ function checkReturnsValue(tag, node, sourcefile, fileName) {
 }
 exports.checkReturnsValue = checkReturnsValue;
 
-function checkParamValue(tag, node, sourcefile, fileName) {
+function checkParamValue(tag, node, sourcefile, fileName, index) {
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
-  console.log('tagNameValue=', tagNameValue, 'tagTypeValue=', tagTypeValue)
-
-  // 获取jsdoc中的param信息
-  // const apiNote = getAPINote(node);
-  // const parsed = parse.parse(`${apiNote}`);
-  // if (parsed.length > 0) {
-  //   parsed[0].tags.forEach(item => {
-  //     if (item.tag == targetName) {
-  //       tagName = item.tag;
-  //       tagNameValue = item.name;
-  //       tagTypeValue = item.type;
-  //       const apiInfo = node.getText();
-  //       if (apiInfo.indexOf(tagNameValue) == -1) {
-  //         errInfo += `@${targetName} name value '${tagNameValue}' is wrong; `;
-  //         console.log("errorInfo1=" + errInfo);
-  //       } else if (apiInfo.indexOf(tagTypeValue) == -1) {
-  //         errInfo += `@${targetName} type value '${tagTypeValue}' is wrong; `;
-  //         console.log("errorInfo2=" + errInfo);
-  //       }
-  //     }
-  //   })
-  // }
+  let paramResult = {
+    checkResult: true,
+    errorInfo: "",
+  }
+  if (node.parameters) {
+    const apiParamInfos = node.parameters;
+    if (apiParamInfos[index]) {
+      const apiName = apiParamInfos[index].name.escapedText;
+      const apiType = apiParamInfos[index].type.getText();
+      if (apiName != tagNameValue) {
+        paramResult.checkResult = false;
+        paramResult.errorInfo = `@param name '${tagNameValue}' is wrong; `;
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, paramResult.errorInfo, FileType.JSDOC,
+          ErrorLevel.LOW);
+      } else if (apiType != tagTypeValue) {
+        paramResult.checkResult = false;
+        paramResult.errorInfo = `@param type '${tagTypeValue}' is wrong; `;
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, paramResult.errorInfo, FileType.JSDOC,
+          ErrorLevel.LOW);
+      }
+    } else {
+      paramResult.checkResult = false;
+      paramResult.errorInfo = `@param counts is wrong; `;
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, paramResult.errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    }
+  }
+  return paramResult;
 }
 exports.checkParamValue = checkParamValue;
 
-function checkThrowsValue(tag, node, sourcefile, fileName) {
+function checkThrowsValue(tag, node, sourcefile, fileName, index) {
   let throwsResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
@@ -204,10 +207,10 @@ function checkThrowsValue(tag, node, sourcefile, fileName) {
 exports.checkThrowsValue = checkThrowsValue;
 
 // #校验功能待补全
-function checkUseinsteadValue(tag, node, sourcefile, fileName) {
+function checkUseinsteadValue(tag, node, sourcefile, fileName, index) {
   let useinsteadResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   const tagNameValue = tag.name;
   if (tagNameValue.indexOf('ohos') == -1 || tagNameValue.indexOf('/') == -1) {
@@ -221,10 +224,10 @@ function checkUseinsteadValue(tag, node, sourcefile, fileName) {
 }
 exports.checkUseinsteadValue = checkUseinsteadValue;
 
-function checkTypeValue(tag, node, sourcefile, fileName) {
+function checkTypeValue(tag, node, sourcefile, fileName, index) {
   let typeResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   const tagTypeValue = tag.type;
   const apiInfo = node.getText();
@@ -239,10 +242,10 @@ function checkTypeValue(tag, node, sourcefile, fileName) {
 }
 exports.checkTypeValue = checkTypeValue;
 
-function checkDefaultValue(tag, node, sourcefile, fileName) {
+function checkDefaultValue(tag, node, sourcefile, fileName, index) {
   let defaultResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   }
   if (tag.name.length == 0 && tag.type.length == 0) {
     defaultResult.checkResult = false;
@@ -255,68 +258,16 @@ function checkDefaultValue(tag, node, sourcefile, fileName) {
 }
 exports.checkDefaultValue = checkDefaultValue;
 
-function getParentApiInfo(node) {
-  let parentDocArr = [];
-  if (!ts.isInterfaceDeclaration(node) && node.parent) {
-    const parentJSDocArr = node.parent.parent?.jsDoc ? node.parent.parent.jsDoc[0].tags : '';
-    if (Array.isArray(parentJSDocArr)) {
-      parentJSDocArr.forEach(item => {
-        parentDocArr.push(item.tagName.escapedText);
-      })
-    }
-  }
-  return parentDocArr;
-}
-
-function checkNoValueTag(node, sourcefile, fileName) {
-  let noValueResult = {
-    checkResult: true,
-    errorInfo: ""
-  }
-  const FAModelOnly = 'FAModelOnly';
-  const StageModelOnly = 'StageModelOnly';
-  const systemapi = 'systemapi';
-  const deprecated = 'deprecated';
-  const parentDoc = getParentApiInfo(node);
-  if (parentDoc.indexOf(FAModelOnly) > -1) {
-    noValueResult.checkResult = false;
-    noValueResult.errorInfo = `the node need to extends pareent @${FAModelOnly}; `;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, noValueResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
-  } else if (parentDoc.indexOf(StageModelOnly) > -1) {
-    noValueResult.checkResult = false;
-    noValueResult.errorInfo = `the node need to extends pareent @${StageModelOnly}; `;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, noValueResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
-  } else if (parentDoc.indexOf(systemapi) > -1) {
-    noValueResult.checkResult = false;
-    noValueResult.errorInfo = `the node need to extends parent @${systemapi}; `;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, noValueResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
-  } else if (parentDoc.indexOf(deprecated) > -1) {
-    noValueResult.checkResult = false;
-    noValueResult.errorInfo = `the node need to extends parent @${deprecated}; `;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, noValueResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
-  }
-  return noValueResult;
-}
-exports.checkNoValueTag = checkNoValueTag;
-
-
-function checkPermissionTag(tag, node, sourcefile, fileName) {
+function checkPermissionTag(tag, node, sourcefile, fileName, index) {
   const permissionRuleSet = getPermissionBank();
   let hasPermissionError = false;
   let errorInfo = "";
   let permissiobResult = {
     checkResult: true,
-    errorInfo: ""
+    errorInfo: "",
   };
   const tagValue = tag.name + tag.description;
-  // console.log('tag=',tag);
-  console.log('tagValue=', tagValue);
   const permissionArr = tagValue.replace(/( |or|and|\(|\))/g, '$').split('$');
-  console.log('permissionArr=', permissionArr);
   permissionArr.forEach(permissionStr => {
     if (permissionStr !== '') {
       if (!permissionRuleSet.has(permissionStr)) {
@@ -335,9 +286,9 @@ function checkPermissionTag(tag, node, sourcefile, fileName) {
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, errorInfo, FileType.API,
       ErrorLevel.MIDDLE);
   }
-  console.log('permissiobResult=',permissiobResult)
   return permissiobResult;
 }
+exports.checkPermissionTag = checkPermissionTag;
 
 const JsDocValueChecker = {
   'extends': checkExtendsValue,
@@ -349,10 +300,6 @@ const JsDocValueChecker = {
   'useinstead': checkUseinsteadValue,
   'type': checkTypeValue,
   'default': checkDefaultValue,
-  'FAModelOnly': checkNoValueTag,
-  'StageModelOnly': checkNoValueTag,
-  'systemapi': checkNoValueTag,
-  'permission':checkPermissionTag
-
+  'permission': checkPermissionTag
 }
 exports.JsDocValueChecker = JsDocValueChecker;
