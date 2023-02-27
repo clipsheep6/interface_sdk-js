@@ -262,7 +262,7 @@ declare namespace http {
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
      * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
      */
-    result: string | Object | ArrayBuffer;
+    const result: string | Object | ArrayBuffer;
 
     /**
      * If the resultType is string, you can get result directly.
@@ -271,7 +271,7 @@ declare namespace http {
      *
      * @since 9
      */
-    resultType: HttpDataType;
+    resultType: any;
 
     /**
      * Server status code.
