@@ -880,7 +880,7 @@ declare namespace call {
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
 
   /**
-   * Jduge whether there is a ringing call.
+   * Judge whether there is a ringing call.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param callback Returns {@code true} if the device is ringing; returns {@code false} otherwise.
