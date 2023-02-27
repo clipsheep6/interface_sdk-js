@@ -17,7 +17,7 @@
  * class of print extensionAbility.
  *
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since 10
  * @syscap SystemCapability.Print.PrintFramework
  * @StageModelOnly
  */
@@ -31,7 +31,7 @@ export default class PrintExtensionAbility {
      * Called once to initialize the extensionAbility.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -42,7 +42,7 @@ export default class PrintExtensionAbility {
      * Called once to start to discover the printers connected with the device.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -53,7 +53,7 @@ export default class PrintExtensionAbility {
      * Called once to stop discovering the printer.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -64,7 +64,7 @@ export default class PrintExtensionAbility {
      * Called once to connect to the specific printer.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -75,7 +75,7 @@ export default class PrintExtensionAbility {
      * Called once to disconnect the specific printer.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -86,7 +86,7 @@ export default class PrintExtensionAbility {
      * Called once to start print job.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -97,7 +97,7 @@ export default class PrintExtensionAbility {
      * Called once to remove the print job has been started.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -108,7 +108,7 @@ export default class PrintExtensionAbility {
      * Called once to request the capability of the printer.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -119,7 +119,7 @@ export default class PrintExtensionAbility {
      * Called once to request preview and send result to Print SA.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
@@ -130,7 +130,7 @@ export default class PrintExtensionAbility {
      * Called once to finalize the extensionAbility.
      *
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
