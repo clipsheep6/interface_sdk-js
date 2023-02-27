@@ -898,14 +898,13 @@ declare namespace inputMethodEngine {
      * @interface Panel
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
-     * crossplatform
      * @since 10
      */
     interface Panel {
 
         /**
          * Set ui content.
-         * When this method is executed successfully, the content of panel will be replaced.
+         * <p>When this method is executed successfully, the content of panel will be replaced.</p>
          * @param { string } path - the path of ui content.
          * @param { AsyncCallback<void> } callback - the callback of setUiContent.
          * @throws { BusinessError } 401 - parameter error.
@@ -917,7 +916,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Set ui content.
-         * When this method is executed successfully, the content of panel will be replaced.
+         * <p>When this method is executed successfully, the content of panel will be replaced.</p>
          * @param { string } path - the path of ui content.
          * @returns { Promise<void> } the promise returned by the function.
          * @throws { BusinessError } 401 - parameter error.
@@ -929,7 +928,6 @@ declare namespace inputMethodEngine {
 
         /**
          * Resize panel to w,h.
-         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
          * @param { number } w - width of panel.
          * @param { number } h - height of panel.
          * @param { AsyncCallback<void> } callback - the callback of resize.
@@ -942,7 +940,6 @@ declare namespace inputMethodEngine {
 
         /**
          * Resize panel to w,h.
-         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
          * @param { number } w - width of panel.
          * @param { number } h - height of panel.
          * @returns { Promise<void> } the promise returned by the function.

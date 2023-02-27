@@ -43,7 +43,7 @@ export enum Direction {
 
 /**
  * Range of selected text.
- * @interface Range
+ * @typedef Range
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 10
  */
@@ -67,7 +67,7 @@ export interface Range {
 
 /**
  * Movement of cursor.
- * @interface Movement
+ * @typedef Movement
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 10
  */
@@ -101,10 +101,10 @@ export interface PanelInfo {
     type: PanelType;
 
     /**
-     * Flag of Panel.
+     * <p>Flag of Panel.</p>
      * <p>When the panel type is not SOFT_KEYBOARD, the default value { FLG_FIXED_AT_BOTTOM }
      * will be ignore while creating panel.</p>
-     * @type { PanelFlags }
+     * @type { ?PanelFlags }
      * @default FLG_FIXED_AT_BOTTOM
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
@@ -139,9 +139,8 @@ export enum PanelFlag {
 }
 
 /**
- * Panel types provided for input method applications.
- * <p>Input method application developers should select the appropriate
- * panel type according to the user scenario.</p>
+ * <p>Panel types provided for input method applications.</p>
+ * <p>Input method application developers should select the appropriate panel type according to the user scenario.</p>
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
