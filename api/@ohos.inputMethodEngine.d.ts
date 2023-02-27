@@ -927,9 +927,9 @@ declare namespace inputMethodEngine {
         setUiContent(path: string): Promise<void>;
 
         /**
-         * Resize panel to w,h.
-         * @param { number } w - width of panel.
-         * @param { number } h - height of panel.
+         * Resizes a panel.
+         * @param { number } w - The new width of the panel.
+         * @param { number } h - The new height of the panel.
          * @param { AsyncCallback<void> } callback - the callback of resize.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -939,9 +939,9 @@ declare namespace inputMethodEngine {
         resize(w: number, h:number, callback: AsyncCallback<void>): void;
 
         /**
-         * Resize panel to w,h.
-         * @param { number } w - width of panel.
-         * @param { number } h - height of panel.
+         * Resizes a panel.
+         * @param { number } w - The new width of the panel.
+         * @param { number } h - The new height of the panel.
          * @returns { Promise<void> } the promise returned by the function.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -951,10 +951,10 @@ declare namespace inputMethodEngine {
         resize(w: number, h:number): Promise<void>;
 
         /**
-         * Move panel to x,y.
+         * Moves a panel.
          * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
-         * @param { number } x - x of point.
-         * @param { number } y - y of point.
+         * @param { number } x - The x-coordinate of the new position.
+         * @param { number } y - The y-coordinate of the new position.
          * @param { AsyncCallback<void> } callback - the callback of moveTo.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -966,8 +966,8 @@ declare namespace inputMethodEngine {
         /**
          * Move panel to x,y.
          * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
-         * @param { number } x - x of point.
-         * @param { number } y - y of point.
+         * @param { number } x - The x-coordinate of the new position.
+         * @param { number } y - The y-coordinate of the new position.
          * @returns { Promise<void> } the promise returned by the function.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
