@@ -23,7 +23,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 10
  */
- declare namespace serviceRouter {
+declare namespace serviceRouter {
   /**
    * This enumeration value is used to identify various types of service info
    * @enum {number}
@@ -141,7 +141,7 @@ import Want from './@ohos.app.ability.Want';
    * @systemapi
    * @since 10
    */
-   function queryServiceInfos(want: Want, serviceType: ExtensionServiceType, callback: AsyncCallback<Array<ServiceInfo>>): void;
+  function queryServiceInfos(want: Want, serviceType: ExtensionServiceType, callback: AsyncCallback<Array<ServiceInfo>>): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -156,7 +156,7 @@ import Want from './@ohos.app.ability.Want';
    * @systemapi
    * @since 10
    */
-   function queryServiceInfos(want: Want, serviceType: ExtensionServiceType): Promise<Array<ServiceInfo>>;
+  function queryServiceInfos(want: Want, serviceType: ExtensionServiceType): Promise<Array<ServiceInfo>>;
 }
 
 export default serviceRouter;
