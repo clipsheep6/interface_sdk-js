@@ -504,6 +504,21 @@ declare interface sharedTransitionOptions {
 }
 
 /**
+ * Defines the geometry transition function params.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface GeometryTransitionOptions {
+  /**
+   * @type { SharedGeometryEffect }
+   * @default SharedGeometryEffect.LONGTAKE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  effect?: SharedGeometryEffect;
+}
+
+/**
  * Defines the options of translate.
  * @since 7
  */
@@ -2877,9 +2892,17 @@ declare class CommonMethod<T> {
 
   /**
    * geometryTransition
+   * @param { string } id
    * @since 7
    */
-  geometryTransition(id: string): T;
+  /**
+   * geometryTransition
+   * @param { string } id
+   * @param { GeometryTransitionOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
   /**
    * Popup control

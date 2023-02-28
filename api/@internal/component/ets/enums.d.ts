@@ -2097,6 +2097,31 @@ declare enum SharedTransitionEffectType {
 }
 
 /**
+ * SharedGeometryEffect enumeration description
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SharedGeometryEffect {
+  /**
+   * size position border-radius
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  LONGTAKE,
+  /**
+   * size position opacity clip
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INTERCUT,
+  /**
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  WINK,
+}
+
+/**
  * Text style
  * @since 7
  */
