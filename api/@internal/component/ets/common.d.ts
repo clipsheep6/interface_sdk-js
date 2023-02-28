@@ -1134,6 +1134,20 @@ declare enum AdaptiveColor {
 }
 
 /**
+ * Defines model transition.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ModelTransition {
+  /**
+   * Use none animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE,
+}
+
+/**
  * Defines the options of backgroundBlurStyle
  * @since 10
  */
@@ -2248,6 +2262,16 @@ declare class CommonMethod<T> {
    * @since 9
    */
   animation(value: AnimateParam): T;
+
+  /**
+   * Bind content cover
+   * @param { boolean } isOn
+   * @param { CustomBuilder } builder
+   * @param { ModelTransition } type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindContentCover(isOn: boolean, builder: CustomBuilder, type: ModelTransition): T;
 
   /**
    * Transition parameter
