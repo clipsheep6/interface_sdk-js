@@ -99,24 +99,24 @@ declare namespace vibrator {
     function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
     /**
-     * 取消马达振动。
+     * 停止所有模式的马达振动。
      * @param { AsyncCallback<void> } callback - The callback of cancel.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 10
      */
-    function cancel(callback: AsyncCallback<void>): void;
+    function stopVibration(callback: AsyncCallback<void>): void;
 
     /**
-     * 取消马达振动。
+     * 停止所有模式的马达振动。
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 10
      */
-    function cancel(): Promise<void>;
+    function stopVibration(): Promise<void>;
 
     /**
      * 是否支持预置的振动效果串。
