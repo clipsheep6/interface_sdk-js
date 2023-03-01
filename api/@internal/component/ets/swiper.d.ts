@@ -62,6 +62,36 @@ declare enum SwiperDisplayMode {
 }
 
 /**
+ * Declare the alignment of the swiper.
+ * @since 10
+ */
+declare enum SwiperAlign {
+  /**
+   * Alignment is Start.
+   * @since 10
+   */
+  Start,
+
+  /**
+   * Alignment is Center.
+   * @since 10
+   */
+  Center,
+
+  /**
+   * Alignment is End.
+   * @since 10
+   */
+  End,
+
+  /**
+   * Alignment is Auto.
+   * @since 10
+   */
+  Auto,
+}
+
+/**
  * Provides an interface for sliding containers.
  * @since 7
  */

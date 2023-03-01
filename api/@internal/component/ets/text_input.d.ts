@@ -181,43 +181,43 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Called when the complete on/off is set.
-   * @since 7
+   * @since 10
    */
   autoComplete(value: boolean): TextInputAttribute;
 
   /**
    * Called when the check on/off is set.
-   * @since 7
+   * @since10
    */
   autoCheck(value: boolean): TextInputAttribute;
 
   /**
    * Called when the complete length is set.
-   * @since 7
+   * @since 10
    */
   completeLen(value: number): TextInputAttribute;
 
   /**
    * Called when the complete color is set.
-   * @since 7
+   * @since 10
    */
   completeColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the error color is set.
-   * @since 7
+   * @since 10
    */
   errorColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the mask style is set.
-   * @since 7
+   * @since 10
    */
   mask(value: string): TextInputAttribute;
 
   /**
    * Called when the mask length is set.
-   * @since 7
+   * @since 10
    */
   maskLen(value: number): TextInputAttribute;
 

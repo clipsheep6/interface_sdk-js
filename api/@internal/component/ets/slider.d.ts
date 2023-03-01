@@ -316,7 +316,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
 
   /**
    * Called when the icon of block is set.
-   * @since 8
+   * @since 10
    */
   icon(value: string): SliderAttribute;
 }

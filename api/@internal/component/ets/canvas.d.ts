@@ -1048,6 +1048,14 @@ declare class CanvasRenderer extends CanvasPath {
    */
   fillStyle: string | CanvasGradient | CanvasPattern;
 
+    /**
+   * Attributes that describe the fill colorMatrix. The default value is NULL. The options are as follows:
+   * colorMatrix: colorMatrix object. For details, see {@link colorMatrix}.
+   * @param path Specified stroke path object
+   * @since 10
+   */
+  colorMatrix: colorMatrix ;
+
   /**
    * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
    * color: Color String

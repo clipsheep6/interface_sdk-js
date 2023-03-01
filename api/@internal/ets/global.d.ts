@@ -60,6 +60,48 @@ export declare class console {
 }
 
 /**
+ * Attributes that describe the fill colorMatrix. The default value is NULL. The options are as follows:
+ * colorMatrix: colorMatrix object. For details, see {@link colorMatrix}.
+ * @param path Specified stroke path object
+ * @since 10
+ */
+export declare class colorMatrix {
+  static new(): colorMatrix;
+
+  static new(a: number, b: number, c: number, d: number, e: number,
+             f: number, g: number, h: number, i: number, j: number,
+             k: number, l: number, m: number, n: number, o: number,
+             p: number, q: number, r: number, s: number, t: number): colorMatrix;
+
+  static new(matrix: colorMatrix): colorMatrix;
+
+  equals(matrix: colorMatrix): colorMatrix;
+
+  getArray(): colorMatrix;
+
+  postConcat(postMatrix: colorMatrix): colorMatrix;
+
+  preConcat(preMatrix: colorMatrix): colorMatrix;
+
+  reset(): colorMatrix;
+
+  set(a: number, b: number, c: number, d: number, e: number,
+      f: number, g: number, h: number, i: number, j: number,
+      k: number, l: number, m: number, n: number, o: number,
+      p: number, q: number, r: number, s: number, t: number): colorMatrix;
+
+  set(colorMatrix: colorMatrix):colorMatrix;
+
+  setConcat(matA: colorMatrix, matB: colorMatrix): colorMatrix;
+
+  setRotate(axis: number, degrees: number): colorMatrix;
+
+  setSaturation(sat: number): colorMatrix;
+
+  setScale(rScale: number,gScale: number,bScale: number,aScale: number): colorMatrix;
+}
+
+/**
  * Sets the interval for repeatedly calling a function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.

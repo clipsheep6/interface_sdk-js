@@ -90,6 +90,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   textAlign(value: TextAlign): TextAreaAttribute;
 
   /**
+     * Called when the insertion BarState is set.
+     * @since 7
+     */
+  scrollBar(value: BarState): TextAreaAttribute;
+
+  /**
    * Called when the insertion cursor color is set.
    * @since 7
    */
