@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ApplicationInfo } from './bundleManager/ApplicationInfo';
 import Want from './@ohos.app.ability.Want';
+import * as _ServiceInfo from './bundleManager/ServiceInfo';
 
 /**
  * This module is used to obtain service information of various applications installed on the current device.
@@ -47,86 +47,6 @@ declare namespace serviceRouter {
     UNSPECIFIED = 255,
   }
 
-  /**
-   * Service information about a bundle
-   * @typedef ServiceInfo
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 10
-   */
-  export interface ServiceInfo {
-    /**
-     * Indicates the name of the bundle
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly bundleName: string;
-
-    /**
-     * Indicates the name of the module
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly moduleName: string;
-
-    /**
-     * Indicates the name of the service info
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly name: string;
-
-    /**
-     * Indicates the label id of the service info
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly labelId: number;
-
-    /**
-     * Indicates the description id of the service info
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly descriptionId: number;
-
-    /**
-     * Indicates the icon id of the service info
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly iconId: number;
-
-    /**
-     * Enumerates types of the service info
-     * @type {serviceRouter.ExtensionServiceType}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly serviceType: serviceRouter.ExtensionServiceType;
-
-    /**
-     * The permissions that others need to use this service info
-     * @type {Array<string>}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly permissions: Array<string>;
-
-    /**
-     * Obtains configuration information about an application
-     * @type {ApplicationInfo}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    readonly applicationInfo: ApplicationInfo;
-  }
 
   /**
    * Query the service info of by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -157,6 +77,13 @@ declare namespace serviceRouter {
    * @since 10
    */
   function queryServiceInfos(want: Want, serviceType: ExtensionServiceType): Promise<Array<ServiceInfo>>;
+  
+  /**
+   * Obtains service information about a bundle.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type ServiceInfo = _ServiceInfo.ServiceInfo;
 }
 
 export default serviceRouter;
