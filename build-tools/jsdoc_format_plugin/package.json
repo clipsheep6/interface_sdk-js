@@ -4,6 +4,7 @@
   "description": "",
   "main": "collect.js",
   "scripts": {
+    "test": "mocha --config test/mocha/.mocharc.jsonc",
     "build": "webpack --mode=production",
     "testAll": "ts-node src/main.ts -i ../../api/ -o testAllResult/"
   },

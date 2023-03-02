@@ -1,0 +1,154 @@
+/*
+ * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import { AsyncCallback, Callback } from './basic';
+
+/**
+ * Defines the MediaQuery event.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 3
+ * @namespace MediaQueryEvent
+ */
+declare namespace MediaQueryEvent {
+    /**
+     * Defines the MediaQuery event.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 3
+     * @extends
+     */
+    export class MediaQueryEvent {
+        /**
+         * The result of match result.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 3
+         */
+        matches: boolean;
+
+        on(type: 'add', callback: Callback<number>): void;
+
+        on(type: 'remove', callback: Callback<number>): void;
+
+        on(type: 'change', callback: Callback<number>): void;
+
+        off(type: 'add', callback: Callback<number>): void;
+
+        off(type: 'remove', callback: Callback<number>): void;
+
+        off(type: 'change', callback: Callback<number>): void;
+        /**
+         * Obtain the default display.
+         *
+         * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.display#getDefaultDisplaySync
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @param { AsyncCallback<Display> } callback
+         * @returns { void }
+         */
+        getDefaultDisplay(callback: AsyncCallback<Display>): void;
+    }
+
+    /**
+     * Register the callback for display changes.
+     *
+     * @param type: type of callback
+     * @param { Callback<number> } callback
+     * @param
+     * @returns { void }
+     * @throws { BusinessError } 401 - If param is invalid
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function on(type: 'add', callback: Callback<number>): void;
+
+    /**
+     * Register the callback for display changes.
+     *
+     * @param type: type of callback
+     * @param { Callback<number> } callback
+     * @param
+     * @returns { void }
+     * @throws { BusinessError } 401 - If param is invalid
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function on(type: 'remove', callback: Callback<number>): void;
+
+    /**
+     * Register the callback for display changes.
+     *
+     * @param type: type of callback
+     * @param { Callback<number> } callback
+     * @param
+     * @returns { void }
+     * @throws { BusinessError } 401 - If param is invalid
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function on(type: 'change', callback: Callback<number>): void;
+
+    /**
+     * Register the callback for display changes.
+     *
+     * @param type: type of callback
+     * @param { Callback<number> } callback
+     * @param
+     * @returns { void }
+     * @throws { BusinessError } 401 - If param is invalid
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function off(type: 'add', callback: Callback<number>): void;
+
+    /**
+     * Register the callback for display changes.
+     *
+     * @param type: type of callback
+     * @param { Callback<number> } callback
+     * @param
+     * @returns { void }
+     * @throws { BusinessError } 401 - If param is invalid
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function off(type: 'remove', callback: Callback<number>): void;
+
+    /**
+     * Register the callback for display changes.
+     *
+     * @param type: type of callback
+     * @param { Callback<number> } callback
+     * @param
+     * @returns { void }
+     * @throws { BusinessError } 401 - If param is invalid
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function off(type: 'change', callback: Callback<number>): void;
+    /**
+     * Obtain the default display.
+     *
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.display#getDefaultDisplaySync
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @param { AsyncCallback<Display> } callback
+     * @returns { void }
+     */
+    function getDefaultDisplay(callback: AsyncCallback<Display>): void;
+}
