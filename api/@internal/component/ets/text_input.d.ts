@@ -218,7 +218,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the mask length is set.
    * @since 10
-
+   */
   maskLen(value: number): TextInputAttribute;
 
   /**
