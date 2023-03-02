@@ -348,6 +348,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
      function once(type: SensorId.ACCELEROMETER, callback: Callback<AccelerometerResponse>): void;
 
@@ -362,6 +363,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>): void;
 
@@ -373,6 +375,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
 
@@ -384,6 +387,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
 
@@ -395,6 +399,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.BAROMETER, callback: Callback<BarometerResponse>): void;
 
@@ -406,6 +411,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.GRAVITY, callback: Callback<GravityResponse>): void;
 
@@ -419,6 +425,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.GYROSCOPE, callback: Callback<GyroscopeResponse>): void;
 
@@ -432,6 +439,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>): void;
 
@@ -443,6 +451,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.HALL, callback: Callback<HallResponse>): void;
 
@@ -456,6 +465,7 @@ declare namespace sensor {
      * @permission ohos.permission.READ_HEALTH_DATA
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
@@ -467,6 +477,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>): void;
 
@@ -480,6 +491,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>): void;
 
@@ -491,6 +503,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
 
@@ -503,6 +516,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
 
@@ -514,6 +528,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>): void;
 
@@ -527,6 +542,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.PEDOMETER, callback: Callback<PedometerResponse>): void;
 
@@ -540,6 +556,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>): void;
 
@@ -551,6 +568,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.PROXIMITY, callback: Callback<ProximityResponse>): void;
 
@@ -562,6 +580,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
 
@@ -573,6 +592,7 @@ declare namespace sensor {
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
 
@@ -582,9 +602,9 @@ declare namespace sensor {
      * @param { Callback<RotationVectorResponse> } callback - callback wear detection data.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
-     *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
+     * @deprecated since 10
      */
     function once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
     /**

@@ -99,6 +99,46 @@ declare namespace vibrator {
     function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
     /**
+     * 停止所有模式的马达振动。
+     * @param { AsyncCallback<void> } callback - The callback of cancel.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 10
+     */
+    function stopVibration(callback: AsyncCallback<void>): void;
+
+    /**
+     * 停止所有模式的马达振动。
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 10
+     */
+    function stopVibration(): Promise<void>;
+
+    /**
+     * 是否支持预置的振动效果串。
+     * @param { AsyncCallback<void> } callback - The callback of cancel.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+    function isSupportEffect(effectId: string, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * 是否支持预置的振动效果串。
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+    function isSupportEffect(effectId: string): Promise<boolean>;
+
+    /**
      * Stop the motor from vibrating.
      * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
      * @syscap SystemCapability.Sensors.MiscDevice
