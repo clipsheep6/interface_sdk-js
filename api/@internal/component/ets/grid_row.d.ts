@@ -252,6 +252,13 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
      * @since 9
      */
     onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
+
+  /**
+   * Cross axis alignment of each line in GridRow.
+   * @default ItemAlign.Start
+   * @since 10
+   */
+  alignItems(value: ItemAlign): GridRowAttribute;
 }
 
 /**
