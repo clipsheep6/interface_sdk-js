@@ -15,7 +15,7 @@
 
 const path = require("path");
 const fs = require("fs");
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+const ts = require("typescript");
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
 const { checkPermission } = require("./check_permission");

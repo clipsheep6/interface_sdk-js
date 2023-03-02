@@ -15,7 +15,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+const ts = require("typescript");
 const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType } = require("./utils");
 const { addAPICheckErrorLogs } = require("./compile_info");
 const rules = require("../code_style_rule.json");

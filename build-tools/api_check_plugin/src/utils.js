@@ -15,6 +15,18 @@
 const fs = require("fs");
 const path = require("path");
 const ExcelJS = require('exceljs');
+const cm = require('comment-parser');
+const ts = require("typescript");
+
+const commentNodeWhiteList = [
+  ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.EnumMember, ts.SyntaxKind.VariableStatement,
+  ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.Constructor, ts.SyntaxKind.ModuleDeclaration,
+  ts.SyntaxKind.NamespaceExportDeclaration, ts.SyntaxKind.ClassDeclaration, ts.SyntaxKind.InterfaceDeclaration,
+  ts.SyntaxKind.EnumDeclaration, ts.SyntaxKind.Parameter, ts.SyntaxKind.TypeLiteral, ts.SyntaxKind.FunctionDeclaration,
+  ts.SyntaxKind.LabeledStatement
+];
+exports.commentNodeWhiteList = commentNodeWhiteList;
 
 function getAPINote(node) {
   const apiLength = node.getText().length;
@@ -24,6 +36,9 @@ function getAPINote(node) {
 exports.getAPINote = getAPINote;
 
 function hasAPINote(node) {
+  if (!node) {
+    return false;
+  }
   const apiNote = getAPINote(node).replace(/[\s]/g, "");
   if (apiNote && apiNote.length !== 0) {
     return true;
@@ -76,7 +91,8 @@ const ErrorType = {
   UNKNOW_PERMISSION: 'unknow permission',
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
-  INVALID_IMPORT: 'invalid import'
+  INVALID_IMPORT: 'invalid import',
+  WRONG_ORDER: 'wrong order'
 }
 exports.ErrorType = ErrorType;
 
@@ -176,3 +192,16 @@ function getApiVersion(node) {
   }
 }
 exports.getApiVersion = getApiVersion;
+
+function parseJsDoc(node) {
+  if (!hasAPINote(node)) {
+    return [];
+  } else {
+    return cm.parse(getAPINote(node));
+  }
+}
+exports.parseJsDoc = parseJsDoc;
+
+let permissionFile = path.resolve(__dirname, '../../../../../',
+  "base/global/system_resources/systemres/main/config.json");
+exports.permissionFile = permissionFile;

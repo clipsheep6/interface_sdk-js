@@ -16,24 +16,25 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel, FileType, permissionFile } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
 function getPermissionBank() {
   const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
-  const permissionFilesPath = path.resolve(__dirname, '../../../../../',
-    "base/global/system_resources/systemres/main/config.json");
-  const content = fs.readFileSync(permissionFilesPath, 'utf-8');
-  const permissionFileContent = JSON.parse(content);
-  const permissionTagsObj = permissionFileContent.module.definePermissions;
-  permissionTagsObj.forEach((item) => {
-    permissionTags.push(item.name);
-  })
+  if (fs.existsSync(permissionFile)) {
+    const content = fs.readFileSync(permissionFile, 'utf-8');
+    const permissionFileContent = JSON.parse(content);
+    const permissionTagsObj = permissionFileContent.module.definePermissions;
+    permissionTagsObj.forEach((item) => {
+      permissionTags.push(item.name);
+    })
+  }
   const permissionRuleSets = new Set(permissionTags);
   return permissionRuleSets
 }
+exports.getPermissionBank = getPermissionBank;
 
 function checkPermission(node, sourcefile, fileName) {
   const permissionRuleSet = getPermissionBank();
