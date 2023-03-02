@@ -72,7 +72,7 @@ declare namespace serviceRouter {
     readonly moduleName: string;
 
     /**
-     * Indicates the name of the extension ability info
+     * Indicates the name of the service info
      * @type {string}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
@@ -80,7 +80,7 @@ declare namespace serviceRouter {
     readonly name: string;
 
     /**
-     * Indicates the label id of the extension ability info
+     * Indicates the label id of the service info
      * @type {number}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
@@ -88,7 +88,7 @@ declare namespace serviceRouter {
     readonly labelId: number;
 
     /**
-     * Indicates the description id of the extension ability info
+     * Indicates the description id of the service info
      * @type {number}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
@@ -96,7 +96,7 @@ declare namespace serviceRouter {
     readonly descriptionId: number;
 
     /**
-     * Indicates the icon id of the extension ability info
+     * Indicates the icon id of the service info
      * @type {number}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
@@ -104,7 +104,7 @@ declare namespace serviceRouter {
     readonly iconId: number;
 
     /**
-     * Enumerates types of the extension ability info
+     * Enumerates types of the service info
      * @type {serviceRouter.ExtensionServiceType}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
@@ -112,7 +112,7 @@ declare namespace serviceRouter {
     readonly serviceType: serviceRouter.ExtensionServiceType;
 
     /**
-     * The permissions that others need to use this extension ability info
+     * The permissions that others need to use this service info
      * @type {Array<string>}
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
@@ -129,8 +129,8 @@ declare namespace serviceRouter {
   }
 
   /**
-   * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * Query the service info of by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionServiceType } serviceType - Indicates ServiceType.
    * @param { AsyncCallback<Array<ServiceInfo>> } callback - The callback of querying service info result.
@@ -144,8 +144,8 @@ declare namespace serviceRouter {
   function queryServiceInfos(want: Want, serviceType: ExtensionServiceType, callback: AsyncCallback<Array<ServiceInfo>>): void;
 
   /**
-   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * Query the service info by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionServiceType } serviceType - Indicates ServiceType.
    * @returns { Promise<Array<ServiceInfo>> } Returns a list of ServiceInfo objects.
