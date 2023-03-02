@@ -1022,7 +1022,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1040,7 +1040,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1054,7 +1054,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1068,7 +1068,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1083,7 +1083,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @systemapi
          * @StageModelOnly
@@ -1100,7 +1100,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @systemapi
          * @StageModelOnly
@@ -1117,7 +1117,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1132,7 +1132,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1147,7 +1147,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
@@ -1164,7 +1164,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
@@ -1180,7 +1180,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1194,7 +1194,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1548,7 +1548,7 @@ declare namespace distributedKVStore {
          *
          * @param {AsyncCallback<void>} callback - the callback of startTransaction.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1561,7 +1561,7 @@ declare namespace distributedKVStore {
          *
          * @returns {Promise<void>} the promise returned by the function.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
-         * @throws {BusinessError} 15100006 - if the size of Wal is over max size.
+         * @throws {BusinessError} 15100006 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
