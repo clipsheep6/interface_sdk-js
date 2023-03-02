@@ -805,7 +805,7 @@ declare namespace settings {
    * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @StageModelOnly
-   * @since 10
+   * @since 9
    */
   function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
   function getValue(context: Context, name: string): Promise<string>;
@@ -835,7 +835,7 @@ declare namespace settings {
    * @param value Indicates the value of the character string.
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @StageModelOnly
-   * @since 10
+   * @since 9
    */
   function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
   function setValue(context: Context, name: string, value: string): Promise<boolean>;
@@ -890,7 +890,7 @@ declare namespace settings {
    * @param defValue Indicates the default value of the character string.
    * @returns settingsdata value
    * @StageModelOnly
-   * @since 10
+   * @since 9
    */
   function getValueSync(context: Context, name: string, defValue: string): string;
  
@@ -916,7 +916,7 @@ declare namespace settings {
    * @param value Indicates the value of the character string.
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @StageModelOnly
-   * @since 10
+   * @since 9
    */
   function setValueSync(context: Context, name: string, value: string): boolean;
 }
