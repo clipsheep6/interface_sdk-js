@@ -1566,6 +1566,76 @@ declare interface PixelMapMock {
 }
 
 /**
+ * Defines drag data type
+ * @since 10
+ */
+declare enum DragDataType {
+  /**
+   * Defines plain text drag data type
+   * @since 10
+   */
+  TextPlain,
+  /**
+   * Defines text with style drag data type
+   * @since 10
+   */
+  TextStyled,
+  /**
+   * Defines image drag data type
+   * @since 10
+   */
+  Image,
+  /**
+   * Defines html drag data type
+   * @since 10
+   */
+  Html,
+  /**
+   * Defines file drag data type
+   * @since 10
+   */
+  File,
+  /**
+   * Defines video drag data type
+   * @since 10
+   */
+  Video,
+  /**
+   * Defines audio drag data type
+   * @since 10
+   */
+  Audio,
+  /**
+   * Defines linker drag data type
+   * @since 10
+   */
+  Link,
+  /**
+   * Defines folder drag data type
+   * @since 10
+   */
+  Folder,
+}
+
+/**
+ * Defines drag data
+ * @since 10
+ */
+declare interface DragData {
+  /**
+   * Type of drag data.
+   * @since 10
+   */
+  type: DragDataType;
+
+  /**
+   * Data of drag data.
+   * @since 10
+   */
+  data: any;
+}
+
+/**
  * DragEvent object description
  * @since 7
  */
@@ -2700,6 +2770,13 @@ declare class CommonMethod<T> {
   onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * @since 10
+   */
+  onDragStart(event: (event?: DragEvent, extraParams?: string, dragData?: DragData) => CustomBuilder | DragItemInfo): T;
+
+  /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
    */
@@ -2724,6 +2801,40 @@ declare class CommonMethod<T> {
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * @since 10
+   */
+  onDrop(event: (event?: DragEvent, extraParams?: string, dropData?: DragData) => void): T;
+
+  /**
+   * Add draggable to current component. If set draggable = true, this component can be dragged.
+   * @since 10
+   */
+  draggable(value: boolean) : T;
+
+  /**
+   * Add dragSubScript to current component.
+   * When dragging finish, if drag success show successSubscript, else show failSubscript
+   * @since 10
+   */
+  dragSubscript(options?: { successSubscript?: string; failSubscript?: string}): T;
+
+  /**
+   * Add dropType to current component.
+   * When dragging finish, if drag data type is one of dropType, drag success
+   * @since 10
+   */
+  dropType(value: Vector<DragDataType>): T;
+
+  /**
+   * After binding onDragFinish, when drag action which is started by this component is finished,
+   * return callback to this component and return boolean true.
+   * @since 10
+   */
+  onDragFinish(event : (event?: DragEvent) => boolean): T;
+  
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    * @since 7
