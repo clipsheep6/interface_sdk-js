@@ -1370,8 +1370,8 @@ declare namespace relationalStore
 
         /**
          * Obtains all the value in the current row.
-		 * The Text is a customered interface or cast to a customered object.
-		 * The implementation class determines whether to throw an exception if current row is not a correct
+         * The Text is a customered interface or cast to a customered object.
+         * The implementation class determines whether to throw an exception if current row is not a correct
          * position or some of the column is not correct.
          *
          * @returns {T} returns the value of current row as a T.
