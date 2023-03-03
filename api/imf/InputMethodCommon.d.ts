@@ -119,7 +119,8 @@ export interface PanelInfo {
 export enum PanelFlag {
     /**
      * Fixed style.
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.</p>
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -127,7 +128,7 @@ export enum PanelFlag {
 
     /**
      * Floating style.
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD panel.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
      * When the flag is set, the soft keyboard is floating.</p>
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -136,7 +137,7 @@ export enum PanelFlag {
     /**
      * Candidate bar style.
      * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flags is set, the soft keyboard is only using as a candidate word bar.</p>
+     * When the flag is set, the soft keyboard is only using as a candidate word bar.</p>
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */

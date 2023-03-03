@@ -471,7 +471,7 @@ declare namespace inputMethodEngine {
         createPanel(info: PanelInfo): Promise<Panel>;
 
         /**
-         * Destroy a panel.
+         * Destroys a panel.
          * @param { Panel } panel - to be destroyed.
          * @param { AsyncCallback<void> } callback - the callback of moveMissionToFront.
          * @throws { BusinessError } 401 - parameter error.
@@ -482,7 +482,7 @@ declare namespace inputMethodEngine {
         destroyPanel(panel: Panel, callback: AsyncCallback<void>): void;
 
         /**
-         * Destroy a panel.
+         * Destroys a panel.
          * @param { Panel } panel - to be destroyed.
          * @returns { Promise<void> }  the promise returned by the function.
          * @throws { BusinessError } 401 - parameter error.
@@ -925,7 +925,6 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     interface Panel {
-
         /**
          * Sets ui content.
          * <p>When this method is executed successfully, the content of panel will be replaced.</p>
@@ -976,7 +975,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Moves a panel.
-         * It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.
+         * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
          * @param { number } x - The x-coordinate of the new position.
          * @param { number } y - The y-coordinate of the new position.
          * @param { AsyncCallback<void> } callback - the callback of moveTo.
@@ -989,7 +988,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Moves a panel.
-         * It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.
+         * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
          * @param { number } x - The x-coordinate of the new position.
          * @param { number } y - The y-coordinate of the new position.
          * @returns { Promise<void> } the promise returned by the function.
@@ -1002,7 +1001,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Shows panel.
-         * It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.
+         * <p>It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.</p>
          * @param { AsyncCallback<void> } callback - the callback of show.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1013,7 +1012,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Shows panel.
-         * It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.
+         * <p>It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.</p>
          * @returns { Promise<void> } the promise returned by the function.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
@@ -1023,7 +1022,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Hides panel.
-         * It's available for SOFT_KEYBOARD panel.
+         * <p>It's available for SOFT_KEYBOARD panel.</p>
          * @param { AsyncCallback<void> } callback - the callback of hide.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1034,7 +1033,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Hides panel.
-         * It's available for SOFT_KEYBOARD panel.
+         * <p>It's available for SOFT_KEYBOARD panel.</p>
          * @returns { Promise<void> } the promise returned by the function.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
@@ -1065,7 +1064,7 @@ declare namespace inputMethodEngine {
         off(type: 'show'|'hide', callback?:() => void): void;
 
         /**
-         * Set panel flag.
+         * Changes panel flag.
          * @param { PanelFlag } flag - the callback of changeFlag.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
