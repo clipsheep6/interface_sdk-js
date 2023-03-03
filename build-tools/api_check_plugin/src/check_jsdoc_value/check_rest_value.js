@@ -26,8 +26,14 @@ function checkExtendsValue(tag, node, sourcefile, fileName, index) {
   let apiValue = '';
   // 获取api中的extends信息，校验标签合法性及值规范
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
-    apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
-    if (tagValue != apiValue) {
+    const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
+
+    if (apiValue.length == 0) {
+      extendsResult.checkResult = false,
+        extendsResult.errorInfo = `should delete @extends; `;
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, extendsResult.errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    } else if (tagValue != apiValue) {
       extendsResult.checkResult = false,
         extendsResult.errorInfo = ` '@${tagValue}' should change to '${apiValue}'; `;
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, extendsResult.errorInfo, FileType.JSDOC,
@@ -177,8 +183,8 @@ function checkTypeValue(tag, node, sourcefile, fileName, index) {
     errorInfo: "",
   }
   const tagTypeValue = tag.type;
-  const apiInfo = node.getText();
-  if (apiInfo.indexOf(tagTypeValue) == -1) {
+  const apiTypeValue = node.type?.getText();
+  if (apiTypeValue != tagTypeValue) {
     typeResult.checkResult = false;
     typeResult.errorInfo = `@type value '${tagTypeValue}' is wrong; `;
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, typeResult.errorInfo, FileType.JSDOC,
@@ -207,12 +213,12 @@ function checkPermissionTag(tag, node, sourcefile, fileName, index) {
   const permissionRuleSet = getPermissionBank();
   let hasPermissionError = false;
   let errorInfo = "";
-  let permissiobResult = {
+  let permissionResult = {
     checkResult: true,
     errorInfo: "",
   };
   const tagValue = tag.name + tag.description;
-  const permissionArr = tagValue.replace(/( |or|and|\(|\))/g, '$').split('$');
+  const permissionArr = tagValue.replace(/ /g, '').replace(/(or|and|\(|\))/g, '$').split('$');
   permissionArr.forEach(permissionStr => {
     if (permissionStr !== '') {
       if (!permissionRuleSet.has(permissionStr) && permissionStr != 'N/A') {
@@ -229,14 +235,75 @@ function checkPermissionTag(tag, node, sourcefile, fileName, index) {
     }
   })
   if (hasPermissionError) {
-    permissiobResult.checkResult = false;
-    permissiobResult.errorInfo = errorInfo;
+    permissionResult.checkResult = false;
+    permissionResult.errorInfo = errorInfo;
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, errorInfo, FileType.API,
-      ErrorLevel.MIDDLE);
+      ErrorLevel.LOW);
   }
-  return permissiobResult;
+  return permissionResult;
 }
 exports.checkPermissionTag = checkPermissionTag;
+
+function checkDeprecatedTag(tag, node, sourcefile, fileName, index) {
+  let deprecatedResult = {
+    checkResult: true,
+    errorInfo: "",
+  };
+  const tagValue1 = tag.name;
+  const tagValue2 = tag.description;
+  if (tagValue1 != 'since' || isNaN(parseFloat(tagValue2))) {
+    deprecatedResult.checkResult = false;
+    deprecatedResult.errorInfo = '@deprecated value is wrong';
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, deprecatedResult.errorInfo,
+      FileType.API, ErrorLevel.LOW);
+  }
+  return deprecatedResult;
+}
+exports.checkDeprecatedTag = checkDeprecatedTag;
+
+function checkSyscapTag(tag, node, sourcefile, fileName, index) {
+  let syscapResult = {
+    checkResult: true,
+    errorInfo: "",
+  };
+  const tagValue = tag.name;
+  const syscapTags = rules.syscap.SystemCapability;
+  const syscapRuleSet = new Set();
+  for (const i in syscapTags) {
+    syscapTags[i].forEach(syscap => {
+      const syscapTag = 'SystemCapability.' + i + '.' + syscap;
+      syscapRuleSet.add(syscapTag);
+    });
+  }
+  if (!syscapRuleSet.has(tagValue)) {
+    syscapResult.checkResult = false;
+    syscapResult.errorInfo = '@syscap value is wrong';
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, syscapResult.errorInfo,
+      FileType.API, ErrorLevel.LOW);
+  }
+  return syscapResult;
+}
+exports.checkSyscapTag = checkSyscapTag;
+
+function checkNamespaceTag(tag, node, sourcefile, fileName) {
+  let namespaceResult = {
+    checkResult: true,
+    errorInfo: "",
+  };
+  const tagValue = tag.name;
+  let apiValue = node.name?.escapedText;
+  if (apiValue == undefined) {
+    apiValue = node.statements[0].name.escapedText;
+  }
+  if (apiValue != undefined && tagValue != apiValue) {
+    namespaceResult.checkResult = false;
+    namespaceResult.errorInfo = '@namespace value is wrong';
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, namespaceResult.errorInfo,
+      FileType.API, ErrorLevel.LOW);
+  }
+  return namespaceResult;
+}
+exports.checkNamespaceTag = checkNamespaceTag;
 
 const JsDocValueChecker = {
   'extends': checkExtendsValue,
@@ -248,6 +315,9 @@ const JsDocValueChecker = {
   'useinstead': checkUseinsteadValue,
   'type': checkTypeValue,
   'default': checkDefaultValue,
-  'permission': checkPermissionTag
+  'permission': checkPermissionTag,
+  'deprecated': checkDeprecatedTag,
+  'syscap': checkSyscapTag,
+  'namespace': checkNamespaceTag
 }
 exports.JsDocValueChecker = JsDocValueChecker;
