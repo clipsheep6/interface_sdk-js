@@ -1003,7 +1003,6 @@ declare namespace inputMethodEngine {
          * Shows panel.
          * <p>It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.</p>
          * @param { AsyncCallback<void> } callback - the callback of show.
-         * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          * @since 10
@@ -1024,7 +1023,6 @@ declare namespace inputMethodEngine {
          * Hides panel.
          * <p>It's available for SOFT_KEYBOARD panel.</p>
          * @param { AsyncCallback<void> } callback - the callback of hide.
-         * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          * @since 10
