@@ -176,13 +176,6 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        /**
-         * Specifies the security level of the database.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @crossplatform
-         * @since 10
-         */
         securityLevel: SecurityLevel;
 
         /**
@@ -208,14 +201,6 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        /**
-         * S1: means the db is low level security
-         * There are some low impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @crossplatform
-         * @since 10
-         */
          S1 = 1,
 
         /**
@@ -224,14 +209,6 @@ declare namespace relationalStore
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
-         */
-        /**
-         * S2: means the db is middle level security
-         * There are some major impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @crossplatform
-         * @since 10
          */
          S2 = 2,
 
@@ -242,14 +219,6 @@ declare namespace relationalStore
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        /**
-         * S3: means the db is high level security
-         * There are some severity impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @crossplatform
-         * @since 10
-         */
          S3 = 3,
 
         /**
@@ -258,14 +227,6 @@ declare namespace relationalStore
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
-         */
-        /**
-         * S4: means the db is critical level security
-         * There are some critical impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @crossplatform
-         * @since 10
          */
          S4 = 4,
     }
