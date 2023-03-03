@@ -24,42 +24,49 @@ declare namespace request {
   /**
    * Error code 201. the permissions check fails
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_PERMISSION: number;
   /**
    * Error code 401. the parameters check fails
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_PARAMCHECK: number;
   /**
    * Error code 801. call unsupported api
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_UNSUPPORTED: number;
   /**
    * Error code 13400001. file operation error
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_FILEIO: number;
   /**
    * Error code 13400002. bad file path
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_FILEPATH: number;
   /**
    * Error code 13400003. task manager service error
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_SERVICE: number;
   /**
    * Error code 13499999. others error
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    */
   const EXCEPTION_OTHERS: number;
@@ -67,6 +74,7 @@ declare namespace request {
   /**
    * Code 0x00000001. Bit flag indicating download is allowed when using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 6
    * @permission ohos.permission.INTERNET
    */
@@ -75,6 +83,7 @@ declare namespace request {
   /**
   * Code 0x00010000. Bit flag indicating download is allowed when using the WLAN.
   * @syscap SystemCapability.MiscServices.Download
+  * @crossplatform
   * @since 6
   * @permission ohos.permission.INTERNET
   */
@@ -83,6 +92,7 @@ declare namespace request {
   /**
    * Error code 0. Indicates that the download cannot be resumed for network reasons.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -91,6 +101,7 @@ declare namespace request {
   /**
    * Error code 1. Indicates that no storage device, such as an SD card, is found.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -99,6 +110,7 @@ declare namespace request {
   /**
    * Error code 2. Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -107,6 +119,7 @@ declare namespace request {
   /**
    * Error code 3. Indicates that a file operation fails.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -115,6 +128,7 @@ declare namespace request {
   /**
    * Error code 4. Indicates that the HTTP transmission fails.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -123,6 +137,7 @@ declare namespace request {
   /**
    * Error code 5. Indicates insufficient storage space.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -131,6 +146,7 @@ declare namespace request {
   /**
    * Error code 6. Indicates an error caused by too many network redirections.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -139,6 +155,7 @@ declare namespace request {
   /**
    * Error code 7. Indicates an HTTP code that cannot be identified.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -147,6 +164,7 @@ declare namespace request {
   /**
    * Error code 8. Indicates an undefined error.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -155,6 +173,7 @@ declare namespace request {
   /**
    * Error code 9. Indicates network offline.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    * @permission ohos.permission.INTERNET
    */
@@ -163,6 +182,7 @@ declare namespace request {
   /**
    * Error code 10. Indicates network type configuration error.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    * @permission ohos.permission.INTERNET
    */
@@ -171,6 +191,7 @@ declare namespace request {
   /**
    * Paused code 0. Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -179,6 +200,7 @@ declare namespace request {
   /**
    * Paused code 1. Indicates that the download is paused due to a network problem, for example, network disconnection.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -187,6 +209,7 @@ declare namespace request {
   /**
    * Paused code 2. Indicates that a network error occurs, and the download session will be retried.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -195,6 +218,7 @@ declare namespace request {
   /**
    * Paused code 3. Indicates that the download is paused due to the user.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    * @permission ohos.permission.INTERNET
    */
@@ -203,6 +227,7 @@ declare namespace request {
   /**
    * Paused code 4. Indicates that the download is paused for some reasons.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -211,6 +236,7 @@ declare namespace request {
   /**
    * Session status code 0. Indicates that the download session is completed.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -219,6 +245,7 @@ declare namespace request {
   /**
    * Session status code 1. Indicates that the download session is in progress.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -227,6 +254,7 @@ declare namespace request {
   /**
    * Session status code 2. Indicates that the download session is being scheduled.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -235,6 +263,7 @@ declare namespace request {
   /**
    * Session status code 3. Indicates that the download session has been paused.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -243,6 +272,7 @@ declare namespace request {
   /**
    * Session status code 4. Indicates that the download session has failed and will not be retried.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -264,6 +294,7 @@ declare namespace request {
   /**
    * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Download config
@@ -293,6 +324,7 @@ declare namespace request {
   /**
    * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Download config
@@ -322,6 +354,7 @@ declare namespace request {
   /**
    * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
+   * @crossplatform
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
@@ -348,6 +381,7 @@ declare namespace request {
   /**
    * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
+   * @crossplatform
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
@@ -363,6 +397,7 @@ declare namespace request {
    * DownloadConfig data Structure
    *
    * @name DownloadConfig
+   * @crossplatform
    * @since 6
    * @syscap SystemCapability.MiscServices.Download
    * @permission ohos.permission.INTERNET
@@ -372,6 +407,7 @@ declare namespace request {
      * Resource address.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     url: string;
@@ -379,6 +415,7 @@ declare namespace request {
      * Adds an HTTP or HTTPS header to be included with the download request.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     header?: Object;
@@ -386,6 +423,7 @@ declare namespace request {
      * Allows download under a metered connection.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     enableMetered?: boolean;
@@ -393,6 +431,7 @@ declare namespace request {
      * Allows download in a roaming network.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     enableRoaming?: boolean;
@@ -400,6 +439,7 @@ declare namespace request {
      * Sets the description of a download session.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     description?: string;
@@ -407,6 +447,7 @@ declare namespace request {
      * Sets the network type allowed for download.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     networkType?: number;
@@ -414,6 +455,7 @@ declare namespace request {
      * Sets the path for downloads.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     filePath?: string;
@@ -421,6 +463,7 @@ declare namespace request {
      * Sets a download session title.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     title?: string;
@@ -428,6 +471,7 @@ declare namespace request {
      * Allow download background task notifications.
      *
      * @since 9
+     * @crossplatform
      */
     background?: boolean;
   }
@@ -437,6 +481,7 @@ declare namespace request {
    *
    * @name DownloadInfo
    * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform
    * @since 7
    * @permission ohos.permission.INTERNET
    */
@@ -445,6 +490,7 @@ declare namespace request {
      * the description of a file to be downloaded.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     description: string;
@@ -452,6 +498,7 @@ declare namespace request {
      * the real-time downloads size (in bytes).
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     downloadedBytes: number;
@@ -459,6 +506,7 @@ declare namespace request {
      * the ID of a file to be downloaded.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     downloadId: number;
@@ -466,6 +514,7 @@ declare namespace request {
      * a download failure cause, which can be any DownloadSession.ERROR_* constant.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     failedReason: number;
@@ -473,6 +522,7 @@ declare namespace request {
      * the name of a file to be downloaded.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     fileName: string;
@@ -480,6 +530,7 @@ declare namespace request {
      * the URI of a stored file.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     filePath: string;
@@ -487,6 +538,7 @@ declare namespace request {
      * the reason why a session is paused, which can be any DownloadSession.PAUSED_* constant.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     pausedReason: number;
@@ -494,6 +546,7 @@ declare namespace request {
      * the download status code, which can be any DownloadSession.SESSION_* constant.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     status: number;
@@ -501,6 +554,7 @@ declare namespace request {
      * the URI of files to be downloaded.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     targetURI: string;
@@ -508,6 +562,7 @@ declare namespace request {
      * the title of a file to be downloaded.
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     downloadTitle: string;
@@ -515,6 +570,7 @@ declare namespace request {
      * the total size of files to be downloaded (in bytes).
      *
      * @since 7
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     downloadTotalBytes: number;
@@ -530,6 +586,7 @@ declare namespace request {
     /**
      * Called when the current download session is in process.
      * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
      * @since 6
      * @param type progress Indicates the download task progress.
      * @param callback The callback function for the download progress change event
@@ -542,6 +599,7 @@ declare namespace request {
     /**
      * Called when the current download session is in process.
      * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
      * @since 6
      * @param type progress Indicates the download task progress.
      * @param callback The callback function for the download progress change event
@@ -554,6 +612,7 @@ declare namespace request {
     /**
      * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
@@ -567,6 +626,7 @@ declare namespace request {
     /**
      * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
@@ -580,6 +640,7 @@ declare namespace request {
     /**
      * Called when the current download session fails.
      * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
      * @since 7
      * @param type Indicates the download session type, fail: download task has failed.
      * @param callback The callback function for the download fail change event
@@ -591,6 +652,7 @@ declare namespace request {
     /**
      * Called when the current download session fails.
      * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform
      * @since 7
      * @param type Indicates the download session type, fail: download task has failed.
      * @param callback Indicate the callback function to receive err.
@@ -711,6 +773,7 @@ declare namespace request {
 
     /**
      * Delete the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -721,6 +784,7 @@ declare namespace request {
 
     /**
      * Delete the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -732,6 +796,7 @@ declare namespace request {
 
     /**
      * Suspend the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -742,6 +807,7 @@ declare namespace request {
 
     /**
      * Suspend the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -753,6 +819,7 @@ declare namespace request {
 
     /**
      * Restore the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -763,6 +830,7 @@ declare namespace request {
 
     /**
      * Restore the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -774,6 +842,7 @@ declare namespace request {
 
     /**
      * Get the download task info
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -784,6 +853,7 @@ declare namespace request {
 
     /**
      * Get the download task info
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -795,6 +865,7 @@ declare namespace request {
 
     /**
      * Get mimetype of the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -805,6 +876,7 @@ declare namespace request {
 
     /**
      * Get mimetype of the download task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -819,6 +891,7 @@ declare namespace request {
    * File data Structure
    *
    * @name File
+   * @crossplatform
    * @since 6
    * @syscap SystemCapability.MiscServices.Download
    * @permission ohos.permission.INTERNET
@@ -828,6 +901,7 @@ declare namespace request {
      * When multipart is submitted, the file name in the request header.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     filename: string;
@@ -835,6 +909,7 @@ declare namespace request {
      * When multipart is submitted, the name of the form item. The default is file.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     name: string;
@@ -842,6 +917,7 @@ declare namespace request {
      * The local storage path of the file (please refer to the storage directory definition for path usage).
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     uri: string;
@@ -849,6 +925,7 @@ declare namespace request {
      * The content type of the file is obtained by default according to the suffix of the file name or path.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     type: string;
@@ -858,6 +935,7 @@ declare namespace request {
    * RequestData data Structure
    *
    * @name RequestData
+   * @crossplatform
    * @since 6
    * @syscap SystemCapability.MiscServices.Download
    * @permission ohos.permission.INTERNET
@@ -867,6 +945,7 @@ declare namespace request {
      * Represents the name of the form element.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     name: string;
@@ -874,6 +953,7 @@ declare namespace request {
      * Represents the value of the form element.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     value: string;
@@ -883,6 +963,7 @@ declare namespace request {
    * UploadConfig data Structure
    *
    * @name UploadConfig
+   * @crossplatform
    * @since 6
    * @syscap SystemCapability.MiscServices.Upload
    * @permission ohos.permission.INTERNET
@@ -892,6 +973,7 @@ declare namespace request {
      * Resource address.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     url: string;
@@ -899,6 +981,7 @@ declare namespace request {
      * Adds an HTTP or HTTPS header to be included with the upload request.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     header: Object;
@@ -906,6 +989,7 @@ declare namespace request {
      * Request method: POST, PUT. The default POST.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     method: string;
@@ -913,6 +997,7 @@ declare namespace request {
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     files: Array<File>;
@@ -920,6 +1005,7 @@ declare namespace request {
      * The requested form data.
      *
      * @since 6
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     data: Array<RequestData>;
@@ -929,6 +1015,7 @@ declare namespace request {
    * TaskState data Structure
    *
    * @name TaskState
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.MiscServices.Upload
    * @permission ohos.permission.INTERNET
@@ -938,6 +1025,7 @@ declare namespace request {
      * Upload file path.
      *
      * @since 9
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     path: string;
@@ -945,6 +1033,7 @@ declare namespace request {
      * Upload task return value.
      *
      * @since 9
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     responseCode: number;
@@ -952,6 +1041,7 @@ declare namespace request {
      * Upload task information.
      *
      * @since 9
+     * @crossplatform
      * @permission ohos.permission.INTERNET
      */
     message: string;
@@ -967,6 +1057,7 @@ declare namespace request {
     /**
      * Called when the current upload session is in process.
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 6
      * @param type progress Indicates the upload task progress.
      * @param callback The callback function for the upload progress change event
@@ -979,6 +1070,7 @@ declare namespace request {
     /**
      * Called when the current upload session is in process.
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 6
      * @param type progress Indicates the upload task progress.
      * @param callback The callback function for the upload progress change event
@@ -991,6 +1083,7 @@ declare namespace request {
     /**
      * Called when the header of the current upload session has been received.
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 7
      * @param type headerReceive Indicates the upload task headed receive.
      * @param callback The callback function for the HTTP Response Header event
@@ -1002,6 +1095,7 @@ declare namespace request {
     /**
      * Called when the header of the current upload session has been received.
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 7
      * @param type headerReceive Indicates the upload task headed receive.
      * @param callback The callback function for the HTTP Response Header event
@@ -1013,6 +1107,7 @@ declare namespace request {
     /**
      * Called when the current upload session complete or fail.
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 9
      * @param type Indicates the upload session event type
      *        complete: upload task completed
@@ -1025,6 +1120,7 @@ declare namespace request {
      /**
       * Called when the current upload session complete or fail.
       * @syscap SystemCapability.MiscServices.Upload
+      * @crossplatform
       * @since 9
       * @param type Indicates the upload session event type
       *        complete: upload task completed
@@ -1057,6 +1153,7 @@ declare namespace request {
 
     /**
      * Delete the upload task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
@@ -1067,6 +1164,7 @@ declare namespace request {
 
     /**
      * Delete the upload task
+     * @crossplatform
      * @since 9
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
