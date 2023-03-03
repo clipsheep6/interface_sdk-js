@@ -56,6 +56,50 @@ declare namespace deviceManager {
      * The distance of discovered device, in centimeter(cm).
      */
     range: number;
+
+    /**
+     * Indicates the device's trusted type
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    authForm: AuthForm;
+  }
+
+  /**
+   * Device trusted type definitions
+   * @enum {number}
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi this method can be used only by system applications.
+   * @since 10
+   */
+  enum AuthForm {
+    /**
+     * Indicates invalid trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    INVALID_TYPE = -1,
+
+    /**
+     * Indicates peer to peer trusted device type without account.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    PEER_TO_PEER = 0,
+
+    /**
+     * Indicates identical account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    IDENTICAL_ACCOUNT = 1,
+
+    /**
+     * Indicates across account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    ACROSS_ACCOUNT = 2
   }
 
   /**
@@ -516,6 +560,44 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */  
     setUserOperation(operateAction: number, params: string): void;
+
+    /**
+     * Request credential information.
+     *
+     * @since 10
+     * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
+     * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @returns Returns device credential registerInfo, it include deviceId, devicePk, useId and version.
+     * @systemapi this method can be used only by system applications.
+     */  
+    requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
+
+    /**
+     * Import credential information.
+     *
+     * @since 10
+     * @param { string } credentialInfo - Import credential params, the params is json string, it includes processType, authType,
+     * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
+     * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
+     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon importCredential.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @returns Returns the groupId to which the device belongs.
+     * @systemapi this method can be used only by system applications.
+     */  
+    importCredential(credentialInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
+
+    /**
+     * delete credential information.
+     *
+     * @since 10
+     * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
+     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @returns Returns the groupId to which the device belongs.
+     * @systemapi this method can be used only by system applications.
+     */  
+    deleteCredential(queryInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
 
     /**
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue

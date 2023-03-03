@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from './applicationInfo';
-import { HapModuleInfo } from './hapModuleInfo';
+import { ApplicationInfo } from './ApplicationInfo';
+import { HapModuleInfo } from './HapModuleInfo';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
@@ -81,7 +81,7 @@ export interface BundleInfo {
   readonly appInfo: ApplicationInfo;
 
   /**
-   * Obtains configuration information about an module
+   * Obtains configuration information about a module
    * @type {Array<HapModuleInfo>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9

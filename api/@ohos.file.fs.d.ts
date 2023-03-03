@@ -425,6 +425,32 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
 declare function createStreamSync(path: string, mode: string): Stream;
 
 /**
+ * Create watcher to listen for file changes.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @systemapi
+ * @since 10
+ * @param {string} path - path.
+ * @param {number} events - listened events.
+ * @param {WatchEventListener} listener - Callback to invoke when an event of the specified type occurs.
+ * @returns {Watcher} Return watcher object.
+ * @throws { BusinessError } 13900002  - No such file or directory
+ * @throws { BusinessError } 13900008  - Bad file descriptor
+ * @throws { BusinessError } 13900011  - Out of memory
+ * @throws { BusinessError } 13900012  - Permission denied
+ * @throws { BusinessError } 13900013  - Bad address
+ * @throws { BusinessError } 13900015  - File exists
+ * @throws { BusinessError } 13900018  - Not a directory
+ * @throws { BusinessError } 13900020  - Invalid argument
+ * @throws { BusinessError } 13900021  - File table overflow
+ * @throws { BusinessError } 13900022  - Too many open files
+ * @throws { BusinessError } 13900025  - No space left on device
+ * @throws { BusinessError } 13900030  - File name too long
+ * @throws { BusinessError } 13900042  - Unknown error
+ */
+declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
+
+/**
  * Synchronize file metadata.
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1892,6 +1918,116 @@ declare interface Stream {
         offset?: number;
         length?: number;
     }): number;
+}
+
+/**
+ * Implements watcher event listening.
+ * 
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @systemapi
+ * @since 10
+ */
+export interface WatchEventListener {
+  /**
+   * Specifies the callback function to be invoked.
+   * 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @systemapi
+   * @since 10
+   * @param event Event type for the callback to invoke.
+   */
+  (event: WatchEvent): void;
+}
+
+/**
+ * Event Listening.
+ * 
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @systemapi
+ * @since 10
+ */
+export interface WatchEvent {
+  /**
+   * File name.
+   * 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @systemapi
+   * @since 10
+   */
+  readonly fileName: string;
+  
+  /**
+   * Event happened.
+   * 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @systemapi
+   * @since 10
+   */
+  readonly event: number;
+
+  /**
+   * Associated rename event.
+   * 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @systemapi
+   * @since 10
+   */
+  readonly cookie: number;
+}
+
+/**
+ * Watcher object
+ * 
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @systemapi
+ * @since 10
+ */
+export interface Watcher {
+  /**
+   * Start watcher.
+   * 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @systemapi
+   * @since 10
+   * @returns {void} start watcher success
+   * @throws { BusinessError } 13900002  - No such file or directory
+   * @throws { BusinessError } 13900008  - Bad file descriptor
+   * @throws { BusinessError } 13900011  - Out of memory
+   * @throws { BusinessError } 13900012  - Permission denied
+   * @throws { BusinessError } 13900013  - Bad address
+   * @throws { BusinessError } 13900015  - File exists
+   * @throws { BusinessError } 13900018  - Not a directory
+   * @throws { BusinessError } 13900020  - Invalid argument
+   * @throws { BusinessError } 13900021  - File table overflow
+   * @throws { BusinessError } 13900022  - Too many open files
+   * @throws { BusinessError } 13900025  - No space left on device
+   * @throws { BusinessError } 13900030  - File name too long
+   * @throws { BusinessError } 13900042  - Unknown error
+   */
+  start(): void;
+
+  /**
+   * Stop watcher.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @systemapi
+   * @since 10
+   * @returns {void} stop watcher success
+   * @throws { BusinessError } 13900002  - No such file or directory
+   * @throws { BusinessError } 13900008  - Bad file descriptor
+   * @throws { BusinessError } 13900011  - Out of memory
+   * @throws { BusinessError } 13900012  - Permission denied
+   * @throws { BusinessError } 13900013  - Bad address
+   * @throws { BusinessError } 13900015  - File exists
+   * @throws { BusinessError } 13900018  - Not a directory
+   * @throws { BusinessError } 13900020  - Invalid argument
+   * @throws { BusinessError } 13900021  - File table overflow
+   * @throws { BusinessError } 13900022  - Too many open files
+   * @throws { BusinessError } 13900025  - No space left on device
+   * @throws { BusinessError } 13900030  - File name too long
+   * @throws { BusinessError } 13900042  - Unknown error
+   */
+  stop(): void;
 }
 
 /**
