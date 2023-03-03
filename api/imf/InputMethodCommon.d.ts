@@ -89,11 +89,9 @@ export interface Movement {
  * @since 10
  */
 export interface PanelInfo {
-
     /**
      * Panel type.
      * @type { PanelType }
-     * @default SOFT_KEYBOARD
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      * @since 10
@@ -102,10 +100,9 @@ export interface PanelInfo {
 
     /**
      * <p>Flag of Panel.</p>
-     * <p>When the panel type is not SOFT_KEYBOARD, the default value { FLG_FIXED_AT_BOTTOM }
-     * will be ignore while creating panel.</p>
-     * @type { ?PanelFlags }
-     * @default FLG_FIXED_AT_BOTTOM
+     * <p>Currently only using for SOFT_KEYBOARD panel.</p>
+     * @type { ?PanelFlag }
+     * @default FLG_FIXED
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      * @since 10
@@ -120,22 +117,30 @@ export interface PanelInfo {
  * @since 10
  */
 export enum PanelFlag {
-
     /**
-     * <p>A flag provided for the SOFT_KEYBOARD panel.
-     * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
+     * Fixed style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.</p>
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    FLG_FIXED_AT_BOTTOM = 0,
+    FLG_FIXED = 0,
 
     /**
-     * <p>A flag provided for the SOFT_KEYBOARD panel.
+     * Floating style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD panel.
      * When the flag is set, the soft keyboard is floating.</p>
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
     FLG_FLOATING,
+    /**
+     * Candidate bar style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flags is set, the soft keyboard is only using as a candidate word bar.</p>
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    FLG_CANDIDATE_BAR,
 }
 
 /**
@@ -147,7 +152,6 @@ export enum PanelFlag {
  * @since 10
  */
 export enum PanelType {
-
     /**
      * Panel for displaying a virtual software keyboard.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -156,14 +160,7 @@ export enum PanelType {
     SOFT_KEYBOARD = 0,
 
     /**
-     * Panel for displaying a virtual software keyboard.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    CANDIDATE_BAR,
-
-    /**
-     * Panel for displaying input method status.
+     * Panel for displaying status bar.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */

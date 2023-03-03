@@ -15,7 +15,7 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import {Movement, Range, PanelInfo} from './imf/InputMethodCommon';
+import {Movement, Range, PanelInfo, PanelFlag} from './imf/InputMethodCommon';
 
 /**
  * Input method engine
@@ -441,9 +441,10 @@ declare namespace inputMethodEngine {
         off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
         /**
-         * Create a panel.
-         * <p>The system only allows one soft keyboard or one candidate list and one status bar to be created.
-         * Once you create a soft keyboard, you cannot create candidate list and status bar, and vice versa.</p>
+         * Creates a panel.
+         * <p>The system only allows one soft keyboard and one status bar to be created.
+         * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
+         * status bar, and vice versa.</p>
          * @param { PanelInfo } info - the info of panel to be created.
          * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
          * @throws { BusinessError } 401 - parameter error.
@@ -455,9 +456,10 @@ declare namespace inputMethodEngine {
         createPanel(info: PanelInfo, callback: AsyncCallback<Panel>): void;
 
         /**
-         * Create a panel.
-         * <p>The system only allows one soft keyboard or one candidate list and one status bar to be created.
-         * Once you create a soft keyboard, you cannot create candidate list and status bar, and vice versa.</p>
+         * Creates a panel.
+         * <p>The system only allows one soft keyboard and one status bar to be created.
+         * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
+         * status bar, and vice versa.</p>
          * @param { PanelInfo } info - the info of panel to be created.
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800004 - not an input method extension.
@@ -467,6 +469,28 @@ declare namespace inputMethodEngine {
          * @since 10
          */
         createPanel(info: PanelInfo): Promise<Panel>;
+
+        /**
+         * Destroy a panel.
+         * @param { Panel } panel - to be destroyed.
+         * @param { AsyncCallback<void> } callback - the callback of moveMissionToFront.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        destroyPanel(panel: Panel, callback: AsyncCallback<void>): void;
+
+        /**
+         * Destroy a panel.
+         * @param { Panel } panel - to be destroyed.
+         * @returns { Promise<void> }  the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        destroyPanel(panel: Panel): Promise<void>;
     }
 
     /**
@@ -903,7 +927,7 @@ declare namespace inputMethodEngine {
     interface Panel {
 
         /**
-         * Set ui content.
+         * Sets ui content.
          * <p>When this method is executed successfully, the content of panel will be replaced.</p>
          * @param { string } path - the path of ui content.
          * @param { AsyncCallback<void> } callback - the callback of setUiContent.
@@ -915,7 +939,7 @@ declare namespace inputMethodEngine {
         setUiContent(path: string, callback: AsyncCallback<void>): void;
 
         /**
-         * Set ui content.
+         * Sets ui content.
          * <p>When this method is executed successfully, the content of panel will be replaced.</p>
          * @param { string } path - the path of ui content.
          * @returns { Promise<void> } the promise returned by the function.
@@ -952,7 +976,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Moves a panel.
-         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
+         * It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.
          * @param { number } x - The x-coordinate of the new position.
          * @param { number } y - The y-coordinate of the new position.
          * @param { AsyncCallback<void> } callback - the callback of moveTo.
@@ -964,8 +988,8 @@ declare namespace inputMethodEngine {
         moveTo(x: number, y:number, callback: AsyncCallback<void>): void;
 
         /**
-         * Move panel to x,y.
-         * Panel with FLG_FIXED_AT_BOTTOM will ignore this method.
+         * Moves a panel.
+         * It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.
          * @param { number } x - The x-coordinate of the new position.
          * @param { number } y - The y-coordinate of the new position.
          * @returns { Promise<void> } the promise returned by the function.
@@ -977,8 +1001,50 @@ declare namespace inputMethodEngine {
         moveTo(x: number, y:number): Promise<void>;
 
         /**
-         * Register panel show/hide event.
-         * The "show" and "hide" events are triggered when the panel is shown or hidden.
+         * Shows panel.
+         * It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.
+         * @param { AsyncCallback<void> } callback - the callback of show.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        show(callback: AsyncCallback<void>): void;
+
+        /**
+         * Shows panel.
+         * It's available for SOFT_KEYBOARD panel with FIG_CANDIDATE_BAR.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        show(): Promise<void>;
+
+        /**
+         * Hides panel.
+         * It's available for SOFT_KEYBOARD panel.
+         * @param { AsyncCallback<void> } callback - the callback of hide.
+         * @throws { BusinessError } 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        hide(callback: AsyncCallback<void>): void;
+
+        /**
+         * Hides panel.
+         * It's available for SOFT_KEYBOARD panel.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         * @since 10
+         */
+        hide(): Promise<void>;
+
+        /**
+         * Registers panel show/hide event.
+         * <p>The "show" and "hide" events are triggered when the panel is shown or hidden.</p>
          * @param { 'show'|'hide' } type -events type.
          * @param { () => void } callback - the callback will be called when events are triggered.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -988,7 +1054,7 @@ declare namespace inputMethodEngine {
         on(type: 'show'|'hide', callback:() => void): void;
 
         /**
-         * Unregister panel show/hide event.
+         * Unregisters panel show/hide event.
          * @param { 'show'|'hide' } type -events type.
          * @param { () => void } [callback] - the callback to Unregister.
          * @throws { BusinessError } 401 -parameter error.
@@ -1000,13 +1066,13 @@ declare namespace inputMethodEngine {
 
         /**
          * Set panel flag.
-         * @param { PanelFlag } flag - the callback of moveMissionToFront.
+         * @param { PanelFlag } flag - the callback of changeFlag.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          * @since 10
          */
-        setFlag(flag: PanelFlag): void;
+        changeFlag(flag: PanelFlag): void;
     }
 
     /**
