@@ -124,7 +124,8 @@ export class Locale {
      * A constructor used to create a Locale object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 8
+     * @crossplatform
+     * @since 10
      */
    constructor();
 
@@ -201,7 +202,6 @@ export class Locale {
      * a complete locale string.
      *
      * @syscap SystemCapability.Global.I18n
-     * @crossplatform
      * @since 6
      */
     /**
@@ -1820,6 +1820,12 @@ export interface PluralRulesOptions {
     maximumSignificantDigits?: number;
 }
 
+/**
+ * Enables plural-sensitive formatting and plural-related language rules.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 8
+ */
 /**
  * Enables plural-sensitive formatting and plural-related language rules.
  *

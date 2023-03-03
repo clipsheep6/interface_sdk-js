@@ -1247,7 +1247,8 @@ export function getFirstPreferredLanguage(): string;
  * @syscap SystemCapability.Global.I18n
  * @param zoneID TimeZone ID used to create TimeZone Object.
  * @returns Returns a TimeZone object corresponds to zoneID.
- * @since 7
+ * @crossplatform
+ * @since 10
  */
 export function getTimeZone(zoneID?: string): TimeZone;
 
