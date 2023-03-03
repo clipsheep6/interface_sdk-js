@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic';
-import Want from './@ohos.app.ability.Want';
-import image from './@ohos.multimedia.image';
+import type { AsyncCallback } from './basic';
+import type Want from './@ohos.app.ability.Want';
+import type image from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
