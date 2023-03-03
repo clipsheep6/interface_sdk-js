@@ -1328,6 +1328,7 @@ declare namespace osAccount {
          * @permission ohos.permission.MANAGE_USER_IDM
          * @throws {BusinessError} 201 - permission denied.
          * @systemapi Hide this for inner system use.
+         * @throws {BusinessError} 201 - permission denied.
          * @since 8
          */
         closeSession(): void;
