@@ -134,6 +134,7 @@ export enum PanelFlag {
      * @since 10
      */
     FLG_FLOATING,
+
     /**
      * Candidate bar style.
      * <p>It's provided for the panel with type of SOFT_KEYBOARD.
