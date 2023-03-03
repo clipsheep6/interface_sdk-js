@@ -106,7 +106,20 @@ export interface LocaleOptions {
  * @syscap SystemCapability.Global.I18n
  * @since 6
  */
+/**
+ * Provides APIs for obtaining locale information.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class Locale {
+    /**
+     * A constructor used to create a Locale object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 8
+     */
     /**
      * A constructor used to create a Locale object.
      *
@@ -124,6 +137,16 @@ export class Locale {
      * @param options Indicates Locale option object use to initialize the Locale object.
      * @since 6
      */
+    /**
+     * A constructor used to create a Locale object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region.
+     * @param options Indicates Locale option object use to initialize the Locale object.
+     * @crossplatform
+     * @since 10
+     */
    constructor(locale: string, options?: LocaleOptions);
 
     /**
@@ -132,13 +155,28 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
+    /**
+     * Indicates the language of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     language: string
 
     /**
      * Indicates the script of the locale.
      *
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 6
+     */
+    /**
+     * Indicates the script of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     script: string
 
@@ -146,7 +184,15 @@ export class Locale {
      * Indicates the region of the locale.
      *
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 6
+     */
+    /**
+     * Indicates the region of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     region: string
 
@@ -155,7 +201,16 @@ export class Locale {
      * a complete locale string.
      *
      * @syscap SystemCapability.Global.I18n
+     * @crossplatform
      * @since 6
+     */
+    /**
+     * Indicates the basic locale information, which is returned as a substring of
+     * a complete locale string.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     baseName: string
 
@@ -165,6 +220,13 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
+    /**
+     * Indicates the case first style of the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     caseFirst: string
 
     /**
@@ -172,6 +234,13 @@ export class Locale {
      *
      * @syscap SystemCapability.Global.I18n
      * @since 6
+     */
+    /**
+     * Indicates the calendar.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     calendar: string
 
@@ -181,6 +250,13 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
+    /**
+     * Indicates the collation.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     collation: string
 
     /**
@@ -188,6 +264,13 @@ export class Locale {
      *
      * @syscap SystemCapability.Global.I18n
      * @since 6
+     */
+    /**
+     * Indicates the hour cycle.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     hourCycle:  string
 
@@ -197,6 +280,13 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
+    /**
+     * Indicates the numbering system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     numberingSystem: string
 
     /**
@@ -204,6 +294,13 @@ export class Locale {
      *
      * @syscap SystemCapability.Global.I18n
      * @since 6
+     */
+    /**
+     * Indicates whether it is numeric.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     numeric: boolean
 
@@ -214,6 +311,14 @@ export class Locale {
      * @returns Returns locale information in string form.
      * @since 6
      */
+    /**
+     * Convert the locale information to string.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns locale information in string form.
+     * @crossplatform
+     * @since 10
+     */
     toString(): string;
 
     /**
@@ -222,6 +327,14 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns maximized locale.
      * @since 6
+     */
+    /**
+     * Maximize the locale's base information.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns maximized locale.
+     * @crossplatform
+     * @since 10
      */
     maximize(): Locale;
 
@@ -232,6 +345,14 @@ export class Locale {
      * @returns Returns minimized locale.
      * @since 6
      */
+    /**
+     * Minimize the locale's base information.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns minimized locale.
+     * @crossplatform
+     * @since 10
+     */
     minimize(): Locale;
 }
 
@@ -240,6 +361,13 @@ export class Locale {
  *
  * @syscap SystemCapability.Global.I18n
  * @since 6
+ */
+/**
+ * Provides the options of date time format.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
  */
 export interface DateTimeOptions {
     /**
@@ -253,6 +381,13 @@ export interface DateTimeOptions {
      * @type { string } [ locale ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the locale.
+     * @type { string } [ locale ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     locale?: string
 
@@ -268,6 +403,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the dateStyle.
+     * @type { string } [ dateStyle ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     dateStyle?: string
 
     /**
@@ -281,6 +423,13 @@ export interface DateTimeOptions {
      * @type { string } [ timeStyle ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the timeStyle.
+     * @type { string } [ timeStyle ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     timeStyle?: string
 
@@ -296,6 +445,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the hourCycle.
+     * @type { string } [ hourCycle ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     hourCycle?: string
 
     /**
@@ -309,6 +465,13 @@ export interface DateTimeOptions {
      * @type { string } [ timeZone ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the timeZone.
+     * @type { string } [ timeZone ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     timeZone?: string
 
@@ -324,6 +487,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the numberingSystem.
+     * @type { string } [ numberingSystem ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     numberingSystem?: string
 
     /**
@@ -337,6 +507,13 @@ export interface DateTimeOptions {
      * @type { boolean } [ hour12 ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the hour12.
+     * @type { boolean } [ hour12 ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     hour12?: boolean
 
@@ -352,6 +529,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the weekday.
+     * @type { string } [ weekday ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     weekday?: string
 
     /**
@@ -365,6 +549,13 @@ export interface DateTimeOptions {
      * @type { string } [ era ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the era.
+     * @type { string } [ era ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     era?: string
 
@@ -380,6 +571,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the year.
+     * @type { string } [ year ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     year?: string
 
     /**
@@ -393,6 +591,13 @@ export interface DateTimeOptions {
      * @type { string } [ month ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the month.
+     * @type { string } [ month ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     month?: string
 
@@ -408,6 +613,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the day.
+     * @type { string } [ day ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     day?: string
 
     /**
@@ -421,6 +633,13 @@ export interface DateTimeOptions {
      * @type { string } [ hour ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the hour.
+     * @type { string } [ hour ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     hour?: string
 
@@ -436,6 +655,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the minute.
+     * @type { string } [ minute ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     minute?: string
 
     /**
@@ -449,6 +675,13 @@ export interface DateTimeOptions {
      * @type { string } [ second ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the second.
+     * @type { string } [ second ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     second?: string
 
@@ -464,6 +697,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the timeZoneName.
+     * @type { string } [ timeZoneName ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     timeZoneName?: string
 
     /**
@@ -477,6 +717,13 @@ export interface DateTimeOptions {
      * @type { string } [ dayPeriod ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the dayPeriod.
+     * @type { string } [ dayPeriod ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     dayPeriod?: string
 
@@ -492,6 +739,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the localeMatcher.
+     * @type { string } [ localeMatcher ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     localeMatcher?: string
 
     /**
@@ -506,6 +760,13 @@ export interface DateTimeOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the formatMatcher.
+     * @type { string } [ formatMatcher ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     formatMatcher?: string
 }
 
@@ -515,12 +776,26 @@ export interface DateTimeOptions {
  * @syscap SystemCapability.Global.I18n
  * @since 6
  */
+/**
+ * Provides the API for formatting date strings.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create a DateTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     constructor();
 
@@ -533,6 +808,16 @@ export class DateTimeFormat {
      * @param options Indicates the options used to format the date.
      * @since 6
      */
+    /**
+     * A constructor used to create a DateTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates character string containing the locale information, including
+     *               the language and optionally the script and region, for the DateTimeFormat object.
+     * @param options Indicates the options used to format the date.
+     * @crossplatform
+     * @since 10
+     */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
     /**
@@ -542,6 +827,15 @@ export class DateTimeFormat {
      * @param date Indicates the Date object to be formatted.
      * @returns Returns a date string formatted based on the specified locale.
      * @since 6
+     */
+    /**
+     * Obtains the formatted date strings.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param date Indicates the Date object to be formatted.
+     * @returns Returns a date string formatted based on the specified locale.
+     * @crossplatform
+     * @since 10
      */
     format(date: Date): string;
 
@@ -554,6 +848,16 @@ export class DateTimeFormat {
      * @returns Returns a date string formatted based on the specified locale.
      * @since 6
      */
+    /**
+     * Obtains the formatted date strings of a date range.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param startDate Indicates the start date of the date range.
+     * @param endDate Indicates the end date of the date range.
+     * @returns Returns a date string formatted based on the specified locale.
+     * @crossplatform
+     * @since 10
+     */
     formatRange(startDate: Date, endDate: Date): string;
 
     /**
@@ -563,6 +867,14 @@ export class DateTimeFormat {
      * @returns Returns the options of the DateTimeFormat object.
      * @since 6
      */
+    /**
+     * Obtains the options of the DateTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the options of the DateTimeFormat object.
+     * @crossplatform
+     * @since 10
+     */
     resolvedOptions(): DateTimeOptions;
 }
 
@@ -571,6 +883,13 @@ export class DateTimeFormat {
  *
  * @syscap SystemCapability.Global.I18n
  * @since 6
+ */
+/**
+ * Provides the options of number format.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
  */
 export interface NumberOptions {
     /**
@@ -584,6 +903,13 @@ export interface NumberOptions {
      * @type { string } [ locale ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the locale.
+     * @type { string } [ locale ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     locale?: string
 
@@ -599,6 +925,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the currency.
+     * @type { string } [ currency ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     currency?: string
 
     /**
@@ -612,6 +945,13 @@ export interface NumberOptions {
      * @type { string } [ currencySign ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the currencySign.
+     * @type { string } [ currencySign ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     currencySign?: string
 
@@ -627,6 +967,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the currencyDisplay.
+     * @type { string } [ currencyDisplay ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     currencyDisplay?: string
 
     /**
@@ -640,6 +987,13 @@ export interface NumberOptions {
      * @type { string } [ unit ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the unit.
+     * @type { string } [ unit ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     unit?: string
 
@@ -655,6 +1009,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the unitDisplay.
+     * @type { string } [ unitDisplay ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     unitDisplay?: string
 
     /**
@@ -668,6 +1029,13 @@ export interface NumberOptions {
      * @type { string } [ unitUsage ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the unitUsage.
+     * @type { string } [ unitUsage ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     unitUsage?: string
 
@@ -683,6 +1051,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the signDisplay.
+     * @type { string } [ signDisplay ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     signDisplay?: string
 
     /**
@@ -696,6 +1071,13 @@ export interface NumberOptions {
      * @type { string } [ compactDisplay ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the compactDisplay.
+     * @type { string } [ compactDisplay ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     compactDisplay?: string
 
@@ -711,6 +1093,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the notation.
+     * @type { string } [ notation ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     notation?: string
 
     /**
@@ -724,6 +1113,13 @@ export interface NumberOptions {
      * @type { string } [ localeMatcher ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the localeMatcher.
+     * @type { string } [ localeMatcher ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     localeMatcher?: string
 
@@ -739,6 +1135,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the style.
+     * @type { string } [ style ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     style?: string
 
     /**
@@ -752,6 +1155,13 @@ export interface NumberOptions {
      * @type { string } [ numberingSystem ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the numberingSystem.
+     * @type { string } [ numberingSystem ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     numberingSystem?: string
 
@@ -767,6 +1177,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the useGrouping.
+     * @type { boolean } [ useGrouping ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     useGrouping?: boolean
 
     /**
@@ -780,6 +1197,13 @@ export interface NumberOptions {
      * @type { number } [ minimumIntegerDigits ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the minimumIntegerDigits.
+     * @type { number } [ minimumIntegerDigits ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     minimumIntegerDigits?: number
 
@@ -795,6 +1219,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the minimumFractionDigits.
+     * @type { number } [ minimumFractionDigits ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     minimumFractionDigits?: number
 
     /**
@@ -808,6 +1239,13 @@ export interface NumberOptions {
      * @type { number } [ maximumFractionDigits ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Indicates the maximumFractionDigits.
+     * @type { number } [ maximumFractionDigits ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     maximumFractionDigits?: number
 
@@ -823,6 +1261,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the minimumSignificantDigits.
+     * @type { number } [ minimumSignificantDigits ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     minimumSignificantDigits?: number
 
     /**
@@ -837,6 +1282,13 @@ export interface NumberOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the maximumSignificantDigits.
+     * @type { number } [ maximumSignificantDigits ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     maximumSignificantDigits?: number
 }
 
@@ -846,12 +1298,26 @@ export interface NumberOptions {
  * @syscap SystemCapability.Global.I18n
  * @since 6
  */
+/**
+ * Provides the API for formatting number strings.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create a NumberFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     constructor();
 
@@ -864,6 +1330,16 @@ export class NumberFormat {
      * @param options Indicates the options used to format the number.
      * @since 6
      */
+    /**
+     * A constructor used to create a NumberFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the NumberFormat object.
+     * @param options Indicates the options used to format the number.
+     * @crossplatform
+     * @since 10
+     */
     constructor(locale: string | Array<string>, options?: NumberOptions);
 
     /**
@@ -874,6 +1350,15 @@ export class NumberFormat {
      * @returns Returns a number string formatted based on the specified locale.
      * @since 6
      */
+    /**
+     * Obtains the formatted number string.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param number Indicates the number to be formatted.
+     * @returns Returns a number string formatted based on the specified locale.
+     * @crossplatform
+     * @since 10
+     */
     format(number: number): string;
 
     /**
@@ -883,6 +1368,14 @@ export class NumberFormat {
      * @returns Returns the options of the NumberFormat object.
      * @since 6
      */
+    /**
+     * Obtains the options of the NumberFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the options of the NumberFormat object.
+     * @crossplatform
+     * @since 10
+     */
     resolvedOptions(): NumberOptions;
 }
 
@@ -891,6 +1384,13 @@ export class NumberFormat {
  *
  * @syscap SystemCapability.Global.I18n
  * @since 8
+ */
+/**
+ * Provides the options of Collator
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
  */
 export interface CollatorOptions {
     /**
@@ -909,6 +1409,15 @@ export interface CollatorOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     *
+     * @type { string } [ localeMatcher ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     localeMatcher?: string;
 
     /**
@@ -926,6 +1435,15 @@ export interface CollatorOptions {
      * @type { string } [ usage ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Whether the comparison is for sorting or for searching for matching strings.
+     * Possible values are "sort" and "search"; the default is "sort".
+     *
+     * @type { string } [ usage ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     usage?: string;
 
@@ -956,6 +1474,20 @@ export interface CollatorOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Which differences in the strings should lead to non-zero result values.
+     * Possible values are "base", "accent", "case", "variant".
+     * "base" are used when only strings that differ in base letters compare as unequal.
+     * "accent" are used when only strings that differ in base letters or accents and
+     *  other diacritic marks compare as unequal.
+     * "case" are used when only strings that differ in base letters or case compare as unequal.
+     * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
+     *  or case compare as unequal.
+     * @type { string } [ sensitivity ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     sensitivity?: string;
 
     /**
@@ -971,6 +1503,14 @@ export interface CollatorOptions {
      * @type { boolean } [ ignorePunctuation ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Whether punctuation should be ignored. Default value is false.
+     *
+     * @type { boolean } [ ignorePunctuation ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     ignorePunctuation?: boolean;
 
@@ -988,6 +1528,14 @@ export interface CollatorOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Variant collations for certain locales.
+     *
+     * @type { string } [ collation ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     collation?: string;
 
     /**
@@ -1003,6 +1551,14 @@ export interface CollatorOptions {
      * @type { boolean } [ numeric ]
      * @syscap SystemCapability.Global.I18n
      * @since 9
+     */
+    /**
+     * Whether numeric collation should be used. Default value is false.
+     *
+     * @type { boolean } [ numeric ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     numeric?: boolean;
 
@@ -1022,6 +1578,15 @@ export interface CollatorOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Whether upper case or lower case should sort first.
+     * Possible values are "upper", "lower", or "false" (use the locale's default).
+     *
+     * @type { string } [ caseFirst ]
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     caseFirst?: string;
 }
 
@@ -1031,12 +1596,26 @@ export interface CollatorOptions {
  * @syscap SystemCapability.Global.I18n
  * @since 8
  */
+/**
+ * Enable language-sensitive string comparison.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class Collator {
     /**
      * A constructor used to create Collator object.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create Collator object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     constructor();
     /**
@@ -1047,6 +1626,16 @@ export class Collator {
      *               the language and optionally the script and region, for the Collator object.
      * @param options Indicates the options used to initialize Collator object.
      * @since 8
+     */
+    /**
+     * A constructor used to create Collator Object;
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the Collator object.
+     * @param options Indicates the options used to initialize Collator object.
+     * @crossplatform
+     * @since 10
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
 
@@ -1062,6 +1651,19 @@ export class Collator {
      *         0 if they are considered equal.
      * @since 8
      */
+    /**
+     * compares two strings according to the sort order of this Collator object
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param first The first string to compare.
+     * @param second The second string to compare.
+     * @returns Returns a number indicating how first compare to second:
+     *         a negative value if string1 comes before string2;
+     *         a positive value if string1 comes after string2;
+     *         0 if they are considered equal.
+     * @crossplatform
+     * @since 10
+     */
     compare(first: string, second: string): number;
 
     /**
@@ -1071,6 +1673,15 @@ export class Collator {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns a CollatorOptions object with properties that reflect the properties of this object.
      * @since 8
+     */
+    /**
+     * Returns a new object with properties that reflect the locale and collation options computed
+     * during initialization of the object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a CollatorOptions object with properties that reflect the properties of this object.
+     * @crossplatform
+     * @since 10
      */
     resolvedOptions(): CollatorOptions;
 }
@@ -1213,7 +1824,8 @@ export interface PluralRulesOptions {
  * Enables plural-sensitive formatting and plural-related language rules.
  *
  * @syscap SystemCapability.Global.I18n
- * @since 8
+ * @crossplatform
+ * @since 10
  */
 export class PluralRules {
     /**
@@ -1221,6 +1833,13 @@ export class PluralRules {
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create PluralRules object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     constructor();
 
@@ -1233,6 +1852,16 @@ export class PluralRules {
      * @param options Indicates the options used to initialize PluralRules object.
      * @since 8
      */
+    /**
+     * A constructor used to create PluralRules object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the PluralRules object.
+     * @param options Indicates the options used to initialize PluralRules object.
+     * @crossplatform
+     * @since 10
+     */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
 
     /**
@@ -1243,6 +1872,16 @@ export class PluralRules {
      * @returns A string representing the pluralization category of the number,
      *         can be one of zero, one, two, few, many or other.
      * @since 8
+     */
+    /**
+     * Returns a string indicating which plural rule to use for locale-aware formatting.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param n The number to get a plural rule for.
+     * @returns A string representing the pluralization category of the number,
+     *         can be one of zero, one, two, few, many or other.
+     * @crossplatform
+     * @since 10
      */
     select(n: number): string;
 }
@@ -1315,12 +1954,26 @@ export class PluralRules {
  * @syscap SystemCapability.Global.I18n
  * @since 8
  */
+/**
+ * Provides the resolved options of RelativeTimeFormat.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export interface RelativeTimeFormatResolvedOptions {
     /**
      * The BCP 47 language tag for the locale actually used.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * The BCP 47 language tag for the locale actually used.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     locale: string;
 
@@ -1331,6 +1984,14 @@ export interface RelativeTimeFormatResolvedOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
+    /**
+     * The length of the internationalized message.
+     * Possible values are: long, short, narrow
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     style: string;
 
     /**
@@ -1340,6 +2001,14 @@ export interface RelativeTimeFormatResolvedOptions {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
+    /**
+     * The format of output message.
+     * Possible values are: always, auto
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
+     */
     numeric: string;
 
     /**
@@ -1347,6 +2016,13 @@ export interface RelativeTimeFormatResolvedOptions {
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * The value requested using the Unicode extension key "nu" or filled in as a default.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     numberingSystem: string;
 }
@@ -1358,12 +2034,27 @@ export interface RelativeTimeFormatResolvedOptions {
  * @syscap SystemCapability.Global.I18n
  * @since 8
  */
+/**
+ * Given a Time period length value and a unit, RelativeTimeFormat object enables
+ * language-sensitive relative time formatting.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create RelativeTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 10
      */
     constructor();
 
@@ -1376,6 +2067,16 @@ export class RelativeTimeFormat {
      * @param options Indicates the options used to initialize RelativeTimeFormat object.
      * @since 8
      */
+    /**
+     * A constructor used to create RelativeTimeFormat object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the RelativeTimeFormat object.
+     * @param options Indicates the options used to initialize RelativeTimeFormat object.
+     * @crossplatform
+     * @since 10
+     */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
 
     /**
@@ -1387,6 +2088,17 @@ export class RelativeTimeFormat {
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
      * @returns formatted language-sensitive relative time.
      * @since 8
+     */
+    /**
+     * formats a value and unit according to the locale and formatting options of this object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param value Numeric value to use in the internationalized relative time message.
+     * @param unit Unit to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns formatted language-sensitive relative time.
+     * @crossplatform
+     * @since 10
      */
     format(value: number, unit: string): string;
 
@@ -1401,6 +2113,18 @@ export class RelativeTimeFormat {
      * @returns an Array of objects representing the relative time format in parts
      * @since 8
      */
+    /**
+     * returns an Array of objects representing the relative time format in parts that can be used for
+     * custom locale-aware formatting
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param value Numeric value to use in the internationalized relative time message.
+     * @param unit to use in the relative time internationalized message.
+     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
+     * @returns an Array of objects representing the relative time format in parts
+     * @crossplatform
+     * @since 10
+     */
     formatToParts(value: number, unit: string): Array<object>;
 
     /**
@@ -1410,6 +2134,15 @@ export class RelativeTimeFormat {
      * @syscap SystemCapability.Global.I18n
      * @returns RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
      * @since 8
+     */
+    /**
+     * Returns a new object with properties that reflect the locale and formatting options computed during
+     * initialization of the object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
+     * @crossplatform
+     * @since 10
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
 }

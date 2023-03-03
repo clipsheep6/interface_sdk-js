@@ -88,6 +88,13 @@ export function getSystemLocale(): string;
  * @syscap SystemCapability.Global.I18n
  * @since 9
  */
+/**
+ * Provides system functions.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class System {
     /**
      * Obtains the country or region name localized for display on a given locale.
@@ -100,6 +107,19 @@ export class System {
      * @throws {BusinessError} 890001 - param value not valid
      * @returns Returns the country or region name localized for display on a given locale.
      * @since 9
+     */
+    /**
+     * Obtains the country or region name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param country The locale whose country or region name will be displayed.
+     * @param locale The locale used to display the country or region.
+     * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns the country or region name localized for display on a given locale.
+     * @crossplatform
+     * @since 10
      */
     static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -114,6 +134,19 @@ export class System {
      * @throws {BusinessError} 890001 - param value not valid
      * @returns Returns the language name localized for display on a given locale.
      * @since 9
+     */
+    /**
+     * Obtains the language name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The locale whose language name will be displayed.
+     * @param locale The locale used to display the language.
+     * @param sentenceCase Specifies whether the language name is displayed in sentence case.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns the language name localized for display on a given locale.
+     * @crossplatform
+     * @since 10
      */
     static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
@@ -158,6 +191,14 @@ export class System {
      * @returns Returns the language currently used by the system.
      * @since 9
      */
+    /**
+     * Obtains the language currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the language currently used by the system.
+     * @crossplatform
+     * @since 10
+     */
     static getSystemLanguage(): string;
 
     /**
@@ -179,6 +220,14 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns the region currently used by the system.
      * @since 9
+     */
+    /**
+     * Obtains the region currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the region currently used by the system.
+     * @crossplatform
+     * @since 10
      */
     static getSystemRegion(): string;
 
@@ -203,6 +252,14 @@ export class System {
      * @returns Returns the locale currently used by the system.
      * @since 9
      */
+    /**
+     * Obtains the locale currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the locale currently used by the system.
+     * @crossplatform
+     * @since 10
+     */
     static getSystemLocale(): string;
 
     /**
@@ -225,6 +282,14 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns a boolean represent whether system is 24-hour system.
      * @since 9
+     */
+    /**
+     * Check out whether system is 24-hour system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a boolean represent whether system is 24-hour system.
+     * @crossplatform
+     * @since 10
      */
     static is24HourClock(): boolean;
 
@@ -353,6 +418,13 @@ export interface Util {
  * @syscap SystemCapability.Global.I18n
  * @since 9
  */
+/**
+ * Provides util functions.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
  export class I18NUtil {
     /**
      * Convert from unit to unit and format according to the locale.
@@ -375,6 +447,16 @@ export interface Util {
      * @param { string } locale - Information of the locale
      * @returns Returns the string of 'y', 'L', 'd' joined by '-'.
      * @since 9
+     */
+    /**
+     * Get the order of year, month, day in the specified locale. Year, month, day are separated by '-'.
+     * 'y' stands for year, 'L' stands for month, d stands for day.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } locale - Information of the locale
+     * @returns Returns the string of 'y', 'L', 'd' joined by '-'.
+     * @crossplatform
+     * @since 10
      */
     static getDateOrder(locale: string): string;
 }
@@ -478,7 +560,7 @@ export class PhoneNumberFormat {
  *  japanese, persian.
  * @since 8
  */
- export function getCalendar(locale: string, type?: string): Calendar;
+export function getCalendar(locale: string, type?: string): Calendar;
 
 export class Calendar {
     /**
@@ -610,6 +692,16 @@ export class Calendar {
  *
  * @since 7
  */
+/**
+ * Judge whether the locale is RTL locale.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param locale The locale to be used.
+ * @returns Returns true representing the locale is an RTL locale
+ *
+ * @crossplatform
+ * @since 10
+ */
 export function isRTL(locale: string): boolean;
 
 /**
@@ -620,7 +712,7 @@ export function isRTL(locale: string): boolean;
  * @returns Returns a newly constructed BreakIterator object.
  * @since 8
  */
- export function getLineInstance(locale: string): BreakIterator;
+export function getLineInstance(locale: string): BreakIterator;
 
 /**
  * The BreakIterator class is used for finding the location of break point in text.
@@ -888,6 +980,13 @@ export class Character {
  * @syscap SystemCapability.Global.I18n
  * @since 9
  */
+/**
+ * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
  export class Unicode {
     /**
      * Determines whether the specified code point is a digit character
@@ -896,6 +995,15 @@ export class Character {
      * @param { string } char - the character to be tested
      * @returns Returns true if the character is a digit character
      * @since 9
+     */
+    /**
+     * Determines whether the specified code point is a digit character
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a digit character
+     * @crossplatform
+     * @since 10
      */
     static isDigit(char: string): boolean;
 
@@ -907,6 +1015,15 @@ export class Character {
      * @returns Returns true if the character is a space character
      * @since 9
      */
+    /**
+     * Determines if the specified character is a space character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a space character
+     * @crossplatform
+     * @since 10
+     */
     static isSpaceChar(char: string): boolean;
 
     /**
@@ -916,6 +1033,15 @@ export class Character {
      * @param { string } char - the character to be tested
      * @returns Returns true if the character is a whitespace character
      * @since 9
+     */
+    /**
+     * Determines if the specified character is a whitespace character
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a whitespace character
+     * @crossplatform
+     * @since 10
      */
     static isWhitespace(char: string): boolean;
 
@@ -927,6 +1053,15 @@ export class Character {
      * @returns Returns true if the character is a RTL character
      * @since 9
      */
+    /**
+     * Determines if the specified character is a RTL character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a RTL character
+     * @crossplatform
+     * @since 10
+     */
     static isRTL(char: string): boolean;
 
     /**
@@ -936,6 +1071,15 @@ export class Character {
      * @param { string } char - the character to be tested
      * @returns Returns true if the character is a Ideographic character
      * @since 9
+     */
+    /**
+     * Determines if the specified character is a Ideographic character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a Ideographic character
+     * @crossplatform
+     * @since 10
      */
     static isIdeograph(char: string): boolean;
 
@@ -947,6 +1091,15 @@ export class Character {
      * @returns Returns true if the character is a Letter
      * @since 9
      */
+    /**
+     * Determines if the specified character is a Letter or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a Letter
+     * @crossplatform
+     * @since 10
+     */
     static isLetter(char: string): boolean;
 
     /**
@@ -956,6 +1109,15 @@ export class Character {
      * @param { string } char - the character to be tested
      * @returns Returns true if the character is a LowerCase character
      * @since 9
+     */
+    /**
+     * Determines if the specified character is a LowerCase character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a LowerCase character
+     * @crossplatform
+     * @since 10
      */
     static isLowerCase(char: string): boolean;
 
@@ -967,6 +1129,15 @@ export class Character {
      * @returns Returns true if the character is a UpperCase character
      * @since 9
      */
+    /**
+     * Determines if the specified character is a UpperCase character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a UpperCase character
+     * @crossplatform
+     * @since 10
+     */
     static isUpperCase(char: string): boolean;
 
     /**
@@ -976,6 +1147,15 @@ export class Character {
      * @param { string } char - the character to be tested
      * @returns Returns the general category of the specified character.
      * @since 9
+     */
+    /**
+     * Get the general category value of the specified character.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns the general category of the specified character.
+     * @crossplatform
+     * @since 10
      */
     static getType(char: string): string;
 }
@@ -1061,6 +1241,14 @@ export function getFirstPreferredLanguage(): string;
  * @returns Returns a TimeZone object corresponds to zoneID.
  * @since 7
  */
+/**
+ * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
+ * 
+ * @syscap SystemCapability.Global.I18n
+ * @param zoneID TimeZone ID used to create TimeZone Object.
+ * @returns Returns a TimeZone object corresponds to zoneID.
+ * @since 7
+ */
 export function getTimeZone(zoneID?: string): TimeZone;
 
 /**
@@ -1069,6 +1257,13 @@ export function getTimeZone(zoneID?: string): TimeZone;
  * @syscap SystemCapability.Global.I18n
  * @since 7
  */
+/**
+ * Provides the API for accessing TimeZone name, rawOffset and offset information.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @crossplatform
+ * @since 10
+ */
 export class TimeZone {
     /**
      * Get the id of the TimeZone object.
@@ -1076,6 +1271,14 @@ export class TimeZone {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns a string represents the timezone id.
      * @since 7
+     */
+    /**
+     * Get the id of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a string represents the timezone id.
+     * @crossplatform
+     * @since 10
      */
     getID(): string;
 
@@ -1097,6 +1300,14 @@ export class TimeZone {
      * @returns Returns a number represents the raw offset.
      * @since 7
      */
+    /**
+     * Get the raw offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a number represents the raw offset.
+     * @crossplatform
+     * @since 10
+     */
     getRawOffset(): number;
 
     /**
@@ -1107,6 +1318,15 @@ export class TimeZone {
      * @returns Returns a number represents the offset with date.
      * @since 7
      */
+    /**
+     * Get the offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @param date Indicates a date use to compute offset.
+     * @returns Returns a number represents the offset with date.
+     * @crossplatform
+     * @since 10
+     */
     getOffset(date?: number): number;
 
     /**
@@ -1115,6 +1335,14 @@ export class TimeZone {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns a string array represents the available TimeZone ID list.
      * @since 9
+     */
+    /**
+     * Get available TimeZone ID list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a string array represents the available TimeZone ID list.
+     * @crossplatform
+     * @since 10
      */
     static getAvailableIDs(): Array<string>;
 
