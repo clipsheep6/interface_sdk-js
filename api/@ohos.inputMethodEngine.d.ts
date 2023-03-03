@@ -448,7 +448,6 @@ declare namespace inputMethodEngine {
          * @param { PanelInfo } info - the info of panel to be created.
          * @param { AsyncCallback<Panel> } callback - the callback of createPanel.
          * @throws { BusinessError } 401 - parameter error.
-         * @throws { BusinessError } 12800004 - not an input method extension.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
          * @since 10
@@ -462,7 +461,6 @@ declare namespace inputMethodEngine {
          * status bar, and vice versa.</p>
          * @param { PanelInfo } info - the info of panel to be created.
          * @throws { BusinessError } 401 - parameter error.
-         * @throws { BusinessError } 12800004 - not an input method extension.
          * @returns { Promise<Panel> } the promise returned by the function.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
