@@ -140,6 +140,38 @@ declare namespace installer {
     uninstall(bundleName: string, installParam?: InstallParam) : Promise<void>;
 
     /**
+     * Uninstall an shared bundle.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { UninstallParam } uninstallParam - Indicates parameters of shared application to be uninstalled.
+     * @param { AsyncCallback } callback - The callback of uninstalling application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700035 - The version of shared bundle is being relied on other app.
+     * @throws { BusinessError } 17700036 - The specified shared bundle dose not exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    uninstall(uninstallParam: UninstallParam, callback : AsyncCallback<void>) : void;
+
+    /**
+     * Uninstall an shared bundle.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { UninstallParam } uninstallParam - Indicates parameters of shared application to be uninstalled.
+     * @param { AsyncCallback } callback - The callback of uninstalling application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700035 - The version of shared bundle is being relied on other app.
+     * @throws { BusinessError } 17700036 - The specified shared bundle dose not exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    uninstall(uninstallParam: UninstallParam) : Promise<void>;
+
+    /**
      * Recover an application.
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
@@ -245,6 +277,29 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+  }
+
+  /**
+   * Provides parameters required for uninstall shared bundle.
+   * @typedef UninstallParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface UninstallParam {
+    /**
+     * Indicates the shared bundle name.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    bundleName: string;
+
+    /**
+     * Indicates the shared version code.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    versionCode?: number;
   }
 }
 
