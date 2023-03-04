@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 const ts = require("typescript");
+const rules = require("../../code_style_rule.json");
 const { ErrorLevel, FileType, ErrorType } = require("../../src/utils");
 const { addAPICheckErrorLogs } = require('../compile_info');
 const { getPermissionBank } = require('../check_permission');
+
 
 function checkExtendsValue(tag, node, sourcefile, fileName, index) {
   let extendsResult = {
