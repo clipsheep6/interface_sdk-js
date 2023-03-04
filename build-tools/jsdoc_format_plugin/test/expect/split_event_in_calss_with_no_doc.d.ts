@@ -20,37 +20,27 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
- * @extends
  */
 export class MediaQueryEvent {
-    /**
-     * The result of match result.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 3
-     */
-    matches: boolean;
+  /**
+   * The result of match result.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
+   */
+  matches: boolean;
 
-    on(type: 'add', callback: Callback<number>): void;
+  on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+  off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
-    on(type: 'remove', callback: Callback<number>): void;
-
-    on(type: 'change', callback: Callback<number>): void;
-
-    off(type: 'add', callback: Callback<number>): void;
-
-    off(type: 'remove', callback: Callback<number>): void;
-
-    off(type: 'change', callback: Callback<number>): void;
-    /**
-     * Obtain the default display.
-     *
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.display#getDefaultDisplaySync
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @param { AsyncCallback<Display> } callback
-     * @returns { void }
-     */
-    getDefaultDisplay(callback: AsyncCallback<Display>): void;
+  /**
+   * Obtain the default display.
+   *
+   * @param { AsyncCallback<Display> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
+   */
+  getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }

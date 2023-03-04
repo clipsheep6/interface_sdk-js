@@ -18,32 +18,30 @@ import { AsyncCallback, Callback } from './basic';
 /**
  * Defines the MediaQuery event.
  *
+ * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
- * @namespace MediaQueryEvent
  */
 declare namespace MediaQueryEvent {
-    /**
-     * Obtain the default display.
-     *
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.display#getDefaultDisplaySync
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @param { AsyncCallback<Display> } callback
-     * @returns { void }
-     */
-    function getDefaultDisplay(callback: AsyncCallback<Display>): void;
+  /**
+   * Obtain the default display.
+   *
+   * @param { AsyncCallback<Display> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
+   */
+  function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }
 
 /**
  * Obtain the default display.
  *
+ * @param { AsyncCallback<Display> } callback
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.display#getDefaultDisplaySync
- * @param { AsyncCallback<Display> } callback
- * @returns { void }
  */
 declare function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 
@@ -55,6 +53,7 @@ declare function getDefaultDisplay(callback: AsyncCallback<Display>): void;
  * @param name Indicates the name of the application account to add.
  * @param options Indicates the extra information of the application account to add.
  *        The extra information cannot be sensitive information of the application account.
+ * @param { AsyncCallback<void> } callback
  * @returns void.
  * @throws { BusinessError } 401 - the parameter check failed.
  * @throws { BusinessError } 12300001 - system service exception.
@@ -62,9 +61,6 @@ declare function getDefaultDisplay(callback: AsyncCallback<Display>): void;
  * @throws { BusinessError } 12300004 - the account indicated by name already exist.
  * @throws { BusinessError } 12300007 - the account number has reached the upper limit.
  * @since 9
- * @param { AsyncCallback<void> } callback
- * @param
- * @param
  */
 declare function createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
 
@@ -125,11 +121,10 @@ declare function createAccount(name: string, options?: CreateAccountOptions): Pr
 /**
  * Obtain the default display.
  *
+ * @param { AsyncCallback<Display> } callback
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.display#getDefaultDisplaySync
- * @param { AsyncCallback<Display> } callback
- * @returns { void }
  */
 declare function getAll(callback: AsyncCallback<Display>): void;
 

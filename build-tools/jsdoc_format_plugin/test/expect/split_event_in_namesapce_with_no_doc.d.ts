@@ -18,31 +18,23 @@ import { AsyncCallback, Callback } from './basic';
 /**
  * Defines the MediaQuery event.
  *
+ * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
- * @namespace MediaQueryEvent
  */
 declare namespace MediaQueryEvent {
-    function on(type: 'add', callback: Callback<number>): void;
+  function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
-    function on(type: 'remove', callback: Callback<number>): void;
+  function off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
-    function on(type: 'change', callback: Callback<number>): void;
-
-    function off(type: 'add', callback: Callback<number>): void;
-
-    function off(type: 'remove', callback: Callback<number>): void;
-
-    function off(type: 'change', callback: Callback<number>): void;
-    /**
-     * Obtain the default display.
-     *
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.display#getDefaultDisplaySync
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @param { AsyncCallback<Display> } callback
-     * @returns { void }
-     */
-    function getDefaultDisplay(callback: AsyncCallback<Display>): void;
+  /**
+   * Obtain the default display.
+   *
+   * @param { AsyncCallback<Display> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
+   */
+  function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }

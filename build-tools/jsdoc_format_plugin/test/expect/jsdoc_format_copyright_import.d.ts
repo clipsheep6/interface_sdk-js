@@ -17,7 +17,7 @@ import yy from 'yy/yy';
 /**
  * xxxxxx
  *
- * @since 0
  * @namespace Comment
+ * @since 0
  */
 declare namespace Comment {}

@@ -20,22 +20,20 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
- * @extends
  */
 export class MediaQueryEvent {
-    /**
-     * Obtain the default display.
-     *
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.display#getDefaultDisplaySync
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @param { AsyncCallback<Display> } callback
-     * @returns { void }
-     */
-    getDefaultDisplay(callback: AsyncCallback<Display>): void;
+  /**
+   * Obtain the default display.
+   *
+   * @param { AsyncCallback<Display> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
+   */
+  getDefaultDisplay(callback: AsyncCallback<Display>): void;
 
-    createAccount(name: string, callback: AsyncCallback<void>): void;
-    createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
-    createAccount(name: string, options?: CreateAccountOptions): Promise<void>;
+  createAccount(name: string, callback: AsyncCallback<void>): void;
+  createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
+  createAccount(name: string, options?: CreateAccountOptions): Promise<void>;
 }
