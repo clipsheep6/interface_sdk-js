@@ -142,11 +142,6 @@ export interface Context {
   getInputFile(): string;
 
   /**
-   * 获取权限配置文件路径
-   */
-  getPermissionConfig(): string;
-
-  /**
    * 获取整改规则文件路径
    */
   getJSDocRuleFile(): string | undefined;

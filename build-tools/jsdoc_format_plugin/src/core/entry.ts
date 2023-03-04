@@ -56,7 +56,6 @@ export class JSDocModifierImpl implements IJSDocModifier {
   getBaseContext(inputParam: InputParameter): Context {
     return new ContextImpl(inputParam.inputFilePath,
       inputParam.outputFilePath!,
-      inputParam.permissionFile,
       inputParam.ruleFile,
       inputParam.getOptions());
   }
@@ -93,7 +92,6 @@ abstract class BaseSourceCodeProcessor implements ISourceCodeProcessor {
   buildProcessorContext(parentContext: Context, inputFile: string): Context {
     return new ContextImpl(inputFile,
       OutputFileHelper.getOutputFilePath(this.inputParam, inputFile),
-      this.inputParam.permissionFile,
       this.inputParam.ruleFile,
       parentContext.getOptions());
   }

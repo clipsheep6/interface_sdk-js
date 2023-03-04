@@ -28,21 +28,15 @@ export class ContextImpl implements Context {
   options: Options;
   inputFile: string;
   outputFile: string;
-  permissionFile: string;
   ruleFile: string | undefined;
   rawSourceCodeInfo?: rawInfo.RawSourceCodeInfo;
   logReporter?: LogReporter;
 
-  constructor(inputFile: string, outputFile: string, permissionFile: string, ruleFile?: string, options?: Options) {
+  constructor(inputFile: string, outputFile: string, ruleFile?: string, options?: Options) {
     this.inputFile = inputFile;
     this.outputFile = outputFile;
-    this.permissionFile = permissionFile;
     this.ruleFile = ruleFile;
     this.options = options ? options : new Options();
-  }
-
-  getPermissionConfig(): string {
-    return this.permissionFile
   }
 
   getJSDocRuleFile(): string | undefined {
@@ -126,14 +120,18 @@ export class OutputFileHelper {
 
   // 获取报告输出路径
   static getLogReportFilePath(inputParam: InputParameter): string {
+    let dirName = '';
+    let fileName = '';
     const fileTimeStamp = FileUtils.getFileTimeStamp();
+
     if (inputParam.outputFilePath) {
-      const dirName = path.dirname(inputParam.outputFilePath);
-      return path.join(dirName, `报告${fileTimeStamp}.xlsx`);
+      dirName = path.dirname(inputParam.outputFilePath);
     } else {
-      const dirName = path.dirname(inputParam.inputFilePath);
-      return path.join(dirName, `报告${fileTimeStamp}.xlsx`);
+      dirName = path.dirname(inputParam.inputFilePath);
     }
+
+    fileName = path.basename(inputParam.inputFilePath, '.d.ts')
+    return path.join(dirName, `${fileName}报告${fileTimeStamp}.xlsx`);
   }
 }
 
@@ -821,7 +819,6 @@ export class InputParameter {
   outputFilePath: string | undefined;
   logLevel: string = '';
   splitUnionTypeApi: boolean = false;
-  permissionFile: string = '';
   ruleFile: string | undefined;
   options: Options = new Options();
 
@@ -832,7 +829,6 @@ export class InputParameter {
       .description("CLI to format d.ts")
       .version("0.1.0")
       .requiredOption(`-i, --input <path>`, `${StringResource.getString(StringResourceId.COMMAND_INPUT_DESCRIPTION)}`)
-      .requiredOption(`-p, --permission <path>`, `${StringResource.getString(StringResourceId.COMMAND_PERMISSION_CONFIG)}`)
       .option("-o, --output <path>", `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
       .option("-l, --logLevel <INFO,WARN,DEBUG,ERR>", `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
       .option("-s, --split", `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false)
@@ -842,7 +838,6 @@ export class InputParameter {
     this.inputFilePath = options.input;
     this.outputFilePath = options.output
     this.logLevel = options.logLevel;
-    this.permissionFile = options.permission;
     this.splitUnionTypeApi = options.split;
     this.ruleFile = options.rule;
     this.checkInput();
@@ -850,7 +845,6 @@ export class InputParameter {
 
   private checkInput() {
     this.inputFilePath = path.resolve(this.inputFilePath);
-    this.permissionFile = path.resolve(this.permissionFile);
     this.outputFilePath = this.outputFilePath ? path.resolve(this.outputFilePath) : undefined;
     this.ruleFile = this.ruleFile ? path.resolve(this.ruleFile) : undefined;
 
@@ -859,7 +853,6 @@ export class InputParameter {
     }
 
     this.checkFileExists(this.inputFilePath);
-    this.checkFileExists(this.permissionFile);
 
     if (FileUtils.isDirectory(this.inputFilePath)) {
       if (this.outputFilePath) {

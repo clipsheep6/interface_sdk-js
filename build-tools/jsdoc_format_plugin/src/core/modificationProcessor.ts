@@ -61,7 +61,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
       } else if (ts.isVariableDeclarationList(curNode)) {
         apiName = curNode.declarations[0].name.getText();
       }
-      const checkResults = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile(), this.context?.getPermissionConfig());
+      const checkResults = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile());
       const newCommentIndexs: number[] = [];
       const newCommentInfos: comment.CommentInfo[] = node.commentInfos ? [...node.commentInfos] : [];
       newCommentInfos?.forEach((commentInfo: comment.CommentInfo, index: number) => {

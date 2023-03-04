@@ -202,6 +202,6 @@ function parseJsDoc(node) {
 }
 exports.parseJsDoc = parseJsDoc;
 
-let permissionFile = path.resolve(__dirname, '../../../../../',
-  "base/global/system_resources/systemres/main/config.json");
+let permissionFile = path.resolve(__dirname, '../config/config.json');
+
 exports.permissionFile = permissionFile;
