@@ -28,19 +28,13 @@ export class ContextImpl implements Context {
   options: Options;
   inputFile: string;
   outputFile: string;
-  ruleFile: string | undefined;
   rawSourceCodeInfo?: rawInfo.RawSourceCodeInfo;
   logReporter?: LogReporter;
 
-  constructor(inputFile: string, outputFile: string, ruleFile?: string, options?: Options) {
+  constructor(inputFile: string, outputFile: string, options?: Options) {
     this.inputFile = inputFile;
     this.outputFile = outputFile;
-    this.ruleFile = ruleFile;
     this.options = options ? options : new Options();
-  }
-
-  getJSDocRuleFile(): string | undefined {
-    return this.ruleFile;
   }
 
   setLogReporter(logReporter: LogReporter): void {
@@ -819,7 +813,6 @@ export class InputParameter {
   outputFilePath: string | undefined;
   logLevel: string = '';
   splitUnionTypeApi: boolean = false;
-  ruleFile: string | undefined;
   options: Options = new Options();
 
   parse() {
@@ -832,21 +825,18 @@ export class InputParameter {
       .option("-o, --output <path>", `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
       .option("-l, --logLevel <INFO,WARN,DEBUG,ERR>", `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
       .option("-s, --split", `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false)
-      .option("-r, --rule <path>", `${StringResource.getString(StringResourceId.COMMAND_RULE)}`)
     program.parse();
     const options = program.opts();
     this.inputFilePath = options.input;
     this.outputFilePath = options.output
     this.logLevel = options.logLevel;
     this.splitUnionTypeApi = options.split;
-    this.ruleFile = options.rule;
     this.checkInput();
   }
 
   private checkInput() {
     this.inputFilePath = path.resolve(this.inputFilePath);
     this.outputFilePath = this.outputFilePath ? path.resolve(this.outputFilePath) : undefined;
-    this.ruleFile = this.ruleFile ? path.resolve(this.ruleFile) : undefined;
 
     if (this.outputFilePath && (this.outputFilePath === path.basename(this.outputFilePath))) {
       throw StringResource.getString(StringResourceId.INVALID_PATH)

@@ -5,6 +5,7 @@
   "main": "collect.js",
   "scripts": {
     "test": "mocha --config test/mocha/.mocharc.jsonc",
+    "testOnly": "mocha --config test/mocha/.mocharc.jsonc -g testOnly",
     "build": "webpack --mode=production",
     "testAll": "ts-node src/main.ts -i ../../api/ -o testAllResult/"
   },

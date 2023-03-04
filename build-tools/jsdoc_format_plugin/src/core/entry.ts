@@ -38,6 +38,10 @@ export class JSDocModifierImpl implements IJSDocModifier {
       LogUtil.e(this.tag, error);
       return;
     }
+    this.startInternal(inputParameter);
+  }
+
+  startInternal(inputParameter: InputParameter) {
     LogUtil.logLevel = LogLevelUtil.get(inputParameter.logLevel);
     const sourceProcessor: ISourceCodeProcessor = this.getSourceProcessor(inputParameter);
     const baseContext: Context = this.getBaseContext(inputParameter);
@@ -56,10 +60,10 @@ export class JSDocModifierImpl implements IJSDocModifier {
   getBaseContext(inputParam: InputParameter): Context {
     return new ContextImpl(inputParam.inputFilePath,
       inputParam.outputFilePath!,
-      inputParam.ruleFile,
       inputParam.getOptions());
   }
 }
+
 
 export class JSDOcModifierTestEntry extends JSDocModifierImpl {
 
@@ -67,15 +71,8 @@ export class JSDOcModifierTestEntry extends JSDocModifierImpl {
     const inputParameter = new InputParameter();
     inputParameter.inputFilePath = inputFile;
     inputParameter.outputFilePath = outputFile;
-    LogUtil.logLevel = LogLevelUtil.get(inputParameter.logLevel);
-    const sourceProcessor: ISourceCodeProcessor = this.getSourceProcessor(inputParameter);
-    const baseContext: Context = this.getBaseContext(inputParameter);
-    const result: ProcessResult = sourceProcessor.process(baseContext, '');
-    if (result.code != Code.OK) {
-      LogUtil.e('JSDocModifier', result.content);
-    } else {
-      LogUtil.i('JSDocModifier', result.content);
-    }
+    inputParameter.splitUnionTypeApi = true;
+    this.startInternal(inputParameter);
   }
 }
 
@@ -92,7 +89,6 @@ abstract class BaseSourceCodeProcessor implements ISourceCodeProcessor {
   buildProcessorContext(parentContext: Context, inputFile: string): Context {
     return new ContextImpl(inputFile,
       OutputFileHelper.getOutputFilePath(this.inputParam, inputFile),
-      this.inputParam.ruleFile,
       parentContext.getOptions());
   }
 }

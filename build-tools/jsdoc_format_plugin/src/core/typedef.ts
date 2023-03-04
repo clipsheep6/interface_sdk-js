@@ -142,11 +142,6 @@ export interface Context {
   getInputFile(): string;
 
   /**
-   * 获取整改规则文件路径
-   */
-  getJSDocRuleFile(): string | undefined;
-
-  /**
    * 获取d.ts AST 解析器
    *
    * @param code
