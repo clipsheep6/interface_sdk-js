@@ -24,6 +24,7 @@ export enum Code {
 /**
  * 字符串资源ID
  */
+
 export enum StringResourceId {
   INPUT_FILE_NOT_FOUND,
   INPUT_FILE_CONTENT_EMPTY,
@@ -37,7 +38,8 @@ export enum StringResourceId {
   OUTPUT_MUST_FILE,
   OUTPUT_MUST_DIR,
   OUTPUT_SAME_WITH_INPUT,
-  OUTPUT_SUBDIR_INPUT
+  OUTPUT_SUBDIR_INPUT,
+  START_MESSAGE
 }
 
 export enum Instruct {

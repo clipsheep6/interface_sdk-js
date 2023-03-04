@@ -29,6 +29,7 @@ const ZH_STRING_MAP: Map<number, string> = new Map([
   [StringResourceId.OUTPUT_MUST_DIR, "输出路径需要指向目录"],
   [StringResourceId.OUTPUT_SAME_WITH_INPUT, "输出文件路径与输入文件路径相同"],
   [StringResourceId.OUTPUT_SUBDIR_INPUT, "输出目录不能是输入目录的子目录"],
+  [StringResourceId.START_MESSAGE, "正在处理, 请稍后 ..."],
 ]);
 
 const EN_STRING_MAP: Map<number, string> = new Map([
@@ -45,6 +46,7 @@ const EN_STRING_MAP: Map<number, string> = new Map([
   [StringResourceId.OUTPUT_MUST_DIR, "the output path must be a folder"],
   [StringResourceId.OUTPUT_SAME_WITH_INPUT, "the output file path is same as the input file path"],
   [StringResourceId.OUTPUT_SUBDIR_INPUT, "the output directory cannot be a subdirectory of the input directory"],
+  [StringResourceId.START_MESSAGE, "Processing please wait ..."],
 ]);
 
 export class StringResource {

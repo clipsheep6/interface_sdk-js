@@ -45,6 +45,7 @@ export class JSDocModifierImpl implements IJSDocModifier {
     LogUtil.logLevel = LogLevelUtil.get(inputParameter.logLevel);
     const sourceProcessor: ISourceCodeProcessor = this.getSourceProcessor(inputParameter);
     const baseContext: Context = this.getBaseContext(inputParameter);
+    LogUtil.i(this.tag, StringResource.getString(StringResourceId.START_MESSAGE));
     const result: ProcessResult = sourceProcessor.process(baseContext, '');
     if (result.code != Code.OK) {
       LogUtil.e(this.tag, result.content);

@@ -1,9 +1,7 @@
-import ts from "typescript";
 import { Code } from "../utils/constant";
-import { LogUtil } from "../utils/logUtil";
 import { StringUtils } from "../utils/stringUtils";
 import { AstNodeHelper, RawSourceCodeInfoImpl } from "./coreImpls";
-import { comment, Context, ISourceCodeProcessor, ProcessResult, rawInfo, sourceParser } from "./typedef";
+import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from "./typedef";
 
 export class RawSourceCodeProcessor implements ISourceCodeProcessor, sourceParser.INodeVisitorCallback {
   rawSourceCodeInfo?: RawSourceCodeInfoImpl;
