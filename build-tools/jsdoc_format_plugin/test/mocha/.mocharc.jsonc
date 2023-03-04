@@ -4,5 +4,6 @@
   ],
   "spec": [
       "test/testCase/*.ts"
-  ]
+  ],
+  "reporter": "mochawesome"
 }
