@@ -140,7 +140,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     ts.SyntaxKind.EnumDeclaration, ts.SyntaxKind.ModuleDeclaration, ts.SyntaxKind.NamespaceExportDeclaration,
     ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature, ts.SyntaxKind.MethodDeclaration,
     ts.SyntaxKind.EnumMember, ts.SyntaxKind.VariableStatement, ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.Constructor,
-    ts.SyntaxKind.TypeLiteral, ts.SyntaxKind.ImportDeclaration
+    ts.SyntaxKind.TypeLiteral, ts.SyntaxKind.ImportDeclaration, ts.SyntaxKind.LabeledStatement
   ];
   visitNodeChildrenWhilteList: ts.SyntaxKind[] = [
     ts.SyntaxKind.ModuleDeclaration, ts.SyntaxKind.ModuleBlock, ts.SyntaxKind.NamespaceExportDeclaration, ts.SyntaxKind.ClassDeclaration,

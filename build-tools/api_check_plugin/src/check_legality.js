@@ -45,17 +45,19 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
   // 'extends'
   legalityCheck(node, sourcefile, [ts.SyntaxKind.ClassDeclaration], ['extends'], true, checkInfoMap,
     (currentNode, checkResult) => {
-      if (!currentNode.heritageClauses) {
-        return false;
-      }
-      const clauses = currentNode.heritageClauses;
       let tagCheckResult = false;
-      clauses.forEach(claus => {
-        if (/^extends /.test(claus.getText())) {
-          tagCheckResult = true;
-        }
-      });
-      return tagCheckResult;
+      if (ts.isClassDeclaration(currentNode) && currentNode.heritageClauses) {
+        const clauses = currentNode.heritageClauses;
+        clauses.forEach(claus => {
+          if (/^extends /.test(claus.getText())) {
+            tagCheckResult = true;
+          }
+        });
+      }
+      if ((checkResult && !tagCheckResult) || (!checkResult && tagCheckResult)) {
+        return true;
+      }
+      return false;
     }
   );
   // 'namespace'
@@ -201,7 +203,6 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath) {
     checkInfoMap[index.toString()].orderResult = result;
   });
   const comments = parseJsDoc(node);
-  let allLogs = [];
   comments.forEach((comment, index) => {
     const errorLogs = [];
     let paramIndex = 0;
@@ -222,7 +223,7 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath) {
         }
       }
     });
-    allLogs.push(errorLogs);
+    checkInfoMap[index.toString()].illegalTags = checkInfoMap[index.toString()].illegalTags.concat(errorLogs);
   });
   for (const key in checkInfoMap) {
     checkInfoArray.push(checkInfoMap[key]);
