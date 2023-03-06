@@ -4,10 +4,10 @@
   "description": "",
   "main": "collect.js",
   "scripts": {
-    "test": "npm install && mocha --config test/mocha/.mocharc.jsonc",
-    "testOnly": "npm install && mocha --config test/mocha/.mocharc.jsonc -g testOnly",
+    "testAll": "npm install && mocha --config test/mocha/.mocharc.jsonc",
+    "testOnly": "mocha --config test/mocha/.mocharc.jsonc --grep",
     "build": "webpack --mode=production",
-    "testAll": "ts-node src/main.ts -i ../../api/ -o testAllResult/"
+    "formatSDK": "ts-node src/main.ts -i ../../api/ -o formatedSDK/"
   },
   "author": "",
   "license": "ISC",
