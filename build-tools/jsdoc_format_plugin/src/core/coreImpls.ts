@@ -1038,10 +1038,17 @@ export class LogResult {
         }
       })
     }
+    let apiContent: string = '';
+    comments.forEach((curComment: comment.CommentInfo) => {
+      if (curComment.isApiComment) {
+        apiContent += `${curComment.text}\n`;
+      }
+    });
+    apiContent += node.getText();
     const checkLogResult: CheckLogResult = {
       filePath: filePath,
       apiName: apiName,
-      apiContent: node.getFullText(),
+      apiContent: apiContent,
       errorType: errorType,
       version: version,
       errorInfo: errorInfo,
@@ -1063,10 +1070,17 @@ export class LogResult {
         }
       })
     }
+    let apiContent: string = '';
+    comments.forEach((curComment: comment.CommentInfo) => {
+      if (curComment.isApiComment) {
+        apiContent += `${curComment.text}\n`;
+      }
+    });
+    apiContent += node.getText();
     const modifyLogResult: ModifyLogResult = {
       filePath: filePath,
       apiName: apiName,
-      apiContent: node.getFullText(),
+      apiContent: apiContent,
       modifyType: jsDocModifyType,
       version: version,
       description: description,

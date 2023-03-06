@@ -653,9 +653,11 @@ export interface JsDocModificationInterface {
  */
 export enum ErrorInfo {
   PARAM_FORAMT_ERROR = 'param标签无法补全, 请自行确认当前api第[$$]个参数是否为基础类型或定义类型',
-  COMPLETE_TAG_INFORMATION = '补全[$$]标签',
-  COMPLETE_INHERIT_TAG_INFORMATION = '从父类补全[$$]标签',
-  COMPLETE_TAG_ERROR = '[$$]标签无法补全, 请自行确认',
+  COMPLETE_TAG_INFORMATION = '补全第[$$]段JSDoc的[$$]标签',
+  COMPLETE_INHERIT_TAG_INFORMATION = '第[$$]段JSDoc从父类继承[$$]标签',
+  COMPLETE_TAG_ERROR = '第[$$]段JSDoc缺少[$$]标签, 请自行确认修改',
+  COMPLETE_INTERFACE_TAG_ERROR = '第[$$]段JSDoc缺少[$$]标签, 请自行确认补全@interface或者@type标签',
   MODIFY_TAG_ORDER_INFORMATION = '第[$$]段JSDoc标签顺序调整',
-  JSDOC_FORMAT_ERROR = 'JSDoc格式错误, 请检查'
+  JSDOC_FORMAT_ERROR = 'JSDoc格式错误, 请检查',
+  JSDOC_ILLEGAL_ERROR = '第[$$]段JSDoc校验失败: '
 }

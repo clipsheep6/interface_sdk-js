@@ -56,7 +56,8 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
         if (commentInfo.isApiComment) {
           newCommentIndexs.push(index);
           // 添加继承接口
-          this.addInheritTags(node, curNode, commentInfo, newCommentInfos, index === newCommentInfos.length - 1);
+          this.addInheritTags(node, curNode, commentInfo, newCommentInfos, index === newCommentInfos.length - 1,
+            index + 1);
         }
       });
       if (newCommentIndexs.length > 0 && node.commentInfos) {
@@ -67,9 +68,9 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
             const checkResult: JsDocCheckResult = checkResults[index];
             const curCommentInfo: comment.CommentInfo = newCommentInfos[item];
             // 添加缺失标签
-            this.addMissingTags(node, curNode, curCommentInfo, newCommentInfos, checkResult.missingTags);
+            this.addMissingTags(node, curNode, curCommentInfo, newCommentInfos, checkResult.missingTags, index + 1);
             // 输出诊断日志
-            this.exportIllegalInfo(curNode, newCommentInfos, checkResult.illegalTags);
+            this.exportIllegalInfo(curNode, newCommentInfos, checkResult.illegalTags, index + 1);
             // 调整标签顺序
             this.modifyTagsOrder(curNode, curCommentInfo, newCommentInfos, checkResult.orderResult.checkResult,
               index + 1);
@@ -87,7 +88,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     }
   }
   addInheritTags(node: comment.CommentNode, curNode: ts.Node, commentInfo: comment.CommentInfo,
-    newCommentInfos: comment.CommentInfo[], deprecatedCheckResult: boolean) {
+    newCommentInfos: comment.CommentInfo[], deprecatedCheckResult: boolean, jsdocNumber: number) {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     INHERIT_TAGS_ARRAY.forEach((tagName: string) => {
       if (tagName !== 'deprecated' || (tagName === 'deprecated' && deprecatedCheckResult)) {
@@ -95,15 +96,15 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
           this.context);
         if (modifyResult) {
           const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(curNode, newCommentInfos,
-            JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_INHERIT_TAG_INFORMATION, [`${tagName}`]),
+            JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_INHERIT_TAG_INFORMATION, [`${jsdocNumber}`, `${tagName}`]),
             this.context, apiName, JSDocModifyType.MISSING_TAG_COMPLETION);
           this.logReporter?.addModifyResult(modifyLogResult);
         }
       }
     });
   }
-  addMissingTags(node: comment.CommentNode, curNode: ts.Node, curCommentInfo: comment.CommentInfo, 
-    newCommentInfos: comment.CommentInfo[], missingTags: string[]) {
+  addMissingTags(node: comment.CommentNode, curNode: ts.Node, curCommentInfo: comment.CommentInfo,
+    newCommentInfos: comment.CommentInfo[], missingTags: string[], jsdocNumber: number) {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     missingTags.forEach((tagName: string) => {
       const modifier = jsDocModifier.get(tagName);
@@ -112,14 +113,18 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
         modifyResult = modifier(node, curCommentInfo, tagName, this.context);
         if (modifyResult) {
           const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(curNode, newCommentInfos,
-            JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_TAG_INFORMATION, [`${tagName}`]),
+            JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_TAG_INFORMATION, [`${jsdocNumber}`, `${tagName}`]),
             this.context, apiName, JSDocModifyType.MISSING_TAG_COMPLETION);
           this.logReporter?.addModifyResult(modifyLogResult);
         }
       }
       if (!modifier || !modifyResult) {
+        let modifyErrorInfo: string = ErrorInfo.COMPLETE_TAG_ERROR;
+        if (tagName === 'interface') {
+          modifyErrorInfo = ErrorInfo.COMPLETE_INTERFACE_TAG_ERROR;
+        }
         const checkLogResult: CheckLogResult = LogResult.createCheckResult(curNode, newCommentInfos,
-          JSDocModificationManager.createErrorInfo(ErrorInfo.COMPLETE_TAG_ERROR, [`${tagName}`]),
+          JSDocModificationManager.createErrorInfo(modifyErrorInfo, [`${jsdocNumber}`, `${tagName}`]),
           this.context, apiName, JSDocCheckErrorType.INCOMPLETE_TAG);
         this.logReporter?.addCheckResult(checkLogResult);
       }
@@ -137,12 +142,13 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     }
   }
   exportIllegalInfo(curNode: ts.Node, newCommentInfos: comment.CommentInfo[],
-    illegalTags: IllegalTagsInfo[]) {
+    illegalTags: IllegalTagsInfo[], jsdocNumber: number) {
     const apiName: string = JSDocModificationManager.getApiName(curNode);
     illegalTags.forEach((illegalTag: IllegalTagsInfo) => {
       if (!illegalTag.checkResult) {
         const checkLogResult: CheckLogResult = LogResult.createCheckResult(curNode, newCommentInfos,
-          illegalTag.errorInfo, this.context, apiName, JSDocCheckErrorType.TAG_VALUE_ERROR);
+          JSDocModificationManager.createErrorInfo(ErrorInfo.JSDOC_ILLEGAL_ERROR + illegalTag.errorInfo, [`${jsdocNumber}`]),
+          this.context, apiName, JSDocCheckErrorType.TAG_VALUE_ERROR);
         this.logReporter?.addCheckResult(checkLogResult);
       }
     });
@@ -190,7 +196,7 @@ class JSDocModificationManager {
     let tagType = '';
     if (node.astNode) {
       if (tagName === 'returns' && (ts.isMethodDeclaration(node.astNode) || ts.isMethodSignature(node.astNode) ||
-        ts.isFunctionDeclaration(node.astNode)) &&
+        ts.isFunctionDeclaration(node.astNode) || ts.isCallSignatureDeclaration(node.astNode)) &&
         node.astNode.type) {
         tagType = node.astNode.type.getText();
       } else if ((ts.isModuleDeclaration(node.astNode) || ts.isEnumDeclaration(node.astNode)) && node.astNode.name &&

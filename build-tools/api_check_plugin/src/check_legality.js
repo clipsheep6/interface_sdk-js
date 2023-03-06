@@ -81,8 +81,8 @@ function checkJsDocLegality(node, sourcefile, checkInfoMap) {
   legalityCheck(node, sourcefile, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
   ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['returns'], true, checkInfoMap,
     (currentNode, checkResult) => {
-      if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Calls]).has(currentNode.kind)) {
+      if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) {
         return false;
       }
       return currentNode.type && currentNode.type.kind !== ts.SyntaxKind.VoidKeyword;
@@ -169,8 +169,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         checkResult = parameterNum !== paramTagNum;
       }
       // useinstead特殊处理
-      if (isRequire && ((tagName !== 'useinstead' && tagName !== 'param' && !checkResult && legalKindSet.has(node.kind)) ||
-        (tagName === 'useinstead' && useinsteadResultObj.hasDeprecated && !useinsteadResultObj.hasUseinstead) ||
+      if (isRequire && tagName !== 'useinstead' && ((tagName !== 'useinstead' && tagName !== 'param' && !checkResult && legalKindSet.has(node.kind)) ||
         (tagName === 'param' && paramTagNum < parameterNum)) && extraCheckCallback(node, checkResult)) {
         // 报错
         // console.log(`${sourcefile.fileName}, ${node.getText()} has no @${tagName}`);
@@ -182,7 +181,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         // console.log(`${sourcefile.fileName}, ${node.getText()} should not has @${tagName}`);
         checkInfoMap[index].illegalTags.push({
           checkResult: false,
-          errorInfo: `api不允许使用[${tagName}]标签`,
+          errorInfo: `api第[${index + 1}]段JSDoc不允许使用[${tagName}]标签, 请检查标签使用方法`,
           index: index
         })
       }
