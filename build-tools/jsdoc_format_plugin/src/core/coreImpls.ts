@@ -64,10 +64,6 @@ export class ContextImpl implements Context {
     return this.logReporter;
   }
 
-  getCommentChecker(): comment.CommentChecker {
-    throw new Error('Method not implemented.');
-  }
-
   getOutputFile(): string {
     return this.outputFile;
   }
@@ -546,6 +542,7 @@ export class CommentHelper {
  */
 class CommentWriter {
   isMultiLine: boolean;
+  commentBlockDelimiter = '/**';
 
   constructor(isMultiLine: boolean) {
     this.isMultiLine = isMultiLine;
@@ -555,7 +552,7 @@ class CommentWriter {
    * 构建完整的注释文本段
    */
   publish(commentInfo: comment.CommentInfo): string {
-    const parsedComment = commentInfo.parsedComment;
+    const parsedComment: comment.ParsedComment | undefined = commentInfo.parsedComment;
     // 如果没有解析过的注释对象(可能是license)，使用原始注释内容
     let plainComment = parsedComment ? this.restoreParsedComment(parsedComment, commentInfo.commentTags) : commentInfo.text;
     if (commentInfo.isMultiLine) {
@@ -565,7 +562,7 @@ class CommentWriter {
     return plainComment;
   }
 
-  private restoreParsedComment(parsedComment: any, commentTags: Array<comment.CommentTag>): string {
+  private restoreParsedComment(parsedComment: comment.ParsedComment, commentTags: Array<comment.CommentTag>): string {
     const newSourceArray: Array<comment.CommentSource> = [];
     const { stringify } = require('comment-parser');
     if (parsedComment.source.length === 1) {
@@ -581,7 +578,7 @@ class CommentWriter {
         continue;
       }
       // 描述信息写在/** 之后
-      if (source.tokens.delimiter === '/**') {
+      if (source.tokens.delimiter === this.commentBlockDelimiter) {
         source.tokens.delimiter = '*';
         source.tokens.postDelimiter = ' ';
       }
@@ -688,7 +685,7 @@ class CommentWriter {
   private getCommentStartToken(): comment.CommentToken {
     return {
       start: '',
-      delimiter: '/**',
+      delimiter: this.commentBlockDelimiter,
       postDelimiter: '',
       tag: '',
       postTag: '',
@@ -738,7 +735,7 @@ class CommentWriter {
 
   private shouldInsertNewEmptyLine(token: comment.CommentToken): boolean {
     const lastDescriptionNotEmpty = token.tag === '' && token.delimiter === '*' && token.description !== '';
-    const commentStartLine = token.tag === '' && token.delimiter === '/**';
+    const commentStartLine = token.tag === '' && token.delimiter === this.commentBlockDelimiter;
     return lastDescriptionNotEmpty && !commentStartLine;
   }
 

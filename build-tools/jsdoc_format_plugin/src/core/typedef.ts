@@ -136,11 +136,6 @@ export interface Context {
   setLogReporter(logReporter: LogReporter): void;
 
   /**
-   * 获取注释校验器
-   */
-  getCommentChecker(): comment.CommentChecker;
-
-  /**
    * 获取整改后的d.ts文件路径
    */
   getOutputFile(): string;
@@ -426,21 +421,6 @@ export namespace comment {
     astNode: ts.Node
   }
 
-  /**
-   * 注释校验器
-   * TODO 接口参数待补全
-   */
-  export interface CommentChecker {
-    checkComment(comment: RawCommentInfo, sourceFile: ts.SourceFile): CheckResult;
-  }
-
-  /**
-   * 注释校验结果
-   * TODO 待补全
-   */
-  export abstract class CheckResult {
-  }
-
   export enum CommentLocationKind {
 
     /**
@@ -452,6 +432,153 @@ export namespace comment {
      * 尾注释
      */
     TRAILING = 1
+  }
+}
+
+/**
+ * comment-parser 解析后的数据结构
+ */
+export namespace comment {
+
+  /**
+   *  原始注释信息
+   */
+  export interface Source {
+
+    /** 行号 */
+    number: number;
+
+    /** 原始文本内容 */
+    source: string;
+
+    /** 注释拆分 */
+    tokens: Token;
+  }
+
+  /**
+   * 注释标签
+   */
+  export interface Tag {
+
+    /**
+     * 标签名如 @since tag = since
+     */
+    tag: string;
+
+    /**
+     * 标签名,如 @since 9, name = 9
+     */
+    name: string;
+
+    /**
+     * 类型, 例如 @throws { BusinessErro }, type = BusinessError
+     */
+    type: string;
+
+    /**
+     * 是否可选，例如 @param [encoding = 'utf-8'], optional = true
+     */
+    optional: boolean;
+
+    /**
+     * 标签的描述,例如 @throws { BusinessError } 401 - if the input parameters are invalid
+     * description = - if the input parameters are invalid
+     */
+    description: string;
+
+    /**
+     * 标签对应的原始注释信息。
+     */
+    source: Source[];
+  }
+
+  /**
+   * 注释的每行被拆分成Token的每个字段。
+   */
+  export interface Token {
+
+    /**
+     * 起始字符,例如本行注释的起始符号为'     ',5个空格
+     */
+    start: string;
+
+    /**
+     * 定界符,例如本行注释的定界符为'*'
+     */
+    delimiter: string;
+
+    /**
+     * 紧跟定界符之后的字符，一般为一个空格
+     */
+    postDelimiter: string;
+
+    /**
+     * 标签，例如 @since
+     */
+    tag: string;
+
+    /**
+     * 紧跟标签之后的符号, 一般是空格
+     */
+    postTag: string;
+
+    /**
+     * 标签名称例如 @since 9, name = 9
+     * @throws { BusinessError } 401, name = 401
+     */
+    name: string;
+
+    /**
+     * 紧跟 name 的字符，一般为空格
+     */
+    postName: string;
+
+    /**
+     * 类型例如@param { string }, type = { string }
+     */
+    type: string;
+
+    /**
+     * 紧跟类型的字符，一般为空格
+     */
+    postType: string;
+
+    /**
+     * 描述信息,例如 @throws { BusinessError } 401 - if the input parameters are invalid.
+     * description = - if the input parameters are invalid.
+     */
+    description: string;
+
+    /**
+     * 注释的结束符
+     */
+    end: string;
+
+    /**
+     * 行的结束符
+     */
+    lineEnd: string;
+  }
+
+  /**
+   * comment-parser 解析后最顶层的数据结构
+   */
+  export interface ParsedComment {
+
+    /**
+     * 注释块中的描述信息
+     */
+    description: string;
+
+    /**
+     * 注释块中的标签集合
+     */
+    tags: Tag[];
+
+    /**
+     * 注释块的所有原始信息集合。
+     */
+    source: Source[];
   }
 }
 
