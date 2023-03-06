@@ -14,7 +14,7 @@
  */
 const ts = require("typescript");
 const rules = require("../../code_style_rule.json");
-const { ErrorLevel, FileType, ErrorType } = require("../../src/utils");
+const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList } = require("../../src/utils");
 const { addAPICheckErrorLogs } = require('../compile_info');
 const { getPermissionBank } = require('../check_permission');
 
@@ -89,17 +89,19 @@ function checkReturnsValue(tag, node, sourcefile, fileName, index) {
   }
   const voidArr = ['void'];
   const tagValue = tag.type;
-  const apiReturnsValue = node.type?.getText();
-  if (voidArr.indexOf(apiReturnsValue) != -1) {
-    returnsResult.checkResult = false;
-    returnsResult.errorInfo = 'should delete @returns; ';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
-  } else if (tagValue != apiReturnsValue) {
-    returnsResult.checkResult = false;
-    returnsResult.errorInfo = `@returns value '${tagValue}' is wrong; `;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+  if (commentNodeWhiteList.includes(node.kind)) {
+    const apiReturnsValue = node.type?.getText();
+    if (voidArr.indexOf(apiReturnsValue) != -1 || apiReturnsValue == undefined) {
+      returnsResult.checkResult = false;
+      returnsResult.errorInfo = 'should delete @returns; ';
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    } else if (tagValue != apiReturnsValue) {
+      returnsResult.checkResult = false;
+      returnsResult.errorInfo = `@returns value '${tagValue}' is wrong; `;
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    }
   }
   return returnsResult;
 }
@@ -185,12 +187,14 @@ function checkTypeValue(tag, node, sourcefile, fileName, index) {
     errorInfo: "",
   }
   const tagTypeValue = tag.type;
-  const apiTypeValue = node.type?.getText();
-  if (apiTypeValue != tagTypeValue) {
-    typeResult.checkResult = false;
-    typeResult.errorInfo = `@type value '${tagTypeValue}' is wrong; `;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, typeResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+  if (commentNodeWhiteList.includes(node.kind)) {
+    const apiTypeValue = node.type?.getText();
+    if (apiTypeValue != tagTypeValue) {
+      typeResult.checkResult = false;
+      typeResult.errorInfo = `@type value '${tagTypeValue}' is wrong; `;
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, typeResult.errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    }
   }
   return typeResult;
 }
@@ -201,7 +205,7 @@ function checkDefaultValue(tag, node, sourcefile, fileName, index) {
     checkResult: true,
     errorInfo: "",
   }
-  if (tag.name.length == 0 && tag.type.length == 0) {
+  if (commentNodeWhiteList.includes(node.kind) && tag.name.length == 0 && tag.type.length == 0) {
     defaultResult.checkResult = false;
     defaultResult.errorInfo = `should add @default value; `;
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, defaultResult.errorInfo, FileType.JSDOC,
@@ -293,15 +297,14 @@ function checkNamespaceTag(tag, node, sourcefile, fileName) {
     errorInfo: "",
   };
   const tagValue = tag.name;
-  let apiValue = node.name?.escapedText;
-  if (apiValue == undefined) {
-    apiValue = node.statements[0].name.escapedText;
-  }
-  if (apiValue != undefined && tagValue != apiValue) {
-    namespaceResult.checkResult = false;
-    namespaceResult.errorInfo = '@namespace value is wrong';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, namespaceResult.errorInfo,
-      FileType.API, ErrorLevel.LOW);
+  if (commentNodeWhiteList.includes(node.kind)) {
+    let apiValue = node.name?.escapedText;
+    if (apiValue != undefined && tagValue != apiValue) {
+      namespaceResult.checkResult = false;
+      namespaceResult.errorInfo = '@namespace value is wrong';
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, namespaceResult.errorInfo,
+        FileType.API, ErrorLevel.LOW);
+    }
   }
   return namespaceResult;
 }
