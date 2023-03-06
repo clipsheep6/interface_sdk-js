@@ -20,6 +20,12 @@ import {Callback} from './basic';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * Used to do mediaquery operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 declare namespace mediaquery {
 
   interface MediaQueryResult {
@@ -29,12 +35,24 @@ declare namespace mediaquery {
      * This parameter is read-only.
      * @since 7
      */
+    /**
+     * Whether the match condition is met.
+     * This parameter is read-only.
+     * @crossplatform
+     * @since 10
+     */
     readonly matches: boolean;
 
     /**
      * Matching condition of a media event.
      * This parameter is read-only.
      * @since 7
+     */
+    /**
+     * Matching condition of a media event.
+     * This parameter is read-only.
+     * @crossplatform
+     * @since 10
      */
     readonly media: string;
   }
@@ -46,6 +64,12 @@ declare namespace mediaquery {
      * This callback is triggered when the media attributes change.
      * @since 7
      */
+    /**
+     * Registers a callback with the corresponding query condition by using the handle.
+     * This callback is triggered when the media attributes change.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
     /**
@@ -53,12 +77,23 @@ declare namespace mediaquery {
      * This callback is not triggered when the media attributes chang.
      * @since 7
      */
+    /**
+     * Deregisters a callback with the corresponding query condition by using the handle.
+     * This callback is not triggered when the media attributes chang.
+     * @crossplatform
+     * @since 10
+     */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }
 
   /**
    * Sets the media query criteria and returns the corresponding listening handle
    * @since 7
+   */
+  /**
+   * Sets the media query criteria and returns the corresponding listening handle
+   * @crossplatform
+   * @since 10
    */
   function matchMediaSync(condition: string): MediaQueryListener;
 }
