@@ -73,6 +73,7 @@ export class JSDOcModifierTestEntry extends JSDocModifierImpl {
     inputParameter.inputFilePath = inputFile;
     inputParameter.outputFilePath = outputFile;
     inputParameter.splitUnionTypeApi = true;
+    inputParameter.getOptions().splitUnionTypeApi = true;
     this.startInternal(inputParameter);
   }
 }
