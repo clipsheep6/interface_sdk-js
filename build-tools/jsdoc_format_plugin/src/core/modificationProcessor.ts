@@ -18,7 +18,7 @@ import { Code } from "../utils/constant";
 import {
   comment, Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult,
   LogReporter, IllegalTagsInfo, rawInfo, JSDocModifyType, JSDocCheckErrorType, CheckLogResult, ModifyLogResult,
-  ErrorInfo
+  ErrorInfo, sourceParser
 } from "./typedef";
 import { CommentHelper, LogResult } from "./coreImpls";
 const apiChecker = require('api-checker');
@@ -34,10 +34,10 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
 
   process(context: Context, content: string): ProcessResult {
     this.context = context;
-    const newParser = context.getSourceParser(content);
+    const newParser: sourceParser.SourceCodeParser = context.getSourceParser(content);
     this.logReporter = context.getLogReporter();
     this.rawSourceCodeInfo = context.getRawSourceCodeInfo();
-    const newSourceFile = newParser.visitEachNodeComment(this, false);
+    const newSourceFile: ts.SourceFile | undefined = newParser.visitEachNodeComment(this, false);
     return {
       code: Code.OK,
       content: newSourceFile ? newParser.printSourceFile(newSourceFile) : content
@@ -48,7 +48,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     if (node.astNode) {
       const curNode: ts.Node = node.astNode;
       // 获取诊断信息
-      const checkResults = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile());
+      const checkResults: JsDocCheckResult[] = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile());
       const newCommentIndexs: number[] = [];
       const newCommentInfos: comment.CommentInfo[] = node.commentInfos ? [...node.commentInfos] : [];
       // 获取需要整改的JSDoc数组

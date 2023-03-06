@@ -173,7 +173,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         (tagName === 'param' && paramTagNum < parameterNum)) && extraCheckCallback(node, checkResult)) {
         // 报错
         // console.log(`${sourcefile.fileName}, ${node.getText()} has no @${tagName}`);
-        checkInfoMap[index].missingTags.push(tagName)
+        checkInfoMap[index].missingTags.push(tagName);
       } else if (((tagName !== 'useinstead' && tagName !== 'param' && checkResult && illegalKindSet.has(node.kind)) ||
         (tagName === 'useinstead' && !useinsteadResultObj.hasDeprecated && useinsteadResultObj.hasUseinstead) ||
         (tagName === 'param' && paramTagNum > parameterNum)) && extraCheckCallback(node, checkResult)) {
@@ -183,7 +183,7 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
           checkResult: false,
           errorInfo: `api第[${index + 1}]段JSDoc不允许使用[${tagName}]标签, 请检查标签使用方法`,
           index: index
-        })
+        });
       }
     });
   });
@@ -211,7 +211,7 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath) {
       if (checker) {
         let valueCheckResult;
         if (tag.tag === 'param') {
-          valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName, paramIndex);
+          valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName, paramIndex++);
         } else {
           valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName);
         }
