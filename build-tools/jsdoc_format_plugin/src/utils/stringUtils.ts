@@ -69,3 +69,12 @@ export class StringUtils {
     return src.substring(0, index) + replacement + src.substring(index + replacement.length);
   }
 }
+
+export class LogReportStringUtils {
+  static createErrorInfo(errorInfo: string, params: string[]): string {
+    params.forEach((param: string) => {
+      errorInfo = errorInfo.replace('$$', param);
+    });
+    return errorInfo;
+  }
+}

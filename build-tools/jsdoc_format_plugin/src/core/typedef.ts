@@ -659,5 +659,16 @@ export enum ErrorInfo {
   COMPLETE_INTERFACE_TAG_ERROR = '第[$$]段JSDoc缺少[$$]标签, 请自行确认补全@interface或者@type标签',
   MODIFY_TAG_ORDER_INFORMATION = '第[$$]段JSDoc标签顺序调整',
   JSDOC_FORMAT_ERROR = 'JSDoc格式错误, 请检查',
-  JSDOC_ILLEGAL_ERROR = '第[$$]段JSDoc校验失败: '
+  JSDOC_ILLEGAL_ERROR = '第[$$]段JSDoc校验失败: ',
+  EVENT_SUBSCRIPTION_SPLITTION = '对事件订阅函数[$$]进行了拆分',
+  AYYNCHRONOUS_FUNCTION_JSDOC_COPY = '对异步函数[$$]进行了JSDoc复制'
+}
+
+/**
+ * 方法或函数节点联合类型定义
+ */
+export type MethodNodeType = ts.FunctionDeclaration | ts.MethodDeclaration | ts.MethodSignature;
+
+export interface ApiSplitProcessorInterface {
+  (node: ts.Node, context: Context | undefined): ts.Node | undefined;
 }

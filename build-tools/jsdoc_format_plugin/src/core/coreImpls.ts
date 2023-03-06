@@ -20,8 +20,10 @@ import { ConstantValue, Instruct, StringResourceId } from "../utils/constant";
 import { FileUtils } from "../utils/fileUtils";
 import { LogUtil } from "../utils/logUtil";
 import { StringResource, StringUtils } from "../utils/stringUtils";
-import { comment, Context, Options, LogReporter, rawInfo, sourceParser, CheckLogResult,
-  ModifyLogResult, LogWriter, JSDocModifyType, JSDocCheckErrorType } from "./typedef";
+import {
+  comment, Context, Options, LogReporter, rawInfo, sourceParser, CheckLogResult,
+  ModifyLogResult, LogWriter, JSDocModifyType, JSDocCheckErrorType
+} from "./typedef";
 import ts, { CommentRange, TransformationContext, TransformationResult } from "typescript";
 
 export class ContextImpl implements Context {
@@ -114,18 +116,15 @@ export class OutputFileHelper {
 
   // 获取报告输出路径
   static getLogReportFilePath(inputParam: InputParameter): string {
-    let dirName = '';
-    let fileName = '';
     const fileTimeStamp = FileUtils.getFileTimeStamp();
-
+    const fileName = path.basename(inputParam.inputFilePath, '.d.ts');
     if (inputParam.outputFilePath) {
-      dirName = path.dirname(inputParam.outputFilePath);
+      const dirName = path.dirname(inputParam.outputFilePath);
+      return path.join(dirName, `${fileName}_${fileTimeStamp}.xlsx`);
     } else {
-      dirName = path.dirname(inputParam.inputFilePath);
+      const dirName = path.dirname(inputParam.inputFilePath);
+      return path.join(dirName, `${fileName}_${fileTimeStamp}.xlsx`);
     }
-
-    fileName = path.basename(inputParam.inputFilePath, '.d.ts')
-    return path.join(dirName, `${fileName}报告${fileTimeStamp}.xlsx`);
   }
 }
 
@@ -183,7 +182,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     return sourceFile;
   }
 
-  transform(callback: sourceParser.ITransformCallback): ts.SourceFile|undefined {
+  transform(callback: sourceParser.ITransformCallback): ts.SourceFile | undefined {
     let transformSourceFile = this.createSourceFile(this.content, "transform");
     if (!transformSourceFile) {
       return undefined;
@@ -210,7 +209,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     return transformSourceFile;
   }
 
-  visitEachNodeComment(callback: sourceParser.INodeVisitorCallback, onlyVisitHasComment?: boolean): ts.SourceFile|undefined {
+  visitEachNodeComment(callback: sourceParser.INodeVisitorCallback, onlyVisitHasComment?: boolean): ts.SourceFile | undefined {
     const forEachSourceFile = this.createSourceFile(this.content, 'forEach');
     if (!forEachSourceFile) {
       return undefined;
@@ -946,23 +945,24 @@ export class LogReporterImpl implements LogReporter {
     ["moduleName", "模块名称"]
   ]);
 
-  constructor() {}
-  
-  setWriter(writer: LogWriter):void {
-	  this.writer = writer;
-	}
+  constructor() { }
+
+  setWriter(writer: LogWriter): void {
+    this.writer = writer;
+  }
 
   addCheckResult(checkResult: CheckLogResult): void {
     this.checkResults.push(checkResult);
   }
-  
+
   addModifyResult(modifyResult: ModifyLogResult): void {
     this.modifyResults.push(modifyResult);
   }
-  
+
   getCheckResultMap(): Map<string, string> {
     return this.checkResultMap;
   }
+
   getModifyResultMap(): Map<string, string> {
     return this.modifyResultMap;
   }
@@ -974,7 +974,7 @@ export class LogReporterImpl implements LogReporter {
   writeModifyResults(path: string): void {
     this.writer?.writeResults(undefined, this.modifyResults, path);
   }
-  
+
   writeAllResults(path: string): void {
     this.writer?.writeResults(this.checkResults, this.modifyResults, path);
   }
@@ -986,13 +986,13 @@ export class ExcelWriter implements LogWriter {
   modifyResultsColumns: Array<object> = [];
 
   constructor(logReporter: LogReporter) {
-	  // 初始化列名
-	  this.initCheckResultsColumns(logReporter.getCheckResultMap());
+    // 初始化列名
+    this.initCheckResultsColumns(logReporter.getCheckResultMap());
     this.initModifyResultsColumns(logReporter.getModifyResultMap());
   }
 
   initCheckResultsColumns(checkResultMap: Map<string, string>): void {
-    checkResultMap.forEach((value: string, key: string, map: Map<string, string>) => {
+    checkResultMap.forEach((value: string, key: string) => {
       this.checkResultsColumns.push({
         "header": value,
         "key": key
@@ -1001,7 +1001,7 @@ export class ExcelWriter implements LogWriter {
   }
 
   initModifyResultsColumns(modifyResultMap: Map<string, string>): void {
-    modifyResultMap.forEach((value: string, key: string, map: Map<string, string>) => {
+    modifyResultMap.forEach((value: string, key: string) => {
       this.modifyResultsColumns.push({
         "header": value,
         "key": key
@@ -1025,8 +1025,9 @@ export class ExcelWriter implements LogWriter {
 }
 
 export class LogResult {
-  static createCheckResult(node: ts.Node, comments: Array<comment.CommentInfo>, errorInfo: string, context: Context | undefined, apiName: string, errorType: JSDocCheckErrorType): CheckLogResult {
-    const url: string = context ? context.getInputFile():'';
+  static createCheckResult(node: ts.Node, comments: Array<comment.CommentInfo>, errorInfo: string,
+    context: Context | undefined, apiName: string, errorType: JSDocCheckErrorType): CheckLogResult {
+    const url: string = context ? context.getInputFile() : '';
     const moduleName: string = path.basename(url, ConstantValue.DTS_EXTENSION);
     const rawCodeInfo = context ? context.getRawSourceCodeInfo().findRawNodeInfo(node) : undefined;
     const filePath: string = `${url}(${rawCodeInfo?.line},${rawCodeInfo?.character})`;
@@ -1034,7 +1035,7 @@ export class LogResult {
     if (comments.length !== 0) {
       comments[comments.length - 1].commentTags.forEach((commentTag) => {
         if (commentTag.tag === 'since') {
-          version = commentTag.name ? commentTag.name:'N/A';
+          version = commentTag.name ? commentTag.name : 'N/A';
         }
       })
     }
@@ -1057,8 +1058,9 @@ export class LogResult {
     return checkLogResult;
   }
 
-  static createModifyResult(node: ts.Node, comments: Array<comment.CommentInfo>, description: string, context: Context | undefined, apiName: string, jsDocModifyType: JSDocModifyType): ModifyLogResult {
-    const url: string = context ? context.getInputFile():'';
+  static createModifyResult(node: ts.Node, comments: Array<comment.CommentInfo>, description: string,
+    context: Context | undefined, apiName: string, jsDocModifyType: JSDocModifyType): ModifyLogResult {
+    const url: string = context ? context.getInputFile() : '';
     const moduleName: string = path.basename(url, ConstantValue.DTS_EXTENSION);
     const rawCodeInfo = context ? context.getRawSourceCodeInfo().findRawNodeInfo(node) : undefined;
     const filePath: string = `${url}(${rawCodeInfo?.line},${rawCodeInfo?.character})`;
@@ -1066,7 +1068,7 @@ export class LogResult {
     if (comments.length !== 0) {
       comments[comments.length - 1].commentTags.forEach((commentTag) => {
         if (commentTag.tag === 'since') {
-          version = commentTag.name ? commentTag.name:'N/A';
+          version = commentTag.name ? commentTag.name : 'N/A';
         }
       })
     }

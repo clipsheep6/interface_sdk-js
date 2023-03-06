@@ -15,49 +15,47 @@
 
 import ts from "typescript";
 import { Code } from "../utils/constant";
+import { LogReportStringUtils } from "../utils/stringUtils";
 import { CommentHelper, LogResult } from "./coreImpls";
-import { comment, Context, ISourceCodeProcessor, JSDocModifyType, LogReporter, ModifyLogResult, ProcessResult, rawInfo } from "./typedef";
+import {
+  comment, Context, ISourceCodeProcessor, JSDocModifyType, MethodNodeType,
+  ModifyLogResult, ProcessResult, ErrorInfo
+} from "./typedef";
 
 export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
 
-  logReporter?: LogReporter;
   context?: Context;
 
   process(context: Context, content: string): ProcessResult {
     const sourceParser = context.getSourceParser(content);
-    this.logReporter = context.getLogReporter();
     this.context = context;
-    const sourceFile: ts.SourceFile|undefined = sourceParser.createSourceFile(content);
+    const sourceFile: ts.SourceFile | undefined = sourceParser.createSourceFile(content);
     if (!sourceFile) {
       return { code: Code.OK, content: content };
     }
     const preNode: PreNode = new PreNode('', []);
     ts.forEachChild(sourceFile, (cNode) => {
-      this.nodeVisitor(sourceFile, cNode, preNode);
+      this.nodeVisitor(cNode, preNode);
     })
-    const printer = ts.createPrinter({
-      omitTrailingSemicolon: false,
-      removeComments: false,
-      newLine: ts.NewLineKind.LineFeed
-    });
     return {
       code: Code.OK,
       content: sourceParser.printSourceFile(sourceFile)
     };
   }
 
-  logReportProcess(node: ts.MethodDeclaration | ts.MethodSignature | ts.FunctionDeclaration, comments: Array<comment.CommentInfo>) {
+  logReportProcess(node: MethodNodeType, comments: Array<comment.CommentInfo>) {
     const apiName: string = node.name ? node.name.getText() : '';
-    const description: string = `对异步函数${apiName}进行了JSDoc复制`;
-    const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(node, comments, description, this.context, apiName, JSDocModifyType.AYYNCHRONOUS_FUNCTION_JSDOC_COPY);
-    this.logReporter?.addModifyResult(modifyLogResult);
+    const description: string = LogReportStringUtils.createErrorInfo(ErrorInfo.AYYNCHRONOUS_FUNCTION_JSDOC_COPY, [`${apiName}`]);
+    const modifyLogResult: ModifyLogResult = LogResult.createModifyResult(node, comments, description, this.context,
+      apiName, JSDocModifyType.AYYNCHRONOUS_FUNCTION_JSDOC_COPY);
+    this.context?.getLogReporter().addModifyResult(modifyLogResult);
   }
 
-  nodeVisitor(pNode: ts.Node, cNode: ts.Node, preNode: PreNode) {
+  nodeVisitor(cNode: ts.Node, preNode: PreNode) {
     if (ts.isModuleDeclaration(cNode) && cNode.body && ts.isModuleBlock(cNode.body)) {
       const preNode: PreNode = new PreNode('', []);
       ts.forEachChild(cNode.body, (child) => {
-        this.nodeVisitor(cNode, child, preNode);
+        this.nodeVisitor(child, preNode);
       })
       return;
     }
@@ -65,12 +63,13 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
     if (ts.isSourceFile(cNode) || ts.isClassDeclaration(cNode) || ts.isInterfaceDeclaration(cNode)) {
       const preNode: PreNode = new PreNode('', []);
       ts.forEachChild(cNode, (child) => {
-        this.nodeVisitor(cNode, child, preNode);
+        this.nodeVisitor(child, preNode);
       })
       return;
     }
 
-    if ((ts.isFunctionDeclaration(cNode) || ts.isMethodDeclaration(cNode) || ts.isMethodSignature(cNode)) && this.isAsynchronousFunction(cNode)) {
+    if ((ts.isFunctionDeclaration(cNode) || ts.isMethodDeclaration(cNode) || ts.isMethodSignature(cNode)) &&
+      this.isAsynchronousFunction(cNode)) {
       const nodeComments: Array<comment.CommentInfo> = CommentHelper.getNodeLeadingComments(cNode, cNode.getSourceFile());
       let functionName: string = '';
       if (cNode.name && ts.isIdentifier(cNode.name)) {
@@ -104,14 +103,16 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
     }
   }
 
-  isAsynchronousFunction(node: ts.MethodDeclaration | ts.MethodSignature | ts.FunctionDeclaration) {
-    if (node.type && (node.type.kind === ts.SyntaxKind.TypeReference) && (node.type as ts.TypeReferenceNode).typeName.getText() === 'Promise') {
+  isAsynchronousFunction(node: MethodNodeType) {
+    if (node.type && (node.type.kind === ts.SyntaxKind.TypeReference) &&
+      (node.type as ts.TypeReferenceNode).typeName.getText() === 'Promise') {
       return true;
     }
     if (node.parameters.length !== 0) {
-      for (let i = 0; i < node.parameters.length; i++) {
+      for (let i = node.parameters.length - 1; i >= 0; i--) {
         const param: ts.ParameterDeclaration = node.parameters[i];
-        if (param.type && (param.type.kind === ts.SyntaxKind.TypeReference) && (param.type as ts.TypeReferenceNode).typeName.getText() === 'AsyncCallback') {
+        if (param.type && (param.type.kind === ts.SyntaxKind.TypeReference) &&
+          (param.type as ts.TypeReferenceNode).typeName.getText() === 'AsyncCallback') {
           return true;
         }
       }
@@ -127,5 +128,4 @@ class PreNode {
     this.name = name;
     this.doc = doc;
   }
-
 }

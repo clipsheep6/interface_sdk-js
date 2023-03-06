@@ -180,6 +180,7 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
     });
     // 报告落盘
     context.getLogReporter().writeAllResults(OutputFileHelper.getLogReportFilePath(this.inputParam));
+    LogUtil.i('jsdoc-tool', `the report file is in ${OutputFileHelper.getLogReportFilePath(this.inputParam)}`);
     return {
       code: errorSet.length > 0 ? Code.ERROR : Code.OK,
       content: errorSet.length > 0 ? JSON.stringify(errorSet)
@@ -194,12 +195,12 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
 const processorRegistry: Array<ISourceCodeProcessor> = [
   // 原始文件解析
   new RawSourceCodeProcessor(),
+  // 同名异步函数处理
+  new AsynchronousFunctionProcessor(),
   // 注释整改
   new CommentModificationProcessor(),
   // API调整
   new ApiSplitProcessor(),
-  // 同名异步函数处理
-  new AsynchronousFunctionProcessor(),
   // 新文件输出，日志输出
   new OutputProcessor()
 ];
