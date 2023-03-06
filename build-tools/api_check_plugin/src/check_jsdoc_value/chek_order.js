@@ -16,75 +16,52 @@ const parse = require('comment-parser');
 const { getAPINote, ErrorLevel, FileType, ErrorType } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 
-const labelOrderArray = ['description', 'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum',
-  'constant', 'type', 'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi',
-  'famodelonly', 'stagemodelonly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'];
+const labelOrderArray = [
+  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
+  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'form', 'example'
+];
+
+/**
+ * 判断标签排列是否为升序
+ */
+function isAscendingOrder(tags) {
+  let checkResult = true;
+  tags.forEach((tag, index) => {
+    if (index + 1 < tags.length) {
+      // 获取前后两个tag下标
+      const firstIndex = labelOrderArray.indexOf(tag.tag);
+      const secondIndex = labelOrderArray.indexOf(tags[index + 1].tag);
+
+      // 非自定义标签在前或数组降序时报错
+      if ((firstIndex === -1 && secondIndex !== -1) || firstIndex > secondIndex) {
+        checkResult = false;
+        return;
+      }
+    }
+  });
+  return checkResult;
+}
 
 // check jsdoc order
 function checkApiOrder(node, sourcefile, fileName) {
-  let apiOrderArr = [];
   let checkOrderRusult = [];
-  let errorInfo = '';
   const apiNote = getAPINote(node);
-  const JsdocInfos = parse.parse(`${apiNote}`);
-  // 遍历dts文件，获取各个jsdoc标签的优先级数组，最后生成一个二维数组
-  JsdocInfos.forEach(jsdocInfo => {
-    let apiNameOrder = [];
-    jsdocInfo.tags.forEach(tags => {
-      apiNameOrder.push(tags.tag);
-    });
-    apiOrderArr.push(apiNameOrder);
-  });
-  // 遍历apiOrderArr数组，讲每一个标签的绝对优先级获取到，放在apiPriority数组中
-  apiOrderArr.forEach(apiOrder => {
-    let apiPriority = [];
-    let isPassed = true;
-    apiOrder.forEach(item => {
-      const docIndex = labelOrderArray.indexOf(item);
-      apiPriority.push(docIndex);
-    });
-    // 遍历apiPriority数组，如果不是升序排列。则证明标签顺序不对
-    for (let j = 0; j < apiPriority.length - 1; j++) {
-      const result = {
-        checkResult: true,
-        errorInfo: '',
-      };
-      if (apiPriority[j] === -1 && apiPriority[j + 1] !== -1) {
-        errorInfo = apiOrder[j];
-        result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
-        result.checkResult = false;
-        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, result.errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
-        checkOrderRusult.push(result);
-        isPassed = false;
-        break;
-      } else if (apiPriority[j] > -1 && (apiPriority[j] > apiPriority[j + 1])) {
-        if (apiOrder[j] === 'example' && apiPriority[j + 1] !== -1) {
-          errorInfo = apiOrder[j - 1];
-          result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
-          result.checkResult = false;
-          addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, result.errorInfo, FileType.JSDOC,
-            ErrorLevel.LOW);
-          checkOrderRusult.push(result);
-          isPassed = false;
-          break;
-        } else if (apiOrder[j] !== 'example') {
-          errorInfo = apiOrder[j];
-          result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
-          result.checkResult = false;
-          addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, result.errorInfo, FileType.JSDOC,
-            ErrorLevel.LOW);
-          checkOrderRusult.push(result);
-          isPassed = false;
-          break;
-        }
-      }
-    }
-    if (isPassed) {
+  const JSDocInfos = parse.parse(apiNote);
+  JSDocInfos.forEach(docInfo => {
+    if (isAscendingOrder(docInfo.tags)) {
       checkOrderRusult.push({
         checkResult: true,
-        errorInfo: '',
+        errorInfo: "",
       });
+    } else {
+      let errorInfo = "the jsDoc order is wrong.";
+      checkOrderRusult.push({
+        checkResult: false,
+        errorInfo: errorInfo,
+      });
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
     }
   });
   return checkOrderRusult;

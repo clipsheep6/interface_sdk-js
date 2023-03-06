@@ -284,9 +284,9 @@ class JSDocModificationManager {
         newCommentTag.tag = tagName;
         const curParameter: ts.ParameterDeclaration = parameters[curIndex];
         if (curParameter) {
+          const apiName: string = node.astNode.name ? node.astNode.name.getText() : '';
+          const commentInfos: comment.CommentInfo[] = node.commentInfos ? node.commentInfos : [];
           if (curParameter.type && (ts.isTypeLiteralNode(curParameter.type) || ts.isFunctionTypeNode(curParameter.type))) {
-            const apiName: string = node.astNode.name ? node.astNode.name.getText() : '';
-            const commentInfos: comment.CommentInfo[] = node.commentInfos ? node.commentInfos : [];
             const checkLogResult: CheckLogResult = LogResult.createCheckResult(node.astNode, commentInfos,
               JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_ERROR, [`${i + 1}`]), context, apiName,
               JSDocCheckErrorType.API_FORMAT_ERROR);
@@ -296,6 +296,11 @@ class JSDocModificationManager {
             newCommentTag.type = curParameter.type ? curParameter.type.getText() : '';
             newCommentTag.name = curParameter.name ? curParameter.name.getText() : '';
             commentInfo.commentTags.push(newCommentTag);
+            // 提示description缺失信息
+            const checkLogResult: CheckLogResult = LogResult.createCheckResult(node.astNode, commentInfos,
+              JSDocModificationManager.createErrorInfo(ErrorInfo.PARAM_FORAMT_DESCRIPTION_ERROR, [`${i + 1}`]), context, apiName,
+              JSDocCheckErrorType.PARAM_DESCRIPTION_WARNING);
+            context?.getLogReporter().addCheckResult(checkLogResult);
           }
         }
       }

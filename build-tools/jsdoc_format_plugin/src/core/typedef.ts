@@ -712,7 +712,8 @@ export enum JSDocModifyType {
 export enum JSDocCheckErrorType {
   INCOMPLETE_TAG = '无法补全的标签',
   API_FORMAT_ERROR = 'api格式错误',
-  TAG_VALUE_ERROR = '标签使用错误'
+  TAG_VALUE_ERROR = '标签使用错误',
+  PARAM_DESCRIPTION_WARNING = '缺失param标签描述信息'
 }
 
 export namespace sourceParser {
@@ -814,16 +815,17 @@ export interface JsDocModificationInterface {
  * 错误告警
  */
 export enum ErrorInfo {
-  PARAM_FORAMT_ERROR = 'param标签无法补全, 请自行确认当前api第[$$]个参数是否为基础类型或定义类型',
-  COMPLETE_TAG_INFORMATION = '补全第[$$]段JSDoc的[$$]标签',
-  COMPLETE_INHERIT_TAG_INFORMATION = '第[$$]段JSDoc从父类继承[$$]标签',
-  COMPLETE_TAG_ERROR = '第[$$]段JSDoc缺少[$$]标签, 请自行确认修改',
-  COMPLETE_INTERFACE_TAG_ERROR = '第[$$]段JSDoc缺少[$$]标签, 请自行确认补全@interface或者@type标签',
-  MODIFY_TAG_ORDER_INFORMATION = '第[$$]段JSDoc标签顺序调整',
-  JSDOC_FORMAT_ERROR = 'JSDoc格式错误, 请检查',
+  PARAM_FORAMT_ERROR = '@param标签无法补全, 请自行确认当前api第[$$]个参数是否为基础类型或定义类型.',
+  PARAM_FORAMT_DESCRIPTION_ERROR = '请自行添加第[$$]个参数的描述信息.',
+  COMPLETE_TAG_INFORMATION = '补全第[$$]段JSDoc的@$$标签.',
+  COMPLETE_INHERIT_TAG_INFORMATION = '第[$$]段JSDoc从父类继承@$$标签.',
+  COMPLETE_TAG_ERROR = '第[$$]段JSDoc缺少@$$标签, 请自行确认修改.',
+  COMPLETE_INTERFACE_TAG_ERROR = '第[$$]段JSDoc缺少@$$标签, 请自行确认补全@interface或者@type标签.',
+  MODIFY_TAG_ORDER_INFORMATION = '第[$$]段JSDoc标签顺序调整.',
+  JSDOC_FORMAT_ERROR = 'JSDoc格式错误, 请检查.',
   JSDOC_ILLEGAL_ERROR = '第[$$]段JSDoc校验失败: ',
-  EVENT_SUBSCRIPTION_SPLITTION = '对事件订阅函数[$$]进行了拆分',
-  AYYNCHRONOUS_FUNCTION_JSDOC_COPY = '对异步函数[$$]进行了JSDoc复制'
+  EVENT_SUBSCRIPTION_SPLITTION = '对事件订阅函数[$$]进行了拆分.',
+  AYYNCHRONOUS_FUNCTION_JSDOC_COPY = '对异步函数[$$]进行了JSDoc复制.'
 }
 
 /**
