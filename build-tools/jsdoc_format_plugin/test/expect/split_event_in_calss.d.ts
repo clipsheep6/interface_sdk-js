@@ -35,31 +35,66 @@ export class MediaQueryEvent {
    *
    * @param type: type of callback
    * @param { Callback<number> } callback
-   * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+  on(type: 'add', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
    *
    * @param type: type of callback
    * @param { Callback<number> } callback
-   * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+  on(type: 'remove', callback: Callback<number>): void;
 
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  on(type: 'change', callback: Callback<number>): void;
+
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  off(type: 'add', callback: Callback<number>): void;
+
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  off(type: 'remove', callback: Callback<number>): void;
+
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  off(type: 'change', callback: Callback<number>): void;
   /**
    * Obtain the default display.
    *
    * @param { AsyncCallback<Display> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }

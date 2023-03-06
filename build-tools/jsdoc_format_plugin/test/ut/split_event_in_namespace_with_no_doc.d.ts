@@ -17,12 +17,13 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Defines the MediaQuery event.
- *
+ * 
  * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 declare namespace MediaQueryEvent {
+
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
   function off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
@@ -33,8 +34,6 @@ declare namespace MediaQueryEvent {
    * @param { AsyncCallback<Display> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }

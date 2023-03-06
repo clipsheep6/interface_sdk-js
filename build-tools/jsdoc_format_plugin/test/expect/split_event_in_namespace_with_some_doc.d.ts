@@ -17,43 +17,29 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Defines the MediaQuery event.
- * 
+ *
  * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 declare namespace MediaQueryEvent {
-
   /**
-   * Enum for obtain the type of sensor.
-   * 
-   * @enum {number}
-   * @syscap SystemCapability.Sensors.Sensor
-   * @since 9
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
-  enum SensorId {
-    ACCELEROMETER = 1,
-    GYROSCOPE = 2,
-    AMBIENT_LIGHT = 5,
-    MAGNETIC_FIELD = 6,
-    BAROMETER = 8,
-    HALL = 10,
-    PROXIMITY = 12,
-    HUMIDITY = 13,
-    ORIENTATION = 256,
-    GRAVITY = 257,
-    LINEAR_ACCELEROMETER = 258,
-    ROTATION_VECTOR = 259,
-    AMBIENT_TEMPERATURE = 260,
-    MAGNETIC_FIELD_UNCALIBRATED = 261,
-    GYROSCOPE_UNCALIBRATED = 263,
-    SIGNIFICANT_MOTION = 264,
-    PEDOMETER_DETECTION = 265,
-    PEDOMETER = 266,
-    HEART_RATE = 278,
-    WEAR_DETECTION = 280,
-    ACCELEROMETER_UNCALIBRATED = 281
-  }
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  function on(type: 'add', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -63,7 +49,15 @@ declare namespace MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  function on(type: number | string, callback: Callback<number>): void;
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  function on(type: 'remove', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -73,7 +67,15 @@ declare namespace MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  function off(type: number | string, callback: Callback<number>): void;
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  function on(type: 'change', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -83,7 +85,15 @@ declare namespace MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  function on(type: string, callback: Callback<number>): void;
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  function off(type: 'add', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -93,7 +103,15 @@ declare namespace MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  function off(type: string, callback: Callback<number>): void;
+  /**
+   * Register the callback for display changes.
+   *
+   * @param type: type of callback
+   * @param { Callback<number> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  function off(type: 'remove', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -103,8 +121,6 @@ declare namespace MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  function on(type: 'aaa', callback: Callback<number>): void;
-
   /**
    * Register the callback for display changes.
    *
@@ -113,77 +129,7 @@ declare namespace MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  function off(type: 'aaa', callback: Callback<number>): void;
-
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  function on(type: SensorId.ACCELEROMETER | SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<number>): void;
-
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  function off(type: SensorId.ACCELEROMETER | SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<number>): void;
-
-
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  function on(type: SensorId, callback: Callback<number>): void;
-
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  function off(type: SensorId, callback: Callback<number>): void;
-
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  function on(type: BundleChangedEvent, callback: Callback<number>): void;
-
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  function off(type: BundleChangedEvent, callback: Callback<number>): void;
-
-  /**
-   * Indicates the event type of bundle change
-   * 
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  type BundleChangedEvent = 'add' | 'update' | 'remove';
-
+  function off(type: 'change', callback: Callback<number>): void;
   /**
    * Obtain the default display.
    *

@@ -29,11 +29,18 @@ declare namespace MediaQueryEvent {
    * @param { AsyncCallback<Display> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }
 
-declare function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
-declare function off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+declare function on(type: 'add', callback: Callback<number>): void;
+
+declare function on(type: 'remove', callback: Callback<number>): void;
+
+declare function on(type: 'change', callback: Callback<number>): void;
+
+declare function off(type: 'add', callback: Callback<number>): void;
+
+declare function off(type: 'remove', callback: Callback<number>): void;
+
+declare function off(type: 'change', callback: Callback<number>): void;

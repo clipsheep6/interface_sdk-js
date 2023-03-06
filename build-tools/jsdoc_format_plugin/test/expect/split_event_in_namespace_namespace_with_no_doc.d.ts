@@ -18,18 +18,39 @@ import { AsyncCallback, Callback } from './basic';
 /**
  * Defines the MediaQuery event.
  *
- * @interface MediaQueryEvent
+ * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
-export interface MediaQueryEvent {
+declare namespace MediaQueryEvent {
   /**
-   * The result of match result.
+   * Defines the MediaQuery event.
    *
+   * @namespace MediaQueryEvent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  matches: boolean;
+  export namespace MediaQueryEvent {
+    function on(type: 'add', callback: Callback<number>): void;
+
+    function on(type: 'remove', callback: Callback<number>): void;
+
+    function on(type: 'change', callback: Callback<number>): void;
+
+    function off(type: 'add', callback: Callback<number>): void;
+
+    function off(type: 'remove', callback: Callback<number>): void;
+
+    function off(type: 'change', callback: Callback<number>): void;
+    /**
+     * Obtain the default display.
+     *
+     * @param { AsyncCallback<Display> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
+     */
+    function getDefaultDisplay(callback: AsyncCallback<Display>): void;
+  }
 
   /**
    * Register the callback for display changes.
@@ -39,15 +60,7 @@ export interface MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  on(type: 'add', callback: Callback<number>): void;
+  function on(type: 'add', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -57,15 +70,7 @@ export interface MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  on(type: 'remove', callback: Callback<number>): void;
+  function on(type: 'remove', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -75,15 +80,7 @@ export interface MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  on(type: 'change', callback: Callback<number>): void;
+  function on(type: 'change', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -93,15 +90,7 @@ export interface MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  off(type: 'add', callback: Callback<number>): void;
+  function off(type: 'add', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -111,15 +100,7 @@ export interface MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  /**
-   * Register the callback for display changes.
-   *
-   * @param type: type of callback
-   * @param { Callback<number> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  off(type: 'remove', callback: Callback<number>): void;
+  function off(type: 'remove', callback: Callback<number>): void;
 
   /**
    * Register the callback for display changes.
@@ -129,21 +110,13 @@ export interface MediaQueryEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  function off(type: 'change', callback: Callback<number>): void;
   /**
    * Register the callback for display changes.
    *
-   * @param type: type of callback
    * @param { Callback<number> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  off(type: 'change', callback: Callback<number>): void;
-  /**
-   * Obtain the default display.
-   *
-   * @param { AsyncCallback<Display> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  getDefaultDisplay(callback: AsyncCallback<Display>): void;
+  function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }

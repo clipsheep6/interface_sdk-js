@@ -17,6 +17,8 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Defines the MediaQuery event.
+ * 
+ * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
@@ -24,39 +26,28 @@ declare namespace MediaQueryEvent {
 
   /**
    * Defines the MediaQuery event.
+   * 
+   * @namespace MediaQueryEvent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
   export namespace MediaQueryEvent {
+
     /**
-     * Creates the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
-     * @param name Indicates the name of the application account to add.
-     * @param options Indicates the extra information of the application account to add.
-     *        The extra information cannot be sensitive information of the application account.
-     * @returns void.
-     * @throws {BusinessError} 401 - the parameter check failed.
-     * @throws {BusinessError} 12300001 - system service exception.
-     * @throws {BusinessError} 12300002 - invalid name or options.
-     * @throws {BusinessError} 12300004 - the account indicated by name already exist.
-     * @throws {BusinessError} 12300007 - the account number has reached the upper limit.
-     * @since 9
+     * Obtain the default display.
+     *
+     * @param { string } name
+     * @param { AsyncCallback<void> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
      */
     /**
-     * Creates the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
-     * @param name Indicates the name of the application account to add.
-     * @param options Indicates the extra information of the application account to add.
-     *        The extra information cannot be sensitive information of the application account.
-     * @returns void.
-     * @throws {BusinessError} 401 - the parameter check failed.
-     * @throws {BusinessError} 12300001 - system service exception.
-     * @throws {BusinessError} 12300002 - invalid name or options.
-     * @throws {BusinessError} 12300004 - the account indicated by name already exist.
-     * @throws {BusinessError} 12300007 - the account number has reached the upper limit.
-     * @since 10
+     * Obtain the default display.
+     *
+     * @param { string } name
+     * @param { AsyncCallback<void> } callback
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 7
      */
     function createAccount(name: string, callback: AsyncCallback<void>): void;
     function createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
@@ -66,26 +57,20 @@ declare namespace MediaQueryEvent {
 
   /**
    * Obtain the default display.
+   *
+   * @param { AsyncCallback<Display> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 
   /**
-   * Creates the account name and extra information of this application to the account management service.
-   * <p>
-   * Only the owner of the application account has the permission to call this method.
-   * @param name Indicates the name of the application account to add.
-   * @param options Indicates the extra information of the application account to add.
-   *        The extra information cannot be sensitive information of the application account.
-   * @returns void.
-   * @throws {BusinessError} 401 - the parameter check failed.
-   * @throws {BusinessError} 12300001 - system service exception.
-   * @throws {BusinessError} 12300002 - invalid name or options.
-   * @throws {BusinessError} 12300004 - the account indicated by name already exist.
-   * @throws {BusinessError} 12300007 - the account number has reached the upper limit.
-   * @since 9
+   * Obtain the default display.
+   *
+   * @param { string } name
+   * @param { AsyncCallback<void> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   function createAccount(name: string, callback: AsyncCallback<void>): void;
   function createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;

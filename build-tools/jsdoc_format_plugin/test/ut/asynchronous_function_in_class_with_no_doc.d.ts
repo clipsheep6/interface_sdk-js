@@ -17,6 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Defines the MediaQuery event.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
@@ -24,9 +25,10 @@ export class MediaQueryEvent {
 
   /**
    * Obtain the default display.
+   *
+   * @param { AsyncCallback<Display> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   getDefaultDisplay(callback: AsyncCallback<Display>): void;
 

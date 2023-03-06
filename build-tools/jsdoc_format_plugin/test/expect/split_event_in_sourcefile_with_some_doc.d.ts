@@ -29,8 +29,6 @@ declare namespace MediaQueryEvent {
    * @param { AsyncCallback<Display> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }
@@ -40,7 +38,7 @@ declare namespace MediaQueryEvent {
  *
  * @param type: type of callback
  * @param { Callback<number> } callback
- * @throws { BusinessError } 401 - If param is invalid
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
@@ -48,17 +46,17 @@ declare namespace MediaQueryEvent {
  *
  * @param type: type of callback
  * @param { Callback<number> } callback
- * @throws { BusinessError } 402 - If param is invalid
- * @since 8
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
  */
-declare function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+declare function on(type: 'add', callback: Callback<number>): void;
 
 /**
  * Register the callback for display changes.
  *
  * @param type: type of callback
  * @param { Callback<number> } callback
- * @throws { BusinessError } 401 - If param is invalid
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
@@ -66,7 +64,79 @@ declare function on(type: 'add' | 'remove' | 'change', callback: Callback<number
  *
  * @param type: type of callback
  * @param { Callback<number> } callback
- * @throws { BusinessError } 402 - If param is invalid
- * @since 8
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
  */
-declare function off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+declare function on(type: 'remove', callback: Callback<number>): void;
+
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+declare function on(type: 'change', callback: Callback<number>): void;
+
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+declare function off(type: 'add', callback: Callback<number>): void;
+
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+declare function off(type: 'remove', callback: Callback<number>): void;
+
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Register the callback for display changes.
+ *
+ * @param type: type of callback
+ * @param { Callback<number> } callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+declare function off(type: 'change', callback: Callback<number>): void;

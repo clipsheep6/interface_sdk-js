@@ -17,65 +17,28 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Defines the MediaQuery event.
- *
+ * 
  * @namespace MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 declare namespace MediaQueryEvent {
+
   /**
    * Defines the MediaQuery event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  export interface MediaQueryEvent {
+  export class MediaQueryEvent {
     /**
      * The result of match result.
-     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 3
      */
     matches: boolean;
 
-    /**
-     * Register the callback for display changes.
-     *
-     * @param type: type of callback
-     * @param { Callback<number> } callback
-     * @throws { BusinessError } 401 - If param is invalid
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Register the callback for display changes.
-     *
-     * @param type: type of callback
-     * @param { Callback<number> } callback
-     * @throws { BusinessError } 402 - If param is invalid
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
     on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
-
-    /**
-     * Register the callback for display changes.
-     *
-     * @param type: type of callback
-     * @param { Callback<number> } callback
-     * @throws { BusinessError } 401 - If param is invalid
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Register the callback for display changes.
-     *
-     * @param type: type of callback
-     * @param { Callback<number> } callback
-     * @throws { BusinessError } 402 - If param is invalid
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
     off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
     /**
@@ -84,8 +47,6 @@ declare namespace MediaQueryEvent {
      * @param { AsyncCallback<Display> } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.display#getDefaultDisplaySync
      */
     getDefaultDisplay(callback: AsyncCallback<Display>): void;
   }
@@ -95,7 +56,6 @@ declare namespace MediaQueryEvent {
    *
    * @param type: type of callback
    * @param { Callback<number> } callback
-   * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -106,20 +66,17 @@ declare namespace MediaQueryEvent {
    *
    * @param type: type of callback
    * @param { Callback<number> } callback
-   * @throws { BusinessError } 401 - If param is invalid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   function off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
   /**
-   * Obtain the default display.
+   * Register the callback for display changes.
    *
    * @param { AsyncCallback<Display> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }

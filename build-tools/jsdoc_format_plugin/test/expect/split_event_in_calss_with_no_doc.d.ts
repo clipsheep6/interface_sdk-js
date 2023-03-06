@@ -30,17 +30,23 @@ export class MediaQueryEvent {
    */
   matches: boolean;
 
-  on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
-  off(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+  on(type: 'add', callback: Callback<number>): void;
 
+  on(type: 'remove', callback: Callback<number>): void;
+
+  on(type: 'change', callback: Callback<number>): void;
+
+  off(type: 'add', callback: Callback<number>): void;
+
+  off(type: 'remove', callback: Callback<number>): void;
+
+  off(type: 'change', callback: Callback<number>): void;
   /**
    * Obtain the default display.
    *
    * @param { AsyncCallback<Display> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
-   * @deprecated since 9
-   * @useinstead ohos.display#getDefaultDisplaySync
    */
   getDefaultDisplay(callback: AsyncCallback<Display>): void;
 }
