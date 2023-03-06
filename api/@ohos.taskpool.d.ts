@@ -14,14 +14,26 @@
  */
 
 /**
- * JS cross-thread task executor.
+ * A JS lightweight multi-task executor.
  * @since 9
+ * @syscap SystemCapability.Utils.Lang
+ */
+/**
+ * A JS lightweight multi-task executor.
+ * @crossplatform
+ * @since 10
  * @syscap SystemCapability.Utils.Lang
  */
 declare namespace taskpool {
   /**
-   * The Priority defines the task priority.
+   * The Priority defines the task's priority.
    * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * The Priority defines the task's priority.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   enum Priority {
@@ -35,6 +47,12 @@ declare namespace taskpool {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * The Task class provides an interface to create a task.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   class Task {
     /**
      * Create a Task instance.
@@ -43,6 +61,16 @@ declare namespace taskpool {
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200014 - if the function is not mark as concurrent.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * Create a Task instance.
+     * @param func Concurrent function to execute in taskpool.
+     * @param args The concurrent function arguments.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200014 - if the function is not mark as concurrent.
+     * @crossplatform
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     constructor(func: Function, ...args: unknown[]);
@@ -69,17 +97,41 @@ declare namespace taskpool {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Execute a concurrent function.
+   * @param func Concurrent function want to execute.
+   * @param args The concurrent function arguments.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200003 - Worker initialization failure.
+   * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+   * @throws {BusinessError} 10200014 - if the function is not mark as concurrent.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   function execute(func: Function, ...args: unknown[]): Promise<unknown>;
 
   /**
    * Execute a concurrent task.
-   * @param task The task want to execute.
+   * @param task The task which needs to be executed.
    * @param priority Task priority, MEDIUM is default.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200003 - Worker initialization failure.
    * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
    * @throws {BusinessError} 10200014 - if the function in task is not mark as concurrent.
    * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Execute a concurrent task.
+   * @param task The task which needs to be executed.
+   * @param priority Task priority, MEDIUM is default.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200003 - Worker initialization failure.
+   * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+   * @throws {BusinessError} 10200014 - if the function in task is not mark as concurrent.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   function execute(task: Task, priority?: Priority): Promise<unknown>;
@@ -91,6 +143,16 @@ declare namespace taskpool {
    * @throws {BusinessError} 10200015 - if the task is not exist.
    * @throws {BusinessError} 10200016 - if the task is running.
    * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Cancel a concurrent task.
+   * @param task The task want to cancel.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200015 - if the task is not exist.
+   * @throws {BusinessError} 10200016 - if the task is running.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   function cancel(task: Task): void;
