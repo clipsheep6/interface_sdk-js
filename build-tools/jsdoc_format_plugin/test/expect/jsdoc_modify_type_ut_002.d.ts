@@ -15,6 +15,7 @@ export namespace TestType {
    * @type mmmmmmm
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 7
+   * @deprecated since 9
    */
   aaa: string;
 }

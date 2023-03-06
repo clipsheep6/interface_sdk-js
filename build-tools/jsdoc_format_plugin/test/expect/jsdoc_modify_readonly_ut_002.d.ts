@@ -11,9 +11,11 @@
 namespace TestReadonly {
   /**
    * aaa.
+   *
+   * @readonly
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 7
-   * @readonly
+   * @deprecated since 9
    */
   aaa: string;
 }

@@ -11,10 +11,12 @@
 export namespace TestType {
   /**
    * aaa.
+   *
+   * @type { string }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
    * @since 7
+   * @deprecated since 9
    * @name aaa
-   * @type { string }
    */
   aaa: string;
 }
