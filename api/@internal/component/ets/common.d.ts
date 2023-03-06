@@ -3285,7 +3285,12 @@ declare class CustomComponent extends CommonAttribute {
    * onBackPress Method
    * @since 7
    */
-  onBackPress?(): void;
+  /**
+   * onBackPress Method
+   * @reture { boolean } A Boolean value indicating whether to process the return logic.
+   * @since 9
+   */
+  onBackPress?(): void | boolean;
 
   /**
    * PageTransition Method.
