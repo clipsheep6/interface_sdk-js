@@ -437,23 +437,6 @@ declare namespace relationalStore
          * @param {string} table - indicates the target table.
          * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
          * @param {DataSharePredicates} predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-         * @param {ConflictResolution} conflict - indicates the {@link ConflictResolution} to insert data into the table.
-         * @param {AsyncCallback<number>} callback - the number of affected rows.
-         * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
-
-        /**
-         * Updates data in the database based on a specified instance object of RdbPredicates.
-         *
-         * @param {string} table - indicates the target table.
-         * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param {DataSharePredicates} predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @returns {Promise<number>} the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
@@ -463,23 +446,6 @@ declare namespace relationalStore
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
-
-        /**
-         * Updates data in the database based on a specified instance object of RdbPredicates.
-         *
-         * @param {string} table - indicates the target table.
-         * @param {ValuesBucket} values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param {DataSharePredicates} predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
-         * @param {ConflictResolution} conflict - indicates the {@link ConflictResolution} to insert data into the table.
-         * @returns {Promise<number>} the number of affected rows.
-         * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, conflict: ConflictResolution): Promise<number>;
 
         /**
          * Deletes data from the database based on a specified instance object of RdbPredicates.
