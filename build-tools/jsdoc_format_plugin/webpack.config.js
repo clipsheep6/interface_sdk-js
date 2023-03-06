@@ -37,6 +37,15 @@ module.exports = (env, argv) => {
           options: {
             onlyCompileBundledFiles: true
           }
+        },
+        {
+          test: /\.json$/,
+          include: path.resolve(__dirname, 'src'),
+          loader: 'json-loader',
+          exclude: [
+            /node_modules/,
+            /test/
+          ]
         }
       ]
     },
