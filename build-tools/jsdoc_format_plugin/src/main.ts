@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { JSDocModifierImpl } from "./core/entry";
-import { IJSDocModifier } from "./core/typedef";
+import { JSDocModifierImpl } from './core/entry';
+import { IJSDocModifier } from './core/typedef';
 
 function main() {
   const jsDocModifier: IJSDocModifier = new JSDocModifierImpl();

@@ -15,7 +15,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList } = require("./utils");
+const { parseJsDoc, commentNodeWhiteList } = require('./utils');
 const ts = require('typescript');
 const { checkApiOrder } = require('./check_jsdoc_value/chek_order');
 
@@ -138,13 +138,13 @@ function legalityCheck(node, sourcefile, legalKinds, tagsName, isRequire, checkI
         checkInfoMap[index] = {
           missingTags: [],
           illegalTags: []
-        }
+        };
       }
       let checkResult = false;
       let useinsteadResultObj = {
         hasUseinstead: false,
         hasDeprecated: false
-      }
+      };
       let paramTagNum = 0;
       let parameterNum = 0;
       comment.tags.forEach(tag => {
@@ -211,7 +211,7 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath) {
       if (checker) {
         let valueCheckResult;
         if (tag.tag === 'param') {
-          valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName, paramIndex++);
+          valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName, paramIndex);
         } else {
           valueCheckResult = checker(tag, node, sourcefile, sourcefile.fileName);
         }

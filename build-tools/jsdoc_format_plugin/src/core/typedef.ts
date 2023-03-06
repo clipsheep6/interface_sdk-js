@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ts from "typescript";
+import ts from 'typescript';
 
 /**
  * 流程处理结果， code值参考 constant/Code
@@ -43,22 +43,27 @@ export class Options {
    * prettier插件配置项
    */
   formaterOption = {
+
     /**
      * 解析器
      */
-    parser: "typescript",
+    parser: 'typescript',
+
     /**
      * 单引号
      */
     singleQuote: true,
+
     /**
      * 代码行最大宽度
      */
     printWidth: 120,
+
     /**
      * 缩进的空格数
      */
     tabWidth: 2,
+
     /**
      * 末尾逗号 'es5'|'none'|'all'
      * es5 默认值，对象,数组末尾有. TS 中的类型参数末尾没有
@@ -66,15 +71,18 @@ export class Options {
      * all 合法的位置都会出现
      */
     trailingComma: 'none',
+
     /**
      * {foo: bar} - false
      * { foo: bar } - true
      */
     bracketSpacing: true,
+
     /**
      * 表达式后的分号
      */
     semi: true,
+
     /**
      * 对象属性的引号
      * 'as-needed': 需要时添加
@@ -92,7 +100,7 @@ export class Options {
 
   commentOptions = {
     emptyLineUnderDescrition: true
-  }
+  };
 
   splitUnionTypeApi: boolean = false;
 }
@@ -104,6 +112,7 @@ export class Options {
  * 
  */
 export interface Context {
+
   /**
    * 设置原始文件节点信息对象,仅供预处理时调用
    *
@@ -155,6 +164,7 @@ export interface Context {
 }
 
 export namespace rawInfo {
+
   /**
    *  原始文件信息，包含带注释的所有AST节点信息
    */
@@ -162,7 +172,7 @@ export namespace rawInfo {
     rawCode: string;
 
     constructor(code: string) {
-      this.rawCode = code
+      this.rawCode = code;
     }
 
     abstract findRawNodeInfo(node: ts.Node): RawNodeInfo | undefined;
@@ -174,14 +184,17 @@ export namespace rawInfo {
    *
    */
   export interface RawNodeInfo {
+
     /**
      * 行号
      */
     line: number;
+
     /**
      * 所在行的第几个字符
      */
     character: number;
+
     /**
      * Ast节点对象
      */
@@ -212,10 +225,12 @@ export namespace comment {
    * 注释信息
    */
   export interface CommentInfo {
+
     /**
      * 原始注释文本
      */
     text: string;
+
     /**
      * 是否为多行注释
      */
@@ -272,50 +287,62 @@ export namespace comment {
    * |start|delimiter|postDelimiter|tag|postTag|name|postName|type|postType|description|end\
    */
   export interface CommentToken {
+
     /**
      * 注释每行起始字符
      */
     start: string;
+
     /**
      * 注释行开始定界符
      */
     delimiter: string;
+
     /**
      * 定界符之后的字符
      */
     postDelimiter: string;
+
     /**
      * 标签
      */
     tag: string;
+
     /**
      * 标签之后的字符
      */
     postTag: string;
+
     /**
      * 标签名称
      */
     name: string;
+
     /**
      * 标签后的字符
      */
     postName: string;
+
     /**
      * 类型
      */
     type: string;
+
     /**
      * 类型后的字符
      */
     postType: string;
+
     /**
      * 描述
      */
     description: string;
+
     /**
      * 结束字符
      */
     end: string;
+
     /**
      * 行结束字符
      */
@@ -323,14 +350,17 @@ export namespace comment {
   }
 
   export interface CommentSource {
+
     /**
      * 行号
      */
     number: number;
+
     /**
      * 原始注释行
      */
     source: string;
+
     /**
      * 注释被拆分后的对象
      */
@@ -339,6 +369,7 @@ export namespace comment {
 
 
   export interface CommentTag {
+
     /**
      * 注释标签，例如 @param
      */
@@ -411,6 +442,7 @@ export namespace comment {
   }
 
   export enum CommentLocationKind {
+
     /**
      * 头注释
      */
@@ -428,6 +460,7 @@ export namespace comment {
  * 日志处理器
  */
 export interface LogReporter {
+
   /**
    * 添加校验结果
    * 
@@ -526,6 +559,7 @@ export interface ModifyLogResult {
  * 结果日志输出接口
  */
 export interface LogWriter {
+
   /**
    * 
    * @param checkResults 校验结果集
@@ -600,6 +634,7 @@ export namespace sourceParser {
    * AST 节点修改回调接口
    */
   export interface ITransformCallback {
+
     /**
      * 入参为原始AST节点，自定义业务功能，并返回新的AST节点。
      *

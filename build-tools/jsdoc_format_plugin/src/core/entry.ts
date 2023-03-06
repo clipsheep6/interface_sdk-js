@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import { Code, ConstantValue, StringResourceId } from "../utils/constant";
-import { FileUtils } from "../utils/fileUtils";
-import { LogLevelUtil, LogUtil } from "../utils/logUtil";
-import { StringUtils, StringResource } from "../utils/stringUtils";
-import { ApiSplitProcessor } from "./apiSplitProcessor";
-import { AsynchronousFunctionProcessor } from "./asynchronousFunctionProcessor";
-import { ContextImpl, InputParameter, OutputFileHelper } from "./coreImpls";
-import { CommentModificationProcessor } from "./modificationProcessor";
-import { OutputProcessor } from "./outputProcessor";
-import { RawSourceCodeProcessor } from "./rawCodeProcessor";
-import { Context, IJSDocModifier, ISourceCodeProcessor, LogReporter, ProcessResult } from "./typedef";
+import { Code, ConstantValue, StringResourceId } from '../utils/constant';
+import { FileUtils } from '../utils/fileUtils';
+import { LogLevelUtil, LogUtil } from '../utils/logUtil';
+import { StringUtils, StringResource } from '../utils/stringUtils';
+import { ApiSplitProcessor } from './apiSplitProcessor';
+import { AsynchronousFunctionProcessor } from './asynchronousFunctionProcessor';
+import { ContextImpl, InputParameter, OutputFileHelper } from './coreImpls';
+import { CommentModificationProcessor } from './modificationProcessor';
+import { OutputProcessor } from './outputProcessor';
+import { RawSourceCodeProcessor } from './rawCodeProcessor';
+import { Context, IJSDocModifier, ISourceCodeProcessor, LogReporter, ProcessResult } from './typedef';
 
 /**
  * JSDoc 整改流程入口。
@@ -47,7 +47,7 @@ export class JSDocModifierImpl implements IJSDocModifier {
     const baseContext: Context = this.getBaseContext(inputParameter);
     LogUtil.i(this.tag, StringResource.getString(StringResourceId.START_MESSAGE));
     const result: ProcessResult = sourceProcessor.process(baseContext, '');
-    if (result.code != Code.OK) {
+    if (result.code !== Code.OK) {
       LogUtil.e(this.tag, result.content);
     } else {
       LogUtil.i(this.tag, result.content);
@@ -73,7 +73,6 @@ export class JSDOcModifierTestEntry extends JSDocModifierImpl {
     inputParameter.inputFilePath = inputFile;
     inputParameter.outputFilePath = outputFile;
     inputParameter.splitUnionTypeApi = true;
-    inputParameter.getOptions().splitUnionTypeApi = true;
     this.startInternal(inputParameter);
   }
 }
@@ -83,7 +82,7 @@ abstract class BaseSourceCodeProcessor implements ISourceCodeProcessor {
   inputParam: InputParameter;
 
   constructor(inputParam: InputParameter) {
-    this.inputParam = inputParam
+    this.inputParam = inputParam;
   }
 
   abstract process(context: Context, code: string): ProcessResult;
@@ -125,13 +124,13 @@ export class SingleFileProcessor extends BaseSourceCodeProcessor {
     newContext.setLogReporter(logReporter);
     for (let processor of processorRegistry) {
       preResult = processor.process(newContext, preResult.content);
-      if (preResult.code == Code.ERROR) {
+      if (preResult.code === Code.ERROR) {
         break;
       }
     }
     // 报告落盘
     context.getLogReporter().writeAllResults(OutputFileHelper.getLogReportFilePath(this.inputParam));
-    if (preResult.code == Code.OK) {
+    if (preResult.code === Code.OK) {
       preResult.content = `new d.ts file is ${newContext.getOutputFile()}`;
     }
     return preResult;
@@ -161,7 +160,7 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
         errorSet.push({
           code: Code.ERROR,
           content: `${childFile}: ${StringResource.getString(StringResourceId.INPUT_FILE_CONTENT_EMPTY)}`
-        })
+        });
         return;
       }
       const newContext = this.buildProcessorContext(context, childFile);
@@ -173,9 +172,9 @@ export class MultiFileProcessor extends BaseSourceCodeProcessor {
 
       for (let processor of processorRegistry) {
         preValue = processor.process(newContext, preValue.content);
-        if (preValue.code != Code.OK) {
+        if (preValue.code !== Code.OK) {
           errorSet.push(preValue);
-          break
+          break;
         }
       }
     });

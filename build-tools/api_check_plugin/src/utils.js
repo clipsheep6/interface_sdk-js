@@ -12,11 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 const ExcelJS = require('exceljs');
 const cm = require('comment-parser');
-const ts = require("typescript");
+const ts = require('typescript');
 
 const commentNodeWhiteList = [
   ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature,
@@ -30,8 +30,8 @@ exports.commentNodeWhiteList = commentNodeWhiteList;
 
 function getAPINote(node) {
   const apiLength = node.getText().length;
-  const apiFullLength = node.getFullText().length
-  return node.getFullText().substring(0, apiFullLength - apiLength)
+  const apiFullLength = node.getFullText().length;
+  return node.getFullText().substring(0, apiFullLength - apiLength);
 }
 exports.getAPINote = getAPINote;
 
@@ -39,7 +39,7 @@ function hasAPINote(node) {
   if (!node) {
     return false;
   }
-  const apiNote = getAPINote(node).replace(/[\s]/g, "");
+  const apiNote = getAPINote(node).replace(/[\s]/g, '');
   if (apiNote && apiNote.length !== 0) {
     return true;
   }
@@ -69,7 +69,7 @@ function writeResultFile(resultData, outputPath, option) {
     } else {
       console.log('API CHECK FINISH!');
     }
-  })
+  });
 }
 exports.writeResultFile = writeResultFile;
 
@@ -93,27 +93,27 @@ const ErrorType = {
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
   WRONG_ORDER: 'wrong order'
-}
+};
 exports.ErrorType = ErrorType;
 
 const ErrorLevel = {
   HIGH: 3,
   MIDDLE: 2,
   LOW: 1
-}
+};
 exports.ErrorLevel = ErrorLevel;
 
 const FileType = {
   API: 'Api',
   JSDOC: 'JsDoc'
-}
+};
 exports.FileType = FileType;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
 
 class ApiCheckResultClass {
-  format_check_result = true
+  format_check_result = true;
 }
 exports.ApiCheckResult = new ApiCheckResultClass();
 
@@ -138,44 +138,44 @@ async function excelApiCheckResult(apiCheckArr) {
 exports.excelApiCheckResult = excelApiCheckResult;
 
 function getApiInfo(node) {
-  const notesStr = getAPINote(node)
+  const notesStr = getAPINote(node);
   let apiInfo = {};
-  if (notesStr !== "") {
+  if (notesStr !== '') {
     if (/\@[S|s][Y|y][S|s][T|t][E|e][M|m][A|a][P|p][I|i]/g.test(notesStr)) {
-      apiInfo.isSystemApi = 'system api'
+      apiInfo.isSystemApi = 'system api';
     }
     if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
         apiInfo.version = versionInfo.replace(/\@[S|s][I|i][N|n][C|c][E|e]/g, '').trim();
-      })
+      });
     }
     if (/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g,
         versionInfo => {
           apiInfo.deprecated = versionInfo.replace(
             /\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*/g, '').trim();
-        })
+        });
     }
     if (/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
       notesStr.replace(/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
         apiInfo.model = modelInfo;
-      })
+      });
     } else if (/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
         apiInfo.model = modelInfo;
-      })
+      });
     }
     if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         apiInfo.sysCap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
-      })
+      });
     }
     if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
       notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
         permissionInfo => {
           apiInfo.permission =
             permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
-        })
+        });
     }
   }
   return apiInfo;

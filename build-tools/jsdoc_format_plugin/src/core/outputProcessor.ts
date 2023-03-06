@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import ts from "typescript";
-import { Code } from "../utils/constant";
-import { FileUtils } from "../utils/fileUtils";
-import { LogUtil } from "../utils/logUtil";
-import { StringUtils } from "../utils/stringUtils";
-import { CommentHelper } from "./coreImpls";
-import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from "./typedef";
+import ts from 'typescript';
+import { Code } from '../utils/constant';
+import { FileUtils } from '../utils/fileUtils';
+import { LogUtil } from '../utils/logUtil';
+import { StringUtils } from '../utils/stringUtils';
+import { CommentHelper } from './coreImpls';
+import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
 
 export class OutputProcessor implements ISourceCodeProcessor {
   process(context: Context, content: string): ProcessResult {
@@ -68,7 +68,7 @@ class Formatter implements sourceParser.INodeVisitorCallback {
  */
 class NumberLiteralCaseRule {
   upperCase: boolean;
-  sourceParser: sourceParser.SourceCodeParser
+  sourceParser: sourceParser.SourceCodeParser;
   content: string|undefined;
 
   constructor(upperCase: boolean, sourceParser: sourceParser.SourceCodeParser) {
@@ -77,7 +77,7 @@ class NumberLiteralCaseRule {
   }
 
   apply(content: string): string {
-    const sourceFile = this.sourceParser.createSourceFile(content, "numberLiteral");
+    const sourceFile = this.sourceParser.createSourceFile(content, 'numberLiteral');
     if (!sourceFile) {
       return content;
     }

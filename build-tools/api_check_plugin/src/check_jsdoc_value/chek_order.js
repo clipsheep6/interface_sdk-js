@@ -24,7 +24,7 @@ const labelOrderArray = ['description', 'namespace', 'extends', 'typedef', 'inte
 function checkApiOrder(node, sourcefile, fileName) {
   let apiOrderArr = [];
   let checkOrderRusult = [];
-  let errorInfo = "";
+  let errorInfo = '';
   const apiNote = getAPINote(node);
   const JsdocInfos = parse.parse(`${apiNote}`);
   // 遍历dts文件，获取各个jsdoc标签的优先级数组，最后生成一个二维数组
@@ -32,9 +32,9 @@ function checkApiOrder(node, sourcefile, fileName) {
     let apiNameOrder = [];
     jsdocInfo.tags.forEach(tags => {
       apiNameOrder.push(tags.tag);
-    })
+    });
     apiOrderArr.push(apiNameOrder);
-  })
+  });
   // 遍历apiOrderArr数组，讲每一个标签的绝对优先级获取到，放在apiPriority数组中
   apiOrderArr.forEach(apiOrder => {
     let apiPriority = [];
@@ -47,9 +47,9 @@ function checkApiOrder(node, sourcefile, fileName) {
     for (let j = 0; j < apiPriority.length - 1; j++) {
       const result = {
         checkResult: true,
-        errorInfo: "",
-      }
-      if (apiPriority[j] == -1 && apiPriority[j + 1] != -1) {
+        errorInfo: '',
+      };
+      if (apiPriority[j] === -1 && apiPriority[j + 1] !== -1) {
         errorInfo = apiOrder[j];
         result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
         result.checkResult = false;
@@ -59,7 +59,7 @@ function checkApiOrder(node, sourcefile, fileName) {
         isPassed = false;
         break;
       } else if (apiPriority[j] > -1 && (apiPriority[j] > apiPriority[j + 1])) {
-        if (apiOrder[j] == 'example' && apiPriority[j + 1] != -1) {
+        if (apiOrder[j] === 'example' && apiPriority[j + 1] !== -1) {
           errorInfo = apiOrder[j - 1];
           result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
           result.checkResult = false;
@@ -68,7 +68,7 @@ function checkApiOrder(node, sourcefile, fileName) {
           checkOrderRusult.push(result);
           isPassed = false;
           break;
-        } else if (apiOrder[j] != 'example') {
+        } else if (apiOrder[j] !== 'example') {
           errorInfo = apiOrder[j];
           result.errorInfo = `the jsDoc order @${errorInfo} is wrong; `;
           result.checkResult = false;
@@ -83,10 +83,10 @@ function checkApiOrder(node, sourcefile, fileName) {
     if (isPassed) {
       checkOrderRusult.push({
         checkResult: true,
-        errorInfo: "",
-      })
+        errorInfo: '',
+      });
     }
-  })
+  });
   return checkOrderRusult;
 }
 exports.checkApiOrder = checkApiOrder;

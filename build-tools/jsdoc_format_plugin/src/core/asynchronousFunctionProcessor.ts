@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import ts from "typescript";
-import { Code } from "../utils/constant";
-import { LogReportStringUtils } from "../utils/stringUtils";
-import { CommentHelper, LogResult } from "./coreImpls";
+import ts from 'typescript';
+import { Code } from '../utils/constant';
+import { LogReportStringUtils } from '../utils/stringUtils';
+import { CommentHelper, LogResult } from './coreImpls';
 import {
   comment, Context, ISourceCodeProcessor, JSDocModifyType, MethodNodeType,
   ModifyLogResult, ProcessResult, ErrorInfo
-} from "./typedef";
+} from './typedef';
 
 export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
 
@@ -36,7 +36,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
     const preNode: PreNode = new PreNode('', []);
     ts.forEachChild(sourceFile, (cNode) => {
       this.nodeVisitor(cNode, preNode);
-    })
+    });
     return {
       code: Code.OK,
       content: sourceParser.printSourceFile(sourceFile)
@@ -56,7 +56,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
       const preNode: PreNode = new PreNode('', []);
       ts.forEachChild(cNode.body, (child) => {
         this.nodeVisitor(child, preNode);
-      })
+      });
       return;
     }
 
@@ -64,7 +64,7 @@ export class AsynchronousFunctionProcessor implements ISourceCodeProcessor {
       const preNode: PreNode = new PreNode('', []);
       ts.forEachChild(cNode, (child) => {
         this.nodeVisitor(child, preNode);
-      })
+      });
       return;
     }
 

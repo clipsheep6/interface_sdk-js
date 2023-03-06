@@ -23,7 +23,7 @@ export enum LogLevel {
 export class LogLevelUtil {
   static get(level: string): LogLevel {
     for (let v = LogLevel.INFO; v <= LogLevel.ERR; v++) {
-      if (level == LogLevel[v]) {
+      if (level === LogLevel[v]) {
         return v;
       }
     }

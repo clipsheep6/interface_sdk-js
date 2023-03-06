@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import ts from "typescript";
-import { Code } from "../utils/constant";
+import ts from 'typescript';
+import { Code } from '../utils/constant';
 import {
   comment, Context, ISourceCodeProcessor, JsDocCheckResult, JsDocModificationInterface, ProcessResult,
   LogReporter, IllegalTagsInfo, rawInfo, JSDocModifyType, JSDocCheckErrorType, CheckLogResult, ModifyLogResult,
-  ErrorInfo, sourceParser
-} from "./typedef";
-import { CommentHelper, LogResult } from "./coreImpls";
+  ErrorInfo
+} from './typedef';
+import { CommentHelper, LogResult } from './coreImpls';
 const apiChecker = require('api-checker');
 
 /**
@@ -34,10 +34,10 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
 
   process(context: Context, content: string): ProcessResult {
     this.context = context;
-    const newParser: sourceParser.SourceCodeParser = context.getSourceParser(content);
+    const newParser = context.getSourceParser(content);
     this.logReporter = context.getLogReporter();
     this.rawSourceCodeInfo = context.getRawSourceCodeInfo();
-    const newSourceFile: ts.SourceFile | undefined = newParser.visitEachNodeComment(this, false);
+    const newSourceFile = newParser.visitEachNodeComment(this, false);
     return {
       code: Code.OK,
       content: newSourceFile ? newParser.printSourceFile(newSourceFile) : content
@@ -48,7 +48,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
     if (node.astNode) {
       const curNode: ts.Node = node.astNode;
       // 获取诊断信息
-      const checkResults: JsDocCheckResult[] = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile());
+      const checkResults = apiChecker.checkJSDoc(node.astNode, node.astNode?.getSourceFile());
       const newCommentIndexs: number[] = [];
       const newCommentInfos: comment.CommentInfo[] = node.commentInfos ? [...node.commentInfos] : [];
       // 获取需要整改的JSDoc数组
@@ -159,6 +159,7 @@ export class CommentModificationProcessor implements ISourceCodeProcessor {
  * JSDoc整改工具类
  */
 class JSDocModificationManager {
+
   /**
    * 获取commentInfo初始值
    */
@@ -173,8 +174,9 @@ class JSDocModificationManager {
       lineNumber: commentInfo.commentTags.length > 0 ?
         commentInfo.commentTags[commentInfo.commentTags.length - 1].lineNumber + 1 : 0,
       tokenSource: []
-    }
+    };
   }
+
   /**
    * 添加无值标签
    */
@@ -185,6 +187,7 @@ class JSDocModificationManager {
     commentInfo.commentTags.push(newCommentTag);
     return true;
   }
+
   /**
    * 添加有值标签
    */
@@ -212,7 +215,7 @@ class JSDocModificationManager {
             });
           }
         });
-        tagValue = extendClasses.join(', ')
+        tagValue = extendClasses.join(', ');
       }
     }
     newCommentTag.name = tagValue;
@@ -220,6 +223,7 @@ class JSDocModificationManager {
     commentInfo.commentTags.push(newCommentTag);
     return true;
   }
+
   /**
    * 添加继承标签
    */
@@ -259,6 +263,7 @@ class JSDocModificationManager {
       return undefined;
     }
   }
+
   /**
    * 添加param标签
    */
@@ -297,6 +302,7 @@ class JSDocModificationManager {
     }
     return true;
   }
+
   /**
    * 调整标签顺序
    */
@@ -317,6 +323,7 @@ class JSDocModificationManager {
     });
     return newTags;
   }
+
   /**
    * 组装错误信息
    */
@@ -326,6 +333,7 @@ class JSDocModificationManager {
     });
     return errorInfo;
   }
+
   /**
    * 获取apiName
    */

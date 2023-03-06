@@ -43,13 +43,15 @@ export enum StringResourceId {
 }
 
 export enum Instruct {
+
   /**
    * 用于生成单行注释，文本替换成空行
    */
-  EMPTY_LINE = "Instruct_new_line"
+  EMPTY_LINE = 'Instruct_new_line'
 }
 
 export class ConstantValue {
+
   /**
    * d.ts文件后缀名
    */

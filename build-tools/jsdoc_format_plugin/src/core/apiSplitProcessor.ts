@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import ts from "typescript";
-import { Code } from "../utils/constant";
+import ts from 'typescript';
+import { Code } from '../utils/constant';
 import {
   comment, Context, ISourceCodeProcessor, LogReporter, ModifyLogResult, ErrorInfo,
   ProcessResult, sourceParser, JSDocModifyType, MethodNodeType, ApiSplitProcessorInterface
-} from "./typedef";
-import { CommentHelper, LogResult } from "./coreImpls";
-import { LogReportStringUtils } from "../utils/stringUtils";
+} from './typedef';
+import { CommentHelper, LogResult } from './coreImpls';
+import { LogReportStringUtils } from '../utils/stringUtils';
 
 export class ApiSplitProcessor implements ISourceCodeProcessor, sourceParser.ITransformCallback {
 
@@ -92,7 +92,7 @@ class ApiSplitProcessorHelper {
   }
 
   static createNewParams(node: MethodNodeType, eventValue: string, typeParam: ts.ParameterDeclaration) {
-    const literalTypeNode = ts.factory.createLiteralTypeNode(ts.factory.createStringLiteral(eventValue))
+    const literalTypeNode = ts.factory.createLiteralTypeNode(ts.factory.createStringLiteral(eventValue));
     const newTypeParam: ts.ParameterDeclaration = ts.factory.createParameterDeclaration(typeParam.modifiers,
       typeParam.dotDotDotToken, typeParam.name, typeParam.questionToken, literalTypeNode, typeParam.initializer);
     const newParams: Array<ts.ParameterDeclaration> = [];
@@ -120,7 +120,7 @@ class ApiSplitProcessorHelper {
       ts.setEmitFlags(modifier, ts.EmitFlags.NoLeadingComments);
       const newModifier = ts.factory.createModifier(modifier.kind);
       modifiers.push(newModifier);
-    })
+    });
     const newModifiers: ts.NodeArray<ts.Modifier> = ts.factory.createNodeArray(modifiers);
     eventValues.forEach((eventValue: string) => {
       const newParams: Array<ts.ParameterDeclaration> = ApiSplitProcessorHelper.createNewParams(node, eventValue, typeParam);
@@ -129,7 +129,7 @@ class ApiSplitProcessorHelper {
       const comments: Array<comment.CommentInfo> = CommentHelper.getNodeLeadingComments(node, node.getSourceFile());
       CommentHelper.setComment(newFunctionNode, [CommentHelper.getEmptyLineComment(), ...comments]);
       newFunctionNodes.push(newFunctionNode);
-    })
+    });
     return newFunctionNodes;
   }
 
@@ -150,7 +150,7 @@ class ApiSplitProcessorHelper {
       const comments: Array<comment.CommentInfo> = CommentHelper.getNodeLeadingComments(node, node.getSourceFile());
       CommentHelper.setComment(newFunctionNode, [CommentHelper.getEmptyLineComment(), ...comments]);
       newFunctionNodes.push(newFunctionNode);
-    })
+    });
     return newFunctionNodes;
   }
 
@@ -191,7 +191,7 @@ class ApiSplitProcessorHelper {
         // 添加报告输出处理逻辑
         ApiSplitProcessorHelper.logReportProcess(funcDecNode, context);
       }
-    })
+    });
     if (statements.length === newStatements.length) {
       return undefined;
     }
@@ -216,7 +216,7 @@ class ApiSplitProcessorHelper {
           // 添加报告输出处理逻辑
           ApiSplitProcessorHelper.logReportProcess(funcDecNode, context);
         }
-      })
+      });
       if (statements.length === newStatements.length) {
         return undefined;
       }
@@ -241,7 +241,7 @@ class ApiSplitProcessorHelper {
         // 添加报告输出处理逻辑
         ApiSplitProcessorHelper.logReportProcess(funcDecNode, context);
       }
-    })
+    });
     if (members.length === newMembers.length) {
       return undefined;
     }
@@ -264,7 +264,7 @@ class ApiSplitProcessorHelper {
         // 添加报告输出处理逻辑
         ApiSplitProcessorHelper.logReportProcess(funcDecNode, context);
       }
-    })
+    });
     if (members.length === newMembers.length) {
       return undefined;
     }

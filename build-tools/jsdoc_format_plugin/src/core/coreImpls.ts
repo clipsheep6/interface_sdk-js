@@ -13,18 +13,18 @@
  * limitations under the License.
  */
 
-import path from "path";
+import path from 'path';
 import excelJs from 'exceljs';
-import { Command } from "commander";
-import { ConstantValue, Instruct, StringResourceId } from "../utils/constant";
-import { FileUtils } from "../utils/fileUtils";
-import { LogUtil } from "../utils/logUtil";
-import { StringResource, StringUtils } from "../utils/stringUtils";
+import { Command } from 'commander';
+import { ConstantValue, Instruct, StringResourceId } from '../utils/constant';
+import { FileUtils } from '../utils/fileUtils';
+import { LogUtil } from '../utils/logUtil';
+import { StringResource, StringUtils } from '../utils/stringUtils';
 import {
   comment, Context, Options, LogReporter, rawInfo, sourceParser, CheckLogResult,
   ModifyLogResult, LogWriter, JSDocModifyType, JSDocCheckErrorType
-} from "./typedef";
-import ts, { CommentRange, TransformationContext, TransformationResult } from "typescript";
+} from './typedef';
+import ts, { CommentRange, TransformationContext, TransformationResult } from 'typescript';
 
 export class ContextImpl implements Context {
   options: Options;
@@ -65,7 +65,7 @@ export class ContextImpl implements Context {
   }
 
   getCommentChecker(): comment.CommentChecker {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   getOutputFile(): string {
@@ -111,7 +111,7 @@ export class OutputFileHelper {
     }
     // 同级目录创建新文件
     const fileName = path.basename(inputParam.inputFilePath!, ConstantValue.DTS_EXTENSION);
-    return path.join(inputParam.inputFilePath!, '..', `${fileName}_new${ConstantValue.DTS_EXTENSION}`)
+    return path.join(inputParam.inputFilePath!, '..', `${fileName}_new${ConstantValue.DTS_EXTENSION}`);
   }
 
   // 获取报告输出路径
@@ -130,6 +130,7 @@ export class OutputFileHelper {
 
 export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
   options: Options;
+
   /**
    * 可能存在注释的节点类型。
    */
@@ -145,10 +146,10 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     ts.SyntaxKind.ModuleDeclaration, ts.SyntaxKind.ModuleBlock, ts.SyntaxKind.NamespaceExportDeclaration, ts.SyntaxKind.ClassDeclaration,
     ts.SyntaxKind.InterfaceDeclaration, ts.SyntaxKind.EnumDeclaration, ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Parameter,
     ts.SyntaxKind.TypeLiteral, ts.SyntaxKind.PropertySignature, ts.SyntaxKind.TypeAliasDeclaration
-  ]
+  ];
 
   constructor(code: string, options: Options) {
-    super(code)
+    super(code);
     this.options = options;
   }
 
@@ -174,16 +175,16 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
   }
 
   createSourceFile(content: string, name?: string | undefined): ts.SourceFile | undefined {
-    const sourceFile = ts.createSourceFile(name ? name : "memory", content, this.options.scriptTarget, true);
+    const sourceFile = ts.createSourceFile(name ? name : 'memory', content, this.options.scriptTarget, true);
     // 没有解析成AST树，非代码文件
-    if (sourceFile.statements.length == 0) {
+    if (sourceFile.statements.length === 0) {
       return undefined;
     }
     return sourceFile;
   }
 
   transform(callback: sourceParser.ITransformCallback): ts.SourceFile | undefined {
-    let transformSourceFile = this.createSourceFile(this.content, "transform");
+    let transformSourceFile = this.createSourceFile(this.content, 'transform');
     if (!transformSourceFile) {
       return undefined;
     }
@@ -199,7 +200,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
       };
     };
     const rootNode = callback.onTransformNode({ astNode: transformSourceFile });
-    if (rootNode && ts.isSourceFile(rootNode) && rootNode != transformSourceFile) {
+    if (rootNode && ts.isSourceFile(rootNode) && rootNode !== transformSourceFile) {
       transformSourceFile = rootNode;
     }
     const transformResult: TransformationResult<ts.Node> = ts.transform(transformSourceFile, [transformCallback]);
@@ -222,10 +223,10 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
       const hasComment: boolean = currentCommentNode.commentInfos ? currentCommentNode.commentInfos.length > 0 : false;
       const { line, character } = node.getSourceFile().getLineAndCharacterOfPosition(node.getStart());
       if (thiz.shouldNotifyCallback(node, hasComment, onlyVisitHasComment)) {
-        LogUtil.d("SourceCodeParserImpl", `kind: ${node.kind}, line: ${line}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
+        LogUtil.d('SourceCodeParserImpl', `kind: ${node.kind}, line: ${line}, ${JSON.stringify(currentCommentNode.commentInfos)}`);
         callback.onVisitNode(currentCommentNode);
       } else {
-        LogUtil.d("SourceCodeParserImpl",
+        LogUtil.d('SourceCodeParserImpl',
           `skip, kind: ${node.kind}, line: ${line}, character: ${character}, commnet size: ${currentCommentNode.commentInfos?.length}`);
       }
       if (thiz.shouldForEachChildren(node)) {
@@ -249,7 +250,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
         handledComments.add(key);
       }
     });
-    if (unHandledComments.length != commentNode.commentInfos?.length) {
+    if (unHandledComments.length !== commentNode.commentInfos?.length) {
       commentNode.commentInfos = unHandledComments;
     }
   }
@@ -258,7 +259,7 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
     if (!this.shouldNotify(node)) {
       return false;
     }
-    return !(onlyVisitHasComment && onlyVisitHasComment == true && !hasComment);
+    return !(onlyVisitHasComment && onlyVisitHasComment === true && !hasComment);
   }
 
   printSourceFile(sourceFile: ts.SourceFile): string {
@@ -275,7 +276,7 @@ export class CommentHelper {
   static LICENSE_KEYWORD = 'Copyright';
   static REFERENCE_REGEXP = /\/\/\/\s*<reference\s*path/g;
   static REFERENCE_COMMENT_REGEXP = /\/\s*<reference\s*path/g;
-  static MULTI_COMMENT_DELIMITER = "/**";
+  static MULTI_COMMENT_DELIMITER = '/**';
 
   /**
    * 给节点追加注释(注意：无法在原始注释中追加，只能将原始注释完全复制一份并修改再做完整替换)
@@ -284,7 +285,7 @@ export class CommentHelper {
    * @param commentInfos 注释列表
    */
   static addComment(node: ts.Node, commentInfos: Array<comment.CommentInfo>): void {
-    if (commentInfos.length == 0) {
+    if (commentInfos.length === 0) {
       return;
     }
     CommentHelper.ignoreOriginalComment(node);
@@ -324,7 +325,7 @@ export class CommentHelper {
    * @returns 
    */
   static setComment(node: ts.Node, commentInfos: Array<comment.CommentInfo>, commentKind?: number) {
-    if (commentInfos.length == 0) {
+    if (commentInfos.length === 0) {
       return;
     }
     CommentHelper.ignoreOriginalComment(node);
@@ -344,7 +345,7 @@ export class CommentHelper {
       });
     });
 
-    if (!commentKind || commentKind == comment.CommentLocationKind.LEADING) {
+    if (!commentKind || commentKind === comment.CommentLocationKind.LEADING) {
       ts.setSyntheticLeadingComments(node, syntheticLeadingComments);
     } else {
       ts.setSyntheticTrailingComments(node, syntheticLeadingComments);
@@ -371,9 +372,9 @@ export class CommentHelper {
     const { parse } = require('comment-parser');
     const commentInfo: comment.CommentInfo = {
       text: comment,
-      isMultiLine: commentKind == ts.SyntaxKind.MultiLineCommentTrivia,
+      isMultiLine: commentKind === ts.SyntaxKind.MultiLineCommentTrivia,
       isLeading: isLeading,
-      description: "",
+      description: '',
       commentTags: [],
       parsedComment: undefined,
       pos: -1,
@@ -385,24 +386,24 @@ export class CommentHelper {
     let commentString = comment;
     let parsedComments = parse(commentString);
     // 无法被解析的注释,可能以 /* 开头或是单行注释
-    if (parsedComments.length == 0) {
+    if (parsedComments.length === 0) {
       // 注释是 /// <reference path="" />
       if (StringUtils.hasSubstring(commentString, this.REFERENCE_REGEXP) ||
-        commentKind == ts.SyntaxKind.SingleLineCommentTrivia) {
+        commentKind === ts.SyntaxKind.SingleLineCommentTrivia) {
         commentInfo.isMultiLine = false;
         // 注释内容需丢弃 "//"
         commentInfo.text = commentString.substring(2, commentString.length);
         return commentInfo;
       }
       const delimiter = commentString.substring(0, 2);
-      if (delimiter != this.MULTI_COMMENT_DELIMITER) {
+      if (delimiter !== this.MULTI_COMMENT_DELIMITER) {
         if (StringUtils.hasSubstring(commentString, this.LICENSE_KEYWORD)) {
           return commentInfo;
         }
         // '/*' 开头的注释变成 '/**' 开头的注释
-        commentString = "/*" + commentString.substring(1, comment.length);
+        commentString = '/*' + commentString.substring(1, comment.length);
         parsedComments = parse(commentString);
-        if (parsedComments.length == 0) {
+        if (parsedComments.length === 0) {
           return commentInfo;
         }
       } else {
@@ -472,15 +473,15 @@ export class CommentHelper {
    * @param commentInfos
    */
   private static fixLicenseComment(node: ts.Node, commentInfos: comment.CommentInfo[]) {
-    if (commentInfos.length == 0) {
+    if (commentInfos.length === 0) {
       return;
     }
     // 如果只有一个注释并且是license, license 与 node 间需要一个空行
-    if (commentInfos.length == 1) {
+    if (commentInfos.length === 1) {
       if (StringUtils.hasSubstring(commentInfos[0].text, this.LICENSE_KEYWORD)) {
         const copyRightPosition = node.getSourceFile().getLineAndCharacterOfPosition(commentInfos[0].end);
         const nodePosition = node.getSourceFile().getLineAndCharacterOfPosition(node.getStart());
-        if ((nodePosition.line - copyRightPosition.line) == 1) {
+        if ((nodePosition.line - copyRightPosition.line) === 1) {
           commentInfos.push(this.getEmptyLineComment());
         } else {
           commentInfos[0].ignore = true;
@@ -490,14 +491,14 @@ export class CommentHelper {
     }
     const firstCommentInfo: comment.CommentInfo = commentInfos[0];
     if (!StringUtils.hasSubstring(firstCommentInfo.text, this.LICENSE_KEYWORD)) {
-      return
+      return;
     }
     firstCommentInfo.isApiComment = false;
     // license 注释在第一位
     const firstPosition = node.getSourceFile().getLineAndCharacterOfPosition(firstCommentInfo.end);
     const secondPosition = node.getSourceFile().getLineAndCharacterOfPosition(commentInfos[1].pos);
     // 无空格
-    if ((secondPosition.line - firstPosition.line) == 1) {
+    if ((secondPosition.line - firstPosition.line) === 1) {
       firstCommentInfo.ignore = false;
     } else {
       firstCommentInfo.ignore = true;
@@ -511,7 +512,7 @@ export class CommentHelper {
       text: Instruct.EMPTY_LINE,
       isMultiLine: false,
       isLeading: true,
-      description: "",
+      description: '',
       commentTags: [],
       parsedComment: undefined,
       pos: -1,
@@ -549,6 +550,7 @@ class CommentWriter {
   constructor(isMultiLine: boolean) {
     this.isMultiLine = isMultiLine;
   }
+
   /**
    * 构建完整的注释文本段
    */
@@ -566,26 +568,26 @@ class CommentWriter {
   private restoreParsedComment(parsedComment: any, commentTags: Array<comment.CommentTag>): string {
     const newSourceArray: Array<comment.CommentSource> = [];
     const { stringify } = require('comment-parser');
-    if (parsedComment.source.length == 1) {
+    if (parsedComment.source.length === 1) {
       return stringify(parsedComment);
     }
     for (let source of parsedComment.source) {
       // 保留描述信息,去除标签注释
-      if (source.tokens.tag != '') {
+      if (source.tokens.tag !== '') {
         break;
       }
       // 描述信息内有空行
-      if (source.tokens.description == '') {
+      if (source.tokens.description === '') {
         continue;
       }
       // 描述信息写在/** 之后
-      if (source.tokens.delimiter == '/**') {
+      if (source.tokens.delimiter === '/**') {
         source.tokens.delimiter = '*';
         source.tokens.postDelimiter = ' ';
       }
       // 除了起始符号为空，其他场景则重置为一个空格
       // ts api 提供的写注释接口缩进是参考当前节点的，因此一个空格可以保证格式正确
-      if (source.tokens.start != '') {
+      if (source.tokens.start !== '') {
         source.tokens.start = ' ';
       }
       newSourceArray.push(source);
@@ -593,7 +595,7 @@ class CommentWriter {
     // 添加注释首行
     newSourceArray.splice(0, 0, { number: 0, source: '', tokens: this.getCommentStartToken() });
     const lastSource = newSourceArray[newSourceArray.length - 1];
-    if (commentTags.length != 0) {
+    if (commentTags.length !== 0) {
       if (!this.isEndLine(lastSource.tokens)) {
         this.addNewEmptyLineIfNeeded(newSourceArray, lastSource);
         this.addTags(newSourceArray, commentTags);
@@ -624,7 +626,7 @@ class CommentWriter {
         for (let index = 1; index < tokenSourceLen; index++) {
           const tagDescriptionSource = commentTag.tokenSource[index];
           // 末尾的tag会包含注释结束符, tag 间可能有空行
-          if (tagDescriptionSource.tokens.end != '*/' && tagDescriptionSource.tokens.description != '') {
+          if (tagDescriptionSource.tokens.end !== '*/' && tagDescriptionSource.tokens.description !== '') {
             tagDescriptionSource.tokens.start = ' ';
             newSourceArray.push(tagDescriptionSource);
           }
@@ -653,11 +655,11 @@ class CommentWriter {
       name: commentTag.optional ?
         (commentTag.defaultValue ? `[${commentTag.name} = ${commentTag.defaultValue}]` : `[${commentTag.name}]`) : commentTag.name,
       // 标签名称后空格
-      postName: commentTag.name == '' ? '' : ' ',
+      postName: commentTag.name === '' ? '' : ' ',
       // 类型
-      type: commentTag.type == '' ? '' : `{ ${commentTag.type} }`,
+      type: commentTag.type === '' ? '' : `{ ${commentTag.type} }`,
       // 类型之后空格
-      postType: commentTag.type == '' ? '' : ' ',
+      postType: commentTag.type === '' ? '' : ' ',
       // 描述
       description: description,
       end: '',
@@ -731,17 +733,17 @@ class CommentWriter {
       description: '',
       end: '*/',
       lineEnd: ''
-    }
+    };
   }
 
   private shouldInsertNewEmptyLine(token: comment.CommentToken): boolean {
-    const lastDescriptionNotEmpty = token.tag == '' && token.delimiter == '*' && token.description != '';
-    const commentStartLine = token.tag == '' && token.delimiter == '/**';
+    const lastDescriptionNotEmpty = token.tag === '' && token.delimiter === '*' && token.description !== '';
+    const commentStartLine = token.tag === '' && token.delimiter === '/**';
     return lastDescriptionNotEmpty && !commentStartLine;
   }
 
   private isEndLine(token: comment.CommentToken): boolean {
-    return token.tag == '' && token.end == '*/';
+    return token.tag === '' && token.end === '*/';
   }
 }
 
@@ -752,7 +754,7 @@ export class AstNodeHelper {
   static skipSignatureNode: Array<number> = [
     ts.SyntaxKind.PropertySignature, ts.SyntaxKind.MethodSignature, ts.SyntaxKind.EnumMember, ts.SyntaxKind.Constructor,
     ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.TypeLiteral
-  ]
+  ];
 
   /**
    * 获取节点的签名信息。签名信息会追加父节点签名信息，确保全局唯一。
@@ -765,19 +767,19 @@ export class AstNodeHelper {
     if (!node || AstNodeHelper.noNeedSignatureNodeTypes.includes(node.kind)) {
       return '';
     }
-    let nodeSignature = `${AstNodeHelper.getType(node)}#`
+    let nodeSignature = `${AstNodeHelper.getType(node)}#`;
     node.forEachChild((child) => {
       if (!AstNodeHelper.skipSignatureNode.includes(child.kind) && !AstNodeHelper.noNeedSignatureNodeTypes.includes(child.kind)) {
         nodeSignature += `${AstNodeHelper.getChildPlainText(child)}`;
       }
-    })
+    });
     const qualifiedSignature = this.getParentNodeSignature(node.parent) + nodeSignature;
     LogUtil.d('AstNodeHelper', `qualifiedSignature = ${qualifiedSignature}`);
     return qualifiedSignature;
   }
 
   private static getChildPlainText(node: ts.Node): string {
-    if (node.getChildCount() == 0) {
+    if (node.getChildCount() === 0) {
       return node.getText();
     }
     let content = '';
@@ -792,11 +794,11 @@ export class AstNodeHelper {
   }
 
   private static getParentNodeSignature(node: ts.Node): string {
-    if (!node || node.kind == ts.SyntaxKind.SourceFile) {
+    if (!node || node.kind === ts.SyntaxKind.SourceFile) {
       return '';
     }
     const parentNodeSignature = this.getNodeSignature(node);
-    if (parentNodeSignature == '') {
+    if (parentNodeSignature === '') {
       return this.getNodeSignature(node.parent);
     }
     return parentNodeSignature;
@@ -818,17 +820,17 @@ export class InputParameter {
   parse() {
     const program = new Command();
     program
-      .name("jsdoc-tool")
-      .description("CLI to format d.ts")
-      .version("0.1.0")
-      .requiredOption(`-i, --input <path>`, `${StringResource.getString(StringResourceId.COMMAND_INPUT_DESCRIPTION)}`)
-      .option("-o, --output <path>", `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
-      .option("-l, --logLevel <INFO,WARN,DEBUG,ERR>", `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
-      .option("-s, --split", `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false)
+      .name('jsdoc-tool')
+      .description('CLI to format d.ts')
+      .version('0.1.0')
+      .requiredOption('-i, --input <path>', `${StringResource.getString(StringResourceId.COMMAND_INPUT_DESCRIPTION)}`)
+      .option('-o, --output <path>', `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
+      .option('-l, --logLevel <INFO,WARN,DEBUG,ERR>', `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
+      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false);
     program.parse();
     const options = program.opts();
     this.inputFilePath = options.input;
-    this.outputFilePath = options.output
+    this.outputFilePath = options.output;
     this.logLevel = options.logLevel;
     this.splitUnionTypeApi = options.split;
     this.checkInput();
@@ -839,7 +841,7 @@ export class InputParameter {
     this.outputFilePath = this.outputFilePath ? path.resolve(this.outputFilePath) : undefined;
 
     if (this.outputFilePath && (this.outputFilePath === path.basename(this.outputFilePath))) {
-      throw StringResource.getString(StringResourceId.INVALID_PATH)
+      throw StringResource.getString(StringResourceId.INVALID_PATH);
     }
 
     this.checkFileExists(this.inputFilePath);
@@ -848,27 +850,27 @@ export class InputParameter {
       if (this.outputFilePath) {
         const extName = path.extname(this.outputFilePath);
         // if input is a directory, output must be a directory
-        if (extName != '') {
+        if (extName !== '') {
           throw `-o, --output ${StringResource.getString(StringResourceId.OUTPUT_MUST_DIR)}`;
         }
         const relativePath = path.relative(this.inputFilePath, this.outputFilePath);
         // the output directory cannot be a subdirectory of the input directory
-        if (relativePath == '' || !relativePath.startsWith('..')) {
-          throw `-o, --output ${StringResource.getString(StringResourceId.OUTPUT_SUBDIR_INPUT)}`
+        if (relativePath === '' || !relativePath.startsWith('..')) {
+          throw `-o, --output ${StringResource.getString(StringResourceId.OUTPUT_SUBDIR_INPUT)}`;
         }
       }
     } else {
       if (!this.inputFilePath.endsWith(ConstantValue.DTS_EXTENSION)) {
-        throw StringResource.getString(StringResourceId.NOT_DTS_FILE)
+        throw StringResource.getString(StringResourceId.NOT_DTS_FILE);
       }
       // if input is a file, output file must be a file
       if (this.outputFilePath) {
         const extName = path.extname(this.outputFilePath);
-        if (extName == '') {
+        if (extName === '') {
           throw `-o, --output ${StringResource.getString(StringResourceId.OUTPUT_MUST_FILE)}`;
         }
         // output file is same with input file
-        if (this.outputFilePath == this.inputFilePath) {
+        if (this.outputFilePath === this.inputFilePath) {
           throw `-o, --output ${StringResource.getString(StringResourceId.OUTPUT_SAME_WITH_INPUT)}`;
         }
       }
@@ -926,24 +928,24 @@ export class LogReporterImpl implements LogReporter {
   writer: LogWriter | undefined;
 
   checkResultMap: Map<string, string> = new Map([
-    ["filePath", "文件地址"],
-    ["apiName", "接口名称"],
-    ["apiContent", "接口内容"],
-    ["errorType", "异常类型"],
-    ["errorInfo", "告警信息"],
-    ["version", "版本号"],
-    ["moduleName", "模块名称"]
+    ['filePath', '文件地址'],
+    ['apiName', '接口名称'],
+    ['apiContent', '接口内容'],
+    ['errorType', '异常类型'],
+    ['errorInfo', '告警信息'],
+    ['version', '版本号'],
+    ['moduleName', '模块名称']
   ]);
 
   modifyResultMap: Map<string, string> = new Map([
-    ["filePath", "文件地址"],
-    ["apiName", "接口名称"],
-    ["apiContent", "接口内容"],
-    ["modifyType", "整改类型"],
-    ["description", "整改内容"],
-    ["version", "版本号"],
-    ["description", "整改说明"],
-    ["moduleName", "模块名称"]
+    ['filePath', '文件地址'],
+    ['apiName', '接口名称'],
+    ['apiContent', '接口内容'],
+    ['modifyType', '整改类型'],
+    ['description', '整改内容'],
+    ['version', '版本号'],
+    ['description', '整改说明'],
+    ['moduleName', '模块名称']
   ]);
 
   constructor() { }
@@ -995,19 +997,19 @@ export class ExcelWriter implements LogWriter {
   initCheckResultsColumns(checkResultMap: Map<string, string>): void {
     checkResultMap.forEach((value: string, key: string) => {
       this.checkResultsColumns.push({
-        "header": value,
-        "key": key
-      })
-    })
+        'header': value,
+        'key': key
+      });
+    });
   }
 
   initModifyResultsColumns(modifyResultMap: Map<string, string>): void {
     modifyResultMap.forEach((value: string, key: string) => {
       this.modifyResultsColumns.push({
-        "header": value,
-        "key": key
-      })
-    })
+        'header': value,
+        'key': key
+      });
+    });
   }
 
   writeResults(checkResults: Array<CheckLogResult> | undefined, modifyResults: Array<ModifyLogResult> | undefined, path: string): void {
@@ -1038,7 +1040,7 @@ export class LogResult {
         if (commentTag.tag === 'since') {
           version = commentTag.name ? commentTag.name : 'N/A';
         }
-      })
+      });
     }
     let apiContent: string = '';
     comments.forEach((curComment: comment.CommentInfo) => {
@@ -1055,7 +1057,7 @@ export class LogResult {
       version: version,
       errorInfo: errorInfo,
       moduleName: moduleName
-    }
+    };
     return checkLogResult;
   }
 
@@ -1071,7 +1073,7 @@ export class LogResult {
         if (commentTag.tag === 'since') {
           version = commentTag.name ? commentTag.name : 'N/A';
         }
-      })
+      });
     }
     let apiContent: string = '';
     comments.forEach((curComment: comment.CommentInfo) => {
@@ -1088,7 +1090,7 @@ export class LogResult {
       version: version,
       description: description,
       moduleName: moduleName
-    }
+    };
     return modifyLogResult;
   }
 }

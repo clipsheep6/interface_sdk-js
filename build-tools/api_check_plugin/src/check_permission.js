@@ -28,10 +28,10 @@ function getPermissionBank() {
     const permissionTagsObj = permissionFileContent.module.definePermissions;
     permissionTagsObj.forEach((item) => {
       permissionTags.push(item.name);
-    })
+    });
   }
   const permissionRuleSets = new Set(permissionTags);
-  return permissionRuleSets
+  return permissionRuleSets;
 }
 exports.getPermissionBank = getPermissionBank;
 
@@ -39,7 +39,7 @@ function checkPermission(node, sourcefile, fileName) {
   const permissionRuleSet = getPermissionBank();
   const apiNote = getAPINote(node);
   let hasPermissionError = false;
-  let errorInfo = "";
+  let errorInfo = '';
   let apiNoteArr = [];
   if (apiNote.match(new RegExp('@permission'))) {
     apiNoteArr = apiNote.split(/ *\* *\@/g);
@@ -54,18 +54,18 @@ function checkPermission(node, sourcefile, fileName) {
           if (permissionStr !== '') {
             if (!permissionRuleSet.has(permissionStr)) {
               hasPermissionError = true;
-              if (errorInfo !== "") {
+              if (errorInfo !== '') {
                 errorInfo += `,${permissionStr}`;
               } else {
                 errorInfo += permissionStr;
               }
             }
           }
-        })
+        });
       } else {
         if (!permissionRuleSet.has(permissionNote) && !/N\/A/.test(permissionNote)) {
           hasPermissionError = true;
-          if (errorInfo !== "") {
+          if (errorInfo !== '') {
             errorInfo += `,${permissionNote}`;
           } else {
             errorInfo += permissionNote;

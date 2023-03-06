@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import fs, { constants, Stats } from "fs";
-import path from "path";
-import { LogUtil } from "./logUtil";
+import fs, { constants, Stats } from 'fs';
+import path from 'path';
+import { LogUtil } from './logUtil';
 
 export class FileUtils {
   static readFileContent(file: string): string | undefined {
