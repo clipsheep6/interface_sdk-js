@@ -387,7 +387,8 @@ export class CommentHelper {
     // 无法被解析的注释,可能以 /* 开头或是单行注释
     if (parsedComments.length == 0) {
       // 注释是 /// <reference path="" />
-      if (StringUtils.hasSubstring(commentString, this.REFERENCE_REGEXP)) {
+      if (StringUtils.hasSubstring(commentString, this.REFERENCE_REGEXP) ||
+        commentKind == ts.SyntaxKind.SingleLineCommentTrivia) {
         commentInfo.isMultiLine = false;
         // 注释内容需丢弃 "//"
         commentInfo.text = commentString.substring(2, commentString.length);
