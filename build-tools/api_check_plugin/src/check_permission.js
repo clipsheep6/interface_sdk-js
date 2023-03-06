@@ -24,8 +24,7 @@ const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.
 function getPermissionBank() {
   const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
   if (fs.existsSync(permissionFile)) {
-    const content = fs.readFileSync(permissionFile, 'utf-8');
-    const permissionFileContent = JSON.parse(content);
+    const permissionFileContent =require('../config/config.json');
     const permissionTagsObj = permissionFileContent.module.definePermissions;
     permissionTagsObj.forEach((item) => {
       permissionTags.push(item.name);
