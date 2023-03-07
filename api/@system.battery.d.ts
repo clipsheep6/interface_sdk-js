@@ -19,19 +19,19 @@
  * @deprecated since 6
  */
 export interface BatteryResponse {
-    /**
-     * Whether the battery is being charged.
-     * @since 3
-     * @deprecated since 6
-     */
-    charging: boolean;
+  /**
+   * Whether the battery is being charged.
+   * @since 3
+   * @deprecated since 6
+   */
+  charging: boolean;
 
-    /**
-     * Current battery level, which ranges from 0.00 to 1.00.
-     * @since 3
-     * @deprecated since 6
-     */
-    level: number;
+  /**
+   * Current battery level, which ranges from 0.00 to 1.00.
+   * @since 3
+   * @deprecated since 6
+   */
+  level: number;
 }
 
 /**
@@ -40,26 +40,26 @@ export interface BatteryResponse {
  * @deprecated since 6
  */
 export interface GetStatusOptions {
-    /**
-     * Called when the current charging state and battery level are obtained.
-     * @since 3
-     * @deprecated since 6
-     */
-    success?: (data: BatteryResponse) => void;
+  /**
+   * Called when the current charging state and battery level are obtained.
+   * @since 3
+   * @deprecated since 6
+   */
+  success?: (data: BatteryResponse) => void;
 
-    /**
-     * Called when the current charging state and battery level fail to be obtained.
-     * @since 3
-     * @deprecated since 6
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when the current charging state and battery level fail to be obtained.
+   * @since 3
+   * @deprecated since 6
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     * @deprecated since 6
-     */
-    complete?: () => void;
+  /**
+   * Called when the execution is completed.
+   * @since 3
+   * @deprecated since 6
+   */
+  complete?: () => void;
 }
 
 /**
@@ -68,11 +68,11 @@ export interface GetStatusOptions {
  * @deprecated since 6
  */
 export default class Battery {
-    /**
-     * Obtains the current charging state and battery level.
-     * @param options Options.
-     * @since 3
-     * @deprecated since 6
-     */
-    static getStatus(options?: GetStatusOptions): void;
+  /**
+   * Obtains the current charging state and battery level.
+   * @param options Options.
+   * @since 3
+   * @deprecated since 6
+   */
+  static getStatus(options?: GetStatusOptions): void;
 }
