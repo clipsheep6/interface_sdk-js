@@ -17,8 +17,8 @@ import distributedAccount from './@ohos.account.distributedAccount'
 import { AsyncCallback, Callback } from './basic';
 
 /**
- * This module provides the capability to manage os accounts.
- * @syscap SystemCapability.Account.OsAccount
+ * This module provides the capability to manage osssssss accounts.
+ * @syscap SystemCapability.Account.OsAccountaa
  * @since 7
  */
 declare namespace osAccount {
@@ -44,7 +44,7 @@ declare namespace osAccount {
          * to run in the foreground. Then, the OS account originally running in the foreground will be
          * switched to the background.
          * </p>
-         * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+         * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSIONaa
          * @param localId Indicates the local ID of the OS account.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
