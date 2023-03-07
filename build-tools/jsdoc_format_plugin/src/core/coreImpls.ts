@@ -383,28 +383,14 @@ export class CommentHelper {
     let parsedComments = parse(commentString);
     // 无法被解析的注释,可能以 /* 开头或是单行注释
     if (parsedComments.length === 0) {
-      // 注释是 /// <reference path="" />
+      // 注释是 /// <reference path="" /> 或 单行注释
       if (StringUtils.hasSubstring(commentString, this.REFERENCE_REGEXP) ||
         commentKind === ts.SyntaxKind.SingleLineCommentTrivia) {
         commentInfo.isMultiLine = false;
         // 注释内容需丢弃 "//"
         commentInfo.text = commentString.substring(2, commentString.length);
-        return commentInfo;
       }
-      const delimiter = commentString.substring(0, 2);
-      if (delimiter !== this.MULTI_COMMENT_DELIMITER) {
-        if (StringUtils.hasSubstring(commentString, this.LICENSE_KEYWORD)) {
-          return commentInfo;
-        }
-        // '/*' 开头的注释变成 '/**' 开头的注释
-        commentString = '/*' + commentString.substring(1, comment.length);
-        parsedComments = parse(commentString);
-        if (parsedComments.length === 0) {
-          return commentInfo;
-        }
-      } else {
-        return commentInfo;
-      }
+      return commentInfo;
     }
     commentInfo.parsedComment = parsedComments[0];
     commentInfo.description = parsedComments[0].description;
