@@ -1095,6 +1095,10 @@ declare class CanvasRenderer extends CanvasPath {
    * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
    * "no-repeat": Non-repeating images in both X and Y directions
    * @since 8
+   * "clamp": Replicate the edge color if the shader draws outside of its original bounds.
+   * "mirror": Repeat the shader's image horizontally and vertically, alternating mirror images so that adjacent images
+   *           always seam.
+   * @since 10
    */
   /**
    * Creates a template object using the specified image
@@ -1158,6 +1162,15 @@ declare class CanvasRenderer extends CanvasPath {
    * none：Turn off filter effects
    * @since 8
    */
+  /**
+   * Creates a sweep gradient object that is specified along the parameter coordinates
+   * @param x0 The x-axis coordinate of the center point.
+   * @param y0 The y-axis coordinate of the center point.
+   * @returns CanvasGradient A CanvasGradient object that draws a sweep gradient around the center point.
+   * @since 10
+   */
+  createSweepGradient(x0: number, y0: number): CanvasGradient;
+
   /**
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
    * blur(<length>): Adds a Gaussian blur effect to the drawing
