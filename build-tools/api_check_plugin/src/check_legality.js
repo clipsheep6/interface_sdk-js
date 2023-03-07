@@ -15,9 +15,9 @@
 
 const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList } = require('./utils');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+const { parseJsDoc, commentNodeWhiteList, importTS } = require('./utils');
 const { checkApiOrder } = require('./check_jsdoc_value/chek_order');
+const ts = importTS();
 
 // 标签合法性校验
 function checkJsDocLegality(node, sourcefile, checkInfoMap) {
