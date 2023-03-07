@@ -71,7 +71,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
      * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
      * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
-     * @throws { BusinessError } 17700036 - Failed to install because without allow app shared bundle permission.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallowed install a shared bundle by hapFilePaths.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -98,7 +98,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
      * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
      * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
-     * @throws { BusinessError } 17700036 - Failed to install because without allow app shared bundle permission.
+     * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallowed install a shared bundle by hapFilePaths.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
