@@ -12,9 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const ts = require(path.resolve(__dirname, "../../node_modules/typescript"));
+
 const rules = require('../../code_style_rule.json');
-const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList } = require('../../src/utils');
+const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList, importTS } = require('../../src/utils');
+const ts = importTS();
 const { addAPICheckErrorLogs } = require('../compile_info');
 const { getPermissionBank } = require('../check_permission');
 

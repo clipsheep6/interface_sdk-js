@@ -15,8 +15,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType } = require('./utils');
+const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType, importTS } = require('./utils');
+const ts = importTS();
 const { addAPICheckErrorLogs } = require('./compile_info');
 const rules = require('../code_style_rule.json');
 const dictionariesContent = fs.readFileSync(path.resolve(__dirname, '../plugin/dictionaries.txt'), 'utf-8');
