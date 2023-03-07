@@ -72,6 +72,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
      * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
      * @throws { BusinessError } 17700036 - Failed to install because without allow app shared bundle permission.
+     * @throws { BusinessError } 17700039 - Failed to install because install a shared bundle is not allowed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -98,6 +99,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
      * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
      * @throws { BusinessError } 17700036 - Failed to install because without allow app shared bundle permission.
+     * @throws { BusinessError } 17700039 - Failed to install because install a shared bundle is not allowed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -115,6 +117,7 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -133,6 +136,7 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified userId is not existed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
