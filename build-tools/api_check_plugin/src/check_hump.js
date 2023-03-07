@@ -14,7 +14,7 @@
  */
 
 const path = require('path');
-const ts = require('typescript');
+const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { ErrorType, ErrorLevel } = require('./utils');
 const rules = require('../code_style_rule.json');
 const { addAPICheckErrorLogs } = require('./compile_info');

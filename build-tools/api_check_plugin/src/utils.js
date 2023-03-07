@@ -16,7 +16,7 @@ const fs = require('fs');
 const path = require('path');
 const ExcelJS = require('exceljs');
 const cm = require('comment-parser');
-const ts = require('typescript');
+const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 
 const commentNodeWhiteList = [
   ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature,

@@ -15,14 +15,13 @@
 
 const path = require('path');
 const fs = require('fs');
-const ts = require('typescript');
+const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { checkAPIDecorators } = require('./check_decorator');
 const { checkSpelling } = require('./check_spelling');
 const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
-const { hasAPINote, ApiCheckResult,ErrorType, ErrorLevel, FileType, commentNodeWhiteList } = require('./utils');
-const { checkJsdocResult } = require('./check_jsdoc_value/check_rest_value');
+const { hasAPINote, ApiCheckResult, ErrorType, ErrorLevel, FileType, commentNodeWhiteList } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 let result = require('../check_result.json');
 
@@ -80,10 +79,6 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
-  }else if(commentNodeWhiteList.includes(node.kind) && node.kind!==166 && node.kind!==302 ){
-    const errorInfo='please add jsdoc';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, errorInfo, FileType.API,
-      ErrorLevel.LOW);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
