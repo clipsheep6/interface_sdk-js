@@ -15,6 +15,12 @@
 
 import { AsyncCallback } from "./basic";
 
+ /**
+  * Events for input devices
+  * 
+  * @since 9
+  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+  */
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
@@ -163,6 +169,7 @@ declare namespace inputDeviceCooperate {
    * @systemapi hide for inner use
    * @param type Registration type.
    * @param callback Asynchronous callback used to receive mouse traversal events.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
