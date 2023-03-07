@@ -13,10 +13,9 @@
  * limitations under the License.
 */
 
-const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList } = require('./utils');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+const { parseJsDoc, commentNodeWhiteList, importTS } = require('./utils');
+const ts = importTS();
 const { checkApiOrder } = require('./check_jsdoc_value/chek_order');
 
 // 标签合法性校验

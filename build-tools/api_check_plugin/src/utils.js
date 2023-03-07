@@ -16,7 +16,22 @@ const fs = require('fs');
 const path = require('path');
 const ExcelJS = require('exceljs');
 const cm = require('comment-parser');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+function importTS() {
+  let tsObj = require('typescript');
+  const tsPathArray = [
+    path.resolve(__dirname, '../node_modules/typescript'),
+    path.resolve(__dirname, '../../node_modules/typescript')
+  ];
+  for (let i = 0; i < tsPathArray.length; i++) {
+    if (fs.existsSync(tsPathArray[i])) {
+      tsObj = require(tsPathArray[i]);
+      break;
+    }
+  }
+  return tsObj;
+}
+exports.importTS = importTS;
+const ts = importTS();
 
 const commentNodeWhiteList = [
   ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature,
