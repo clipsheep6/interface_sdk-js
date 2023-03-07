@@ -51,15 +51,13 @@ declare namespace Comment {
      */
     name: string;
 
-    /**
-     * description
+    /* description
      *
      * @since 0
      */
     age: number;
 
-    /**
-     * description
+    /* description
      *
      * @since 0
      */
