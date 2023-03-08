@@ -18,6 +18,7 @@ import { Permissions } from './permissions'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
+ * @systemapi hide this for inner system use
  */
  declare namespace privacyManager {
     /**
