@@ -166,6 +166,18 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
+
+  /**
+ * Plugin component event listener.
+ * @since 9
+ */
+  function on(owner: Want, eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
+
+  /**
+* Plugin component event listener.
+* @since 9
+*/
+  function off(owner: Want, eventType: string, callback: AsyncCallback<void> ): void;
 }
 
 export default pluginComponentManager;
