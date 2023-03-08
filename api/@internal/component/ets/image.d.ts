@@ -115,7 +115,7 @@ interface ImageInterface {
    * @form
    * @since 9
    */
-  (src: string | PixelMap | Resource): ImageAttribute;
+  (src: string | PixelMap | Resource | ImageBase): ImageAttribute;
 }
 
 /**
