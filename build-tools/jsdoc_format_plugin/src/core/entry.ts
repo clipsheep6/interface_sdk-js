@@ -46,12 +46,19 @@ export class JSDocModifierImpl implements IJSDocModifier {
     const sourceProcessor: ISourceCodeProcessor = this.getSourceProcessor(inputParameter);
     const baseContext: Context = this.getBaseContext(inputParameter);
     LogUtil.i(this.tag, StringResource.getString(StringResourceId.START_MESSAGE));
-    const result: ProcessResult = sourceProcessor.process(baseContext, '');
-    if (result.code !== Code.OK) {
-      LogUtil.e(this.tag, result.content);
-    } else {
-      LogUtil.i(this.tag, result.content);
-    }
+    this.initEnv(inputParameter).then(() => {
+      const result: ProcessResult = sourceProcessor.process(baseContext, '');
+      if (result.code !== Code.OK) {
+        LogUtil.e(this.tag, result.content);
+      } else {
+        LogUtil.i(this.tag, result.content);
+      }
+    });
+  }
+
+  initEnv(inputParameter: InputParameter): Promise<void> {
+    const apiChecker = require('api-checker');
+    return apiChecker.initEnv(inputParameter.branch);
   }
 
   getSourceProcessor(inputParam: InputParameter): ISourceCodeProcessor {
@@ -64,7 +71,6 @@ export class JSDocModifierImpl implements IJSDocModifier {
       inputParam.getOptions());
   }
 }
-
 
 export class JSDOcModifierTestEntry extends JSDocModifierImpl {
 

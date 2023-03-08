@@ -16,7 +16,7 @@
 import ts from 'typescript';
 import { Code } from '../utils/constant';
 import {
-  comment, Context, ISourceCodeProcessor, LogReporter, ModifyLogResult, ErrorInfo,
+  comment, Context, ISourceCodeProcessor, ModifyLogResult, ErrorInfo,
   ProcessResult, sourceParser, JSDocModifyType, MethodNodeType, ApiSplitProcessorInterface
 } from './typedef';
 import { CommentHelper, LogResult } from './coreImpls';

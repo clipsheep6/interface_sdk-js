@@ -798,6 +798,7 @@ export class InputParameter {
   outputFilePath: string | undefined;
   logLevel: string = '';
   splitUnionTypeApi: boolean = false;
+  branch: string | undefined;
   options: Options = new Options();
 
   parse() {
@@ -809,13 +810,16 @@ export class InputParameter {
       .requiredOption('-i, --input <path>', `${StringResource.getString(StringResourceId.COMMAND_INPUT_DESCRIPTION)}`)
       .option('-o, --output <path>', `${StringResource.getString(StringResourceId.COMMAND_OUT_DESCRIPTION)}`)
       .option('-l, --logLevel <INFO,WARN,DEBUG,ERR>', `${StringResource.getString(StringResourceId.COMMAND_LOGLEVEL_DESCRIPTION)}`, 'INFO')
-      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false);
+      .option('-s, --split', `${StringResource.getString(StringResourceId.COMMAND_SPLIT_API)}`, false)
+      .option('-b, --branch <string>', `${StringResource.getString(StringResourceId.COMMAND_BRANCH)}`, 'master');
+
     program.parse();
     const options = program.opts();
     this.inputFilePath = options.input;
     this.outputFilePath = options.output;
     this.logLevel = options.logLevel;
     this.splitUnionTypeApi = options.split;
+    this.branch = options.branch;
     this.checkInput();
   }
 

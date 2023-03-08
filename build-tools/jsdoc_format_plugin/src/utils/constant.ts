@@ -39,7 +39,8 @@ export enum StringResourceId {
   OUTPUT_MUST_DIR,
   OUTPUT_SAME_WITH_INPUT,
   OUTPUT_SUBDIR_INPUT,
-  START_MESSAGE
+  START_MESSAGE,
+  COMMAND_BRANCH
 }
 
 export enum Instruct {

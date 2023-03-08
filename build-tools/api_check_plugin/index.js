@@ -13,7 +13,37 @@
  * limitations under the License.
  */
 
-const checkLegality = require('./src/check_legality');
-exports.checkJSDoc = function(node, sourceFile) {
+const urlPrefix = 'https://gitee.com/openharmony/utils_system_resources/raw/';
+const urlSuffix = '/systemres/main/config.json';
+
+exports.checkJSDoc = function (node, sourceFile) {
+  const checkLegality = require('./src/check_legality');
   return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, undefined);
 };
+
+exports.initEnv = function (branch) {
+  const https = require('https');
+  const { checkOption } = require('./src/utils');
+  return new Promise((resolve, reject) => {
+    let requestText = undefined;
+    const url = `${urlPrefix}${branch ? branch : 'master'}${urlSuffix}`;
+    https.get(url, (res) => {
+      res.on('data', (chunk) => {
+        if (typeof chunk === 'string') {
+          requestText = chunk;
+        } else {
+          const dataStr = new TextDecoder().decode(chunk);
+          requestText = requestText ? (requestText + dataStr) : dataStr;
+        }
+      });
+    }).on('error', (err) => {
+      console.error(JSON.stringify(err));
+    }).on('close', () => {
+      if (requestText) {
+        console.info(`update permission configuration successfully from the ${branch} branch`);
+        checkOption.permissionContent = requestText;
+      }
+      resolve();
+    });
+  });
+}
