@@ -34,6 +34,7 @@ function getPermissionBank() {
   const permissionRuleSets = new Set(permissionTags);
   return permissionRuleSets
 }
+exports.getPermissionBank = getPermissionBank;
 
 function checkPermission(node, sourcefile, fileName) {
   const permissionRuleSet = getPermissionBank();

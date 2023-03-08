@@ -22,7 +22,12 @@ const { checkPermission } = require("./check_permission");
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
 const { hasAPINote, ApiCheckResult } = require("./utils");
+const { checkOrderRusult } = require("./check_jsdoc_value/chek_order")
+const { checkExtendsValue, checkEnumValue, checkSinceValue, checkReturnsValue } = require("./check_jsdoc_value/check_rest_value")
+const { checkJsDocOfCurrentNode } = require('./check_legality');
 let result = require("../check_result.json");
+const { checkJsDocLegality } = require("./check_legality");
+const formatedNodes = new Set([]);
 
 function checkAPICodeStyle(url) {
   if (fs.existsSync(url)) {
@@ -64,24 +69,41 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  if (!ts.isImportDeclaration) {
-
-  }
-  if (hasAPINote(node)) {
+  // if (formatedNodes.has(fileName + node.pos)) {
+    
+  // }
+  // formatedNodes.add(fileName + node.pos);
+  checkJsDocLegality(node, sourcefile, fileName);
+  // if (formatedNodes.has(fileName + node.pos)) {
+  //   return;
+  // }
+  // formatedNodes.add(fileName + node.pos);
+  // if (ts.isModuleDeclaration(node)) {
+  //   console.log(node.name.getText())
+  //   console.log(checkJsDocOfCurrentNode(node, sourcefile));
+  // }
+  if (!ts.isImportDeclaration && hasAPINote(node) && formatedNodes.has(fileName + node.pos)) {
+    
     // check decorator
-    checkAPIDecorators(node, sourcefile, fileName);
+    // checkAPIDecorators(node, sourcefile, fileName);
     // check apiNote spelling
-    checkSpelling(node, sourcefile, fileName);
+    // checkSpelling(node, sourcefile, fileName);
     // check syscap
-    checkSyscap(node, sourcefile, fileName);
+    // checkSyscap(node, sourcefile, fileName);
     // check deprecated
-    checkDeprecated(node, sourcefile, fileName);
+    // checkDeprecated(node, sourcefile, fileName);
     // check permission
-    checkPermission(node, sourcefile, fileName);
+    // checkPermission(node, sourcefile, fileName);
+
+    // checkOrderRusult(node, sourcefile, fileName);
+    // checkExtendsValue(node)
+    // checkEnumValue(node);
+    // checkSinceValue(node);
+    // checkReturnsValue(node);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
-    checkSpelling(node, sourcefile, fileName);
+    // checkSpelling(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
