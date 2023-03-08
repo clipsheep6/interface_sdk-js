@@ -22,74 +22,189 @@ export default fileIo;
  * @since 9
  */
 declare namespace fileIo {
-  export { access };
-  export { accessSync };
-  export { close };
-  export { closeSync };
-  export { copyFile };
-  export { copyFileSync };
-  export { createStream };
-  export { createStreamSync };
-  export { createWatcher };
-  export { fdatasync };
-  export { fdatasyncSync };
-  export { fdopenStream };
-  export { fdopenStreamSync };
-  export { fsync };
-  export { fsyncSync };
-  export { listFile };
-  export { listFileSync };
-  export { lstat };
-  export { lstatSync };
-  export { mkdir };
-  export { mkdirSync };
-  export { mkdtemp };
-  export { mkdtempSync };
-  export { moveFile }
-  export { moveFileSync }
-  export { open };
-  export { openSync };
-  export { read };
-  export { readSync };
-  export { readText };
-  export { readTextSync };
-  export { rename };
-  export { renameSync };
-  export { rmdir };
-  export { rmdirSync };
-  export { stat };
-  export { statSync };
-  export { symlink };
-  export { symlinkSync };
-  export { truncate };
-  export { truncateSync };
-  export { unlink };
-  export { unlinkSync };
-  export { write };
-  export { writeSync };
-  export { File };
-  export { OpenMode };
-  export { Stat };
-  export { Stream };
-  export { Watcher };
+    export { access };
+    export { accessSync };
+    export { close };
+    export { closeSync };
+    export { copyFile };
+    export { copyFileSync };
+    export { createStream };
+    export { createStreamSync };
+    export { fdatasync };
+    export { fdatasyncSync };
+    export { fdopenStream };
+    export { fdopenStreamSync };
+    export { fsync };
+    export { fsyncSync };
+    export { listFile };
+    export { listFileSync };
+    export { lstat };
+    export { lstatSync };
+    export { mkdir };
+    export { mkdirSync };
+    export { mkdtemp };
+    export { mkdtempSync };
+    export { moveFile }
+    export { moveFileSync }
+    export { open };
+    export { openSync };
+    export { read };
+    export { readSync };
+    export { readText };
+    export { readTextSync };
+    export { rename };
+    export { renameSync };
+    export { rmdir };
+    export { rmdirSync };
+    export { stat };
+    export { statSync };
+    export { symlink };
+    export { symlinkSync };
+    export { truncate };
+    export { truncateSync };
+    export { unlink };
+    export { unlinkSync };
+    export { write };
+    export { writeSync };
+    export { File };
+    export { OpenMode };
+    export { Stat };
+    export { Stream };
+    export { createWatcher };
+    export { WatcherEvents };
+    export { Watcher };
+    export { WatcherOut };
 
-  /**
-   * Mode Indicates the open flags.
-   * @since 9
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   */
-  namespace OpenMode {
-    const READ_ONLY = 0o0;              // Read only Permission
-    const WRITE_ONLY = 0o1;             // Write only Permission
-    const READ_WRITE = 0o2;             // Write and Read Permission
-    const CREATE = 0o100;               // If not exist, create file
-    const TRUNC = 0o1000;               // File truncate len 0
-    const APPEND = 0o2000;              // File append write
-    const NONBLOCK = 0o4000;            // File open in nonblocking mode
-    const DIR = 0o200000;               // File is Dir
-    const NOFOLLOW = 0o400000;          // File is not symbolic link
-    const SYNC = 0o4010000;             // SYNC IO
-  }
+    /**
+     * Mode Indicates the open flags.
+     * @since 9
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     */
+    namespace OpenMode  {
+        const READ_ONLY = 0o0;              // Read only Permission
+        const WRITE_ONLY = 0o1;             // Write only Permission
+        const READ_WRITE = 0o2;             // Write and Read Permission
+        const CREATE = 0o100;               // If not exist, create file
+        const TRUNC = 0o1000;               // File truncate len 0
+        const APPEND = 0o2000;              // File append write
+        const NONBLOCK = 0o4000;            // File open in nonblocking mode
+        const DIR = 0o200000;               // File is Dir
+        const NOFOLLOW = 0o400000;          // File is not symbolic link
+        const SYNC = 0o4010000;             // SYNC IO
+    }
+
+    /**
+     * WatcherEvents
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     */
+    namespace WatcherEvents {
+        /**
+         * File was accessed.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_ACCESS = 0x00000001;
+  
+        /**
+         * File was modified.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_MODIFY = 0x00000002;
+  
+        /**
+         * Metadata changed.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_ATTRIB = 0x00000004;
+  
+        /**
+         * Writtable file was closed.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_CLOSE_WRITE = 0x00000008;
+  
+        /**
+         * Unwrittable file closed.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_CLOSE_NOWRITE = 0x00000010;
+  
+        /**
+         * Close.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_CLOSE = 0x00000018;
+  
+        /**
+         * File was opened.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_OPEN = 0x00000020;
+  
+        /**
+         * File was moved from X.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_MOVED_FROM = 0x00000040;
+  
+        /**
+         * File was moved to Y.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_MOVED_TO = 0x00000080;
+  
+        /**
+         * Moves.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_MOVE = 0x000000c0;
+  
+        /**
+         * Subfile was created.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_CREATE = 0x00000100;
+  
+        /**
+         * Subfile was deleted.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_DELETE = 0x00000200;
+  
+        /**
+         * Self was deleted.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_DELETE_SELF = 0x00000400;
+  
+        /**
+         * Self was moved.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_MOVE_SELF = 0x00000800;
+  
+        /**
+         * All events which a program can wait on.
+         * @syscap SystemCapability.FileManagement.File.FileIO
+         * @since 9
+         */
+        const IN_ALL_EVENTS = 0x00000fff;
+    }
 }
 
 /**
@@ -1970,3 +2085,79 @@ export type Filter = {
      */
     excludeMedia?: boolean;
 }
+ 
+/**
+ * Watcher
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ */
+declare interface Watcher {
+    /**
+     * start.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @throws {TypedError | Error} stop fail
+     */
+    start(): Promise<void>;
+
+    /**
+     * stop.
+     *
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @throws {TypedError | Error} stop fail
+     */
+    stop(): void;
+}
+
+/**
+ * WatcherOut
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ */
+declare interface WatcherOut {
+    /**
+     * @type {string}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @readonly
+     */
+    fileName: string;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @readonly
+     */
+    event: number;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @permission N/A
+     * @readonly
+     */
+    cookie: number;
+}
+
+/**
+ * createWatcher.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 9
+ * @permission N/A
+ * @function createWatcher
+ * @param {string} filename - filename.
+ * @param {number} events - events suitable for MASK parameter of INOTIFY_ADD_WATCH
+ * @param {WatcherOut} [listener] - listener.
+ * @returns {Watcher} watch success
+ * @throws {TypedError | Error} watch fail
+ */
+declare function createWatcher(filename: string, events: number, listener: WatcherOut): Watcher;
