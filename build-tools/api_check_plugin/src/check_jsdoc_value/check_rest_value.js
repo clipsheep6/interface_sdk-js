@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 const rules = require('../../code_style_rule.json');
-const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList,importTS } = require('../../src/utils');
+const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList,requireTypescriptModule } = require('../../src/utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const { getPermissionBank } = require('../check_permission');
-const ts = importTS();
+const ts = requireTypescriptModule();
 
 
 function checkExtendsValue(tag, node, sourcefile, fileName, index) {

@@ -14,10 +14,10 @@
  */
 
 const path = require('path');
-const { ErrorType, ErrorLevel, importTS } = require('./utils');
+const { ErrorType, ErrorLevel, requireTypescriptModule } = require('./utils');
 const rules = require('../code_style_rule.json');
 const { addAPICheckErrorLogs } = require('./compile_info');
-const ts = importTS();
+const ts = requireTypescriptModule();
 
 function checkAPINameOfHump(node, sourcefile, fileName) {
   let errorInfo = '';

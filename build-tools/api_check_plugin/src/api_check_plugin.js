@@ -20,9 +20,8 @@ const { checkSpelling } = require('./check_spelling');
 const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
-const { hasAPINote, ApiCheckResult, ErrorType, ErrorLevel, FileType, commentNodeWhiteList, importTS } = require('./utils');
-const { addAPICheckErrorLogs } = require('./compile_info');
-const ts = importTS();
+const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
+const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 
 function checkAPICodeStyle(url) {
@@ -79,7 +78,6 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
-    console.log('ts=',ts);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling

@@ -15,7 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType, importTS } = require('./utils');
+const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType, requireTypescriptModule } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const rules = require('../code_style_rule.json');
 const dictionariesContent = fs.readFileSync(path.resolve(__dirname, '../plugin/dictionaries.txt'), 'utf-8');
@@ -25,7 +25,7 @@ const dictionariesSupplementaryContent = fs.readFileSync(path.resolve(__dirname,
 const dictionariesSupplementaryArr = dictionariesSupplementaryContent.split(/[(\r\n)\r\n]+/g);
 const dictionariesSet = new Set([...dictionariesArr, ...dictionariesSupplementaryArr, ...rules.decorators.customDoc,
   ...rules.decorators.jsDoc]);
-const ts = importTS();
+const ts = requireTypescriptModule();
 
 function checkSpelling(node, sourcefile, fileName) {
   if (ts.isIdentifier(node) && node.escapedText) {
