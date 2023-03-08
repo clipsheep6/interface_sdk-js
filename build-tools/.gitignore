@@ -3,3 +3,6 @@
 **/.editorconfig
 **/.prettierrc
 api/
+*.xlsx
+jsdoc_format_plugin/build/
+jsdoc_format_plugin/mochawesome-report/

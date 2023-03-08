@@ -19,11 +19,11 @@ import Context from "./application/Context";
 import PermissionRequestResult from "./security/PermissionRequestResult";
 
 /**
- * @syscap SystemCapability.Security.AccessToken
+ * @syscap SystemCapability.Security.AccessTokensss
  */
  declare namespace abilityAccessCtrl {
     /**
-     * Obtains the AtManager instance.
+     * Obtains theyyy AtManager instance.
      * @returns returns the instance of the AtManager.
      * @since 8
      */
@@ -104,7 +104,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
          * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission. Either the application is a sandbox or the tokenID is from a remote device.
          * @throws { BusinessError } 12100007 - Service is abnormal.
-         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
+         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONSttt
          * @systemapi
          * @since 8
          */
