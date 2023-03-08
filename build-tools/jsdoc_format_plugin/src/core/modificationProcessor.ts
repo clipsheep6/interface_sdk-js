@@ -364,7 +364,6 @@ class JSDocModificationManager {
 const jsDocModifier: Map<string, JsDocModificationInterface> = new Map([
   ['constant', JSDocModificationManager.addTagWithoutValue],
   ['deprecated', JSDocModificationManager.addTagFrommParentNode],
-  ['enum', JSDocModificationManager.addTagWithValue],
   ['extends', JSDocModificationManager.addTagWithValue],
   ['famodelonly', JSDocModificationManager.addTagFrommParentNode],
   ['namespace', JSDocModificationManager.addTagWithValue],
