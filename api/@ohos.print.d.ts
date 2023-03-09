@@ -173,7 +173,7 @@ declare namespace print {
         E_PRINT_SERVER_FAILURE = 13100003,      // failure of print service
         E_PRINT_INVALID_EXTENSION = 13100004,   // invalid print extension
         E_PRINT_INVALID_PRINTER = 13100005,     // invalid printer
-        E_PRINT_INVALID_PRINTJOB = 13100006,    // invalid print job
+        E_PRINT_INVALID_PRINT_JOB = 13100006,    // invalid print job
         E_PRINT_FILE_IO = 13100007,             // file i/o error
     }
 
