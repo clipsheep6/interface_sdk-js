@@ -1782,6 +1782,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * The text decoration of the text, For details, see {@link enum#TextDecorationType}.
    * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   textDecoration: TextDecorationType;
@@ -1789,6 +1790,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * The color of the text decoration, For details, see {@link unit#ResourceColor}.
    * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   textDecorationColor: ResourceColor;
