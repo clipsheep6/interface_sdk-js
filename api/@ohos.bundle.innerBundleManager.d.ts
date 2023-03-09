@@ -20,91 +20,172 @@ import { ShortcutInfo } from './bundle/shortcutInfo';
 
 /**
  * inner bundle manager.
- * @name innerBundleManager
- * @since 8
+ *
+ * @namespace innerBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.bundle.launcherBundleManager
+ * @name innerBundleManager
  */
-
 declare namespace innerBundleManager {
   /**
    * Obtains based on a given bundleName and userId.
    *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param bundleName Indicates the application bundle name to be queried.
    * @param userId Indicates the id for the user.
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback
    * @returns Returns the LauncherAbilityInfo object.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
-  function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
-  function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getLauncherAbilityInfos(
+    bundleName: string,
+    userId: number,
+    callback: AsyncCallback<Array<LauncherAbilityInfo>>
+  ): void;
+
+  /**
+   * Obtains based on a given bundleName and userId.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param userId Indicates the id for the user.
+   * @returns Returns the LauncherAbilityInfo object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
+   */
+  function getLauncherAbilityInfos(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Register Callback.
    *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param type Indicates the command should be implement.
    * @param LauncherStatusCallback Indicates the callback to be register.
+   * @param { AsyncCallback<string> } callback
    * @returns { string | Promise<string> } Returns the result of register.
-   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#on
    */
-  function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback, callback: AsyncCallback<string>) : void;
-  function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback): Promise<string>;
+  function on(
+    type: 'BundleStatusChange',
+    bundleStatusCallback: BundleStatusCallback,
+    callback: AsyncCallback<string>
+  ): void;
+
+  /**
+   * Register Callback.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param type Indicates the command should be implement.
+   * @param LauncherStatusCallback Indicates the callback to be register.
+   * @returns { string | Promise<string> } Returns the result of register.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor#on
+   */
+  function on(type: 'BundleStatusChange', bundleStatusCallback: BundleStatusCallback): Promise<string>;
 
   /**
    * UnRegister Callback.
    *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param type Indicates the command should be implement.
-   * @returns { string | Promise<string> } Returns the result of unregister.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param type Indicates the command should be implement.
+   * @param { AsyncCallback<string> } callback
+   * @returns { string | Promise<string> } Returns the result of unregister.
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#off
    */
-  function off(type:"BundleStatusChange", callback: AsyncCallback<string>) : void;
-  function off(type:"BundleStatusChange"): Promise<string>;
+  function off(type: 'BundleStatusChange', callback: AsyncCallback<string>): void;
+
+  /**
+   * UnRegister Callback.
+   *
+   * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
+   * @param type Indicates the command should be implement.
+   * @returns { string | Promise<string> } Returns the result of unregister.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor#off
+   */
+  function off(type: 'BundleStatusChange'): Promise<string>;
 
   /**
    * Obtains based on a given userId.
    *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param userId Indicates the id for the user.
-   * @returns Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param userId Indicates the id for the user.
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback
+   * @returns Returns the LauncherAbilityInfo object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
-  function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
-  function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+
+  /**
+   * Obtains based on a given userId.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param userId Indicates the id for the user.
+   * @returns Returns the LauncherAbilityInfo object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
+   */
+  function getAllLauncherAbilityInfos(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains based on a given bundleName.
    *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the application bundle name to be queried.
-   * @returns Returns the LauncherShortcutInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param { AsyncCallback<Array<ShortcutInfo>> } callback
+   * @returns Returns the LauncherShortcutInfo object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
    */
-  function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
-  function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
+  function getShortcutInfos(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
+
+  /**
+   * Obtains based on a given bundleName.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @returns Returns the LauncherShortcutInfo object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
+   */
+  function getShortcutInfos(bundleName: string): Promise<Array<ShortcutInfo>>;
 }
 
 export default innerBundleManager;

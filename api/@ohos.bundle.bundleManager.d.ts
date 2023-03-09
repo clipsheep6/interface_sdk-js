@@ -16,9 +16,9 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
-import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef';
-import { ElementName as _ElementName }  from './bundleManager/ElementName';
-import { SharedBundleInfo as _SharedBundleInfo }  from './bundleManager/SharedBundleInfo';
+import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
+import { ElementName as _ElementName } from './bundleManager/ElementName';
+import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
@@ -27,171 +27,205 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
 /**
  * This module is used to obtain package information of various applications installed on the current device.
+ *
  * @namespace bundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
- declare namespace bundleManager {
+declare namespace bundleManager {
+  /**
+   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  enum BundleFlag {
     /**
-     * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
-     * @enum { number }
+     * Used to obtain the default bundleInfo. The obtained bundleInfo does not contain information of
+     * signatureInfo, applicationInfo, hapModuleInfo, ability, extensionAbility and permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    enum BundleFlag {
-      /**
-       * Used to obtain the default bundleInfo. The obtained bundleInfo does not contain information of
-       * signatureInfo, applicationInfo, hapModuleInfo, ability, extensionAbility and permission.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_DEFAULT = 0x00000000,
-      /**
-       * Used to obtain the bundleInfo containing applicationInfo. The obtained bundleInfo does not
-       * contain the information of signatureInfo, hapModuleInfo, ability, extensionAbility and permission.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
-      /**
-       * Used to obtain the bundleInfo containing hapModuleInfo. The obtained bundleInfo does not
-       * contain the information of signatureInfo, applicationInfo, ability, extensionAbility and permission.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
-      /**
-       * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
-       * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-       * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
-      /**
-       * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
-       * contain the information of signatureInfo, applicationInfo, ability and permission.
-       * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY = 0x00000008,
-      /**
-       * Used to obtain the bundleInfo containing permission. The obtained bundleInfo does not
-       * contain the information of signatureInfo, applicationInfo, hapModuleInfo, extensionAbility and ability.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
-      /**
-       * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
-       * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-       * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
-      /**
-       * Used to obtain the default bundleInfo containing disabled application and ability.
-       * The obtained bundleInfo does not contain information of signatureInfo, applicationInfo,
-       * hapModuleInfo, ability, extensionAbility and permission.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
-      /**
-       * Used to obtain the bundleInfo containing signatureInfo. The obtained bundleInfo does not
-       * contain the information of applicationInfo, hapModuleInfo, extensionAbility, ability and permission.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
-    }
-
+    GET_BUNDLE_INFO_DEFAULT = 0x00000000,
     /**
-     * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form.
-     * @enum { number }
+     * Used to obtain the bundleInfo containing applicationInfo. The obtained bundleInfo does not
+     * contain the information of signatureInfo, hapModuleInfo, ability, extensionAbility and permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
      * @since 9
      */
-    enum ApplicationFlag {
-      /**
-       * Used to obtain the default applicationInfo. The obtained applicationInfo does not contain the information of
-       * permission and metadata.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_APPLICATION_INFO_DEFAULT = 0x00000000,
-      /**
-       * Used to obtain the applicationInfo containing permission.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000001,
-      /**
-       * Used to obtain the applicationInfo containing metadata.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_APPLICATION_INFO_WITH_METADATA = 0x00000002,
-      /**
-       * Used to obtain the applicationInfo containing disabled application.
-       * @syscap SystemCapability.BundleManager.BundleFramework.Core
-       * @since 9
-       */
-      GET_APPLICATION_INFO_WITH_DISABLE = 0x00000004,
-    }
+    GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
+    /**
+     * Used to obtain the bundleInfo containing hapModuleInfo. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
+    /**
+     * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
+    /**
+     * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, ability and permission.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY = 0x00000008,
+    /**
+     * Used to obtain the bundleInfo containing permission. The obtained bundleInfo does not
+     * contain the information of signatureInfo, applicationInfo, hapModuleInfo, extensionAbility and ability.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
+    /**
+     * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
+    /**
+     * Used to obtain the default bundleInfo containing disabled application and ability.
+     * The obtained bundleInfo does not contain information of signatureInfo, applicationInfo,
+     * hapModuleInfo, ability, extensionAbility and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
+    /**
+     * Used to obtain the bundleInfo containing signatureInfo. The obtained bundleInfo does not
+     * contain the information of applicationInfo, hapModuleInfo, extensionAbility, ability and permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080
+  }
 
-/**
-   * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form.
+  /**
+   * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form.
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
    */
- enum AbilityFlag {
+  enum ApplicationFlag {
+    /**
+     * Used to obtain the default applicationInfo. The obtained applicationInfo does not contain the information of
+     * permission and metadata.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    GET_APPLICATION_INFO_DEFAULT = 0x00000000,
+    /**
+     * Used to obtain the applicationInfo containing permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000001,
+    /**
+     * Used to obtain the applicationInfo containing metadata.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_METADATA = 0x00000002,
+    /**
+     * Used to obtain the applicationInfo containing disabled application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_DISABLE = 0x00000004
+  }
+
+  /**
+   * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  enum AbilityFlag {
     /**
      * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
      * permission, metadata and disabled abilityInfo.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
      * Used to obtain the abilityInfo containing permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
      * Used to obtain the abilityInfo containing applicationInfo.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
      * Used to obtain the abilityInfo containing metadata.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
      * Used to obtain the abilityInfo containing disabled abilityInfo.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000008,
     /**
      * Used to obtain the abilityInfo only for system app.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
-    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
+    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010
   }
 
   /**
    * Used to query the enumeration value of ExtensionAbilityInfo. Multiple values can be passed in the form.
+   *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -201,39 +235,49 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
     /**
      * Used to obtain the default extensionAbilityInfo. The obtained extensionAbilityInfo does not contain the information of
      * permission, metadata and disabled abilityInfo.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
      * Used to obtain the extensionAbilityInfo containing permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
      * Used to obtain the extensionAbilityInfo containing applicationInfo.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
     GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
      * Used to obtain the extensionAbilityInfo containing metadata.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
      * @since 9
      */
-    GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004,
+    GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004
   }
 
   /**
    * This enumeration value is used to identify various types of extension ability
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum ExtensionAbilityType {
     /**
      * Indicates extension info with type of form
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -241,6 +285,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of work schedule
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -248,6 +293,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of input method
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -255,13 +301,15 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of service
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
-    */
+     */
     SERVICE = 3,
 
     /**
      * Indicates extension info with type of accessibility
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -269,6 +317,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of dataShare
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -276,6 +325,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of filesShare
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -283,6 +333,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of staticSubscriber
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -290,6 +341,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of wallpaper
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -297,6 +349,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of backup
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -304,6 +357,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of window
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -311,6 +365,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of enterprise admin
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -318,6 +373,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of thumbnail
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -325,6 +381,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of preview
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -332,28 +389,32 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates extension info with type of print
-     * @since 10
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
      */
     PRINT = 15,
 
     /**
      * Indicates extension info with type of unspecified
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    UNSPECIFIED = 255,
+    UNSPECIFIED = 255
   }
 
   /**
    * PermissionGrantState
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum PermissionGrantState {
     /**
      * PERMISSION_DENIED
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -361,48 +422,55 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * PERMISSION_GRANTED
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    PERMISSION_GRANTED = 0,
+    PERMISSION_GRANTED = 0
   }
 
   /**
    * Support window mode
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum SupportWindowMode {
     /**
      * Indicates supported window mode of full screen mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     FULL_SCREEN = 0,
     /**
      * Indicates supported window mode of split mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     SPLIT = 1,
     /**
      * Indicates supported window mode of floating mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    FLOATING = 2,
+    FLOATING = 2
   }
 
   /**
    * Launch type
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum LaunchType {
     /**
      * Indicates that the ability has only one instance
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -410,6 +478,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates that the ability can have multiple instances
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -417,15 +486,17 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates that the ability can have specified instances
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    SPECIFIED = 2,
+    SPECIFIED = 2
   }
 
   /**
    * Indicates ability type
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9
@@ -433,6 +504,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
   export enum AbilityType {
     /**
      * Indicates that the ability has a UI
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -440,6 +512,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates that the ability does not have a UI
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -447,21 +520,24 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates that the ability is used to provide data access services
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    DATA = 3,
+    DATA = 3
   }
 
   /**
    * Display orientation
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum DisplayOrientation {
     /**
      * Indicates that the system automatically determines the display orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -469,6 +545,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the landscape orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -476,6 +553,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the portrait orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -483,6 +561,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -490,6 +569,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the inverted landscape orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -497,6 +577,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the inverted portrait orientation
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -504,6 +585,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the orientation can be auto-rotated
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -511,6 +593,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the landscape orientation rotated with sensor
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -518,6 +601,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the portrait orientation rotated with sensor
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -525,6 +609,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the sensor restricted mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -532,6 +617,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the sensor landscape restricted mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -539,6 +625,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the sensor portrait restricted mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -546,98 +633,110 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
     /**
      * Indicates the locked orientation mode
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    LOCKED,
+    LOCKED
   }
 
   /**
    * Indicates module type
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum ModuleType {
     /**
      * Indicates entry type
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     ENTRY = 1,
     /**
      * Indicates feature type
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     FEATURE = 2,
     /**
      * Indicates shared type
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    SHARED = 3,
+    SHARED = 3
   }
 
   /**
    * Indicates bundle type
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum BundleType {
     /**
-    * Indicates app
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+     * Indicates app
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
     APP = 0,
     /*
-    * Indicates atomic service
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-    ATOMIC_SERVICE = 1,
+     * Indicates atomic service
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    ATOMIC_SERVICE = 1
   }
 
   /**
    * Indicates the atomic module type when atomicService is split.
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export enum AtomicServiceModuleType {
     /**
-    * Indicates the module is home in atomic service.
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+     * Indicates the module is home in atomic service.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
     NORMAL = 0,
     /*
-    * Indicates the module is normal in atomic service.
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-    MAIN = 1,
+     * Indicates the module is normal in atomic service.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+    MAIN = 1
   }
 
   /**
    * Shared bundle compatible policy
-   * @enum {number}
+   *
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
   export enum CompatiblePolicy {
     /**
      * Indicates that the app is a shared bundle and the shared bundle type is backward compatibility
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
      */
-    BACKWARD_COMPATIBILITY = 1,
+    BACKWARD_COMPATIBILITY = 1
   }
 
   /**
    * Obtains own bundleInfo.
+   *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -648,6 +747,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains own bundleInfo.
+   *
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -658,6 +758,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -674,10 +775,35 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
-  function getBundleInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback } callback - The callback of getting bundle info result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function getBundleInfo(
+    bundleName: string,
+    bundleFlags: number,
+    userId: number,
+    callback: AsyncCallback<BundleInfo>
+  ): void;
+
+  /**
+   * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
@@ -697,6 +823,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
@@ -713,10 +840,35 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
   function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
-  function getApplicationInfo(bundleName: string, appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function getApplicationInfo(
+    bundleName: string,
+    appFlags: number,
+    userId: number,
+    callback: AsyncCallback<ApplicationInfo>
+  ): void;
+
+  /**
+   * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
@@ -736,6 +888,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
@@ -749,10 +902,27 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
   function getAllBundleInfo(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { number } userId - Indicates the user id.
+   * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
   function getAllBundleInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user id.
@@ -769,6 +939,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains information about all installed applications of a specified user.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
@@ -782,10 +953,31 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
   function getAllApplicationInfo(appFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
-  function getAllApplicationInfo(appFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function getAllApplicationInfo(
+    appFlags: number,
+    userId: number,
+    callback: AsyncCallback<Array<ApplicationInfo>>
+  ): void;
+
+  /**
+   * Obtains information about all installed applications of a specified user.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
@@ -802,6 +994,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
@@ -820,10 +1013,37 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 9
    */
   function queryAbilityInfo(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
-  function queryAbilityInfo(want: Want, abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
+   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } userId - userId Indicates the user ID.
+   * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700029 - The specified ability is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function queryAbilityInfo(
+    want: Want,
+    abilityFlags: number,
+    userId: number,
+    callback: AsyncCallback<Array<AbilityInfo>>
+  ): void;
+
+  /**
+   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
@@ -845,6 +1065,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
@@ -862,11 +1083,44 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfo(
+    want: Want,
+    extensionAbilityType: ExtensionAbilityType,
+    extensionAbilityFlags: number,
+    callback: AsyncCallback<Array<ExtensionAbilityInfo>>
+  ): void;
+
+  /**
+   * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
+   * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 9
+   */
+  function queryExtensionAbilityInfo(
+    want: Want,
+    extensionAbilityType: ExtensionAbilityType,
+    extensionAbilityFlags: number,
+    userId: number,
+    callback: AsyncCallback<Array<ExtensionAbilityInfo>>
+  ): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
@@ -884,10 +1138,16 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+  function queryExtensionAbilityInfo(
+    want: Want,
+    extensionAbilityType: ExtensionAbilityType,
+    extensionAbilityFlags: number,
+    userId?: number
+  ): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback - The callback of getting bundle name.
@@ -899,10 +1159,11 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void
+  function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void;
 
   /**
    * Obtains bundle name by the given uid.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { number } uid - Indicates the UID of an application.
    * @returns { Promise<string> } Returns the bundle name.
@@ -918,6 +1179,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
@@ -930,10 +1192,11 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void
+  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path to the data directory of the current application.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
@@ -946,10 +1209,11 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function getBundleArchiveInfo(hapFilePath: string,  bundleFlags: number): Promise<BundleInfo>;
+  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
 
   /**
    * Clears cache data of a specified application.
+   *
    * @permission ohos.permission.REMOVE_CACHE_FILES
    * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
    * @param { AsyncCallback<void> } callback - The callback of cleaning bundle cache files result.
@@ -966,6 +1230,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Clears cache data of a specified application.
+   *
    * @permission ohos.permission.REMOVE_CACHE_FILES
    * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
    * @returns { Promise<void> } Clean bundle cache files result
@@ -982,6 +1247,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Sets whether to enable a specified application.
+   *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
@@ -998,6 +1264,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Sets whether to enable a specified application.
+   *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
@@ -1014,6 +1281,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Sets whether to enable a specified ability.
+   *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { AbilityInfo } abilityInfo - Indicates information about the ability to set.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
@@ -1031,6 +1299,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Sets whether to enable a specified ability.
+   *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { AbilityInfo } abilityInfo - Indicates information about the ability to set.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
@@ -1048,6 +1317,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Checks whether a specified application is enabled.
+   *
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<boolean> } callback - The callback of checking application enabled result. The result is true if enabled, false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1061,8 +1331,9 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Checks whether a specified application is enabled.
+   *
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @returns { Promise<boolean> }  Returns true if the application is enabled; returns false otherwise.
+   * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -1074,6 +1345,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Checks whether a specified ability is enabled.
+   *
    * @param { AbilityInfo } info - Indicates information about the ability to check.
    * @param { AsyncCallback<boolean> } callback - The callback of checking ability enabled result. The result is true if enabled, false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1088,6 +1360,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Checks whether a specified ability is enabled.
+   *
    * @param { AbilityInfo } info - Indicates information about the ability to check.
    * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -1100,10 +1373,11 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
 
-   /**
+  /**
    * Obtains the Want for starting the main ability of an application based on the
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
@@ -1124,6 +1398,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * Obtains the Want for starting the main ability of an application based on the
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { AsyncCallback<Want> } callback - The callback for starting the application's main ability.
@@ -1143,6 +1418,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * Obtains the Want for starting the main ability of an application based on the
    * given bundle name. The main ability of an application is the ability that has the
    * #ACTION_HOME and #ENTITY_HOME Want filters set in the application's <b>config.json</b> or <b>module.json</b> file.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
@@ -1161,6 +1437,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
+   *
    * @param { string } moduleName - Indicates the moduleName of the application.
    * @param { string } abilityName - Indicates the abilityName of the application.
    * @param { string } metadataName - Indicates the name of metadata in ability.
@@ -1174,10 +1451,16 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByAbility(
+    moduleName: string,
+    abilityName: string,
+    metadataName: string,
+    callback: AsyncCallback<Array<string>>
+  ): void;
 
   /**
    * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
+   *
    * @param { string } moduleName - Indicates the moduleName of the application.
    * @param { string } abilityName - Indicates the abilityName of the application.
    * @param { string } metadataName - Indicates the name of metadata in ability.
@@ -1195,6 +1478,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
+   *
    * @param { string } moduleName - Indicates the moduleName of the application.
    * @param { string } extensionAbilityName - Indicates the extensionAbilityName of the application.
    * @param { string } metadataName - Indicates the name of metadata in ability.
@@ -1207,10 +1491,16 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByExtensionAbility(
+    moduleName: string,
+    extensionAbilityName: string,
+    metadataName: string,
+    callback: AsyncCallback<Array<string>>
+  ): void;
 
   /**
    * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
+   *
    * @param { string } moduleName - Indicates the moduleName of the application.
    * @param { string } extensionAbilityName - Indicates the extensionAbilityName of the application.
    * @param { string } metadataName - Indicates the name of metadata in ability.
@@ -1223,10 +1513,15 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
+  function getProfileByExtensionAbility(
+    moduleName: string,
+    extensionAbilityName: string,
+    metadataName?: string
+  ): Promise<Array<string>>;
 
   /**
    * Get the permission details by permission name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } permissionName - Indicates permission name.
    * @param { AsyncCallback<PermissionDef> } callback - The callback of get permissionDef object result.
@@ -1242,6 +1537,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Get the permission details by permission name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } permissionName - Indicates permission name.
    * @returns { Promise<PermissionDef> } Returns permissionDef object.
@@ -1257,6 +1553,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains the label of a specified ability.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
    * @param { string } moduleName - Indicates the module name.
@@ -1275,10 +1572,16 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityLabel(
+    bundleName: string,
+    moduleName: string,
+    abilityName: string,
+    callback: AsyncCallback<string>
+  ): void;
 
   /**
    * Obtains the label of a specified ability.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
    * @param { string } moduleName - Indicates the module name.
@@ -1301,9 +1604,10 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param  { string } bundleName - Indicates the application bundle name to be queried.
-   * @param  { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns Returns the ApplicationInfo object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1316,11 +1620,12 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-   function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number) : ApplicationInfo;
-   function getApplicationInfoSync(bundleName: string, applicationFlags: number) : ApplicationInfo;
+  function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number): ApplicationInfo;
+  function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
@@ -1336,11 +1641,12 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-   function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
-   function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+  function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
+  function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
 
   /**
    * Obtains SharedBundleInfo of all shared bundle available in the system.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - The callback of getting a list of SharedBundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1353,6 +1659,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains SharedBundleInfo of all shared bundle available in the system.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<Array<SharedBundleInfo>> } Returns a list of SharedBundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1365,6 +1672,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundleName of the application.
    * @param { string } moduleName - Indicates the moduleName of the application.
@@ -1378,10 +1686,15 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @systemapi
    * @since 10
    */
-  function getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+  function getSharedBundleInfo(
+    bundleName: string,
+    moduleName: string,
+    callback: AsyncCallback<Array<SharedBundleInfo>>
+  ): void;
 
   /**
    * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
+   *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundleName of the application.
    * @param { string } moduleName - Indicates the moduleName of the application.
@@ -1399,6 +1712,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains configuration information about an application.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1406,6 +1720,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Indicates the Metadata.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1413,6 +1728,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains configuration information about a bundle.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1420,6 +1736,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * The scene which is used.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1427,13 +1744,15 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Indicates the required permissions details defined in file config.json.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
-    /**
+  /**
    * Indicates the SignatureInfo.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1441,6 +1760,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains configuration information about a module.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1448,6 +1768,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains preload information about a module.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1455,6 +1776,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains dependency information about a module.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1462,6 +1784,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains configuration information about an ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1469,6 +1792,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Contains basic Ability information. Indicates the window size..
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1476,6 +1800,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Obtains extension information about a bundle.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1483,6 +1808,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Indicates the defined permission details in file config.json.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -1491,6 +1817,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Contains basic Ability information, which uniquely identifies an ability.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -1498,6 +1825,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
   /**
    * Contains shared bundle info.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
