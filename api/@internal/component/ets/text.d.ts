@@ -223,6 +223,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 9
    */
   draggable(value: boolean): TextAttribute;
+
+  /**
+   * Text selection pop-up extension.
+   * @param { Array<TextMenuOption> } value - an array of text selection menu extensions.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textMenuOptions(value: Array<TextMenuOption>): TextAttribute;
 }
 
 /**
