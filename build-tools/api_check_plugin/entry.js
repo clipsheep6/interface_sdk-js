@@ -20,29 +20,13 @@ let isCheckResult
 
 
 function checkPullRequest(url) {
-  let getResult = ''
-  const prUrlArray = url.split(';')
-  try {
-    for (var item of prUrlArray) {
-      if (item != '') {
-        let prArr = item.split('/')
-        https.get(`https://gitee.com/api/v5/repos/openharmony/docs/pulls/${prArr[prArr.length - 1]}/comments`, (res) => {
-          let { statusCode } = res;
-          let contentType = res.headers['content-type'];
-          let error;
-          if (statusCode !== 200) {
-            error = new Error('Request Failed.\n' +
-              `Status Code: ${statusCode}`);
-          } else if (!/^application\/json/.test(contentType)) {
-            error = new Error('Invalid content-type.\n' +
-              `Expected application/json but received ${contentType}`);
-          }
-          if (error) {
-            console.error(error.message);
-            // consume response data to free up memory
-            res.resume();
-          }
-          res.setEncoding('utf8');
+  // const prUrlArray = url.split(';')
+    // for (var item of prUrlArray) {
+      // if (item != '') {
+        // let prArr = item.split('/')
+        let result_url = '';
+        const prId = 4665
+        https.get(`https://gitee.com/api/v5/repos/openharmony/docs/pulls/${prId}/comments`, (res) => {
           let rawData = '';
           res.on('data', (chunk) => {
             rawData += chunk;
@@ -54,12 +38,15 @@ function checkPullRequest(url) {
               for (let i = parsedData.length - 1; i >= 0; i--) {
                 if (parsedData[i].body === 'start apiCheck') {
                   isCheckResult = true
-                       break;
+                  break;
+                }
+                if (parsedData[i].body === 'start apiCheck' && parsedData[i].body === 'start build') {
+                  isCheckResult = false
+                  break;
                 }
                 if (parsedData[i].body === 'stop apiCheck') {
                   isCheckResult = false
-                        break;
-
+                  break;
                 }
               }
             } catch (e) {
@@ -69,35 +56,34 @@ function checkPullRequest(url) {
         }).on('error', (e) => {
           console.error(`Got error: ${e.message}`);
         });
-      }
-       return isCheckResult
-    }
-  } catch (error) {
-    getResult = `API_CHECK_ERROR : ${error}`;
-  }
+      // }
+      return isCheckResult
+    // }
+
 }
 
+
 function checkEntry(url) {
-  const checkResult = checkPullRequest(url)
+  // const checkResult = checkPullRequest(url)
   let result = '';
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
-  if (checkResult) {
-    try {
-      const execSync = require('child_process').execSync;
-      execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
-      const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
-      result = scanEntry(mdFilesPath);
-      const { removeDir } = require(path.resolve(__dirname, './src/utils'));
-      removeDir(path.resolve(__dirname, 'node_modules'));
-    } catch (error) {
-      // catch error
-      result = `API_CHECK_ERROR : ${error}`;
-    }
-  } else {
-    result = `API_CHECK_SUCCESS : success`;
+  try {
+    const execSync = require('child_process').execSync;
+    execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
+    const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    result = scanEntry(mdFilesPath) + `\n API_PR :${url}`;
+    const { removeDir } = require(path.resolve(__dirname, './src/utils'));
+    removeDir(path.resolve(__dirname, 'node_modules'));
+  } catch (error) {
+    // catch error
+    result = `API_CHECK_ERROR : ${error}\n API_PR :${url}`;
   }
+  // if (checkResult) {
+  // } else {
+  //   result = `API_CHECK_SUCCESS : success`;
+  // }
 
   const { writeResultFile } = require('./src/utils');
   writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
