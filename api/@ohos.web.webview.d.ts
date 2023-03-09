@@ -1149,6 +1149,7 @@ declare namespace webview {
          */
         scrollBy(deltaX:number, deltaY:number): void;
 
+        
         /**
          * Slide by the speed.
          *
