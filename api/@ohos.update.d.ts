@@ -706,6 +706,11 @@ declare namespace update {
          * @since 9
          */
         descriptionInfo: DescriptionInfo;
+
+        /**
+         * 组件额外信息
+         */
+        componentExtra: string;
     }
 
     /**
