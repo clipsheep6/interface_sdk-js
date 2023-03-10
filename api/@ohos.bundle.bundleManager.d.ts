@@ -21,6 +21,7 @@ import { ElementName as _ElementName }  from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo }  from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
 import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
@@ -1398,6 +1399,58 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
   function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
 
   /**
+   * Obtains the provision info of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>): void;
+
+  /**
+   * Obtains the provision info of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAppProvisionInfo(bundleName: string, userId: number, callback: AsyncCallback<AppProvisionInfo>): void;
+
+  /**
+   * Obtains the provision info of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<AppProvisionInfo> } Returns the AppProvisionInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
+
+  /**
    * Obtains configuration information about an application.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -1502,6 +1555,22 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
    * @since 10
    */
   export type SharedBundleInfo = _SharedBundleInfo;
+
+  /**
+   * Obtains signature provision information about an application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type AppProvisionInfo = _AppProvisionInfo.AppProvisionInfo;
+
+  /**
+   * Obtains signature provision validity about an application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 10
+   */
+  export type Validity = _AppProvisionInfo.Validity;
 }
 
 export default bundleManager;
