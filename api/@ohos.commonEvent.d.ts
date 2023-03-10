@@ -952,7 +952,7 @@ declare namespace commonEvent {
      * This common event can be triggered only by system.
      * @since 10
      */
-    COMMON_EVENT_SMS_RECEIVE_COMPLETED = "usual.event.SMS_RECEIVE_COMPLETED",
+    COMMON_EVENT_SMS_RECEIVED_COMPLETED = "usual.event.SMS_RECEIVED_COMPLETED",
 
     /**
      * Indicate the action of a common event that a new sms emergency cell broadcast bas been received by the device.
@@ -1092,7 +1092,7 @@ declare namespace commonEvent {
 
     /**
      * Indicates the action of a common event that radio state change.
-     * To subscribe to this protected common event that can only be sent by system.
+     * This is a protected common event that can only be sent by system.
      * @since 10
      */
     COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE",
