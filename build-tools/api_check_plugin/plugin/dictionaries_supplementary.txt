@@ -593,6 +593,7 @@ sigalgs
 silenced
 slidable
 sliderstyle
+stk
 sm3
 smil
 smsc
@@ -753,6 +754,7 @@ wakes
 waking
 wallpapers
 wapi
+wappush
 watchers
 waterflow
 wcdma
