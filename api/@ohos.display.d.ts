@@ -24,17 +24,22 @@ declare namespace display {
   /**
    * Obtain the default display.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 
   /**
    * Obtain the default display.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(): Promise<Display>;
 
   /**
    * Obtain the default display.
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function getDefaultDisplaySync(): Display;
@@ -42,18 +47,38 @@ declare namespace display {
   /**
    * Obtain all displays.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getAllDisplays
    */
   function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
 
   /**
    * Obtain all displays.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getAllDisplays
    */
   function getAllDisplay(): Promise<Array<Display>>;
 
   /**
+   * Obtain all displays.
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @since 9
+   */
+   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
+
+   /**
+    * Obtain all displays.
+    * @throws {BusinessError} 1400001 - If display or screen is invalid
+    * @since 9
+    */
+   function getAllDisplays(): Promise<Array<Display>>;
+
+  /**
    * Check whether there is a privacy window on the current display.
    * @param displayId Display id to query
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400003 - If system works abnormally
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -63,6 +88,7 @@ declare namespace display {
    * Register the callback for display changes.
    * @param type: type of callback
    * @since 7
+   * @throws {BusinessError} 401 - If param is invalid
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
@@ -70,6 +96,7 @@ declare namespace display {
    * Unregister the callback for display changes.
    * @param type: type of callback
    * @since 7
+   * @throws {BusinessError} 401 - If param is invalid
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
@@ -110,14 +137,60 @@ declare namespace display {
   }
 
   /**
+   * Enumerates the display orientation.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 10
+   */
+  enum Orientation {
+    /**
+     * Indicate that the display content is in portrait mode.
+     */
+    PORTRAIT = 0,
+
+    /**
+     * Indicate that the display content is in landscape mode.
+     */
+    LANDSCAPE = 1,
+
+    /**
+     * Indicate that the display content is in the opposite direction of the portrait mode.
+     */
+    PORTRAIT_INVERTED = 2,
+
+    /**
+     * Indicate that the display content is in the opposite direction of the landscape mode.
+     */
+    LANDSCAPE_INVERTED = 3,
+  }
+
+  /**
    * Rectangle
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
   interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * @since 9
+     */
     left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * @since 9
+     */
     top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     * @since 9
+     */
     width: number;
+    
+    /**
+     * Height of the rectangle, in pixels.
+     * @since 9
+     */
     height: number;
   }
 
@@ -127,25 +200,46 @@ declare namespace display {
    * @since 9
    */
   interface WaterfallDisplayAreaRects {
+    /**
+     * Indicates the size of left side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly left: Rect;
+
+    /**
+     * Indicates the size of right side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly right: Rect;
+
+    /**
+     * Indicates the size of top side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly top: Rect;
+
+    /**
+     * Indicates the size of bottom side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly bottom: Rect;
   }
 
   /**
-   * cutout information of the display.
+   * Cutout information of the display.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
   interface CutoutInfo {
     /**
      * Bounding rectangles of the cutout areas of the display.
+     * @since 9
      */
     readonly boundingRects: Array<Rect>;
 
     /**
-     * Rectangles of curved parts on each side of a waterfall display. 
+     * Rectangles of curved parts on each side of a waterfall display.
+     * @since 9
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
@@ -202,6 +296,12 @@ declare namespace display {
     densityDPI: number;
 
     /**
+     * Display orientation.
+     * @since 10
+     */
+    orientation: Orientation;
+
+    /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.
      */
     densityPixels: number;
@@ -223,12 +323,14 @@ declare namespace display {
 
     /**
      * Obtain the cutout info of the display.
+     * @throws {BusinessError} 1400001 - If display or screen is invalid
      * @since 9
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 
     /**
      * Obtain the cutout info of the display.
+     * @throws {BusinessError} 1400001 - If display or screen is invalid
      * @since 9
      */
     getCutoutInfo(): Promise<CutoutInfo>;

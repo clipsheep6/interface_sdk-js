@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
  * Provides file path related APIS.
  *
  * @since 8
+ * @systemapi
  * @syscap SystemCapability.Customization.ConfigPolicy
  */
 declare namespace configPolicy {
@@ -29,7 +30,8 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
-   * @return Returns the path of the highest priority config file.
+   * @returns Returns the path of the highest priority config file.
+   * @throws { BusinessError } 401 - invalid input parameter.
    */
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
   function getOneCfgFile(relPath: string): Promise<string>;
@@ -41,7 +43,8 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
-   * @return Returns paths of config files.
+   * @returns Returns paths of config files.
+   * @throws { BusinessError } 401 - invalid input parameter.
    */
   function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
   function getCfgFiles(relPath: string): Promise<Array<string>>;
@@ -52,7 +55,8 @@ declare namespace configPolicy {
    * @since 8
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Customization.ConfigPolicy
-   * @return Returns paths of config directories.
+   * @returns Returns paths of config directories.
+   * @throws { BusinessError } 401 - invalid input parameter.
    */
   function getCfgDirList(callback: AsyncCallback<Array<string>>);
   function getCfgDirList(): Promise<Array<string>>;

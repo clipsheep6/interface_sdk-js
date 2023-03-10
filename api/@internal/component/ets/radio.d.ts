@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Input parameter for creating a radio box.
  * @since 8
  */
+/**
+ * Input parameter for creating a radio box.
+ * @form
+ * @since 9
+ */
 declare interface RadioOptions {
   /**
    * Radio group name.
    * @since 8
+   */
+  /**
+   * Radio group name.
+   * @form
+   * @since 9
    */
   group: string;
 
@@ -28,17 +38,66 @@ declare interface RadioOptions {
    * Radio name.
    * @since 8
    */
+  /**
+   * Radio name.
+   * @form
+   * @since 9
+   */
   value: string;
+}
+
+/**
+ * Set radio Style.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface RadioStyle {
+  /**
+   * Set the background color when the radio box is checked.
+   * @type { ResourceColor } checkedBackgroundColor - the background color when the radio box is checked.
+   * @default #007DFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  checkedBackgroundColor?: ResourceColor;
+
+  /**
+   * Set the bolder color when the radio box is unchecked.
+   * @type { ResourceColor } uncheckedBorderColor - the bolder color when the radio box is unchecked.
+   * @default #182431
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  uncheckedBorderColor?: ResourceColor;
+ 
+  /**
+   * Set the indicator color when the radio box is checked.
+   * @type { ResourceColor } indicatorColor - the indicator color when the radio box is checked.
+   * @default #FFFFFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indicatorColor?: ResourceColor;
 }
 
 /**
  * Provides an interface for creating a radio box.
  * @since 8
  */
+/**
+ * Provides an interface for creating a radio box.
+ * @form
+ * @since 9
+ */
 interface RadioInterface {
   /**
    * Called when a radio box is created.
    * @since 8
+   */
+  /**
+   * Called when a radio box is created.
+   * @form
+   * @since 9
    */
   (options: RadioOptions): RadioAttribute;
 }
@@ -46,10 +105,19 @@ interface RadioInterface {
 /**
  * @since 8
  */
+/**
+ * @form
+ * @since 9
+ */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box is selected.
    * @since 8
+   */
+  /**
+   * Called when the radio box is selected.
+   * @form
+   * @since 9
    */
   checked(value: boolean): RadioAttribute;
 
@@ -57,8 +125,40 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * Called when the radio box selection status changes.
    * @since 8
    */
+  /**
+   * Called when the radio box selection status changes.
+   * @form
+   * @since 9
+   */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
+
+  /**
+   * Set the radio style.
+   * @param { RadioStyle } value - the radio style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  radioStyle(value?: RadioStyle): RadioAttribute;
 }
 
+/**
+ * Defines Radio Component.
+ * @since 8
+ */
+/**
+ * Defines Radio Component.
+ * @form
+ * @since 9
+ */
 declare const Radio: RadioInterface;
+
+/**
+ * Defines Radio Component instance.
+ * @since 8
+ */
+/**
+ * Defines Radio Component instance.
+ * @form
+ * @since 9
+ */
 declare const RadioInstance: RadioAttribute;

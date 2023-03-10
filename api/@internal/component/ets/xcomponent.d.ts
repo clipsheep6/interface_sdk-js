@@ -26,26 +26,16 @@ declare class XComponentController {
 
   /**
    * Get the id of surface created by XComponent.
-   * @since 8
-   * @systemapi
-   */
-  /**
-   * Get the id of surface created by XComponent.
    * @since 9
    */
-  getXComponentSurfaceId();
+  getXComponentSurfaceId(): string;
 
   /**
    * Get the context of native XComponent.
    * @since 8
    */
-  getXComponentContext();
+  getXComponentContext(): Object;
 
-  /**
-   * Set the surface size created by XComponent.
-   * @since 8
-   * @systemapi
-   */
   /**
    * Set the surface size created by XComponent.
    * @since 9
@@ -53,7 +43,7 @@ declare class XComponentController {
   setXComponentSurfaceSize(value: {
     surfaceWidth: number;
     surfaceHeight: number;
-  });
+  }): void;
 }
 
 /**
@@ -86,5 +76,14 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   onDestroy(event: () => void): XComponentAttribute;
 }
 
+/**
+ * Defines XComponent Component.
+ * @since 8
+ */
 declare const XComponent: XComponentInterface;
+
+/**
+ * Defines XComponent Component instance.
+ * @since 8
+ */
 declare const XComponentInstance: XComponentAttribute;

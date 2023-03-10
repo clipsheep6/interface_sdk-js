@@ -13,12 +13,16 @@
  * limitations under the License.
  */
 
-const path = require("path");
-const fs = require("fs");
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { checkAPIDecorators } = require("./check_decorator");
-const { hasAPINote } = require("./utils");
-let result = require("../check_result.json");
+const path = require('path');
+const fs = require('fs');
+const ts = require(path.resolve(__dirname, '../node_modules/typescript'));
+const { checkAPIDecorators } = require('./check_decorator');
+const { checkSpelling } = require('./check_spelling');
+const { checkPermission } = require('./check_permission');
+const { checkSyscap } = require('./check_syscap');
+const { checkDeprecated } = require('./check_deprecated');
+const { hasAPINote, ApiCheckResult } = require('./utils');
+let result = require('../check_result.json');
 
 function checkAPICodeStyle(url) {
   if (fs.existsSync(url)) {
@@ -28,25 +32,26 @@ function checkAPICodeStyle(url) {
 }
 
 function getMdFiles(url) {
-  const content = fs.readFileSync(url, "utf-8");
-  const mdFiles = content.split("\r\n");
+  const content = fs.readFileSync(url, 'utf-8');
+  const mdFiles = content.split(/[(\r\n)\r\n]+/);
   return mdFiles;
 }
 
 function tsTransform(uFiles, callback) {
-  uFiles.forEach(filePath => {
-    if (/\.d\.ts/.test(filePath)) {
-      const content = fs.readFileSync(filePath, "utf-8");
-      const fileName = path.basename(filePath).replace(/.d.ts/g, ".ts");
+  uFiles.forEach((filePath, index) => {
+    console.log(`scaning file in no ${++index}!`);
+    if (/\.d\.ts/.test(filePath) && fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const fileName = path.basename(filePath).replace(/.d.ts/g, '.ts');
       ts.transpileModule(content, {
         compilerOptions: {
-          "target": ts.ScriptTarget.ES2017
+          'target': ts.ScriptTarget.ES2017
         },
         fileName: fileName,
         transformers: { before: [callback(filePath)] }
-      })
+      });
     }
-  })
+  });
 }
 
 function checkAPICodeStyleCallback(fileName) {
@@ -54,14 +59,29 @@ function checkAPICodeStyleCallback(fileName) {
     return (node) => {
       checkAllNode(node, node, fileName);
       return node;
-    }
-  }
+    };
+  };
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  // check decorator
+  if (!ts.isImportDeclaration) {
+
+  }
   if (hasAPINote(node)) {
+    // check decorator
     checkAPIDecorators(node, sourcefile, fileName);
+    // check apiNote spelling
+    checkSpelling(node, sourcefile, fileName);
+    // check syscap
+    checkSyscap(node, sourcefile, fileName);
+    // check deprecated
+    checkDeprecated(node, sourcefile, fileName);
+    // check permission
+    checkPermission(node, sourcefile, fileName);
+  }
+  if (ts.isIdentifier(node)) {
+    // check variable spelling
+    checkSpelling(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
@@ -69,6 +89,7 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
-  return JSON.stringify(result.scanResult);
+  result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
+  return result.scanResult;
 }
 exports.scanEntry = scanEntry;

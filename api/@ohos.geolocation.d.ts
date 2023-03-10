@@ -21,8 +21,8 @@ import { WantAgent } from './@ohos.wantAgent';
  *
  * @since 7
  * @syscap SystemCapability.Location.Location.Core
- * @import import geolocation from '@ohos.geolocation'
  * @permission ohos.permission.LOCATION
+ * @deprecated since 9
  */
 declare namespace geolocation {
     /**
@@ -33,8 +33,10 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param request Indicates the location request parameters.
      * @param callback Indicates the callback for reporting the location result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:locationChange
      */
-    function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>) : void;
+    function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
     /**
      * unsubscribe location changed
@@ -43,8 +45,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:locationChange
      */
-    function off(type: 'locationChange', callback?: Callback<Location>) : void;
+    function off(type: 'locationChange', callback?: Callback<Location>): void;
 
     /**
      * subscribe location switch changed
@@ -53,8 +57,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:locationEnabledChange
      */
-    function on(type: 'locationServiceState', callback: Callback<boolean>) : void;
+    function on(type: 'locationServiceState', callback: Callback<boolean>): void;
 
     /**
      * unsubscribe location switch changed
@@ -63,8 +69,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:locationEnabledChange
      */
-    function off(type: 'locationServiceState', callback?: Callback<boolean>) : void;
+    function off(type: 'locationServiceState', callback?: Callback<boolean>): void;
 
     /**
      * subscribe to cache GNSS locations update messages
@@ -74,8 +82,10 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param request Indicates the cached GNSS locations request parameters.
      * @param callback Indicates the callback for reporting the cached GNSS locations.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:cachedGnssLocationsChange
      */
-    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>) : void;
+    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
     /**
      * unsubscribe to cache GNSS locations update messages
@@ -84,8 +94,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached gnss locations.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:cachedGnssLocationsChange
      */
-    function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>) : void;
+    function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>): void;
 
     /**
      * subscribe gnss status changed
@@ -94,8 +106,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:satelliteStatusChange
      */
-    function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>) : void;
+    function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
     /**
      * unsubscribe gnss status changed
@@ -104,8 +118,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:satelliteStatusChange
      */
-    function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>) : void;
+    function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
     /**
      * subscribe nmea message changed
@@ -114,8 +130,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:nmeaMessage
      */
-    function on(type: 'nmeaMessageChange', callback: Callback<string>) : void;
+    function on(type: 'nmeaMessageChange', callback: Callback<string>): void;
 
     /**
      * unsubscribe nmea message changed
@@ -124,8 +142,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:nmeaMessage
      */
-    function off(type: 'nmeaMessageChange', callback?: Callback<string>) : void;
+    function off(type: 'nmeaMessageChange', callback?: Callback<string>): void;
 
     /**
      * add a geofence and subscribe geo fence status changed
@@ -135,8 +155,10 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the fence status.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:gnssFenceStatusChange
      */
-    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
+    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * remove a geofence and unsubscribe geo fence status changed
@@ -146,26 +168,10 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the remove fence result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:gnssFenceStatusChange
      */
-    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
-
-    /**
-     * registering the callback function for listening to country code changes.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @param callback Indicates the callback for reporting country code changes.
-     */
-    function on(type: 'countryCodeChange', callback: Callback<CountryCode>) : void;
-
-    /**
-     * unregistering the callback function for listening to country code changes.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @param callback Indicates the callback for reporting country code changes.
-     */
-    function off(type: 'countryCodeChange', callback?: Callback<CountryCode>) : void;
+    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * obtain current location
@@ -174,10 +180,12 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.getCurrentLocation
      */
-    function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>) : void;
-    function getCurrentLocation(callback: AsyncCallback<Location>) : void;
-    function getCurrentLocation(request?: CurrentLocationRequest) : Promise<Location>;
+    function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
+    function getCurrentLocation(callback: AsyncCallback<Location>): void;
+    function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
     /**
      * obtain last known location
@@ -186,9 +194,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.getLastLocation
      */
-    function getLastLocation(callback: AsyncCallback<Location>) : void;
-    function getLastLocation() : Promise<Location>;
+    function getLastLocation(callback: AsyncCallback<Location>): void;
+    function getLastLocation(): Promise<Location>;
 
     /**
      * obtain current location switch status
@@ -197,9 +207,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.isLocationEnabled
      */
-    function isLocationEnabled(callback: AsyncCallback<boolean>) : void;
-    function isLocationEnabled() : Promise<boolean>;
+    function isLocationEnabled(callback: AsyncCallback<boolean>): void;
+    function isLocationEnabled(): Promise<boolean>;
 
     /**
      * request enable location
@@ -208,33 +220,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch status.
+     * @deprecated since 9
      */
-    function requestEnableLocation(callback: AsyncCallback<boolean>) : void;
-    function requestEnableLocation() : Promise<boolean>;
-
-    /**
-     * enable location switch
-     *
-     * @since 7
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @param callback Indicates the callback for reporting the location switch result.
-     */
-    function enableLocation(callback: AsyncCallback<boolean>) : void;
-    function enableLocation() : Promise<boolean>;
-
-    /**
-     * disable location switch
-     *
-     * @since 7
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @param callback Indicates the callback for reporting the location switch result.
-     */
-    function disableLocation(callback: AsyncCallback<boolean>) : void;
-    function disableLocation() : Promise<boolean>;
+    function requestEnableLocation(callback: AsyncCallback<boolean>): void;
+    function requestEnableLocation(): Promise<boolean>;
 
     /**
      * obtain address info from location
@@ -243,9 +232,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the address info.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.getAddressesFromLocation
      */
-    function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>) : void;
-    function getAddressesFromLocation(request: ReverseGeoCodeRequest) : Promise<Array<GeoAddress>>;
+    function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+    function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
      * obtain latitude and longitude info from location address
@@ -254,9 +245,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the latitude and longitude result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.getAddressesFromLocationName
      */
-    function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>) : void;
-    function getAddressesFromLocationName(request: GeoCodeRequest) : Promise<Array<GeoAddress>>;
+    function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+    function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
      * obtain geocode service status
@@ -265,9 +258,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the geocode service status.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.isGeocoderAvailable
      */
-    function isGeoServiceAvailable(callback: AsyncCallback<boolean>) : void;
-    function isGeoServiceAvailable() : Promise<boolean>;
+    function isGeoServiceAvailable(callback: AsyncCallback<boolean>): void;
+    function isGeoServiceAvailable(): Promise<boolean>;
 
     /**
      * obtain the number of cached GNSS locations reported at a time
@@ -276,9 +271,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached GNSS locations size.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.getCachedGnssLocationsSize
      */
-    function getCachedGnssLocationsSize(callback: AsyncCallback<number>) : void;
-    function getCachedGnssLocationsSize() : Promise<number>;
+    function getCachedGnssLocationsSize(callback: AsyncCallback<number>): void;
+    function getCachedGnssLocationsSize(): Promise<number>;
 
     /**
      * all prepared GNSS locations are returned to the application through the callback function,
@@ -288,9 +285,11 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.flushCachedGnssLocations
      */
-    function flushCachedGnssLocations(callback: AsyncCallback<boolean>) : void;
-    function flushCachedGnssLocations() : Promise<boolean>;
+    function flushCachedGnssLocations(callback: AsyncCallback<boolean>): void;
+    function flushCachedGnssLocations(): Promise<boolean>;
 
     /**
      * send extended commands to location subsystem.
@@ -300,126 +299,11 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param command Indicates the extended Command Message Body.
      * @param callback Indicates the callback for reporting the send command result.
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.sendCommand
      */
-    function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>) : void;
-    function sendCommand(command: LocationCommand) : Promise<boolean>;
-
-    /**
-     * obtain the current country code.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @param callback Indicates the callback for reporting the country code.
-     */
-    function getCountryCode(callback: AsyncCallback<CountryCode>) : void;
-    function getCountryCode() : Promise<CountryCode>;
-
-    /**
-     * enable the geographical location simulation function.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @param scenario Indicates the scenarios where location simulation is required.
-     * @param callback Indicates a callback function, which is used to report the result 
-     * of enabling the location simulation function. If the enabling fails, the error message will
-     * be carried in the first parameter err of AsyncCallback, If enabling succeeds, no data will be returned.
-     */
-    function enableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
-    function enableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
-
-    /**
-     * disable the geographical location simulation function.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @param scenario Indicates the scenarios where location simulation is required.
-     * @param callback Indicates a callback function, which is used to report the result 
-     * of disabling the location simulation function. If the disabling fails, the error message will
-     * be carried in the first parameter err of AsyncCallback, If disabling succeeds, no data will be returned.
-     */
-    function disableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
-    function disableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
-
-    /**
-     * set the configuration parameters for location simulation.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @param config Indicates the configuration parameters for location simulation.
-     * @param callback Indicates a callback function, which is used to report the result of setting 
-     * the simulation locations. If the setting fails, the error message will be carried in the first 
-     * parameter err of AsyncCallback. If the setting succeeds, no data will be returned.
-     */
-    function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<void>) : void;
-    function setMockedLocations(config: LocationMockConfig) : Promise<void>;
-
-    /**
-     * enable the reverse geocoding simulation function.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @param callback Indicates a callback function, which is used to report the result 
-     * of enabling the reverse geocode simulation function. If the enabling fails, the error message will
-     * be carried in the first parameter err of AsyncCallback, If enabling succeeds, no data will be returned.
-     */
-    function enableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
-    function enableReverseGeocodingMock() : Promise<void>;
-
-    /**
-     * disable the reverse geocoding simulation function.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @param callback Indicates a callback function, which is used to report the result 
-     * of disabling the reverse geocode simulation function. If the disabling fails, the error message will
-     * be carried in the first parameter err of AsyncCallback, If disabling succeeds, no data will be returned.
-     */
-    function disableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
-    function disableReverseGeocodingMock() : Promise<void>;
-
-    /**
-     * set the configuration parameters for simulating reverse geocoding.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @param mockInfos Indicates the set of locations and place names to be simulated.
-     * @param callback Indicates a callback function, which is used to report the result of setting 
-     * the configuration parameters for simulating reverse geocoding. If the setting fails, 
-     * the error message will be carried in the first parameter err of AsyncCallback. 
-     * If the setting succeeds, no data will be returned.
-     */
-    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<void>) : void;
-    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>) : Promise<void>;
-
-    /**
-     * configuration parameters for simulating reverse geocoding.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     */
-    export interface ReverseGeocodingMockInfo {
-        location: ReverseGeoCodeRequest;
-        geoAddress: GeoAddress;
-    }
-
-    /**
-     * parameters for configuring the location simulation function.
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     */
-    export interface LocationMockConfig {
-        timeInterval: number;
-        locations: Array<Location>;
-    }
+    function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>): void;
+    function sendCommand(command: LocationCommand): Promise<boolean>;
 
     /**
      * satellite status information
@@ -427,6 +311,8 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
      */
     export interface SatelliteStatusInfo {
         satellitesNumber: number;
@@ -443,6 +329,8 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CachedGnssLocationsRequest
      */
     export interface CachedGnssLocationsRequest {
         reportingPeriodSec: number;
@@ -455,6 +343,8 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeofenceRequest
      */
     export interface GeofenceRequest {
         priority: LocationRequestPriority;
@@ -468,6 +358,8 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.Geofence
      */
     export interface Geofence {
         latitude: number;
@@ -477,38 +369,13 @@ declare namespace geolocation {
     }
 
     /**
-     * querying location privacy protocol confirmation status.
-     *
-     * @since 8
-     * @systemapi
-     * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION
-     * @param type indicates location privacy protocol type.
-     * @param callback indicates the callback for reporting the location privacy protocol confirmation status.
-     */
-    function isLocationPrivacyConfirmed(type : LocationPrivacyType, callback: AsyncCallback<boolean>) : void;
-    function isLocationPrivacyConfirmed(type : LocationPrivacyType,) : Promise<boolean>;
-
-    /**
-     * set location privacy protocol confirmation status.
-     *
-     * @since 8
-     * @systemapi
-     * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION
-     * @param type indicates location privacy protocol type.
-     * @param isConfirmed indicates whether the location privacy protocol has been confirmed.
-     * @param callback Indicates the callback for reporting whether the action is set successfully.
-     */
-    function setLocationPrivacyConfirmStatus(type : LocationPrivacyType, isConfirmed : boolean, callback: AsyncCallback<boolean>) : void;
-    function setLocationPrivacyConfirmStatus(type : LocationPrivacyType, isConfirmed : boolean) : Promise<boolean>;
-
-    /**
      * configuring parameters in reverse geocode requests
      *
      * @since 7
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.ReverseGeoCodeRequest
      */
     export interface ReverseGeoCodeRequest {
         locale?: string;
@@ -523,6 +390,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
      */
     export interface GeoCodeRequest {
         locale?: string;
@@ -540,6 +409,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoAddress
      */
     export interface GeoAddress {
         /**
@@ -654,12 +525,6 @@ declare namespace geolocation {
          * @since 7
          */
         descriptionsSize?: number;
-
-        /**
-         * Indicates whether it is an mock GeoAddress
-         * @since 9
-         */
-        isFromMock?: Boolean;
     }
 
     /**
@@ -668,6 +533,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
      */
     export interface LocationRequest {
         priority?: LocationRequestPriority;
@@ -683,6 +550,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
      */
     export interface CurrentLocationRequest {
         priority?: LocationRequestPriority;
@@ -697,6 +566,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.Location
      */
     export interface Location {
         /**
@@ -762,12 +633,6 @@ declare namespace geolocation {
          * @since 7
          */
         additionSize?: number;
-
-        /**
-         * Indicates whether it is an mock location.
-         * @since 9
-         */
-        isFromMock?: Boolean;
     }
 
     /**
@@ -776,6 +641,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestPriority
      */
     export enum LocationRequestPriority {
         UNSET = 0x200,
@@ -790,6 +657,8 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
      */
     export enum LocationRequestScenario {
         UNSET = 0x300,
@@ -806,14 +675,9 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
      */
     export enum GeoLocationErrorCode {
-        /**
-         * Indicates function not supported.
-         * @since 9
-         */
-        NOT_SUPPORTED = 100,
-
         /**
          * Indicates input parameter error.
          * @since 7
@@ -855,12 +719,6 @@ declare namespace geolocation {
          * @since 7
          */
         LOCATION_REQUEST_TIMEOUT_ERROR,
-
-        /**
-         * Indicates country code query failed.
-         * @since 9
-         */
-        QUERY_COUNTRY_CODE_ERROR,
     }
 
     /**
@@ -869,6 +727,8 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationPrivacyType
      */
     export enum LocationPrivacyType {
         OTHERS = 0,
@@ -882,34 +742,12 @@ declare namespace geolocation {
      * @since 8
      * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationCommand
      */
     export interface LocationCommand {
         scenario: LocationRequestScenario;
         command: string;
-    }
-
-    /**
-     * country code structure
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     */
-    export interface CountryCode {
-        country: string;
-        type: CountryCodeType;
-    }
-
-    /**
-     * enum for country code type
-     *
-     * @since 9
-     * @syscap SystemCapability.Location.Location.Core
-     */
-    export enum CountryCodeType {
-        COUNTRY_CODE_FROM_LOCALE = 1,
-        COUNTRY_CODE_FROM_SIM,
-        COUNTRY_CODE_FROM_LOCATION,
-        COUNTRY_CODE_FROM_NETWORK,
     }
 }
 

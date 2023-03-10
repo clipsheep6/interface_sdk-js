@@ -25,85 +25,211 @@ declare namespace screenLock {
   /**
    * Checks whether the screen is currently locked.
    *
-   * @return Returns {@code true} if the screen is currently locked; returns {@code false}
-   * otherwise.
+   * @returns Returns {@code true} if the screen is currently locked; returns {@code false} otherwise.
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.isLocked
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the screen is currently locked.
+   *
+   * @returns Returns {@code true} if the screen is currently locked; returns {@code false} otherwise.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.isLocked
+   */
   function isScreenLocked(): Promise<boolean>;
+
+  /**
+   * Checks whether the screen is currently locked.
+   *
+   * @returns Returns {@code true} if the screen is currently locked; returns {@code false} otherwise.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 9
+   */
+  function isLocked(): boolean;
 
   /**
    * Checks whether the screen lock of the current device is secure.
    *
-   * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
-   * otherwise.
+   * @returns Returns {@code true} if the screen lock of the current device is secure; returns {@code false} otherwise.
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.isSecure
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the screen lock of the current device is secure.
+   *
+   * @returns Returns {@code true} if the screen lock of the current device is secure; returns {@code false} otherwise.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.isSecure
+   */
   function isSecureMode(): Promise<boolean>;
 
   /**
-   * Unlocks the screen.
-   * return -
+   * Checks whether the screen lock of the current device is secure.
+   *
+   * @returns Returns {@code true} if the screen lock of the current device is secure; returns {@code false} otherwise.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 9
+   */
+  function isSecure(): boolean;
+
+  /**
+   * Unlock the screen.
+   *
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.unlock
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
+
+  /**
+   * Unlock the screen.
+   *
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.unlock
+   */
   function unlockScreen():Promise<void>;
 
   /**
+   * Unlock the screen.
+   *
+   * @returns Returns {@code true} if the screen is unlocked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 9
+   */
+  function unlock(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Unlock the screen.
+   *
+   * @returns Returns {@code true} if the screen is unlocked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @since 9
+   */
+  function unlock():Promise<boolean>;
+
+  /**
    * Lock the screen.
+   *
+   * @returns Returns {@code true} if the screen is locked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function lockScreen(callback: AsyncCallback<boolean>): void;
-  function lockScreen():Promise<boolean>;
+  function lock(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Receives {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation} called. 
-   * This callback is invoked when {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation}
-   * is called by runtime
+   * Lock the screen.
    *
+   * @returns Returns {@code true} if the screen is locked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'beginExitAnimation', callback: Callback<void>): void;
+  function lock():Promise<boolean>;
 
   /**
-    * Receives {beginSleep | endSleep | changeUser} called. This callback is invoked when {beginSleep | endSleep | changeUser} is called by runtime 
-    *
-    * @systemapi Hide this for inner system use.
-    * @since 9
-    */
-  function on(type: 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<number>): void;
-
-  /**
-   * Receives screenlockEnabled change. This callback is invoked when screenlockEnabled is called by runtime 
+   * Indicates the system event type related to the screenlock management service.
    *
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: 'screenlockEnabled', callback: Callback<boolean>): void;
+  type EventType =
+      'beginWakeUp'
+      | 'endWakeUp'
+      | 'beginScreenOn'
+      | 'endScreenOn'
+      | 'beginScreenOff'
+      | 'endScreenOff'
+      | 'unlockScreen'
+      | 'lockScreen'
+      | 'beginExitAnimation'
+      | 'beginSleep'
+      | 'endSleep'
+      | 'changeUser'
+      | 'screenlockEnabled'
+      | 'serviceRestart'
 
   /**
-   * Remove the receives of {beginWakeUp | endWakeUp | beginScreenOn | endScreenOn | beginScreenOff | endScreenOff | unlockScreen 
-   * | beginExitAnimation | screenlockEnabled | beginSleep | endSleep | changeUser}.
+   * Indicates the system event type and parameter related to the screenlock management service.
    *
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function off(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' 
-      | 'unlockScreen' | 'beginExitAnimation' | 'screenlockEnabled' | 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<void>): void;
-
+  interface SystemEvent {
+    eventType: EventType,
+    params: string
+  }
 
   /**
-   * screenlockAPP send event to screenlockSA
+   * Register system event related to screen lock service.
    *
+   * @param { Callback<SystemEvent> } callback - the callback function for indicating the system event related screen lock
+   * @returns Returns {@code true} if register system event is success; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function onSystemEvent(callback: Callback<SystemEvent>): boolean;
+
+  /**
+   * The screen lock app sends the event to the screen lock service.
+   *
+   * @param { String } event - event type.
+   * @param { number } parameter - operation result of the event.
+   * @returns Returns {@code true} if screen lock app send event to screen lock service is success; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
-  function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
 
+  /**
+   * The screen lock app sends the event to the screen lock service.
+   *
+   * @param { String } event - event type.
+   * @param { number } parameter - operation result of the event.
+   * @returns Returns {@code true} if screen lock app send event to screen lock service is success; returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
 }
 
 export default screenLock;

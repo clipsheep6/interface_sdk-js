@@ -22,6 +22,8 @@ import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
  * @since 8
  * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.Configuration
  */
 export interface Configuration {
     /**
@@ -39,36 +41,4 @@ export interface Configuration {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     colorMode?: ConfigurationConstant.ColorMode;
-
-    /**
-     * Indicates the screen direction of the current device.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-     direction?: ConfigurationConstant.Direction;
-
-    /**
-     * Indicates the screen density of the current device.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    screenDensity?: ConfigurationConstant.ScreenDensity;
-
-    /**
-     * Indicates the displayId of the current device.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    displayId?: number;
-
-    /**
-     * Indicates whether a pointer type device has connected.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     */
-    hasPointerDevice?: boolean;
 }

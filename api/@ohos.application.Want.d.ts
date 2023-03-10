@@ -20,6 +20,8 @@
  * @since 8
  * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.Want
  */
 export default class Want {
     /**
@@ -93,12 +95,4 @@ export default class Want {
      * @default -
      */
     entities?: Array<string>;
-
-    /**
-     * The description of an module name in an want.
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    moduleName?: string;
 }

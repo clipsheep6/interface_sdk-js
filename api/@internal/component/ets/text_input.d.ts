@@ -100,6 +100,15 @@ declare class TextInputController {
    * @since 8
    */
   caretPosition(value: number): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
@@ -157,6 +166,21 @@ interface TextInputInterface {
 }
 
 /**
+ * CaretStyle object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+interface CaretStyle {
+  /**
+   * Define the cursor width of CaretStyle.
+   * @param { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretWidth(value: Length): TextInputAttribute;
+}
+
+/**
  * Defines the TextInput attribute functions.
  * @since 7
  */
@@ -195,6 +219,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when judging whether the text editing change finished.
    * @since 7
    * @deprecated since 8
+   * @useinstead onEditChange
    */
   onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 
@@ -299,7 +324,40 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 9
    */
   style(value: TextInputStyle): TextInputAttribute;
+
+  /**
+   * Define the caret style of the text input
+   * @param { CaretStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretStyle(value: CaretStyle): TextInputAttribute;
+
+  /**
+   * Define the text selected background color of the text input.
+   * @param { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  selectedBackgroundColor(value: ResourceColor): TextInputAttribute;
+
+  /**
+   * Define the caret position of the text input.
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretPosition(value: number): TextInputAttribute;
 }
 
+/**
+ * Defines TextInput Component.
+ * @since 7
+ */
 declare const TextInput: TextInputInterface;
+
+/**
+ * Defines TextInput Component instance.
+ * @since 7
+ */
 declare const TextInputInstance: TextInputAttribute;

@@ -19,6 +19,8 @@
  * @since 6
  * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.wantConstant
  */
 declare namespace wantConstant {
   /**
@@ -213,24 +215,10 @@ declare namespace wantConstant {
      * Indicates the action of providing oauth service.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead wantConstant.Action#ACTION_APP_ACCOUNT_AUTH
      */
-    ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
-
-    /**
-     * Indicates the action of an application downloaded from the application market.
-     *
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     */
-    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
-
-    /**
-     * Indicates the action of an application crowdtested from the application market.
-     *
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     */
-    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest"
+    ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth"
   }
 
   /**
@@ -344,7 +332,7 @@ declare namespace wantConstant {
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
-     * Install the specifiedi ability with background mode if it's not installed.
+     * Install the specified ability with background mode if it's not installed.
      */
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 

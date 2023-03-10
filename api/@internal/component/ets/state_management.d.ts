@@ -65,7 +65,6 @@ declare class Storage {
    * Constructor parameters.
    * @since 7
    * @systemapi
-   * @hide
    */
   constructor(needCrossThread?: boolean, file?: string);
 
@@ -73,7 +72,6 @@ declare class Storage {
    * Called when data is obtained.
    * @since 7
    * @systemapi
-   * @hide
    */
   get(key: string): string | undefined;
 
@@ -81,7 +79,6 @@ declare class Storage {
    * Called when setting.
    * @since 7
    * @systemapi
-   * @hide
    */
   set(key: string, val: any): void;
 
@@ -89,7 +86,6 @@ declare class Storage {
    * Called when data is cleared.
    * @since 7
    * @systemapi
-   * @hide
    */
   clear(): void;
 
@@ -97,107 +93,6 @@ declare class Storage {
    * Called when data is deleted.
    * @since 7
    * @systemapi
-   * @hide
    */
   delete(key: string): void;
 }
-
-/**
- * Defining LocalStorage.
- * @since 9
- */
-declare class LocalStorage {
-  /**
-   * constructor.
-   * @since 9
-   */
-  constructor(initializingProperties?: Object);
-
-  /**
-   * Get current LocalStorage shared from stage.
-   * @StageModelOnly
-   * @since 9
-   */
-  static GetShared(): LocalStorage;
-
-  /**
-   * return true if prooperty with given name exists
-   * @since 9
-   */
-  has(propName: string): boolean;
-
-  /**
-   * return a Map Iterator
-   * @since 9
-   */
-  keys(): IterableIterator<string>;
-
-  /**
-   * return number of properties
-   * @since 9
-   */
-  size(): number;
-
-  /**
-   * returns value of given property
-   * @since 9
-   */
-  get<T>(propName: string): T;
-
-  /**
-   * Set value of given property
-   * @since 9
-   */
-  set<T>(propName: string, newValue: T): boolean;
-
-  /**
-   * add property if not property with given name
-   * @since 9
-   */
-  setOrCreate<T>(propName: string, newValue?: T): boolean;
-
-  /**
-   * create and return a 'link' (two-way sync) to named property
-   * @since 9
-   */
-  link<T>(propName: string, linkUser?: T, subscribersName?: string): T;
-
-  /**
-   * Like link(), will create and initialize a new source property in LocalStorge if missing
-   * @since 9
-   */
-  setAndLink<T>(propName: string, defaultValue: T, linkUser?: T, subscribersName?: string): T;
-
-  /**
-   * create and return a 'prop' (one-way sync) to named property
-   * @since 9
-   */
-  prop<T>(propName: string, propUser?: T, subscribersName?: string): T;
-
-  /**
-   * Like prop(), will create and initialize a new source property in LocalStorage if missing
-   * @since 9
-   */
-  setAndProp<T>(propName: string, defaultValue: T, propUser?: T, subscribersName?: string): T;
-  
-  /**
-   * Delete property from StorageBase
-   * @since 9
-   * @returns false if method failed
-   */
-  delete(propName: string): boolean;
-
-  /**
-   * delete all properties from the StorageBase
-   * @since 9
-   */
-  clear(): boolean;
-}
-
-declare module "StateManagement" {
-  module "StateManagement" {
-    // @ts-ignore
-    export { LocalStorage };
-  }
-}
-

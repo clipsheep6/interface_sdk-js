@@ -15,8 +15,8 @@
 
 import { AsyncCallback } from "./basic";
 import { Callback } from "./basic";
-import Want from './@ohos.application.Want';
-import formInfo from './@ohos.application.formInfo'
+import Want from './@ohos.app.ability.Want';
+import formInfo from './@ohos.app.form.formInfo'
 
 /**
  * interface of formHost.
@@ -25,6 +25,8 @@ import formInfo from './@ohos.application.formInfo'
  * @since 8
  * @syscap SystemCapability.Ability.Form
  * @systemapi hide for inner use.
+ * @deprecated since 9
+ * @useinstead ohos.app.form.formHost
  */
 declare namespace formHost {
     /**
@@ -36,7 +38,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function deleteForm(formId: string, callback: AsyncCallback<void>): void;
@@ -53,7 +55,7 @@ declare namespace formHost {
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
      * @param isReleaseCache Indicates whether or not release cache
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function releaseForm(formId: string, callback: AsyncCallback<void>): void;
@@ -71,7 +73,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the form to update.
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function requestForm(formId: string, callback: AsyncCallback<void>): void;
@@ -83,7 +85,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the temporary form to convert.
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function castTempForm(formId: string, callback: AsyncCallback<void>): void;
@@ -98,7 +100,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made visible.
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -113,7 +115,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made invisible.
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -128,14 +130,14 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made invisible.
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
     function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
     /**
-     * Notifys the form framework to make the specified forms non updatable.
+     * Notify the form framework to make the specified forms non updatable.
      *
      * <p>You can use this method to set form refresh state to false, the form do not receive
      * new update from service.</p>
@@ -143,7 +145,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the IDs of the forms to be made invisible.
-     * @return -
+     * @returns -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
@@ -156,7 +158,7 @@ declare namespace formHost {
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
-     * @return -
+     * @returns -
      */
     function isSystemReady(callback: AsyncCallback<void>): void;
     function isSystemReady(): Promise<void>;
@@ -166,7 +168,7 @@ declare namespace formHost {
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
-     * @return Returns the {@link FormInfo}
+     * @returns Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
     function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
@@ -179,7 +181,7 @@ declare namespace formHost {
      * @syscap SystemCapability.Ability.Form
      * @param bundleName Indicates the bundle name of the application.
      * @param moduleName Indicates the module name of the application.
-     * @return Returns the {@link FormInfo}
+     * @returns Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
     function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
@@ -194,8 +196,8 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
-     * @return Returns the number of invalid forms deleted by the Form Manager Service
-     * @permission ohos.permission.REQUIRE_FORM.
+     * @returns Returns the number of invalid forms deleted by the Form Manager Service
+     * @permission ohos.permission.REQUIRE_FORM
      */
     function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<number>): void;
     function deleteInvalidForms(formIds: Array<string>): Promise<number>;
@@ -208,8 +210,8 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param want Indicates want of the form.
-     * @return Returns form state {@link FormStateInfo}
-     * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED.
+     * @returns Returns form state {@link FormStateInfo}
+     * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
     function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
     function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
@@ -222,7 +224,7 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param type Indicates event type.
-     * @return -
+     * @returns -
      */
     function on(type: "formUninstall", callback: Callback<string>): void;
 
@@ -234,12 +236,12 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param type Indicates event type.
-     * @return -
+     * @returns -
      */
     function off(type: "formUninstall", callback?: Callback<string>): void;
 
     /**
-     * notify form is Visible
+     * Notify form is Visible
      *
      * <p>You can use this method to notify form visible state.</p>
      *
@@ -247,14 +249,14 @@ declare namespace formHost {
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @param isVisible Indicates whether visible.
-     * @return -
-     * @permission ohos.permission.REQUIRE_FORM.
+     * @returns -
+     * @permission ohos.permission.REQUIRE_FORM
      */
     function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
     /**
-     * notify form enable update state.
+     * Notify form enable update state.
      *
      * <p>You can use this method to notify form enable update state.</p>
      *
@@ -262,24 +264,10 @@ declare namespace formHost {
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @param isEnableUpdate Indicates whether enable update.
-     * @return -
-     * @permission ohos.permission.REQUIRE_FORM.
+     * @returns -
+     * @permission ohos.permission.REQUIRE_FORM
      */
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
-
-    /**
-     * Share form by formId and deviceId.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @param formId Indicates the form ID
-     * @param deviceId Indicates the remote device ID
-     * @systemapi hide for inner use.
-     * @return -
-     * @permission ohos.permission.REQUIRE_FORM
-     */
-    function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
-    function shareForm(formId: string, deviceId: string): Promise<void>;
 }
 export default formHost;

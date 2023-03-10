@@ -82,11 +82,13 @@ declare namespace deviceInfo {
      * Obtains the hardware profile represented by a string.
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
+     * @deprecated since 9
      */
     const hardwareProfile: string;
 
     /**
      * Obtains the device serial number represented by a string.
+     * @permission ohos.permission.sec.ACCESS_UDID
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
@@ -234,6 +236,7 @@ declare namespace deviceInfo {
     const buildRootHash: string;
     /**
      * Obtains the device udid.
+     * @permission ohos.permission.sec.ACCESS_UDID
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 7
      */

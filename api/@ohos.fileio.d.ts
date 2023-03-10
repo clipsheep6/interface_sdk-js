@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,7 +20,6 @@ export default fileIO;
  * fileio
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @import import fileio from '@ohos.fileio';
  * @permission N/A
  */
 declare namespace fileIO {
@@ -93,9 +92,10 @@ declare namespace fileIO {
 /**
  * access.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.access
  * @permission N/A
  * @function access
  * @param {string} path - path.
@@ -110,9 +110,10 @@ declare function access(path: string, mode: number, callback: AsyncCallback<void
 /**
  * accessSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.accessSync
  * @permission N/A
  * @function accessSync
  * @param {string} path - path.
@@ -124,9 +125,10 @@ declare function accessSync(path: string, mode?: number): void;
 /**
  * close.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.close
  * @permission N/A
  * @function close
  * @param {number} fd - fd.
@@ -139,9 +141,10 @@ declare function close(fd: number, callback: AsyncCallback<void>): void;
 /**
  * closeSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.closeSync
  * @permission N/A
  * @function closeSync
  * @param {number} fd - fd.
@@ -152,9 +155,10 @@ declare function closeSync(fd: number): void;
 /**
  * copyFile.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.copyFile
  * @permission N/A
  * @function copyFile
  * @param {string | number} src - src.
@@ -170,9 +174,10 @@ declare function copyFile(src: string | number, dest: string | number, mode: num
 /**
  * copyFileSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.copyFileSync
  * @permission N/A
  * @function copyFileSync
  * @param {string | number} src - src.
@@ -185,9 +190,10 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
 /**
  * createStream.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.createStream
  * @permission N/A
  * @function createStream
  * @param {string} path - path.
@@ -201,9 +207,10 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
 /**
  * createStreamSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.createStreamSync
  * @permission N/A
  * @function createStreamSync
  * @param {string} path - path.
@@ -215,9 +222,9 @@ declare function createStreamSync(path: string, mode: string): Stream;
 /**
  * chown.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function appendFile
  * @param {string} path - path.
@@ -232,9 +239,9 @@ declare function chown(path: string, uid: number, gid: number, callback: AsyncCa
 /**
  * chownSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function appendFile
  * @param {string} path - path.
@@ -247,9 +254,9 @@ declare function chownSync(path: string, uid: number, gid: number): void;
 /**
  * chmod.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function chmod
  * @param {string} path - path.
@@ -263,9 +270,9 @@ declare function chmod(path: string, mode: number, callback: AsyncCallback<void>
 /**
  * chmodSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function chmodSync
  * @param {string} path - path.
@@ -277,10 +284,10 @@ declare function chmodSync(path: string, mode: number): void;
 /**
  * ftruncate.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncate
  * @function ftruncate
  * @param {number} fd - fd.
  * @param {number} [len = 0] - len.
@@ -294,10 +301,10 @@ declare function ftruncate(fd: number, len: number, callback: AsyncCallback<void
 /**
  * ftruncateSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncateSync
  * @function ftruncateSync
  * @param {number} fd - fd.
  * @param {number} [len = 0] - len.
@@ -308,9 +315,10 @@ declare function ftruncateSync(fd: number, len?: number): void;
 /**
  * fsync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fsync
  * @permission N/A
  * @function fsync
  * @param {number} fd - fd.
@@ -323,9 +331,10 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
 /**
  * fsyncSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fsyncSync
  * @permission N/A
  * @function fsyncSync
  * @param {number} fd - fd.
@@ -336,10 +345,10 @@ declare function fsyncSync(fd: number): void;
 /**
  * fstat.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.stat
  * @function fstat
  * @param {number} fd - fd.
  * @returns {Stat}
@@ -350,10 +359,10 @@ declare function fstat(fd: number, callback: AsyncCallback<Stat>): void;
 /**
  * fstatSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.statSync
  * @function fstatSync
  * @param {number} fd - fd.
  * @returns {Stat}
@@ -363,9 +372,10 @@ declare function fstatSync(fd: number): Stat;
 /**
  * fdatasync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdatasync
  * @permission N/A
  * @function fdatasync
  * @param {number} fd - fd.
@@ -378,9 +388,10 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
 /**
  * fdatasyncSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdatasyncSync
  * @permission N/A
  * @function fdatasyncSync
  * @param {number} fd - fd.
@@ -391,9 +402,9 @@ declare function fdatasyncSync(fd: number): void;
 /**
  * fchown.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchown
  * @param {number} fd - fd.
@@ -408,9 +419,9 @@ declare function fchown(fd: number, uid: number, gid: number, callback: AsyncCal
 /**
  * fchownSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchownSync
  * @param {number} fd - fd.
@@ -423,9 +434,9 @@ declare function fchownSync(fd: number, uid: number, gid: number): void;
 /**
  * fchmod.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchmod
  * @param {number} fd - fd.
@@ -439,9 +450,9 @@ declare function fchmod(fd: number, mode: number, callback: AsyncCallback<void>)
 /**
  * fchmodSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchmodSync
  * @param {number} fd - fd.
@@ -452,9 +463,10 @@ declare function fchmod(fd: number, mode: number, callback: AsyncCallback<void>)
 declare function fchmodSync(fd: number, mode: number): void;
 /**
  * fdopenStream.
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdopenStream
  * @permission N/A
  * @function fdopenStream
  * @param {number} fd - fd.
@@ -467,9 +479,10 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
 /**
  * fdopenStreamSync.
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdopenStreamSync
  * @permission N/A
  * @function fdopenStreamSync
  * @param {number} fd - fd.
@@ -481,9 +494,10 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  /**
  * hash.
  * @static
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.hash.hash
  * @permission N/A
  * @function hash
  * @param {string} path - path.
@@ -497,9 +511,9 @@ declare function hash(path: string, algorithm: string, callback: AsyncCallback<s
 /**
  * lchown.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function lchown
  * @param {string} path - path.
@@ -514,9 +528,9 @@ declare function lchown(path: string, uid: number, gid: number, callback: AsyncC
 /**
  * lchownSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function lchownSync
  * @param {string} path - path.
@@ -529,9 +543,10 @@ declare function lchownSync(path: string, uid: number, gid: number): void;
 /**
  * lstat.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.lstat
  * @permission N/A
  * @function lstat
  * @param {string} path - path.
@@ -544,9 +559,10 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 /**
  * lstatSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.lstatSync
  * @permission N/A
  * @function lstatSync
  * @param {string} path - path.
@@ -557,9 +573,10 @@ declare function lstatSync(path: string): Stat;
 /**
  * mkdir.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdir
  * @permission N/A
  * @function mkdir
  * @param {string} path - path.
@@ -574,9 +591,10 @@ declare function mkdir(path: string, mode: number, callback: AsyncCallback<void>
 /**
  * mkdirSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdirSync
  * @permission N/A
  * @function mkdirSync
  * @param {string} path - path.
@@ -588,9 +606,10 @@ declare function mkdirSync(path: string, mode?: number): void;
 /**
  * mkdtemp.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdtemp
  * @permission N/A
  * @function mkdtemp
  * @param {string} prefix - dir prefix.
@@ -603,9 +622,10 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 /**
  * mkdtempSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdtempSync
  * @permission N/A
  * @function mkdtempSync
  * @param {string} prefix - dir prefix.
@@ -616,10 +636,10 @@ declare function mkdtempSync(prefix: string): string;
 /**
  * open.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.open
  * @function open
  * @param {string} path - path.
  * @param {number} [flags = 0] - flags.
@@ -635,10 +655,10 @@ declare function open(path: string, flags: number, mode: number, callback: Async
 /**
  * openSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.openSync
  * @function openSync
  * @param {string} path - path.
  * @param {number} [flags = 0] - flags.
@@ -650,9 +670,10 @@ declare function openSync(path: string, flags?: number, mode?: number): number;
 /**
  * opendir.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.listFile
  * @permission N/A
  * @function opendir
  * @param {string} path - directory name.
@@ -664,7 +685,9 @@ declare function opendir(path: string): Promise<Dir>;
 declare function opendir(path: string, callback: AsyncCallback<Dir>): void;
 /**
  * opendirSync.
- *
+ * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.listFile
  * @param {string} path - directory name.
  * @returns {Dir} opendir Dir Object
  * @throws {TypedError | Error} opendir fail
@@ -673,9 +696,10 @@ declare function opendirSync(path: string): Dir;
 /**
  * readText.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.readText
  * @permission N/A
  * @function readText
  * @param {string} filePath - file path.
@@ -701,9 +725,10 @@ declare function readText(filePath: string, options: {
 /**
  * readTextSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.readTextSync
  * @permission N/A
  * @function readTextSync
  * @param {string} filePath - file path.
@@ -723,10 +748,10 @@ declare function readTextSync(filePath: string, options?: {
 /**
  * read.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.read
  * @function read
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer} buffer - file descriptor.
@@ -752,10 +777,10 @@ declare function read(fd: number, buffer: ArrayBuffer, options: {
 /**
  * readSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.readSync
  * @function readSync
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer} buffer - file descriptor.
@@ -774,9 +799,10 @@ declare function readSync(fd: number, buffer: ArrayBuffer, options?: {
 /**
  * rename.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.rename
  * @permission N/A
  * @function rename
  * @param {string} oldPath - oldPath.
@@ -790,9 +816,10 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
 /**
  * renameSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.renameSync
  * @permission N/A
  * @function renameSync
  * @param {string} oldPath - oldPath.
@@ -804,9 +831,10 @@ declare function renameSync(oldPath: string, newPath: string): void;
 /**
  * rmdir.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.rmdir
  * @permission N/A
  * @function rmdir
  * @param {string} path - path.
@@ -819,9 +847,10 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
 /**
  * rmdirSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.rmdirSync
  * @permission N/A
  * @function rmdirSync
  * @param {string} path - path.
@@ -832,10 +861,10 @@ declare function rmdirSync(path: string): void;
 /**
  * stat.
  * @static
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.stat
  * @param {string} path - path.
  * @param {AsyncCallback<number>} [callback] - callback.
  * @returns {void | Promise<Stat>} no callback return Promise otherwise return void
@@ -846,10 +875,10 @@ declare function stat(path: string, callback: AsyncCallback<Stat>): void;
 /**
  * statSync.
  * @static
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.statSync
  * @param {string} path - path.
  * @returns {Stat} stat success
  * @throws {TypedError | Error} stat fail
@@ -858,9 +887,10 @@ declare function statSync(path: string): Stat;
 /**
  * symlink.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.symlink
  * @permission N/A
  * @function symlink
  * @param {string} target - target.
@@ -874,9 +904,10 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
 /**
  * symlinkSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.symlinkSync
  * @permission N/A
  * @function symlinkSync
  * @param {string} target - target.
@@ -888,10 +919,10 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  /**
  * truncate.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncate
  * @function truncate
  * @param {string} path - path.
  * @param {number} [len = 0] - len.
@@ -905,10 +936,10 @@ declare function truncate(path: string, len: number, callback: AsyncCallback<voi
 /**
  * truncateSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncateSync
  * @function truncateSync
  * @param {string} path - path.
  * @param {number} [len = 0] - len.
@@ -919,9 +950,10 @@ declare function truncateSync(path: string, len?: number): void;
 /**
  * unlink.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.unlink
  * @permission N/A
  * @function unlink
  * @param {string} path - path.
@@ -934,9 +966,10 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
 /**
  * unlinkSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.unlinkSync
  * @permission N/A
  * @function unlinkSync
  * @param {string} path - path.
@@ -947,10 +980,10 @@ declare function unlinkSync(path: string): void;
 /**
  * write.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.write
  * @function write
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer | string} buffer - file descriptor.
@@ -979,10 +1012,10 @@ declare function write(fd: number, buffer: ArrayBuffer | string, options: {
 /**
  * writeSync.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.writeSync
  * @function writeSync
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer | string} buffer - file descriptor.
@@ -1004,7 +1037,6 @@ declare function writeSync(fd: number, buffer: ArrayBuffer | string, options?: {
 /**
  * createWatcher.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
@@ -1026,9 +1058,10 @@ declare interface Dir {
     /**
      * read.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function read
      * @param {AsyncCallback<Dirent>} [callback] - callback.
@@ -1039,9 +1072,10 @@ declare interface Dir {
     read(callback: AsyncCallback<Dirent>): void;
     /**
      * readSync.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function readSync
      * @returns {Dirent} Dirent Object
@@ -1050,9 +1084,10 @@ declare interface Dir {
     readSync(): Dirent;
     /**
      * close.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function close
      * @param {AsyncCallback<void>} [callback] - callback.
@@ -1063,9 +1098,10 @@ declare interface Dir {
     close(callback: AsyncCallback<void>): void;
     /**
      * closeSync.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function closeSync
      * @returns {void} close success
@@ -1078,93 +1114,154 @@ declare interface Dir {
  * Dirent
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.listFile
  * @permission N/A
  */
 declare interface Dirent {
     /**
      * @type {string}
      * @readonly
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      */
     readonly name: string;
     /**
      * isBlockDevice.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isBlockDevice(): boolean;
     /**
      * isCharacterDevice.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isCharacterDevice(): boolean;
     /**
      * isDirectory.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isDirectory(): boolean;
     /**
      * isFIFO.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isFIFO(): boolean;
     /**
      * isFile.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isFile(): boolean;
     /**
      * isSocket.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isSocket(): boolean;
     /**
      * isSymbolicLink.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
     isSymbolicLink(): boolean;
 }
 
+export type Filter = {
+    /**
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @systemapi
+     * @since 9
+     * @readonly
+     */
+    suffix: Array<string>;
+    /**
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @systemapi
+     * @since 9
+     * @readonly
+     */
+    displayName?: Array<string>;
+    /**
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @systemapi
+     * @since 9
+     * @readonly
+     */
+    mimeType?: Array<string>;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @systemapi
+     * @since 9
+     * @readonly
+     */
+    fileSizeOver?: number;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @systemapi
+     * @since 9
+     * @readonly
+     */
+    lastModifiedAfter?: number;
+    /**
+     * @type {boolean}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @systemapi
+     * @since 9
+     * @readonly
+     */
+    excludeMedia?: boolean;
+}
+
 /**
  * Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.Stat
  */
 declare interface Stat {
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1173,7 +1270,6 @@ declare interface Stat {
     readonly dev: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1182,7 +1278,6 @@ declare interface Stat {
     readonly ino: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1191,7 +1286,6 @@ declare interface Stat {
     readonly mode: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1200,7 +1294,6 @@ declare interface Stat {
     readonly nlink: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1209,7 +1302,6 @@ declare interface Stat {
     readonly uid: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1218,7 +1310,6 @@ declare interface Stat {
     readonly gid: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1227,7 +1318,6 @@ declare interface Stat {
     readonly rdev: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1236,7 +1326,6 @@ declare interface Stat {
     readonly size: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1245,7 +1334,6 @@ declare interface Stat {
     readonly blocks: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1254,7 +1342,6 @@ declare interface Stat {
     readonly atime: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1263,7 +1350,6 @@ declare interface Stat {
     readonly mtime: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1272,7 +1358,6 @@ declare interface Stat {
     readonly ctime: number;
     /**
      * isBlockDevice.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1281,7 +1366,6 @@ declare interface Stat {
     isBlockDevice(): boolean;
     /**
      * isCharacterDevice.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1290,7 +1374,6 @@ declare interface Stat {
     isCharacterDevice(): boolean;
     /**
      * isDirectory.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1299,7 +1382,6 @@ declare interface Stat {
     isDirectory(): boolean;
     /**
      * isFIFO.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1308,7 +1390,6 @@ declare interface Stat {
     isFIFO(): boolean;
     /**
      * isFile.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1317,7 +1398,6 @@ declare interface Stat {
     isFile(): boolean;
     /**
      * isSocket.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1326,7 +1406,6 @@ declare interface Stat {
     isSocket(): boolean;
     /**
      * isSymbolicLink.
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1339,13 +1418,14 @@ declare interface Stat {
  * Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.Stream
  * @permission N/A
  */
 declare interface Stream {
     /**
      * close.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1358,7 +1438,6 @@ declare interface Stream {
     /**
      * closeSync.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1369,7 +1448,6 @@ declare interface Stream {
     /**
      * flush.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1382,7 +1460,6 @@ declare interface Stream {
     /**
      * flushSync.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1393,7 +1470,6 @@ declare interface Stream {
     /**
      * write.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1423,7 +1499,6 @@ declare interface Stream {
     /**
      * writeSync.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1445,7 +1520,6 @@ declare interface Stream {
     /**
      * read.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1471,7 +1545,6 @@ declare interface Stream {
     /**
      * readSync.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
@@ -1493,12 +1566,12 @@ declare interface Stream {
  * ReadOut
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
  * @permission N/A
  */
 declare interface ReadOut {
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1507,7 +1580,6 @@ declare interface ReadOut {
     bytesRead: number;
     /**
      * @type {number}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1516,7 +1588,6 @@ declare interface ReadOut {
     offset: number;
     /**
      * @type {ArrayBuffer}
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
@@ -1535,7 +1606,6 @@ declare interface Watcher {
     /**
      * stop.
      *
-     * @note N/A
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A

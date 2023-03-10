@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022 Huawei Device Co., Ltd.
+* Copyright (c) 2022-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -16,16 +16,15 @@
 import { AsyncCallback } from "./basic";
 
 /**
-* Declares interfaces related to mouse pointer attributes.
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Pointer
-* @import import pointer from '@ohos.multimodalInput.pointer';
-*/
-
+ * Declares interfaces related to mouse pointer attributes.
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ */
 declare namespace pointer {
   /**
    * Pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    */
@@ -228,77 +227,92 @@ declare namespace pointer {
 
   /**
    * Sets the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @param speed Pointer moving speed.
+   * @param speed Pointer moving speed, which is any number.
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @param speed Pointer moving speed.
-   * @return Returns the result through a promise.
+   * @param speed Pointer moving speed, which is any number.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
    * Queries the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
    * Queries the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
    */
   function getPointerSpeed(): Promise<number>;
 
   /**
    * Sets the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
    * Queries the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
 
   /**
    * Queries the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
@@ -309,8 +323,20 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
    * and the value false indicates the opposite.
+   * @returns Callback for the input device event.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets whether the pointer icon is visible.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
+   * and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
@@ -318,9 +344,18 @@ declare namespace pointer {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the pointer icon is visible.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   */
   function isPointerVisible(): Promise<boolean>;
 }
 

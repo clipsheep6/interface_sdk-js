@@ -62,7 +62,7 @@ interface RefreshInterface {
 }
 
 /**
- * Defines the refresh attibute functions.
+ * Defines the refresh attribute functions.
  * @since 8
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
@@ -79,5 +79,14 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   onRefreshing(callback: () => void): RefreshAttribute;
 }
 
+/**
+ * Defines Refresh Component.
+ * @since 8
+ */
 declare const Refresh: RefreshInterface;
+
+/**
+ * Defines Refresh Component instance.
+ * @since 8
+ */
 declare const RefreshInstance: RefreshAttribute;

@@ -19,6 +19,8 @@
  * @name formBindingData
  * @since 8
  * @syscap SystemCapability.Ability.Form
+ * @deprecated since 9
+ * @useinstead ohos.app.form.formBindingData
  */
 declare namespace formBindingData {
     /**
@@ -27,7 +29,7 @@ declare namespace formBindingData {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param obj Indicates the FormBindingData instance data.
-     * @return Returns the {@link FormBindingData} instance.
+     * @returns Returns the {@link FormBindingData} instance.
      */
     function createFormBindingData(obj?: Object | string): FormBindingData;
 

@@ -14,8 +14,9 @@
  */
 
 import rpc from "./@ohos.rpc";
-import ExtensionContext from "./application/ExtensionContext";
-import Want from './@ohos.application.Want';
+import WindowExtensionContext from "./application/WindowExtensionContext";
+import Want from './@ohos.app.ability.Want';
+import window from './@ohos.window';
 
 /**
  * class of window extension ability.
@@ -34,7 +35,7 @@ export default class WindowExtensionAbility {
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
-    context: ExtensionContext;
+    context: WindowExtensionContext;
 
     /**
      * Called back when a window extension is first connected to an ability.
@@ -43,10 +44,9 @@ export default class WindowExtensionAbility {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @param want Indicates connection information about the Window ability.
      * @systemapi hide for inner use.
-     * @return Returns the proxy of the Window ability.
      * @StageModelOnly
      */
-    onConnect(want: Want): rpc.RemoteObject;
+    onConnect(want: Want): void;
 
     /**
      * Called back when all abilities connected to a window extension are disconnected.
@@ -55,7 +55,6 @@ export default class WindowExtensionAbility {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @param want Indicates disconnection information about the window extension.
      * @systemapi hide for inner use.
-     * @return -
      * @StageModelOnly
      */
     onDisconnect(want: Want): void;
@@ -66,9 +65,8 @@ export default class WindowExtensionAbility {
      * @since 9
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi hide for inner use.
-     * @return -
      * @StageModelOnly
      */
-    onWindowReady(window: Window): void;
+    onWindowReady(window: window.Window): void;
 }
 

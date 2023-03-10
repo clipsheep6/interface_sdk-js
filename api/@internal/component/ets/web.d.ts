@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
+
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
@@ -158,41 +160,34 @@ declare enum CacheMode {
 }
 
 /**
- * Define html5 web message port.
+ * Enum type supplied to {@link darkMode} for setting the web dark mode.
  * @since 9
  */
-declare class WebMessagePort {
+declare enum WebDarkMode {
   /**
-   * Constructor.
+   * Disable the web dark mode.
    * @since 9
    */
-  constructor();
+  Off,
 
   /**
-   * Close port.
+   * Enable the web dark mode.
    * @since 9
    */
-  close(): void;
+  On,
 
   /**
-   * Post a message to other port.
+   * Make web dark mode follow the system.
    * @since 9
    */
-  postMessageEvent(message: WebMessageEvent): void;
-
-  /**
-   * Receive message from other port.
-   * @since 9
-   */
-  onMessageEvent(callback: (result: string) => void): void;
+  Auto,
 }
 
-
 /**
- * Define html5 web message, which include message and ports.
+ * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
-declare class WebMessageEvent {
+declare class FullScreenExitHandler {
   /**
    * Constructor.
    * @since 9
@@ -200,28 +195,10 @@ declare class WebMessageEvent {
   constructor();
 
   /**
-   * Get message.
+   * Exit the full screen mode.
    * @since 9
    */
-  getData(): string;
-
-  /**
-   * Set message.
-   * @since 9
-   */
-  setData(data: string): void;
-
-  /**
-   * Get ports.
-   * @since 9
-   */
-  getPorts(): Array<WebMessagePort>;
-
-  /**
-   * Set ports.
-   * @since 9
-   */
-  setPorts(ports: Array<WebMessagePort>): void;
+  exitFullScreen(): void;
 }
 
 /**
@@ -258,6 +235,36 @@ declare enum RenderExitReason {
    * @since 9
    */
   ProcessExitUnknown,
+}
+
+/**
+ * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
+ * @since 9
+ */
+ declare enum SslError {
+  /**
+   * General error.
+   * @since 9
+   */
+   Invalid,
+
+  /**
+   * Hostname mismatch.
+   * @since 9
+   */
+   HostMismatch,
+
+  /**
+   * The certificate date is invalid.
+   * @since 9
+   */
+   DateInvalid,
+
+  /**
+   * The certificate authority is not trusted.
+   * @since 9
+   */
+   Untrusted,
 }
 
 /**
@@ -303,7 +310,7 @@ declare class FileSelectorParam {
 
   /**
     * Gets the title of this file selector.
-    * @return Return the title of this file selector.
+    * @returns Return the title of this file selector.
     *
     * @since 9
     */
@@ -311,7 +318,7 @@ declare class FileSelectorParam {
 
   /**
     * Gets the FileSelectorMode of this file selector.
-    * @return Return the FileSelectorMode of this file selector.
+    * @returns Return the FileSelectorMode of this file selector.
     *
     * @since 9
     */
@@ -319,7 +326,7 @@ declare class FileSelectorParam {
 
   /**
     * Gets an array of acceptable MMIE type.
-    * @return Return an array of acceptable MMIE type.
+    * @returns Return an array of acceptable MMIE type.
     *
     * @since 9
     */
@@ -327,7 +334,7 @@ declare class FileSelectorParam {
 
   /**
    * Gets whether this file selector use a live media captured value.
-   * @return Return {@code true} if captured media; return {@code false} otherwise.
+   * @returns Return {@code true} if captured media; return {@code false} otherwise.
    * @since 9
    */
   isCapture(): boolean;
@@ -382,30 +389,6 @@ declare class FileSelectorResult {
 }
 
 /**
- * Defines the hit test value, related to {@link getHitTestValue} method.
- * @since 9
- */
-declare class HitTestValue {
-  /**
-   * Constructor.
-   * @since 9
-   */
-  constructor();
-
-  /**
-   * get the hit test type.
-   * @since 9
-   */
-  getType(): HitTestType;
-
-  /**
-   * get the hit test extra data.
-   * @since 9
-   */
-  getExtra(): string;
-}
-
-/**
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  * @since 9
  */
@@ -433,6 +416,71 @@ declare class HttpAuthHandler {
    * @since 9
    */
   isHttpAuthInfoSaved(): boolean;
+}
+
+/**
+ * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
+ * @since 9
+ */
+ declare class SslErrorHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Confirm to use the SSL certificate.
+   * @since 9
+   */
+  handleConfirm(): void;
+
+  /**
+   * Cancel this request.
+   * @since 9
+   */
+  handleCancel(): void;
+}
+
+/**
+ * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
+ * @since 9
+ */
+ declare class ClientAuthenticationHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Confirm to use the specified private key and client certificate chain.
+   * @param priKeyFile The file that store private key.
+   * @param certChainFile The file that store client certificate chain.
+   *
+   * @since 9
+   */
+  confirm(priKeyFile : string, certChainFile : string): void;
+
+  /**
+   * Confirm to use the authUri.The authUri can be obtained from certificate management.
+   * @param authUri is the key of credentials.The credentials contain sign info and client certificates info.
+   *
+   * @since 10
+   */
+  confirm(authUri : string): void;
+
+  /**
+   * Cancel this certificate request.
+   * @since 9
+   */
+  cancel(): void;
+
+  /**
+   * Ignore this certificate request temporarily.
+   * @since 9
+   */
+  ignore(): void;
 }
 
 /**
@@ -484,6 +532,144 @@ declare class PermissionRequest {
 }
 
 /**
+ * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
+ * @since 9
+ */
+declare class DataResubmissionHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Resend related form data.
+   * @since 9
+   */
+  resend(): void;
+
+  /**
+   * Do not resend related form data.
+   * @since 9
+   */
+  cancel(): void;
+}
+
+/**
+ * Defines the onWindowNew callback, related to {@link onWindowNew} method.
+ * @since 9
+ */
+declare class ControllerHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+   constructor();
+
+  /**
+   * Set WebController object.
+   * @since 9
+   */
+  setWebController(controller: WebviewController): void;
+}
+
+/**
+* Defines the context menu source type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuSourceType {
+  /**
+   * Other source types.
+   * @since 9
+   */
+  None,
+
+  /**
+   * Mouse.
+   * @since 9
+   */
+  Mouse,
+
+  /**
+   * Long press.
+   * @since 9
+   */
+  LongPress,
+}
+
+/**
+* Defines the context menu media type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuMediaType {
+  /**
+   * Not a special node or other media types.
+   * @since 9
+   */
+  None,
+
+  /**
+   * Image.
+   * @since 9
+   */
+  Image,
+}
+
+/**
+* Defines the context menu input field type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuInputFieldType {
+  /**
+   * Not an input field.
+   * @since 9
+   */
+  None,
+
+  /**
+   * The plain text type.
+   * @since 9
+   */
+  PlainText,
+
+  /**
+   * The password type.
+   * @since 9
+   */
+  Password,
+
+  /**
+   * The number type.
+   * @since 9
+   */
+  Number,
+
+  /**
+   * The telephone type.
+   * @since 9
+   */
+  Telephone,
+
+  /**
+   * Other types.
+   * @since 9
+   */
+  Other,
+}
+
+/**
+ * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
+ * @since 9
+ */
+declare enum ContextMenuEditStateFlags {
+  NONE = 0,
+  CAN_CUT = 1 << 0,
+  CAN_COPY = 1 << 1,
+  CAN_PASTE = 1 << 2,
+  CAN_SELECT_ALL = 1 << 3,
+}
+
+/**
 * Defines the context menu param, related to {@link WebContextMenuParam} method.
 * @since 9
 */
@@ -496,51 +682,91 @@ declare class WebContextMenuParam {
 
   /**
    * Horizontal offset coordinates of the menu within the Web component.
-   * @return The context menu x coordinate.
-   * 
+   * @returns The context menu x coordinate.
+   *
    * @since 9
    */
   x(): number;
 
   /**
    * Vertical offset coordinates for the menu within the Web component.
-   * @return The context menu y coordinate.
-   * 
+   * @returns The context menu y coordinate.
+   *
    * @since 9
    */
   y(): number;
 
   /**
    * If the long-press location is the link returns the link's security-checked URL.
-   * @return If relate to a link return link url, else return null.
-   * 
+   * @returns If relate to a link return link url, else return null.
+   *
    * @since 9
    */
   getLinkUrl(): string;
 
   /**
    * If the long-press location is the link returns the link's original URL.
-   * @return If relate to a link return unfilterend link url, else return null.
-   * 
+   * @returns If relate to a link return unfiltered link url, else return null.
+   *
    * @since 9
    */
-  getUnfilterendLinkUrl(): string;
+  getUnfilteredLinkUrl(): string;
 
   /**
    * Returns the SRC URL if the selected element has a SRC attribute.
-   * @return If this context menu is "src" attribute, return link url, else return null.
-   * 
+   * @returns If this context menu is "src" attribute, return link url, else return null.
+   *
    * @since 9
    */
   getSourceUrl(): string;
 
   /**
    * Long press menu location has image content.
-   * @return Return whether this context menu has image content.
-   * 
+   * @returns Return whether this context menu has image content.
+   *
    * @since 9
    */
   existsImageContents(): boolean;
+
+  /**
+   * Returns the type of context node.
+   *
+   * @since 9
+   */
+  getMediaType(): ContextMenuMediaType;
+
+  /**
+   * Returns the text of the selection.
+   *
+   * @since 9
+   */
+  getSelectionText(): string;
+
+  /**
+   * Returns the context menu source type.
+   *
+   * @since 9
+   */
+  getSourceType(): ContextMenuSourceType;
+
+  /**
+   * Returns input field type if the context menu was invoked on an input field.
+   *
+   * @since 9
+   */
+  getInputFieldType(): ContextMenuInputFieldType;
+
+  /**
+   * Returns whether the context is editable.
+   * @since 9
+   */
+  isEditable(): boolean;
+
+  /**
+   * Returns the context editable flags {@link ContextMenuEditStateFlags}.
+   * @since 9
+   */
+  getEditStateFlags(): number;
 }
 
 /**
@@ -557,18 +783,46 @@ declare class WebContextMenuResult {
   /**
    * When close context menu without other call in WebContextMenuResult,
    * User should call this function to close menu
-   * 
+   *
    * @since 9
    */
   closeContextMenu(): void;
 
   /**
-   * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
-   * If WebContextMenuParam has not image content, this function will do nothing. 
-   * 
+   * If WebContextMenuParam has image content, this function will copy image related to this context menu.
+   * If WebContextMenuParam has no image content, this function will do nothing.
+   *
    * @since 9
    */
   copyImage(): void;
+
+  /**
+   * Executes the copy operation related to this context menu.
+   *
+   * @since 9
+   */
+  copy(): void;
+
+  /**
+   * Executes the paste operation related to this context menu.
+   *
+   * @since 9
+   */
+  paste(): void;
+
+  /**
+   * Executes the cut operation related to this context menu.
+   *
+   * @since 9
+   */
+  cut(): void;
+
+  /**
+   * Executes the selectAll operation related to this context menu.
+   *
+   * @since 9
+   */
+  selectAll(): void;
 }
 
 /**
@@ -584,12 +838,20 @@ declare class ConsoleMessage {
    * @param messageLevel The console log level.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.ConsoleMessage#constructor
    */
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
   /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
    * Gets the message of a console message.
-   * @return Return the message of a console message.
+   * @returns Return the message of a console message.
    *
    * @since 8
    */
@@ -597,7 +859,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the Web source file's path and name of a console message.
-   * @return Return the Web source file's path and name of a console message.
+   * @returns Return the Web source file's path and name of a console message.
    *
    * @since 8
    */
@@ -605,7 +867,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the line number of a console message.
-   * @return Return the line number of a console message.
+   * @returns Return the line number of a console message.
    *
    * @since 8
    */
@@ -613,7 +875,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the message level of a console message.
-   * @return Return the message level of a console message, which can be {@link MessageLevel}.
+   * @returns Return the message level of a console message, which can be {@link MessageLevel}.
    *
    * @since 8
    */
@@ -638,7 +900,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets request headers.
-   * @return Return the request headers
+   * @returns Return the request headers
    *
    * @since 8
    */
@@ -646,7 +908,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the request URL.
-   * @return Return the request URL.
+   * @returns Return the request URL.
    *
    * @since 8
    */
@@ -654,7 +916,7 @@ declare class WebResourceRequest {
 
   /**
    * Check whether the request is associated with gesture.
-   * @return Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @returns Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
    *
    * @since 8
    */
@@ -662,7 +924,7 @@ declare class WebResourceRequest {
 
   /**
    * Check whether the request is for getting the main frame.
-   * @return Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
+   * @returns Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
    *
    * @since 8
    */
@@ -670,11 +932,19 @@ declare class WebResourceRequest {
 
   /**
    * Check whether the request redirects.
-   * @return Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @returns Return {@code true} if the request redirects; return {@code false} otherwise.
    *
    * @since 8
    */
   isRedirect(): boolean;
+
+  /**
+   * Get request method.
+   * @returns Return the request method.
+   *
+   * @since 9
+   */
+  getRequestMethod(): string;
 }
 
 
@@ -691,7 +961,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response data.
-   * @return Return the response data.
+   * @returns Return the response data.
    *
    * @since 8
    */
@@ -699,7 +969,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response encoding.
-   * @return Return the response encoding.
+   * @returns Return the response encoding.
    *
    * @since 8
    */
@@ -707,7 +977,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response MIME type.
-   * @return Return the response MIME type.
+   * @returns Return the response MIME type.
    *
    * @since 8
    */
@@ -715,7 +985,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the reason message.
-   * @return Return the reason message.
+   * @returns Return the reason message.
    *
    * @since 8
    */
@@ -723,7 +993,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response headers.
-   * @return Return the response headers.
+   * @returns Return the response headers.
    *
    * @since 8
    */
@@ -731,7 +1001,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response code.
-   * @return Return the response code.
+   * @returns Return the response code.
    *
    * @since 8
    */
@@ -743,8 +1013,8 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseData(data: string);
-  
+  setResponseData(data: string | number);
+
   /**
    * Sets the response encoding.
    * @param encoding the response encoding.
@@ -784,6 +1054,14 @@ declare class WebResourceRequest {
    * @since 9
    */
   setResponseCode(code: number);
+
+  /**
+   * Sets the response is ready or not.
+   * @param IsReady whether the response is ready.
+   *
+   * @since 9
+   */
+  setResponseIsReady(IsReady: boolean);
 }
 
 /**
@@ -817,7 +1095,7 @@ declare class WebResourceError {
 
   /**
    * Gets the info of the Web resource error.
-   * @return Return the info of the Web resource error.
+   * @returns Return the info of the Web resource error.
    *
    * @since 8
    */
@@ -825,7 +1103,7 @@ declare class WebResourceError {
 
   /**
    * Gets the code of the Web resource error.
-   * @return Return the code of the Web resource error.
+   * @returns Return the code of the Web resource error.
    *
    * @since 8
    */
@@ -866,138 +1144,49 @@ declare class WebCookie {
   constructor();
 
   /**
-   * Get whether cookies can be send or accepted.
-   * @return true if can send and accept cookies else false.
-   * 
-   * @since 9
-   */
-  isCookieAllowed(): boolean;
-
-  /**
-   * Get whether third party cookies can be send or accepted.
-   * @return true if can send and accept third party cookies else false.
-   * 
-   * @since 9
-   */
-  isThirdPartyCookieAllowed(): boolean;
-
-  /**
-   * Get whether file scheme cookies can be send or accepted.
-   * @return true if can send and accept else false.
-   * @since 9
-   */
-  isFileURICookieAllowed(): boolean;
-
-  /**
-   * Set whether cookies can be send or accepted.
-   * @param accept whether can send and accept cookies
-   * 
-   * @since 9
-   */
-  putAcceptCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether third party cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   *  
-   * @since 9
-   */
-  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
-
-  /**
-   * Set whether file scheme cookies can be send or accepted.
-   * @param accept true if can send and accept else false.
-   * 
-   * @since 9
-   */
-  putAcceptFileURICookieEnabled(accept: boolean): void;  
-
-  /**
    * Sets the cookie.
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebCookieManager#setCookie
    */
   setCookie();
 
   /**
-   * Sets the cookie.
-   * @since 9
-   */
-  setCookie(url: string, value: string): boolean;
-
-  /**
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebCookieManager#saveCookieAsync
    */
   saveCookie();
-
-  /**
-   * Saves the cookies.
-   * @since 9
-   */
-  saveCookieSync(): boolean;
-
-  /**
-   * Gets all cookies for the given URL.
-   * 
-   * @param url the URL for which the cookies are requested.
-   * @return the cookie value for the given URL.
-   * 
-   * @since 9
-   */
-  getCookie(url: string): string;
-
-  /**
-   * Check whether exists any cookies.
-   * 
-   * @return true if exists cookies else false;
-   * @since 9
-   */
-  existCookie(): boolean;
-
-  /**
-   * Delete all cookies.
-   * 
-   * @since 9
-   */
-  deleteEntireCookie(): void;
-
-  /**
-   * Delete session cookies.
-   * 
-   * @since 9
-   */
-  deleteSessionCookie(): void;
-
-  /**
-   * Delete all expired cookies.
-   * 
-   * @since 9
-   */
-  deleteExpiredCookie(): void;
 }
 
 /**
  * Defines the Web controller.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.web.webview.webview.WebviewController
  */
  declare class WebController {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
 
   /**
    * Let the Web inactive.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#onInactive
    */
   onInactive(): void;
 
   /**
    * Let the Web active.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#onActive
    */
   onActive(): void;
 
@@ -1006,24 +1195,16 @@ declare class WebCookie {
    * @param factor The zoom factor.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#zoom
    */
   zoom(factor: number): void;
 
   /**
-   * Let the Web zoom in.
-   * @since 9
-   */
-   zoomIn(): boolean;
-
-  /**
-   * Let the Web zoom out.
-   * @since 9
-   */
-   zoomOut(): boolean;
-
-  /**
    * Clears the history in the Web.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#clearHistory
    */
   clearHistory(): void;
 
@@ -1032,29 +1213,18 @@ declare class WebCookie {
    * @param options The options with a piece of code and a callback.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#runJavaScript
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
-
-  /**
-   * Create web message ports
-   *
-   * @since 9
-   */
-  createWebMessagePorts(): Array<WebMessagePort>;
-
-  /**
-   * Post web message port to html5
-   * @param options The options with a message event and a uri.
-   *
-   * @since 9
-   */
-  postMessage(options: { message: WebMessageEvent, uri: string}): void;
 
   /**
    * Loads the data or URL.
    * @param options The options with the data or URL and other information.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#loadData
    */
   loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
@@ -1063,18 +1233,24 @@ declare class WebCookie {
    * @param options The options with the URL and other information.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#loadUrl
    */
   loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#refresh
    */
   refresh();
 
   /**
    * Stops the current load.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#stop
    */
   stop();
 
@@ -1083,6 +1259,8 @@ declare class WebCookie {
    * @param options The option with the JavaScript object and method list.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#registerJavaScriptProxy
    */
   registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
@@ -1091,60 +1269,40 @@ declare class WebCookie {
    * @param name The name of a registered JavaScript object to be deleted.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#deleteJavaScriptRegister
    */
   deleteJavaScriptRegister(name: string);
 
   /**
    * Gets the type of HitTest.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#getHitTest
    */
   getHitTest(): HitTestType;
 
   /**
-   * Gets the hit test value of HitTest.
-   * @since 9
-   */
-  getHitTestValue(): HitTestValue;
-
-  /**
-   * Gets the id for the current Web.
-   * @since 9
-   */
-  getWebId(): number;
-
-  /**
-   * Gets the default user agent.
-   * @since 9
-   */
-  getDefaultUserAgent(): string;
-
-  /**
-   * Gets the title of current Web page.
-   * @since 9
-   */
-  getTitle(): string;
-
-  /**
-   * Gets the content height of current Web page.
-   * @since 9
-   */
-  getPageHeight(): number;
-
-  /**
    * Gets the request focus.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#requestFocus
    */
   requestFocus();
 
   /**
    * Checks whether the web page can go back.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessBackward
    */
   accessBackward(): boolean;
 
   /**
    * Checks whether the web page can go forward.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessForward
    */
   accessForward(): boolean;
 
@@ -1153,53 +1311,32 @@ declare class WebCookie {
    * @param step The number of steps.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessStep
    */
   accessStep(step: number): boolean;
 
   /**
    * Goes back in the history of the web page.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#backward
    */
   backward();
 
   /**
    * Goes forward in the history of the web page.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#forward
    */
   forward();
-
-  /**
-   * Goes forward or back backOrForward in the history of the web page.
-   * @since 9
-   */
-  backOrForward(step: number): void;
 
   /**
    * Gets network cookie manager
    * @since 9
    */
   getCookieManager() : WebCookie
-
-  /**
-   * Search all instances of 'searchString' on the page and highlights them,
-   * result will be notify through callback onSearchResultReceive.
-   * @param searchString string to be search.
-   * @since 9
-   */
-  searchAllAsync(searchString: string): void;
-
-  /**
-   * Clears the highlighting surrounding text matches created by searchAllAsync.
-   * @since 9
-   */
-  clearMatches(): void;
-
-  /**
-   * Highlights and scrolls to the next match search.
-   * @param forward step of search is back or forward.
-   * @since 9
-   */
-  searchNext(forward: boolean): void;
 }
 
 /**
@@ -1214,9 +1351,15 @@ declare interface WebOptions {
   src: string | Resource;
   /**
    * Sets the controller of the Web.
+   * @type { (WebController) }
    * @since 8
    */
-  controller: WebController;
+    /**
+   * Sets the controller of the Web.
+   * @type { (WebController | WebviewController) }
+   * @since 9
+    */
+  controller: WebController | WebviewController;
 }
 
 /**
@@ -1251,15 +1394,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   fileAccess(fileAccess: boolean): WebAttribute;
-
-  /**
-   * Sets whether javaScript running in the context of a file URL can access content from other file URLs.
-   * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
-   * {@code false} otherwise.
-   * 
-   * @since 9
-   */
-  fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
 
   /**
    * Sets whether to allow image resources to be loaded from the network.
@@ -1314,10 +1448,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScript object into window and invoke the function in window.
    * @param javaScriptProxy The JavaScript object to be injected.
    *
+   * @type {controller : WebController}
    * @since 8
    */
+    /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   * @param javaScriptProxy The JavaScript object to be injected.
+   *
+   * @type {controller : WebController | WebviewController}
+   * @since 9
+   */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
-    controller: WebController }): WebAttribute;
+    controller: WebController | WebviewController }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
@@ -1334,6 +1476,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
+
+  /**
+   * Sets the dark mode of Web.
+   * @param mode The dark mode, which can be {@link WebDarkMode}.
+   *
+   * @since 9
+   */
+  darkMode(mode: WebDarkMode): WebAttribute;
+
+  /**
+   * Sets whether to enable forced dark algorithm when the web is in dark mode
+   * @param access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   *
+   * @since 9
+   */
+  forceDarkAccess(access: boolean): WebAttribute;
 
   /**
    * Sets whether the Web should save the table data.
@@ -1365,6 +1523,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#textZoomRatio
    */
   textZoomAtio(textZoomAtio: number): WebAttribute;
 
@@ -1399,14 +1558,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   userAgent(userAgent: string): WebAttribute;
-
-  /**
-   * Enables debugging of web contents.
-   * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-   * 
-   * @since 9
-   */
-  webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.
@@ -1552,6 +1703,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onSslErrorEventReceive
    */
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
@@ -1571,13 +1723,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   onShowFileSelector(callback: (event?: { result: FileSelectorResult,
     fileSelector: FileSelectorParam }) => boolean): WebAttribute;
-  
+
   /**
    * Triggered when the render process exits.
    * @param callback The triggered when the render process exits.
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onRenderExited
    */
   onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
 
@@ -1587,6 +1740,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onShowFileSelector
    */
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 
@@ -1597,6 +1751,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onResourceLoad(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Triggered when the web component exit the full screen mode.
+   * @param callback The triggered function when the web component exit the full screen mode.
+   *
+   * @since 9
+   */
+  onFullScreenExit(callback: () => void): WebAttribute;
+
+  /**
+   * Triggered when the web component enter the full screen mode.
+   * @param callback The triggered function when the web component enter the full screen mode.
+   *
+   * @since 9
+   */
+  onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler}) => void): WebAttribute;
 
   /**
    * Triggered when the scale of WebView changed.
@@ -1615,10 +1785,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the resouces loading is intercepted.
-   * @param callback The triggered callback when the resouces loading is intercepted.
+   * Triggered when the resources loading is intercepted.
+   * @param callback The triggered callback when the resources loading is intercepted.
    *
-   * @return If the response value is null, the Web will continue to load the resouces. Otherwise, the response value will be used
+   * @returns If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
    * @since 9
    */
   onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
@@ -1636,10 +1806,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when called to allow custom display of the context menu.
    * @param callback The triggered callback when called to allow custom display of the context menu.
    *
-   * @return If custom display return true.Otherwise, default display return false.
+   * @returns If custom display return true.Otherwise, default display return false.
    * @since 9
    */
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
+
+  /**
+   * Set whether media playback needs to be triggered by user gestures.
+   * @param access True if it needs to be triggered manually by the user else false.
+   *
+   * @since 9
+   */
+  mediaPlayGestureAccess(access: boolean): WebAttribute;
 
   /**
    * Notify search result to host application through onSearchResultReceive.
@@ -1657,7 +1835,226 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
    onScroll(callback: (event: {xOffset: number, yOffset: number}) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page receives an ssl Error.
+   * @param callback The triggered callback when the Web page receives an ssl Error.
+   *
+   * @since 9
+   */
+   onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page needs ssl client certificate from the user.
+   * @param callback The triggered callback when needs ssl client certificate from the user.
+   *
+   * @since 9
+   */
+  onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
+      keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
+
+  /**
+   * Triggered when web page requires the user to create a window.
+   * @param callback The triggered callback when web page requires the user to create a window.
+   *
+   * @since 9
+   */
+  onWindowNew(callback: (event: {isAlert: boolean, isUserTrigger: boolean, targetUrl: string,
+      handler: ControllerHandler}) => void): WebAttribute;
+
+  /**
+   * Triggered when web page requires the user to close a window.
+   * @param callback The triggered callback when web page requires the user to close a window.
+   *
+   * @since 9
+   */
+  onWindowExit(callback: () => void): WebAttribute;
+
+  /**
+   * Set whether multiple windows are supported.
+   * @param multiWindow True if it needs to be triggered manually by the user else false.
+   *
+   * @since 9
+   */
+  multiWindowAccess(multiWindow: boolean): WebAttribute;
+
+  /**
+   * Key events notify the application before the WebView consumes them.
+   * @param event Key event info.
+   *
+   * @returns True if the application consumes key events else false.
+   * @since 9
+   */
+  onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+
+  /**
+   * Set the font of webview standard font library. The default font is "sans serif".
+   * @param family Standard font set series.
+   *
+   * @since 9
+   */
+  webStandardFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview serif font library. The default font is "serif".
+   * @param family Serif font set series.
+   *
+   * @since 9
+   */
+  webSerifFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * @param family Sans serif font set series.
+   *
+   * @since 9
+   */
+  webSansSerifFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview fixed font library. The default font is "monospace".
+   * @param family Fixed font set series.
+   *
+   * @since 9
+   */
+  webFixedFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * @param family fantasy font set series.
+   *
+   * @since 9
+   */
+  webFantasyFont(family: string): WebAttribute;
+
+  /**
+   * Set the font of webview cursive font library. The default font is "cursive".
+   * @param family Cursive font set series.
+   *
+   * @since 9
+   */
+  webCursiveFont(family: string): WebAttribute;
+
+  /**
+   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * @param size Font size.
+   *
+   * @since 9
+   */
+  defaultFixedFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  defaultFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minLogicalFontSize(size: number): WebAttribute;
+
+  /**
+   * Whether web component can load resource from network.
+   * @param block {@code true} means it can't load resource from network; {@code false} otherwise.
+   *
+   * @since 9
+   */
+  blockNetwork(block: boolean): WebAttribute;
+
+  /**
+   * Set whether paint horizontal scroll bar.
+   * @param horizontalScrollBar True if it needs to paint horizontal scroll bar.
+   *
+   * @since 9
+   */
+  horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
+
+  /**
+   * Set whether paint vertical scroll bar.
+   * @param verticalScrollBar True if it needs to paint vertical scroll bar.
+   *
+   * @since 9
+   */
+  verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
+
+  /**
+   * Triggered when the application receive the url of an apple-touch-icon.
+   * @param callback The triggered callback when the application receive an new url of an
+   * apple-touch-icon.
+   * @since 9
+   */
+  onTouchIconUrlReceived(callback: (event: {url: string,
+       precomposed: boolean}) => void): WebAttribute;
+
+  /**
+   * Triggered when the application receive a new favicon for the current web page.
+   * @param callback The triggered callback when the application receive a new favicon for the
+   * current web page.
+   * @since 9
+   */
+  onFaviconReceived(callback: (event: {favicon: PixelMap}) => void): WebAttribute;
+
+  /**
+   * Triggered when previous page will no longer be drawn and next page begin to draw.
+   * @param callback The triggered callback when previous page will no longer be drawn and next
+   * page begin to draw.
+   * @since 9
+   */
+  onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Triggered when the form could be resubmitted.
+   * @param callback The triggered callback to decision whether resend form data or not.
+   * @since 9
+   */
+  onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
+
+  /**
+   * Set whether enable pinch smooth mode.
+   * @param isEnabled True if it needs to enable smooth mode.
+   * @since 9
+   */
+  pinchSmooth(isEnabled: boolean): WebAttribute;
+
+  /**
+   * Whether the window can be open automatically through JavaScript.
+   * @param flag If it is true, the window can be opened automatically through JavaScript.
+   * If it is false and user behavior, the window can be opened automatically through JavaScript.
+   * Otherwise, the window cannot be opened.
+   * @since 10
+   */
+  allowWindowOpenMethod(flag : boolean): WebAttribute;
+
+  /**
+   * Triggered when the playing state of audio on web page changed.
+   * @param callback The playing state of audio on web page.
+   * @since 10
+   */
+  onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
 }
 
+/**
+ * Defines Web Component.
+ * @since 8
+ */
 declare const Web: WebInterface;
+
+/**
+ * Defines Web Component instance.
+ * @since 8
+ */
 declare const WebInstance: WebAttribute;
