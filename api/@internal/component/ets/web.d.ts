@@ -1083,6 +1083,33 @@ declare interface Header {
 }
 
 /**
+ * Defines the options of text selection pop-up menu.
+ * @typedef TextMenuOption
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 10
+ */
+declare interface TextMenuOption {
+  /**
+   * Defines the text content in the menu options.
+   * @type { ResourceStr }
+   * @since 10
+   */
+  content: ResourceStr;
+  /**
+   * Defines path to the icon in the menu options.
+   * @type { ?ResourceStr }
+   * @since 10
+   */
+  icon?: ResourceStr;
+  /**
+   * The callback is triggered when the menu item is tapped.
+   * @type { (selectContent: string) => void }
+   * @since 10
+   */
+  action: (selectContent: string) => void;
+}
+
+/**
  * Defines the Web resource error.
  * @since 8
  */
@@ -2045,6 +2072,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
+
+    /**
+   * Text selection pop-up extension.
+   * @param { Array<TextMenuOption> } value - an array of text selection menu extensions.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  textMenuOptions(value: Array<TextMenuOption>): WebAttribute;
 }
 
 /**
