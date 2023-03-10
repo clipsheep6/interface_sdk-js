@@ -47,6 +47,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 9
      * @StageModelOnly
+     * @deprecated since 10
      */
     TYPE_INPUT_METHOD,
     /**
