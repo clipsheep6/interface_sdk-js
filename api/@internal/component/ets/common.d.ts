@@ -1250,6 +1250,27 @@ declare enum ShadowStyle {
 }
 
 /**
+ * enum Safe area regions.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum SafeAreaRegions {
+  /**
+   * The all safe area.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ALL,
+
+  /**
+   * The safe area defined by the device and the container used by user, such as top and bottom bars.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CONTAINER
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -1900,6 +1921,16 @@ declare class CommonMethod<T> {
    * @since 9
    */
   height(value: Length): T;
+
+  /**
+   * Ignore the safe area.
+   * @param { SafeAreaRegions } regions - Sets the regions of safe area.
+   * @default SafeAreaRegions.ALL
+   * @returns { T } The component instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ignoreSafeArea(regions?: SafeAreaRegions): T;
 
   /**
    * Sets the response region of the current component.
