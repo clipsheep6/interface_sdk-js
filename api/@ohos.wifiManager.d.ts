@@ -75,7 +75,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION
      */
     function scan(): void;
 
@@ -89,9 +89,24 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
+     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
      */
-    function getScanInfoList(): Array<WifiScanInfo>;
+    function getScanResults(): Promise<Array<WifiScanInfo>>;
+    function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
+
+    /**
+     * Obtain the scanned results.
+     *
+     * @returns Returns information about scanned Wi-Fi hotspot if any.
+     *
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
+     */
+    function getScanResultsSync(): Array<WifiScanInfo>;
 
     /**
      * Add Wi-Fi connection configuration to the device.
@@ -164,7 +179,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
     function getCandidateConfigs(): Array<WifiDeviceConfig>;
 
@@ -401,7 +416,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION and ohos.permission.GET_WIFI_CONFIG
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function getDeviceConfigs(): Array<WifiDeviceConfig>;
@@ -423,7 +438,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
-    function updateDeviceConfig(config: WifiDeviceConfig): number;
+    function updateNetwork(config: WifiDeviceConfig): number;
 
     /**
      * Disable the specified DeviceConfig by networkId.
@@ -441,7 +456,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function disableDeviceConfig(networkId: number): void;
+    function disableNetwork(netId: number): void;
 
     /**
      * Remove all the saved Wi-Fi configurations.
@@ -455,7 +470,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function removeAllDeviceConfigs(): void;
+    function removeAllNetwork(): void;
 
     /**
      * Remove a Wi-Fi DeviceConfig with networkId.
@@ -476,7 +491,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function removeDeviceConfig(networkId: number): void;
+    function removeDevice(id: number): void;
 
     /**
      * Enable Wi-Fi hotspot function.
@@ -587,10 +602,10 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
-    function getHotspotStations(): Array<StationInfo>;
+    function getStations(): Array<StationInfo>;
 
     /**
      * Obtain information about the P2P connection.
@@ -615,10 +630,10 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
-    function getCurrentP2pGroup(): Promise<WifiP2pGroupInfo>;
-    function getCurrentP2pGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
+    function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
+    function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
     /**
      * Obtain the information about the found devices.
@@ -629,7 +644,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
     function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
@@ -638,7 +653,7 @@ declare namespace wifiManager {
      * Obtain the information about own device information. 
      *
      * <p> deviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-     * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+	 * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
      *
      * @returns Returns the information about own device info.
      * @since 9
@@ -663,7 +678,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function createP2pGroup(config: WifiP2PConfig): void;
+    function createGroup(config: WifiP2PConfig): void;
 
     /**
      * Remove a P2P group.
@@ -675,7 +690,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function removeP2pGroup(): void;
+    function removeGroup(): void;
 
     /**
      * Initiate a P2P connection to a device with the specified configuration.
@@ -687,7 +702,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
     function p2pConnect(config: WifiP2PConfig): void;
 
@@ -711,9 +726,9 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
-    function startDiscoverP2pDevices(): void;
+    function startDiscoverDevices(): void;
 
     /**
      * Stop discover Wi-Fi P2P devices.
@@ -725,7 +740,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function stopDiscoverP2pDevices(): void;
+    function stopDiscoverDevices(): void;
 
     /**
      * Delete the persistent P2P group with the specified network ID.
@@ -741,7 +756,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function deletePersistentP2pGroup(netId: number): void;
+    function deletePersistentGroup(netId: number): void;
 
     /**
      * Obtain information about the groups.
@@ -753,7 +768,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      * @systemapi Hide this for inner system use.
      */
     function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
@@ -773,7 +788,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function setP2pDeviceName(devName: string): void;
+    function setDeviceName(devName: string): void;
 
     /**
      * Subscribe Wi-Fi status change events.
@@ -1116,7 +1131,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
     function on(type: "p2pDeviceChange", callback: Callback<WifiP2pDevice>): void;
 
@@ -1130,7 +1145,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.LOCATION
      */
     function off(type: "p2pDeviceChange", callback?: Callback<WifiP2pDevice>): void;
 
@@ -1144,7 +1159,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
     function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
 
@@ -1157,7 +1172,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.LOCATION
      */
     function off(type: "p2pPeerDeviceChange", callback?: Callback<WifiP2pDevice[]>): void;
 
