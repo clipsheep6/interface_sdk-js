@@ -2767,6 +2767,8 @@ declare const Common: CommonInterface;
  */
 declare type CustomBuilder = (() => any) | void;
 
+declare type BuilderFunction = () => any;
+
 /**
  * CommonShapeMethod
  * @since 7
