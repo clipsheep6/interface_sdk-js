@@ -1024,7 +1024,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
 
@@ -1042,7 +1042,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
@@ -1056,7 +1056,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
 
@@ -1070,7 +1070,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         putBatch(entries: Entry[]): Promise<void>;
 
@@ -1087,7 +1087,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
 
@@ -1104,7 +1104,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         putBatch(value: Array<ValuesBucket>): Promise<void>;
 
@@ -1119,7 +1119,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         delete(key: string, callback: AsyncCallback<void>): void;
 
@@ -1134,7 +1134,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         delete(key: string): Promise<void>;
 
@@ -1151,7 +1151,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
 
@@ -1168,7 +1168,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
 
@@ -1182,7 +1182,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
 
@@ -1196,7 +1196,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         deleteBatch(keys: string[]): Promise<void>;
 
@@ -1329,7 +1329,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1348,7 +1348,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -1363,7 +1363,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1378,7 +1378,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(query: Query): Promise<KVStoreResultSet>;
 
@@ -1396,7 +1396,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -1414,7 +1414,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -1563,7 +1563,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         startTransaction(): Promise<void>;
 
@@ -1729,7 +1729,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100001 - if the database has been subscribed or queried resultset over the max time limit.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
 
@@ -2002,7 +2002,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2021,7 +2021,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -2042,7 +2042,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @since 9
+         * @since 10
          */
         getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2063,7 +2063,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @since 9
+         * @since 10
          */
         getResultSet(deviceId: string, keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -2078,7 +2078,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2093,7 +2093,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 10
          */
         getResultSet(query: Query): Promise<KVStoreResultSet>;
 
@@ -2109,7 +2109,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @since 9
+         * @since 10
          */
         getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2125,7 +2125,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @since 9
+         * @since 10
          */
         getResultSet(deviceId: string, query: Query): Promise<KVStoreResultSet>;
 
@@ -2143,7 +2143,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2161,7 +2161,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -2180,7 +2180,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2199,7 +2199,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @StageModelOnly
-         * @since 9
+         * @since 10
          */
         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
