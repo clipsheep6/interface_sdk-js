@@ -41,13 +41,6 @@
     readonly nameId?: number;
     
     /**
-     * The unique identification of input method subtype.
-     * @since 10
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly subId?: string;
-    
-    /**
      * The id of input method subtype.
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
