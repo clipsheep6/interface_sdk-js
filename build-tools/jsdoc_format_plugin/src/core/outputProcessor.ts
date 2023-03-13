@@ -22,7 +22,7 @@ import { CommentHelper } from './coreImpls';
 import { comment, Context, ISourceCodeProcessor, ProcessResult, sourceParser } from './typedef';
 
 export class OutputProcessor implements ISourceCodeProcessor {
-  process(context: Context, content: string): ProcessResult {
+  async process(context: Context, content: string): Promise<ProcessResult> {
     try {
       let outputContent = content;
       const formater = new Formatter(content);
