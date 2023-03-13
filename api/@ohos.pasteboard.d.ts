@@ -432,7 +432,7 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
      * @throws { BusinessError } 401 - if type of index is not number.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -486,7 +486,7 @@ declare namespace pasteboard {
      * Removes a Record based on a specified index.
      * @param { number } index - indicates the record index in PasteData.
      * @throws { BusinessError } 401 - if type of index is not number.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
@@ -507,7 +507,7 @@ declare namespace pasteboard {
      * @param { number } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of a new record.
      * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @throws { BusinessError } 12900001 - The index is out of range.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
