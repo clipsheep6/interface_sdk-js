@@ -47,7 +47,7 @@ declare namespace dataShare {
       * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
       * @since 10
       */
-     interface CreateOption {
+    interface CreateOption {
         /**
          * Specifies whether the helper in proxy mode. Default is false
          * true: all operations will not open provider APP as possible
