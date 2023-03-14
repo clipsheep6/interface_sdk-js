@@ -16,7 +16,7 @@
 const path = require('path');
 const fs = require('fs');
 const { checkSpelling } = require('./check_spelling');;
-const { checkJsDocOfCurrentNode } = require('./check_legality');
+const { outputResult } = require('./check_legality');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
@@ -66,7 +66,7 @@ function checkAllNode(node, sourcefile, fileName) {
     checkSpelling(node, sourcefile, fileName);
     // 检测标签合法性、值规范、标签顺序、标签名称
     const permissionConfigPath=require('../config/config.json')
-    checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName)
+    outputResult(node, sourcefile, permissionConfigPath, fileName)
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling

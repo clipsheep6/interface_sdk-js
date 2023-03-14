@@ -55,8 +55,6 @@ function checkApiOrder(node, sourcefile, fileName) {
         checkResult: false,
         errorInfo: errorInfo,
       });
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
     }
   });
   return checkOrderRusult;
@@ -73,9 +71,7 @@ function checkAPIDecorators(tag, node, sourcefile, fileName) {
   const decoratorRuleSet = new Set(docTags);
   if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
     APIDecoratorResult.checkResult = false;
-    APIDecoratorResult.errorInfo = 'jsdoc标签名称错误,请确认修改。'
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APIDecoratorResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+    APIDecoratorResult.errorInfo = 'jsdoc标签名称错误,请确认修改。';
   }
   return APIDecoratorResult;
 }

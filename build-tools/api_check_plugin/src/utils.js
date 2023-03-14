@@ -116,17 +116,8 @@ const ErrorType = {
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
   WRONG_ORDER: 'wrong order',
-  WRONG_EXTENDS: 'wrong extends',
-  WRONG_ENUM: 'wrong enum',
-  WRONG_SINCE: 'wrong since',
-  WRONG_RETURNS: 'wrong returns',
-  WRONG_PARAM: 'wrong param',
-  WRONG_THROWS: 'wrong throws',
-  WRONG_USEINSTEAD: 'wrong useinstead',
-  WRONG_TYPE: 'wrong type',
-  WRONG_DEFAULT: 'wrong default',
-  WRONG_NAMESPACE: 'wrong namespace',
-  WRONG_INTERFACE: 'wrong interface',
+  WRONG_VALUE: 'wrong value',
+  WRONG_SCENE: 'wrong scene',
 };
 exports.ErrorType = ErrorType;
 
