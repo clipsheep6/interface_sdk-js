@@ -50,7 +50,7 @@ declare namespace dataShare {
     interface CreateOption {
         /**
          * Specifies whether the helper in proxy mode. Default is false
-         * true: all operations will not open provider APP as possible
+         * If value is true, all operations will not open provider APP as possible
          * @since 10
          */
         isProxy: boolean;
@@ -82,7 +82,6 @@ declare namespace dataShare {
      * @since 10
      */
     function createDataShareHelper(context: Context, uri: string, option?:CreateOption): Promise<DataShareHelper>;
-
 
     /**
      * Specifies the template id structure.
@@ -167,6 +166,7 @@ declare namespace dataShare {
          * @since 10
          */
         predicates: Array<string>;
+
         /**
          * Specifies the scheduler sql of the template.
          * When modify the subscribed uri's data, scheduler is auto called.
@@ -186,6 +186,7 @@ declare namespace dataShare {
          * @since 10
          */
         uri: string;
+
         /**
          * Specifies the operation result.
          * @since 10
