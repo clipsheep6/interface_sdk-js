@@ -119,30 +119,6 @@ declare namespace dataShare {
     }
 
     /**
-     * Enumerates operation type of change node.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @since 10
-     */
-    enum OperationType {
-        /**
-         * Indicates the operation of insert data.
-         * @since 10
-         */
-        INSERT,
-        /**
-         * Indicates the operation of delete data.
-         * @since 10
-         */
-        DELETE,
-        /**
-         * Indicates the operation of update data.
-         * @since 10
-         */
-        UPDATE,
-    }
-
-    /**
      * Specifies the change node structure in callback.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -155,15 +131,10 @@ declare namespace dataShare {
          */
         uri: string;
         /**
-         * Specifies the operation type of the callback.
+         * Specifies the datas of the callback
          * @since 10
          */
-        optType: OperationType;
-        /**
-         * Specifies the data of the callback, it will saved as json format.
-         * @since 10
-         */
-        data: object;
+        data: Array<object>;
     }
 
     /**
