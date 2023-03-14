@@ -28,20 +28,6 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
  */
 declare namespace dataShare {
     /**
-     * Obtains the dataShareHelper.
-     * @param {Context} context - Indicates the application context.
-     * @param {string} uri - Indicates the path of the file to open.
-     * @param {AsyncCallback<DataShareHelper>} callback - {DataShareHelper}: the dataShareHelper for consumer.
-     * @throws {BusinessError} 401 - the parameter check failed.
-     * @throws {BusinessError} 15700010 - the DataShareHelper is not initialized successfully.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
-    
-    /**
      * Manages create datashare helper options.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -55,6 +41,34 @@ declare namespace dataShare {
          */
         isProxy: boolean;
     }
+
+    /**
+     * Obtains the dataShareHelper.
+     * @param {Context} context - Indicates the application context.
+     * @param {string} uri - Indicates the path of the file to open.
+     * @param {AsyncCallback<DataShareHelper>} callback - {DataShareHelper}: the dataShareHelper for consumer.
+     * @throws {BusinessError} 401 - the parameter check failed.
+     * @throws {BusinessError} 15700010 - the DataShareHelper is not initialized successfully.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
+    /**
+     * Obtains the dataShareHelper.
+     * @param {Context} context - Indicates the application context.
+     * @param {string} uri - Indicates the path of the file to open.
+     * @param {CreateOption} option - Indicates the optional config.
+     * @param {AsyncCallback<DataShareHelper>} callback - {DataShareHelper}: the dataShareHelper for consumer.
+     * @throws {BusinessError} 401 - the parameter check failed.
+     * @throws {BusinessError} 15700010 - the DataShareHelper is not initialized successfully.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    function createDataShareHelper(context: Context, uri: string, option: CreateOption, callback: AsyncCallback<DataShareHelper>): void;
 
     /**
      * Obtains the dataShareHelper.
@@ -230,6 +244,7 @@ declare namespace dataShare {
          * @param {string} uri - Indicates the uri to add.
          * @param {number} subscriberId - the subscribe id to add..
          * @param {Template} template - the template to add.
+         * @returns {boolean}: the operation result, true means success.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
@@ -241,6 +256,7 @@ declare namespace dataShare {
          * Deletes a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
          * @param {string} uri - Indicates the uri to delete.
          * @param {number} subscriberId - the subscribe id.
+         * @returns {boolean}: the operation result, true means success.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
@@ -254,12 +270,13 @@ declare namespace dataShare {
          * @param {Array<string>} uris - Indicates the paths of the data to operate.
          * @param {TemplateId} templateId - the template of on.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
+         * @returns {boolean}: the operation result, true means success.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        on(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): void;
+        on(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): boolean;
 
         /**
          * Deregisters observers used for monitoring data specified by the given uri and template.
@@ -267,12 +284,13 @@ declare namespace dataShare {
          * @param {Array<string>} uris - Indicates the paths of the data to operate.
          * @param {TemplateId} templateId - the template of off.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of off.
+         * @returns {boolean}: the operation result, true means success.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): void;
+        off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): boolean;
 
         /**
          * Inserts a single data record into the database.
