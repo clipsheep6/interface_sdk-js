@@ -20,11 +20,11 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
-* This module provides the dataShare capability for consumer.
-* @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-* @systemapi
-* @StageModelOnly
-* @since 9
+ * This module provides the dataShare capability for consumer.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+ * @systemapi
+ * @StageModelOnly
+ * @since 9
  */
 declare namespace dataShare {
     /**
@@ -40,6 +40,21 @@ declare namespace dataShare {
      * @since 9
      */
     function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
+    
+     /**
+      * Manages create datashare helper options.
+      *
+      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+      * @since 10
+      */
+     interface CreateOption {
+        /**
+         * Specifies whether the helper in proxy mode. Default is false
+         * true: all operations will not open provider APP as possible
+         * @since 10
+         */
+        isProxy: boolean;
+    }
 
     /**
      * Obtains the dataShareHelper.
@@ -53,8 +68,130 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 9
      */
-    function createDataShareHelper(context: Context, uri: string): Promise<DataShareHelper>;
+    /**
+     * Obtains the dataShareHelper.
+     * @param {Context} context - Indicates the application context.
+     * @param {string} uri - Indicates the path of the file to open.
+     * @param {CreateOption} option - Indicates the optional config.
+     * @returns {Promise<DataShareHelper>} {DataShareHelper}: the dataShareHelper for consumer.
+     * @throws {BusinessError} 401 - the parameter check failed.
+     * @throws {BusinessError} 15700010 - the DataShareHelper is not initialized successfully.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    function createDataShareHelper(context: Context, uri: string, option?:CreateOption): Promise<DataShareHelper>;
 
+
+    /**
+     * Specifies the template id structure.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
+    interface TemplateId {
+        /**
+         * Specifies the id of subscriber, who process the callback
+         * Same as subscriberId in {@link DataShareHelper#addTemplate}
+         * @since 10
+         */
+        subscriberId: number;
+        /**
+         * Specifies the bundleName of template owner, who create the template
+         * Same as the caller's bundleName of {@link DataShareHelper#addTemplate}
+         * @since 10
+         */
+        bundleNameOfOwner: string;
+    }
+
+    /**
+     * Enumerates operation type of change node.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
+    enum OperationType {
+        /**
+         * Indicates the operation of insert data.
+         * @since 10
+         */
+        INSERT = 0,
+        /**
+         * Indicates the operation of delete data.
+         * @since 10
+         */
+        DELETE = 1,
+        /**
+         * Indicates the operation of update data.
+         * @since 10
+         */
+        UPDATE = 2,
+    }
+
+    /**
+     * Specifies the change node structure in callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
+    interface ChangeNode {
+        /**
+         * Specifies the uri of the callback.
+         * @since 10
+         */
+        uri: string;
+        /**
+         * Specifies the operation type of the callback.
+         * @since 10
+         */
+        optType: OperationType;
+        /**
+         * Specifies the data of the callback.
+         * @since 10
+         */
+        data: string;
+    }
+
+    /**
+     * Specifies the template structure in subscribe.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
+    interface Template {
+        /**
+         * Specifies the predicates of the template.
+         * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
+         * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
+         * @since 10
+         */
+        predicates: Array<string>;
+        /**
+         * Specifies the scheduler sql of the template.
+         * When modify the subscribed uri's data, scheduler is auto called.
+         * @since 10
+         */
+        scheduler: OperationType;
+    }
+    /**
+     * Specifies the operation result structure in callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
+    interface OperationResult {
+        /**
+         * Specifies the uri of the operation result.
+         * @since 10
+         */
+        uri: string;
+        /**
+         * Specifies the operation result.
+         * @since 10
+         */
+        isSuccess: boolean;
+    }
     /**
      * DataShareHelper
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -86,6 +223,55 @@ declare namespace dataShare {
          * @since 9
          */
         off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
+
+        /**
+         * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
+         * @param {string} uri - Indicates the uri to add.
+         * @param {number} subscriberId - the subscribe id to add..
+         * @param {Template} template - the template to add.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        addTemplate(uri: string, subscriberId: number, template: Template): boolean;
+
+        /**
+         * Deletes a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
+         * @param {string} uri - Indicates the uri to delete.
+         * @param {number} subscriberId - the subscribe id.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        delTemplate(uri: string, subscriberId: number): boolean;
+
+        /**
+         * Registers observers to observe data specified by the given uri and template.
+         * @param {string} type - type must be 'dataChange'.
+         * @param {Array<string>} uris - Indicates the paths of the data to operate.
+         * @param {TemplateId} templateId - the template of on.
+         * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        on(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): void;
+
+        /**
+         * Deregisters observers used for monitoring data specified by the given uri and template.
+         * @param {string} type - type must be 'dataChange'.
+         * @param {Array<string>} uris - Indicates the paths of the data to operate.
+         * @param {TemplateId} templateId - the template of off.
+         * @param {AsyncCallback<ChangeNode>} callback - the callback of off.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): void;
 
         /**
          * Inserts a single data record into the database.
