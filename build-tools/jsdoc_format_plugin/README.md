@@ -54,4 +54,4 @@ Options:
 
 ## 约束
 
-Node.js version 15.0.0 及以上
+Nodejs version 15.0.0 及以上

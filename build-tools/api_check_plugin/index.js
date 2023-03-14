@@ -13,7 +13,77 @@
  * limitations under the License.
  */
 
-const checkLegality = require('./src/check_legality');
-exports.checkJSDoc = function (node, sourceFile) {
-  return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, undefined);
+const fs = require('fs');
+const path = require('path');
+const urlPrefix = 'https://gitee.com/openharmony/utils_system_resources/raw/';
+const urlSuffix = '/systemres/main/config.json';
+
+exports.checkJSDoc = function (node, sourceFile, fileName) {
+  const checkLegality = require('./src/check_legality');
+  return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, undefined, fileName);
 };
+
+exports.initEnv = function (branch) {
+  const { checkOption } = require('./src/utils');
+  return new Promise((resolve, reject) => {
+    const permissionName = getPermissionName(branch);
+    const permissionConfig = getLocalPermissionConfig(permissionName);
+    if (permissionConfig) {
+      checkOption.permissionContent = permissionConfig;
+      resolve();
+      return;
+    }
+    const workingBranch = branch ? branch : 'master';
+    const url = `${urlPrefix}${workingBranch}${urlSuffix}`;
+    updatePermissionConfig(url, (content) => {
+      if (content) {
+        checkOption.permissionContent = content;
+        savePermissionConfig(content, permissionName);
+      }
+      resolve();
+    });
+  });
+}
+
+function updatePermissionConfig(url, callback) {
+  let requestText = undefined;
+  const https = require('https');
+  https.get(url, (res) => {
+    res.on('data', (chunk) => {
+      if (typeof chunk === 'string') {
+        requestText = chunk;
+      } else {
+        const dataStr = new TextDecoder().decode(chunk);
+        requestText = requestText ? (requestText + dataStr) : dataStr;
+      }
+    });
+  }).on('error', (err) => {
+    console.error('updatePermissionConfig error: ' + JSON.stringify(err));
+  }).on('close', () => {
+    callback(requestText);
+  });
+}
+
+function getLocalPermissionConfig(name) {
+  const localPermissionFile = path.resolve(__dirname, name);
+  if (fs.existsSync(localPermissionFile)) {
+    const content = fs.readFileSync(localPermissionFile);
+    try {
+      JSON.parse(content);
+      return content;
+    } catch (err) {
+      console.warn(`parse error ${localPermissionFile}`);
+    }
+  }
+  return undefined;
+}
+
+function savePermissionConfig(content, name) {
+  const localPermissionFile = path.resolve(__dirname, name);
+  fs.writeFileSync(localPermissionFile, content);
+  console.log(`update permission configuration to ${localPermissionFile}`);
+}
+
+function getPermissionName(branch) {
+  return `permissions_${branch}.config.json`;
+}

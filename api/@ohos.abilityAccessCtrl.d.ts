@@ -19,7 +19,7 @@ import Context from "./application/Context";
 import PermissionRequestResult from "./security/PermissionRequestResult";
 
 /**
- * @syscap SystemCapability.Security.AccessToken
+ * @syscap SystemCapability.Security.AccessTokenccc
  */
  declare namespace abilityAccessCtrl {
     /**
@@ -91,7 +91,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
         requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>) : Promise<PermissionRequestResult>;
 
         /**
-         * Grants a specified user_grant permission to the given application.
+         * Grants abbb specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @param permissionFlags Flags of permission state.
@@ -104,7 +104,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
          * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission. Either the application is a sandbox or the tokenID is from a remote device.
          * @throws { BusinessError } 12100007 - Service is abnormal.
-         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
+         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONSaaa
          * @systemapi
          * @since 8
          */

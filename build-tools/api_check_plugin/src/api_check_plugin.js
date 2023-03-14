@@ -15,13 +15,10 @@
 
 const path = require('path');
 const fs = require('fs');
-const ts = require(path.resolve(__dirname, '../node_modules/typescript'));
-const { checkAPIDecorators } = require('./check_decorator');
-const { checkSpelling } = require('./check_spelling');
-const { checkPermission } = require('./check_permission');
-const { checkSyscap } = require('./check_syscap');
-const { checkDeprecated } = require('./check_deprecated');
-const { hasAPINote, ApiCheckResult } = require('./utils');
+const { checkSpelling } = require('./check_spelling');;
+const { checkJsDocOfCurrentNode } = require('./check_legality');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
+const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 
 function checkAPICodeStyle(url) {
@@ -64,20 +61,12 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  if (!ts.isImportDeclaration) {
-
-  }
   if (hasAPINote(node)) {
-    // check decorator
-    checkAPIDecorators(node, sourcefile, fileName);
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
-    // check syscap
-    checkSyscap(node, sourcefile, fileName);
-    // check deprecated
-    checkDeprecated(node, sourcefile, fileName);
-    // check permission
-    checkPermission(node, sourcefile, fileName);
+    // 检测标签合法性、值规范、标签顺序、标签名称
+    const permissionConfigPath=require('../config/config.json')
+    checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName)
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling

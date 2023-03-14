@@ -16,7 +16,23 @@ const fs = require('fs');
 const path = require('path');
 const ExcelJS = require('exceljs');
 const cm = require('comment-parser');
-const ts = require(path.resolve(__dirname, '../node_modules/typescript'));
+function requireTypescriptModule() {
+  const buildOption = require('./build.json');
+  if (buildOption.isBundle) {
+    return require('typescript');
+  }
+  const tsPathArray = [
+    path.resolve(__dirname, "../node_modules/typescript"),
+    path.resolve(__dirname, "../../node_modules/typescript")
+  ];
+  if (fs.existsSync(tsPathArray[0])) {
+    return require(tsPathArray[0]);
+  } else if (fs.existsSync(tsPathArray[1])) {
+    return require(tsPathArray[1]);
+  }
+}
+exports.requireTypescriptModule = requireTypescriptModule;
+const ts = requireTypescriptModule();
 
 const commentNodeWhiteList = [
   ts.SyntaxKind.PropertySignature, ts.SyntaxKind.CallSignature, ts.SyntaxKind.MethodSignature,
@@ -27,6 +43,13 @@ const commentNodeWhiteList = [
   ts.SyntaxKind.LabeledStatement
 ];
 exports.commentNodeWhiteList = commentNodeWhiteList;
+
+const tagsArrayOfOrder = [
+  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
+  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
+];
+exports.tagsArrayOfOrder = tagsArrayOfOrder;
 
 function getAPINote(node) {
   const apiLength = node.getText().length;
@@ -92,7 +115,18 @@ const ErrorType = {
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order'
+  WRONG_ORDER: 'wrong order',
+  WRONG_EXTENDS: 'wrong extends',
+  WRONG_ENUM: 'wrong enum',
+  WRONG_SINCE: 'wrong since',
+  WRONG_RETURNS: 'wrong returns',
+  WRONG_PARAM: 'wrong param',
+  WRONG_THROWS: 'wrong throws',
+  WRONG_USEINSTEAD: 'wrong useinstead',
+  WRONG_TYPE: 'wrong type',
+  WRONG_DEFAULT: 'wrong default',
+  WRONG_NAMESPACE: 'wrong namespace',
+  WRONG_INTERFACE: 'wrong interface',
 };
 exports.ErrorType = ErrorType;
 
@@ -120,11 +154,11 @@ exports.ApiCheckResult = new ApiCheckResultClass();
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'type', 'errorInfo', 'version', 'model'];
+  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'apiName', 'apiContent', 'type', 'errorInfo', 'version', 'model'];
   for (let i = 1; i <= apiCheckArr.length; i++) {
     const apiData = apiCheckArr[i - 1];
-    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.type, apiData.errorInfo,
-      apiData.version, apiData.basename];
+    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.apiName, apiData.apiFullText,
+      apiData.type, apiData.errorInfo, apiData.version, apiData.basename];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
