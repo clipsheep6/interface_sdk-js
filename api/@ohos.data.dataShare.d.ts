@@ -245,6 +245,9 @@ declare namespace dataShare {
          * @param {number} subscriberId - the subscribe id to add..
          * @param {Template} template - the template to add.
          * @returns {boolean}: the operation result, true means success.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 15700011 - the uri is not exist.
+         * @throws {BusinessError} 15700012 - the templates has been created too much.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
@@ -257,6 +260,8 @@ declare namespace dataShare {
          * @param {string} uri - Indicates the uri to delete.
          * @param {number} subscriberId - the subscribe id.
          * @returns {boolean}: the operation result, true means success.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 15700011 - the uri is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
@@ -271,6 +276,7 @@ declare namespace dataShare {
          * @param {TemplateId} templateId - the template of on.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
          * @returns {Array<OperationResult>}: the operation result.
+         * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
@@ -285,12 +291,54 @@ declare namespace dataShare {
          * @param {TemplateId} templateId - the template of off.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of off.
          * @returns {Array<OperationResult>}: the operation result.
+         * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
         off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): Array<OperationResult>;
+
+        /**
+         * Update a single data into the memory of system, it will not release when APP closed.
+         * @param {string} uri - Indicates the path of the data to operate.
+         * @param {string} data - Indicates the data to insert.
+         * @param {AsyncCallback<void>} callback
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 15700011 - the uri is not exist.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        update(uri: string, data: string, callback: AsyncCallback<void>): void;
+
+        /**
+         * Update a single data into the memory of system, it will not release when APP closed.
+         * @param {string} uri - Indicates the path of the data to operate.
+         * @param {string} data - Indicates the data to insert.
+         * @returns {Promise<void>}
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 15700011 - the uri is not exist.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        update(uri: string, data: string): Promise<void>;
+
+        /**
+         * get a single data from the memory of system.
+         * @param {string} uri - Indicates the path of the data to get.
+         * @returns {string>} - the data.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 15700011 - the uri is not exist.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getData(uri: string): string;
 
         /**
          * Inserts a single data record into the database.
