@@ -160,10 +160,10 @@ declare namespace dataShare {
          */
         optType: OperationType;
         /**
-         * Specifies the data of the callback.
+         * Specifies the data of the callback, it will saved as json format.
          * @since 10
          */
-        data: string;
+        data: object;
     }
 
     /**
@@ -302,7 +302,7 @@ declare namespace dataShare {
         /**
          * Update a single data into the memory of system, it will not release when APP closed.
          * @param {string} uri - Indicates the path of the data to operate.
-         * @param {string} data - Indicates the data to insert.
+         * @param {object} data - Indicates the data to insert.
          * @param {AsyncCallback<void>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700011 - the uri is not exist.
@@ -311,12 +311,12 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        update(uri: string, data: string, callback: AsyncCallback<void>): void;
+        update(uri: string, data: object, callback: AsyncCallback<void>): void;
 
         /**
          * Update a single data into the memory of system, it will not release when APP closed.
          * @param {string} uri - Indicates the path of the data to operate.
-         * @param {string} data - Indicates the data to insert.
+         * @param {object} data - Indicates the data to insert.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700011 - the uri is not exist.
@@ -325,12 +325,12 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        update(uri: string, data: string): Promise<void>;
+        update(uri: string, data: object): Promise<void>;
 
         /**
          * get a single data from the memory of system.
          * @param {string} uri - Indicates the path of the data to get.
-         * @returns {string>} - the data.
+         * @returns {object>} - the data.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700011 - the uri is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -338,7 +338,7 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        getData(uri: string): string;
+        getData(uri: string): object;
 
         /**
          * Inserts a single data record into the database.
