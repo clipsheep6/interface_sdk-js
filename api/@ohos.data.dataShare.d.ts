@@ -98,7 +98,7 @@ declare namespace dataShare {
     function createDataShareHelper(context: Context, uri: string, option?:CreateOption): Promise<DataShareHelper>;
 
     /**
-     * Specifies the template id structure.
+     * Specifies the {@link Template} id structure.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @since 10
@@ -129,17 +129,17 @@ declare namespace dataShare {
          * Indicates the operation of insert data.
          * @since 10
          */
-        INSERT = 0,
+        INSERT,
         /**
          * Indicates the operation of delete data.
          * @since 10
          */
-        DELETE = 1,
+        DELETE,
         /**
          * Indicates the operation of update data.
          * @since 10
          */
-        UPDATE = 2,
+        UPDATE,
     }
 
     /**
