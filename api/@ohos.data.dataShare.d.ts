@@ -186,7 +186,7 @@ declare namespace dataShare {
          * When modify the subscribed uri's data, scheduler is auto called.
          * @since 10
          */
-        scheduler: OperationType;
+        scheduler: string;
     }
     /**
      * Specifies the operation result structure in callback.
