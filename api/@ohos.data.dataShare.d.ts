@@ -41,12 +41,12 @@ declare namespace dataShare {
      */
     function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
     
-     /**
-      * Manages create datashare helper options.
-      *
-      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-      * @since 10
-      */
+    /**
+     * Manages create datashare helper options.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
     interface CreateOption {
         /**
          * Specifies whether the helper in proxy mode. Default is false
