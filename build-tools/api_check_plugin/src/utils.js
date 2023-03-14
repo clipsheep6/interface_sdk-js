@@ -115,7 +115,18 @@ const ErrorType = {
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order'
+  WRONG_ORDER: 'wrong order',
+  WRONG_EXTENDS: 'wrong extends',
+  WRONG_ENUM: 'wrong enum',
+  WRONG_SINCE: 'wrong since',
+  WRONG_RETURNS: 'wrong returns',
+  WRONG_PARAM: 'wrong param',
+  WRONG_THROWS: 'wrong throws',
+  WRONG_USEINSTEAD: 'wrong useinstead',
+  WRONG_TYPE: 'wrong type',
+  WRONG_DEFAULT: 'wrong default',
+  WRONG_NAMESPACE: 'wrong namespace',
+  WRONG_INTERFACE: 'wrong interface',
 };
 exports.ErrorType = ErrorType;
 
@@ -143,11 +154,11 @@ exports.ApiCheckResult = new ApiCheckResultClass();
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'type', 'errorInfo', 'version', 'model'];
+  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'apiName', 'apiContent', 'type', 'errorInfo', 'version', 'model'];
   for (let i = 1; i <= apiCheckArr.length; i++) {
     const apiData = apiCheckArr[i - 1];
-    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.type, apiData.errorInfo,
-      apiData.version, apiData.basename];
+    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.apiName, apiData.apiFullText,
+      apiData.type, apiData.errorInfo, apiData.version, apiData.basename];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
