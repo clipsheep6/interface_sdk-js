@@ -161,6 +161,18 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
 /**
+ * Sets the text decoration of canvas. The options are as follows:
+ * "none": The text that defines the standard.
+ * "underline": Define a line under the text.
+ * "overline": Define a line on the text.
+ * "linethrough": Define a line that goes through the text.
+ * @form
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type TextDecoration = "none" | "underline" | "overline" | "linethrough";
+
+/**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
  * @since 8
  */
@@ -1780,12 +1792,12 @@ declare class CanvasRenderer extends CanvasPath {
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 
   /**
-   * The text decoration of the text, For details, see {@link enum#TextDecorationType}.
+   * The text decoration of the text, the default value is "none". For details, see {@link TextDecoration}.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  textDecoration: TextDecorationType;
+  textDecoration: TextDecoration;
 
   /**
    * The color of the text decoration, For details, see {@link unit#ResourceColor}.
