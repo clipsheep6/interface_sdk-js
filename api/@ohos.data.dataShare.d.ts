@@ -270,13 +270,13 @@ declare namespace dataShare {
          * @param {Array<string>} uris - Indicates the paths of the data to operate.
          * @param {TemplateId} templateId - the template of on.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
-         * @returns {boolean}: the operation result, true means success.
+         * @returns {Array<OperationResult>}: the operation result.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        on(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): boolean;
+        on(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): Array<OperationResult>;
 
         /**
          * Deregisters observers used for monitoring data specified by the given uri and template.
@@ -284,13 +284,13 @@ declare namespace dataShare {
          * @param {Array<string>} uris - Indicates the paths of the data to operate.
          * @param {TemplateId} templateId - the template of off.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of off.
-         * @returns {boolean}: the operation result, true means success.
+         * @returns {Array<OperationResult>}: the operation result.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): boolean;
+        off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): Array<OperationResult>;
 
         /**
          * Inserts a single data record into the database.
