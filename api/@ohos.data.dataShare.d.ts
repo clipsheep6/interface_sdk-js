@@ -95,7 +95,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    function createDataShareHelper(context: Context, uri: string, option?:CreateOption): Promise<DataShareHelper>;
+    function createDataShareHelper(context: Context, uri: string, option?: CreateOption): Promise<DataShareHelper>;
 
     /**
      * Specifies the {@link Template} id structure.
