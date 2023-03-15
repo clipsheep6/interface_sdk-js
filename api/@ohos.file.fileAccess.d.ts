@@ -213,44 +213,10 @@ declare namespace fileAccess {
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param filter Indicates the filter of file.
+         * @param filter Json string, indicate the filter of file.
          * @returns { FileIterator } Returns the FileIterator Object.
-         * @throws { BusinessError } 13900001 - Operation not permitted
-         * @throws { BusinessError } 13900002 - No such file or directory
-         * @throws { BusinessError } 13900004 - Interrupted system call
-         * @throws { BusinessError } 13900006 - No such device or address
-         * @throws { BusinessError } 13900008 - Bad file descriptor
-         * @throws { BusinessError } 13900011 - Out of memory
-         * @throws { BusinessError } 13900012 - Permission denied
-         * @throws { BusinessError } 13900013 - Bad address
-         * @throws { BusinessError } 13900014 - Device or resource busy
-         * @throws { BusinessError } 13900015 - File exists
-         * @throws { BusinessError } 13900017 - No such device
-         * @throws { BusinessError } 13900018 - Not a directory
-         * @throws { BusinessError } 13900019 - Is a directory
-         * @throws { BusinessError } 13900020 - Invalid argument
-         * @throws { BusinessError } 13900022 - Too many open files
-         * @throws { BusinessError } 13900023 - Text file busy
-         * @throws { BusinessError } 13900024 - File too large
-         * @throws { BusinessError } 13900025 - No space left on device
-         * @throws { BusinessError } 13900027 - Read-only file system
-         * @throws { BusinessError } 13900029 - Resource deadlock would occur
-         * @throws { BusinessError } 13900030 - File name too long
-         * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-         * @throws { BusinessError } 13900034 - Operation would block
-         * @throws { BusinessError } 13900038 - Value too large for defined data type
-         * @throws { BusinessError } 13900041 - Quota exceeded
-         * @throws { BusinessError } 13900042 - Unknown error
-         * @throws { BusinessError } 14000001 - Invalid display name
-         * @throws { BusinessError } 14000002 - Invalid uri
-         * @throws { BusinessError } 14000003 - Invalid file extension
-         * @throws { BusinessError } 14000004 - File has been put into trash bin
-         * @throws { BusinessError } 14300001 - IPC error
-         * @throws { BusinessError } 14300002 - Invalid uri
-         * @throws { BusinessError } 14300003 - Fail to get fileextension info
-         * @throws { BusinessError } 14300004 - Get wrong result
          */
-        listFile(filter?: Filter): FileIterator;
+        listFile(filter?: string): FileIterator;
 
         /**
          * Recursively list all files in the current directory.
@@ -259,44 +225,10 @@ declare namespace fileAccess {
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param filter Indicates the filter of file.
+         * @param filter Json string, indicate the filter of file.
          * @returns { FileIterator } Returns the FileIterator Object.
-         * @throws { BusinessError } 13900001 - Operation not permitted
-         * @throws { BusinessError } 13900002 - No such file or directory
-         * @throws { BusinessError } 13900004 - Interrupted system call
-         * @throws { BusinessError } 13900006 - No such device or address
-         * @throws { BusinessError } 13900008 - Bad file descriptor
-         * @throws { BusinessError } 13900011 - Out of memory
-         * @throws { BusinessError } 13900012 - Permission denied
-         * @throws { BusinessError } 13900013 - Bad address
-         * @throws { BusinessError } 13900014 - Device or resource busy
-         * @throws { BusinessError } 13900015 - File exists
-         * @throws { BusinessError } 13900017 - No such device
-         * @throws { BusinessError } 13900018 - Not a directory
-         * @throws { BusinessError } 13900019 - Is a directory
-         * @throws { BusinessError } 13900020 - Invalid argument
-         * @throws { BusinessError } 13900022 - Too many open files
-         * @throws { BusinessError } 13900023 - Text file busy
-         * @throws { BusinessError } 13900024 - File too large
-         * @throws { BusinessError } 13900025 - No space left on device
-         * @throws { BusinessError } 13900027 - Read-only file system
-         * @throws { BusinessError } 13900029 - Resource deadlock would occur
-         * @throws { BusinessError } 13900030 - File name too long
-         * @throws { BusinessError } 13900033 - Too many symbolic links encountered
-         * @throws { BusinessError } 13900034 - Operation would block
-         * @throws { BusinessError } 13900038 - Value too large for defined data type
-         * @throws { BusinessError } 13900041 - Quota exceeded
-         * @throws { BusinessError } 13900042 - Unknown error
-         * @throws { BusinessError } 14000001 - Invalid display name
-         * @throws { BusinessError } 14000002 - Invalid uri
-         * @throws { BusinessError } 14000003 - Invalid file extension
-         * @throws { BusinessError } 14000004 - File has been put into trash bin
-         * @throws { BusinessError } 14300001 - IPC error
-         * @throws { BusinessError } 14300002 - Invalid uri
-         * @throws { BusinessError } 14300003 - Fail to get fileextension info
-         * @throws { BusinessError } 14300004 - Get wrong result
          */
-        scanFile(filter?: Filter): FileIterator;
+        scanFile(filter?: string): FileIterator;
     }
 
     /**
