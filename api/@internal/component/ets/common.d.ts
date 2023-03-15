@@ -194,6 +194,13 @@ declare const Styles: MethodDecorator;
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
+ * Defining AnimatableExtend MethodDecorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare const AnimatableExtend: MethodDecorator & ((value: any) => MethodDecorator);
+
+/**
  * Defining Concurrent MethodDecorator
  * @since 9
  */
@@ -421,6 +428,42 @@ declare interface AnimateParam {
    * @since 9
    */
   onFinish?: () => void;
+}
+
+/**
+ * interface for Animatable data
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface AnimatableArithmetic<T> {
+  /**
+    * plus function for AnimatableArithmetic
+    * @type AnimatableArithmetic<T>
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+   */
+  plus(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
+  /**
+    * subtract function for AnimatableArithmetic
+    * @type AnimatableArithmetic<T>
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  subtract(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
+  /**
+    * multiply function for AnimatableArithmetic
+    * @type AnimatableArithmetic<T>
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  multiply(scale: number): AnimatableArithmetic<T>;
+  /**
+    * equals function for AnimatableArithmetic
+    * @type boolean
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  equals(rhs: AnimatableArithmetic<T>): boolean;
 }
 
 /**
@@ -1338,7 +1381,7 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Alpha,  
+  Alpha,
 }
 
 /**
@@ -3260,7 +3303,7 @@ declare class CommonMethod<T> {
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */  
+   */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -3322,7 +3365,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Sets styles for component state.
