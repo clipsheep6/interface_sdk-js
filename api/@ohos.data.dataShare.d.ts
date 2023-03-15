@@ -215,7 +215,6 @@ declare namespace dataShare {
          * @param {string} uri - Indicates the uri to add.
          * @param {number} subscriberId - the subscribe id to add..
          * @param {Template} template - the template to add.
-         * @returns {boolean}: the operation result, true means success.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700011 - the uri is not exist.
          * @throws {BusinessError} 15700012 - the templates has been created too much.
@@ -224,13 +223,12 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        addTemplate(uri: string, subscriberId: number, template: Template): boolean;
+        addTemplate(uri: string, subscriberId: number, template: Template): void;
 
         /**
          * Deletes a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
          * @param {string} uri - Indicates the uri to delete.
          * @param {number} subscriberId - the subscribe id.
-         * @returns {boolean}: the operation result, true means success.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700011 - the uri is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -238,7 +236,7 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        delTemplate(uri: string, subscriberId: number): boolean;
+        delTemplate(uri: string, subscriberId: number): void;
 
         /**
          * Registers observers to observe data specified by the given uri and template.
