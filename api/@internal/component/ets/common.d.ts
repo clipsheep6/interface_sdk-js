@@ -1406,6 +1406,14 @@ declare interface ShadowOptions {
   radius: number | Resource;
 
   /**
+   * Enable mask shadow
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */ 
+  mask?: boolean;
+
+  /**
    * Define the color of shadow
    * @since 7
    */
