@@ -29,7 +29,6 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.screenLock.isLocked
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
 
@@ -40,7 +39,6 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.screenLock.isLocked
    */
   function isScreenLocked(): Promise<boolean>;
 
@@ -49,6 +47,7 @@ declare namespace screenLock {
    *
    * @returns Returns {@code true} if the screen is currently locked; returns {@code false} otherwise.
    * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function isLocked(): boolean;
@@ -60,7 +59,6 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.screenLock.isSecure
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
 
@@ -71,18 +69,8 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.screenLock.isSecure
    */
   function isSecureMode(): Promise<boolean>;
-
-  /**
-   * Checks whether the screen lock of the current device is secure.
-   *
-   * @returns Returns {@code true} if the screen lock of the current device is secure; returns {@code false} otherwise.
-   * @syscap SystemCapability.MiscServices.ScreenLock
-   * @since 9
-   */
-  function isSecure(): boolean;
 
   /**
    * Unlock the screen.
@@ -90,7 +78,6 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.screenLock.unlock
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
 
@@ -100,7 +87,6 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.screenLock.unlock
    */
   function unlockScreen():Promise<void>;
 
@@ -111,6 +97,7 @@ declare namespace screenLock {
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function unlock(callback: AsyncCallback<boolean>): void;
@@ -122,6 +109,7 @@ declare namespace screenLock {
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function unlock():Promise<boolean>;
