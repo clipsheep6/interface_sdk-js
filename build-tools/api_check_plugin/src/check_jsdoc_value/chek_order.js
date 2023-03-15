@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 const parse = require('comment-parser');
-const { getAPINote, ErrorLevel, FileType, ErrorType, tagsArrayOfOrder, commentNodeWhiteList } = require('../utils');
+const { getAPINote, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 
@@ -76,3 +76,54 @@ function checkAPIDecorators(tag, node, sourcefile, fileName) {
   return APIDecoratorResult;
 }
 exports.checkAPIDecorators = checkAPIDecorators;
+
+
+let parentExists = false;
+function getParentApiInfo(node) {
+  if (node.kind === 308) {
+    return parentExists;
+  } else {
+    if (getAPINote(node.parent).length > 1) {
+      const comments = parseJsDoc(node.parent);
+      if (comments.length > 0 && Array.isArray(comments[comments.length - 1].tags)) {
+        comments[comments.length - 1].tags.forEach(tag => {
+          if (tag.tag === 'test') {
+            parentExists = true;
+            return parentExists;
+          }
+        })
+      }
+      if (parentExists === false) {
+        getParentApiInfo(node.parent);
+      }
+      return parentExists;
+    } else if (getAPINote(node.parent).length === 1) {
+      getParentApiInfo(node.parent);
+    }
+  }
+  return parentExists;
+}
+
+function checkInheritTag(comment, node, sourcefile, fileName) {
+  let inheritResult = {
+    checkResult: true,
+    errorInfo: '',
+  };
+  let tagArr = [];
+  if (commentNodeWhiteList.includes(node.kind)) {
+    comment.tags.forEach(tag => {
+      tagArr.push(tag.tag)
+    })
+    if (!tagArr.includes('test')) {
+      const existResult = getParentApiInfo(node);
+      inheritResult.checkResult = !existResult;
+    }
+    if (inheritResult.checkResult === false) {
+      inheritResult.errorInfo = 'jsdoc标签合法性校验失败,检测到当前文件中存在可继承标签，但存在子节点没有此标签.';
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    }
+  }
+  return inheritResult;
+}
+exports.checkInheritTag = checkInheritTag;

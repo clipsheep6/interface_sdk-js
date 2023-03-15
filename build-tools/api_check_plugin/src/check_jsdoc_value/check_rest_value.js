@@ -411,6 +411,6 @@ const JsDocValueChecker = {
   'syscap': checkSyscapTag,
   'namespace': checkNamespaceTag,
   'interface': checkInterfaceTypedefTag,
-  'typedef': checkInterfaceTypedefTag
+  'typedef': checkInterfaceTypedefTag,
 };
 exports.JsDocValueChecker = JsDocValueChecker;
