@@ -1084,6 +1084,17 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
+        /**
+         * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
+         *
+         * @param {Entry[]} entries - Indicates the key-value pairs to be inserted in batches.
+         * @param {AsyncCallback<void>} callback - the callback of putBatch.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @throws {BusinessError} 14800047 - if the WAL file size exceeds the default limit.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 10
@@ -1115,6 +1126,20 @@ declare namespace distributedKVStore {
          */
         putBatch(entries: Entry[]): Promise<void>;
 
+        /**
+         * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
+         *
+         * @param {Array<ValuesBucket>} value - Indicates the ValuesBucket array to be inserted.
+         * @param {AsyncCallback<void>} callback - the callback of putBatch.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100005 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
+         * @StageModelOnly
+         * @since 9
+         */
         /**
          * Writes values of ValuesBucket type into the {@code SingleKVStore} database.
          *
