@@ -39,7 +39,7 @@
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     readonly name: string;
-    
+
     /**
      * The id of input method subtype.
      * @since 9
