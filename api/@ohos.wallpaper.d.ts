@@ -468,24 +468,6 @@ declare namespace wallpaper {
      * @since 10
      */
     function sendEvent(event: String, parameter: String): Promise<boolean>;
-
-    interface RgbaColor {
-        /**
-         * Said the red value, the range is 0 to 255.
-         */
-        red: number;
-        /**
-         * Said the green value, the range is 0 to 255.
-         */
-        green: number;
-        /**
-         * Said the blue value, the range is 0 to 255.
-         */
-        blue: number;
-        /**
-         * Said the alpha value, the range is 0 to 255.
-         */
-        alpha: number;
     }
 }
 
