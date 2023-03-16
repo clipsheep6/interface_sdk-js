@@ -35,8 +35,9 @@ declare namespace dataShare {
      */
     interface CreateOption {
         /**
-         * Specifies whether the helper in proxy mode. Default is false
+         * Specifies whether the helper in proxy mode.
          * If value is true, all operations will not open provider APP as possible
+         * @default false
          * @since 10
          */
         isProxy: boolean;
