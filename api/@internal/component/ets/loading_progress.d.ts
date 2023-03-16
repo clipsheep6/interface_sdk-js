@@ -99,6 +99,10 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 9
    */
   color(value: ResourceColor): LoadingProgressAttribute;
+  rotateX(value: Number): LoadingProgressAttribute;
+  rotateY(value: Number): LoadingProgressAttribute;
+  rotateZ(value: Number): LoadingProgressAttribute;
+  position(x: Number,y: Number,z: Number): LoadingProgressAttribute;
 }
 
 /**
