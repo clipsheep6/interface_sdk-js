@@ -16,7 +16,7 @@
 const path = require('path');
 const fs = require('fs');
 const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType } = require('./utils');
-const { checkApiOrder, checkAPIDecorators } = require('./check_jsdoc_value/chek_order');
+const { checkApiOrder, checkAPIDecorators, checkInheritTag } = require('./check_jsdoc_value/chek_order');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
 
@@ -236,11 +236,15 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
   checkOrderResult.forEach((result, index) => {
     checkInfoMap[index.toString()].orderResult = result;
   });
+
   const comments = parseJsDoc(node);
   comments.forEach((comment, index) => {
     let errorLogs = [];
     let paramIndex = 0;
     let throwsIndex = 0;
+    // 继承校验
+    const checkInherit = checkInheritTag(comment, node, sourcefile, fileName);
+    // console.log('checkInherit=', checkInherit)
     // 值检验
     comment.tags.forEach(tag => {
       const checkAPIDecorator = checkAPIDecorators(tag, node, sourcefile, fileName);

@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 const parse = require('comment-parser');
-const { getAPINote, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType } = require('../utils');
+const { getAPINote, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
+  inheritArr } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 
@@ -77,33 +78,34 @@ function checkAPIDecorators(tag, node, sourcefile, fileName) {
 }
 exports.checkAPIDecorators = checkAPIDecorators;
 
-
-let parentExists = false;
-function getParentApiInfo(node) {
+// 递归查找父节点是否拥有继承标签
+function getParentApiInfo(node, index, inheritResult) {
+  let parentTagArr = [];
   if (node.kind === 308) {
-    return parentExists;
+    return inheritResult;
   } else {
-    if (getAPINote(node.parent).length > 1) {
+    if (node.parent.kind!==265) {
       const comments = parseJsDoc(node.parent);
       if (comments.length > 0 && Array.isArray(comments[comments.length - 1].tags)) {
         comments[comments.length - 1].tags.forEach(tag => {
-          if (tag.tag === 'test') {
-            parentExists = true;
-            return parentExists;
-          }
+          parentTagArr.push(tag.tag);
         })
+        if (parentTagArr.includes(inheritArr[index])) {
+          inheritResult.checkResult = false;
+          inheritResult.errorInfo +=
+            `jsdoc标签合法性校验失败,检测到当前文件中存在可继承标签@${inheritArr[index]}，但存在子节点没有此标签.`;
+        } else {
+          getParentApiInfo(node.parent, index, inheritResult);
+        }
       }
-      if (parentExists === false) {
-        getParentApiInfo(node.parent);
-      }
-      return parentExists;
-    } else if (getAPINote(node.parent).length === 1) {
-      getParentApiInfo(node.parent);
+    } else if (node.parent.kind===265) {
+      getParentApiInfo(node.parent, index, inheritResult);
     }
   }
-  return parentExists;
+  return inheritResult;
 }
 
+// 校验继承节点标签
 function checkInheritTag(comment, node, sourcefile, fileName) {
   let inheritResult = {
     checkResult: true,
@@ -114,13 +116,14 @@ function checkInheritTag(comment, node, sourcefile, fileName) {
     comment.tags.forEach(tag => {
       tagArr.push(tag.tag)
     })
-    if (!tagArr.includes('test')) {
-      const existResult = getParentApiInfo(node);
-      inheritResult.checkResult = !existResult;
-    }
-    if (inheritResult.checkResult === false) {
-      inheritResult.errorInfo = 'jsdoc标签合法性校验失败,检测到当前文件中存在可继承标签，但存在子节点没有此标签.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.JSDOC,
+    inheritArr.forEach((inheritTag, index) => {
+      if (!tagArr.includes(inheritTag)) {
+        getParentApiInfo(node, index, inheritResult, sourcefile, fileName);
+        
+      }
+    })
+    if (!inheritResult.checkResult) {
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
         ErrorLevel.LOW);
     }
   }

@@ -235,3 +235,6 @@ exports.systemPermissionFile = systemPermissionFile;
 exports.checkOption = {
   permissionContent: undefined
 };
+
+const inheritArr=['test','famodelonly','FAModelOnly','stagemodelonly','StageModelOnly'];
+exports.inheritArr = inheritArr;
