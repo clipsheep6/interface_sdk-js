@@ -40,10 +40,20 @@ declare namespace contact {
    * @returns Returns the contact list which user select;
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
-   * @permission ohos.permission.READ_CONTACTS
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
   function selectContact(): Promise<Array<Contact>>;
+
+  /**
+   * Select contact with option.
+   *
+   * @returns Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @since 9
+   * @syscap SystemCapability.Applications.Contacts
+   */
+  function selectContact(option: ContactSelectOptions, callback: AsyncCallback<Array<Contact>>): void;
+  function selectContact(option: ContactSelectOptions): Promise<Array<Contact>>;
 
   /**
    * Deletes a specified contact.
@@ -190,6 +200,20 @@ declare namespace contact {
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
   function isMyCard(id: number): Promise<boolean>;
+
+  /**
+   * ContactSelectOptions Object
+   *
+   * @since 9
+   * @syscap SystemCapability.Applications.Contacts
+   */
+  interface ContactSelectOptions {
+    /**
+     * @type {boolean}
+     * @since 9
+     */
+    isMultiSelect?: boolean;
+  }
 
   /**
    * Provides methods for contact information
