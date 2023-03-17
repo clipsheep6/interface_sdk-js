@@ -17,5 +17,5 @@ common_api_src = [
   "//interface/sdk-js/api/@system.file.d.ts",
   "//interface/sdk-js/api/@system.mediaquery.d.ts",
   "//interface/sdk-js/api/@system.prompt.d.ts",
-  "//interface/sdk-js/api/@system.router.d.ts", 
+  "//interface/sdk-js/api/@system.router.d.ts",
 ]
