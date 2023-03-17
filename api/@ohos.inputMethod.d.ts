@@ -15,7 +15,7 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import {Movement, Range} from './imf/InputMethodCommon';
+import {Movement, Range, Direction, KeyboardStatus, InputAttribute, CursorInfo, FunctionKey, ExtendAction} from './imf/InputMethodCommon';
 
 /**
  * Input method
@@ -312,6 +312,232 @@ declare namespace inputMethod {
      */
     interface InputMethodController {
         /**
+         * Let the application can attach to the input method service.
+         * @param { AsyncCallback<void> } callback - the callback of attach.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        attach(callback: AsyncCallback<void>): void;
+
+        /**
+         * Let the application can attach to the input method service.
+         * @param { boolean } showkeyboard - show the key board or not when attach the input method.
+         * @param { AsyncCallback<void> } callback - the callback of attach.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        attach(showkeyboard: boolean, callback: AsyncCallback<void>): void;
+
+        /**
+         * Let the application can attach to the input method service.
+         * @param { boolean } showkeyboard - show the key board or not when attach the input method.
+         * @param { InputAttribute } attribute - indicates the extra attribute information of the textInput.
+         * @param { AsyncCallback<void> } callback - the callback of attach.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        attach(showkeyboard: boolean, attribute: InputAttribute, callback: AsyncCallback<void>): void;
+
+        /**
+         * Let the application can attach to the input method service.
+         * @param { boolean } showkeyboard - show the key board or not when attach the input method.
+         * @param { InputAttribute } attribute - indicates the extra attribute information of the textInput.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        attach(showkeyboard?: boolean, attribute?: InputAttribute): Promise<void>;
+
+        /**
+         * Show the text input and start typing.
+         * @param { AsyncCallback<void> } callback - the callback of showTextInput.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        showTextInput(callback: AsyncCallback<void>): void;
+
+        /**
+         * Show the text input and start typing.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        showTextInput(): Promise<void>;
+
+        /**
+         * Hide the text input and stop typing.
+         * @param {AsyncCallback<void>} callback - the callback of hideTextInput.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        hideTextInput(callback: AsyncCallback<void>): void;
+
+        /**
+         * Hide the text input and stop typing.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        hideTextInput(): Promise<void>;
+
+        /**
+         * Let applications can detach from the input method manager service.
+         * @param { AsyncCallback<void> } callback - the callback of detach.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        detach(callback: AsyncCallback<void>): void;
+
+        /**
+         * Let applications can detach from the input method manager service.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        detach(): Promise<void>;
+
+        /**
+         * Inform the system of the window ID of the application currently bound to the input method.
+         * After the correct setting, the window where the client is located can avoid the input method window.
+         * @param { number } windowId - the window ID of the application currently bound to the input method.
+         * @param { AsyncCallback<void> } callback - the callback of setCallingWindow.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        setCallingWindow(windowId: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Inform the system of the window ID of the application currently bound to the input method.
+         * After the correct setting, the window where the client is located can avoid the input method window.
+         * @param { number } windowId - the window ID of the application currently bound to the input method.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        setCallingWindow(windowId: number): Promise<void>;
+
+        /**
+         * Notify the input method that the current application cursor has changed.
+         * @param { CursorInfo } cursorInfo - the CursorInfo object.
+         * @param { AsyncCallback<void> } callback - the callback of updateCursor.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        updateCursor(cursorInfo: CursorInfo, callback: AsyncCallback<void>): void;
+
+        /**
+         * Notify the input method that the current application cursor has changed.
+         * @param { CursorInfo } cursorInfo - the CursorInfo object.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        updateCursor(cursorInfo: CursorInfo): Promise<void>;
+
+        /**
+         * Notify the input method that the selection range of the current application text has changed.
+         * @param { string } text - the whole input text.
+         * @param { number } start - start position of selected text.
+         * @param { number } end - end position of selected text.
+         * @param { AsyncCallback<void> } callback - the callback of changeSelection.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        changeSelection(text: string, start: number, end: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Notify the input method that the selection range of the current application text has changed.
+         * @param { string } text - the selected text.
+         * @param { number } start - start position of selected text.
+         * @param { number } end - end position of selected text.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        changeSelection(text: string, start: number, end: number): Promise<void>;
+
+        /**
+         * Update InputAttribute information of input text.
+         * @param { InputAttribute } attribute - the InputAttribute object.
+         * @param { AsyncCallback<void> } callback - the callback of updateAttribute.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        updateAttribute(attribute: InputAttribute, callback: AsyncCallback<void>): void;
+
+        /**
+         * Update InputAttribute information of input text.
+         * @param { InputAttribute } attribute - the InputAttribute object.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800008 - input method manager service error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        updateAttribute(attribute: InputAttribute): Promise<void>;
+
+        /**
          * Stop input session
          * @param {AsyncCallback<boolean>} callback - the callback of stopInputSession.
          * @throws {BusinessError} 12800003 - input method client error.
@@ -439,6 +665,127 @@ declare namespace inputMethod {
          * @since 10
          */
         off(type: 'selectByMovement'): void;
+
+        /**
+         * Register a callback and when IME sends insert text event, the callback will be invoked.
+         * @param { string } type - event type, fixed as 'insertText'.
+         * @param { (text: string) => void } callback - processes insertText command. The text of insert is provided for
+         *     this callback. It must update selected text and cursor info if they are changed.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'insertText', callback: (text: string) => void): void;
+
+        /**
+         * Unregister the callback of insertText.
+         * @param { string } type - event type, fixed as 'insertText'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'insertText'): void;
+
+        /**
+         * Register a callback and when IME sends delete forward or delete backward event with length,
+         * the callback will be invoked.
+         * @param { string } type - event type, fixed as 'deleteForward' or 'deleteBackward'.
+         * @param { (length: number) => void } callback - processes deleteForward/deleteBackward command. The length of
+         *     delete is provided for this callback. It must update selected text and cursor info if they are changed.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'deleteForward' | 'deleteBackward', callback: (length: number) => void): void;
+
+        /**
+         * Unregister the callback of deleteForward/deleteBackward.
+         * @param { string } type - event type, fixed as 'deleteForward'/'deleteBackward'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'deleteForward' | 'deleteBackward'): void;
+
+        /**
+         * Register a callback and when IME sends keyboard status, the callback will be invoked.
+         * @param { string } type - event type, fixed as 'sendKeyboardStatus'.
+         * @param { (keyBoardStatus: KeyboardStatus) => void } callback - processes sendKeyboardStatus command.
+         *     The keyBoardStatus is provided for this callback.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'sendKeyboardStatus', callback: (keyBoardStatus: KeyboardStatus) => void): void;
+
+        /**
+         * Unregister the callback of sendKeyboardStatus.
+         * @param { string } type - event type, fixed as 'sendKeyboardStatus'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'sendKeyboardStatus'): void;
+
+        /**
+         * Register a callback and when IME sends functionKey, the callback will be invoked.
+         * @param { string } type - event type, fixed as 'sendFunctionKey'.
+         * @param { (functionKey: FunctionKey) => void } callback - processes sendFunctionKey command.
+         *     The functionKey is provided for this callback.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void;
+
+        /**
+         * Unregister the callback of sendFunctionKey.
+         * @param { string } type - event type, fixed as 'sendFunctionKey'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'sendFunctionKey'): void;
+
+        /**
+         * Register a callback and when IME sends move cursor, the callback will be invoked.
+         * @param { string } type - event type, fixed as 'moveCursor'.
+         * @param { (direction: Direction) => void } callback - processes moveCursor command. The direction of
+         *     cursor is provided for this callback. It must update selected text and cursor info if they are changed.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'moveCursor', callback: (direction: Direction) => void): void;
+
+        /**
+         * Unregister the callback of moveCursor.
+         * @param { string } type - event type, fixed as 'moveCursor'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'moveCursor'): void;
+
+        /**
+         * Register a callback and when IME sends extend action code, the callback will be invoked.
+         * @param { string } type - event type, fixed as 'handleExtendAction'.
+         * @param { (action: ExtendAction) => void } callback - processes handleExtendAction command. The action code
+         *     is provided for this callback.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800009 - input method client is detached.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void;
+
+        /**
+         * Unregister the callback of handleExtendAction.
+         * @param { string } type - event type, fixed as 'handleExtendAction'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'handleExtendAction'): void;
     }
 
     /**
