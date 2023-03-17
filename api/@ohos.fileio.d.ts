@@ -1201,7 +1201,22 @@ declare interface Dirent {
     isSymbolicLink(): boolean;
 }
 
-export type Filter = {
+    /**
+    * Describes the condition of filter.
+    * @since 10
+    * @syscap SystemCapability.FileManagement.File.FileIO
+    * @StageModelOnly
+    * @systemapi
+    */
+enum Filter {
+    /**
+    * @type {Array<string>}
+    * @syscap SystemCapability.FileManagement.File.FileIO
+    * @systemapi
+    * @since 9
+    * @readonly
+    */
+    SUFFIX = "suffix",
     /**
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1209,7 +1224,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    suffix: Array<string>;
+    DISPLAYNAME = "displayname",
     /**
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1217,15 +1232,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    displayName?: Array<string>;
-    /**
-     * @type {Array<string>}
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @systemapi
-     * @since 9
-     * @readonly
-     */
-    mimeType?: Array<string>;
+    MIMETYPE = "mimeType",
     /**
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1233,7 +1240,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    fileSizeOver?: number;
+    FILESIZEOVER = "fileSizeOver",
     /**
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1241,7 +1248,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    lastModifiedAfter?: number;
+    LASTMODIFIEDAFTER = "lastModifedAfter",
     /**
      * @type {boolean}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1249,7 +1256,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    excludeMedia?: boolean;
+    EXCLUDEMEDIA = "excludeMedia"
 }
 
 /**
