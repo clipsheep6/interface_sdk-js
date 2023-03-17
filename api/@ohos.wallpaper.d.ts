@@ -438,7 +438,6 @@ declare namespace wallpaper {
      * @since 10
      */
     function setVideo(source: string, wallpaperType: WallpaperType): Promise<void>;
-    }
 }
 
 export default wallpaper;
