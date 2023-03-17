@@ -904,12 +904,129 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     release(): Promise<void>;
+    /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @param callback returned fail list
+     */
+    copyAssets(uriList: Array<string>, path: string, callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @param overwrite whether to overwrite if the same file exists
+     * @param callback returned fail list
+     */
+    copyAssets(uriList: Array<string>, path: string, overwrite: boolean, callback: AsyncCallback<Array<string>>): void;
+    
+    /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @returns Promise used to return the list of fail
+     */
+    copyAssets(uriList: Array<string>, path: string): Promise<Array<string>>;
+
+    /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @param overwrite whether to overwrite if the same file exist
+     * @returns Promise used to return the list of fail
+     */
+    copyAssets(uriList: Array<string>, path: string , overwrite: boolean): Promise<Array<string>>;
+    
+    /**
+     * Move media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be moved
+     * @param path destination path of moving file
+     * @param callback returned fail list
+     */
+    moveAssets(uriList: Array<string>, path: string, callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Move media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be moved
+     * @param path destination path of moving file
+     * @param overwrite whether to overwrite if the same file exist
+     * @param callback returned fail list
+     */
+    moveAssets(uriList: Array<string>, path: string, overwrite: boolean, callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Move media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be moved
+     * @param path destination path of moving file
+     * @returns Promise used to return the list of fail
+     */
+    moveAssets(uriList: Array<string>, path: string): Promise<Array<string>>;
+
+    /**
+     * Move media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be moved
+     * @param path destination path of moving file
+     * @param overwrite whether to overwrite if the same file exist
+     * @returns Promise used to return the list of fail
+     */
+    moveAssets(uriList: Array<string>, path: string, overwrite: boolean): Promise<Array<string>>;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param options Options of URI list
+     * @param callback thumbnails in PixelMap format
+     */
+    getThumbnails(options: UriListOptions, callback: AsyncCallback<Array<image.PixelMap>>): void;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param options Options of URI list
+     * @returns Promise used to return thumbnails in PixelMap format
+     */
+    getThumbnails(options: UriListOptions): Promise<Array<image.PixelMap>>;
   }
 
   /**
    * Peer devices' information
-   * @since 9
-   * @systemapi
    * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
    */
   interface PeerInfo {
@@ -937,9 +1054,51 @@ declare namespace userFileManager {
   }
 
   /**
-   * Private album type
-   * @since 9
+   * Operation result of 'copy assets'/'move assets'
+   * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
    * @systemapi
+   * @since 9
+   */
+
+  /**
+   * Options of URI list
+   * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+   * @systemapi
+   * @since 9
+   */
+  interface UriListOptions {
+    /**
+     * uri list of thumbnails to be obtained
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    uriList: Array<string>;
+    /**
+     * position of uri list to start get thumbnails
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    offset?: number;
+    /**
+     * counts of thumbnails will be got
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    maxCount?: number;
+    /**
+     * size size of all thumbnails will be got
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    size?: image.Size;
+  }
+
+  /**
+   * Private album type
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    */
   enum PrivateAlbumType {
