@@ -266,26 +266,30 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param args Indicates the format string parameters.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
+    getStringValue(resource: Resource, callback: _AsyncCallback<string>, ...args): void;
 
     /**
      * Obtains string resources associated with a specified resource object in Promise mode.
      *
      * @param resource Indicates the resource object.
+     * @param args Indicates the format string parameters.
      * @returns Returns the character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringValue(resource: Resource): Promise<string>;
+    getStringValue(resource: Resource, ...args): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
@@ -593,26 +597,30 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param args Indicates the format string parameters.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringByName(resName: string, callback: _AsyncCallback<string>): void;
+    getStringByName(resName: string, callback: _AsyncCallback<string>, ...args): void;
 
     /**
      * Obtains string resources associated with a specified resource name in Promise mode.
      *
      * @param resName Indicates the resource name.
+     * @param args Indicates the format string parameters.
      * @returns Returns the character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-     getStringByName(resName: string): Promise<string>;
+    getStringByName(resName: string, ...args): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name in callback mode.
@@ -725,40 +733,46 @@ export interface ResourceManager {
      * Obtains string resources associated with a specified resource ID.
      *
      * @param resId Indicates the resource ID.
+     * @param args Indicates the format string parameters.
      * @returns Returns the character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringSync(resId: number): string;
+    getStringSync(resId: number, ...args): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
      *
      * @param resource Indicates the resource object.
+     * @param args Indicates the format string parameters.
      * @returns Returns the character string corresponding to the resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringSync(resource: Resource): string;
+    getStringSync(resource: Resource, ...args): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
      *
      * @param resName Indicates the resource name.
+     * @param args Indicates the format string parameters.
      * @returns Returns the character string corresponding to the resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001003 - If the resName invalid.
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringByNameSync(resName: string): string;
+    getStringByNameSync(resName: string, ...args): string;
 
     /**
      * Obtains the boolean result with a specified resource ID.
@@ -850,26 +864,30 @@ export interface ResourceManager {
      *
      * @param resId Indicates the resource ID.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @param args Indicates the format string parameters.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringValue(resId: number, callback: _AsyncCallback<string>): void;
+    getStringValue(resId: number, callback: _AsyncCallback<string>, ...args): void;
 
      /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
      *
      * @param resId Indicates the resource ID.
+     * @param args Indicates the format string parameters.
      * @returns Returns the character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @throws { BusinessError } 9001007 - If the resource format string type mismatch.
      * @since 9
      */
-    getStringValue(resId: number): Promise<string>;
+    getStringValue(resId: number, ...args): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
