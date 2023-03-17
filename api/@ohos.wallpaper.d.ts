@@ -438,36 +438,6 @@ declare namespace wallpaper {
      * @since 10
      */
     function setVideo(source: string, wallpaperType: WallpaperType): Promise<void>;
-
-    /**
-     * The application sends the event to the wallpaper service.
-     * @param { String } event - event type.
-     * @param { String } parameter - event parameters.
-     * @returns Returns {@code true} if application sends the event to the wallpaper service is success; returns {@code false} otherwise.
-     * @permission ohos.permission.SET_WALLPAPER
-     * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 201 - permission denied.
-     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
-     * @syscap SystemCapability.MiscServices.Wallpaper
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    function sendEvent(event: String, parameter: String, callback: AsyncCallback<boolean>): void;
-
-    /**
-     * The application sends the event to the wallpaper service.
-     * @param { String } event - event type.
-     * @param { String } parameter - event parameters.
-     * @returns Returns {@code true} if application sends the event to the wallpaper service is success; returns {@code false} otherwise.
-     * @permission ohos.permission.SET_WALLPAPER
-     * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 201 - permission denied.
-     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
-     * @syscap SystemCapability.MiscServices.Wallpaper
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    function sendEvent(event: String, parameter: String): Promise<boolean>;
     }
 }
 
