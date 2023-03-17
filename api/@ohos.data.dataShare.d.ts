@@ -127,15 +127,22 @@ declare namespace dataShare {
      */
     interface ChangeNode {
         /**
-         * Specifies the uri of the callback.
+         * Specifies the uri of the callback. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}
          * @since 10
          */
         uri: string;
         /**
-         * Specifies the datas of the callback
+         * Specifies the tempalteId of the callback, if the data is not from rdb store, the value is undefined.
          * @since 10
          */
-        data: Array<object>;
+        tempalteId?: TemplateId;
+        /**
+         * Specifies the datas of the callback.
+         * When data is from rdb store, data type is  Array<string>, every node is a json, json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}]
+         * When data is not from rdb store, data is {@link Data#data}
+         * @since 10
+         */
+        data: Array<string> | {[key: string]: string]};
     }
 
     /**
@@ -151,7 +158,7 @@ declare namespace dataShare {
          * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
          * @since 10
          */
-        predicates: Array<string>;
+        predicates: {[key: string]: string]};
 
         /**
          * Specifies the scheduler sql of the template.
@@ -168,10 +175,10 @@ declare namespace dataShare {
      */
     interface OperationResult {
         /**
-         * Specifies the uri of the operation result.
+         * Specifies the key of the operation result.
          * @since 10
          */
-        uri: string;
+        key: string;
 
         /**
          * Specifies the operation result.
@@ -179,6 +186,33 @@ declare namespace dataShare {
          */
         isSuccess: boolean;
     }
+    
+    /**
+     * Specifies the simple data to be published.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @since 10
+     */
+    interface Data {
+         /**
+         * Specifies the version of data, larger is newer.
+         * @since 10
+         */
+        version: number;
+
+        /**
+         * Specifies the data owner APP's bundleName.
+         * @since 10
+         */
+        bundleNameOfOwner: string;
+
+        /**
+         * Specifies the data to be published.
+         * @since 10
+         */
+        data: {[key: string]: string]};
+    }
+    
     /**
      * DataShareHelper
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -270,45 +304,42 @@ declare namespace dataShare {
         off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): Array<OperationResult>;
 
         /**
-         * Update a single data into the memory of system, it will not release when APP closed.
-         * @param {string} uri - Indicates the path of the data to operate.
-         * @param {object} data - Indicates the data to insert.
+         * Update a single data into host data area.
+         * @param {Array<Data>} datas - Indicates the data to publish.
          * @param {AsyncCallback<void>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 15700011 - the uri is not exist.
+         * @throws {BusinessError} 15700012 - the data area is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        update(uri: string, data: object, callback: AsyncCallback<void>): void;
+        publish(datas: Array<Data>, callback: AsyncCallback<Array<OperationResult>>): void;
 
-        /**
-         * Update a single data into the memory of system, it will not release when APP closed.
-         * @param {string} uri - Indicates the path of the data to operate.
-         * @param {object} data - Indicates the data to insert.
+       /**
+         * Update a single data into host data area.
+         * @param {Array<Data>} datas - Indicates the data to publish.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 15700011 - the uri is not exist.
+         * @throws {BusinessError} 15700012 - the data area is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        update(uri: string, data: object): Promise<void>;
+        publish(data: Array<Data>): Promise<Array<OperationResult>>;
 
         /**
-         * get a single data from the memory of system.
-         * @param {string} uri - Indicates the path of the data to get.
-         * @returns {object>} - the data.
+         * get a single dataset from host data area.
+         * @param {string} bundleNameOfOwner - Indicates the bundleName of data owner APP.
+         * @returns {[key: string]: string]} - the data.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @throws {BusinessError} 15700011 - the uri is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        getData(uri: string): object;
+        query(bundleNameOfOwner: string): {[key: string]: string]};
 
         /**
          * Inserts a single data record into the database.
