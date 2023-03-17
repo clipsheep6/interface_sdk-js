@@ -85,7 +85,6 @@ export interface Movement {
  * Panel information.
  * @typedef PanelInfo
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
  * @since 10
  */
 export interface PanelInfo {
@@ -93,7 +92,6 @@ export interface PanelInfo {
      * Panel type.
      * @type { PanelType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      * @since 10
      */
     type: PanelType;
@@ -104,7 +102,6 @@ export interface PanelInfo {
      * @type { ?PanelFlag }
      * @default FLG_FIXED
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      * @since 10
      */
     flag?: PanelFlag;
@@ -134,15 +131,6 @@ export enum PanelFlag {
      * @since 10
      */
     FLG_FLOATING,
-
-    /**
-     * Candidate bar style.
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flag is set, the soft keyboard is only using as a candidate word bar.</p>
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    FLG_CANDIDATE_BAR,
 }
 
 /**
@@ -150,7 +138,6 @@ export enum PanelFlag {
  * <p>Input method application developers should select the appropriate panel type according to the user scenario.</p>
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
  * @since 10
  */
 export enum PanelType {
