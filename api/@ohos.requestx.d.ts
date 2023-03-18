@@ -207,9 +207,10 @@
          */
         headers?: JSON;
         /**
-         * The HTTP parameters will be encoded and appended into url.
+         * The HTTP parameters.
          * Do not cut and parse url parameters into here.
-         * Too many parameters could cause the an overlength url, use data instead at this moment.
+         * For download, it will be encoded and appended into url, too many parameters could cause the an overlength url, use data instead at this moment.
+         * For upload, it could be others item of the form.
          * The default is empty.
          * @type { JSON }
          * @syscap SystemCapability.RequestAgent
