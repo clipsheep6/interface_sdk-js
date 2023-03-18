@@ -28,6 +28,7 @@ declare namespace request {
    */
   /**
    * Error code 201. the permissions check fails
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -40,6 +41,7 @@ declare namespace request {
    */
   /**
    * Error code 401. the parameters check fails
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -52,6 +54,7 @@ declare namespace request {
    */
   /**
    * Error code 801. call unsupported api
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -64,6 +67,7 @@ declare namespace request {
    */
   /**
    * Error code 13400001. file operation error
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -76,6 +80,7 @@ declare namespace request {
    */
   /**
    * Error code 13400002. bad file path
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -88,6 +93,7 @@ declare namespace request {
    */
   /**
    * Error code 13400003. task manager service error
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -100,6 +106,7 @@ declare namespace request {
    */
   /**
    * Error code 13499999. others error
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -113,6 +120,7 @@ declare namespace request {
    */
   /**
    * Code 0x00000001. Bit flag indicating download is allowed when using the cellular network.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -127,6 +135,7 @@ declare namespace request {
   */
   /**
   * Code 0x00010000. Bit flag indicating download is allowed when using the WLAN.
+  * @type { number }
   * @syscap SystemCapability.MiscServices.Download
   * @crossplatform
   * @since 10
@@ -141,6 +150,7 @@ declare namespace request {
    */
   /**
    * Error code 0. Indicates that the download cannot be resumed for network reasons.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -155,6 +165,7 @@ declare namespace request {
    */
   /**
    * Error code 1. Indicates that no storage device, such as an SD card, is found.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -169,6 +180,7 @@ declare namespace request {
    */
   /**
    * Error code 2. Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -183,6 +195,7 @@ declare namespace request {
    */
   /**
    * Error code 3. Indicates that a file operation fails.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -197,6 +210,7 @@ declare namespace request {
    */
   /**
    * Error code 4. Indicates that the HTTP transmission fails.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -211,6 +225,7 @@ declare namespace request {
    */
   /**
    * Error code 5. Indicates insufficient storage space.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -225,6 +240,7 @@ declare namespace request {
    */
   /**
    * Error code 6. Indicates an error caused by too many network redirections.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -239,6 +255,7 @@ declare namespace request {
    */
   /**
    * Error code 7. Indicates an HTTP code that cannot be identified.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -253,6 +270,7 @@ declare namespace request {
    */
   /**
    * Error code 8. Indicates an undefined error.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -267,6 +285,7 @@ declare namespace request {
    */
   /**
    * Error code 9. Indicates network offline.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -281,6 +300,7 @@ declare namespace request {
    */
   /**
    * Error code 10. Indicates network type configuration error.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -295,6 +315,7 @@ declare namespace request {
    */
   /**
    * Paused code 0. Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -309,6 +330,7 @@ declare namespace request {
    */
   /**
    * Paused code 1. Indicates that the download is paused due to a network problem, for example, network disconnection.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -323,6 +345,7 @@ declare namespace request {
    */
   /**
    * Paused code 2. Indicates that a network error occurs, and the download session will be retried.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -337,6 +360,7 @@ declare namespace request {
    */
   /**
    * Paused code 3. Indicates that the download is paused due to the user.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -351,6 +375,7 @@ declare namespace request {
    */
   /**
    * Paused code 4. Indicates that the download is paused for some reasons.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -365,6 +390,7 @@ declare namespace request {
    */
   /**
    * Session status code 0. Indicates that the download session is completed.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -379,6 +405,7 @@ declare namespace request {
    */
   /**
    * Session status code 1. Indicates that the download session is in progress.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -393,6 +420,7 @@ declare namespace request {
    */
   /**
    * Session status code 2. Indicates that the download session is being scheduled.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -407,6 +435,7 @@ declare namespace request {
    */
   /**
    * Session status code 3. Indicates that the download session has been paused.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -421,6 +450,7 @@ declare namespace request {
    */
   /**
    * Session status code 4. Indicates that the download session has failed and will not be retried.
+   * @type { number }
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -621,6 +651,7 @@ declare namespace request {
     /**
      * Resource address.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -635,6 +666,7 @@ declare namespace request {
     /**
      * Adds an HTTP or HTTPS header to be included with the download request.
      *
+     * @type { Object }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -649,6 +681,7 @@ declare namespace request {
     /**
      * Allows download under a metered connection.
      *
+     * @type { boolean }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -663,6 +696,7 @@ declare namespace request {
     /**
      * Allows download in a roaming network.
      *
+     * @type { boolean }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -677,6 +711,7 @@ declare namespace request {
     /**
      * Sets the description of a download session.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -691,6 +726,7 @@ declare namespace request {
     /**
      * Sets the network type allowed for download.
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -705,6 +741,7 @@ declare namespace request {
     /**
      * Sets the path for downloads.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -719,6 +756,7 @@ declare namespace request {
     /**
      * Sets a download session title.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -732,6 +770,7 @@ declare namespace request {
     /**
      * Allow download background task notifications.
      *
+     * @type { boolean }
      * @since 10
      * @crossplatform
      */
@@ -765,6 +804,7 @@ declare namespace request {
     /**
      * the description of a file to be downloaded.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -779,6 +819,7 @@ declare namespace request {
     /**
      * the real-time downloads size (in bytes).
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -793,6 +834,7 @@ declare namespace request {
     /**
      * the ID of a file to be downloaded.
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -807,6 +849,7 @@ declare namespace request {
     /**
      * a download failure cause, which can be any DownloadSession.ERROR_* constant.
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -821,6 +864,7 @@ declare namespace request {
     /**
      * the name of a file to be downloaded.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -835,6 +879,7 @@ declare namespace request {
     /**
      * the URI of a stored file.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -849,6 +894,7 @@ declare namespace request {
     /**
      * the reason why a session is paused, which can be any DownloadSession.PAUSED_* constant.
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -863,6 +909,7 @@ declare namespace request {
     /**
      * the download status code, which can be any DownloadSession.SESSION_* constant.
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -877,6 +924,7 @@ declare namespace request {
     /**
      * the URI of files to be downloaded.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -891,6 +939,7 @@ declare namespace request {
     /**
      * the title of a file to be downloaded.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -905,6 +954,7 @@ declare namespace request {
     /**
      * the total size of files to be downloaded (in bytes).
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1395,6 +1445,7 @@ declare namespace request {
     /**
      * When multipart is submitted, the file name in the request header.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1409,6 +1460,7 @@ declare namespace request {
     /**
      * When multipart is submitted, the name of the form item. The default is file.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1423,6 +1475,7 @@ declare namespace request {
     /**
      * The local storage path of the file (please refer to the storage directory definition for path usage).
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1437,6 +1490,7 @@ declare namespace request {
     /**
      * The content type of the file is obtained by default according to the suffix of the file name or path.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1471,6 +1525,7 @@ declare namespace request {
     /**
      * Represents the name of the form element.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1485,6 +1540,7 @@ declare namespace request {
     /**
      * Represents the value of the form element.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1519,6 +1575,7 @@ declare namespace request {
     /**
      * Resource address.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1533,6 +1590,7 @@ declare namespace request {
     /**
      * Adds an HTTP or HTTPS header to be included with the upload request.
      *
+     * @type { Object }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1547,6 +1605,7 @@ declare namespace request {
     /**
      * Request method: POST, PUT. The default POST.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1561,6 +1620,7 @@ declare namespace request {
     /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
+     * @type { Array<File> }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1575,6 +1635,7 @@ declare namespace request {
     /**
      * The requested form data.
      *
+     * @type { Array<RequestData> }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1609,6 +1670,7 @@ declare namespace request {
     /**
      * Upload file path.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1623,6 +1685,7 @@ declare namespace request {
     /**
      * Upload task return value.
      *
+     * @type { number }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
@@ -1637,6 +1700,7 @@ declare namespace request {
     /**
      * Upload task information.
      *
+     * @type { string }
      * @since 10
      * @crossplatform
      * @permission ohos.permission.INTERNET
