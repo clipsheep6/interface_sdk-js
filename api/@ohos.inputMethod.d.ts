@@ -15,7 +15,14 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import {Movement, Range, Direction, KeyboardStatus, InputAttribute, CursorInfo, FunctionKey, ExtendAction} from './imf/InputMethodCommon';
+import {Movement, Range, Direction} from './imf/InputMethodCommon';
+import * as _EnterKeyType from './imf/EnterKeyType';
+import * as _TextInputType from './imf/TextInputType';
+import * as _InputAttribute from './imf/InputAttribute';
+import * as _KeyboardStatus from './imf/KeyboardStatus';
+import * as _FunctionKey from './imf/FunctionKey';
+import * as _CursorInfo from './imf/CursorInfo';
+import * as _ExtendAction from './imf/ExtendAction';
 
 /**
  * Input method
@@ -853,6 +860,18 @@ declare namespace inputMethod {
          */
         extra: object;
     }
+    /**
+     * Contains basic Ability information, which uniquely identifies an ability.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
+     */
+    export type TextInputType = _TextInputType.TextInputType;
+    export type EnterKeyType = _EnterKeyType.EnterKeyType;
+    export type InputAttribute = _InputAttribute.InputAttribute;
+    export type KeyboardStatus = _KeyboardStatus.KeyboardStatus;
+    export type FunctionKey = _FunctionKey.FunctionKey;
+    export type CursorInfo = _CursorInfo.CursorInfo;
+    export type ExtendAction = _ExtendAction.ExtendAction;
 }
 
 export default inputMethod;
