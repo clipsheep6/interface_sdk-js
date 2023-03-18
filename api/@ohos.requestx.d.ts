@@ -9,12 +9,14 @@
  * Frontend tasks use callback to tell caller tasks' status information.
  * Background has some automatically restore mechanism.
  * Frontend tasks controlled by caller.
+ * Uses `mutipart/form-data` in client request for upload.
+ * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
  * More details, please see the architecture documents of the request subsystem.
  * @namespace agent
  * @syscap SystemCapability.RequestAgent
  * @since 10
  */
-export declare namespace agent {
+ export declare namespace agent {
     /**
      * The action options.
      * @enum { string }
@@ -82,6 +84,44 @@ export declare namespace agent {
         CELLULAR = "cellular",
     }
     /**
+     * The files information for a task.
+     * @typedef Attachment
+     * @syscap SystemCapability.RequestAgent
+     * @since 10
+     */
+    interface Attachment {
+        /**
+         * For upload request, the name of the form item, the default is file.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        name?: string;
+        /**
+         * The MIME type, the default is obtained by the suffix of the filename or uri.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        type?: string;
+        /**
+         * Currently support:
+         * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+         * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        path: string;
+        /**
+         * For upload request, the filename in the header, the default is obtained by uri.
+         * @type { string }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        filename?: string;
+    }
+    /**
      * The configurations for a task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
@@ -107,28 +147,25 @@ export declare namespace agent {
          */
         url: string;
         /**
-         * The file paths for a task.
+         * The files for a task.
          * For upload task, it supports multiple files per task.
          * For download task, only one file in a task.
-         * Each file path length complies system's requirements.
+         * Each path length complies system's requirements.
          * But there is a 4K bytes limit in total.
-         * Currently support:
-         * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-         * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
          * @type { Array<string> }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        paths: Array<string>;
+        attachments: Array<Attachment>;
         /**
-         * The name for a task, give a meaningful title please.
+         * The title for a task, give a meaningful title please.
          * The maximum length is 256 characters.
          * The default is the same with its action.
          * @type { string }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        name?: string;
+        title?: string;
         /**
          * Indicates a background task or not.
          * For upload, its default is frontend.
@@ -153,8 +190,8 @@ export declare namespace agent {
         /**
          * The HTTP standard method for upload or download: GET/POST/PUT.
          * Case insensitive.
-         * For upload, the default is PUT.
-         * For download, the default is GET.
+         * For upload, use PUT/POST, the default is PUT.
+         * For download, use GET/POST, the default is GET.
          * @type { string }
          * @syscap SystemCapability.RequestAgent
          * @since 10
@@ -170,8 +207,9 @@ export declare namespace agent {
          */
         headers?: JSON;
         /**
-         * The HTTP parameters.
+         * The HTTP parameters will be encoded and appended into url.
          * Do not cut and parse url parameters into here.
+         * Too many parameters could cause the an overlength url, use data instead at this moment.
          * The default is empty.
          * @type { JSON }
          * @syscap SystemCapability.RequestAgent
@@ -179,13 +217,14 @@ export declare namespace agent {
          */
         parameters?: JSON;
         /**
-         * The HTTP body.
+         * The HTTP body for download, it will be ignored in upload.
+         * Uses json usually, it can be any text.
          * The default is empty.
          * @type { string }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        body?: string;
+        data?: string;
         /**
          * The network.
          * @type { Network }
@@ -430,6 +469,7 @@ export declare namespace agent {
         /**
          * The extras for an interaction.
          * Such as headers and body of response from server.
+         * But when the Content-Disposition header responsed, the body will be into the uri of its attachment only, the body here is empty.
          * {"headers": {"key": v}, "body": "contents"}
          * @type { JSON }
          * @syscap SystemCapability.RequestAgent
@@ -512,14 +552,14 @@ export declare namespace agent {
          */
         readonly url?: string;
         /**
-         * The paths of a task.
+         * The files of a task.
          * For normal query only, empty as system.
          * @type { Array<string> }
          * @readonly
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        readonly paths?: Array<string>;
+        readonly attachments?: Array<Attachment>;
         /**
          * The task id.
          * @type { string }
@@ -529,13 +569,13 @@ export declare namespace agent {
          */
         readonly tid: string;
         /**
-         * The task name.
+         * The task title.
          * @type { string }
          * @readonly
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
-        readonly name: string;
+        readonly title: string;
         /**
          * The task action.
          * @type { Action }
@@ -544,14 +584,6 @@ export declare namespace agent {
          * @since 10
          */
         readonly action: Action;
-        /**
-         * The task state.
-         * @type { State }
-         * @readonly
-         * @syscap SystemCapability.RequestAgent
-         * @since 10
-         */
-        readonly state: State;
         /**
          * The MiMEType of a task.
          * @type { Array<string> }
