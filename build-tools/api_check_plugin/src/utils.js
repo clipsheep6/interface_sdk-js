@@ -115,7 +115,9 @@ const ErrorType = {
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order'
+  WRONG_ORDER: 'wrong order',
+  WRONG_VALUE: 'wrong value',
+  WRONG_SCENE: 'wrong scene',
 };
 exports.ErrorType = ErrorType;
 
@@ -143,11 +145,11 @@ exports.ApiCheckResult = new ApiCheckResultClass();
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'type', 'errorInfo', 'version', 'model'];
+  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'apiName', 'apiContent', 'type', 'errorInfo', 'version', 'model'];
   for (let i = 1; i <= apiCheckArr.length; i++) {
     const apiData = apiCheckArr[i - 1];
-    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.type, apiData.errorInfo,
-      apiData.version, apiData.basename];
+    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.apiName, apiData.apiFullText,
+      apiData.type, apiData.errorInfo, apiData.version, apiData.basename];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
@@ -233,3 +235,6 @@ exports.systemPermissionFile = systemPermissionFile;
 exports.checkOption = {
   permissionContent: undefined
 };
+
+const inheritArr=['test','famodelonly','FAModelOnly','stagemodelonly','StageModelOnly'];
+exports.inheritArr = inheritArr;

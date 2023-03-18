@@ -15,9 +15,9 @@
 
 const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, tagsArrayOfOrder } = require('./utils');
-const { checkApiOrder, checkAPIDecorators } = require('./check_jsdoc_value/chek_order');
-
+const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType } = require('./utils');
+const { checkApiOrder, checkAPIDecorators, checkInheritTag } = require('./check_jsdoc_value/chek_order');
+const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
 
 // 标签合法性校验
@@ -241,6 +241,9 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
     let errorLogs = [];
     let paramIndex = 0;
     let throwsIndex = 0;
+    // 继承校验
+    const checkInherit = checkInheritTag(comment, node, sourcefile, fileName);
+    // console.log('checkInherit=', checkInherit)
     // 值检验
     comment.tags.forEach(tag => {
       const checkAPIDecorator = checkAPIDecorators(tag, node, sourcefile, fileName);
@@ -274,5 +277,35 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
     checkInfoArray.push(checkInfoMap[key]);
   }
   return checkInfoArray;
+
 }
 exports.checkJsDocOfCurrentNode = checkJsDocOfCurrentNode;
+
+function outputResult(node, sourcefile, permissionConfigPath, fileName) {
+  const verificationResult = checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileName);
+
+  verificationResult.forEach(item => {
+    let errorInfo = '';
+    if (item.missingTags.length > 0) {
+      item.missingTags.forEach(lostLabel => {
+        errorInfo = `jsdoc标签合法性校验失败,请确认是否遗失@${lostLabel}标签.`
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
+          ErrorLevel.LOW);
+      });
+    }
+    if (item.illegalTags.length > 0) {
+      item.illegalTags.forEach(wrongValueLabel => {
+        errorInfo = wrongValueLabel.errorInfo;
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_VALUE, errorInfo, FileType.JSDOC,
+          ErrorLevel.LOW);
+      });
+    }
+    if (!item.orderResult.checkResult) {
+      errorInfo = item.orderResult.errorInfo;
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
+        ErrorLevel.LOW);
+    }
+  })
+
+}
+exports.outputResult = outputResult;

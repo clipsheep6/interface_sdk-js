@@ -15,11 +15,8 @@
 
 const path = require('path');
 const fs = require('fs');
-const { checkAPIDecorators } = require('./check_decorator');
-const { checkSpelling } = require('./check_spelling');
-const { checkPermission } = require('./check_permission');
-const { checkSyscap } = require('./check_syscap');
-const { checkDeprecated } = require('./check_deprecated');
+const { checkSpelling } = require('./check_spelling');;
+const { outputResult } = require('./check_legality');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
@@ -64,20 +61,12 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  if (!ts.isImportDeclaration) {
-
-  }
   if (hasAPINote(node)) {
-    // check decorator
-    checkAPIDecorators(node, sourcefile, fileName);
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
-    // check syscap
-    checkSyscap(node, sourcefile, fileName);
-    // check deprecated
-    checkDeprecated(node, sourcefile, fileName);
-    // check permission
-    checkPermission(node, sourcefile, fileName);
+    // ?????????????????????
+    const permissionConfigPath=require('../config/config.json')
+    outputResult(node, sourcefile, permissionConfigPath, fileName)
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
