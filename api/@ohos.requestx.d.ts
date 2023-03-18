@@ -152,7 +152,7 @@
          * For download task, only one file in a task.
          * Each path length complies system's requirements.
          * But there is a 4K bytes limit in total.
-         * @type { Array<string> }
+         * @type { Array<Attachment> }
          * @syscap SystemCapability.RequestAgent
          * @since 10
          */
@@ -555,7 +555,7 @@
         /**
          * The files of a task.
          * For normal query only, empty as system.
-         * @type { Array<string> }
+         * @type { Array<Attachment> }
          * @readonly
          * @syscap SystemCapability.RequestAgent
          * @since 10
