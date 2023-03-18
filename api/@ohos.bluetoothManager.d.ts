@@ -70,6 +70,44 @@ declare namespace bluetoothManager {
     function pairDevice(deviceId: string): void;
 
     /**
+     * Starts pairing with a credible remote Bluetooth device with transport.
+     * This interface does not trigger a dialog box and does not require user authorization.
+     * Only specific system application can use this function.
+     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @param { string } deviceId - the address of the remote device to pair.
+     * @param { BluetoothTransport } transport - the transport of the remote device to pair.
+     * @param { AsyncCallback<void> } callback - the callback of pairCredibleDevice.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @systemapi
+     * @since 10
+     */
+    function pairCredibleDevice(deviceId: string, transport: BluetoothTransport, callback: AsyncCallback<void>): void;
+
+    /**
+     * Starts pairing with a credible remote Bluetooth device with transport.
+     * This interface does not trigger a dialog box and does not require user authorization.
+     * Only specific system application can use this function.
+     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @param { string } deviceId - the address of the remote device to pair.
+     * @param { BluetoothTransport } transport - the transport of the remote device to pair.
+     * @returns { Promise<void> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @systemapi
+     * @since 10
+     */
+    function pairCredibleDevice(deviceId: string, transport: BluetoothTransport): Promise<void>;
+
+    /**
      * Remove a paired remote device.
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH
@@ -203,6 +241,40 @@ declare namespace bluetoothManager {
     function setDevicePairingConfirmation(device: string, accept: boolean): void;
 
     /**
+     * Set the pin during pairing when the pin type is {@link PinType#PIN_TYPE_ENTER_PIN_CODE}.
+     *
+     * @permission ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } device - The address of the remote device.
+     * @param { string } code - The pin code entered by the user.
+     * @param { AsyncCallback<void> } callback - the callback of setDevicePinCode.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @since 10
+     */
+    function setDevicePinCode(device: string, code: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the pin during pairing when the pin type is {@link PinType#PIN_TYPE_ENTER_PIN_CODE}.
+     *
+     * @permission ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } device - The address of the remote device.
+     * @param { string } code - The pin code entered by the user.
+     * @returns { Promise<void> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @since 10
+     */
+    function setDevicePinCode(device: string, code:string): Promise<void>;
+
+    /**
      * Sets the Bluetooth friendly name of a device.
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH
@@ -273,6 +345,70 @@ declare namespace bluetoothManager {
      * @since 9
      */
     function stopBluetoothDiscovery(): void;
+
+    /**
+     * Obtains the profile UUIDs supported by the remote device.
+     * @permission ohos.permission.USE_BLUETOOTH
+     * @param { string } device - the address of bluetooth device.
+     * @param { AsyncCallback<Array<ProfileUuids>> } callback - the callback of getRemoteProfileUuids.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @systemapi
+     * @since 10
+     */
+    function getRemoteProfileUuids(device: string, callback: AsyncCallback<Array<ProfileUuids>>): void;
+
+    /**
+     * Obtains the profile UUIDs supported by the remote device.
+     * @permission ohos.permission.USE_BLUETOOTH
+     * @param { string } device - the address of bluetooth device.
+     * @returns { Promise<Array<ProfileUuids>> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @systemapi
+     * @since 10
+     */
+    function getRemoteProfileUuids(device: string): Promise<Array<ProfileUuids>>;
+
+    /**
+     * Obtains the profile UUIDs supported by the local device.
+     * @permission ohos.permission.USE_BLUETOOTH
+     * @param { string } device - the address of bluetooth device.
+     * @param { AsyncCallback<Array<ProfileUuids>> } callback - the callback of getLocalProfileUuids.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @systemapi
+     * @since 10
+     */
+    function getLocalProfileUuids(device: string, callback: AsyncCallback<Array<ProfileUuids>>): void;
+
+    /**
+     * Obtains the profile UUIDs supported by the local device.
+     * @permission ohos.permission.USE_BLUETOOTH
+     * @param { string } device - the address of bluetooth device.
+     * @returns { Promise<Array<ProfileUuids>> } Returns the promise object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @systemapi
+     * @since 10
+     */
+    function getLocalProfileUuids(device: string): Promise<Array<ProfileUuids>>;
 
     /**
      * Subscribe the event reported when a remote Bluetooth device is discovered.
@@ -543,6 +679,76 @@ declare namespace bluetoothManager {
          * @since 9
          */
         getDeviceState(device: string): ProfileConnectionState;
+
+        /**
+         * Set connection strategy of this profile.
+         * @permission ohos.permission.MANAGE_BLUETOOTH
+         * @param { string } device - the address of bluetooth device.
+         * @param { ConnectionStrategy } strategy - the connection strategy of this profile.
+         * @param { AsyncCallback<void> } callback - the callback of setConnectionStrategy.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+         * @throws { BusinessError } 2900004 - Profile is not supported.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @systemapi
+         * @since 10
+         */
+        setConnectionStrategy(device: string, strategy: ConnectionStrategy, callback: AsyncCallback<void>): void;
+
+        /**
+         * Set connection strategy of this profile.
+         * @permission ohos.permission.MANAGE_BLUETOOTH
+         * @param { string } device - the address of bluetooth device.
+         * @param { ConnectionStrategy } strategy - the connection strategy of this profile.
+         * @returns { Promise<void> } Returns the promise object.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+         * @throws { BusinessError } 2900004 - Profile is not supported.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @systemapi
+         * @since 10
+         */
+        setConnectionStrategy(device: string, strategy: ConnectionStrategy): Promise<void>;
+
+        /**
+         * Get connection strategy of this profile.
+         * @permission ohos.permission.MANAGE_BLUETOOTH
+         * @param { string } device - the address of bluetooth device.
+         * @param { AsyncCallback<ConnectionStrategy> } callback - the callback of getConnectionStrategy.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+         * @throws { BusinessError } 2900004 - Profile is not supported.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @systemapi
+         * @since 10
+         */
+        getConnectionStrategy(device: string, callback: AsyncCallback<ConnectionStrategy>): void;
+
+        /**
+         * Get connection strategy of this profile.
+         * @permission ohos.permission.MANAGE_BLUETOOTH
+         * @param { string } device - the address of bluetooth device.
+         * @returns { Promise<ConnectionStrategy> } Returns the promise object.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+         * @throws { BusinessError } 2900004 - Profile is not supported.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @systemapi
+         * @since 10
+         */
+        getConnectionStrategy(device: string): Promise<ConnectionStrategy>;
     }
 
     /**
@@ -1012,6 +1218,44 @@ declare namespace bluetoothManager {
         notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): void;
 
         /**
+         * Sends a notification of a change in a specified local characteristic with a asynchronous callback.
+         *
+         * <p>This method should be called for every BLE peripheral device that has requested notifications.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
+         * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
+         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @since 10
+         */
+        notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic, callback: AsyncCallback<void>): void;
+
+        /**
+         * Sends a notification of a change in a specified local characteristic with a asynchronous callback.
+         *
+         * <p>This method should be called for every BLE peripheral device that has requested notifications.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
+         * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
+         * @returns { Promise<void> } Promise used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @since 10
+         */
+        notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): Promise<void>;
+
+        /**
          * Sends a response to a specified read or write request to a given BLE peripheral device.
          *
          * @permission ohos.permission.USE_BLUETOOTH
@@ -1155,6 +1399,31 @@ declare namespace bluetoothManager {
          * @since 9
          */
         off(type: "connectStateChange", callback?: Callback<BLEConnectChangedState>): void;
+
+
+        /**
+         * Subscribe mtu changed event.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { string } type - Type of the mtu changed event to listen for.
+         * @param { Callback<number> } callback - Callback used to listen for the mtu changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @since 10
+         */
+         on(type: "BLEMtuChange", callback: Callback<number>): void
+
+        /**
+         * Unsubscribe mtu changed event.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { string } type - Type of the mtu changed event to listen for.
+         * @param { Callback<number> } callback - Callback used to listen for the mtu changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @since 10
+         */
+         off(type: "BLEMtuChange", callback?: Callback<number>): void
     }
 
     /**
@@ -1285,6 +1554,40 @@ declare namespace bluetoothManager {
         writeCharacteristicValue(characteristic: BLECharacteristic): void;
 
         /**
+         * Writes the characteristic of a BLE peripheral device.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
+         * @param { GattWriteType } writeType - Write type of the characteristic.
+         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2901001 - Write forbidden.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @since 10
+         */
+         writeCharacteristicValue(characteristic: BLECharacteristic, writeType: GattWriteType, callback: AsyncCallback<void>): void;
+
+        /**
+         * Writes the characteristic of a BLE peripheral device.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
+         * @param { GattWriteType } writeType - Write type of the characteristic.
+         * @returns { Promise<void> } Promise used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2901001 - Write forbidden.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @since 10
+         */
+         writeCharacteristicValue(characteristic: BLECharacteristic, writeType: GattWriteType): Promise<void>;
+
+        /**
          * Writes the descriptor of a BLE peripheral device.
          *
          * @permission ohos.permission.USE_BLUETOOTH
@@ -1343,6 +1646,38 @@ declare namespace bluetoothManager {
         setNotifyCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean): void;
 
         /**
+         * Enables or disables indication of a characteristic when value changed.
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { BLECharacteristic } characteristic - Indicates the characteristic to indicate.
+         * @param { boolean } enable - Specifies whether to enable indication of the characteristic. The value {@code true} indicates
+         * that indication is enabled, and the value {@code false} indicates that indication is disabled.
+         * @param { AsyncCallback<void> } callback - the callback of setIndicateCharacteristicChanged.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @since 10
+         */
+         setIndicateCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean, callback: AsyncCallback<void>): void;
+
+        /**
+         * Enables or disables indication of a characteristic when value changed.
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { BLECharacteristic } characteristic - Indicates the characteristic to indicate.
+         * @param { boolean } enable - Specifies whether to enable indication of the characteristic. The value {@code true} indicates
+         * that indication is enabled, and the value {@code false} indicates that indication is disabled.
+         * @returns { Promise<void> } Returns the promise object.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @throws { BusinessError } 2900001 - Service stopped.
+         * @throws { BusinessError } 2900099 - Operation failed.
+         * @since 10
+         */
+        setIndicateCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
+
+        /**
          * Subscribe characteristic value changed event.
          *
          * @permission ohos.permission.USE_BLUETOOTH
@@ -1389,6 +1724,30 @@ declare namespace bluetoothManager {
          * @since 9
          */
         off(type: "BLEConnectionStateChange", callback?: Callback<BLEConnectChangedState>): void;
+
+        /**
+         * Subscribe mtu changed event.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { string } type - Type of the mtu changed event to listen for.
+         * @param { Callback<number> } callback - Callback used to listen for the mtu changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @since 10
+         */
+        on(type: "BLEMtuChange", callback: Callback<number>): void
+
+        /**
+         * Unsubscribe mtu changed event.
+         *
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @param { string } type - Type of the mtu changed event to listen for.
+         * @param { Callback<number> } callback - Callback used to listen for the mtu changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
+         * @since 10
+         */
+        off(type: "BLEMtuChange", callback?: Callback<number>): void
     }
 
     /**
@@ -1421,6 +1780,11 @@ declare namespace bluetoothManager {
         characteristicValue: ArrayBuffer;
         /** The list of {@link BLEDescriptor} contained in the characteristic */
         descriptors: Array<BLEDescriptor>;
+        /**
+         * The properties of a BLECharacteristic instance
+         * @since 10
+         */
+        properties?: GattProperties;
     }
 
     /**
@@ -1588,6 +1952,16 @@ declare namespace bluetoothManager {
         rssi: number;
         /** The raw data of broadcast packet */
         data: ArrayBuffer;
+        /**
+         * The local name of the BLE device
+         * @since 10
+         */
+        deviceName: string;
+        /**
+         * Connectable of the remote device
+         * @since 10
+         */
+        connectable: boolean;
     }
 
     /**
@@ -1624,6 +1998,11 @@ declare namespace bluetoothManager {
         manufactureData: Array<ManufactureData>;
         /** The specified service data list to this advertisement */
         serviceData: Array<ServiceData>;
+        /**
+         * Indicates whether the device name will be included in the advertisement packet.
+         * @since 10
+         */
+        includeDeviceName?: boolean;
     }
 
     /**
@@ -1759,6 +2138,12 @@ declare namespace bluetoothManager {
     interface PinRequiredParam {
         deviceId: string;
         pinCode: string;
+        /**
+         * Indicates the pairing type to a peer device.
+         * @systemapi
+         * @since 10
+        */
+        pinType: PinType;
     }
 
     /**
@@ -1793,6 +2178,34 @@ declare namespace bluetoothManager {
 
         /** Profile state value */
         state: ProfileConnectionState;
+    }
+
+    /**
+     * Describes the properties of a gatt characteristic.
+     *
+     * @since 10
+     */
+    interface GattProperties {
+        /**
+         * Support write property of the characteristic.
+         */
+        write?: boolean;
+        /**
+         * Support write no response property of the characteristic.
+         */
+        writeNoResponse?: boolean;
+        /**
+         * Support read property of the characteristic.
+         */
+        read?: boolean;
+        /**
+         * Support notify property of the characteristic.
+         */
+        notify?: boolean;
+        /**
+         * Support indicate property of the characteristic.
+         */
+        indicate?: boolean;
     }
 
     /**
@@ -2069,6 +2482,149 @@ declare namespace bluetoothManager {
          * @since 9
          */
         PROFILE_PAN_NETWORK = 7,
+    }
+
+    /**
+     * The enum of gatt characteristic write type
+     * @enum {number}
+     * @since 10
+     */
+     enum GattWriteType {
+        /**
+         * Write characteristic with response.
+         */
+        WRITE = 1,
+        /**
+         * Write characteristic with no response.
+         */
+        WRITE_NO_RESPONSE = 2,
+    }
+
+    /**
+     * Enum for the transport of a remote device
+     * @enum {number}
+     * @since 10
+     */
+    enum BluetoothTransport {
+        /**
+         * The value of bluetooth transport BR/EDR.
+         */
+        TRANSPORT_BR_EDR = 0,
+        /**
+         * The value of bluetooth transport LE.
+         */
+        TRANSPORT_LE = 1,
+    }
+
+    /**
+     * Enum for connection strategy of the profile
+     * @enum {number}
+     * @systemapi
+     * @since 10
+     */
+    enum ConnectionStrategy {
+        /**
+         * The value of connection strategy unknown.
+         */
+        CONNECT_STRATEGY_UNSUPPORTED = 0,
+        /**
+         * The value of connection strategy allowed.
+         */
+        CONNECT_STRATEGY_ALLOWED = 1,
+        /**
+         * The value of connection strategy forbiden.
+         */
+        CONNECT_STRATEGY_FORBIDDEN = 2,
+    }
+
+    /**
+     * Enum for the type of pairing to a remote device
+     * @enum {number}
+     * @systemapi
+     * @since 10
+     */
+    enum PinType {
+        /**
+         * The user needs to enter the pin code displayed on the peer device.
+         */
+        PIN_TYPE_ENTER_PIN_CODE = 0,
+        /**
+         * The user needs to enter the passkey displayed on the peer device.
+         */
+        PIN_TYPE_ENTER_PASSKEY = 1,
+        /**
+         * The user needs to confirm the passkey displayed on the local device.
+         */
+        PIN_TYPE_CONFIRM_PASSKEY = 2,
+        /**
+         * The user needs to accept or deny the pairing request.
+         */
+        PIN_TYPE_NO_PASSKEY_CONSENT = 3,
+        /**
+         * The user needs to enter the passkey displayed on the local device on the peer device.
+         */
+        PIN_TYPE_NOTIFY_PASSKEY = 4,
+        /**
+         * The user needs to enter the pin code displayed on the peer device, used for bluetooth 2.0.
+         */
+        PIN_TYPE_DISPLAY_PIN_CODE = 5,
+        /**
+         * The user needs to accept or deny the OOB pairing request.
+         */
+        PIN_TYPE_OOB_CONSENT = 6,
+        /**
+         * The user needs to enter the 16-digit pin code displayed on the peer device.
+         */
+        PIN_TYPE_PIN_16_DIGITS = 7
+    }
+
+    /**
+     * Enum for the type of pairing to a remote device
+     * @enum {string}
+     * @systemapi
+     * @since 10
+     */
+    enum ProfileUuids {
+        /**
+         * Hands-Free Profile: Audio Gateway
+         */
+        PROFILE_UUID_HFP_AG = "0000111F-0000-1000-8000-00805F9B34FB",
+        /**
+         * Hands-Free Profile: Hands Free
+         */
+        PROFILE_UUID_HFP_HF = "0000111E-0000-1000-8000-00805F9B34FB",
+        /**
+         * Headset Profile: Audio Gateway
+         */
+        PROFILE_UUID_HSP_AG = "00001112-0000-1000-8000-00805F9B34FB",
+        /**
+         * Headset Profile: Headset
+         */
+        PROFILE_UUID_HSP_HS = "00001108-0000-1000-8000-00805F9B34FB",
+        /**
+         * Advanced Audio Distribution Profile: Source
+         */
+        PROFILE_UUID_A2DP_SRC = "0000110A-0000-1000-8000-00805F9B34FB",
+        /**
+         * Advanced Audio Distribution Profile: Sink
+         */
+        PROFILE_UUID_A2DP_SINK = "0000110B-0000-1000-8000-00805F9B34FB",
+        /**
+         * Audio/Video Remote Control Profile: Controller
+         */
+        PROFILE_UUID_AVRCP_CT = "0000110E-0000-1000-8000-00805F9B34FB",
+        /**
+         * Audio/Video Remote Control Profile: Target
+         */
+        PROFILE_UUID_AVRCP_TG = "0000110C-0000-1000-8000-00805F9B34FB",
+        /**
+         * Human Interface Device Profile
+         */
+        PROFILE_UUID_HID = "00001124-0000-1000-8000-00805F9B34FB",
+        /**
+         * HID over GATT Profile
+         */
+        PROFILE_UUID_HOGP = "00001812-0000-1000-8000-00805F9B34FB"
     }
 }
 
