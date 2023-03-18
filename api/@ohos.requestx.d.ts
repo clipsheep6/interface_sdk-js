@@ -98,7 +98,7 @@
          */
         name?: string;
         /**
-         * The MIME type, the default is obtained by the suffix of the filename or uri.
+         * The MIME type of the file, the default is obtained by the suffix of the filename or uri.
          * @type { string }
          * @syscap SystemCapability.RequestAgent
          * @since 10
@@ -167,7 +167,7 @@
          */
         title?: string;
         /**
-         * Indicates a background task or not.
+         * Indicates task's mode.
          * For upload, its default is frontend.
          * For download, its default is background.
          * For frontend task, it has callbacks.
@@ -586,7 +586,15 @@
          */
         readonly action: Action;
         /**
-         * The MiMEType of a task.
+         * Specifys task mode.
+         * The default is frontend and background.
+         * @type { Mode }
+         * @syscap SystemCapability.RequestAgent
+         * @since 10
+         */
+        readonly mode: Mode;
+        /**
+         * The MiMEType of a task when request.
          * @type { Array<string> }
          * @readonly
          * @syscap SystemCapability.RequestAgent
@@ -857,7 +865,7 @@
          */
         action?: Action;
         /**
-         * Specifys background taks or not.
+         * Specifys taks's mode.
          * The default is frontend and background.
          * @type { Mode }
          * @syscap SystemCapability.RequestAgent
