@@ -138,11 +138,12 @@ declare namespace dataShare {
         tempalteId?: TemplateId;
         /**
          * Specifies the datas of the callback.
-         * When data is from rdb store, data type is  Array<string>, every node is a json, json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}]
+         * When data is from rdb store, data type is  Array<string>, every node is a json,
+         * json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}]
          * When data is not from rdb store, data is {@link Data#data}
          * @since 10
          */
-        data: Array<string> | {[key: string]: string]};
+        data: Array<string> | {[key: string]: string};
     }
 
     /**
@@ -158,7 +159,7 @@ declare namespace dataShare {
          * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
          * @since 10
          */
-        predicates: {[key: string]: string]};
+        predicates: {[key: string]: string};
 
         /**
          * Specifies the scheduler sql of the template.
@@ -201,16 +202,10 @@ declare namespace dataShare {
         version: number;
 
         /**
-         * Specifies the data owner APP's bundleName.
-         * @since 10
-         */
-        bundleNameOfOwner: string;
-
-        /**
          * Specifies the data to be published.
          * @since 10
          */
-        data: {[key: string]: string]};
+        data: {[key: string]: string};
     }
     
     /**
@@ -305,7 +300,8 @@ declare namespace dataShare {
 
         /**
          * Update a single data into host data area.
-         * @param {Array<Data>} datas - Indicates the data to publish.
+         * @param {Data} data - Indicates the data to publish.
+		 * @param {string} bundleName - Indicates the bundleName of data to publish.
          * @param {AsyncCallback<void>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
@@ -314,11 +310,12 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        publish(datas: Array<Data>, callback: AsyncCallback<Array<OperationResult>>): void;
+        publish(data: Data, bundleName: string, callback: AsyncCallback<Array<OperationResult>>): void;
 
        /**
          * Update a single data into host data area.
-         * @param {Array<Data>} datas - Indicates the data to publish.
+         * @param {Data} data - Indicates the data to publish.
+		 * @param {string} bundleName - Indicates the bundleName of data to publish.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
@@ -327,19 +324,19 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        publish(data: Array<Data>): Promise<Array<OperationResult>>;
+        publish(data: Data, bundleName: string): Promise<Array<OperationResult>>;
 
         /**
          * get a single dataset from host data area.
          * @param {string} bundleNameOfOwner - Indicates the bundleName of data owner APP.
-         * @returns {[key: string]: string]} - the data.
+         * @returns {[key: string]: string} - the data.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        query(bundleNameOfOwner: string): {[key: string]: string]};
+        query(bundleNameOfOwner: string): {[key: string]: string};
 
         /**
          * Inserts a single data record into the database.
