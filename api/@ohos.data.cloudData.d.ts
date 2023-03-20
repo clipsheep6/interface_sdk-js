@@ -25,46 +25,115 @@ declare namespace CloudData {
      */
      class CloudConfig {
          /**
-         * opens the CloudSync function.
-         * @param {string} cloudId - Indicates the cloud ID. The cloud ID is requried by hashing the information of specific open cloud.
-         * @param {{[bundle:string]:boolean}} switches - Indicates switches information of all applications.
-         * switches will overwrite the saved application switch information.If the specific app switch changes, 
-         * the {@link changeAppSwitch(cloudId:string,bundle:string,switch:boolean)} method needs to notify the data manager service.
+         * opens the cloud sync function.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {{[bundleName:string]:boolean}} status - Indicates switches information of all applications.
+         * switches will overwrite the saved application switch information.If the specific application switch changes, 
+         * the {@link changeAppSwitch(cloudId:string,bundle:string,switch:boolean)} method will notify the data manager service.
+         * @param {AsyncCallback<void>} callback - the callback of enableCloud.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
          * @since 10
          */
-        enableCloud(cloudId: string, switches: {[bundle: string]: boolean}): void;
+        enableCloud(accountId: string, switches: {[bundleName: string]: boolean}, callback: AsyncCallback<void>): void;
 
         /**
-         * closes the CloudSync function.
-         * @param {string} cloudId - Indicates the cloud ID. The cloud ID is requried by hashing the information of specific open cloud.
+         * opens the cloud sync function.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {{[bundleName:string]:boolean}} status - Indicates switches information of all applications.
+         * switches will overwrite the saved application switch information.If the specific application switch changes, 
+         * the {@link changeAppSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+        enableCloud(accountId: string, switches: {[bundleName: string]: boolean}): Promise<void>;
+
+        /**
+         * closes the cloud sync function.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {AsyncCallback<void>} callback - the callback of disableCloud.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 10
          */
-        disableCloud(cloudId: string): void;
+        disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
         /**
-         * Changes the CloudSync switch of a single application.
-         * @param {string} cloudId - Indicates the cloud ID. The cloud ID is requried by hashing the information of specific open cloud.
-         * @param {string} bundle -  Indicates the name of application.
-         * @param {boolean} switch - Indicates the condition of switch.true means the switch is on,false means switch is off. 
+         * closes the cloud sync function.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 10
+         */
+        disableCloud(accountId: string): Promise<void>;
+
+        /**
+         * Changes the cloud sync switch of a single application.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {string} bundleName -  Indicates the name of application.
+         * @param {boolean} status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
+         * @param {AsyncCallback<void>} callback - the callback of changeAppSwitch.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
          * @since 10
          */
-        changeAppSwitch(cloudId: string, bundle: string, switch :boolean): void;
+        changeAppSwitch(accountId: string, bundleName: string, status :boolean, callback: AsyncCallback<void>): void;
+
+        /**
+         * Changes the cloud sync switch of a single application.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {string} bundleName -  Indicates the name of application.
+         * @param {boolean} status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+        changeAppSwitch(accountId: string, bundleName: string, status :boolean): Promise<void>;
 
         /**
          * deletes cloud information from local data.
-         * @param {string} cloudId - Indicates the cloud ID. The cloud ID is requried by hashing the information of specific open cloud.
-         * @param {[bundle:string]Action} appActions - Indicates information about the application whose data need to clear.
-         * bundle is the name of application.
-         * Action is the action of clearing data,which includes CLEAN_CLOUD_ID,CLEAN_DATA and CLEAN_ALL.
-         * CLEAN_CLOUD_ID indicates deleting the identification information related to the cloud ID.
-         * CLEAN_DATA indicates deleting data downloaded from the cloud(including the cloud ID).
-         * CLEAN_ALL indicates deleting all cloud data and lacal data,which means CloudSync table.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {{[bundleName: string]: Action}} appActions - Indicates information about the application data need to clear in which way.
+         * bundleName is the name of application.
+         * Action is the action of clearing data,which includes RETAIN_DATA and CLEAR_DATA.
+         * RETAIN_DATA indicates clearing cloud-related data only, which includes cloud meta data and cloud-related lacal data.
+         * CLEAR_DATA indicates clearing all cloud-related file data,which synchronized with the cloud.
+         * @param {AsyncCallback<void>} callback - the callback of clean.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
          * @since 10
          */
-        clean(cloudId: string, appActions: [bundle: string]Action): void;
+        clean(accountId: string, appActions: {[bundleName: string]: Action}, callback: AsyncCallback<void>): void;
+
+        /**
+         * deletes cloud information from local data.
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {{[bundleName: string]: Action}} - Indicates information about the application data need to clear in which way.
+         * bundleName is the name of application.
+         * Action is the action of clearing data,which includes RETAIN_DATA and CLEAR_DATA.
+         * RETAIN_DATA indicates clearing cloud-related data only, which includes cloud meta data and cloud-related lacal data.
+         * CLEAR_DATA indicates clearing all cloud-related file data,which synchronized with the cloud.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+        clean(accountId: string, appActions: {[bundleName: string]:Action}): Promise<void>;
+
+        /**
+         * notifies changes of the cloud records 
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {string} bundleName - Indicates the name of application.
+         * @param {AsyncCallback<void>} callback - the callback of notifyDataChange.
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+        notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
+
+         /**
+         * notifies changes of the cloud records 
+         * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
+         * @param {string} bundleName - Indicates the name of application.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+         notifyDataChange(accountId: string, bundleName: string): Promise<void>;
      }
 }
