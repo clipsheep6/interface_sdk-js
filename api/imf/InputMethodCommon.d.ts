@@ -43,7 +43,7 @@ export enum Direction {
 
 /**
  * Range of selected text.
- * @typedef Range
+ * @interface Range
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 10
  */
@@ -67,7 +67,7 @@ export interface Range {
 
 /**
  * Movement of cursor.
- * @typedef Movement
+ * @interface Movement
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 10
  */
