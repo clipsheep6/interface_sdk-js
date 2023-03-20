@@ -561,6 +561,17 @@ export class PhoneNumberFormat {
  *  japanese, persian.
  * @since 8
  */
+/**
+ * Get a Calendar instance specified by locale and type.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param locale The locale used to get calendar.
+ * @param type If type is not specified, get locale's default Calendar, else get the specified type of Calendar.
+ *  such as buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura,
+ *  japanese, persian.
+ * @crossplatform
+ * @since 10
+ */
 export function getCalendar(locale: string, type?: string): Calendar;
 
 export class Calendar {
@@ -571,6 +582,14 @@ export class Calendar {
      * @param date Date object used to set the time and date.
      * @since 8
      */
+    /**
+     * set the date.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param date Date object used to set the time and date.
+     * @crossplatform
+     * @since 10
+     */
     setTime(date: Date): void;
 
     /**
@@ -579,6 +598,14 @@ export class Calendar {
      * @syscap SystemCapability.Global.I18n
      * @param time Indicates the elapsed milliseconds from 1970.1.1 00:00:00 GMT.
      * @since 8
+     */
+    /**
+     * set the time.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param time Indicates the elapsed milliseconds from 1970.1.1 00:00:00 GMT.
+     * @crossplatform
+     * @since 10
      */
      setTime(time: number): void;
 
@@ -594,6 +621,19 @@ export class Calendar {
      * @param second the second field of the calendar, ranges from 0 to 59.
      * @since 8
      */
+    /**
+     * Set the time
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param year The year field of the calendar, ranges from 0 to 9999.
+     * @param month The month field of the calendar, ranges from 0 to 11.
+     * @param date The day field of the calendar, ranges from 1 to 31.
+     * @param hour The hour field of the calendar, ranges from 0 to 23.
+     * @param minute The minute field of the calendar, ranges from 0 to 59.
+     * @param second the second field of the calendar, ranges from 0 to 59.
+     * @crossplatform
+     * @since 10
+     */
     set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number): void;
 
     /**
@@ -602,6 +642,14 @@ export class Calendar {
      * @syscap SystemCapability.Global.I18n
      * @param timezone The id of a timezone.
      * @since 8
+     */
+    /**
+     * Set the timezone of this calendar.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param timezone The id of a timezone.
+     * @crossplatform
+     * @since 10
      */
     setTimeZone(timezone: string): void;
 
@@ -612,6 +660,14 @@ export class Calendar {
      * @returns Returns the timezone id of this calendar.
      * @since 8
      */
+    /**
+     * Get the timezone id of this calendar instance.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the timezone id of this calendar.
+     * @crossplatform
+     * @since 10
+     */
     getTimeZone(): string;
 
     /**
@@ -620,6 +676,14 @@ export class Calendar {
      * @syscap SystemCapability.Global.I18n
      * @returns Returns start day of a week.
      * @since 8
+     */
+    /**
+     * Get the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns start day of a week.
+     * @crossplatform
+     * @since 10
      */
     getFirstDayOfWeek(): number;
 
@@ -630,6 +694,14 @@ export class Calendar {
      * @param value Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @since 8
      */
+    /**
+     * Set the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param value Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
+     * @crossplatform
+     * @since 10
+     */
     setFirstDayOfWeek(value: number): void;
 
     /**
@@ -639,6 +711,14 @@ export class Calendar {
      * @returns Returns the minimal days of a week.
      * @since 8
      */
+    /**
+     * Get the minimal days of a week, which is needed for the first day of a year.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the minimal days of a week.
+     * @crossplatform
+     * @since 10
+     */
     getMinimalDaysInFirstWeek(): number;
 
     /**
@@ -647,6 +727,14 @@ export class Calendar {
      * @syscap SystemCapability.Global.I18n
      * @param value The value to be set.
      * @since 8
+     */
+    /**
+     * Set the minimal days of a week, which is needed for the first week of a year.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param value The value to be set.
+     * @crossplatform
+     * @since 10
      */
     setMinimalDaysInFirstWeek(value: number): void;
 
@@ -659,6 +747,17 @@ export class Calendar {
      *  dow_local, extended_year, julian_day, milliseconds_in_day, is_leap_month.
      * @returns Return the associated value.
      * @since 8
+     */
+    /**
+     * Get the associated value with the field.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param field Field values such as era, year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
+     *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond, zone_offset, dst_offset, year_woy,
+     *  dow_local, extended_year, julian_day, milliseconds_in_day, is_leap_month.
+     * @returns Return the associated value.
+     * @crossplatform
+     * @since 10
      */
     get(field: string): number;
 
@@ -680,6 +779,16 @@ export class Calendar {
      * @param date Date object whose attribute is desired.
      * @returns Returns whether the date is a weekend day.
      * @since 8
+     */
+    /**
+     * Returns true if the given date is a weekend day. If the date is not given,
+     *  the date object of this calendar is used.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param date Date object whose attribute is desired.
+     * @returns Returns whether the date is a weekend day.
+     * @crossplatform
+     * @since 10
      */
     isWeekend(date?: Date): boolean;
 }
