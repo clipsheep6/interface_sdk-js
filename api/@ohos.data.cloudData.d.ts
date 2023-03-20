@@ -13,11 +13,35 @@
  * limitations under the License.
  */
 
+import {AsyncCallback, Callback} from './basic';
 
 
 
 
 declare namespace CloudData {
+
+    /**
+     * Describes the clear action type.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 10
+     */
+    enum Action{
+        /**
+         * Indicates clearing cloud-related data only, which includes cloud meta data and cloud-related lacal data. 
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+        CLEAR_CLOUD_INFO,
+
+        /**
+         * Indicates clearing all cloud-related file data,which synchronized with the cloud.
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @since 10
+         */
+        CLEAR_CLOUD_DATA_AND_INFO,
+    }
+
      /**
      * Provides methods to set CloudSync config.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -92,10 +116,6 @@ declare namespace CloudData {
          * deletes cloud information from local data.
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
          * @param {{[bundleName: string]: Action}} appActions - Indicates information about the application data need to clear in which way.
-         * bundleName is the name of application.
-         * Action is the action of clearing data,which includes RETAIN_DATA and CLEAR_DATA.
-         * RETAIN_DATA indicates clearing cloud-related data only, which includes cloud meta data and cloud-related lacal data.
-         * CLEAR_DATA indicates clearing all cloud-related file data,which synchronized with the cloud.
          * @param {AsyncCallback<void>} callback - the callback of clean.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
          * @since 10
@@ -105,16 +125,12 @@ declare namespace CloudData {
         /**
          * deletes cloud information from local data.
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
-         * @param {{[bundleName: string]: Action}} - Indicates information about the application data need to clear in which way.
-         * bundleName is the name of application.
-         * Action is the action of clearing data,which includes RETAIN_DATA and CLEAR_DATA.
-         * RETAIN_DATA indicates clearing cloud-related data only, which includes cloud meta data and cloud-related lacal data.
-         * CLEAR_DATA indicates clearing all cloud-related file data,which synchronized with the cloud.
+         * @param {{[bundleName: string]: Action}} appActions - Indicates information about the application data need to clear in which way.
          * @returns {Promise<void>} the promise returned by the function.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
          * @since 10
          */
-        clean(accountId: string, appActions: {[bundleName: string]:Action}): Promise<void>;
+        clean(accountId: string, appActions: {[bundleName: string]: Action}): Promise<void>;
 
         /**
          * notifies changes of the cloud records 
