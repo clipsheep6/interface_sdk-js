@@ -17,9 +17,9 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import {Movement, Range, PanelInfo, PanelFlag} from './imf/InputMethodCommon';
 import LocalStorage from 'StateManagement';
 import BaseContext from './application/BaseContext';
+import {Movement, Range} from './imf/InputMethodCommon';
 
 /**
  * Input method engine
@@ -1119,6 +1119,81 @@ declare namespace inputMethodEngine {
          * @since 8
          */
         readonly keyAction: number;
+    }
+
+    /**
+     * Enumerates the flags of panel
+     * @enum { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    export enum PanelFlag {
+        /**
+         * Fixed style.
+         * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+         * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        FLG_FIXED = 0,
+
+        /**
+         * Floating style.
+         * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+         * When the flag is set, the soft keyboard is floating.</p>
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        FLG_FLOATING,
+    }
+
+    /**
+     * <p>Panel types provided for input method applications.</p>
+     * <p>Input method application developers should select the appropriate panel type according to the user scenario.</p>
+     * @enum { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    export enum PanelType {
+        /**
+         * Panel for displaying a virtual software keyboard.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        SOFT_KEYBOARD = 0,
+
+        /**
+         * Panel for displaying status bar.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        STATUS_BAR,
+    }
+
+    /**
+     * Panel information.
+     * @typedef PanelInfo
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    export interface PanelInfo {
+        /**
+         * Panel type.
+         * @type { PanelType }
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        type: PanelType;
+
+        /**
+         * <p>Flag of Panel.</p>
+         * <p>Currently only using for SOFT_KEYBOARD panel.</p>
+         * @type { ?PanelFlag }
+         * @default FLG_FIXED
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        flag?: PanelFlag;
     }
 }
 
