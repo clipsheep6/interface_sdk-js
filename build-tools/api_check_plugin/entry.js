@@ -15,24 +15,59 @@
 
 const path = require('path');
 const fs = require('fs');
+const https = require('https')
+
+const checkPullRequest = function (url) {
+  return new Promise(function (resolve) {
+    // const prUrlArray = url.split(';')
+    // for (var item of prUrlArray) {
+    // let prArr = item.split('/')
+    https.get(`https://gitee.com/api/v5/repos/openharmony/docs/pulls/4615/comments`, (res) => {
+      let rawData = '';
+      res.on('data', (chunk) => {
+        rawData += chunk;
+      });
+      res.on('end', () => {
+        let isCheckResult
+        const parsedData = JSON.parse(rawData);
+        for (let i = parsedData.length - 1; i >= 0; i--) {
+          if (parsedData[i].body === 'start apiCheck') {
+            isCheckResult = true
+            break;
+          }
+          if (parsedData[i].body === 'stop apiCheck') {
+            isCheckResult = false
+            break;
+          }
+          isCheckResult = false
+        }
+        resolve(isCheckResult)
+      });
+    }).on('error', (e) => {
+      console.error(`Got error: ${e.message}`);
+    });
+    // }
+  })
+}
 
 function checkEntry(url) {
   let result = '';
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
-  try {
-    const execSync = require('child_process').execSync;
-    execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
-    const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath);
-    const { removeDir } = require(path.resolve(__dirname, './src/utils'));
-    removeDir(path.resolve(__dirname, 'node_modules'));
-  } catch (error) {
-    // catch error
-    result = `API_CHECK_ERROR : ${error}`;
-  }
-  const { writeResultFile } = require('./src/utils');
-  writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
+  checkPullRequest(url).then(data => {
+    if (data) {
+      const execSync = require('child_process').execSync;
+      execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
+      const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
+      result = scanEntry(mdFilesPath) + `\n API_success :${url}:${data}`;
+      const { removeDir } = require(path.resolve(__dirname, './src/utils'));
+      removeDir(path.resolve(__dirname, 'node_modules'));
+    } else {
+      result = `API_CHECK_SUCCESS : success\n API_error :${url}:${data}`;
+    }
+    const { writeResultFile } = require('./src/utils');
+    writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
+  })
 }
 checkEntry(process.argv[2]);
