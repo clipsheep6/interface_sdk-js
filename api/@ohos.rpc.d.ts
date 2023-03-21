@@ -2839,7 +2839,7 @@ declare namespace rpc {
      * @deprecated since 9
      * @useinstead ohos.rpc.RemoteProxy#getLocalInterface
      */
-    queryLocalInterface(Interface: string): IRemoteBroker;
+    queryLocalInterface(interface: string): IRemoteBroker;
 
     /**
      * Queries a local interface with a specified descriptor.
@@ -2851,7 +2851,7 @@ declare namespace rpc {
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
-    getLocalInterface(inteface: string): IRemoteBroker;
+    getLocalInterface(interface: string): IRemoteBroker;
 
     /**
      * Register a callback used to receive death notifications of a remote object.
