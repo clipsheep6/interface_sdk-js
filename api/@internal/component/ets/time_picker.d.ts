@@ -88,6 +88,24 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
+
+  /**
+   * Sets whether to display the second column.
+   * @param { boolean } value - indicates whether to display the second column.
+   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showSecond(value: boolean): TimePickerAttribute;
+
+   /**
+    * Sets whether to enable the wheel mode.
+    * @param { boolean } value - indicates whether to enable the wheel mode.
+    * @returns { TimePickerAttribute } the attribute of the time picker
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  enableWheelMode(value: boolean): TimePickerAttribute;
  
   /**
    * This event is triggered when a TimePicker time is selected.
