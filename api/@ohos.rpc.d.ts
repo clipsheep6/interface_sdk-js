@@ -2832,26 +2832,26 @@ declare namespace rpc {
     /**
      * Queries a local interface with a specified descriptor.
      *
-     * @param { string } descriptor - Indicates the descriptor of the interface to query.
+     * @param { string } Interface - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.rpc.RemoteProxy#getLocalInterface
      */
-    queryLocalInterface(descriptor: string): IRemoteBroker;
+    queryLocalInterface(Interface: string): IRemoteBroker;
 
     /**
      * Queries a local interface with a specified descriptor.
      *
-     * @param { string } descriptor - Indicates the descriptor of the interface to query.
+     * @param { string } interface - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900006 - only remote object permitted
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
-    getLocalInterface(descriptor: string): IRemoteBroker;
+    getLocalInterface(inteface: string): IRemoteBroker;
 
     /**
      * Register a callback used to receive death notifications of a remote object.
