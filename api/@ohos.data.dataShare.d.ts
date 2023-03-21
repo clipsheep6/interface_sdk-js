@@ -271,7 +271,7 @@ declare namespace dataShare {
         /**
          * Registers observers to observe data specified by the given uri and template.
          * @param {string} type - type must be 'dataChange'.
-         * @param {Array<string>} uris - Indicates the paths of the data to operate.
+         * @param {Array<string>} uris - Indicates the paths of the data to operate. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}/key in {@link Data#data}
          * @param {TemplateId} templateId - the template of on.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
          * @returns {Array<OperationResult>}: the operation result.
