@@ -521,7 +521,8 @@
       "XTS": [
         "DeviceAttest",
         "DeviceAttestLite"
-      ]
+      ],
+      "Base"
     }
   }
 }

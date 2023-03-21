@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.basic';
 import * as _ErrorObserver from './application/ErrorObserver';
 
 /**

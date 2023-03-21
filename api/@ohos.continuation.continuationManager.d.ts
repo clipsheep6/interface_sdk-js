@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Callback } from './basic';
-import { AsyncCallback } from './basic';
+import { Callback } from './@ohos.basic';
+import { AsyncCallback } from './@ohos.basic';
 import { ContinuationResult } from './continuation/continuationResult'
 import { ContinuationExtraParams } from './continuation/continuationExtraParams'
 

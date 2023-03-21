@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import { Callback } from './basic';
+import { AsyncCallback } from './@ohos.basic';
+import { Callback } from './@ohos.basic';
 
 /**
  * Accessibility
