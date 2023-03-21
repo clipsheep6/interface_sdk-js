@@ -301,7 +301,7 @@ declare namespace dataShare {
         /**
          * Update a single data into host data area.
          * @param {Data} data - Indicates the data to publish.
-		 * @param {string} bundleName - Indicates the bundleName of data to publish.
+         * @param {string} bundleName - Indicates the bundleName of data to publish.
          * @param {AsyncCallback<void>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
