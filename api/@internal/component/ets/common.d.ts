@@ -2428,6 +2428,7 @@ declare class CommonMethod<T> {
    * blurStyle:Blur style type.
    * @param { BlurStyle } value
    * @param { BackgroundBlurStyleOptions } options
+   * @form
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
@@ -2656,6 +2657,7 @@ declare class CommonMethod<T> {
    * Transition parameter
    * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 10
    */
   transition(value: TransitionOptions | TransitionEffect): T;
@@ -3228,6 +3230,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    * @param { ShadowOptions | ShadowStyle } value
+   * @form
    * @since 10
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
@@ -3259,6 +3262,7 @@ declare class CommonMethod<T> {
    * Applies a mask of the specified shape to the current assembly.
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 10
    */  
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
