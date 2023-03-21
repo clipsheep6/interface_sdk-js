@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.basic';
 import { CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
 import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, BusinessError} from "./basic";
+import {AsyncCallback, BusinessError} from "./@ohos.basic";
 
 /**
  * Provides methods to get power consumption information.
