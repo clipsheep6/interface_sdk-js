@@ -86,7 +86,10 @@ function checkAllNode(node, sourcefile, fileName) {
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
-function scanEntry(url) {
+function scanEntry(url, isOpenEscapeWay) {
+  if (isOpenEscapeWay) {
+    return ['api_check: true'];
+  }
   // scan entry
   checkAPICodeStyle(url);
   result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);

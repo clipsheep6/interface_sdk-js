@@ -18,21 +18,58 @@ const fs = require('fs');
 
 function checkEntry(url) {
   let result = '';
+  let isOpenEscapeWay = false;
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
   try {
     const execSync = require('child_process').execSync;
     execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
+    const rules = require(path.resolve(__dirname, './code_style_rule.json'));
+    const administrators = new Set();
+    rules.administrators.forEach((administrator) => {
+      administrators.add(administrator.id);
+    })
+    // const commentRequestPath = 'https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/4777/comments';
+    const request = require(path.resolve(__dirname, './node_modules/sync-request'));
+    const pullRequestSteps = url.split(/(\/|\\\\)/g);
+    const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${pullRequestSteps[pullRequestSteps.length - 1]}/comments?page=2&per_page=100&direction=desc`;
+    // var res = request('GET', commentRequestPath);
+    // const commentRequestPath = 'https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/3968/comments?page=1&per_page=100&direction=desc';
+    let res = request('GET', commentRequestPath, {
+      headers: {
+        'Content-Type': 'application/json;charset=UFT-8'
+      }
+    });
+    let resBody = new TextDecoder('utf-8').decode(res.body);
+
+    // result += `url:::${url} \n`;
+    // result += '============================\n';
+    // result += `原文:::${res} \n`;
+    // result += '============================\n';
+    // result += `评论:::${resBody}\n`;
+    // const keyStr = 'pass api check';
+    let comments = JSON.parse(`{"resultBody": ${resBody}}`);
+    for (let i = 0; i < comments.resultBody.length; i++) {
+      const comment = comments.resultBody[i];
+      if (/^pass api check$/.test(comment.body)) {
+        result += `comment.id:::${comment.id}`;
+      }
+      if (administrators.has(comment.id) && /^pass api check$/.test(comment.body)) {
+        isOpenEscapeWay = true;
+        break;
+      }
+    }
     const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath);
+    result += scanEntry(mdFilesPath, isOpenEscapeWay);
     const { removeDir } = require(path.resolve(__dirname, './src/utils'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
-    result = `API_CHECK_ERROR : ${error}`;
+    result += `API_CHECK_ERROR : ${error}`;
   }
   const { writeResultFile } = require('./src/utils');
   writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
 }
+
 checkEntry(process.argv[2]);
