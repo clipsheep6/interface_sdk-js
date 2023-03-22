@@ -119,26 +119,26 @@ declare namespace dataShare {
          */
         bundleNameOfOwner: string;
     }
-    
-    /**
+	
+	/**
      * Specifies the published item structure.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @since 10
      */
-    interface PublishedItem {
-        /**
+	interface PublishedItem {
+	    /**
          * Specifies the published data
          * If the data is large, use Ashmem.
          * @since 10
          */
         data: string | Ashmem;
-        /**
+		/**
          * Specifies the subscriber id
          * @since 10
          */
-        subscriberId: number;
-    }
+		subscriberId: number;
+	}
 
     /**
      * Specifies the change node structure in callback.
@@ -226,7 +226,7 @@ declare namespace dataShare {
          * Specifies the data to be published.
          * @since 10
          */
-        data: Array<PublishedItem>;
+        data: {[key: string]: PublishedItem};
     }
     
     /**
@@ -336,7 +336,7 @@ declare namespace dataShare {
        /**
          * Update a single data into host data area.
          * @param {Data} data - Indicates the data to publish.
-         * @param {string} bundleName - Indicates the bundleName of data to publish.
+		 * @param {string} bundleName - Indicates the bundleName of data to publish.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
