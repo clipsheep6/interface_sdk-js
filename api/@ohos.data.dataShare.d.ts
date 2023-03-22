@@ -190,7 +190,7 @@ declare namespace dataShare {
         scheduler: string;
     }
     /**
-     * Specifies the operation result structure in callback.
+     * Specifies the operation result structure.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @since 10
