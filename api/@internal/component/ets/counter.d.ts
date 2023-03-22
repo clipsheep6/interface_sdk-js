@@ -46,13 +46,21 @@ interface CounterInterface {
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
-   * Listen to the event that the value increases.
-   * @since 7
+   * min: Minimum Value of Counter component.
+   * @since 10
    */
+  min(value: number): CounterAttribute;
+
+  /**
+   * value:Current data value.
+   * max: Maximum Value of Counter component.
+   * @since 10
+   */
+  max(value: number): CounterAttribute;
+
   /**
    * Listen to the event that the value increases.
-   * @form
-   * @since 9
+   * @since 7
    */
   onInc(event: () => void): CounterAttribute;
 
