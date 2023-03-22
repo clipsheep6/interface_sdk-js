@@ -32,6 +32,8 @@ declare namespace dataShare {
      * Manages create datashare helper options.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     interface CreateOption {
@@ -39,6 +41,8 @@ declare namespace dataShare {
          * Specifies whether the helper in proxy mode.
          * If value is true, all operations will not open provider APP as possible
          * @default false
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         isProxy: boolean;
@@ -103,57 +107,75 @@ declare namespace dataShare {
      * Specifies the {@link Template} id structure.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     interface TemplateId {
         /**
          * Specifies the id of subscriber, who process the callback
          * Same as subscriberId in {@link DataShareHelper#addTemplate}
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         subscriberId: number;
         /**
          * Specifies the bundleName of template owner, who create the template
          * Same as the caller's bundleName of {@link DataShareHelper#addTemplate}
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         bundleNameOfOwner: string;
     }
-	
-	/**
+    
+    /**
      * Specifies the published item structure.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
-	interface PublishedItem {
-	    /**
+    interface PublishedItem {
+        /**
          * Specifies the published data
          * If the data is large, use Ashmem.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         data: string | Ashmem;
-		/**
+        /**
          * Specifies the subscriber id
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
-		subscriberId: number;
-	}
+        subscriberId: number;
+    }
 
     /**
      * Specifies the change node structure in callback.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     interface ChangeNode {
         /**
          * Specifies the uri of the callback. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         uri: string;
         /**
          * Specifies the tempalteId of the callback, if the data is not from rdb store, the value is undefined.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         tempalteId?: TemplateId;
@@ -162,6 +184,8 @@ declare namespace dataShare {
          * When data is from rdb store, data type is  Array<string>, every node is a json,
          * json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}]
          * When data is not from rdb store, data is {@link Data#data}
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         data: Array<string> | {[key: string]: PublishedItem};
@@ -171,6 +195,8 @@ declare namespace dataShare {
      * Specifies the template structure in subscribe.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     interface Template {
@@ -178,6 +204,8 @@ declare namespace dataShare {
          * Specifies the predicates of the template.
          * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
          * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         predicates: {[key: string]: string};
@@ -185,6 +213,8 @@ declare namespace dataShare {
         /**
          * Specifies the scheduler sql of the template.
          * When modify the subscribed uri's data, scheduler is auto called.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         scheduler: string;
@@ -193,17 +223,23 @@ declare namespace dataShare {
      * Specifies the operation result structure.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     interface OperationResult {
         /**
          * Specifies the key of the operation result.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         key: string;
 
         /**
          * Specifies the operation result.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         isSuccess: boolean;
@@ -213,17 +249,23 @@ declare namespace dataShare {
      * Specifies the simple data to be published.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     interface Data {
          /**
          * Specifies the version of data, larger is newer.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         version: number;
 
         /**
          * Specifies the data to be published.
+         * @systemapi
+         * @StageModelOnly
          * @since 10
          */
         data: {[key: string]: PublishedItem};
@@ -336,7 +378,7 @@ declare namespace dataShare {
        /**
          * Update a single data into host data area.
          * @param {Data} data - Indicates the data to publish.
-		 * @param {string} bundleName - Indicates the bundleName of data to publish.
+         * @param {string} bundleName - Indicates the bundleName of data to publish.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
