@@ -143,7 +143,7 @@ declare namespace dataShare {
          * When data is not from rdb store, data is {@link Data#data}
          * @since 10
          */
-        data: Array<string> | {[key: string]: string};
+        data: Array<string> | {[key: string]: string | Ashmem};
     }
 
     /**
@@ -205,7 +205,7 @@ declare namespace dataShare {
          * Specifies the data to be published.
          * @since 10
          */
-        data: {[key: string]: string};
+        data: {[key: string]: string | Ashmem};
     }
     
     /**
