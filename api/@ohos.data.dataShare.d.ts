@@ -18,6 +18,7 @@ import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
+import Ashmem from './@ohos.rpc.d.ts';
 
 /**
  * This module provides the dataShare capability for consumer.
