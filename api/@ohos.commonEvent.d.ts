@@ -198,6 +198,12 @@ declare namespace commonEvent {
      COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
+     * This commonEvent means when the user is present after the device is awakened.
+     * @deprecated since 10
+     */
+    COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
+
+    /**
      * This commonEvent means when the current time is changed.
      */
     COMMON_EVENT_TIME_TICK = "usual.event.TIME_TICK",
