@@ -274,11 +274,6 @@ declare namespace notification {
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
-    * Conversation notification.
-    */
-    NOTIFICATION_CONTENT_CONVERSATION,
-
-    /**
     * Multi-line text notification.
     */
     NOTIFICATION_CONTENT_MULTILINE,
