@@ -1798,10 +1798,72 @@ declare interface PixelMapMock {
 }
 
 /**
+ * Defines the PixelMap type object for ui component.
+ * @since 10
+ */
+import {UnifiedData} from '@ohos.data.UDMF'
+import {UDAbstract} from '@ohos.data.UDMF'
+/**
  * DragEvent object description
  * @since 7
  */
 declare interface DragEvent {
+
+  /**
+   * Drag Data
+   * @since 10
+   */
+  dragData: Array<UnifiedData>;
+
+  /**
+   * Drag Data Report
+   * @since 10
+   */
+  dragAbstract: Array<UDAbstract>;
+
+  /**
+   * Drag Status
+   * @since 10
+   */
+  dragRet: DragRet;
+
+  /**
+   * X coordinate of the drag window.
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the drag window.
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * set DragData
+   * @param DragData 
+   * @since 10
+   */
+  setDragData(dragData:Array<UnifiedData>): void;
+
+  /**
+   * get DragData
+   * @since 10
+   */
+  getDragData(): Array<UnifiedData>;
+
+  /**
+   * get DragData report
+   * @since 10
+   */
+  getDragAbstract(): Array<DragAbstract>;
+
+  /**
+   * get Drag Status
+   * @since 10
+   */
+  getDragRet(): DragRet;
+
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
@@ -1814,6 +1876,61 @@ declare interface DragEvent {
    */
   getY(): number;
 }
+
+declare interface DragDrop {
+  
+  /**
+   * After drag event, the drag end event.
+   * @param event 
+   * @since 10
+   */
+  onDragFinish(event?: DragEvent): void;
+
+  /**
+   * User custom drag animation
+   * @param event 
+   * @since 10
+   */
+  dropDestination(event?: DragEvent): void;
+
+  /**
+   * Allowed unifiedData type on 
+   * @since 10
+   */
+  allowDrop?: Array<UnifiedData>;
+
+  /**
+   * Set text on the foot
+   * @param event 
+   * @since 10
+   */
+  dragSubscript(success?: string, fail?: string): void;
+  /**
+   * Move data to other place while drag ,default false
+   * @param event 
+   * @since 10
+   */
+  moveNode?: boolean;
+}
+
+declare enum DragRet {
+  /**
+   * Define success
+   * @since 10
+   */
+  dragSuccess,
+  /**
+   * Define false
+   * @since 10
+   */
+  dragFail,
+  /**
+   * Define cancel
+   * @since 10
+   */
+  dragCancel
+}
+
 
 /**
  * KeyEvent object description:
