@@ -173,7 +173,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): TextAttribute;
+  /**
+   * Called when the text decoration of the text is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  decoration(value: TextDecorationOption): TextAttribute;
 
   /**
    * Called when the distance between text fonts is set.

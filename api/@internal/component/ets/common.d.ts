@@ -1385,6 +1385,38 @@ declare interface PickerTextStyle {
 }
 
 /**
+ * Provide an interface for the text decoration option
+ * @interface TextDecorationOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextDecorationOption {
+  /**
+   * Define the type of text decorative line.
+   * @type { TextDecorationType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type: TextDecorationType;
+  /**
+   * Define the color of text decorative line.
+   * @type { ResourceColor }
+   * @default Color.Black
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  color?: ResourceColor;
+  /**
+   * Define the text decoration line style.
+   * @type { TextDecorationStyle }
+   * @default SOLID
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  style?: TextDecorationStyle;
+}
+
+/**
  * Define the options of shadow
  * @since 7
  */
