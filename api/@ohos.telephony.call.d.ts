@@ -25,9 +25,9 @@ declare namespace call {
   /**
    * Makes a call.
    *
-   * @param phoneNumber Indicates the called number.
-   * @param options Indicates additional information carried in the call.
-   * @param callback Returns {@code true} if the call request is successful; returns {@code false} otherwise.
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the dial.
+   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
    * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
    * that the call is or can be connected.
    * @permission ohos.permission.PLACE_CALL
@@ -35,21 +35,49 @@ declare namespace call {
    * @useinstead telephony.call#dialCall
    */
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Makes a call.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { DialOptions } options - Indicates additional information carried in the call.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the dial.
+   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
+   * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
+   * that the call is or can be connected.
+   * @permission ohos.permission.PLACE_CALL
+   * @deprecated since 9
+   * @useinstead telephony.call#dialCall
+   */
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Makes a call.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { DialOptions } options - Indicates additional information carried in the call.
+   * @returns { Promise<boolean> } Returns the result of the dial.
+   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
+   * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
+   * that the call is or can be connected.
+   * @permission ohos.permission.PLACE_CALL
+   * @deprecated since 9
+   * @useinstead telephony.call#dialCall
+   */
   function dial(phoneNumber: string, options?: DialOptions): Promise<boolean>;
 
   /**
    * Makes a call.
    *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { AsyncCallback<void> } callback - The callback of dialCall.
    * @permission ohos.permission.PLACE_CALL
-   * @param phoneNumber Indicates the called number.
-   * @param callback - the callback of dialCall.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -58,16 +86,16 @@ declare namespace call {
   /**
    * Makes a call.
    *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { DialCallOptions } options - Indicates additional information carried in the call.
+   * @param { AsyncCallback<void> } callback - The callback of dialCall.
    * @permission ohos.permission.PLACE_CALL
-   * @param phoneNumber Indicates the called number.
-   * @param options Indicates additional information carried in the call.
-   * @param callback - the callback of dialCall.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -76,16 +104,16 @@ declare namespace call {
   /**
    * Makes a call.
    *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { DialCallOptions } options - Indicates additional information carried in the call.
+   * @returns { Promise<void> } The promise returned by the dialCall.
    * @permission ohos.permission.PLACE_CALL
-   * @param phoneNumber Indicates the called number.
-   * @param options Indicates additional information carried in the call.
-   * @returns { void | Promise<void> } No callback return Promise otherwise return void.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -94,25 +122,47 @@ declare namespace call {
   /**
    * Go to the dial screen and the called number is displayed.
    *
-   * @param phoneNumber Indicates the called number.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { AsyncCallback<void> } callback - The callback of makeCall.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @returns { Promise<void> } The promise returned by the makeCall.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @since 7
+   */
   function makeCall(phoneNumber: string): Promise<void>;
 
   /**
    * Checks whether a call is ongoing.
    *
-   * @param callback Returns {@code true} if at least one call is not in the {@link CallState#CALL_STATE_IDLE}
-   * state; returns {@code false} otherwise.
+   * @param { AsyncCallback<boolean> } callback - The callback of hasCall.
+   * Returns {@code true} if at least one call is not in the {@link CallState#CALL_STATE_IDLE} state; returns {@code false} otherwise.
    */
   function hasCall(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether a call is ongoing.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if at least one call is not in the {@link CallState#CALL_STATE_IDLE}
+   * state; returns {@code false} otherwise.
+   */
   function hasCall(): Promise<boolean>;
 
   /**
@@ -123,9 +173,20 @@ declare namespace call {
    * {@code CallState#CALL_STATE_OFFHOOK}.
    * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
    *
-   * @param callback Returns the call state.
+   * @param { AsyncCallback<CallState> } callback - Indicates the callback for getting the call state.
    */
   function getCallState(callback: AsyncCallback<CallState>): void;
+
+  /**
+   * Obtains the call state.
+   *
+   * <p>If an incoming call is ringing or waiting, the system returns {@code CallState#CALL_STATE_RINGING}.
+   * If at least one call is in the active, hold, or dialing state, the system returns
+   * {@code CallState#CALL_STATE_OFFHOOK}.
+   * In other cases, the system returns {@code CallState#CALL_STATE_IDLE}.
+   *
+   * @returns { Promise<CallState> } Returns the call state.
+   */
   function getCallState(): Promise<CallState>;
 
   /**
@@ -133,17 +194,33 @@ declare namespace call {
    *
    * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
+   * @param { AsyncCallback<void> } callback - The callback of muteRinger.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function muteRinger(callback: AsyncCallback<void>): void;
+
+  /**
+   * Stops the ringtone.
+   *
+   * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
+   *
+   * @returns { Promise<void> } The promise returned by the muteRinger.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function muteRinger(): Promise<void>;
 
   /**
@@ -153,7 +230,7 @@ declare namespace call {
    * subsystem domain (IMS) call on a telephone service network. If the device supports only packet switching
    * (even if the device supports OTT calls), {@code false} is returned.
    *
-   * @returns Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
    * @since 7
    */
   function hasVoiceCapability(): boolean;
@@ -161,18 +238,48 @@ declare namespace call {
   /**
    * Checks whether a phone number is on the emergency number list.
    *
-   * @param phoneNumber Indicates the phone number to check.
-   * @param callback Returns {@code true} if the phone number is on the emergency number list;
-   * returns {@code false} otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } phoneNumber - Indicates the phone number to check.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for isEmergencyPhoneNumber.
+   * Returns {@code true} if the phone number is on the emergency number list. Returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether a phone number is on the emergency number list.
+   *
+   * @param { string } phoneNumber - Indicates the phone number to check.
+   * @param { EmergencyNumberOptions } options - Indicates the additional information for emergency numbers.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for isEmergencyPhoneNumber. 
+   * Returns {@code true} if the phone number is on the emergency number list. Returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether a phone number is on the emergency number list.
+   *
+   * @param { string } phoneNumber - Indicates the phone number to check.
+   * @param { EmergencyNumberOptions } options - Indicates the additional information for emergency numbers.
+   * @returns { Promise<boolean> } Returns {@code true} if the phone number is on the emergency number list.
+   * Returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
 
   /**
@@ -181,47 +288,95 @@ declare namespace call {
    * + 4-digit area code + 4-digit subscriber number. After the formatting,
    * each part is separated by a space.
    *
-   * @param phoneNumber Indicates the phone number to format.
-   * @param options countryCode option
-   * @param callback Returns the phone number after being formatted; returns an empty string if the input phone number is invalid.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } phoneNumber - Indicates the phone number to format.
+   * @param { AsyncCallback<string> } callback - Indicates the callback to obtain a formatted phone number; returns an empty string if the input phone number is invalid.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function formatPhoneNumber(phoneNumber: string, callback: AsyncCallback<string>): void;
+
+  /**
+   * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
+   * a phone number is in the format of country code (if any) + 3-digit service provider code
+   * + 4-digit area code + 4-digit subscriber number. After the formatting,
+   * each part is separated by a space.
+   *
+   * @param { string } phoneNumber - Indicates the phone number to format.
+   * @param { NumberFormatOptions } options - Indicates the countryCode option.
+   * @param { AsyncCallback<string> } callback - Indicates the callback to obtain a formatted phone number; returns an empty string if the input phone number is invalid.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function formatPhoneNumber(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback<string>): void;
+
+  /**
+   * Formats a phone number according to the Chinese Telephone Code Plan. Before the formatting,
+   * a phone number is in the format of country code (if any) + 3-digit service provider code
+   * + 4-digit area code + 4-digit subscriber number. After the formatting,
+   * each part is separated by a space.
+   *
+   * @param { string } phoneNumber - Indicates the phone number to format.
+   * @param { NumberFormatOptions } options - Indicates the countryCode option.
+   * @returns { Promise<string> } Returns the phone number after being formatted.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise<string>;
 
   /**
    * Formats a phone number into an E.164 representation.
    *
-   * @param phoneNumber Indicates the phone number to format.
-   * @param countryCode Indicates a two-digit country code defined in ISO 3166-1.
-   * @param callback Returns an E.164 number; returns an empty string if the input phone number is invalid.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } phoneNumber - Indicates the phone number to format.
+   * @param { string } countryCode - Indicates a two-digit country code defined in ISO 3166-1.
+   * @param { AsyncCallback<string> } callback - Returns an E.164 number; returns an empty string if the input phone number is invalid.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback<string>): void;
+
+  /**
+   * Formats a phone number into an E.164 representation.
+   *
+   * @param { string } phoneNumber - Indicates the phone number to format.
+   * @param { string } countryCode - Indicates a two-digit country code defined in ISO 3166-1.
+   * @returns { Promise<string> } Returns an E.164 number; returns an empty string if the input phone number is invalid.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
 
   /**
    * Answers the incoming call.
    *
-   * @param callId Indicates the identifier of the call to answer.
+   * @param { number } callId - Indicates the identifier of the call to answer.
+   * @param { AsyncCallback<void> } callback - The callback of answerCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -230,14 +385,15 @@ declare namespace call {
   /**
    * Answers the incoming call.
    *
-   * @param callId Indicates the identifier of the call to answer.
+   * @param { number } callId - Indicates the identifier of the call to answer.
+   * @returns { Promise<void> } The promise returned by the answerCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -246,13 +402,14 @@ declare namespace call {
   /**
    * Answers the incoming call without callId.
    *
+   * @param { AsyncCallback<void> } callback - The callback of answerCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -261,14 +418,15 @@ declare namespace call {
   /**
    * Hang up the foreground call.
    *
-   * @param callId Indicates the identifier of the call to hangup.
+   * @param { number } callId - Indicates the identifier of the call to hangup.
+   * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -277,14 +435,15 @@ declare namespace call {
   /**
    * Hang up the foreground call.
    *
-   * @param callId Indicates the identifier of the call to hangup.
+   * @param { number } callId - Indicates the identifier of the call to hangup.
+   * @returns { Promise<void> } The promise returned by the hangUpCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -293,13 +452,14 @@ declare namespace call {
   /**
    * Hang up the foreground call without callId.
    *
+   * @param { AsyncCallback<void> } callback - The callback of hangUpCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -308,15 +468,15 @@ declare namespace call {
   /**
    * Reject the incoming call.
    *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
+   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -325,15 +485,16 @@ declare namespace call {
     /**
    * Reject the incoming call.
    *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
+   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { RejectMessageOptions } options - Indicates the text message to reject.
+   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -342,15 +503,16 @@ declare namespace call {
     /**
    * Reject the incoming call.
    *
-   * @param callId Indicates the identifier of the call to reject.
-   * @param options Indicates the text message to reject.
+   * @param { number } callId - Indicates the identifier of the call to reject.
+   * @param { RejectMessageOptions } options - Indicates the text message to reject.
+   * @returns { Promise<void> } The promise returned by the rejectCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -359,14 +521,14 @@ declare namespace call {
   /**
    * Reject the incoming call without callId.
    *
-   * @param options Indicates the text message to reject.
+   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -375,14 +537,15 @@ declare namespace call {
   /**
    * Reject the incoming call without callId.
    *
-   * @param options Indicates the text message to reject.
+   * @param { RejectMessageOptions } options - Indicates the text message to reject.
+   * @param { AsyncCallback<void> } callback - The callback of rejectCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -391,213 +554,404 @@ declare namespace call {
   /**
    * Keep a call on hold.
    *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of holdCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function holdCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Keep a call on hold.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the holdCall.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function holdCall(callId: number): Promise<void>;
 
   /**
    * Cancel call hold status.
    *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of unHoldCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function unHoldCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Keep a call on hold.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the unHoldCall.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function unHoldCall(callId: number): Promise<void>;
 
   /**
    * Switch call.
    *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of switchCall.
    * @permission ohos.permission.ANSWER_CALL
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function switchCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Switch call.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the switchCall.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function switchCall(callId: number): Promise<void>;
 
   /**
    * Merge calls, merge two calls into conference calls.
    *
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of combineConference.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function combineConference(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Merge calls, merge two calls into conference calls.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the combineConference.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function combineConference(callId: number): Promise<void>;
 
   /**
    * Get the main call Id.
    *
-   * @param callId Indicates the identifier of the call.
-   * @returns Returns the main call id.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the main call id.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getMainCallId(callId: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the main call Id.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<number> } Returns the main call id.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function getMainCallId(callId: number): Promise<number>;
 
   /**
    * Get the list of sub-call Ids.
    *
-   * @param callId Indicates the identifier of the call.
-   * @returns Returns the list of sub call ids.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting the list of sub call ids.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getSubCallIdList(callId: number, callback: AsyncCallback<Array<string>>): void;
+
+  /**
+   * Get the list of sub-call Ids.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<Array<string>> } Returns the list of sub call ids.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function getSubCallIdList(callId: number): Promise<Array<string>>;
 
   /**
    * Get the call Id list of the conference.
    *
-   * @param callId Indicates the identifier of the call.
-   * @param callback Returns the call id list of conference calls.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting the call id list of conference calls.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getCallIdListForConference(callId: number, callback: AsyncCallback<Array<string>>): void;
+
+  /**
+   * Get the call Id list of the conference.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<Array<string>> } Returns the call id list of conference calls.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function getCallIdListForConference(callId: number): Promise<Array<string>>;
 
   /**
    * Get call waiting status.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns call waiting status.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { AsyncCallback<CallWaitingStatus> } callback - Indicates the callback for getting the call waiting status.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getCallWaitingStatus(slotId: number, callback: AsyncCallback<CallWaitingStatus>): void;
+
+  /**
+   * Get call waiting status.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<CallWaitingStatus> } Returns the callback for getting the call waiting status.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function getCallWaitingStatus(slotId: number): Promise<CallWaitingStatus>;
 
   /**
    * Set call waiting.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param activate Indicates whether to activate or call wait.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { boolean } activate - Indicates whether to activate or call wait.
+   * @param { AsyncCallback<void> } callback - The callback of setCallWaiting.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function setCallWaiting(slotId: number, activate: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set call waiting.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { boolean } activate - Indicates whether to activate or call wait.
+   * @returns { Promise<void> } The promise returned by the setCallWaiting.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function setCallWaiting(slotId: number, activate: boolean): Promise<void>;
 
   /**
    * Start DTMF(Dual Tone Multi Frequency).
    *
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } character - Indicates the characters sent.
+   * @param { AsyncCallback<void> } callback - The callback of startDTMF.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function startDTMF(callId: number, character: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Start DTMF(Dual Tone Multi Frequency).
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } character - Indicates the characters sent.
+   * @returns { Promise<void> } The promise returned by the startDTMF.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function startDTMF(callId: number, character: string): Promise<void>;
 
   /**
    * Stop DTMF(Dual Tone Multi Frequency).
    *
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of stopDTMF.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function stopDTMF(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stop DTMF(Dual Tone Multi Frequency).
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the stopDTMF.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function stopDTMF(callId: number): Promise<void>;
 
   /**
    * Judge whether the emergency call is in progress.
    *
+   * @param { AsyncCallback<boolean> } callback - The callback of isInEmergencyCall.
+   * Returns {@code true} if the call is in emergency; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Returns {@code true} if the call is in emergency; returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function isInEmergencyCall(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Judge whether the emergency call is in progress.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the call is in emergency; returns {@code false} otherwise.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function isInEmergencyCall(): Promise<boolean>;
 
   /**
    * Subscribe to the callDetailsChange event.
    *
+   * @param { string } type - callDetailsChange.
+   * @param { Callback<CallAttributeOptions> } callback - Indicates the callback for getting the result of call details.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Return the result of call details.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -606,14 +960,15 @@ declare namespace call {
   /**
    * Unsubscribe from the callDetailsChange event.
    *
+   * @param { string } type - callDetailsChange.
+   * @param { Callback<CallAttributeOptions> } callback - Indicates the callback to unsubscribe from the callDetailsChange event.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Cancel call details registration.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -622,14 +977,15 @@ declare namespace call {
   /**
    * Subscribe to the callEventChange event.
    *
+   * @param { string } type - callEventChange.
+   * @param { Callback<CallEventOptions> } callback - Indicates the callback for getting the call event id.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Return the call event id.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -638,14 +994,15 @@ declare namespace call {
   /**
    * Unsubscribe from the callEventChange event.
    *
+   * @param { string } type - callEventChange.
+   * @param { Callback<CallEventOptions> } callback - Indicates the callback to unsubscribe from the callEventChange event.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Cancel call event registration.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -654,14 +1011,15 @@ declare namespace call {
   /**
    * Subscribe to the callDisconnectedCause event.
    *
+   * @param { string } type - callDisconnectedCause.
+   * @param { Callback<MmiCodeResults> } callback - Indicates the callback for getting the call disconnection reason.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Return the call disconnection reason.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -670,14 +1028,15 @@ declare namespace call {
   /**
    * Unsubscribe from the callDisconnectedCause event.
    *
+   * @param { string } type - callDisconnectedCause.
+   * @param { Callback<MmiCodeResults> } callback - Indicates the callback used to cancel the registration monitoring for obtaining the call end reason.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Cancel the call disconnection reason registration.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -686,15 +1045,15 @@ declare namespace call {
   /**
    * Subscribe to the mmiCodeResult event.
    *
-   * @param type Indicates the observer type.
-   * @param callback Return the result of MMI code.
+   * @param { string } type - mmiCodeResult.
+   * @param { Callback<MmiCodeResults> } callback - Indicates the callback for getting the result of MMI code.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -703,15 +1062,15 @@ declare namespace call {
   /**
    * Unsubscribe from the mmiCodeResult event.
    *
-   * @param type Indicates the observer type.
-   * @param callback Return the result of MMI code.
+   * @param { string } type - mmiCodeResult.
+   * @param { Callback<MmiCodeResults> } callback - Indicates the callback used to cancel getting mmicode registered listening.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -720,166 +1079,305 @@ declare namespace call {
   /**
    * Judge whether to allow another new call.
    *
-   * @param callback Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<boolean> } callback - The callback of isNewCallAllowed.
+   * Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function isNewCallAllowed(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Judge whether to allow another new call.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} If the device currently allows new calls; returns {@code false} otherwise.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function isNewCallAllowed(): Promise<boolean>;
 
   /**
    * Split conference call.
    *
-   * @param callId Indicates the identifier of the call.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of separateConference.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function separateConference(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Split conference call.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the separateConference.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function separateConference(callId: number): Promise<void>;
 
   /**
    * Get call barring status.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param type Indicates which type of call restriction to obtain.
-   * @param callback Returns call restriction status.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { CallRestrictionType } type - Indicates which type of call restriction to obtain.
+   * @param { AsyncCallback<RestrictionStatus> } callback - Indicates the callback for getting the call restriction status.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getCallRestrictionStatus(slotId: number, type: CallRestrictionType, callback: AsyncCallback<RestrictionStatus>): void;
+
+  /**
+   * Get call barring status.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { CallRestrictionType } type - Indicates which type of call restriction to obtain.
+   * @returns { Promise<RestrictionStatus> } Returns the call restriction status.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
 
   /**
    * Set call barring status.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param info Indicates the set call restriction information.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { CallRestrictionInfo } info - Indicates the set call restriction information.
+   * @param { AsyncCallback<void> } callback - The callback of setCallRestriction.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setCallRestriction(slotId: number, info: CallRestrictionInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set call barring status.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { CallRestrictionInfo } info - Indicates the set call restriction information.
+   * @returns { Promise<void> } The promise returned by the setCallRestriction.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
 
   /**
    * Get call forwarding information.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param type Indicates which type of call forwarding to obtain.
-   * @param callback Returns call forwarding status.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
+   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting the call forwarding status.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getCallTransferInfo(slotId: number, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
+
+  /**
+   * Get call forwarding information.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
+   * @returns { Promise<CallTransferResult> } Returns the call forwarding status.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
 
   /**
    * Set call forwarding information.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param info Indicates the set call forwarding information.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
+   * @param { CallTransferInfo } info - Indicates the set call forwarding information.
+   * @param { AsyncCallback<void> } callback - The callback of setCallTransfer.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setCallTransfer(slotId: number, info: CallTransferInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set call forwarding information.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { CallTransferInfo } info - Indicates the set call forwarding information.
+   * @returns { Promise<void> } The promise returned by the setCallTransfer.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
 
   /**
-   * Judge whether the bell is ringing.
+   * Judge whether there is a ringing call.
    *
+   * @param { AsyncCallback<boolean> } callback - The callback of isRinging.
+   * Returns {@code true} if the device is ringing; returns {@code false} otherwise.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param callback Returns {@code true} if the device is ringing; returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function isRinging(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Judge whether there is a ringing call.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the device is ringing; returns {@code false} otherwise.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function isRinging(): Promise<boolean>;
 
   /**
    * Set mute during a call.
    *
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<void> } callback - The callback of setMuted.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setMuted(callback: AsyncCallback<void>): void;
+
+  /**
+   * Set mute during a call.
+   *
+   * @returns { Promise<void> } The promise returned by the setMuted.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function setMuted(): Promise<void>;
 
   /**
    * Unmute during a call.
    *
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<void> } callback - The callback of cancelMuted.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function cancelMuted(callback: AsyncCallback<void>): void;
+
+  /**
+   * Unmute during a call.
+   *
+   * @returns { Promise<void> } The promise returned by the cancelMuted.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function cancelMuted(): Promise<void>;
 
   /**
    * Set the audio device.
    *
-   * @param device Indicates the device of audio.
-   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AudioDevice } device - Indicates the device of audio.
+   * @param { AsyncCallback<void> } callback - The callback of setAudioDevice.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -888,103 +1386,202 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
-   * @param device Indicates the device of audio.
-   * @param options Indicates additional information, such as address of bluetooth.
-   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AudioDevice } device - Indicates the device of audio.
+   * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
+   * @param { AsyncCallback<void> } callback - The callback of setAudioDevice.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function setAudioDevice(device: AudioDevice, options: AudioDeviceOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the audio device with options.
+   *
+   * @param { AudioDevice } device - Indicates the device of audio.
+   * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
+   * @returns { Promise<void> } The promise returned by the setAudioDevice.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function setAudioDevice(device: AudioDevice, options?: AudioDeviceOptions): Promise<void>;
 
   /**
    * Join the conference call.
    *
-   * @param mainCallId Indicates the identifier of the main call.
-   * @param callNumberList Indicates a call list.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { number } mainCallId - Indicates the identifier of the main call.
+   * @param { Array<string> } callNumberList - Indicates a call list.
+   * @param { AsyncCallback<void> } callback - The callback of joinConference.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function joinConference(mainCallId: number, callNumberList: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Join the conference call.
+   *
+   * @param { number } mainCallId - Indicates the identifier of the main call.
+   * @param { Array<string> } callNumberList - Indicates a call list.
+   * @returns { Promise<void> } The promise returned by the joinConference.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function joinConference(mainCallId: number, callNumberList: Array<string>): Promise<void>;
 
   /**
    * Update Ims call mode.
    *
-   * @param callId Indicates the identifier of the call.
-   * @param mode Indicates the mode of the ims call.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { ImsCallMode } mode - Indicates the mode of the ims call.
+   * @param { AsyncCallback<void> } callback - The callback of updateImsCallMode.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function updateImsCallMode(callId: number, mode: ImsCallMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Update Ims call mode.
+   *
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { ImsCallMode } mode - Indicates the mode of the ims call.
+   * @returns { Promise<void> } The promise returned by the updateImsCallMode.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
 
   /**
    * Turn on Ims switch.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<void> } callback - The callback of enableImsSwitch.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function enableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn on Ims switch.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<void> } The promise returned by the enableImsSwitch.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function enableImsSwitch(slotId: number): Promise<void>;
 
   /**
    * Turn off Ims switch.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<void> } callback - The callback of disableImsSwitch.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function disableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn off Ims switch.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<void> } The promise returned by the disableImsSwitch.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function disableImsSwitch(slotId: number): Promise<void>;
 
   /**
    * Judge whether the Ims switch is enabled.
    *
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<boolean> } callback - The callback of isImsSwitchEnabled.
+   * Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function isImsSwitchEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Judge whether the Ims switch is enabled.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<boolean> } Returns {@code true} If the ims switch is on; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
