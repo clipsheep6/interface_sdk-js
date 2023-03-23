@@ -77,6 +77,36 @@ declare namespace userFileManager {
   }
 
   /**
+   * Enumeration types for different types of PhotoAssets
+   * @since 10
+   * @systemapi
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   */
+  enum PhotoSubType {
+    /**
+     * Default Photo Type
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    DEFAULT,
+    /**
+     * Screenshot Photo Type
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    SCREENSHOT,
+    /**
+     * Camera Photo Type
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    CAMERA
+  }
+
+  /**
    * File position
    * @since 10
    * @systemapi
@@ -121,90 +151,107 @@ declare namespace userFileManager {
   type ChangeEvent = 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange';
 
   /**
-   * Provides methods to encapsulate file attributes.
-   * @since 9
+   * Provides methods to encapsulate photo (include image and photo) attributes.
+   * @since 10
    * @systemapi
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    */
-  interface FileAsset {
+  interface PhotoAsset {
     /**
-     * URI of the file.
-     * @since 9
+     * URI of the photo.
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     readonly uri: string;
     /**
-     * File type, for example, IMAGE, VIDEO, AUDIO
-     * @since 9
+     * File type, IMAGE or VIDEO
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     readonly fileType: FileType;
     /**
-     * Display name (with a file name extension) of the file.
-     * @since 9
+     * Display name (with a file name extension) of the photo.
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     displayName: string;
     /**
-     * Return the fileAsset member parameter.
-     * @since 9
+     * Return the PhotoAsset member parameter.
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param member the name of the parameter. for example : get(ImageVideoKey.URI)
      */
     get(member: string): MemberType;
     /**
-     * Set the fileAsset member parameter.
-     * @since 9
+     * Set the PhotoAsset member parameter.
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @param member The name of the parameter. only TITLE can be changed
+     * @param member The name of the parameter. only DISPLAY_NAME can be changed
      * @param string The value of the parameter.
-     * @example : Set(ImageVideoKey.TITLE, "newTitle"), call commitModify after set value
+     * @example : Set(ImageVideoKey.DISPLAY_NAME, "newDisplayName"), call commitModify after set value
      */
     set(member: string, value: string): void;
     /**
      * Modify meta data where the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param callback No value will be returned.
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify meta data where the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
      */
     commitModify(): Promise<void>;
     /**
-     * Open the file is located.
-     * @since 9
+     * Open the file is located, read only.
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param callback Callback return the fd of the file.
+     */
+    open(callback: AsyncCallback<number>): void;
+    /**
+     * Open the file is located, read only.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     */
+    open(): Promise<number>;
+    /**
+     * Open the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.WRITE_IMAGEVIDEO
      * @param mode Mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
      * Open the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO or ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
+     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.WRITE_IMAGEVIDEO
      * @param mode Mode for open, for example: rw, r, w.
      */
     open(mode: string): Promise<number>;
     /**
      * Close the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param fd Fd of the file which had been opened
@@ -213,7 +260,7 @@ declare namespace userFileManager {
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
      * Close the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param fd Fd of the file which had been opened
@@ -221,51 +268,292 @@ declare namespace userFileManager {
     close(fd: number): Promise<void>;
     /**
      * Get thumbnail of the file when the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param callback Callback used to return the thumbnail's pixelMap.
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
      * Get thumbnail of the file when the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param size Thumbnail's size
      * @param callback Callback used to return the thumbnail's pixelMap.
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
      * Get thumbnail of the file when the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO
+     * @permission ohos.permission.READ_IMAGEVIDEO
      * @param size Thumbnail's size
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
      * Set favorite for the file when the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param isFavorite True is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
      * Set favorite for the file when the file is located.
-     * @since 9
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.WRITE_AUDIO
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param isFavorite True is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
+    /**
+     * Set pending state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param isPending True means set file pending state, false means set file unpending
+     * @param callback Callback used to return, No value is returned.
+     */
+    pending(isPending: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set pending state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param isPending True means set file pending state, false means set file unpending
+     */
+    pending(isPending: boolean): Promise<void>;
+    /**
+     * Set hidden state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param isHidden True means set file hidden, false means set file not hidden
+     * @param callback Callback used to return, No value is returned.
+     */
+    hidden(isHidden: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set hidden state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param isHidden True means set file hidden, false means set file not hidden
+     */
+    hidden(isHidden: boolean): Promise<void>;
+  }
+
+  /**
+   * Provides methods to encapsulate audio attributes.
+   * @since 10
+   * @systemapi
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   */
+  interface AudioAsset {
+    /**
+     * URI of the audio.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    readonly uri: string;
+    /**
+     * File type, only AUDIO
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    readonly fileType: FileType;
+    /**
+     * Display name (with a file name extension) of the audio.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    displayName: string;
+    /**
+     * Return the AudioAsset member parameter.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param member the name of the parameter. for example : get(AudioKey.URI)
+     */
+    get(member: string): MemberType;
+    /**
+     * Set the AudioAsset member parameter.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param member The name of the parameter. only DISPLAY_NAME can be changed
+     * @param string The value of the parameter.
+     * @example : Set(AudioKey.DISPLAY_NAME, "newDisplayName"), call commitModify after set value
+     */
+    set(member: string, value: string): void;
+    /**
+     * Modify meta data where the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param callback No value will be returned.
+     */
+    commitModify(callback: AsyncCallback<void>): void;
+    /**
+     * Modify meta data where the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     */
+    commitModify(): Promise<void>;
+    /**
+     * Open the file is located, read only.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     * @param callback Callback return the fd of the file.
+     */
+    open(callback: AsyncCallback<number>): void;
+    /**
+     * Open the file is located, read only.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     */
+    open(): Promise<number>;
+    /**
+     * Open the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO or ohos.permission.WRITE_AUDIO
+     * @param mode Mode for open, for example: rw, r, w.
+     * @param callback Callback return the fd of the file.
+     */
+    open(mode: string, callback: AsyncCallback<number>): void;
+    /**
+     * Open the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO or ohos.permission.WRITE_AUDIO
+     * @param mode Mode for open, for example: rw, r, w.
+     */
+    open(mode: string): Promise<number>;
+    /**
+     * Close the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param fd Fd of the file which had been opened
+     * @param callback No value will be returned.
+     */
+    close(fd: number, callback: AsyncCallback<void>): void;
+    /**
+     * Close the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @param fd Fd of the file which had been opened
+     */
+    close(fd: number): Promise<void>;
+    /**
+     * Get thumbnail of the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     * @param callback Callback used to return the thumbnail's pixelMap.
+     */
+    getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
+    /**
+     * Get thumbnail of the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     * @param size Thumbnail's size
+     * @param callback Callback used to return the thumbnail's pixelMap.
+     */
+    getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
+    /**
+     * Get thumbnail of the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO
+     * @param size Thumbnail's size
+     */
+    getThumbnail(size?: image.Size): Promise<image.PixelMap>;
+    /**
+     * Set favorite for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param isFavorite True is favorite file, false is not favorite file
+     * @param callback Callback used to return, No value is returned.
+     */
+    favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set favorite for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param isFavorite True is favorite file, false is not favorite file
+     */
+    favorite(isFavorite: boolean): Promise<void>;
+    /**
+     * Set pending state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param isPending True means set file pending state, false means set file unpending
+     * @param callback Callback used to return, No value is returned.
+     */
+    pending(isPending: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set pending state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param isPending True means set file pending state, false means set file unpending
+     */
+    pending(isPending: boolean): Promise<void>;
+    /**
+     * Set hidden state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param isHidden True means set file hidden, false means set file not hidden
+     * @param callback Callback used to return, No value is returned.
+     */
+    hidden(isHidden: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set hidden state for the file when the file is located.
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param isHidden True means set file hidden, false means set file not hidden
+     */
+    hidden(isHidden: boolean): Promise<void>;
   }
 
   /**
@@ -337,7 +625,28 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    FAVORITE
+    FAVORITE,
+    /**
+     * Pending state of the file
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    PENDING,
+    /**
+     * Hidden state of the file
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    HIDDEN,
+    /**
+     * Last visit time of the file
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    VISIT_TIME
   }
 
   /**
@@ -444,7 +753,28 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
-    POSITION
+    POSITION,
+    /**
+     * Pending state of the file
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    PENDING,
+    /**
+     * Hidden state of the file
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    HIDDEN,
+    /**
+     * Last visit time of the file
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    VISIT_TIME
   }
 
   /**
@@ -493,6 +823,45 @@ declare namespace userFileManager {
      * @param predicates Indicates filter criteria.
      */
     predicates: dataSharePredicates.DataSharePredicates;
+  }
+
+  /**
+   * Describe additional operations for creating photo
+   * @since 10
+   * @systemapi
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   */
+  interface PhotoCreateOptions {
+    /**
+     * Indicates whether the created photo is in a pending state
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    isPending: boolean;
+    /**
+     * SubType of the photo, default is DEFAULT
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    subType: PhotoSubType;
+  }
+  
+  /**
+   * Describe additional operations for creating audio
+   * @since 10
+   * @systemapi
+   * @syscap SystemCapability.FileManagement.UserFileManager.Core
+   */
+  interface AudioCreateOptions {
+    /**
+     * Indicates whether the created audio is in a pending state
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     */
+    isPending: boolean;
   }
 
   /**
@@ -776,7 +1145,7 @@ declare namespace userFileManager {
      * @param callback Callback used to return the files in the format of a FetchResult instance.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      */
-    getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
+    getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
     /**
      * Obtains files in an album. This method uses a promise to return the files.
      * @since 9
@@ -788,7 +1157,7 @@ declare namespace userFileManager {
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @returns A Promise instance used to return the files in the format of a FetchResult instance.
      */
-    getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
+    getPhotoAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Modify the meta data for the album
      * @since 9
@@ -812,80 +1181,80 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @param { AsyncCallback<void> } callback - Returns void
      */
-    addAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    addAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
      * Add assets to TYPE_USER album, only for generic user-created albums
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @returns { Promise<void> } Returns the promise
      */
-    addAssets(assets: Array<FileAsset>): Promise<void>;
+    addAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
      * Remove assets to TYPE_USER album, only for generic user-created albums
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @param { AsyncCallback<void> } callback - Returns void
      */
-    removeAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    removeAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
      * Remove assets to TYPE_USER album, only for generic user-created albums
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @returns { Promise<void> } Returns the promise
      */
-    removeAssets(assets: Array<FileAsset>): Promise<void>;
+    removeAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
      * Recover assets from  trash album
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @param { AsyncCallback<void> } callback - Returns void
      */
-    recoverAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    recoverAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
      * Recover assets from  trash album
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @returns { Promise<void> } Returns void
      */
-    recoverAssets(assets: Array<FileAsset>): Promise<void>;
+    recoverAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
      * Recover assets from  trash album
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @param { AsyncCallback<void> } callback - Returns void
      */
-    deleteAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
+    deleteAssets(assets: Array<PhotoAsset>, callback: AsyncCallback<void>): void;
     /**
      * Recover assets from  trash album
      * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param { Array<FileAsset> } assets - Array of FileAsset
+     * @param { Array<PhotoAsset> } assets - Array of PhotoAsset
      * @returns { Promise<void> } Returns the promise
      */
-    deleteAssets(assets: Array<FileAsset>): Promise<void>;
+    deleteAssets(assets: Array<PhotoAsset>): Promise<void>;
     /**
      * Check album operation support
      * @since 10
@@ -914,7 +1283,7 @@ declare namespace userFileManager {
      * @param callback Callback return the FetchResult.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      */
-    getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
+    getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
     /**
      * Query photo, video assets
      * @since 9
@@ -926,7 +1295,7 @@ declare namespace userFileManager {
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @returns A promise instance used to return the files in the format of a FetchResult instance
      */
-    getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
+    getPhotoAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Create Photo Asset
      * @since 9
@@ -934,24 +1303,12 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName File name
-     * @param albumUri Asset will put into the album.
-     * @param callback Callback used to return the FileAsset
-     * @throws {BusinessError} 13900020 - if type displayName or albumUri is not string
-     * @throws {BusinessError} 14000001 - if type displayName invalid
-     */
-    createPhotoAsset(displayName: string, albumUri: string, callback: AsyncCallback<FileAsset>): void;
-    /**
-     * Create Photo Asset
-     * @since 9
-     * @systemapi
-     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.WRITE_IMAGEVIDEO
-     * @param displayName File name
-     * @param callback Callback used to return the FileAsset
+     * @param createOperation Photo create operation
+     * @param callback Callback used to return the PhotoAsset
      * @throws {BusinessError} 13900020 - if type displayName is not string
      * @throws {BusinessError} 14000001 - if type displayName invalid
      */
-    createPhotoAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
+    createPhotoAsset(displayName: string, createOperation: PhotoCreateOptions, callback: AsyncCallback<PhotoAsset>): void;
     /**
      * Create Photo Asset
      * @since 9
@@ -959,11 +1316,60 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName File name
-     * @param albumUri Album uri is optional, asset will put into the default album without albumUri
-     * @throws {BusinessError} 13900020 - if type displayName or albumUri is not string
-     * @returns A Promise instance used to return the FileAsset
+     * @param callback Callback used to return the PhotoAsset
+     * @throws {BusinessError} 13900020 - if type displayName is not string
+     * @throws {BusinessError} 14000001 - if type displayName invalid
      */
-    createPhotoAsset(displayName: string, albumUri?: string): Promise<FileAsset>;
+    createPhotoAsset(displayName: string, callback: AsyncCallback<PhotoAsset>): void;
+    /**
+     * Create Photo Asset
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param displayName File name
+     * @param albumUri CreateOperation is optional,photo create operation
+     * @throws {BusinessError} 13900020 - if type displayName is not string
+     * @returns A Promise instance used to return the PhotoAsset
+     */
+    createPhotoAsset(displayName: string, createOperation?: PhotoCreateOptions): Promise<PhotoAsset>;
+    /**
+     * Create Audio Asset
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param displayName File name
+     * @param createOperation Audio create operation
+     * @param callback Callback used to return the AudioAsset
+     * @throws {BusinessError} 13900020 - if type displayName is not string
+     * @throws {BusinessError} 14000001 - if type displayName invalid
+     */
+    createAudioAsset(displayName: string, createOperation: AudioCreateOptions, callback: AsyncCallback<PhotoAsset>): void;
+    /**
+     * Create Audio Asset
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param displayName File name
+     * @param callback Callback used to return the AudioAsset
+     * @throws {BusinessError} 13900020 - if type displayName is not string
+     * @throws {BusinessError} 14000001 - if type displayName invalid
+     */
+    createAudioAsset(displayName: string, callback: AsyncCallback<PhotoAsset>): void;
+    /**
+     * Create Audio Asset
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.WRITE_AUDIO
+     * @param displayName File name
+     * @param albumUri CreateOperation is optional, Audio create operation
+     * @throws {BusinessError} 13900020 - if type displayName is not string
+     * @returns A Promise instance used to return the AudioAsset
+     */
+    createAudioAsset(displayName: string, createOperation?: AudioCreateOptions): Promise<PhotoAsset>;
     /**
      * Create a TYPE_USER_GENERIC user album.
      * @since 10
@@ -1084,7 +1490,7 @@ declare namespace userFileManager {
      * @param callback Callback return the FetchResult.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      */
-    getAudioAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
+    getAudioAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<AudioAsset>>): void;
     /**
      * Query audio assets
      * @since 9
@@ -1096,29 +1502,51 @@ declare namespace userFileManager {
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @returns A promise instance used to return the files in the format of a FetchResult instance
      */
-    getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
+    getAudioAssets(options: FetchOptions): Promise<FetchResult<AudioAsset>>;
     /**
-    * Delete Asset
-    * @since 9
+    * Delete PhotoAsset
+    * @since 10
     * @systemapi
     * @syscap SystemCapability.FileManagement.UserFileManager.Core
-    * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
-    * @param uri Uri of asset
+    * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO
+    * @param uri Uri of PhotoAsset
     * @param callback No value returned
     * @throws {BusinessError} 13900020 - if type uri is not string
     */
-    delete(uri: string, callback: AsyncCallback<void>): void;
+    deletePhotoAsset(uri: string, callback: AsyncCallback<void>): void;
     /**
-     * Delete Asset
-     * @since 9
+     * Delete PhotoAsset
+     * @since 10
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
-     * @param uri Uri of asset
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param uri Uri of PhotoAsset
      * @throws {BusinessError} 13900020 - if type uri is not string
      * @returns A Promise instance, no value returned
      */
-    delete(uri: string): Promise<void>;
+    deletePhotoAsset(uri: string): Promise<void>;
+    /**
+    * Delete AudioAsset
+    * @since 10
+    * @systemapi
+    * @syscap SystemCapability.FileManagement.UserFileManager.Core
+    * @permission ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
+    * @param uri Uri of AudioAsset
+    * @param callback No value returned
+    * @throws {BusinessError} 13900020 - if type uri is not string
+    */
+    deleteAudioAsset(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Delete AudioAsset
+     * @since 10
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
+     * @param uri Uri of AudioAsset
+     * @throws {BusinessError} 13900020 - if type uri is not string
+     * @returns A Promise instance, no value returned
+     */
+    deleteAudioAsset(uri: string): Promise<void>;
     /**
      * Turn on monitor the data changes
      * @since 9
