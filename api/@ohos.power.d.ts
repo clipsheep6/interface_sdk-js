@@ -110,13 +110,24 @@ declare namespace power {
     /**
      * Suspends the device to turn off the screen.
      *
+     * @param {boolean} isImmediate true 表示立即挂起，将中断正在执行的任务；false 表示等待正在执行的任务完成后再挂起。
      * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @systemapi
      * @since 9
      */
-    function suspend(): void;
+    function suspend(isImmediate?: boolean): void;
+
+    /**
+     * 休眠设备，休眠后设备将断电。
+     *
+     * @throws {BusinessError} 202 - If the system permission is denied.
+     * @throws {BusinessError} 4900101 - If connecting to the service failed.
+     * @systemapi
+     * @since 10
+     */
+    function hibernate(): void;
 
     /**
      * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
