@@ -139,6 +139,13 @@ declare namespace dataShare {
      * @since 10
      */
     interface PublishedItem {
+	    /**
+         * Specifies the key of the published data
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        key: string;
         /**
          * Specifies the published data
          * If the data is large, use Ashmem.
@@ -157,38 +164,61 @@ declare namespace dataShare {
     }
 
     /**
-     * Specifies the change node structure in callback.
+     * Specifies the change node structure of rdb store data in callback.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
      * @since 10
      */
-    interface ChangeNode {
+    interface RdbDataChangeNode {
         /**
-         * Specifies the uri of the callback. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}
+         * Specifies the uri of the callback.
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
         uri: string;
         /**
-         * Specifies the tempalteId of the callback, if the data is not from rdb store, the value is undefined.
+         * Specifies the tempalteId of the callback。
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        tempalteId?: TemplateId;
+        tempalteId: TemplateId;
         /**
          * Specifies the datas of the callback.
-         * When data is from rdb store, data type is  Array<string>, every node is a json,
-         * json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}]
-         * When data is not from rdb store, data is {@link Data#data}
+         * every node is a json, json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}].
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
-        data: Array<string> | {[key: string]: PublishedItem};
+        data: Array<string>;
+    }
+	
+	/**
+     * Specifies the change node structure of published data in callback.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    interface PublishedDataChangeNode {
+        /**
+         * Specifies the bundleName of the callback.
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        bundleName: string;
+        /**
+         * Specifies the datas of the callback.
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        data: Array<PublishedItem>;
     }
 
     /**
@@ -243,32 +273,6 @@ declare namespace dataShare {
          * @since 10
          */
         isSuccess: boolean;
-    }
-    
-    /**
-     * Specifies the simple data to be published.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @systemapi
-     * @StageModelOnly
-     * @since 10
-     */
-    interface Data {
-         /**
-         * Specifies the version of data, larger is newer.
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        version: number;
-
-        /**
-         * Specifies the data to be published.
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        data: {[key: string]: PublishedItem};
     }
     
     /**
@@ -332,8 +336,8 @@ declare namespace dataShare {
         delTemplate(uri: string, subscriberId: number): void;
 
         /**
-         * Registers observers to observe data specified by the given uri and template.
-         * @param {string} type - type must be 'dataChange'.
+         * Registers observers to observe rdb data specified by the given uri and template.
+         * @param {string} type - type must be 'rdbDataChange'.
          * @param {Array<string>} uris - Indicates the paths of the data to operate. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}/key in {@link Data#data}
          * @param {TemplateId} templateId - the template of on.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
@@ -344,26 +348,11 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        on(type: 'change', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): Array<OperationResult>;
-        
-        /**
-         * Registers a one-time observer to observe data specified by the given uri and template.
-         * @param {string} type - type must be 'dataChange'.
-         * @param {Array<string>} uris - Indicates the paths of the data to operate. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}/key in {@link Data#data}
-         * @param {TemplateId} templateId - the template of on.
-         * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
-         * @returns {Array<OperationResult>}: the operation result.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        once(type: 'change', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): Array<OperationResult>;
+        on(type: 'rdbDataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<RdbDataChangeNode>): Array<OperationResult>;
 
         /**
          * Deregisters observers used for monitoring data specified by the given uri and template.
-         * @param {string} type - type must be 'dataChange'.
+         * @param {string} type - type must be 'rdbDataChange'.
          * @param {Array<string>} uris - Indicates the paths of the data to operate.
          * @param {TemplateId} templateId - the template of off.
          * @param {AsyncCallback<ChangeNode>} callback - the callback of off.
@@ -374,12 +363,43 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        off(type: 'change', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): Array<OperationResult>;
+        off(type: 'rdbDataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<RdbDataChangeNode>): Array<OperationResult>;
+		
+		/**
+         * Registers observers to observe published data specified by the given key and subscriberId.
+         * @param {string} type - type must be 'publishedDataChange'.
+         * @param {Array<string>} uris - Indicates the uris of the data to operate.
+         * @param {number} subscriberId - the subscriberId of on.
+         * @param {AsyncCallback<PublishedDataChangeNode>} callback - the callback of on.
+         * @returns {Array<OperationResult>}: the operation result.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        on(type: 'publishedDataChange', uris: Array<string>, subscriberId: number, callback: AsyncCallback<PublishedDataChangeNode>): Array<OperationResult>;
+
+        /**
+         * Deregisters observers used for monitoring data specified by the given key and subscriberId.
+         * @param {string} type - type must be 'publishedDataChange'.
+         * @param {Array<string>} uris - Indicates the uris of the data to operate.
+         * @param {number} subscriberId - the template of off.
+         * @param {AsyncCallback<PublishedDataChangeNode>} callback - the callback of off.
+         * @returns {Array<OperationResult>}: the operation result.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        off(type: 'publishedDataChange', uris: Array<string>, subscriberId: number, callback?: AsyncCallback<PublishedDataChangeNode>): Array<OperationResult>;
 
         /**
          * Update a single data into host data area.
-         * @param {Data} data - Indicates the data to publish.
+         * @param {Array<PublishedItem>} data - Indicates the data to publish.
          * @param {string} bundleName - Indicates the bundleName of data to publish.
+		 * @param {number} version - Indicates the version of data to publish, larger is newer.
          * @param {AsyncCallback<void>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
@@ -388,12 +408,13 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        publish(data: Data, bundleName: string, callback: AsyncCallback<Array<OperationResult>>): void;
+        publish(data: Array<PublishedItem>, bundleName: string, version: number, callback: AsyncCallback<Array<OperationResult>>): void;
 
        /**
          * Update a single data into host data area.
-         * @param {Data} data - Indicates the data to publish.
+         * @param {Array<PublishedItem>} data - Indicates the data to publish.
          * @param {string} bundleName - Indicates the bundleName of data to publish.
+		 * @param {number} version - Indicates the version of data to publish, larger is newer.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
@@ -402,7 +423,33 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        publish(data: Data, bundleName: string): Promise<Array<OperationResult>>;
+        publish(data: Array<PublishedItem>, bundleName: string, version: number): Promise<Array<OperationResult>>;
+		
+		/**
+         * Registers a one-time observer to observe data specified by the given uri and template.
+         * @param {string} bundleName - Indicates the bundleName of data to publish.
+		 * @param {AsyncCallback<Array<PublishedItem>>} callback
+         * @throws {BusinessError} 401 - the parameter check failed.
+		 * @throws {BusinessError} 15700012 - the data area is not exist.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
+		
+		/**
+         * Registers a one-time observer to observe data specified by the given uri and template.
+         * @param {string} bundleName - Indicates the bundleName of data to publish.
+		 * @returns {Promise<Array<PublishedItem>>}
+         * @throws {BusinessError} 401 - the parameter check failed.
+		 * @throws {BusinessError} 15700012 - the data area is not exist.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
 
         /**
          * Inserts a single data record into the database.
