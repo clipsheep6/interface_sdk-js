@@ -344,7 +344,22 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        on(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): Array<OperationResult>;
+        on(type: 'change', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): Array<OperationResult>;
+        
+        /**
+         * Registers a one-time observer to observe data specified by the given uri and template.
+         * @param {string} type - type must be 'dataChange'.
+         * @param {Array<string>} uris - Indicates the paths of the data to operate. When data is not from rdb store, the uri is datashareproxy://{@link Data#bundleNameOfOwner}/key in {@link Data#data}
+         * @param {TemplateId} templateId - the template of on.
+         * @param {AsyncCallback<ChangeNode>} callback - the callback of on.
+         * @returns {Array<OperationResult>}: the operation result.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 10
+         */
+        once(type: 'change', uris: Array<string>, templateId: TemplateId, callback: AsyncCallback<ChangeNode>): Array<OperationResult>;
 
         /**
          * Deregisters observers used for monitoring data specified by the given uri and template.
@@ -359,7 +374,7 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        off(type: 'dataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): Array<OperationResult>;
+        off(type: 'change', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<ChangeNode>): Array<OperationResult>;
 
         /**
          * Update a single data into host data area.
@@ -388,18 +403,6 @@ declare namespace dataShare {
          * @since 10
          */
         publish(data: Data, bundleName: string): Promise<Array<OperationResult>>;
-
-        /**
-         * get a single dataset from host data area.
-         * @param {string} bundleNameOfOwner - Indicates the bundleName of data owner APP.
-         * @returns {[key: string]: string} - the data.
-         * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-         * @systemapi
-         * @StageModelOnly
-         * @since 10
-         */
-        query(bundleNameOfOwner: string): {[key: string]: string};
 
         /**
          * Inserts a single data record into the database.
