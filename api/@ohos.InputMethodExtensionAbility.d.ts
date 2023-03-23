@@ -30,7 +30,7 @@ export default class InputMethodExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
-    readonly context: InputMethodExtensionContext;
+    context: InputMethodExtensionContext;
 
     /**
      * Called back when a input method extension is started for initialization.
