@@ -85,6 +85,8 @@ function writeFile(url, data, option) {
   })
 }
 
+const globalModules = new Set(['GlobalResource', 'StateManagement', 'SpecialEvent']);
+
 function formatImportDeclaration(url) {
   return (context) => {
     const allIdentifierSet = new Set([]);
@@ -140,9 +142,9 @@ function formatImportDeclaration(url) {
                 });
               }
             }
-            const importSpecifier = statement.moduleSpecifier.getText();
-            const importSpecifierRealPath = path.resolve(url, `../${importSpecifier.replace(/[\'\"]/g, '')}.d.ts`);
-            if (fs.existsSync(importSpecifierRealPath) && clauseSet.size > 0) {
+            const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
+            const importSpecifierRealPath = path.resolve(url, `../${importSpecifier}.d.ts`);
+            if ((fs.existsSync(importSpecifierRealPath) || globalModules.has(importSpecifier)) && clauseSet.size > 0) {
               const clasueCheckList = [];
               let exsitClauseSet = new Set([]);
               for (const clause of clauseSet) {
@@ -280,7 +282,9 @@ function deleteSystemApi(url) {
 exports.deleteSystemApi = deleteSystemApi;
 
 function isSystemapi(node) {
-  const notesStr = node.getFullText().replace(node.getText(), "").replace(/[\s]/g, "");
+  const notesContent = node.getFullText().replace(node.getText(), "").replace(/[\s]/g, "");
+  const notesArr = notesContent.split(/\/\*\*/);
+  const notesStr = notesArr[notesArr.length - 1];
   if (notesStr.length !== 0) {
     if (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) {
       lastNodeName = node.name && node.name.escapedText ? node.name.escapedText.toString() : "";

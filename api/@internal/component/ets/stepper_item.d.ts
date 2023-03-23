@@ -56,7 +56,7 @@ interface StepperItemInterface {
 }
 
 /**
- * Defines the stepper item attrbute functions.
+ * Defines the stepper item attribute functions.
  * @since 8
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
@@ -79,5 +79,14 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   status(value?: ItemState): StepperItemAttribute;
 }
 
+/**
+ * Defines StepperItem Component instance.
+ * @since 8
+ */
 declare const StepperItemInstance: StepperItemAttribute;
+
+/**
+ * Defines StepperItem Component.
+ * @since 8
+ */
 declare const StepperItem: StepperItemInterface;

@@ -20,10 +20,12 @@
  * <p>This interfaces trace the start, end, and value changes of key processes that last for at least 3 ms.
  *
  * <p>Example:
- * To trace a name verification that is expected to complete within 5 ms:
+ * Track the beginning of a context:
  * <pre>{@code
- * hiTraceMeter.startTrace("checkName", 111, 5);
- * //your process
+ * hiTraceMeter.startTrace("checkName", 111);
+ * }</pre>
+ * Track the end of a context:
+ * <pre>{@code
  * hiTraceMeter.finishTrace("checkName", 111);
  * }</pre>
  * To trace the number of layers, which is 3:
@@ -61,8 +63,8 @@ declare namespace hiTraceMeter {
      *
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @param name Indicates the task name. It must be the same whith the {@code name} of startTrace.
-     * @param taskId The unique id used to distinguish the tasks and must be the same whith the .
+     * @param name Indicates the task name. It must be the same with the {@code name} of startTrace.
+     * @param taskId The unique id used to distinguish the tasks and must be the same with the .
      * {@code taskId} of startTrace.
      */
     function finishTrace(name: string, taskId: number): void;

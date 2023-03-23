@@ -50,7 +50,7 @@ declare interface NavigationCustomTitle {
 }
 
 /**
- * Nativation mode
+ * Navigation mode
  * @since 9
  */
 declare enum NavigationMode {
@@ -90,7 +90,7 @@ declare enum NavBarPosition {
 }
 
 /**
- * Naivagtion title mode.
+ * Navigation title mode.
  * @since 8
  */
 declare enum NavigationTitleMode {
@@ -180,9 +180,20 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
 
   /**
    * Navigation title
+   * @type { (string | CustomBuilder) }
    * @since 8
    */
-  title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
+  /**
+   * Navigation title
+   * @type { (string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
+   * @since 9
+   */
+  /**
+   * Navigation title
+   * @type { (ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
+   * @since 10
+   */
+  title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
 
   /**
    * Navigation subtitle
@@ -241,5 +252,14 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
+/**
+ * Defines Navigation Component.
+ * @since 8
+ */
 declare const Navigation: NavigationInterface;
+
+/**
+ * Defines Navigation Component instance.
+ * @since 8
+ */
 declare const NavigationInstance: NavigationAttribute;

@@ -18,6 +18,7 @@ import {AsyncCallback, BusinessError} from "./basic";
 /**
  * Provides methods to get power consumption information.
  *
+ * @namespace batteryStats
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
  * @since 8
@@ -61,7 +62,10 @@ declare namespace batteryStats {
     /**
      * Obtains the power consumption information list.
      *
-     * @return {Promise<Array<BatteryStatsInfo>>} Power consumption information list.
+     * @returns {Promise<Array<BatteryStatsInfo>>} Power consumption information list.
+     * @throws {BusinessError} 202 - If the system permission is denied.
+     * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -71,7 +75,10 @@ declare namespace batteryStats {
      * Obtains the power consumption information list.
      *
      * @param {AsyncCallback} callback Indicates the callback of power consumption information list.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the callback is not valid.
+     * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -81,8 +88,10 @@ declare namespace batteryStats {
      * Obtains power consumption information(Mah) for a given uid.
      *
      * @param {number} uid Indicates the uid.
-     * @return {number} Power consumption information(Mah).
+     * @returns {number} Power consumption information(Mah).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -92,8 +101,10 @@ declare namespace batteryStats {
      * Obtains power consumption information(Percent) for a given uid.
      *
      * @param {number} uid Indicates the uid.
-     * @return {number} Power consumption information(Percent).
+     * @returns {number} Power consumption information(Percent).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -103,9 +114,11 @@ declare namespace batteryStats {
      * Obtains power consumption information(Mah) for a given type.
      *
      * @param {ConsumptionType} type Indicates the hardware type.
-     * @return {number} Power consumption information(Mah).
+     * @returns {number} Power consumption information(Mah).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -115,9 +128,11 @@ declare namespace batteryStats {
      * Obtains power consumption information(Percent) for a given type.
      *
      * @param {ConsumptionType} type Indicates the hardware type.
-     * @return {number} Power consumption information(Percent).
+     * @returns {number} Power consumption information(Percent).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8
      */
@@ -128,6 +143,7 @@ declare namespace batteryStats {
      *
      * <p>Power consumption information includes the uid, type and power consumption value.
      *
+     * @typedef BatteryStatsInfo
      * @systemapi
      * @since 8
      */
@@ -138,7 +154,7 @@ declare namespace batteryStats {
         /** The type related with the power consumption info. */
         type: ConsumptionType;
 
-        /** The power consumption value(mah). */
+        /** The power consumption value(Mah). */
         power: number;
     }
 }

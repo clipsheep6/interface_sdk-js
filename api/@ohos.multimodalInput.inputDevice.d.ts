@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+* Copyright (c) 2021-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -21,23 +21,25 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
  *
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
- * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
  */
 declare namespace inputDevice {
   /**
    * @since 9
+   * Add or remove device
    */
   type ChangedType = 'add' | 'remove';
 
   /**
    * @since 9
+   * The type of input device
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
    * @since 9
+   * Axis Type of the input event
    */
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'toolMajor' | 'NULL';
+  type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null';
 
   /**
    * @since 9
@@ -93,7 +95,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @return Callback for the input device event.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: "change", listener: Callback<DeviceListener>): void;
@@ -104,7 +106,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @return Callback for the input device event.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: "change", listener?: Callback<DeviceListener>): void;
@@ -318,10 +320,10 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device.
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
-   * @return Returns a result indicating whether the specified key codes are supported.
+   * @returns Returns a result indicating whether the specified key codes are supported.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
 
   /**
    * Checks whether the specified key codes of an input device are supported.
@@ -330,7 +332,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device.
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
-   * @return Returns a result indicating whether the specified key codes are supported.
+   * @returns Returns a result indicating whether the specified key codes are supported.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
@@ -341,7 +343,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the specified input device.
-   * @return Returns the keyboard type.
+   * @returns Returns the keyboard type.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
@@ -352,7 +354,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the specified input device.
-   * @return Returns the keyboard type.
+   * @returns Returns the keyboard type.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;

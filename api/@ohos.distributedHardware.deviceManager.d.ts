@@ -53,9 +53,53 @@ declare namespace deviceManager {
 
     /**
      * @since 9
-     * The distance of dicovered device, in centimeters(cm).
+     * The distance of discovered device, in centimeter(cm).
      */
     range: number;
+
+    /**
+     * Indicates the device's trusted type
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    authForm: AuthForm;
+  }
+
+  /**
+   * Device trusted type definitions
+   * @enum {number}
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi this method can be used only by system applications.
+   * @since 10
+   */
+  enum AuthForm {
+    /**
+     * Indicates invalid trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    INVALID_TYPE = -1,
+
+    /**
+     * Indicates peer to peer trusted device type without account.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    PEER_TO_PEER = 0,
+
+    /**
+     * Indicates identical account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    IDENTICAL_ACCOUNT = 1,
+
+    /**
+     * Indicates across account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    ACROSS_ACCOUNT = 2
   }
 
   /**
@@ -192,7 +236,7 @@ declare namespace deviceManager {
     freq: ExchangeFreq;
 
     /**
-     *  Whether the device should be ranged  by discoverers.
+     *  Whether the device should be ranged by discoverer.
      */
     ranging : boolean;
   }
@@ -357,7 +401,7 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @throws {BusinessError} 11600101 - Failed to execute the function.
-     * @return Returns a list of trusted devices.
+     * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceListSync(): Array<DeviceInfo>;
@@ -368,7 +412,7 @@ declare namespace deviceManager {
      * @since 8
      * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws {BusinessError} 401 - Input parameter error.
-     * @return Returns a list of trusted devices.
+     * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceList(callback:AsyncCallback<Array<DeviceInfo>>): void;
@@ -377,7 +421,7 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @since 8
-     * @return Returns a list of trusted devices.
+     * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceList(): Promise<Array<DeviceInfo>>;
@@ -387,7 +431,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @throws {BusinessError} 11600101 - Failed to execute the function.
-     * @return Returns local device info.
+     * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
     getLocalDeviceInfoSync(): DeviceInfo;
@@ -398,7 +442,7 @@ declare namespace deviceManager {
      * @since 8
      * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
      * @throws {BusinessError} 401 - Input parameter error.
-     * @return Returns local device info.
+     * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
     getLocalDeviceInfo(callback:AsyncCallback<DeviceInfo>): void;
@@ -407,7 +451,7 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @return Returns local device info.
+     * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
     getLocalDeviceInfo(): Promise<DeviceInfo>;
@@ -494,9 +538,9 @@ declare namespace deviceManager {
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
-    unAuthenticateDevice(deviceInfo: DeviceInfo): void
+    unAuthenticateDevice(deviceInfo: DeviceInfo): void;
 
-     /**
+    /**
      * verify auth info, such as pin code.
      *
      * @param authInfo device auth info o verify
@@ -514,8 +558,46 @@ declare namespace deviceManager {
      * @param params Indicates the input param of the user.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
-     */  
+     */
     setUserOperation(operateAction: number, params: string): void;
+
+    /**
+     * Request credential information.
+     *
+     * @since 10
+     * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
+     * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @returns Returns device credential registerInfo, it include deviceId, devicePk, useId and version.
+     * @systemapi this method can be used only by system applications.
+     */
+    requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
+
+    /**
+     * Import credential information.
+     *
+     * @since 10
+     * @param { string } credentialInfo - Import credential params, the params is json string, it includes processType, authType,
+     * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
+     * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
+     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon importCredential.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @returns Returns the groupId to which the device belongs.
+     * @systemapi this method can be used only by system applications.
+     */
+    importCredential(credentialInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
+
+    /**
+     * delete credential information.
+     *
+     * @since 10
+     * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
+     * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @returns Returns the groupId to which the device belongs.
+     * @systemapi this method can be used only by system applications.
+     */
+    deleteCredential(queryInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
 
     /**
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
@@ -526,9 +608,9 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-    on(type: 'uiStateChange', callback: Callback<{ param: string}>): void;
+    on(type: 'uiStateChange', callback: Callback<{ param: string }>): void;
 
-     /**
+    /**
       * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
       *
       * @since 9
@@ -536,7 +618,7 @@ declare namespace deviceManager {
       * @throws {BusinessError} 401 - Input parameter error.
       * @systemapi this method can be used only by system applications.
       */
-    off(type: 'uiStateChange', callback?: Callback<{ param: string}>): void;
+    off(type: 'uiStateChange', callback?: Callback<{ param: string }>): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
@@ -603,7 +685,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-     on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
+    on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
 
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
@@ -613,7 +695,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-     off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
+    off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
 
     /**
      * Register a device publish result callback so that the application can be notified when the device publish was failed
@@ -623,7 +705,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-     on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
+    on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
 
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
@@ -633,7 +715,7 @@ declare namespace deviceManager {
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-     off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
+    off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died

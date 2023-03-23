@@ -24,7 +24,7 @@ import window from './@ohos.window';
  * The prototype of the listener function interface registered by the Caller.
  * @typedef OnReleaseCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export interface OnReleaseCallback {
@@ -35,49 +35,49 @@ export interface OnReleaseCallback {
  * The prototype of the message listener function interface registered by the Callee.
  * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export interface CalleeCallback {
-    (indata: rpc.MessageParcel): rpc.Sequenceable;
+    (indata: rpc.MessageSequence): rpc.Parcelable;
 }
 
 /**
  * The interface of a Caller.
  * @interface
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export interface Caller {
     /**
-     * Notify the server of Sequenceable type data.
+     * Notify the server of Parcelable type data.
      * @param { string } method - The notification event string listened to by the callee.
-     * @param { rpc.Sequenceable } data - Notification data to the callee.
+     * @param { rpc.Parcelable } data - Notification data to the callee.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
-    call(method: string, data: rpc.Sequenceable): Promise<void>;
+    call(method: string, data: rpc.Parcelable): Promise<void>;
 
     /**
-     * Notify the server of Sequenceable type data and return the notification result.
+     * Notify the server of Parcelable type data and return the notification result.
      * @param { string } method - The notification event string listened to by the callee.
-     * @param { rpc.Sequenceable } data - Notification data to the callee.
-     * @returns { Promise<rpc.MessageParcel> } Returns the callee's notification result data.
+     * @param { rpc.Parcelable } data - Notification data to the callee.
+     * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
-    callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
+    callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
     /**
      * Clear service records.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     release(): void;
@@ -87,7 +87,7 @@ export interface Caller {
      * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onRelease(callback: OnReleaseCallback): void;
@@ -98,7 +98,7 @@ export interface Caller {
      * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     on(type: "release", callback: OnReleaseCallback): void;
@@ -109,7 +109,7 @@ export interface Caller {
      * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     off(type: "release", callback: OnReleaseCallback): void;
@@ -119,7 +119,7 @@ export interface Caller {
      * @param { string } type - release.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     off(type: "release"): void;
@@ -129,7 +129,7 @@ export interface Caller {
  * The interface of a Callee.
  * @interface
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export interface Callee {
@@ -139,7 +139,7 @@ export interface Callee {
      * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     on(method: string, callback: CalleeCallback): void;
@@ -149,7 +149,7 @@ export interface Callee {
      * @param { string } method - A string registered to listen for notification events.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     off(method: string): void;
@@ -158,7 +158,7 @@ export interface Callee {
 /**
  * The class of a UI ability.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class UIAbility extends Ability {
@@ -166,7 +166,7 @@ export default class UIAbility extends Ability {
      * Indicates configuration information about an ability context.
      * @type { UIAbilityContext }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     context: UIAbilityContext;
@@ -175,7 +175,7 @@ export default class UIAbility extends Ability {
      * Indicates ability launch want.
      * @type { Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     launchWant: Want;
@@ -184,7 +184,7 @@ export default class UIAbility extends Ability {
      * Indicates ability last request want.
      * @type { Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     lastRequestWant: Want;
@@ -193,7 +193,7 @@ export default class UIAbility extends Ability {
      * Call Service Stub Object.
      * @type { Callee }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     callee: Callee;
@@ -203,7 +203,7 @@ export default class UIAbility extends Ability {
      * @param { Want } want - Indicates the want info of the created ability.
      * @param { AbilityConstant.LaunchParam } param - Indicates the launch param.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
@@ -212,7 +212,7 @@ export default class UIAbility extends Ability {
      * Called back when an ability window stage is created.
      * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageCreate(windowStage: window.WindowStage): void;
@@ -220,7 +220,7 @@ export default class UIAbility extends Ability {
     /**
      * Called back when an ability window stage is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageDestroy(): void;
@@ -229,7 +229,7 @@ export default class UIAbility extends Ability {
      * Called back when an ability window stage is restored.
      * @param { window.WindowStage } windowStage - window stage to restore
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageRestore(windowStage: window.WindowStage): void;
@@ -237,15 +237,15 @@ export default class UIAbility extends Ability {
     /**
      * Called back before an ability is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
-    onDestroy(): void;
+    onDestroy(): void | Promise<void>;
 
     /**
      * Called back when the state of an ability changes to foreground.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onForeground(): void;
@@ -253,20 +253,20 @@ export default class UIAbility extends Ability {
     /**
      * Called back when the state of an ability changes to background.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onBackground(): void;
 
     /**
      * Called back when an ability prepares to continue.
-     * @param { {[key: string]: any} } wantParam - Indicates the want parameter.
+     * @param { {[key: string]: Object} } wantParam - Indicates the want parameter.
      * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
-    onContinue(wantParam: { [key: string]: any }): AbilityConstant.OnContinueResult;
+    onContinue(wantParam: { [key: string]: Object }): AbilityConstant.OnContinueResult;
 
     /**
      * Called when the launch mode of an ability is set to singleton.
@@ -274,7 +274,7 @@ export default class UIAbility extends Ability {
      * @param { Want } want - Indicates the want info of ability.
      * @param { AbilityConstant.LaunchParam } launchParams - Indicates the launch parameters.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;
@@ -285,8 +285,19 @@ export default class UIAbility extends Ability {
      * @param { Array<string> } params - Indicates the params from command.
      * @returns { Array<string> } Return the dump info array.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onDump(params: Array<string>): Array<string>;
+
+    /**
+     * Called back when an ability prepares to save.
+     * @param reason state type when save.
+     * @param wantParam Indicates the want parameter.
+     * @returns 0 if ability agrees to save data successfully, otherwise errcode.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: Object}): AbilityConstant.OnSaveResult;
 }

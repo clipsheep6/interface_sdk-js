@@ -30,7 +30,11 @@ declare namespace commonEventManager {
    * Publishes an ordered, sticky, or standard common event.
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -41,7 +45,11 @@ declare namespace commonEventManager {
    * @param { string } event - name of the common event.
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -52,7 +60,11 @@ declare namespace commonEventManager {
    * @param { string } event - Specified the names of the common events.
    * @param { number } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -65,7 +77,11 @@ declare namespace commonEventManager {
    * @param { number } userId - Specified the user to receive the common events.
    * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -76,7 +92,7 @@ declare namespace commonEventManager {
    * Creates a CommonEventSubscriber for the SubscriberInfo.
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -86,7 +102,7 @@ declare namespace commonEventManager {
    * Creates a CommonEventSubscriber for the SubscriberInfo.
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -96,7 +112,8 @@ declare namespace commonEventManager {
    * Subscribe an ordered, sticky, or standard common event.
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -106,7 +123,8 @@ declare namespace commonEventManager {
    * Unsubscribe from an ordered, sticky, or standard common event.
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -165,7 +183,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_OFF = "usual.event.SCREEN_OFF",
 
     /**
-     * This commonEvent means when the device is waked up and interactive.
+     * This commonEvent means when the device is awakened and interactive.
      */
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
 
@@ -175,7 +193,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
-     * This commonEvent means when the user is present after the device waked up.
+     * This commonEvent means when the user is present after the device is awakened.
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
@@ -441,7 +459,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = "usual.event.wifi.mplink.STATE_CHANGE",
 
     /**
-     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnecting P2P.
+     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnected P2P.
      */
     COMMON_EVENT_WIFI_P2P_CONN_STATE = "usual.event.wifi.p2p.CONN_STATE_CHANGE",
 
@@ -724,6 +742,14 @@ declare namespace commonEventManager {
     COMMON_EVENT_CHARGING = "usual.event.CHARGING",
 
     /**
+     * Sent when charge type changed.
+     *
+     * @since 10
+     * @systemapi
+     */
+    COMMON_EVENT_CHARGE_TYPE_CHANGED = "usual.event.CHARGE_TYPE_CHANGED",
+
+    /**
      * Sent when device's idle mode changed
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = "usual.event.DEVICE_IDLE_MODE_CHANGED",
@@ -984,7 +1010,165 @@ declare namespace commonEventManager {
      * Indicate the result of quick fix apply.
      * This common event can be triggered only by system.
      */
-    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
+    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
+
+    /**
+     * Indicate the action of a common event that the user information has been updated.
+     * This common event can be triggered only by system.
+     */
+    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED",
+
+    /**
+     * Indicate http proxy has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_HTTP_PROXY_CHANGE = "usual.event.HTTP_PROXY_CHANGE",
+
+    /**
+     * Indicates the action of a common event that the phone SIM card state has changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_SIM_STATE_CHANGED = "usual.event.SIM_STATE_CHANGED",
+
+    /**
+     * Indicate the action of a common event that a new sms bas been received by the device.
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_SMS_RECEIVED_COMPLETED = "usual.event.SMS_RECEIVED_COMPLETED",
+
+    /**
+     * Indicate the action of a common event that a new sms emergency cell broadcast bas been received by the device.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED = "usual.event.SMS_EMERGENCY_CB_RECEIVE_COMPLETED",
+
+    /**
+     * Indicate the action of a common event that a new sms normal cell broadcast bas been received by the device.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED = "usual.event.SMS_CB_RECEIVE_COMPLETED",
+
+    /**
+     * Indicate the action of a common event that a STK command has been received by the device.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_STK_COMMAND = "usual.event.STK_COMMAND",
+
+    /**
+     * Indicate the action of a common event that STK session end.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_STK_SESSION_END = "usual.event.STK_SESSION_END",
+
+    /**
+     * Indicate the action of a common event that the STK phone card state has changed.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_STK_CARD_STATE_CHANGED = "usual.event.STK_CARD_STATE_CHANGED",
+
+    /**
+     * Indicate the action of a common event that an alpha string during call control has been received by the device.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_STK_ALPHA_IDENTIFIER = "usual.event.STK_ALPHA_IDENTIFIER",
+
+    /**
+     * Indicate the action of a common event that a new sms wappush has been received by the device.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED = "usual.event.SMS_WAPPUSH_RECEIVE_COMPLETED",
+
+    /**
+     * Indicate the action of a common event that the operator config has been updated.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_OPERATOR_CONFIG_CHANGED = "usual.event.OPERATOR_CONFIG_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the default SMS subscription has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_SIM_CARD_DEFAULT_SMS_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_SMS_SUBSCRIPTION_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the default data subscription has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_SIM_CARD_DEFAULT_DATA_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_DATA_SUBSCRIPTION_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the default main subscription has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the default voice subscription has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_SIM_CARD_DEFAULT_VOICE_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_VOICE_SUBSCRIPTION_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the call state has been changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.GET_TELEPHONY_STATE
+     * permission.
+     * This is a protected common event that can only be sent by system.
+      * @since 10
+     */
+    COMMON_EVENT_CALL_STATE_CHANGED = "usual.event.CALL_STATE_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the cellular data state has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_CELLULAR_DATA_STATE_CHANGED = "usual.event.CELLULAR_DATA_STATE_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the network state has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_NETWORK_STATE_CHANGED = "usual.event.NETWORK_STATE_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the signal info has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_SIGNAL_INFO_CHANGED = "usual.event.SIGNAL_INFO_CHANGED",
+
+    /**
+     * Indicates the action of a common event that the incoming call has been missed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.GET_TELEPHONY_STATE
+     * permission.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_INCOMING_CALL_MISSED = "usual.event.INCOMING_CALL_MISSED",
+
+    /**
+     * Indicates the action of a common event that radio state change.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE"
   }
 }
 

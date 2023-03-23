@@ -21,6 +21,7 @@
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
+ * @StageModelOnly
  */
 export enum DataType {
     /**
@@ -28,6 +29,7 @@ export enum DataType {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     TYPE_NULL = 0,
 
@@ -36,6 +38,7 @@ export enum DataType {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     TYPE_LONG = 1,
 
@@ -44,6 +47,7 @@ export enum DataType {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     TYPE_DOUBLE = 2,
 
@@ -52,6 +56,7 @@ export enum DataType {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * */
     TYPE_STRING = 3,
 
@@ -60,6 +65,7 @@ export enum DataType {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * */
     TYPE_BLOB = 4
 }
@@ -70,26 +76,29 @@ export enum DataType {
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
+ * @StageModelOnly
  */
 export default interface DataShareResultSet {
     /**
      * Obtains the names of all columns or keys in a result set.
-     *
-     * @note The column or key names are returned as a string array, in which the strings are in the same order
+     * The column or key names are returned as a string array, in which the strings are in the same order
      * as the columns or keys in the result set.
+     *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     columnNames: Array<string>;
 
     /**
      * Obtains the number of columns or keys in the result set.
+     * The returned number is equal to the length of the string array returned by the columnCount method.
      *
-     * @note The returned number is equal to the length of the string array returned by the columnCount method.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     columnCount: number;
 
@@ -99,6 +108,7 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     rowCount: number;
 
@@ -110,6 +120,7 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      */
     isClosed: boolean;
 
@@ -119,7 +130,8 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
-     * @return Returns true if the result set is moved successfully;
+     * @StageModelOnly
+     * @returns Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is empty.
      */
     goToFirstRow(): boolean;
@@ -130,7 +142,8 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
-     * @return Returns true if the result set is moved successfully;
+     * @StageModelOnly
+     * @returns Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is empty.
      */
     goToLastRow(): boolean;
@@ -141,7 +154,8 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
-     * @return Returns true if the result set is moved successfully;
+     * @StageModelOnly
+     * @returns Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is already in the last row.
      */
     goToNextRow(): boolean;
@@ -152,7 +166,8 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
-     * @return Returns true if the result set is moved successfully;
+     * @StageModelOnly
+     * @returns Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is already in the first row.
      */
     goToPreviousRow(): boolean;
@@ -164,8 +179,9 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param offset Indicates the offset relative to the current position.
-     * @return Returns true if the result set is moved successfully and does not go beyond the range;
+     * @returns Returns true if the result set is moved successfully and does not go beyond the range;
      * returns false otherwise.
      */
     goTo(offset: number): boolean;
@@ -176,108 +192,117 @@ export default interface DataShareResultSet {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param position Indicates the index of the specified row, which starts from 1.
-     * @return Returns true if the result set is moved successfully; returns false otherwise.
+     * @returns Returns true if the result set is moved successfully; returns false otherwise.
      */
     goToRow(position: number): boolean;
 
     /**
      * Obtains the value of the specified column or key in the current row as a byte array.
+     * The implementation class determines whether to throw an exception if the value of the specified
      *
-     * @note The implementation class determines whether to throw an exception if the value of the specified
      * column or key in the current row is null or the specified column or key is not of the Blob type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
-     * @return Returns the value of the specified column or key as a byte array.
+     * @returns Returns the value of the specified column or key as a byte array.
      */
     getBlob(columnIndex: number): Uint8Array;
 
     /**
      * Obtains the value of the specified column or key in the current row as string.
+     * The implementation class determines whether to throw an exception if the value of the specified
      *
-     * @note The implementation class determines whether to throw an exception if the value of the specified
      * column or key in the current row is null or the specified column or key is not of the string type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
-     * @return Returns the value of the specified column or key as a string.
+     * @returns Returns the value of the specified column or key as a string.
      */
     getString(columnIndex: number): string;
 
     /**
      * Obtains the value of the specified column or key in the current row as long.
-     *
-     * @note The implementation class determines whether to throw an exception if the value of the specified
+     * The implementation class determines whether to throw an exception if the value of the specified
      * column or key in the current row is null, the specified column or key is not of the long type.
+     *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
-     * @return Returns the value of the specified column or key as a long.
+     * @returns Returns the value of the specified column or key as a long.
      */
     getLong(columnIndex: number): number;
 
     /**
      * Obtains the value of the specified column or key in the current row as double.
+     * The implementation class determines whether to throw an exception if the value of the specified
      *
-     * @note The implementation class determines whether to throw an exception if the value of the specified
      * column or key in the current row is null, the specified column or key is not of the double type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
-     * @return Returns the value of the specified column or key as a double.
+     * @returns Returns the value of the specified column or key as a double.
      */
     getDouble(columnIndex: number): number;
 
     /**
      * Closes the result set.
+     * Calling this method on the result set will release all of its resources and makes it ineffective.
      *
-     * @note Calling this method on the result set will release all of its resources and makes it ineffective.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
-     * @return Returns true if the result set is closed; returns false otherwise.
+     * @StageModelOnly
+     * @returns Returns true if the result set is closed; returns false otherwise.
      */
     close(): void;
 
     /**
      * Obtains the column index or key index based on the specified column name or key name.
+     * The column name or key name is passed as an input parameter.
      *
-     * @note The column name or key name is passed as an input parameter.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnName Indicates the name of the specified column or key in the result set.
-     * @return Returns the index of the specified column or key.
+     * @returns Returns the index of the specified column or key.
      */
     getColumnIndex(columnName: string): number;
 
     /**
      * Obtains the column name or key name based on the specified column index or key index.
+     * The column index or key index is passed as an input parameter.
      *
-     * @note The column index or key index is passed as an input parameter.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnIndex Indicates the index of the specified column or key in the result set.
-     * @return Returns the name of the specified column or key.
+     * @returns Returns the name of the specified column or key.
      */
     getColumnName(columnIndex: number): string;
 
     /**
      * Obtains the dataType of the specified column or key.
-     *
-     * @note The implementation class determines whether to throw an exception if the value of the specified
+     * The implementation class determines whether to throw an exception if the value of the specified
      * column or key in the current row is null, the specified column or key is not in the data type.
+     *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
-     * @return Returns the dataType of the specified column or key.
+     * @returns Returns the dataType of the specified column or key.
      */
     getDataType(columnIndex: number): DataType;
 }

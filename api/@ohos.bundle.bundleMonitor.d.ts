@@ -37,14 +37,14 @@ declare namespace bundleMonitor {
      * @systemapi
      * @since 9
      */
-    bundleName: string;
+     readonly bundleName: string;
     /**
      * The user id
      * @type {number}
      * @systemapi
      * @since 9
      */
-    userId: number;
+     readonly userId: number;
   }
 
   /**
@@ -61,8 +61,8 @@ declare namespace bundleMonitor {
    * @param { BundleChangedEvent } type - Indicates the command should be implement.
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 801 - Capability not support.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -75,8 +75,8 @@ declare namespace bundleMonitor {
    * @param { BundleChangedEvent } type -type Indicates the command should be implement.
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 801 - Capability not support.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9

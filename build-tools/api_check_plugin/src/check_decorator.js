@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-const rules = require("../code_style_rule.json");
+const rules = require('../code_style_rule.json');
 const { addAPICheckErrorLogs } = require('./compile_info');
-const { getAPINote, error_type } = require("./utils");
+const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 
 // duplicate removal
 const API_ERROR_DECORATOR_POS = new Set([]);
@@ -29,15 +29,15 @@ function checkAPIDecorators(node, sourcefile, fileName) {
   const regex = /\*\s*\@[A-Za-z0-9]+\b/g;
   const matchResult = apiNote.match(regex);
   let hasCodeStyleError = false;
-  let errorInfo = "";
+  let errorInfo = '';
   if (matchResult) {
     matchResult.forEach(decorator => {
-      const docTags = [...rules.decorators["customDoc"], ...rules.decorators["jsDoc"]];
+      const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
       const decoratorRuleSet = new Set(docTags);
-      const apiDecorator = decorator.replace(/^\*\s*\@/, "");
+      const apiDecorator = decorator.replace(/^\*\s*\@/, '');
       if (!decoratorRuleSet.has(apiDecorator)) {
         hasCodeStyleError = true;
-        if (errorInfo !== "") {
+        if (errorInfo !== '') {
           errorInfo += `,${apiDecorator}`;
         } else {
           errorInfo += apiDecorator;
@@ -47,8 +47,9 @@ function checkAPIDecorators(node, sourcefile, fileName) {
 
     if (hasCodeStyleError) {
       API_ERROR_DECORATOR_POS.add(node.pos);
-      errorInfo += `.`;
-      addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DECORATOR, errorInfo);
+      errorInfo += '.';
+      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, errorInfo, FileType.JSDOC,
+        ErrorLevel.MIDDLE);
     }
   }
 }

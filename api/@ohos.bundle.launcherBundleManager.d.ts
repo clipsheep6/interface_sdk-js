@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/launcherAbilityInfo';
-import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './bundleManager/shortcutInfo';
+import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
+import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './bundleManager/ShortcutInfo';
 
 
 /**
@@ -33,10 +33,11 @@ declare namespace launcherBundleManager {
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -50,10 +51,11 @@ declare namespace launcherBundleManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -66,9 +68,10 @@ declare namespace launcherBundleManager {
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -81,9 +84,10 @@ declare namespace launcherBundleManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -96,6 +100,7 @@ declare namespace launcherBundleManager {
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { AsyncCallback<Array<ShortcutInfo>> } callback -The callback of the ShortcutInfo object result.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.
@@ -111,6 +116,7 @@ declare namespace launcherBundleManager {
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.

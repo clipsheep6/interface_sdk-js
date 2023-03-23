@@ -53,7 +53,7 @@ declare enum GridDirection {
 }
 
 /**
- * Defines the grid attibute functions.
+ * Defines the grid attribute functions.
  * @since 7
  */
 declare class GridAttribute extends CommonMethod<GridAttribute> {
@@ -188,5 +188,14 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   ): GridAttribute;
 }
 
+/**
+ * Defines Grid Component.
+ * @since 7
+ */
 declare const Grid: GridInterface;
+
+/**
+ * Defines Grid Component instance.
+ * @since 7
+ */
 declare const GridInstance: GridAttribute;

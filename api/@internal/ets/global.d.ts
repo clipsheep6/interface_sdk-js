@@ -22,11 +22,23 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * Defines the console info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @since 9
+ */
 export declare class console {
   /**
    * Prints "debug" logs.
    * @param message Text to print.
    * @since 7
+   */
+  /**
+   * Prints "debug" logs.
+   * @param message Text to print.
+   * @form
+   * @since 9
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -35,12 +47,24 @@ export declare class console {
    * @param message Text to print.
    * @since 7
    */
+  /**
+   * Prints "log" logs.
+   * @param message Text to print.
+   * @form
+   * @since 9
+   */
   static log(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "info" logs.
    * @param message Text to print.
    * @since 7
+   */
+  /**
+   * Prints "info" logs.
+   * @param message Text to print.
+   * @form
+   * @since 9
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -49,12 +73,24 @@ export declare class console {
    * @param message Text to print.
    * @since 7
    */
+  /**
+   * Prints "warn" logs.
+   * @param message Text to print.
+   * @form
+   * @since 9
+   */
   static warn(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "error" logs.
    * @param message Text to print.
    * @since 7
+   */
+  /**
+   * Prints "error" logs.
+   * @param message Text to print.
+   * @form
+   * @since 9
    */
   static error(message: string, ...arguments: any[]): void;
 }
@@ -82,7 +118,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
- * Cancels the interval set by " setInterval()".
+ * Cancel the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @since 7
@@ -90,7 +126,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
 export declare function clearInterval(intervalID?: number): void;
 
 /**
- * Cancels the timer set by "setTimeout()".
+ * Cancel the timer set by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @since 7
@@ -117,7 +153,7 @@ export declare function getInspectorByKey(id: string): string;
   * @since 9
   * @test
   */
-export declare function getInspectorTree(): string;
+export declare function getInspectorTree(): Object;
  
  /**
   * Sends an event to the component with the specified ID.

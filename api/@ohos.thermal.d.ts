@@ -21,6 +21,7 @@ import {AsyncCallback, BusinessError, Callback} from './basic';
  * {@link registerThermalLevelCallback}: subscribes to callbacks of thermal level changes.
  * {@link getLevel}: obtains the thermal level of the system in real time.
  *
+ * @namespace thermal
  * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8
  */
@@ -69,7 +70,7 @@ declare namespace thermal {
      * Subscribes to callbacks of thermal level changes.
      *
      * @param callback Callback of thermal level changes.
-     * @return Returns the thermal level.
+     * @returns Returns the thermal level.
      * @since 8
      * @deprecated since 9
      * @useinstead {@link thermal#registerThermalLevelCallback}
@@ -82,6 +83,7 @@ declare namespace thermal {
      * @param {Callback<ThermalLevel>} callback Callback of thermal level changes.
      * @throws {BusinessError} 401 - If callback is not valid.
      * @throws {BusinessError} 4800101 If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 9
      */
     function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
@@ -102,6 +104,7 @@ declare namespace thermal {
      * @param {Callback<void>} callback Callback of thermal level changes.
      * @throws {BusinessError} 401 - If callback is not valid.
      * @throws {BusinessError} 4800101 If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 9
      */
     function unregisterThermalLevelCallback(callback?: Callback<void>): void;
@@ -109,7 +112,7 @@ declare namespace thermal {
     /**
      * Obtains the current thermal level.
      *
-     * @return Returns the thermal level.
+     * @returns Returns the thermal level.
      * @since 8
      * @deprecated since 9
      * @useinstead {@link thermal#getLevel}
@@ -119,8 +122,9 @@ declare namespace thermal {
     /**
      * Obtains the current thermal level.
      *
-     * @return {ThermalLevel} The thermal level.
+     * @returns {ThermalLevel} The thermal level.
      * @throws {BusinessError} 4800101 If connecting to the service failed.
+     * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 9
      */
     function getLevel(): ThermalLevel;

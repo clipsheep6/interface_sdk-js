@@ -107,13 +107,6 @@ declare namespace formInfo {
         formVisibleNotify: boolean;
 
         /**
-         * Obtains the bundle relatedBundleName of the application to which this form belongs.
-         * @syscap SystemCapability.Ability.Form
-         * @since 9
-         */
-        relatedBundleName: string;
-
-        /**
          * Obtains the scheduledUpdateTime.
          * @syscap SystemCapability.Ability.Form
          * @since 9
@@ -265,18 +258,6 @@ declare namespace formInfo {
      * @since 9
      */
     enum FormParam {
-        /**
-         * Indicates the key specifying the ID of the form to be obtained, which is represented as
-         * want: {
-         *   "parameters": {
-         *       IDENTITY_KEY: 1L
-         *    }
-         * }.
-         *
-         * @syscap SystemCapability.Ability.Form
-         * @systemapi
-         * @since 9
-         */
         /**
          * Indicates the key specifying the ID of the form to be obtained, which is represented as
          * want: {

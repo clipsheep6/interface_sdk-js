@@ -40,7 +40,7 @@ declare namespace missionManager {
     function on(type: "mission", listener: MissionListener): number;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @param { AsyncCallback<void> } callback - The callback of off.
@@ -51,7 +51,7 @@ declare namespace missionManager {
     function off(type: "mission", listenerId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @returns { Promise<void> } The promise returned by the function.
@@ -84,7 +84,7 @@ declare namespace missionManager {
     function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
     /**
-     * Get the missionInfo with the given missionId.
+     * Get missionInfos in the given deviceId with maximum number of numMax.
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } numMax - Indicates the maximum number of returned missions.
      * @param { AsyncCallback<Array<MissionInfo>> } callback - The callback is used to return the array of the MissionInfo.
@@ -95,7 +95,7 @@ declare namespace missionManager {
     function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
 
     /**
-     * Get the missionInfo with the given missionId.
+     * Get missionInfos in the given deviceId with maximum number of numMax.
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } numMax - Indicates the maximum number of returned missions.
      * @returns { Promise<Array<MissionInfo>> } Returns the array of the MissionInfo.

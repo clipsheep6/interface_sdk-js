@@ -20,16 +20,16 @@ import * as _BaseContext from './application/BaseContext';
 import * as _Context from './application/Context';
 import * as _ExtensionContext from './application/ExtensionContext';
 import * as _FormExtensionContext from './application/FormExtensionContext';
+import * as _ServiceExtensionContext from './application/ServiceExtensionContext';
 import * as _EventHub from './application/EventHub';
-import * as _PermissionRequestResult from './application/PermissionRequestResult';
 import { PacMap as _PacMap } from "./ability/dataAbilityHelper";
 import { AbilityResult as _AbilityResult } from "./ability/abilityResult";
 import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
 
 /**
- * The context of an application. It allows access to application-specific resources.
+ * This module provides application context classes and common data structures.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 declare namespace common {
@@ -37,7 +37,7 @@ declare namespace common {
     /**
      * The context of an ability. It allows access to ability-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type UIAbilityContext = _UIAbilityContext.default
@@ -45,7 +45,7 @@ declare namespace common {
     /**
      * The context of an abilityStage. It allows access to abilityStage-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type AbilityStageContext = _AbilityStageContext.default
@@ -53,7 +53,7 @@ declare namespace common {
     /**
      * The context of an application. It allows access to application-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type ApplicationContext = _ApplicationContext.default
@@ -69,7 +69,7 @@ declare namespace common {
      * The base context of an ability or an application. It allows access to
      * application-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type Context = _Context.default
@@ -77,7 +77,7 @@ declare namespace common {
     /**
      * The context of an extension. It allows access to extension-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type ExtensionContext = _ExtensionContext.default
@@ -86,48 +86,33 @@ declare namespace common {
      * The context of form extension. It allows access to
      * formExtension-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type FormExtensionContext = _FormExtensionContext.default
 
     /**
-     * File area mode
+     * The context of service extension. It allows access to
+     * serviceExtension-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @systemapi
+     * @StageModelOnly
      * @since 9
      */
-    export enum AreaMode {
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL1 = 0,
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL2 = 1
-    }
+    export type ServiceExtensionContext = _ServiceExtensionContext.default
 
     /**
      * The event center of a context, support the subscription and publication of events.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type EventHub = _EventHub.default
 
     /**
-     * The result of requestPermissionsFromUser with asynchronous callback.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    export type PermissionRequestResult = _PermissionRequestResult.default
-
-    /**
      * Defines a PacMap object for storing a series of values.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type PacMap = _PacMap
@@ -135,7 +120,7 @@ declare namespace common {
     /**
      * Indicates the result of startAbility.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type AbilityResult = _AbilityResult
@@ -143,7 +128,7 @@ declare namespace common {
     /**
      * Indicates the callback of connection
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type ConnectOptions = _ConnectOptions

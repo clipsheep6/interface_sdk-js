@@ -2,14 +2,15 @@
   "decorators": {
     "customDoc": [
       "constant",
+      "crossplatform",
       "default",
       "deprecated",
       "enum",
-      "errorcode",
       "example",
       "extends",
       "famodelonly",
       "fires",
+      "form",
       "interface",
       "namespace",
       "param",
@@ -39,18 +40,12 @@
       "borrows",
       "class",
       "classdesc",
-      "constant",
       "constructs",
       "copyright",
-      "default",
-      "deprecated",
-      "enum",
       "event",
-      "example",
       "exports",
       "external",
       "file",
-      "fires",
       "function",
       "generator",
       "global",
@@ -60,7 +55,6 @@
       "inheritdoc",
       "inner",
       "instance",
-      "interface",
       "lends",
       "license",
       "listens",
@@ -70,26 +64,17 @@
       "mixin",
       "modifies",
       "module",
-      "namespace",
       "package",
-      "param",
       "private",
       "property",
       "protected",
       "public",
-      "readonly",
       "requires",
-      "returns",
       "see",
-      "since",
-      "static",
       "summary",
       "this",
       "todo",
-      "throws",
       "tutorial",
-      "type",
-      "typedef",
       "variation",
       "version",
       "yields",
@@ -99,7 +84,7 @@
       "name",
       "undocumented"
     ],
-    "permission":[
+    "permission": [
       "ANSWER_CALL",
       "USE_BLUETOOTH",
       "DISCOVER_BLUETOOTH",
@@ -262,23 +247,36 @@
         "DistributedBundleFramework",
         "BundleTool",
         "Zlib",
-        "PackingTool"
+        "PackingTool",
+        "BundleFramework.Core",
+        "BundleFramework.FreeInstall",
+        "BundleFramework.Resource",
+        "BundleFramework.DefaultApp",
+        "BundleFramework.Launcher",
+        "BundleFramework.SandboxApp",
+        "BundleFramework.QuickFix",
+        "BundleFramework.AppControl",
+        "BundleFramework.Overlay"
       ],
-      "Graphic":[
+      "Developtools": [
+        "Syscap"
+      ],
+      "Graphic": [
         "Graphic2D.WebGL",
-        "Graphic2D.WebGL2"
+        "Graphic2D.WebGL2",
+        "Graphic2D.ColorManager.Core"
       ],
-      "WindowManager":[
+      "WindowManager": [
         "WindowManager.Core",
         "WindowManager.MutiScreen"
       ],
-      "Notification":[
+      "Notification": [
         "CommonEvent",
         "Notification",
         "ReminderAgent",
         "Emitter"
       ],
-      "Communication":[
+      "Communication": [
         "IPC.Core",
         "SoftBus.Core",
         "NetManager.Core",
@@ -292,25 +290,37 @@
         "Bluetooth.Core",
         "Bluetooth.Lite",
         "NFC.Core",
-        "ConnectedTag"
+        "ConnectedTag",
+        "NFC.Tag",
+        "NFC.CardEmulation",
+        "NetManager.Ethernet",
+        "NetManager.NetSharing",
+        "NetManager.MDNS",
+        "NetManager.Vpn",
+        "SecureElement"
       ],
-      "Location":[
+      "Location": [
         "Location.Core",
         "Location.Geocoder",
         "Location.Geofence",
         "Location.Gnss",
         "Location.Lite"
       ],
-      "MultimodalInput":[
+      "Msdp": [
+        "DeviceStatus.Stationary"
+      ],
+      "MultimodalInput": [
         "Input.Core",
         "Input.InputDevice",
         "Input.RemoteInputDevice",
         "Input.InputMonitor",
         "Input.InputConsumer",
         "Input.InputSimulator",
-        "Input.InputFilter"
+        "Input.InputFilter",
+        "Input.Cooperator",
+        "Input.Pointer"
       ],
-      "PowerManager":[
+      "PowerManager": [
         "BatteryManager.Extension",
         "BatteryStatistics",
         "DisplayPowerManager",
@@ -321,7 +331,7 @@
         "BatteryManager.Lite",
         "PowerManager.Extension"
       ],
-      "Multimedia":[
+      "Multimedia": [
         "Media.Core",
         "Media.AudioPlayer",
         "Media.AudioRecorder",
@@ -337,6 +347,8 @@
         "AVSession.Core",
         "AVSession.Manager",
         "Audio.Core",
+        "Audio.Tone",
+        "Audio.Interrupt",
         "Audio.Renderer",
         "Audio.Capturer",
         "Audio.Device",
@@ -345,14 +357,18 @@
         "Camera.Core",
         "Camera.DistributedCore",
         "Image.Core",
-        ".Image.ImageSource",
+        "Image.ImageSource",
         "Image.ImagePacker",
         "Image.ImageReceiver",
         "MediaLibrary.Core",
         "MediaLibrary.SmartAlbum",
-        "MediaLibrary.DistributedCore"
+        "MediaLibrary.DistributedCore",
+        "Media.AVPlayer",
+        "Media.AVRecorder",
+        "Image.ImageCreator",
+        "SystemSound.Core"
       ],
-      "Telephony":[
+      "Telephony": [
         "CoreService",
         "CallManager",
         "CellularCall",
@@ -360,31 +376,32 @@
         "SmsMms",
         "StateRegistry"
       ],
-      "Global":[
+      "Global": [
         "I18n",
         "ResourceManager"
       ],
-      "Customization":[
+      "Customization": [
         "ConfigPolicy",
         "EnterpriseDeviceManager"
       ],
-      "BarrierFree":[
+      "BarrierFree": [
         "Accessibility.Core",
         "Accessibility.Vision",
         "Accessibility.Hearing",
         "Accessibility.Interaction"
       ],
-      "ResourceSchedule":[
+      "ResourceSchedule": [
         "WorkScheduler",
         "BackgroundTaskManager.ContinuousTask",
         "BackgroundTaskManager.TransientTask",
         "UsageStatistics.App",
-        "UsageStatistics.AppGroup"
+        "UsageStatistics.AppGroup",
+        "BackgroundTaskManager.EfficiencyResourcesApply"
       ],
-      "Utils":[
+      "Utils": [
         "Lang"
       ],
-      "HiviewDFX":[
+      "HiviewDFX": [
         "HiLog",
         "HiLogLite",
         "HiTrace",
@@ -398,30 +415,35 @@
         "HiEventLite",
         "HiProfiler.HiDebug"
       ],
-      "Update":[
+      "Update": [
         "UpdateService"
       ],
-      "DistributedHardware":[
+      "DistributedHardware": [
         "DeviceManager"
       ],
-      "Security":[
+      "Security": [
         "DeviceAuth",
         "DataTransitManager",
         "DeviceSecurityLevel",
         "Huks",
         "AccessToken",
-        "Cipher"
+        "Cipher",
+        "CertificateManager",
+        "CryptoFramework",
+        "CryptoFramework.Cert",
+        "DataLossPrevention",
+        "Cert"
       ],
-      "Account":[
+      "Account": [
         "OsAccount",
         "AppAccount"
       ],
-      "UserIAM":[
+      "UserIAM": [
         "UserAuth.Core",
         "UserAuth.PinAuth",
         "UserAuth.FaceAuth"
       ],
-      "MiscServices":[
+      "MiscServices": [
         "InputMethodFramework",
         "Pasteboard",
         "Time",
@@ -430,7 +452,7 @@
         "Upload",
         "Download"
       ],
-      "FileManagement":[
+      "FileManagement": [
         "StorageService.Backup",
         "StorageService.SpatialStatistics",
         "StorageService.Volume",
@@ -440,19 +462,21 @@
         "File.DistributedFile",
         "AppFileService",
         "UserFileService",
-        "UserFileManager"
+        "UserFileManager",
+        "UserFileManager.DistributedCore",
+        "UserFileManager.Core"
       ],
-      "USB":[
+      "USB": [
         "USBManager"
       ],
-      "Sensors":[
+      "Sensors": [
         "Sensor",
         "MiscDevice"
       ],
-      "Startup":[
+      "Startup": [
         "SystemInfo"
       ],
-      "DistributedDataManager":[
+      "DistributedDataManager": [
         "RelationalStore.Core",
         "RelationalStore.Synchronize",
         "RelationalStore.Lite",
@@ -463,9 +487,10 @@
         "Preferences.Core",
         "DataShare.Core",
         "DataShare.Consumer",
-        "DataShare.Provider"
+        "DataShare.Provider",
+        "UDMF.Core"
       ],
-      "Ability":[
+      "Ability": [
         "AbilityBase",
         "AbilityRuntime.Core",
         "AbilityRuntime.FAModel",
@@ -473,23 +498,29 @@
         "AbilityRuntime.Mission",
         "AbilityTools.AbilityAssistant",
         "Form",
-        "DistributedAbilityManager"
+        "DistributedAbilityManager",
+        "AbilityRuntime.QuickFix"
       ],
-      "Applications":[
+      "Applications": [
         "ContactsData",
         "Contacts",
         "settings.Core"
       ],
-      "Test":[
+      "Test": [
         "UiTest"
       ],
-      "Web":[
+      "Web": [
         "Webview.Core"
       ],
-      "Cloud":[
+      "Cloud": [
         "AAID",
         "OAID",
-        "VAID"
+        "VAID",
+        "Push"
+      ],
+      "XTS": [
+        "DeviceAttest",
+        "DeviceAttestLite"
       ]
     }
   }
