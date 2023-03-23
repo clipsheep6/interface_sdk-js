@@ -1798,21 +1798,99 @@ declare interface PixelMapMock {
 }
 
 /**
+ * Defines the PixelMap type object for ui component.
+ * @since 10
+ */
+import {UnifiedData} from '@ohos.data.UDMF'
+import {UDAbstract} from '@ohos.data.UDMF'
+import {UDType} from '@ohos.data.UDMF'
+
+declare enum DragRet {
+  /**
+   * If drag success, return DragRet.DRAGSUCCESS
+   * @since 10
+   */
+  DRAGSUCCESS,
+  /**
+   * if drag fail, return DragRet.DRAGFAIL
+   * @since 10
+   */
+  DRAGFAIL,
+  /**
+   * If drag action cancel, return DragRet.DRAGCANCEL
+   * @since 10
+   */
+  DRAGCANCEL,
+  /**
+   * If node allow drop in, return DragRet.ENABLEDROP
+   * @since 10
+   */
+  ENABLEDROP,
+  /**
+   * If node don't allow drop in, return DragRet.DISABLEDROP
+   * @since 10
+   */
+  DISABLEDROP
+}
+
+/**
  * DragEvent object description
  * @since 7
  */
 declare interface DragEvent {
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * Obtains the X coordinate of the finger, in vp.
    * @since 7
    */
   getX(): number;
 
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * Obtains the Y coordinate of the finger, in vp.
    * @since 7
    */
   getY(): number;
+
+  /**
+   * If useCustomAnimation is true, frameWork will not use drop animation.
+   * @since 10
+   */
+  useCustomAnimation: boolean;
+
+  /**
+   * Set dragData into DragEvent
+   * @since 10
+   */
+  setData(unifiedData: UnifiedData): void;
+
+  /**
+   * Get dragData from DragEvent
+   * @since 10
+   */
+  getData(): UnifiedData;
+
+  /**
+   * Get dragData abstract from DragEvent
+   * @since 10
+   */
+  getAbstractData(): UDAbstract;
+  
+  /**
+   * Set dragEvent result to DragEvent
+   * @since 10
+   */
+  setResult(dragRet: DragRet): void;
+
+  /**
+   * Get dragEvent result from DragEvent
+   * @since 10
+   */
+  getResult(): DragRet;
+  
+  /**
+   * Obtain the rectangle of drag window
+   * @since 10
+   */
+  getPreviewRect(): Rectangle;
 }
 
 /**
@@ -3123,6 +3201,35 @@ declare class CommonMethod<T> {
    * @since 8
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
+
+  /**
+   * After drag event, this function is called. Only the node which start drag will call this function.
+   * @param event 
+   * @since 10
+   */
+  onDragFinish(event?: DragEvent): void;
+
+  /**
+   * Allowed drop unifiedData type for this node 
+   * @since 10
+   */
+  allowDrop?: Array<UDType>;
+
+  /**
+   * Set the allow subscript and forbidden subscript in node which will accept drag 
+   * @param event 
+   * @since 10
+   */
+  dragSubscript(allow?: string, forbidden?: string): void;
+
+  /**
+   * Enable the selectable area can be dragged.
+   * @type boolean
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  draggable(value: boolean): TextAttribute;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.

@@ -274,14 +274,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   copyOption(value: CopyOptions): ImageAttribute;
 
   /**
-   * Enable image dragging.
-   * Default value is false.
-   * @form
-   * @since 9
-   */
-  draggable(value: boolean): ImageAttribute;
-
-  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    * @since 7
