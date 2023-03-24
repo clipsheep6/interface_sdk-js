@@ -1036,6 +1036,7 @@ declare namespace commonEventManager {
      * Indicate the action of a common event that a new sms bas been received by the device.
      * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_RECEIVED_COMPLETED = "usual.event.SMS_RECEIVED_COMPLETED",
@@ -1043,6 +1044,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that a new sms emergency cell broadcast bas been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED = "usual.event.SMS_EMERGENCY_CB_RECEIVE_COMPLETED",
@@ -1050,6 +1052,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that a new sms normal cell broadcast bas been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED = "usual.event.SMS_CB_RECEIVE_COMPLETED",
@@ -1057,6 +1060,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that a STK command has been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_COMMAND = "usual.event.STK_COMMAND",
@@ -1064,6 +1068,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that STK session end.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_SESSION_END = "usual.event.STK_SESSION_END",
@@ -1071,6 +1076,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that the STK phone card state has changed.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_CARD_STATE_CHANGED = "usual.event.STK_CARD_STATE_CHANGED",
@@ -1078,6 +1084,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that an alpha string during call control has been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_ALPHA_IDENTIFIER = "usual.event.STK_ALPHA_IDENTIFIER",
@@ -1085,6 +1092,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that a new sms wappush has been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED = "usual.event.SMS_WAPPUSH_RECEIVE_COMPLETED",
@@ -1092,6 +1100,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that the operator config has been updated.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_OPERATOR_CONFIG_CHANGED = "usual.event.OPERATOR_CONFIG_CHANGED",
@@ -1099,6 +1108,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default SMS subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_SMS_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_SMS_SUBSCRIPTION_CHANGED",
@@ -1106,6 +1116,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default data subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_DATA_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_DATA_SUBSCRIPTION_CHANGED",
@@ -1113,6 +1124,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default main subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED",
@@ -1120,6 +1132,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default voice subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_VOICE_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_VOICE_SUBSCRIPTION_CHANGED",
@@ -1136,6 +1149,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the cellular data state has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_CELLULAR_DATA_STATE_CHANGED = "usual.event.CELLULAR_DATA_STATE_CHANGED",
@@ -1159,6 +1173,7 @@ declare namespace commonEventManager {
      * To subscribe to this protected common event, your application must have the ohos.permission.GET_TELEPHONY_STATE
      * permission.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_INCOMING_CALL_MISSED = "usual.event.INCOMING_CALL_MISSED",
@@ -1166,6 +1181,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that radio state change.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE"
