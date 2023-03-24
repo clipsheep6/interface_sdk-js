@@ -95,7 +95,7 @@ declare namespace workScheduler {
         /**
          * The parameters of the work. The value is only supported basic type(Number, String, Boolean).
          */
-        parameters?: {[key: string]: any};
+        parameters?: {[key: string]: number | string | boolean};
     }
 
     /**
@@ -199,7 +199,6 @@ declare namespace workScheduler {
      * @throws { BusinessError } 9700001 - Memory operation failed.
      * @throws { BusinessError } 9700002 - Parcel operation failed.
      * @throws { BusinessError } 9700003 - System service operation failed.
-     * @throws { BusinessError } 9700004 - Check workInfo failed.
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
