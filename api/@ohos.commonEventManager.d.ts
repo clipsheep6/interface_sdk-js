@@ -1059,6 +1059,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicate the action of a common event that a STK command has been received by the device.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
      * @systemapi
      * @since 10
@@ -1067,6 +1069,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicate the action of a common event that STK session end.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
      * @systemapi
      * @since 10
@@ -1075,6 +1079,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicate the action of a common event that the STK phone card state has changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
      * @systemapi
      * @since 10
@@ -1083,6 +1089,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicate the action of a common event that an alpha string during call control has been received by the device.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
      * @systemapi
      * @since 10
