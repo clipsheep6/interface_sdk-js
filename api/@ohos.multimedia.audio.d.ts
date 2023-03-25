@@ -1448,10 +1448,9 @@ declare namespace audio {
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param callback Callback used to get the system volume change event.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @deprecated since 9
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:volumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
@@ -2427,26 +2426,25 @@ declare namespace audio {
 
   /**
    * Describes the volume event received by the app when the volume is changed.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
    */
   interface VolumeEvent {
     /**
      * Volume type of the current stream.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     volumeType: AudioVolumeType;
     /**
      * Volume level.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     volume: number;
     /**
      * Whether to show the volume change in UI.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     updateUi: boolean;
@@ -2454,12 +2452,14 @@ declare namespace audio {
      * volumeGroup id
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
      */
     volumeGroupId: number;
     /**
      * Device network id
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
      */
     networkId: string;
   }
