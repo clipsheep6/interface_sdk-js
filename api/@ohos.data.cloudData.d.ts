@@ -56,6 +56,7 @@ declare namespace CloudData {
          * the {@link changeAppSwitch(cloudId:string,bundle:string,switch:boolean)} method will notify the data manager service.
          * @param {AsyncCallback<void>} callback - the callback of enableCloud.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         enableCloud(accountId: string, switches: {[bundleName: string]: boolean}, callback: AsyncCallback<void>): void;
@@ -68,6 +69,7 @@ declare namespace CloudData {
          * the {@link changeAppSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
          * @returns {Promise<void>} the promise returned by the function.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         enableCloud(accountId: string, switches: {[bundleName: string]: boolean}): Promise<void>;
@@ -77,6 +79,7 @@ declare namespace CloudData {
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
          * @param {AsyncCallback<void>} callback - the callback of disableCloud.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @since 10
          */
         disableCloud(accountId: string, callback: AsyncCallback<void>): void;
@@ -86,6 +89,7 @@ declare namespace CloudData {
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
          * @returns {Promise<void>} the promise returned by the function.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @since 10
          */
         disableCloud(accountId: string): Promise<void>;
@@ -97,6 +101,7 @@ declare namespace CloudData {
          * @param {boolean} status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
          * @param {AsyncCallback<void>} callback - the callback of changeAppSwitch.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         changeAppSwitch(accountId: string, bundleName: string, status :boolean, callback: AsyncCallback<void>): void;
@@ -108,6 +113,7 @@ declare namespace CloudData {
          * @param {boolean} status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
          * @returns {Promise<void>} the promise returned by the function.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         changeAppSwitch(accountId: string, bundleName: string, status :boolean): Promise<void>;
@@ -118,6 +124,7 @@ declare namespace CloudData {
          * @param {{[bundleName: string]: Action}} appActions - Indicates information about the application data need to clear in which way.
          * @param {AsyncCallback<void>} callback - the callback of clean.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         clean(accountId: string, appActions: {[bundleName: string]: Action}, callback: AsyncCallback<void>): void;
@@ -128,6 +135,7 @@ declare namespace CloudData {
          * @param {{[bundleName: string]: Action}} appActions - Indicates information about the application data need to clear in which way.
          * @returns {Promise<void>} the promise returned by the function.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         clean(accountId: string, appActions: {[bundleName: string]: Action}): Promise<void>;
@@ -138,6 +146,7 @@ declare namespace CloudData {
          * @param {string} bundleName - Indicates the name of application.
          * @param {AsyncCallback<void>} callback - the callback of notifyDataChange.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
         notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
@@ -148,6 +157,7 @@ declare namespace CloudData {
          * @param {string} bundleName - Indicates the name of application.
          * @returns {Promise<void>} the promise returned by the function.
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @systemapi
          * @since 10
          */
          notifyDataChange(accountId: string, bundleName: string): Promise<void>;
