@@ -319,12 +319,7 @@ declare namespace mediaLibrary {
      * @useinstead ohos.file.picker
      */
     readonly albumName: string;
-    /**
-     * The time of pending
-     * @since 9
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     */
-    pendingTime: number;
+
     /**
      * If it is a directory where the file is located.
      * @since 8
@@ -516,38 +511,6 @@ declare namespace mediaLibrary {
      * @useinstead ohos.file.picker
      */
     isTrash():Promise<boolean>;
-    /**
-     * Set pending for file.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param isPending true is set file pending, false is revert file pending
-     * @param callback Callback used to return, No value is returned.
-     */
-    setPending(isPending: boolean, callback: AsyncCallback<void>): void;
-    /**
-     * Set pending for file.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param isPending true is set file pending, false is revert file pending
-     */
-    setPending(isPending: boolean): Promise<void>;
-    /**
-     * If the file is pending when the file is located.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA
-     * @param callback Callback used to return true or false.
-     */
-    isPending(callback: AsyncCallback<boolean>): void;
-    /**
-     * If the file is pending when the file is located.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA
-     */
-    isPending():Promise<boolean>;
   }
 
   /**
@@ -710,12 +673,6 @@ declare namespace mediaLibrary {
      * @useinstead ohos.file.picker
      */
     ALBUM_NAME = "bucket_display_name",
-    /**
-     * Time pending of the file
-     * @since 9
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     */
-    TITLE_PENDING = "time_pending",
   }
 
   /**
