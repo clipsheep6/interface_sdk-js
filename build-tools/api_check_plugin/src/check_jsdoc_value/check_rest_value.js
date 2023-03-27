@@ -12,10 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+const fs = require('fs');
 const rules = require('../../code_style_rule.json');
-const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList, requireTypescriptModule } = require('../../src/utils');
+const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList, requireTypescriptModule, systemPermissionFile,
+  checkOption } = require('../../src/utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
-const { getPermissionBank } = require('../check_permission');
 const ts = requireTypescriptModule();
 
 
@@ -32,8 +33,6 @@ function checkExtendsValue(tag, node, sourcefile, fileName, index) {
     if (tagValue !== apiValue) {
       extendsResult.checkResult = false,
         extendsResult.errorInfo = 'extends标签值错误, 请检查标签值是否与继承类名保持一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, extendsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
     }
   }
   return extendsResult;
@@ -53,8 +52,6 @@ function checkEnumValue(tag, node, sourcefile, fileName, index) {
   if (tagProblems > 0 || enumValues.indexOf(tagValue) === -1) {
     enumResult.checkResult = false;
     enumResult.errorInfo = 'enum标签类型错误, 请检查标签类型是否为string或number.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, enumResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return enumResult;
 }
@@ -70,8 +67,6 @@ function checkSinceValue(tag, node, sourcefile, fileName, index) {
   if (!checkNumber && commentNodeWhiteList.includes(node.kind)) {
     sinceResult.checkResult = false;
     sinceResult.errorInfo = 'since标签值错误, 请检查标签值是否为数值.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, sinceResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return sinceResult;
 }
@@ -89,13 +84,9 @@ function checkReturnsValue(tag, node, sourcefile, fileName, index) {
     if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
       returnsResult.checkResult = false;
       returnsResult.errorInfo = 'returns标签使用错误, 返回类型为void时不应该使用returns标签.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
     } else if (tagValue !== apiReturnsValue) {
       returnsResult.checkResult = false;
       returnsResult.errorInfo = 'returns标签类型错误, 请检查标签类型是否与返回类型一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
     }
   }
   return returnsResult;
@@ -128,8 +119,6 @@ function checkParamValue(tag, node, sourcefile, fileName, index) {
       }
       if (!paramResult.checkResult) {
         paramResult.errorInfo = errorInfo;
-        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
       }
     }
   }
@@ -158,8 +147,6 @@ function checkThrowsValue(tag, node, sourcefile, fileName, index) {
   }
   if (!throwsResult.checkResult) {
     throwsResult.errorInfo = errorInfo;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return throwsResult;
 }
@@ -247,8 +234,6 @@ function checkUseinsteadValue(tag, node, sourcefile, fileName, index) {
   const result = splitUseinsteadValue(tagNameValue, fileName);
   if (result && !result.checkResult) {
     useinsteadResult = result;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, useinsteadResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return useinsteadResult;
 }
@@ -265,8 +250,6 @@ function checkTypeValue(tag, node, sourcefile, fileName, index) {
     if (apiTypeValue !== tagTypeValue) {
       typeResult.checkResult = false;
       typeResult.errorInfo = 'type标签类型错误, 请检查类型是否与属性类型一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, typeResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
     }
   }
   return typeResult;
@@ -281,12 +264,37 @@ function checkDefaultValue(tag, node, sourcefile, fileName, index) {
   if (commentNodeWhiteList.includes(node.kind) && tag.name.length === 0 && tag.type.length === 0) {
     defaultResult.checkResult = false;
     defaultResult.errorInfo = 'default标签值错误, 请补充默认值.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, defaultResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return defaultResult;
 }
 exports.checkDefaultValue = checkDefaultValue;
+
+const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
+
+/**
+ * 门禁环境优先使用systemPermissionFile
+ * 本地环境从指定分支上下载
+ * 下载失败则使用默认配置
+ *
+ * @returns Set<string>
+ */
+function getPermissionBank() {
+  const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
+  let permissionFileContent;
+  if (fs.existsSync(systemPermissionFile)) {
+    permissionFileContent = require(systemPermissionFile);
+  } else if (checkOption.permissionContent) {
+    permissionFileContent = JSON.parse(checkOption.permissionContent);
+  } else {
+    permissionFileContent = require('../config/config.json');
+  }
+  const permissionTagsObj = permissionFileContent.module.definePermissions;
+  permissionTagsObj.forEach((item) => {
+    permissionTags.push(item.name);
+  });
+  const permissionRuleSets = new Set(permissionTags);
+  return permissionRuleSets;
+}
 
 function checkPermissionTag(tag, node, sourcefile, fileName, index) {
   const permissionRuleSet = getPermissionBank();
@@ -307,8 +315,6 @@ function checkPermissionTag(tag, node, sourcefile, fileName, index) {
   if (hasPermissionError) {
     permissionResult.checkResult = false;
     permissionResult.errorInfo = errorInfo;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, errorInfo, FileType.API,
-      ErrorLevel.LOW);
   }
   return permissionResult;
 }
@@ -325,8 +331,6 @@ function checkDeprecatedTag(tag, node, sourcefile, fileName, index) {
   if ((tagValue1 !== 'since' || !checkNumber) && commentNodeWhiteList.includes(node.kind)) {
     deprecatedResult.checkResult = false;
     deprecatedResult.errorInfo = 'deprecated标签值错误, 请检查使用方法.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, deprecatedResult.errorInfo,
-      FileType.API, ErrorLevel.LOW);
   }
   return deprecatedResult;
 }
@@ -349,14 +353,12 @@ function checkSyscapTag(tag, node, sourcefile, fileName, index) {
   if (!syscapRuleSet.has(tagValue)) {
     syscapResult.checkResult = false;
     syscapResult.errorInfo = 'syscap标签值错误, 请检查syscap字段是否已配置.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, syscapResult.errorInfo,
-      FileType.API, ErrorLevel.LOW);
   }
   return syscapResult;
 }
 exports.checkSyscapTag = checkSyscapTag;
 
-function checkNamespaceTag(tag, node, sourcefile, fileName) {
+function checkNamespaceTag(tag, node, sourcefile, fileName, index) {
   let namespaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -367,15 +369,13 @@ function checkNamespaceTag(tag, node, sourcefile, fileName) {
     if (apiValue !== undefined && tagValue !== apiValue) {
       namespaceResult.checkResult = false;
       namespaceResult.errorInfo = 'namespace标签值错误, 请检查是否与namespace名称保持一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, namespaceResult.errorInfo,
-        FileType.API, ErrorLevel.LOW);
     }
   }
   return namespaceResult;
 }
 exports.checkNamespaceTag = checkNamespaceTag;
 
-function checkInterfaceTypedefTag(tag, node, sourcefile, fileName) {
+function checkInterfaceTypedefTag(tag, node, sourcefile, fileName, index) {
   let interfaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -390,8 +390,6 @@ function checkInterfaceTypedefTag(tag, node, sourcefile, fileName) {
       } else if (tag.tag === 'typedef') {
         interfaceResult.errorInfo = 'typedef标签值错误, 请检查是否与interface名称保持一致.';
       }
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, interfaceResult.errorInfo,
-        FileType.API, ErrorLevel.LOW);
     }
   }
   return interfaceResult;
@@ -413,6 +411,6 @@ const JsDocValueChecker = {
   'syscap': checkSyscapTag,
   'namespace': checkNamespaceTag,
   'interface': checkInterfaceTypedefTag,
-  'typedef': checkInterfaceTypedefTag
+  'typedef': checkInterfaceTypedefTag,
 };
 exports.JsDocValueChecker = JsDocValueChecker;

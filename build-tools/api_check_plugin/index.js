@@ -23,17 +23,17 @@ exports.checkJSDoc = function (node, sourceFile, fileName) {
   return checkLegality.checkJsDocOfCurrentNode(node, sourceFile, undefined, fileName);
 };
 
-exports.initEnv = function (version) {
+exports.initEnv = function (branch) {
   const { checkOption } = require('./src/utils');
   return new Promise((resolve, reject) => {
-    const permissionName = getPermissionName(version);
+    const permissionName = getPermissionName(branch);
     const permissionConfig = getLocalPermissionConfig(permissionName);
     if (permissionConfig) {
       checkOption.permissionContent = permissionConfig;
       resolve();
       return;
     }
-    const workingBranch = version ? version : 'mas' + 'ter';
+    const workingBranch = branch ? branch : 'master';
     const url = `${urlPrefix}${workingBranch}${urlSuffix}`;
     updatePermissionConfig(url, (content) => {
       if (content) {
@@ -48,7 +48,7 @@ exports.initEnv = function (version) {
 function updatePermissionConfig(url, callback) {
   let requestText = undefined;
   const https = require('https');
-  const request = https.get(url, { timeout: 2000 }, (res) => {
+  https.get(url, (res) => {
     res.on('data', (chunk) => {
       if (typeof chunk === 'string') {
         requestText = chunk;
@@ -57,12 +57,10 @@ function updatePermissionConfig(url, callback) {
         requestText = requestText ? (requestText + dataStr) : dataStr;
       }
     });
-  }).on('error', () => {
-    console.warn('use the default permission list.');
+  }).on('error', (err) => {
+    console.error('updatePermissionConfig error: ' + JSON.stringify(err));
   }).on('close', () => {
     callback(requestText);
-  }).on('timeout', () => {
-    request.destroy();
   });
 }
 
@@ -86,6 +84,6 @@ function savePermissionConfig(content, name) {
   console.log(`update permission configuration to ${localPermissionFile}`);
 }
 
-function getPermissionName(version) {
-  return `permissions_${version}.config.json`;
+function getPermissionName(branch) {
+  return `permissions_${branch}.config.json`;
 }
