@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
+import { RawFileDescriptor } from './global/rawFileDescriptor';
 
 /**
  * This module provides the capability to control motor vibration.
@@ -53,6 +54,7 @@ declare namespace vibrator {
      * @param { AsyncCallback<void> } callback - The callback of startVibration.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14600101 - Device operation failed.
      * @permission ohos.permission.VIBRATE
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -67,6 +69,7 @@ declare namespace vibrator {
      * @returns { Promise<void>} Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14600101 - Device operation failed.
      * @permission ohos.permission.VIBRATE
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -193,9 +196,16 @@ declare namespace vibrator {
     /**
      * Describes the effect of vibration.
      * @syscap SystemCapability.Sensors.MiscDevice
+     * @type { VibrateTime | VibratePreset }
      * @since 9
      */
-     type VibrateEffect = VibrateTime | VibratePreset;
+    /**
+     * Describes the effect of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @type { VibrateTime | VibratePreset | VibrateFromFile }
+     * @since 10
+     */
+    type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile;
 
     /**
      * Vibrate continuously for a period of time at the default intensity of the system.
@@ -216,6 +226,17 @@ declare namespace vibrator {
         type: "preset";
         effectId: string; /** Preset type vibration */
         count: number; /** The number of vibration repetitions */
+    }
+
+    /**
+     * Custom vibration, vibrating a sequence arranged through a configuration file.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 10
+     */
+    interface VibrateFromFile {
+        type: "file";
+        rawFd: RawFileDescriptor; /** The rawFile descriptor of configuration file from resource manager,
+        * and the caller is responsible for closing it. */
     }
 }
 
