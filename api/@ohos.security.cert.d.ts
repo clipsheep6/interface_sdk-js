@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
-import cryptoFramework from '@ohos.security.cryptoFramework';
+import {AsyncCallback, Callback} from './@ohos.base';
+import cryptoFramework from '@ohos.security.cryptoFramework'
 
 /**
  * Provides a set of cert operation, shields the underlying differences,

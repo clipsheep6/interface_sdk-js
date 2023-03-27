@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import distributedAccount from './@ohos.account.distributedAccount';
-import { AsyncCallback, Callback } from './basic';
+import distributedAccount from './@ohos.account.distributedAccount'
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to manage os accounts.

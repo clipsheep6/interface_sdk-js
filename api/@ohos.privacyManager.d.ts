@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
-import { Permissions } from './permissions';
+import {AsyncCallback, Callback} from './@ohos.base'
+import { Permissions } from './permissions'
 
 /**
  * @namespace privacyManager
