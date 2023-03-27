@@ -2686,7 +2686,7 @@ declare namespace sensor {
         /**
          * Sensor event reporting event interval
          * 
-         * @type { number }
+         * @type { ?number }
          * @syscap SystemCapability.Sensors.Sensor
          * @since 8
          */
