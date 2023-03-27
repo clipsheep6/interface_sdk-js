@@ -28,20 +28,40 @@ declare namespace sms {
    * <p>If the length of an SMS message exceeds the maximum length allowed (140 bytes),
    *     the SMS message is split into multiple segments for processing.
    *
-   * @param content Indicates the short message content, which cannot be {@code null}.
-   * @param callback Returns a list of split segments, which can be combined into a complete SMS message;
+   * @param { string } content - Indicates the short message content, which cannot be {@code null}.
+   * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting a list of split segments, which can be combined into a complete SMS message;
    *     returns an empty string if no permission is granted or the short message content is {@code null}.
    * @permission ohos.permission.SEND_MESSAGES
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function splitMessage(content: string, callback: AsyncCallback<Array<string>>): void;
+
+  /**
+   * Splits a long SMS message into multiple fragments.
+   *
+   * <p>If the length of an SMS message exceeds the maximum length allowed (140 bytes),
+   *     the SMS message is split into multiple segments for processing.
+   *
+   * @param { string } content - Indicates the short message content, which cannot be {@code null}.
+   * @returns { Promise<Array<string>> } Returns a list of split segments, which can be combined into a complete SMS message;
+   *     returns an empty string if no permission is granted or the short message content is {@code null}.
+   * @permission ohos.permission.SEND_MESSAGES
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function splitMessage(content: string): Promise<Array<string>>;
 
   /**
@@ -50,18 +70,36 @@ declare namespace sms {
    * <p>After receiving the original PDU data, the system creates an SMS message instance according to the specified
    * SMS protocol.
    *
-   * @param pdu Indicates the original data, which is obtained from the received SMS.
-   * @param specification Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE SMS,
+   * @param { Array<number> } pdu - Indicates the original data, which is obtained from the received SMS.
+   * @param { string } specification - Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE SMS,
    *     and the value {@code 3gpp2} indicates CDMA/LTE SMS.
-   * @param callback Returns an SMS message instance; returns {@code null} if {@code pdu} is empty or
-   *     {@code specification} is not supported.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<ShortMessage> } callback - Indicates the callback for getting an SMS message instance;
+   *     returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function createMessage(pdu: Array<number>, specification: string, callback: AsyncCallback<ShortMessage>): void;
+
+  /**
+   * Creates an SMS message instance based on the protocol data unit (PDU) and the specified SMS protocol.
+   *
+   * <p>After receiving the original PDU data, the system creates an SMS message instance according to the specified
+   * SMS protocol.
+   *
+   * @param { Array<number> } pdu - Indicates the original data, which is obtained from the received SMS.
+   * @param { string } specification - Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE SMS,
+   *     and the value {@code 3gpp2} indicates CDMA/LTE SMS.
+   * @returns { Promise<ShortMessage> } Returns an SMS message instance;
+   *     returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
   function createMessage(pdu: Array<number>, specification: string): Promise<ShortMessage>;
 
   /**
@@ -70,14 +108,14 @@ declare namespace sms {
    * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
    * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
    *
-   * @param options Indicates the parameters and callback for sending the SMS message.
+   * @param { SendMessageOptions } options - Indicates the parameters and callback for sending the SMS message.
    * @permission ohos.permission.SEND_MESSAGES
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function sendMessage(options: SendMessageOptions): void;
 
@@ -85,72 +123,135 @@ declare namespace sms {
    * Sets the default SIM card for sending SMS messages. You can obtain the default SIM card by
    * using {@code getDefaultSmsSlotId}.
    *
-   * @param slotId Indicates the default SIM card for sending SMS messages. The value {@code 0} indicates card slot 1,
+   * @param { number } slotId - Indicates the default SIM card for sending SMS messages. The value {@code 0} indicates card slot 1,
    *     and the value {@code 1} indicates card slot 2.
+   * @param { AsyncCallback<void> } callback - The callback of setDefaultSmsSlotId.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function setDefaultSmsSlotId(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets the default SIM card for sending SMS messages. You can obtain the default SIM card by
+   * using {@code getDefaultSmsSlotId}.
+   *
+   * @param { number } slotId - Indicates the default SIM card for sending SMS messages. The value {@code 0} indicates card slot 1,
+   *     and the value {@code 1} indicates card slot 2.
+   * @returns { Promise<void> } The promise returned by the setDefaultSmsSlotId.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function setDefaultSmsSlotId(slotId: number): Promise<void>;
 
   /**
    * Obtains the default SIM card for sending SMS messages.
    *
-   * @param callback Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
-   *     returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the default SIM card for sending SMS messages.
+   * Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
+   * returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @since 7
    */
   function getDefaultSmsSlotId(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the default SIM card for sending SMS messages.
+   *
+   * @returns { Promise<number> } Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
+   * returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * @since 7
+   */
   function getDefaultSmsSlotId(): Promise<number>;
 
   /**
    * Sets the address for the Short Message Service Center (SMSC) based on a specified slot ID.
    *
-   * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
-   * @param smscAddr Indicates the SMSC address.
+   * @param { number } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * @param { string } smscAddr - Indicates the SMSC address.
+   * @param { AsyncCallback<void> } callback - The callback of setSmscAddr.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function setSmscAddr(slotId: number, smscAddr: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets the address for the Short Message Service Center (SMSC) based on a specified slot ID.
+   *
+   * @param { number } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * @param { string } smscAddr - Indicates the SMSC address.
+   * @returns { Promise<void> } The promise returned by the setSmscAddr.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function setSmscAddr(slotId: number, smscAddr: string): Promise<void>;
 
   /**
    * Obtains the SMSC address based on a specified slot ID.
    *
-   * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
-   * @param callback Returns the SMSC address.
+   * @param { number } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the SMSC address.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getSmscAddr(slotId: number, callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the SMSC address based on a specified slot ID.
+   *
+   * @param { number } slotId - Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * @returns { Promise<string> } Returns the SMSC address.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function getSmscAddr(slotId: number): Promise<string>;
 
   /**
    * Returns whether a device is capable of sending and receiving SMS messages.
    *
-   * @returns Returns {@code true} if the device is capable of sending and receiving SMS messages;
+   * @returns { boolean } Returns {@code true} if the device is capable of sending and receiving SMS messages;
    *     returns {@code false} otherwise.
    * @since 7
    */
@@ -159,170 +260,326 @@ declare namespace sms {
   /**
    * Add a SMS Message to SIM card.
    *
-   * @param options Indicates SIM message options.
+   * @param { SimMessageOptions } options - Indicates SIM message options.
+   * @param { AsyncCallback<void> } callback - The callback of addSimMessage.
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function addSimMessage(options: SimMessageOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Add a SMS Message to SIM card.
+   *
+   * @param { SimMessageOptions } options - Indicates SIM message options.
+   * @returns { Promise<void> } The promise returned by the addSimMessage.
+   * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function addSimMessage(options: SimMessageOptions): Promise<void>;
 
   /**
    * Delete a SMS Message from the SIM card.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
-   * @param msgIndex Indicates the message index.
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { number } msgIndex - Indicates the message index.
+   * @param { AsyncCallback<void> } callback - The callback of delSimMessage.
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function delSimMessage(slotId: number, msgIndex: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Delete a SMS Message from the SIM card.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { number } msgIndex - Indicates the message index.
+   * @returns { Promise<void> } The promise returned by the delSimMessage.
+   * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function delSimMessage(slotId: number, msgIndex: number): Promise<void>;
 
   /**
    * Update a SIM SMS of SIM card.
    *
-   * @param options Update SIM message options.
+   * @param { number } options - Indicates update SIM message options.
+   * @param { AsyncCallback<void> } callback - The callback of updateSimMessage.
    * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Update a SIM SMS of SIM card.
+   *
+   * @param { number } options - Indicates update SIM message options.
+   * @returns { Promise<void> } The promise returned by the updateSimMessage.
+   * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
   /**
    * Get all SMS records in SIM.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns a {@code SimShortMessage} object.
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<Array<SimShortMessage>> } callback - Indicates the callback for getting a {@code SimShortMessage} object.
    * @permission ohos.permission.RECEIVE_SMS
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getAllSimMessages(slotId: number, callback: AsyncCallback<Array<SimShortMessage>>): void;
+
+  /**
+   * Get all SMS records in SIM.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<Array<SimShortMessage>> } Returns a {@code SimShortMessage} object.
+   * @permission ohos.permission.RECEIVE_SMS
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function getAllSimMessages(slotId: number): Promise<Array<SimShortMessage>>;
 
   /**
    * Turn on or off Cell BroadCast.
    *
-   * @param options Cell broadcast configuration options.
+   * @param { CBConfigOptions } options - Indicates cell broadcast configuration options.
+   * @param { AsyncCallback<void> } callback - The callback of setCBConfig.
    * @permission ohos.permission.RECEIVE_SMS
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function setCBConfig(options: CBConfigOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn on or off Cell BroadCast.
+   *
+   * @param { CBConfigOptions } options - Indicates cell broadcast configuration options.
+   * @returns { Promise<void> } The promise returned by the setCBConfig.
+   * @permission ohos.permission.RECEIVE_SMS
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function setCBConfig(options: CBConfigOptions): Promise<void>;
 
   /**
    * Get a SMS segment encode relation information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
-   * @param message Indicates short message.
-   * @param force7bit Whether to use 7 bit encoding.
-   * @param callback Returns a {@code SmsSegmentsInfo} object.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { string } message - Indicates short message.
+   * @param { boolean } force7bit - Indicates whether to use 7 bit encoding.
+   * @param { AsyncCallback<SmsSegmentsInfo> } callback - Indicates the callback for getting a {@code SmsSegmentsInfo} object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getSmsSegmentsInfo(slotId: number, message: string, force7bit: boolean, callback: AsyncCallback<SmsSegmentsInfo>): void;
+
+  /**
+   * Get a SMS segment encode relation information.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { string } message - Indicates short message.
+   * @param { boolean } force7bit - Indicates whether to use 7 bit encoding.
+   * @returns { Promise<SmsSegmentsInfo> } Returns a {@code SmsSegmentsInfo} object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getSmsSegmentsInfo(slotId: number, message: string, force7bit: boolean): Promise<SmsSegmentsInfo>;
 
   /**
    * SMS over IMS is supported if IMS is registered and SMS is supported on IMS.
    *
-   * @param slotId Indicates the default SIM card for Ims Sms. The value {@code 0} indicates card slot 1,
+   * @param { number } slotId - Indicates the default SIM card for Ims Sms. The value {@code 0} indicates card slot 1,
    *     and the value {@code 1} indicates card slot 2.
-   * @param callback Returns true if SMS over IMS is supported, false otherwise.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback of isImsSmsSupported.
+   *     Returns {@code true} if SMS over IMS is supported, {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function isImsSmsSupported(slotId: number, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * SMS over IMS is supported if IMS is registered and SMS is supported on IMS.
+   *
+   * @param { number } slotId - Indicates the default SIM card for Ims Sms. The value {@code 0} indicates card slot 1,
+   *     and the value {@code 1} indicates card slot 2.
+   * @returns { Promise<boolean> } Returns {@code true} if SMS over IMS is supported, {@code false} otherwise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function isImsSmsSupported(slotId: number): Promise<boolean>;
 
   /**
    * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.
    *
-   * @param callback Returns format, 3gpp, 3gpp2 or unknown.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting format, 3gpp, 3gpp2 or unknown.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getImsShortMessageFormat(callback: AsyncCallback<string>): void;
+
+  /**
+   * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.
+   *
+   * @returns { Promise<string> } Returns format, 3gpp, 3gpp2 or unknown.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getImsShortMessageFormat(): Promise<string>;
 
   /**
    * Decode the message content.
    *
-   * @param mmsFilePathName Indicates the path name of the multimedia message file.
-   * @param callback Returns a {@code MmsInformation} object.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string | Array<number> } mmsFilePathName - Indicates the path name of the multimedia message file.
+   * @param { AsyncCallback<MmsInformation> } callback - Indicates the callback for getting a {@code MmsInformation} object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function decodeMms(mmsFilePathName: string | Array<number>, callback: AsyncCallback<MmsInformation>): void;
+
+  /**
+   * Decode the message content.
+   *
+   * @param { string | Array<number> } mmsFilePathName - Indicates the path name of the multimedia message file.
+   * @returns { Promise<MmsInformation> } Returns a {@code MmsInformation} object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function decodeMms(mmsFilePathName: string | Array<number>): Promise<MmsInformation>;
 
   /**
    * Encode the message content.
    *
-   * @param mms MMS messages.
-   * @param callback Returns the result of MMS encoding.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { MmsInformation } mms - Indicates MMS messages.
+   * @param { AsyncCallback<Array<number>> } callback - Indicates the callback for getting the result of MMS encoding.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function encodeMms(mms: MmsInformation, callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Encode the message content.
+   *
+   * @param { MmsInformation } mms - Indicates MMS messages.
+   * @returns { Promise<Array<number>> } Returns the result of MMS encoding.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function encodeMms(mms: MmsInformation): Promise<Array<number>>;
 
   /**

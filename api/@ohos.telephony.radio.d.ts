@@ -28,9 +28,10 @@ declare namespace radio {
    * Obtains radio access technology (RAT) of the registered network. The system
    * returns RAT of the packet service (PS) and circuit service (CS) domain.
    *
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns an integer indicating the RAT in use. The values are as follows:
+   * @param { AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } callback - Returns an integer indicating the RAT in use.
+   * The values are as follows:
    * <ul>
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
@@ -47,69 +48,142 @@ declare namespace radio {
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
    * </ul>
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function getRadioTech(slotId: number,
     callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
+
+  /**
+   * Obtains radio access technology (RAT) of the registered network. The system
+   * returns RAT of the packet service (PS) and circuit service (CS) domain.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<psRadioTech: RadioTechnology, csRadioTech: RadioTechnology> } Returns the enumeration of RadioTechnology.
+   * The values are as follows:
+   * <ul>
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
+   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
+   * </ul>
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
   function getRadioTech(slotId: number): Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>;
 
   /**
    * Obtains the network state of the registered network.
    *
-   * @param slotId Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns a {@code NetworkState} object.
+   * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function getNetworkState(callback: AsyncCallback<NetworkState>): void;
+
+  /**
+   * Obtains the network state of the registered network.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
   function getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void;
+
+  /**
+   * Obtains the network state of the registered network.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<NetworkState> } Returns the NetworkState object.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
   function getNetworkState(slotId?: number): Promise<NetworkState>;
 
   /**
    * Actively requests to update location information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of sendUpdateCellLocationRequest.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @param { number } [ slotId ] - indicates the card slot index number.
-   * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function sendUpdateCellLocationRequest(callback: AsyncCallback<void>): void;
+
+  /**
+   * Actively requests to update location information.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of sendUpdateCellLocationRequest.
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function sendUpdateCellLocationRequest(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Actively requests to update location information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
+   * @returns { Promise<void> } The promise returned by the sendUpdateCellLocationRequest.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
-   * @param { number } [ slotId ] - indicates the card slot index number.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -118,150 +192,341 @@ declare namespace radio {
   /**
    * Get the current cell information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
-   * @param callback Return cell information.
+   * @param { AsyncCallback<Array<CellInformation>> } callback - Indicates the callback for getting cell information.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getCellInformation(callback: AsyncCallback<Array<CellInformation>>): void;
+
+  /**
+   * Get the current cell information.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param { AsyncCallback<Array<CellInformation>> } callback - Indicates the callback for getting cell information.
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getCellInformation(slotId: number, callback: AsyncCallback<Array<CellInformation>>): void;
+
+  /**
+   * Get the current cell information.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<Array<CellInformation>> } Returns the current cell information.
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getCellInformation(slotId?: number): Promise<Array<CellInformation>>;
 
   /**
    * Obtains the network search mode of the SIM card in a specified slot.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
-   * @param callback Returns the network search mode of the SIM card. Available values are as follows:
+   * @param { AsyncCallback<NetworkSelectionMode> } callback - Indicates the callback for getting the network search mode of the SIM card.
+   * Available values are as follows:
    * <ul>
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
    * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
    * <ul>
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void;
+
+  /**
+   * Obtains the network search mode of the SIM card in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<NetworkSelectionMode> } Returns the network search mode of the SIM card.
+   * Available values are as follows:
+   * <ul>
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
+   * <ul>
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
   function getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>;
 
   /**
    * Set the current network selection mode.
    *
-   * @param options Indicates the network selection mode option.
+   * @param { NetworkSelectionModeOptions } options Indicates the network selection mode option.
+   * @param { AsyncCallback<void> } callback - The callback of setNetworkSelectionMode.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    */
   function setNetworkSelectionMode(options: NetworkSelectionModeOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the current network selection mode.
+   *
+   * @param { NetworkSelectionModeOptions } options Indicates the network selection mode option.
+   * @returns { Promise<void> } The promise returned by the setNetworkSelectionMode.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   */
   function setNetworkSelectionMode(options: NetworkSelectionModeOptions): Promise<void>;
 
   /**
    * Get network search information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
-   * @param callback Returns the search results of the network.
+   * @param { AsyncCallback<NetworkSearchResult> } callback - Indicates the callback for getting the search results of the network.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    */
   function getNetworkSearchInformation(slotId: number, callback: AsyncCallback<NetworkSearchResult>): void;
+
+  /**
+   * Get network search information.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<NetworkSearchResult> } Returns the search results of the network.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   */
   function getNetworkSearchInformation(slotId: number): Promise<NetworkSearchResult>;
 
   /**
    * Obtains the ISO-defined country code of the country where the registered network is deployed.
    *
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns the country code defined in ISO 3166-2;
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code defined in ISO 3166-2;
    * returns an empty string if the device is not registered with any network.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the ISO-defined country code of the country where the registered network is deployed.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<string> } Returns the country code defined in ISO 3166-2;
+   * returns an empty string if the device is not registered with any network.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
 
   /**
    * Get the option mode of NR.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
-   * @param callback Returns the selection mode of NR.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<NrOptionMode> } callback - Indicates the callback for getting the selection mode of NR.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getNrOptionMode(callback: AsyncCallback<NrOptionMode>): void;
+
+  /**
+   * Get the option mode of NR.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param { AsyncCallback<NrOptionMode> } callback - Indicates the callback for getting the selection mode of NR.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getNrOptionMode(slotId: number, callback: AsyncCallback<NrOptionMode>): void;
+
+  /**
+   * Get the option mode of NR.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<NrOptionMode> } Returns the selection mode of NR.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getNrOptionMode(slotId?: number): Promise<NrOptionMode>;
 
   /**
    * Obtains the IMEI of a specified card slot of the device.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
-   * @param callback Returns the IMEI; returns an empty string if the IMEI does not exist.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the IMEI. Returns an empty string if the IMEI does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getIMEI(callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the IMEI of a specified card slot of the device.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the IMEI. Returns an empty string if the IMEI does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getIMEI(slotId: number, callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the IMEI of a specified card slot of the device.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<string> } Returns the IMEI. Returns an empty string if the IMEI does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getIMEI(slotId?: number): Promise<string>;
 
   /**
    * Obtains the MEID of a specified card slot of the device.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
-   * @param callback Returns the MEID; returns an empty string if the MEID does not exist.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the MEID. Returns an empty string if the MEID does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getMEID(callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the MEID of a specified card slot of the device.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the MEID. Returns an empty string if the MEID does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getMEID(slotId: number, callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the MEID of a specified card slot of the device.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<string> } Returns the MEID. Returns an empty string if the MEID does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getMEID(slotId?: number): Promise<string>;
 
   /**
@@ -271,21 +536,61 @@ declare namespace radio {
    * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
    * (MEID) is returned.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-   * supported by the device.
-   * @param callback Returns the unique device ID; returns an empty string if the unique device ID does not exist.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the unique device ID. Returns an empty string if the unique device ID does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getUniqueDeviceId(callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the unique device ID of a specified card slot of the device.
+   *
+   * <p>If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
+   * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
+   * (MEID) is returned.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the unique device ID. Returns an empty string if the unique device ID does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getUniqueDeviceId(slotId: number, callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the unique device ID of a specified card slot of the device.
+   *
+   * <p>If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
+   * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
+   * (MEID) is returned.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<string> } Returns the unique device ID. Returns an empty string if the unique device ID does not exist.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getUniqueDeviceId(slotId?: number): Promise<string>;
 
   /**
@@ -293,56 +598,102 @@ declare namespace radio {
    *
    * <p>The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
-   * @param callback Returns the index number of the primary card slot.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the index number of the primary card slot.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function getPrimarySlotId(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
+   *
+   * <p>The primary card is the SIM card inserted in the card slot that uses data services by default.
+   *
+   * @returns { Promise<number> } Returns the index number of the primary card slot.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function getPrimarySlotId(): Promise<number>;
 
   /**
    * Set the index number of the main SIM card slot.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of setPrimarySlotId.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setPrimarySlotId(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the index number of the main SIM card slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<void> } The promise returned by the setPrimarySlotId.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function setPrimarySlotId(slotId: number): Promise<void>;
 
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
-   * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<Array<SignalInformation>> } callback - Indicates the callback for getting the instance list of
+   * the child classes derived from {@link SignalInformation}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
+
+  /**
+   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @returns { Promise<Array<SignalInformation>> } Returns the callback for getting the instance list of
+   * the child classes derived from {@link SignalInformation}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function getSignalInformation(slotId: number): Promise<Array<SignalInformation>>;
 
   /**
    * Checks whether the device supports 5G New Radio (NR).
    *
-   * @returns Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 7
    * @deprecated since 9
    * @useinstead telephony.radio#isNRSupported
@@ -352,9 +703,9 @@ declare namespace radio {
   /**
    * Checks whether the device supports 5G New Radio (NR) by according card slot.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
-   * @returns Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 8
    * @deprecated since 9
    * @useinstead telephony.radio#isNRSupported
@@ -364,7 +715,7 @@ declare namespace radio {
   /**
    * Checks whether the device supports 5G New Radio (NR).
    *
-   * @returns Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 9
    */
   function isNRSupported(): boolean;
@@ -372,9 +723,9 @@ declare namespace radio {
   /**
    * Checks whether the device supports 5G New Radio (NR) by according card slot.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
-   * @returns Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 9
    */
   function isNRSupported(slotId: number): boolean;
@@ -382,149 +733,313 @@ declare namespace radio {
   /**
    * Checks whether the radio service is enabled.
    *
-   * @param slotId Indicates the card slot index number,
-   *   ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns {@code true} If the radio service is enabled; returns {@code false} otherwise.
+   * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled; returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function isRadioOn(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the radio service is enabled.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
+
+  /**
+   * Checks whether the radio service is enabled.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<boolean> } Returns {@code true} If the radio service is enabled; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function isRadioOn(slotId?: number): Promise<boolean>;
 
   /**
    * Turn on the radio service.
    *
-   * @param slotId Indicates the card slot index number,
-   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of turnOnRadio.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function turnOnRadio(callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn on the radio service.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of turnOnRadio.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function turnOnRadio(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn on the radio service.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<void> } The promise returned by the turnOnRadio.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function turnOnRadio(slotId?: number): Promise<void>;
 
   /**
    * Turn off the radio service.
    *
-   * @param slotId Indicates the card slot index number,
-   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of turnOffRadio.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function turnOffRadio(callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn off the radio service.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { AsyncCallback<void> } callback - The callback of turnOffRadio.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function turnOffRadio(slotId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Turn off the radio service.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<void> } The promise returned by the turnOffRadio.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
   function turnOffRadio(slotId?: number): Promise<void>;
 
   /**
    * Get the operator name of the specified SIM card slot.
    *
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns operator name.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the operator name.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function getOperatorName(slotId: number, callback: AsyncCallback<string>): void;
+
+  /**
+   * Get the operator name of the specified SIM card slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<string> } Returns the operator name.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function getOperatorName(slotId: number): Promise<string>;
 
   /**
    * Set the preferred network for the specified SIM card slot.
    *
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param networkMode Indicates that you want to set the preferred network mode.
+   * @param { PreferredNetworkMode } networkMode - Indicates that you want to set the preferred network mode.
+   * @param { AsyncCallback<void> } callback - The callback of setPreferredNetwork.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setPreferredNetwork(slotId: number, networkMode: PreferredNetworkMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the preferred network for the specified SIM card slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { PreferredNetworkMode } networkMode - Indicates that you want to set the preferred network mode.
+   * @returns { Promise<void> } The promise returned by the setPreferredNetwork.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function setPreferredNetwork(slotId: number, networkMode: PreferredNetworkMode): Promise<void>;
 
   /**
    * Get the preferred network for the specified SIM card slot.
    *
-   * @param slotId Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param callback Returns the preferred network mode to obtain.
+   * @param { AsyncCallback<PreferredNetworkMode> } callback - Indicates the callback for getting the preferred network mode to obtain.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getPreferredNetwork(slotId: number, callback: AsyncCallback<PreferredNetworkMode>): void;
+
+  /**
+   * Get the preferred network for the specified SIM card slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns { Promise<PreferredNetworkMode> } Returns the callback for getting the preferred network mode to obtain.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
   function getPreferredNetwork(slotId: number): Promise<PreferredNetworkMode>;
 
   /**
    * Get the IMS registration state info of specified IMS service type.
    *
-   * @param slotId Indicates the card slot index number,
-   *   ranging from 0 to the maximum card slot index number supported by the device.
-   * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
-   * @param callback Returns an instance of the {@link ImsRegInfo} class.
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
+   * @param { AsyncCallback<ImsRegInfo> } callback - Indicates an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+
+  /**
+   * Get the IMS registration state info of specified IMS service type.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
+   * @param { AsyncCallback<ImsRegInfo> } callback - Indicates the callback for getting an instance of the {@link ImsRegInfo} class.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
    * Called when the IMS registration state of specified IMS service type corresponding
    *   to a monitored {@code slotId} updates.
    *
-   * @param slotId Indicates the card slot index number,
-   *   ranging from 0 to the maximum card slot index number supported by the device.
-   * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
-   * @param callback including an instance of the {@link ImsRegInfo} class.
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
+   * @param { Callback<ImsRegInfo> } callback - Indicates the callback for getting an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -534,17 +1049,17 @@ declare namespace radio {
   /**
    * Unsubscribe from imsRegStateChange event.
    *
-   * @param slotId Indicates the card slot index number,
-   *   ranging from 0 to the maximum card slot index number supported by the device.
-   * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
-   * @param callback including an instance of the {@link ImsRegInfo} class.
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
+   * @param { Callback<ImsRegInfo> } callback - Indicates the callback for getting an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
