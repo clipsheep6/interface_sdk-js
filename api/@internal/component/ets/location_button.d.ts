@@ -1,0 +1,319 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Enumerates the icon and text layout styles.
+ * @since 10
+ */
+declare enum LocationButtonLayout {
+    /**
+     * Horizontal layout.
+     * @since 10
+     */
+    Horizontal,
+    /**
+     * Vertical layout.
+     * @since 10
+     */
+    Vertical,
+}
+
+/**
+ * Enumerates the icon styles.
+ * @since 10
+ */
+declare enum LocationIconStyle {
+    /**
+     * Icon filled with the specified color.
+     * @since 10
+     */
+    FullFilled,
+    /**
+     * Icon rendered as lines.
+     * @since 10
+     */
+    Lines,
+}
+
+/**
+ * Enumerates the texts that can be displayed on the location button.
+ * @since 10
+ */
+declare enum LocationDescription {
+    /**
+     * Add Location
+     * @since 10
+     */
+    AddLocation,
+    /**
+     * Select Location
+     * @since 10
+     */
+    SelectLocation,
+    /**
+     * Share Location
+     * @since 10
+     */
+    ShareLocation,
+    /**
+     * Send Location
+     * @since 10
+     */
+    SendLocation,
+    /**
+     * Current Location
+     * @since 10
+     */
+    CurrentLocation,
+    /**
+     * Locating
+     * @since 10
+     */
+    Locating,
+    /**
+     * Location
+     * @since 10
+     */
+    Location,
+    /**
+     * Send Current Location
+     * @since 10
+     */
+    SendCurrentLocation,
+    /**
+     * Relocation
+     * @since 10
+     */
+    Relocation,
+    /**
+     * Punch In
+     * @since 10
+     */
+    PunchIn,
+    /**
+     * Current Position
+     * @since 10
+     */
+    CurrentPosition,
+}
+
+/**
+ * Enumerates the location button background types.
+ * @since 10
+ */
+declare enum BackgroundButtonType {
+    /**
+     * Capsule type (rounded corners default to half the height).
+     * @since 10
+     */
+    CapsuleBackground,
+
+    /**
+     * Round type.
+     * @since 10
+     */
+    CircleBackground,
+
+    /**
+     * Common type.
+     * @since 10
+     */
+    NormalBackground,
+}
+
+/**
+ * Declares the interface for setting the location button options.
+ * @since 10
+ */
+declare interface LocationButtonOptions {
+    /**
+     * Style of the icon to be drawn.
+     * @type { LocationIconStyle }
+     * @since 10
+     */
+    icon?: LocationIconStyle;
+
+    /**
+     * Text to be displayed on the icon.
+     * @type { LocationDescription }
+     * @since 10
+     */
+    text?: LocationDescription;
+
+    /**
+     * Button background type.
+     * @type { backgroundButtonType }
+     * @since 10
+     */
+    background?: BackgroundButtonType;
+}
+
+/**
+ * Defines the interface for setting a location button.
+ * @since 10
+ */
+interface LocationButtonInterface {
+    /**
+     * Creates a location button.
+     * @since 10
+     */
+    (): LocationButtonAttribute;
+
+    /**
+     * Creates a location button with the specified composition. If an attribute is not set, the corresponding element will not be drawn.
+     * @since 10
+     */
+    (option: LocationButtonOptions): LocationButtonAttribute;
+}
+
+/**
+ * Defines the attributes of the location button.
+ * @since 10
+ */
+declare class LocationButtonAttribute {
+    /**
+     * Icon size.
+     * @since 10
+     */
+    iconSize(value: Length): LocationButtonAttribute;
+
+    /**
+     * Layout style of the icon and text.
+     * @since 10
+     */
+    layoutStyle(value: LocationButtonLayout): LocationButtonAttribute;
+
+    /**
+     * How to align the text.
+     * @since 10
+     */
+    align(value: Alignment): LocationButtonAttribute;
+
+    /**
+     * Sliding direction. The enumerated values support logical AND (&) and logical OR (|).
+     * @since 10
+     */
+    direction(value: Direction): LocationButtonAttribute;
+
+    /**
+     * Position of the button.
+     * @since 10
+     */
+    position(value: position): LocationButtonAttribute;
+
+    /**
+     * Anchor point of the component for positioning. The top start edge of the component is used as the reference point for offset.
+     * @since 10
+     */
+    markAnchor(value: position): LocationButtonAttribute;
+
+    /**
+     * Coordinate offset relative to the layout completion position.
+     * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+     * @since 10
+     */
+    offset(value: position): LocationButtonAttribute;
+
+    /**
+     * Font size of the inner text.
+     * @since 10
+     */
+    fontSize(value: Length): LocationButtonAttribute;
+
+    /**
+     * Font style of the inner text.
+     * @since 10
+     */
+    fontStyle(value: FontStyle): LocationButtonAttribute;
+
+    /**
+     * Font weight of the inner text.
+     * @since 10
+     */
+    fontWeight(value: number | FontWeight | string): LocationButtonAttribute;
+
+    /**
+     * Font family of the inner text.
+     * @since 10
+     */
+    fontFamily(value: string | resource): LocationButtonAttribute;
+
+    /**
+     * Font color of the inner text.
+     * @since 10
+     */
+    fontColor(value: ResourceColor): LocationButtonAttribute;
+
+    /**
+     * Color of the icon.
+     * @since 10
+     */
+    iconColor(value: ResourceColor): LocationButtonAttribute;
+
+    /**
+     * Background color.
+     * @since 10
+     */
+    backgroundColor(value: ResourceColor): LocationButtonAttribute;
+
+    /**
+     * Border style of the icon.
+     * @since 10
+     */
+    borderStyle(value: BorderStyle): LocationButtonAttribute;
+
+    /**
+     * Width of the border.
+     * @since 10
+     */
+    borderWidth(value: Length): LocationButtonAttribute;
+
+    /**
+     * Color of the border.
+     * @since 10
+     */
+    borderColor(value: ResourceColor): LocationButtonAttribute;
+
+    /**
+     * Border radius.
+     * @since 10
+     */
+    borderRadius(value: Length): LocationButtonAttribute;
+
+    /**
+     * Background padding.
+     * @since 10
+     */
+    backgroundPadding(value: Padding | Length): LocationButtonAttribute;
+
+    /**
+     * Background padding between the text and icon.
+     * @since 10
+     */
+    textIconPadding(value: Length): LocationButtonAttribute;
+}
+
+/**
+ * Defines a button that interacts with the security component service to request the authorization for accessing location data.
+ * It's a button added to the UI that allows users to grant the application one-time authorization to access the location information.
+ * @since 10
+ */
+declare const LocationButton: LocationButtonInterface;
+
+/**
+ * Defines a location button instance for secure access.
+ * @since 10
+ */
+declare const SecurityInstance: LocationButtonAttribute;
