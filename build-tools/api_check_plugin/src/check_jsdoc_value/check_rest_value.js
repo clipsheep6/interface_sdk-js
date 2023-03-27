@@ -12,14 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+const fs = require('fs');
 const rules = require('../../code_style_rule.json');
-const { ErrorLevel, FileType, ErrorType, commentNodeWhiteList, requireTypescriptModule } = require('../../src/utils');
-const { addAPICheckErrorLogs } = require('../compile_info');
-const { getPermissionBank } = require('../check_permission');
+const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption,
+  ErrorValueInfo } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 
-function checkExtendsValue(tag, node, sourcefile, fileName, index) {
+function checkExtendsValue(tag, node, fileName) {
   let extendsResult = {
     checkResult: true,
     errorInfo: '',
@@ -31,16 +31,14 @@ function checkExtendsValue(tag, node, sourcefile, fileName, index) {
     const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
     if (tagValue !== apiValue) {
       extendsResult.checkResult = false,
-        extendsResult.errorInfo = 'extends标签值错误, 请检查标签值是否与继承类名保持一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, extendsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+        extendsResult.errorInfo = ErrorValueInfo[1];
     }
   }
   return extendsResult;
 }
 exports.checkExtendsValue = checkExtendsValue;
 
-function checkEnumValue(tag, node, sourcefile, fileName, index) {
+function checkEnumValue(tag, node, fileName) {
   let enumResult = {
     checkResult: true,
     errorInfo: '',
@@ -52,15 +50,13 @@ function checkEnumValue(tag, node, sourcefile, fileName, index) {
   // 获取api中的enum信息，校验标签合法性及值规范
   if (tagProblems > 0 || enumValues.indexOf(tagValue) === -1) {
     enumResult.checkResult = false;
-    enumResult.errorInfo = 'enum标签类型错误, 请检查标签类型是否为string或number.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, enumResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+    enumResult.errorInfo = ErrorValueInfo[2];
   }
   return enumResult;
 }
 exports.checkEnumValue = checkEnumValue;
 
-function checkSinceValue(tag, node, sourcefile, fileName, index) {
+function checkSinceValue(tag, node, fileName) {
   let sinceResult = {
     checkResult: true,
     errorInfo: '',
@@ -69,15 +65,13 @@ function checkSinceValue(tag, node, sourcefile, fileName, index) {
   const checkNumber = /^\d+$/.test(tagValue);
   if (!checkNumber && commentNodeWhiteList.includes(node.kind)) {
     sinceResult.checkResult = false;
-    sinceResult.errorInfo = 'since标签值错误, 请检查标签值是否为数值.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, sinceResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+    sinceResult.errorInfo = ErrorValueInfo[3];
   }
   return sinceResult;
 }
 exports.checkSinceValue = checkSinceValue;
 
-function checkReturnsValue(tag, node, sourcefile, fileName, index) {
+function checkReturnsValue(tag, node, fileName) {
   let returnsResult = {
     checkResult: true,
     errorInfo: '',
@@ -88,21 +82,17 @@ function checkReturnsValue(tag, node, sourcefile, fileName, index) {
     const apiReturnsValue = node.type?.getText();
     if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
       returnsResult.checkResult = false;
-      returnsResult.errorInfo = 'returns标签使用错误, 返回类型为void时不应该使用returns标签.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+      returnsResult.errorInfo = ErrorValueInfo[4];
     } else if (tagValue !== apiReturnsValue) {
       returnsResult.checkResult = false;
-      returnsResult.errorInfo = 'returns标签类型错误, 请检查标签类型是否与返回类型一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, returnsResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+      returnsResult.errorInfo = ErrorValueInfo[5];
     }
   }
   return returnsResult;
 }
 exports.checkReturnsValue = checkReturnsValue;
 
-function checkParamValue(tag, node, sourcefile, fileName, index) {
+function checkParamValue(tag, node, fileName, index) {
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
   let paramResult = {
@@ -128,8 +118,6 @@ function checkParamValue(tag, node, sourcefile, fileName, index) {
       }
       if (!paramResult.checkResult) {
         paramResult.errorInfo = errorInfo;
-        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-          ErrorLevel.LOW);
       }
     }
   }
@@ -137,7 +125,7 @@ function checkParamValue(tag, node, sourcefile, fileName, index) {
 }
 exports.checkParamValue = checkParamValue;
 
-function checkThrowsValue(tag, node, sourcefile, fileName, index) {
+function checkThrowsValue(tag, node, fileName, index) {
   let throwsResult = {
     checkResult: true,
     errorInfo: '',
@@ -158,8 +146,6 @@ function checkThrowsValue(tag, node, sourcefile, fileName, index) {
   }
   if (!throwsResult.checkResult) {
     throwsResult.errorInfo = errorInfo;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return throwsResult;
 }
@@ -204,9 +190,8 @@ function splitUseinsteadValue(useinsteadValue) {
   const splitArray = useinsteadValue.split(/\//g);
   if (splitArray.length === 1) {
     // 同一文件
-    if (!checkModule(splitArray[0])) {
-      splitResult.checkResult = false;
-    }
+    splitResult.checkResult = !checkModule(splitArray[0]);
+
   } else if (splitArray.length === 2) {
     // 不同文件
     const fileNameArray = splitArray[0].split('.');
@@ -232,13 +217,13 @@ function splitUseinsteadValue(useinsteadValue) {
     splitResult.checkResult = false;
   }
   if (!splitResult.checkResult) {
-    splitResult.errorInfo = 'useinstead标签值错误, 请检查使用方法.';
+    splitResult.errorInfo = ErrorValueInfo[6];
   }
   return splitResult;
 }
 
 // 精确校验功能待补全
-function checkUseinsteadValue(tag, node, sourcefile, fileName, index) {
+function checkUseinsteadValue(tag, node, fileName) {
   const tagNameValue = tag.name;
   let useinsteadResult = {
     checkResult: true,
@@ -247,14 +232,12 @@ function checkUseinsteadValue(tag, node, sourcefile, fileName, index) {
   const result = splitUseinsteadValue(tagNameValue, fileName);
   if (result && !result.checkResult) {
     useinsteadResult = result;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, useinsteadResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
   }
   return useinsteadResult;
 }
 exports.checkUseinsteadValue = checkUseinsteadValue;
 
-function checkTypeValue(tag, node, sourcefile, fileName, index) {
+function checkTypeValue(tag, node, fileName) {
   let typeResult = {
     checkResult: true,
     errorInfo: '',
@@ -264,32 +247,55 @@ function checkTypeValue(tag, node, sourcefile, fileName, index) {
     const apiTypeValue = node.type?.getText();
     if (apiTypeValue !== tagTypeValue) {
       typeResult.checkResult = false;
-      typeResult.errorInfo = 'type标签类型错误, 请检查类型是否与属性类型一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, typeResult.errorInfo, FileType.JSDOC,
-        ErrorLevel.LOW);
+      typeResult.errorInfo = ErrorValueInfo[7];
     }
   }
   return typeResult;
 }
 exports.checkTypeValue = checkTypeValue;
 
-function checkDefaultValue(tag, node, sourcefile, fileName, index) {
+function checkDefaultValue(tag, node, fileName) {
   let defaultResult = {
     checkResult: true,
     errorInfo: '',
   };
   if (commentNodeWhiteList.includes(node.kind) && tag.name.length === 0 && tag.type.length === 0) {
     defaultResult.checkResult = false;
-    defaultResult.errorInfo = 'default标签值错误, 请补充默认值.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_ORDER, defaultResult.errorInfo, FileType.JSDOC,
-      ErrorLevel.LOW);
+    defaultResult.errorInfo = ErrorValueInfo[8];
   }
   return defaultResult;
 }
 exports.checkDefaultValue = checkDefaultValue;
 
-function checkPermissionTag(tag, node, sourcefile, fileName, index) {
-  const permissionRuleSet = getPermissionBank();
+const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
+
+/**
+ * 门禁环境优先使用systemPermissionFile
+ * 本地环境从指定分支上下载
+ * 下载失败则使用默认配置
+ *
+ * @returns Set<string>
+ */
+function getPermissionList() {
+  const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
+  let permissionFileContent;
+  if (fs.existsSync(systemPermissionFile)) {
+    permissionFileContent = require(systemPermissionFile);
+  } else if (checkOption.permissionContent) {
+    permissionFileContent = JSON.parse(checkOption.permissionContent);
+  } else {
+    permissionFileContent = require('../../config/config.json');
+  }
+  const permissionTagsObj = permissionFileContent.module.definePermissions;
+  permissionTagsObj.forEach((item) => {
+    permissionTags.push(item.name);
+  });
+  const permissionRuleSets = new Set(permissionTags);
+  return permissionRuleSets;
+}
+
+function checkPermissionTag(tag, node, fileName) {
+  const permissionRuleSet = getPermissionList();
   let hasPermissionError = false;
   let errorInfo = '';
   let permissionResult = {
@@ -297,24 +303,22 @@ function checkPermissionTag(tag, node, sourcefile, fileName, index) {
     errorInfo: '',
   };
   const tagValue = tag.name + tag.description;
-  const permissionArr = tagValue.replace(/ /g, '').replace(/(or|and|\(|\))/g, '$').split('$');
+  const permissionArr = tagValue.replace(/\s/g, '').replace(/(or|and|\(|\))/g, '$').split('$');
   permissionArr.forEach(permissionStr => {
     if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') || permissionStr === '') {
       hasPermissionError = true;
-      errorInfo = 'permission标签值书写错误, 请检查权限字段是否已配置或者更新配置文件.';
+      errorInfo = ErrorValueInfo[9];
     }
   });
   if (hasPermissionError) {
     permissionResult.checkResult = false;
     permissionResult.errorInfo = errorInfo;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, errorInfo, FileType.API,
-      ErrorLevel.LOW);
   }
   return permissionResult;
 }
 exports.checkPermissionTag = checkPermissionTag;
 
-function checkDeprecatedTag(tag, node, sourcefile, fileName, index) {
+function checkDeprecatedTag(tag, node, fileName) {
   let deprecatedResult = {
     checkResult: true,
     errorInfo: '',
@@ -324,39 +328,28 @@ function checkDeprecatedTag(tag, node, sourcefile, fileName, index) {
   const checkNumber = /^\d+$/.test(tagValue2);
   if ((tagValue1 !== 'since' || !checkNumber) && commentNodeWhiteList.includes(node.kind)) {
     deprecatedResult.checkResult = false;
-    deprecatedResult.errorInfo = 'deprecated标签值错误, 请检查使用方法.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, deprecatedResult.errorInfo,
-      FileType.API, ErrorLevel.LOW);
+    deprecatedResult.errorInfo = ErrorValueInfo[10];
   }
   return deprecatedResult;
 }
 exports.checkDeprecatedTag = checkDeprecatedTag;
 
-function checkSyscapTag(tag, node, sourcefile, fileName, index) {
+function checkSyscapTag(tag, node, fileName) {
   let syscapResult = {
     checkResult: true,
     errorInfo: '',
   };
   const tagValue = tag.name;
-  const syscapTags = rules.syscap.SystemCapability;
-  const syscapRuleSet = new Set();
-  for (const i in syscapTags) {
-    syscapTags[i].forEach(syscap => {
-      const syscapTag = 'SystemCapability.' + i + '.' + syscap;
-      syscapRuleSet.add(syscapTag);
-    });
-  }
+  const syscapRuleSet = new Set(rules.syscap.SystemCapability);
   if (!syscapRuleSet.has(tagValue)) {
     syscapResult.checkResult = false;
-    syscapResult.errorInfo = 'syscap标签值错误, 请检查syscap字段是否已配置.';
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, syscapResult.errorInfo,
-      FileType.API, ErrorLevel.LOW);
+    syscapResult.errorInfo = ErrorValueInfo[11];
   }
   return syscapResult;
 }
 exports.checkSyscapTag = checkSyscapTag;
 
-function checkNamespaceTag(tag, node, sourcefile, fileName) {
+function checkNamespaceTag(tag, node, fileName) {
   let namespaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -366,16 +359,14 @@ function checkNamespaceTag(tag, node, sourcefile, fileName) {
     let apiValue = node.name?.escapedText;
     if (apiValue !== undefined && tagValue !== apiValue) {
       namespaceResult.checkResult = false;
-      namespaceResult.errorInfo = 'namespace标签值错误, 请检查是否与namespace名称保持一致.';
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, namespaceResult.errorInfo,
-        FileType.API, ErrorLevel.LOW);
+      namespaceResult.errorInfo = ErrorValueInfo[12];
     }
   }
   return namespaceResult;
 }
 exports.checkNamespaceTag = checkNamespaceTag;
 
-function checkInterfaceTypedefTag(tag, node, sourcefile, fileName) {
+function checkInterfaceTypedefTag(tag, node, fileName) {
   let interfaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -386,12 +377,10 @@ function checkInterfaceTypedefTag(tag, node, sourcefile, fileName) {
     if (apiValue !== undefined && tagValue !== apiValue) {
       interfaceResult.checkResult = false;
       if (tag.tag === 'interface') {
-        interfaceResult.errorInfo = 'interface标签值错误, 请检查是否与interface名称保持一致.';
+        interfaceResult.errorInfo = ErrorValueInfo[13];
       } else if (tag.tag === 'typedef') {
-        interfaceResult.errorInfo = 'typedef标签值错误, 请检查是否与interface名称保持一致.';
+        interfaceResult.errorInfo = ErrorValueInfo[14];
       }
-      addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_PERMISSION, interfaceResult.errorInfo,
-        FileType.API, ErrorLevel.LOW);
     }
   }
   return interfaceResult;

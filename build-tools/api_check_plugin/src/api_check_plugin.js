@@ -15,12 +15,13 @@
 
 const path = require('path');
 const fs = require('fs');
-const { checkAPIDecorators } = require('./check_decorator');
 const { checkSpelling } = require('./check_spelling');
+const { checkAPIDecorators } = require('./check_decorator');
 const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
-const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
+const { checkJSDoc } = require('./check_legality');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule, ErrorValueInfo } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 
@@ -78,6 +79,9 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
+    // 检测标签合法性、值规范、标签顺序、标签名称
+    // const permissionConfigPath = require('../config/config.json');
+    // checkJSDoc(node, sourcefile, permissionConfigPath, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling

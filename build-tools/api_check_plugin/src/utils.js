@@ -40,7 +40,7 @@ const commentNodeWhiteList = [
   ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.Constructor, ts.SyntaxKind.ModuleDeclaration,
   ts.SyntaxKind.NamespaceExportDeclaration, ts.SyntaxKind.ClassDeclaration, ts.SyntaxKind.InterfaceDeclaration,
   ts.SyntaxKind.EnumDeclaration, ts.SyntaxKind.Parameter, ts.SyntaxKind.TypeLiteral, ts.SyntaxKind.FunctionDeclaration,
-  ts.SyntaxKind.LabeledStatement
+  ts.SyntaxKind.LabeledStatement, ts.SyntaxKind.TypeAliasDeclaration
 ];
 exports.commentNodeWhiteList = commentNodeWhiteList;
 
@@ -115,7 +115,9 @@ const ErrorType = {
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order'
+  WRONG_ORDER: 'wrong order',
+  WRONG_VALUE: 'wrong value',
+  WRONG_SCENE: 'wrong scene',
 };
 exports.ErrorType = ErrorType;
 
@@ -132,6 +134,24 @@ const FileType = {
 };
 exports.FileType = FileType;
 
+const ErrorValueInfo = {
+  1: 'extends标签值错误, 请检查标签值是否与继承类名保持一致.',
+  2: 'enum标签类型错误, 请检查标签类型是否为string或number.',
+  3: 'since标签值错误, 请检查标签值是否为数值.',
+  4: 'returns标签使用错误, 返回类型为void时不应该使用returns标签.',
+  5: 'returns标签类型错误, 请检查标签类型是否与返回类型一致.',
+  6: 'useinstead标签值错误, 请检查使用方法.',
+  7: 'type标签类型错误, 请检查类型是否与属性类型一致.',
+  8: 'default标签值错误, 请补充默认值.',
+  9: 'permission标签值书写错误, 请检查权限字段是否已配置或者更新配置文件.',
+  10: 'deprecated标签值错误, 请检查使用方法.',
+  11: 'syscap标签值错误, 请检查syscap字段是否已配置.',
+  12: 'namespace标签值错误, 请检查是否与namespace名称保持一致.',
+  13: 'interface标签值错误, 请检查是否与interface名称保持一致.',
+  14: 'typedef标签值错误, 请检查是否与interface名称保持一致.',
+};
+exports.ErrorValueInfo = ErrorValueInfo;
+
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
 
@@ -143,11 +163,11 @@ exports.ApiCheckResult = new ApiCheckResultClass();
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'type', 'errorInfo', 'version', 'model'];
+  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'apiName', 'apiContent', 'type', 'errorInfo', 'version', 'model'];
   for (let i = 1; i <= apiCheckArr.length; i++) {
     const apiData = apiCheckArr[i - 1];
-    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.type, apiData.errorInfo,
-      apiData.version, apiData.basename];
+    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.apiName, apiData.apiFullText,
+      apiData.type, apiData.errorInfo, apiData.version, apiData.basename];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
@@ -233,3 +253,7 @@ exports.systemPermissionFile = systemPermissionFile;
 exports.checkOption = {
   permissionContent: undefined
 };
+
+const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'deprecated',
+  'systemapi'];
+exports.inheritArr = inheritArr;
