@@ -1864,7 +1864,7 @@ declare interface CustomPopupOptions {
 declare interface LinearGradient {
   angle?: number | string;
   direction?: GradientDirection;
-  colors: Array<any>;
+  colors: Array<unknown>;
   repeating?: boolean;
 };
 
@@ -1880,11 +1880,11 @@ declare interface LinearGradient {
    * @since 10
    */
 declare interface SweepGradient {
-  center: Array<any>;
+  center: Array<unknown>;
   start?: number | string;
   end?: number | string;
   rotation?: number | string;
-  colors: Array<any>;
+  colors: Array<unknown>;
   repeating?: boolean;
 };
 
@@ -1897,9 +1897,9 @@ declare interface SweepGradient {
    * @since 10
    */
 declare interface RadialGradient {
-  center: Array<any>;
+  center: Array<unknown>;
   radius: number | string;
-  colors: Array<any>;
+  colors: Array<unknown>;
   repeating?: boolean;
 };
 
@@ -2035,6 +2035,12 @@ declare class CommonMethod<T> {
 
   /**
    * Background color
+   * @since 7
+   */
+  /**
+   * Background color
+   * value: Add 3 gradient color parameters
+   * @form
    * @since 10
    */
   backgroundColor(value: ResourceColor | LinearGradient | SweepGradient | RadialGradient): T;
