@@ -477,7 +477,7 @@ declare namespace inputMethodEngine {
         /**
          * Destroys a panel.
          * @param { Panel } panel - to be destroyed.
-         * @param { AsyncCallback<void> } callback - the callback of moveMissionToFront.
+         * @param { AsyncCallback<void> } callback - the callback of destroyPanel.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
@@ -952,7 +952,7 @@ declare namespace inputMethodEngine {
          * Sets ui content.
          * <p>When this method is executed successfully, the content of panel will be replaced.</p>
          * @param { string } path - the path of ui content.
-         * @param { LocalStorage } storage - the data object shared within the content instance loaded by the window.
+         * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
          * @param { AsyncCallback<void> } callback - the callback of setUiContent.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -964,6 +964,7 @@ declare namespace inputMethodEngine {
          * Sets ui content.
          * <p>When this method is executed successfully, the content of panel will be replaced.</p>
          * @param { string } path - the path of ui content.
+         * @param { LocalStorage } storage - the data object shared within the content instance loaded by the panel.
          * @returns { Promise<void> } the promise returned by the function.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1072,7 +1073,7 @@ declare namespace inputMethodEngine {
         /**
          * Changes panel flag.
          * <p>When flag is changed, the panel will be hide. Developers should change the content, size, point of the panel
-         *    and show it again at appropriate opportunity.
+         *    and show it again at appropriate opportunity.</p>
          * @param { PanelFlag } flag - the callback of changeFlag.
          * @throws { BusinessError } 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
