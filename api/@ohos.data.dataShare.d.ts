@@ -139,7 +139,7 @@ declare namespace dataShare {
      * @since 10
      */
     interface PublishedItem {
-	    /**
+        /**
          * Specifies the key of the published data
          * @systemapi
          * @StageModelOnly
@@ -195,8 +195,8 @@ declare namespace dataShare {
          */
         data: Array<string>;
     }
-	
-	/**
+    
+    /**
      * Specifies the change node structure of published data in callback.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -364,8 +364,8 @@ declare namespace dataShare {
          * @since 10
          */
         off(type: 'rdbDataChange', uris: Array<string>, templateId: TemplateId, callback?: AsyncCallback<RdbDataChangeNode>): Array<OperationResult>;
-		
-		/**
+        
+        /**
          * Registers observers to observe published data specified by the given key and subscriberId.
          * @param {string} type - type must be 'publishedDataChange'.
          * @param {Array<string>} uris - Indicates the uris of the data to operate.
@@ -399,7 +399,7 @@ declare namespace dataShare {
          * Update a single data into host data area.
          * @param {Array<PublishedItem>} data - Indicates the data to publish.
          * @param {string} bundleName - Indicates the bundleName of data to publish.
-		 * @param {number} version - Indicates the version of data to publish, larger is newer.
+         * @param {number} version - Indicates the version of data to publish, larger is newer.
          * @param {AsyncCallback<void>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
@@ -414,7 +414,7 @@ declare namespace dataShare {
          * Update a single data into host data area.
          * @param {Array<PublishedItem>} data - Indicates the data to publish.
          * @param {string} bundleName - Indicates the bundleName of data to publish.
-		 * @param {number} version - Indicates the version of data to publish, larger is newer.
+         * @param {number} version - Indicates the version of data to publish, larger is newer.
          * @returns {Promise<void>}
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15700012 - the data area is not exist.
@@ -424,26 +424,26 @@ declare namespace dataShare {
          * @since 10
          */
         publish(data: Array<PublishedItem>, bundleName: string, version: number): Promise<Array<OperationResult>>;
-		
-		/**
+        
+        /**
          * Registers a one-time observer to observe data specified by the given uri and template.
          * @param {string} bundleName - Indicates the bundleName of data to publish.
-		 * @param {AsyncCallback<Array<PublishedItem>>} callback
+         * @param {AsyncCallback<Array<PublishedItem>>} callback
          * @throws {BusinessError} 401 - the parameter check failed.
-		 * @throws {BusinessError} 15700012 - the data area is not exist.
+         * @throws {BusinessError} 15700012 - the data area is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 10
          */
         getPublishedData(bundleName: string, callback: AsyncCallback<Array<PublishedItem>>): void;
-		
-		/**
+        
+        /**
          * Registers a one-time observer to observe data specified by the given uri and template.
          * @param {string} bundleName - Indicates the bundleName of data to publish.
-		 * @returns {Promise<Array<PublishedItem>>}
+         * @returns {Promise<Array<PublishedItem>>}
          * @throws {BusinessError} 401 - the parameter check failed.
-		 * @throws {BusinessError} 15700012 - the data area is not exist.
+         * @throws {BusinessError} 15700012 - the data area is not exist.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
