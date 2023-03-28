@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {ErrorCallback, AsyncCallback} from './basic';
+import {BusinessError, ErrorCallback, AsyncCallback} from './basic';
 import { Context } from './app/context';
 
 /**
@@ -193,7 +193,7 @@ declare namespace camera {
      * Can not use camera cause of conflict.
      * @since 9
      */
-    CONFILICT_CAMERA = 7400107,
+    CONFLICT_CAMERA = 7400107,
     /**
      * Camera disabled cause of security reason.
      * @since 9
@@ -988,7 +988,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @returns The array of compenstation range.
+     * @returns The array of compensation range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @throws { BusinessError } 7400103 - Session not config.
