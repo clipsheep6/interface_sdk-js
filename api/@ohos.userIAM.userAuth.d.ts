@@ -614,7 +614,11 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
-    FINGERPRINT_AUTH_TIP_TOO_SLOW = 5
+    FINGERPRINT_AUTH_TIP_TOO_SLOW = 5,
+
+    FINGERPRINT_TIP_FINGER_DOWN = 6,
+
+    FINGERPRINT_TIP_FINGER_UP = 7
   }
 
   /**
