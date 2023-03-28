@@ -272,7 +272,7 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 10
          */
-        isSuccess: boolean;
+        result: number;
     }
     
     /**
