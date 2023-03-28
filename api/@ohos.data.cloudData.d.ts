@@ -45,9 +45,10 @@ declare namespace CloudData {
      /**
      * Provides methods to set CloudSync config.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 10
      */
-     class CloudConfig {
+     interface CloudConfig {
          /**
          * opens the cloud sync function.
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
@@ -145,7 +146,7 @@ declare namespace CloudData {
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
          * @param {string} bundleName - Indicates the name of application.
          * @param {AsyncCallback<void>} callback - the callback of notifyDataChange.
-         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
          * @systemapi
          * @since 10
          */
@@ -156,7 +157,7 @@ declare namespace CloudData {
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
          * @param {string} bundleName - Indicates the name of application.
          * @returns {Promise<void>} the promise returned by the function.
-         * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+         * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
          * @systemapi
          * @since 10
          */
