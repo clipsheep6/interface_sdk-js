@@ -48,7 +48,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 10
      */
-     interface CloudConfig {
+     interface Config {
          /**
          * opens the cloud sync function.
          * @param {string} accountId - Indicates the account ID. The account ID is requried by hashing the information of specific opened cloud.
