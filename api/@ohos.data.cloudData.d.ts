@@ -18,7 +18,7 @@ import {AsyncCallback, Callback} from './basic';
 
 
 
-declare namespace CloudData {
+declare namespace cloudData {
 
     /**
      * Describes the clear action type.
@@ -105,7 +105,7 @@ declare namespace CloudData {
          * @systemapi
          * @since 10
          */
-        changeAppSwitch(accountId: string, bundleName: string, status :boolean, callback: AsyncCallback<void>): void;
+        changeAppCloudSwitch(accountId: string, bundleName: string, status :boolean, callback: AsyncCallback<void>): void;
 
         /**
          * Changes the cloud sync switch of a single application.
@@ -117,7 +117,7 @@ declare namespace CloudData {
          * @systemapi
          * @since 10
          */
-        changeAppSwitch(accountId: string, bundleName: string, status :boolean): Promise<void>;
+        changeAppCloudSwitch(accountId: string, bundleName: string, status :boolean): Promise<void>;
 
         /**
          * deletes cloud information from local data.
