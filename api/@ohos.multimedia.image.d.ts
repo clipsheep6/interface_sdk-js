@@ -632,27 +632,12 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9
    */
-  /**
-   * The component type of image.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @crossplatform
-   * @since 10
-   */
   enum ComponentType {
     /**
      * Luma info.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
-     */
-    /**
-     * Luma info.
-     *
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @crossplatform
-     * @since 10
      */
     YUV_Y = 1,
 
@@ -662,13 +647,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
-    /**
-     * Chrominance info.
-     *
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @crossplatform
-     * @since 10
-     */
     YUV_U = 2,
 
     /**
@@ -677,13 +655,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
-    /**
-     * Chroma info.
-     *
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @crossplatform
-     * @since 10
-     */
     YUV_V = 3,
 
     /**
@@ -691,13 +662,6 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
-     */
-    /**
-     * Jpeg type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @crossplatform
-     * @since 10
      */
     JPEG = 4
   }
@@ -1189,14 +1153,6 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
-  /**
-   * Describes image color components.
-   *
-   * @typedef Component
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
   interface Component {
     /**
      * Component type.
@@ -1204,14 +1160,6 @@ declare namespace image {
      * @type { ComponentType }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * Component type.
-     *
-     * @type { ComponentType }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     readonly componentType: ComponentType;
 
@@ -1222,14 +1170,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    /**
-     * Row stride.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
     readonly rowStride: number;
 
     /**
@@ -1239,14 +1179,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    /**
-     * Pixel stride.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
     readonly pixelStride: number;
 
     /**
@@ -1255,14 +1187,6 @@ declare namespace image {
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * Component buffer.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     readonly byteBuffer: ArrayBuffer;
   }
@@ -2944,14 +2868,6 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
-  /**
-   * Provides basic image operations, including obtaining image information, and reading and writing image data.
-   *
-   * @typedef Image
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
   interface Image {
     /**
      * Sets or gets the image area to crop, default is size.
@@ -2959,14 +2875,6 @@ declare namespace image {
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * Sets or gets the image area to crop, default is size.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     clipRect: Region;
 
@@ -2977,14 +2885,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
     readonly size: Size;
 
     /**
@@ -2993,14 +2893,6 @@ declare namespace image {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * Image format.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     readonly format: number;
 
@@ -3012,15 +2904,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    /**
-     * Get component buffer from image and uses a callback to return the result.
-     *
-     * @param { ComponentType } componentType The component type of image.
-     * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
     getComponent(componentType: ComponentType, callback: AsyncCallback<Component>): void;
 
     /**
@@ -3031,15 +2914,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    /**
-     * Get component buffer from image and uses a promise to return the result.
-     *
-     * @param { ComponentType } componentType The component type of image.
-     * @returns { Promise<Component> } A Promise instance used to return the component buffer.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
     getComponent(componentType: ComponentType): Promise<Component>;
 
     /**
@@ -3049,14 +2923,6 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    /**
-     * Release current image to receive another and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
     release(callback: AsyncCallback<void>): void;
 
     /**
@@ -3065,14 +2931,6 @@ declare namespace image {
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * Release current image to receive another and uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     release(): Promise<void>;
   }
