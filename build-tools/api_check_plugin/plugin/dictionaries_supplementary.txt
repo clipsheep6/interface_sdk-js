@@ -111,6 +111,7 @@ cone
 conferencing
 confpersist
 connectable
+contentful
 contex
 controlpanel
 controlparam
@@ -137,6 +138,7 @@ datasync
 dbm
 dci
 ddmp
+deactivated
 deactivation
 decodes
 decomposed
@@ -224,6 +226,7 @@ fdatasync
 fdn
 fdopen
 fileio
+fileshare
 fillets
 flac
 foldable
@@ -316,6 +319,8 @@ interchanged
 interleaved
 internalformat
 internationalized
+interpolating
+interpolatingSpring
 interpolator
 interworking
 invalidates
@@ -407,6 +412,7 @@ muhenkan
 multifrequency
 multimodal
 multisample
+multisim
 multitask
 mutes
 narrowband
@@ -593,6 +599,8 @@ sigalgs
 silenced
 slidable
 sliderstyle
+statvfs
+stk
 sm3
 smil
 smsc
@@ -753,6 +761,7 @@ wakes
 waking
 wallpapers
 wapi
+wappush
 watchers
 waterflow
 wcdma
