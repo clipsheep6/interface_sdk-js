@@ -107,7 +107,12 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @form
    * @since 9
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): SpanAttribute;
+  /**
+   * Called when the text decoration of the text is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  decoration(value: TextDecorationOption): SpanAttribute;
 
   /**
    * Called when the distance between text fonts is set.
