@@ -33,6 +33,7 @@ declare namespace shortKey {
      * @since 10
      */
     function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
+    
     /**
      * Sets short key down duration.
      * @param { string } businessKey - The key for business which should be applied to MMI.
