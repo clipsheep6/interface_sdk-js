@@ -130,7 +130,7 @@ declare namespace pointer {
     HAND_POINTING,
 
     /**
-     * Help
+     * Help 
      */
     HELP,
 
