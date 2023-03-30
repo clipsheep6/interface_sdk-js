@@ -24,24 +24,24 @@ import { AsyncCallback } from "./basic";
 declare namespace shortKey {
     /**
      * Set short key down duration.
-     * @param businessKey The key for business which should be applied to MMI.
-     * @param delay Duration of short key press which should be limited to 0-4000ms.
-     * @param callback Callback used to return the result.
+     * @param { string } businessKey - The key for business which should be applied to MMI.
+     * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.MultimodalInput.Input.Shortkey
      * @systemapi hide for inner use
      * @since 10
-     * @throws {BusinessError} 401 - Parameter error.
      */
     function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
     /**
-     * Sets key down duration.
-     * @param businessKey The key for business which should be applied to MMI.
-     * @param delay Duration of short key press which should be limited to 0-4000ms.
-     * @returns Returns the result through a promise.
+     * Set short key down duration.
+     * @param { string } businessKey - The key for business which should be applied to MMI.
+     * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
+     * @returns { Promise<void> } Returns the result through a promise.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.MultimodalInput.Input.Shortkey
      * @systemapi hide for inner use
      * @since 10
-     * @throws {BusinessError} 401 - Parameter error.
      */
     function setKeyDownDuration(businessKey: string, delay: number): Promise<void>;
 
