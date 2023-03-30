@@ -971,6 +971,12 @@ export interface InputElement extends Element {
    * @since 6
    */
   delete(): void;
+
+  /**
+   * select all text
+   * @since 10
+   */
+  select():void;
 }
 
 /**
