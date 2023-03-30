@@ -42,25 +42,25 @@ declare namespace camera {
    */
   enum CameraStatus {
     /**
-     * Appear status.
+     * Camera device identified physically.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     CAMERA_STATUS_APPEAR = 0,
     /**
-     * Disappear status.
+     * Camera device unidentified physically.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     CAMERA_STATUS_DISAPPEAR = 1,
     /**
-     * Available status.
+     * Camera can be used.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     CAMERA_STATUS_AVAILABLE = 2,
     /**
-     * Unavailable status.
+     * Camera is in preemption and cannot be used, for example, using by another app.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -979,7 +979,8 @@ declare namespace camera {
 
     /**
      * Set the center point of the metering area.
-     * @param point metering point
+     * @param point metering point, the point value should use a coordinate system
+     *     which's top-left point is {0, 0} and bottom-right is {1, 1}.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @throws { BusinessError } 7400103 - Session not config.
@@ -1043,7 +1044,8 @@ declare namespace camera {
 
     /**
      * Sets focus point.
-     * @param afMode Target focus point.
+     * @param afMode Target focus point, the point value should use a coordinate system
+     *     which's top-left point is {0, 0} and bottom-right is {1, 1}.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @throws { BusinessError } 7400103 - Session not config.
@@ -1236,7 +1238,7 @@ declare namespace camera {
   }
 
   /**
-   * Enumerates the image rotation angles.
+   * Enumerates the image clockwise rotation angles.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
