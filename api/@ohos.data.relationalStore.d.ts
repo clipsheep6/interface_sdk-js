@@ -1626,6 +1626,16 @@ declare namespace relationalStore
         isColumnNull(columnIndex: number): boolean;
 
         /**
+         * Gets the entire row of data for the current row from the result set.
+         *
+         * @returns {ValuesBucket} the record of the specified row as a ValuesBucket.
+         * @throws {BusinessError} 14800013 - the specified location is invalid.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        getRow(): ValuesBucket;
+
+        /**
          * Closes the result set.
          * Calling this method on the result set will release all of its resources and makes it ineffective.
          *
