@@ -1557,6 +1557,18 @@ declare namespace relationalStore
         goToPreviousRow(): boolean;
 
         /**
+         * Obtains all the value in the current row.
+         * The Text is a customered interface or cast to a customered object.
+         * The implementation class determines whether to throw an exception if current row is not a correct
+         * position or some of the column is not correct.
+         *
+         * @returns {T} returns the value of current row as a T.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        getRowData<T>(columnNames ?: Array<string>): T;
+
+        /**
          * Obtains the value of the specified column in the current row as a byte array.
          * The implementation class determines whether to throw an exception if the value of the specified column
          * in the current row is null or the specified column is not of the Blob type.
