@@ -14,7 +14,7 @@
  */
 
 import { Callback } from './basic';
-import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+import { MouseEvent } from './@ohos.multimodalInput.MouseEvent';
 
 /**
  * Global input event listener
