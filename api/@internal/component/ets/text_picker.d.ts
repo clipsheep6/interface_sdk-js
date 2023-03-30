@@ -148,6 +148,11 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 10
    */
   onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
+  /**
+   * Called when the speed is set.
+   * @since 10
+   */
+  speed(value: number): TextPickerAttribute;
 }
 
 /**
