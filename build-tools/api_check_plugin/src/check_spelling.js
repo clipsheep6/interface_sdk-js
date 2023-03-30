@@ -56,7 +56,12 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
         const dictionary = dictionariesArr[i];
         levArr.push(getLevenshteinValue(errorWord, dictionary));
       }
-      const minLev = Math.min(...levArr);
+
+      let minLev = levArr.length > 1 ? levArr[0] : 0;
+      levArr.forEach(item => {
+        minLev = Math.min(item, minLev);
+      })
+
       const indexArr = overwriteIndexOf(minLev, levArr);
       for (let i = 0; i < indexArr.length; i++) {
         if (i === 5) {
