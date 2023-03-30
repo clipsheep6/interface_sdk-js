@@ -3325,6 +3325,12 @@ declare class CommonMethod<T> {
   bindMenu(content: { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder, options?: MenuOptions): T;
 
   /**
+   * Menu control with Placement
+   * @since 10
+   */
+  bindMenu(content: { value: string; action: () => void }[] | CustomBuilder, placement?: Placement): T;
+
+  /**
    * ContextMenu control
    * @since 8
    */
