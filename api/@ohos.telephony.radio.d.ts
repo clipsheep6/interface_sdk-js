@@ -79,8 +79,9 @@ declare namespace radio {
   /**
    * Actively requests to update location information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } [ slotId ] - indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
+   * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -88,8 +89,6 @@ declare namespace radio {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @param { number } [ slotId ] - indicates the card slot index number.
-   * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -99,8 +98,9 @@ declare namespace radio {
   /**
    * Actively requests to update location information.
    *
-   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * @param { number } [ slotId ] - indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
+   * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -108,8 +108,6 @@ declare namespace radio {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @param { number } [ slotId ] - indicates the card slot index number.
-   * @returns { Promise<void> } the promise returned by the function.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -159,6 +157,7 @@ declare namespace radio {
    * Set the current network selection mode.
    *
    * @param options Indicates the network selection mode option.
+   * @param callback - the callback of setNetworkSelectionMode.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -308,6 +307,7 @@ declare namespace radio {
    *
    * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
+   * @param callback - the callback of setPrimarySlotId.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -402,6 +402,7 @@ declare namespace radio {
    *
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of turnOnRadio.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -421,6 +422,7 @@ declare namespace radio {
    *
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback - the callback of turnOffRadio.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
@@ -457,6 +459,7 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param networkMode Indicates that you want to set the preferred network mode.
+   * @param callback - the callback of setPreferredNetwork.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
