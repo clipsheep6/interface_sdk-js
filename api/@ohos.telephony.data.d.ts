@@ -43,8 +43,10 @@ declare namespace data {
    *
    * @param slotId Indicates the ID of the target card slot.
    *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param callback - the callback of setDefaultCellularDataSlotId.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -98,8 +100,10 @@ declare namespace data {
   /**
    * Enables cellular data services.
    *
+   * @param callback - the callback of enableCellularData.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -113,8 +117,10 @@ declare namespace data {
   /**
    * Disables cellular data services.
    *
+   * @param callback - the callback of disableCellularData.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -147,8 +153,10 @@ declare namespace data {
    *
    * @param slotId Indicates the ID of a card slot.
    *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param callback - the callback of enableCellularDataRoaming.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -164,8 +172,10 @@ declare namespace data {
    *
    * @param slotId Indicates the ID of a card slot.
    *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param callback - the callback of disableCellularDataRoaming.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
