@@ -175,6 +175,7 @@ export class Matrix2D {
    * @param other Matrix to be superimposed
    * @form
    * @since 9
+   * @deprecated since 10
    */
   multiply(other?: Matrix2D): Matrix2D;
 
@@ -192,8 +193,21 @@ export class Matrix2D {
    * @param ry Rotation effect of the Y-axis
    * @form
    * @since 9
+   * @deprecated since 10
+   * @useinstead rotate(degree: number, rx?: number, ry?: number): Matrix2D;
    */
   rotate(rx?: number, ry?: number): Matrix2D;
+
+  /**
+   * Adds the rotation effect of the X and Y axes to the current matrix.
+   * @param { number } degree - The rotation angle, clockwise in degree.
+   * @param { number } rx - Rotation effect of the X-axis
+   * @param { number } ry - Rotation effect of the Y-axis
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  rotate(degree: number, rx?: number, ry?: number): Matrix2D;
 
   /**
    * Adds the translation effect of the X and Y axes to the current matrix.
