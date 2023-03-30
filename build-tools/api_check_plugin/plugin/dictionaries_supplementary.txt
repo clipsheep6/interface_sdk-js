@@ -415,6 +415,7 @@ multisample
 multisim
 multitask
 mutes
+namemode
 narrowband
 nci
 ndef
