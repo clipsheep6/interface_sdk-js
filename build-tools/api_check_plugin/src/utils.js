@@ -119,6 +119,13 @@ const ErrorType = {
 };
 exports.ErrorType = ErrorType;
 
+const LogType = {
+  LOG_API: 'Api',
+  LOG_JSDOC: 'JsDoc',
+  LOG_FILE: 'File'
+};
+exports.LogType = LogType;
+
 const ErrorLevel = {
   HIGH: 3,
   MIDDLE: 2,
@@ -166,6 +173,9 @@ function getApiInfo(node) {
   if (notesStr !== '') {
     if (/\@[S|s][Y|y][S|s][T|t][E|e][M|m][A|a][P|p][I|i]/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
+    }
+    if (/\@constant/g.test(notesStr)) {
+      apiInfo.isConstant = true;
     }
     if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
