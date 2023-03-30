@@ -1578,7 +1578,7 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  source?: string | Resource | linearGradient,
+  source?: string | Resource | LinearGradient,
 
   /**
    * Border image width
@@ -3599,6 +3599,22 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 9
    */
   strokeDashArray(value: Array<any>): T;
+}
+
+/**
+ * Linear Gradient Interface
+ * @param { number | string } angle - Angle of Linear Gradient.
+ * @param { GradientDirection } direction - Direction of Linear Gradient.
+ * @param { Array<any> } colors - description for gradients.
+ * @param { boolean } repeating: image slice repeating.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ */
+declare interface LinearGradient {
+  angle?: number | string;
+  direction?: GradientDirection;
+  colors: Array<any>;
+  repeating?: boolean;
 }
 
 /**
