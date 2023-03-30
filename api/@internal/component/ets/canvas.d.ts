@@ -1935,12 +1935,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  * @since 8
  */
-/**
- * Draw an object off the screen. The drawing content is not directly displayed on the screen.
- * @form
- * @since 9
- */
-declare class OffscreenCanvas extends CanvasRenderer {
+declare class OffscreenCanvas {
   /**
    * Height of the off-screen canvas.
    * @since 8
@@ -1973,6 +1968,17 @@ declare class OffscreenCanvas extends CanvasRenderer {
    * @since 9
    */
   transferToImageBitmap(): ImageBitmap;
+
+  /**
+   * Creates the context from the current OffscreenCanvas.
+   * @param { string } contextType - The context type, "2d" be supported now.
+   *  "2d": Creates a {@link OffscreenCanvasRenderingContext2D} object representing a two-dimensional rendering context.
+   * @param { RenderingContextSettings } option - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getContext(contextType: "2d", option?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
