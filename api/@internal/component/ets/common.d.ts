@@ -3575,6 +3575,7 @@ declare class CommonMethod<T> {
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @systemapi
    */
   sphericalEffect(value: number): T;
 
@@ -3584,6 +3585,7 @@ declare class CommonMethod<T> {
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @systemapi
    */
   lightUpEffect(value: number): T;
 
@@ -3592,6 +3594,7 @@ declare class CommonMethod<T> {
    * @param {PixelStretchEffectOptions} options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @systemapi
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
