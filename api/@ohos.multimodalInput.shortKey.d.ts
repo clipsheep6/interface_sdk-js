@@ -23,7 +23,7 @@ import { AsyncCallback } from "./basic";
  */
 declare namespace shortKey {
     /**
-     * Set short key down duration.
+     * Sets short key down duration.
      * @param { string } businessKey - The key for business which should be applied to MMI.
      * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -34,7 +34,7 @@ declare namespace shortKey {
      */
     function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
     /**
-     * Set short key down duration.
+     * Sets short key down duration.
      * @param { string } businessKey - The key for business which should be applied to MMI.
      * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
      * @returns { Promise<void> } Returns the result through a promise.
