@@ -309,6 +309,8 @@ declare namespace inputMethodEngine {
 
     /**
      * @since 8
+     * @deprecated since 10
+     * @useinstead ohos.inputMethodEngine.InputMethodAbility
      */
     interface InputMethodEngine {
         /**
