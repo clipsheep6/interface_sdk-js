@@ -15,7 +15,7 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import {Movement, Range} from './imf/InputMethodCommon';
+import {Movement, Range, ExtendAction} from './imf/InputMethodCommon';
 
 /**
  * Input method engine
@@ -802,6 +802,30 @@ declare namespace inputMethodEngine {
          * @since 10
          */
         getTextIndexAtCursor(): Promise<number>;
+
+        /**
+         * Send extend action code.
+         * @param { ExtendAction } action - action code which will be send.
+         * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void;
+
+        /**
+         * Send extend action code.
+         * @param { ExtendAction } action - action code which will be send.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        sendExtendAction(action: ExtendAction): Promise<void>;
     }
 
     /**
