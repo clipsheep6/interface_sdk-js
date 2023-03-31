@@ -262,6 +262,28 @@ declare namespace inputMethod {
         getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
         /**
+         * List all input methods
+         * @param {AsyncCallback<Array<InputMethodProperty>>} callback - the callback of getInputMethods.
+         * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800001 - package manager error.
+         * @throws {BusinessError} 12800008 - input method manager service error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getInputMethods(callback: AsyncCallback<Array<InputMethodProperty>>): void;
+
+        /**
+         * List all input methods
+         * @returns {Promise<Array<InputMethodProperty>>} the promise returned by the function.
+         * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800001 - package manager error.
+         * @throws {BusinessError} 12800008 - input method manager service error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getInputMethods(): Promise<Array<InputMethodProperty>>;
+
+        /**
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.inputMethod.InputMethodSetting.getInputMethods
