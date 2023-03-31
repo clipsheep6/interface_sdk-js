@@ -13,26 +13,26 @@
  * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
  * More details, please see the architecture documents of the request subsystem.
  * @namespace agent
- * @syscap SystemCapability.RequestAgent
+ * @syscap SystemCapability.Request.FileTransferAgent
  * @since 10
  */
  export declare namespace agent {
     /**
      * The action options.
      * @enum { string }
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     enum Action {
         /**
          * Indicates upload task.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         UPLOAD = "upload",
         /**
          * Indicates download task.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         DOWNLOAD = "download",
@@ -40,19 +40,19 @@
     /**
      * The mode options.
      * @enum { string }
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     enum Mode {
         /**
          * Indicates frontend task.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         FRONTEND = "frontend",
         /**
          * Indicates background task.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         BACKGROUND = "background",
@@ -60,25 +60,25 @@
     /**
      * The network options.
      * @enum { string }
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     enum Network {
         /**
          * Indicates unrestrictedly.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         ANY = "any",
         /**
          * Indicates Wi-Fi only.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         WIFI = "Wi-Fi",
         /**
          * Indicates cellular only.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         CELLULAR = "cellular",
@@ -86,21 +86,21 @@
     /**
      * The files information for a task.
      * @typedef Attachment
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     interface Attachment {
         /**
          * For upload request, the name of the form item, the default is file.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         name?: string;
         /**
          * The MIME type of the file, the default is obtained by the suffix of the filename or uri.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         type?: string;
@@ -109,14 +109,14 @@
          * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
          * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         path: string;
         /**
          * For upload request, the filename in the header, the default is obtained by uri.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         filename?: string;
@@ -126,14 +126,14 @@
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
      * @typedef Conf
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     interface Conf {
         /**
          * The task action, upload or download.
          * @type { Action }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         action: Action;
@@ -142,7 +142,7 @@
          * The maximum length is 2048 characters.
          * Using raw `url` option, even url parameters in it.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         url: string;
@@ -153,7 +153,7 @@
          * Each path length complies system's requirements.
          * But there is a 4K bytes limit in total.
          * @type { Array<Attachment> }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         attachments: Array<Attachment>;
@@ -162,7 +162,7 @@
          * The maximum length is 256 characters.
          * The default is the same with its action.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         title?: string;
@@ -173,7 +173,7 @@
          * For frontend task, it has callbacks.
          * For background task, it has notifications and failback.
          * @type { Mode }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         mode?: Mode;
@@ -183,7 +183,7 @@
          * true, rewrite the existed file.
          * false, go to fail.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         cover?: boolean;
@@ -193,7 +193,7 @@
          * For upload, use PUT/POST, the default is PUT.
          * For download, use GET/POST, the default is GET.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         method?: string;
@@ -202,7 +202,7 @@
          * For upload request, the default `Content-Type` is `application/octet-stream`.
          * For download request, the default `Content-Type` is `application/json`.
          * @type { JSON }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         headers?: JSON;
@@ -213,7 +213,7 @@
          * For upload, it could be others item of the form.
          * The default is empty.
          * @type { JSON }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         parameters?: JSON;
@@ -222,7 +222,7 @@
          * Uses json usually, it can be any text.
          * The default is empty.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         data?: string;
@@ -230,7 +230,7 @@
          * The network.
          * @type { Network }
          * @default Network.ANY
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         network?: Network;
@@ -238,7 +238,7 @@
          * Allows work in metered network or not.
          * The default is false.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         metered?: boolean;
@@ -246,7 +246,7 @@
          * Allows work in roaming network or not.
          * The default is true.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         roaming?: boolean;
@@ -254,7 +254,7 @@
          * The timeout for a task, in seconds.
          * The default is no timeout, but died task which stays on a status more than 30 days will be cleared.
          * @type { number }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         timeout?: number;
@@ -262,7 +262,7 @@
          * Enable automatic retry or not.
          * Just for background, frontend always fast-fail.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         retry?: boolean;
@@ -274,7 +274,7 @@
          * .noProxy: domainx;domainy;domainz;...
          * Each filed with a 4096 bytes limit.
          * @type { JSON }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         proxy?: JSON;
@@ -282,7 +282,7 @@
          * Allows redirect or not.
          * The default is yes.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         redirect?: boolean;
@@ -291,7 +291,7 @@
          * Usually used for a continuous job.
          * The default is 0.
          * @type { number }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         index?: number;
@@ -302,7 +302,7 @@
          * It will start read at the point in upload.
          * The default is 0.
          * @type { number }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         begins?: number;
@@ -313,7 +313,7 @@
          * It will end read at the point in upload.
          * The default is -1 indicating the end of the data for upload or download.
          * @type { number }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         ends?: number;
@@ -322,7 +322,7 @@
          * If false: only completed or failed notification, the default.
          * If true, emits every progress, completed or failed notifications.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         gauge?: boolean;
@@ -330,7 +330,7 @@
          * Breaks when fail to fetch filesize before upload/download or not.
          * The default is not, set size as -1 indicating the case.
          * @type { boolean }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         filesize?: boolean;
@@ -338,7 +338,7 @@
          * Associates ability of want in notification.
          * The ability must be one of the application which creates the task.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         ability?: string;
@@ -351,75 +351,75 @@
          * So saves the token carefully, it can not be retrieved by query.
          * Or leave it empty.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         token?: string;
         /**
          * The extras for the configuration.
          * @type { JSON }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         extras?: JSON;
     }
     /**
      * @enum { number }
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     enum State {
         /**
          * Indicates a task created by `new Task(conf)`.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         INITIALIZED = 0x00,
         /**
          * Indicates a task lack of resources or conditions to run or retry.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         WAITING = 0x10,
         /**
          * Indicates a task in processing now.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         RUNNING = 0x20,
         /**
          * Indicates a task failed once at least and in processing again now.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         RETRYING = 0x21,
         /**
          * Indicates a task tends to be resumed for continuous work.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         PAUSED = 0x30,
         /**
          * Indicates a task must be started again.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         STOPPED = 0x31,
         /**
          * Indicates a task finish its data transfer.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         COMPLETED = 0X40,
         /**
          * Indicates a task interrupted by some error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         FAILED = 0X41,
         /**
          * Indicates a task can not be processed again.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         REMOVED = 0x50,
@@ -435,35 +435,35 @@
      * 3, float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
      * If fetch file size in failure, the size of the file in sizes will be set as -1.
      * @typedef Progress
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     interface Progress {
         /**
          * The current state of the task.
          * @type { State }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         state: State;
         /**
          * The current processing file index in a task.
          * @type { number }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         index: number;
         /**
          * The processed data size for the current file in a task.
          * @type { number }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         processed: number;
         /**
          * The sizes of files in a task.
          * @type { Array<number> }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         sizes: Array<number>;
@@ -473,44 +473,44 @@
          * But when the Content-Disposition header responsed, the body will be into the uri of its attachment only, the body here is empty.
          * {"headers": {"key": v}, "body": "contents"}
          * @type { JSON }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         extras?: JSON;
     }
     /**
      * @enum { number }
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     enum Broken {
         /**
          * Indicates others failure.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         OTHERS = 0xFF,
         /**
          * Indicates network disconnection.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         DISCONNECT = 0x00,
         /**
          * Indicates task timeout.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         TIMEOUT = 0x10,
         /**
          * Indicates protocol error, such as 5xx respose from server.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         PROTOCOL = 0x20,
         /**
          * Indicates filesystem io error, such as open/seek/read/write/close.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         FSIO = 0x40,
@@ -519,7 +519,7 @@
      * The task information data structure for query results.
      * Provides common query and advanced query, visible range of fields is different.
      * @typedef TaskInfo
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     interface TaskInfo {
@@ -528,7 +528,7 @@
          * For system query only.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @systemapi
          * @since 10
          */
@@ -538,7 +538,7 @@
          * For system query only.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @systemapi
          * @since 10
          */
@@ -548,7 +548,7 @@
          * For normal query only, empty as system.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly url?: string;
@@ -557,7 +557,7 @@
          * For normal query only, empty as system.
          * @type { Array<Attachment> }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly attachments?: Array<Attachment>;
@@ -565,7 +565,7 @@
          * The task id.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly tid: string;
@@ -573,7 +573,7 @@
          * The task title.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly title: string;
@@ -581,7 +581,7 @@
          * The task action.
          * @type { Action }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly action: Action;
@@ -589,7 +589,7 @@
          * Specifys task mode.
          * The default is frontend and background.
          * @type { Mode }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly mode: Mode;
@@ -597,7 +597,7 @@
          * The MiMEType of a task when request.
          * @type { Array<string> }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly mimetype: Array<string>;
@@ -605,7 +605,7 @@
          * An instance of `Progress` for a task.
          * @type { Progress }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly progress: Progress;
@@ -613,7 +613,7 @@
          * The progress notification policy of a background task.
          * @type { boolean }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly gauge: boolean;
@@ -622,7 +622,7 @@
          * It is generted by system of current device.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly ctime: string
@@ -631,7 +631,7 @@
          * It is generted by system of current device.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly mtime: string;
@@ -640,7 +640,7 @@
          * Just for background, frontend always disabled.
          * @type { boolean }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly retry: boolean;
@@ -648,7 +648,7 @@
          * The tried times of a task.
          * @type { number }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly tries: number;
@@ -656,7 +656,7 @@
          * The broken case of a task.
          * @type { Broken }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly broken: Broken;
@@ -664,7 +664,7 @@
          * The reason of a waiting/failed/stopped/paused task.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly reason: string;
@@ -674,7 +674,7 @@
          * For frontend, nothing now.
          * @type { JSON }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly extras?: JSON;
@@ -688,7 +688,7 @@
      * Can `resume` a paused task.
      * Can `stop` a running/waiting/retrying task and dequeue it.
      * @since 10
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      */
     class Task {
         /**
@@ -696,14 +696,14 @@
          * Generated automatically by system.
          * @type { string }
          * @readonly
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         readonly tid: string;
         /**
          * The configurations for the task.
          * @type { Conf }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         conf: Conf;
@@ -716,7 +716,7 @@
          * @throws {BusinessError} 13400001 - file operation error.
          * @throws {BusinessError} 13400003 - task service ability error.
          * @throws {BusinessError} 13400005 - application task queue full error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         constructor(conf: Conf);
@@ -725,7 +725,7 @@
          * @param { "progress"|"completed"|"failed" } evt event types.
          * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         on(evt: "progress" | "completed" | "failed", callback: (pg: Progress) => void): void;
@@ -734,7 +734,7 @@
          * @param { "progress"|"completed"|"failed" } evt event types.
          * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         off(evt: "progress" | "completed" | "failed", callback?: (pg: Progress) => void): void;
@@ -745,7 +745,7 @@
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
          * @throws {BusinessError} 13400005 - application task queue full error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         start(callback: AsyncCallback<boolean>): void;
@@ -755,7 +755,7 @@
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
          * @throws {BusinessError} 13400005 - application task queue full error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
          */
@@ -764,14 +764,14 @@
          * Pauses the task.
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         pause(callback: AsyncCallback<boolean>): void;
         /**
          * Pauses the task.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
          */
@@ -782,7 +782,7 @@
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         resume(callback: AsyncCallback<boolean>): void;
@@ -791,7 +791,7 @@
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
          */
@@ -800,14 +800,14 @@
          * Stops the task.
          * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         stop(callback: AsyncCallback<boolean>): void;
         /**
          * Stops the task.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<boolean> } the promise returned by the function.
          * @since 10
          */
@@ -818,7 +818,7 @@
      * Used for search, given fields works as **LOGICAL AND**.
      * Invalid value may cause a parameter error.
      * @typedef Filter
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     interface Filter {
@@ -827,7 +827,7 @@
          * Only for advanced search, common search will be fixed to the caller.
          * A "*" means any bundle.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @systemapi
          * @since 10
          */
@@ -836,7 +836,7 @@
          * Specifys a end date and time in UTC pattern.
          * The default is the moment of calling.
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         before?: string;
@@ -844,7 +844,7 @@
          * Specifys a start date and time in UTC pattern.
          * The default is "`before` and 24 hours".
          * @type { string }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         after?: string;
@@ -852,7 +852,7 @@
          * Specifys the state of tasks.
          * The default is any state.
          * @type { State }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         state?: State;
@@ -860,7 +860,7 @@
          * Specifys the action of tasks, "upload" or "download", case insensitive.
          * The default is upload and download.
          * @type { Action }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         action?: Action;
@@ -868,7 +868,7 @@
          * Specifys taks's mode.
          * The default is frontend and background.
          * @type { Mode }
-         * @syscap SystemCapability.RequestAgent
+         * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         mode?: Mode;
@@ -880,7 +880,7 @@
      * @param { AsyncCallback<boolean> } callback callback function with a boolean argument indicating sucess or not.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     function remove(context: BaseContext, id: string, callback: AsyncCallback<boolean>): void;
@@ -890,7 +890,7 @@
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<boolean> } the promise returned by the function.
      * @since 10
      */
@@ -902,7 +902,7 @@
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     function show(context: BaseContext, id: string, callback: AsyncCallback<TaskInfo>): void;
@@ -912,7 +912,7 @@
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @since 10
      */
@@ -925,7 +925,7 @@
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     function touch(context: BaseContext, id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
@@ -936,7 +936,7 @@
      * @param { string } token the in-application isolation key.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @since 10
      */
@@ -949,7 +949,7 @@
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     function search(context: BaseContext, filter: Filter, callback: AsyncCallback<Array<string>>): void;
@@ -960,7 +960,7 @@
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<Array<string>> } the promise returned by the function.
      * @since 10
      */
@@ -973,7 +973,7 @@
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi
      * @since 10
      */
@@ -985,7 +985,7 @@
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @syscap SystemCapability.RequestAgent
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @systemapi
      * @since 10
@@ -999,6 +999,7 @@
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi
      * @since 10
      */
@@ -1011,6 +1012,7 @@
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
      * @returns { Promise<Array<string>> } the promise returned by the function.
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi
      * @since 10
      */
