@@ -117,7 +117,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
      * @form
      * @since 9
      */
-    offset(value: number | GridColColumnOption): GridRowAttribute;
+    gridColOffset(value: number | GridColColumnOption): GridRowAttribute;
 
     /**
      * Sets the order of current gird-container item.
