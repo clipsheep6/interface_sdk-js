@@ -276,6 +276,13 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+
+    /**
+     * Indicates the distribution type.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    specifiedDistributionType?: string;
   }
 
   /**
