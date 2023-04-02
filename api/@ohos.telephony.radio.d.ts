@@ -592,7 +592,7 @@ declare namespace radio {
    * number supported by the device.
    * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
    * @param { AsyncCallback<void> } callback - Returns option result.
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -611,7 +611,7 @@ declare namespace radio {
    * number supported by the device.
    * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
    * @param { Promise<void> } - Returns option result.
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
