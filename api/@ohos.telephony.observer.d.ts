@@ -273,6 +273,37 @@ declare namespace observer {
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
 
   /**
+   * Receives an icc account change. This callback is invoked when the icc account updates
+   * and the observer is added to monitor the updates.
+   *
+   * @param { string } type - iccAccountInfoChange
+   * @param { Callback<void> } callback - no extra data included except reason Indicates the cause of the change.
+   *   The value of reason is an empty string if the application does not have
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 10
+   */
+   function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
+
+  /**
+   * Cancel to receive an icc account change.
+   *
+   * @param { string } type - iccAccountInfoChange
+   * @param { Callback<void> } callback - no extra data included except reason Indicates the cause of the change.
+   *   The value of reason is an empty string if the application does not have
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 10
+   */
+   function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
+
+  /**
    * @since 7
    */
   export interface SimStateData {

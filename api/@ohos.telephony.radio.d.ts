@@ -550,6 +550,80 @@ declare namespace radio {
   function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
   /**
+   * Get the version of BaseBand.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
+   * number supported by the device.
+   * @param { callback: AsyncCallback<String> } callback - Returns BaseBand version.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getBaseBandVersion(slot: number, callback: AsyncCallback<String>): void;
+
+  /**
+   * Get the version of BaseBand.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
+   * number supported by the device.
+   * @param { callback: AsyncCallback<String> } callback - Returns BaseBand version.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getBaseBandVersion(slot: number): Promise<String>;
+
+  /**
+   * Set the NR option mode.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
+   * number supported by the device.
+   * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
+   * @param { callback: AsyncCallback<void> } callback - Returns option result.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setNROptionMode(slotId: number, mode: NrOptionMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the NR option mode.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
+   * number supported by the device.
+   * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
+   * @param { Promise<void> } - Returns option result.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setNROptionMode(slotId: number, mode: NrOptionMode): Promise<void>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
