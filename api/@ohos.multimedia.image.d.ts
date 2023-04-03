@@ -1210,7 +1210,7 @@ declare namespace image {
 
     /**
      * Get color space of pixel map. This method uses a callback to return the operation result.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
      */
@@ -1218,7 +1218,7 @@ declare namespace image {
 
     /**
      * Get color space of pixel map. This method uses a promise to return the result.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      */
@@ -1226,7 +1226,7 @@ declare namespace image {
 
     /**
      * Set color space of pixel map. This method uses a callback to return the operation result.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param colorSpace The color space for pixel map.
      * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -1235,7 +1235,7 @@ declare namespace image {
 
     /**
      * Set color space of pixel map. This method uses a promise to return the result.
-     * @since 9
+     * @since 10
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param colorSpace The color space for pixel map.
      * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
