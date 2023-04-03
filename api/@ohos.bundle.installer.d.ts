@@ -182,6 +182,7 @@ declare namespace installer {
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
      * @param { AsyncCallback } callback - The callback of uninstalling shared bundle result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
@@ -197,6 +198,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700037 - The version of shared bundle is dependent on other applications.
