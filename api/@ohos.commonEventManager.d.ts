@@ -1221,6 +1221,14 @@ declare namespace commonEventManager {
      * @since 10
      */
     COMMON_EVENT_DIALER_SPECIAL_CODE = "usual.event.DIALER_SPECIAL_CODE",
+
+    /**
+     * Indicates the action of a common event that audio quality change.
+     * This is a protected common event that can only be sent by system.
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = "usual.event.AUDIO_QUALITY_CHANGE",
   }
 }
 
