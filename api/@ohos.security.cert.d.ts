@@ -330,7 +330,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
-     * @useinstead ohos.security.cert.X509Cert.getSerialNum
+     * @useinstead ohos.security.cert.X509Cert.getSerialNumberBigInt
      */
     getSerialNumber(): number;
 
@@ -343,7 +343,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
-    getSerialNum(): bigint;
+    getSerialNumberBigInt(): bigint;
 
     /**
      * Get X509 cert issuer name.
@@ -566,7 +566,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
-     * @useinstead ohos.security.cert.X509CrlEntry.getSerialNum
+     * @useinstead ohos.security.cert.X509CrlEntry.getSerialNumberBigInt
      */
     getSerialNumber(): number;
 
@@ -579,7 +579,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
-    getSerialNum(): bigint;
+    getSerialNumberBigInt(): bigint;
 
     /**
      * Get the issuer of the x509 certificate described by this entry.
@@ -740,12 +740,12 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
-     * @useinstead ohos.security.cert.X509Cert.getSerialNum
+     * @useinstead ohos.security.cert.X509Crl.getRevokedCertWithSerialNumber
      */
     getRevokedCert(serialNumber: number): X509CrlEntry;
 
     /**
-     * This method can be used to find CRL entries in specified CRLs.
+     * This method can be used to find CRL entries in specified CRLs.X509Crl
      *
      * @param { bigint } serialNumber - serial number of crl.
      * @returns { X509CrlEntry } next update of crl.
