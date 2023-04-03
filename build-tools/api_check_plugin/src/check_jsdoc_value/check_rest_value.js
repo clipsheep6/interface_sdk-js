@@ -14,31 +14,30 @@
  */
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
-const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption,
-  ErrorValueInfo } = require('../../src/utils');
+const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
+  createErrorInfo } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 
-function checkExtendsValue(tag, node, fileName) {
+function checkExtendsValue(tag, node, fileName,JSDocIndex) {
   let extendsResult = {
     checkResult: true,
     errorInfo: '',
   };
   let tagValue = tag.name;
-  let apiValue = '';
   // 获取api中的extends信息，校验标签合法性及值规范
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
     const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
     if (tagValue !== apiValue) {
       extendsResult.checkResult = false,
-        extendsResult.errorInfo = ErrorValueInfo[1];
+        extendsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS,[JSDocIndex+1]);
     }
   }
   return extendsResult;
 }
 exports.checkExtendsValue = checkExtendsValue;
 
-function checkEnumValue(tag, node, fileName) {
+function checkEnumValue(tag, node, fileName,JSDocIndex) {
   let enumResult = {
     checkResult: true,
     errorInfo: '',
@@ -50,13 +49,13 @@ function checkEnumValue(tag, node, fileName) {
   // 获取api中的enum信息，校验标签合法性及值规范
   if (tagProblems > 0 || enumValues.indexOf(tagValue) === -1) {
     enumResult.checkResult = false;
-    enumResult.errorInfo = ErrorValueInfo[2];
+    enumResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_ENUM,[JSDocIndex+1]);
   }
   return enumResult;
 }
 exports.checkEnumValue = checkEnumValue;
 
-function checkSinceValue(tag, node, fileName) {
+function checkSinceValue(tag, node, fileName,JSDocIndex) {
   let sinceResult = {
     checkResult: true,
     errorInfo: '',
@@ -65,13 +64,13 @@ function checkSinceValue(tag, node, fileName) {
   const checkNumber = /^\d+$/.test(tagValue);
   if (!checkNumber && commentNodeWhiteList.includes(node.kind)) {
     sinceResult.checkResult = false;
-    sinceResult.errorInfo = ErrorValueInfo[3];
+    sinceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_SINCE,[JSDocIndex+1]);
   }
   return sinceResult;
 }
 exports.checkSinceValue = checkSinceValue;
 
-function checkReturnsValue(tag, node, fileName) {
+function checkReturnsValue(tag, node, fileName,JSDocIndex) {
   let returnsResult = {
     checkResult: true,
     errorInfo: '',
@@ -82,17 +81,17 @@ function checkReturnsValue(tag, node, fileName) {
     const apiReturnsValue = node.type?.getText();
     if (voidArr.indexOf(apiReturnsValue) !== -1 || apiReturnsValue === undefined) {
       returnsResult.checkResult = false;
-      returnsResult.errorInfo = ErrorValueInfo[4];
+      returnsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_RETURNS,[JSDocIndex+1]);
     } else if (tagValue !== apiReturnsValue) {
       returnsResult.checkResult = false;
-      returnsResult.errorInfo = ErrorValueInfo[5];
+      returnsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_RETURNS,[JSDocIndex+1]);
     }
   }
   return returnsResult;
 }
 exports.checkReturnsValue = checkReturnsValue;
 
-function checkParamValue(tag, node, fileName, index) {
+function checkParamValue(tag, node, fileName,JSDocIndex, tagIndex) {
   const tagNameValue = tag.name;
   const tagTypeValue = tag.type;
   let paramResult = {
@@ -101,20 +100,20 @@ function checkParamValue(tag, node, fileName, index) {
   };
   if (node.parameters) {
     const apiParamInfos = node.parameters;
-    if (apiParamInfos[index]) {
-      const apiName = apiParamInfos[index].name.escapedText;
-      const apiType = apiParamInfos[index].type?.getText();
+    if (apiParamInfos[tagIndex]) {
+      const apiName = apiParamInfos[tagIndex].name.escapedText;
+      const apiType = apiParamInfos[tagIndex].type?.getText();
       let errorInfo = '';
       if (apiType !== tagTypeValue) {
         paramResult.checkResult = false;
-        errorInfo += `第[${index + 1}]个param标签类型错误, 请检查是否与第[${index + 1}]个参数类型保持一致.`;
+        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_TYPE_PARAM, [JSDocIndex+1,tagIndex + 1, tagIndex + 1]);
       }
       if (apiName !== tagNameValue) {
         paramResult.checkResult = false;
         if (errorInfo !== '') {
           errorInfo += '\n';
         }
-        errorInfo += `第[${index + 1}]个param标签值错误, 请检查是否与第[${index + 1}]个参数名保持一致.`;
+        errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PARAM, [JSDocIndex+1,tagIndex + 1, tagIndex + 1]);
       }
       if (!paramResult.checkResult) {
         paramResult.errorInfo = errorInfo;
@@ -125,7 +124,7 @@ function checkParamValue(tag, node, fileName, index) {
 }
 exports.checkParamValue = checkParamValue;
 
-function checkThrowsValue(tag, node, fileName, index) {
+function checkThrowsValue(tag, node, fileName,JSDocIndex, tagIndex) {
   let throwsResult = {
     checkResult: true,
     errorInfo: '',
@@ -135,14 +134,15 @@ function checkThrowsValue(tag, node, fileName, index) {
   let errorInfo = '';
   if (tagTypeValue !== 'BusinessError') {
     throwsResult.checkResult = false;
-    errorInfo += `第[${index + 1}]个throws标签类型错误, 请填写BusinessError.`;
+    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE1_THROWS, [JSDocIndex+1,tagIndex + 1]);
   }
+
   if (isNaN(tagNameValue)) {
     if (errorInfo !== '') {
       errorInfo += '\n';
     }
     throwsResult.checkResult = false;
-    errorInfo += `第[${index + 1}]个throws标签类型错误, 请检查标签值是否为数值.`;
+    errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE2_THROWS, [JSDocIndex+1,tagIndex + 1]);
   }
   if (!throwsResult.checkResult) {
     throwsResult.errorInfo = errorInfo;
@@ -150,16 +150,6 @@ function checkThrowsValue(tag, node, fileName, index) {
   return throwsResult;
 }
 exports.checkThrowsValue = checkThrowsValue;
-
-/**
- * 判断是否为arkui的api文件
- */
-function isArkUIApiFile(fileName) {
-  if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
-    return true;
-  }
-  return false;
-}
 
 /**
  * 
@@ -178,7 +168,7 @@ function checkModule(moduleValue) {
     /^[A-Za-z_]+\b(\.[A-Za-z_]+\b)*\#event:[A-Za-z_]+\b$/.test(moduleValue);
 }
 
-function splitUseinsteadValue(useinsteadValue) {
+function splitUseinsteadValue(useinsteadValue,JSDocIndex) {
   if (!useinsteadValue || useinsteadValue === '') {
     return undefined;
   }
@@ -217,19 +207,19 @@ function splitUseinsteadValue(useinsteadValue) {
     splitResult.checkResult = false;
   }
   if (!splitResult.checkResult) {
-    splitResult.errorInfo = ErrorValueInfo[6];
+    splitResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD,[JSDocIndex+1]);
   }
   return splitResult;
 }
 
 // 精确校验功能待补全
-function checkUseinsteadValue(tag, node, fileName) {
+function checkUseinsteadValue(tag, node, fileName,JSDocIndex) {
   const tagNameValue = tag.name;
   let useinsteadResult = {
     checkResult: true,
     errorInfo: '',
   };
-  const result = splitUseinsteadValue(tagNameValue, fileName);
+  const result = splitUseinsteadValue(tagNameValue,JSDocIndex, fileName);
   if (result && !result.checkResult) {
     useinsteadResult = result;
   }
@@ -237,7 +227,7 @@ function checkUseinsteadValue(tag, node, fileName) {
 }
 exports.checkUseinsteadValue = checkUseinsteadValue;
 
-function checkTypeValue(tag, node, fileName) {
+function checkTypeValue(tag, node, fileName,JSDocIndex) {
   let typeResult = {
     checkResult: true,
     errorInfo: '',
@@ -247,27 +237,25 @@ function checkTypeValue(tag, node, fileName) {
     const apiTypeValue = node.type?.getText();
     if (apiTypeValue !== tagTypeValue) {
       typeResult.checkResult = false;
-      typeResult.errorInfo = ErrorValueInfo[7];
+      typeResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_TYPE,[JSDocIndex+1]);
     }
   }
   return typeResult;
 }
 exports.checkTypeValue = checkTypeValue;
 
-function checkDefaultValue(tag, node, fileName) {
+function checkDefaultValue(tag, node, fileName,JSDocIndex) {
   let defaultResult = {
     checkResult: true,
     errorInfo: '',
   };
   if (commentNodeWhiteList.includes(node.kind) && tag.name.length === 0 && tag.type.length === 0) {
     defaultResult.checkResult = false;
-    defaultResult.errorInfo = ErrorValueInfo[8];
+    defaultResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_DEFAULT,[JSDocIndex+1]);
   }
   return defaultResult;
 }
 exports.checkDefaultValue = checkDefaultValue;
-
-const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
 /**
  * 门禁环境优先使用systemPermissionFile
@@ -294,7 +282,7 @@ function getPermissionList() {
   return permissionRuleSets;
 }
 
-function checkPermissionTag(tag, node, fileName) {
+function checkPermissionTag(tag, node, fileName,JSDocIndex) {
   const permissionRuleSet = getPermissionList();
   let hasPermissionError = false;
   let errorInfo = '';
@@ -307,7 +295,7 @@ function checkPermissionTag(tag, node, fileName) {
   permissionArr.forEach(permissionStr => {
     if ((permissionStr !== '' && !permissionRuleSet.has(permissionStr) && permissionStr !== 'N/A') || permissionStr === '') {
       hasPermissionError = true;
-      errorInfo = ErrorValueInfo[9];
+      errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_PERMISSION,[JSDocIndex+1]);
     }
   });
   if (hasPermissionError) {
@@ -318,7 +306,7 @@ function checkPermissionTag(tag, node, fileName) {
 }
 exports.checkPermissionTag = checkPermissionTag;
 
-function checkDeprecatedTag(tag, node, fileName) {
+function checkDeprecatedTag(tag, node, fileName,JSDocIndex) {
   let deprecatedResult = {
     checkResult: true,
     errorInfo: '',
@@ -328,13 +316,13 @@ function checkDeprecatedTag(tag, node, fileName) {
   const checkNumber = /^\d+$/.test(tagValue2);
   if ((tagValue1 !== 'since' || !checkNumber) && commentNodeWhiteList.includes(node.kind)) {
     deprecatedResult.checkResult = false;
-    deprecatedResult.errorInfo = ErrorValueInfo[10];
+    deprecatedResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_DEPRECATED,[JSDocIndex+1]);
   }
   return deprecatedResult;
 }
 exports.checkDeprecatedTag = checkDeprecatedTag;
 
-function checkSyscapTag(tag, node, fileName) {
+function checkSyscapTag(tag, node, fileName,JSDocIndex) {
   let syscapResult = {
     checkResult: true,
     errorInfo: '',
@@ -343,13 +331,13 @@ function checkSyscapTag(tag, node, fileName) {
   const syscapRuleSet = new Set(rules.syscap.SystemCapability);
   if (!syscapRuleSet.has(tagValue)) {
     syscapResult.checkResult = false;
-    syscapResult.errorInfo = ErrorValueInfo[11];
+    syscapResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_SYSCAP,[JSDocIndex+1]);
   }
   return syscapResult;
 }
 exports.checkSyscapTag = checkSyscapTag;
 
-function checkNamespaceTag(tag, node, fileName) {
+function checkNamespaceTag(tag, node, fileName,JSDocIndex) {
   let namespaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -359,14 +347,14 @@ function checkNamespaceTag(tag, node, fileName) {
     let apiValue = node.name?.escapedText;
     if (apiValue !== undefined && tagValue !== apiValue) {
       namespaceResult.checkResult = false;
-      namespaceResult.errorInfo = ErrorValueInfo[12];
+      namespaceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_NAMESPACE,[JSDocIndex+1]);
     }
   }
   return namespaceResult;
 }
 exports.checkNamespaceTag = checkNamespaceTag;
 
-function checkInterfaceTypedefTag(tag, node, fileName) {
+function checkInterfaceTypedefTag(tag, node, fileName,JSDocIndex) {
   let interfaceResult = {
     checkResult: true,
     errorInfo: '',
@@ -377,9 +365,9 @@ function checkInterfaceTypedefTag(tag, node, fileName) {
     if (apiValue !== undefined && tagValue !== apiValue) {
       interfaceResult.checkResult = false;
       if (tag.tag === 'interface') {
-        interfaceResult.errorInfo = ErrorValueInfo[13];
+        interfaceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_INTERFACE,[JSDocIndex+1]);
       } else if (tag.tag === 'typedef') {
-        interfaceResult.errorInfo = ErrorValueInfo[14];
+        interfaceResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_TYPEDEF,[JSDocIndex+1]);
       }
     }
   }

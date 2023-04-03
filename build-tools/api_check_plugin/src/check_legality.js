@@ -15,7 +15,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, tagsArrayOfOrder, ErrorType, ErrorLevel, FileType } = require('./utils');
+const { parseJSDoc, commentNodeWhiteList, requireTypescriptModule, tagsArrayOfOrder, ErrorType, ErrorLevel, FileType, ErrorValueInfo, createErrorInfo } = require('./utils');
 const { checkApiOrder, checkAPITagName, checkInheritTag } = require('./check_jsdoc_value/chek_order');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
@@ -23,26 +23,15 @@ const ts = requireTypescriptModule();
 // 标签合法性校验
 function checkJsDocLegality(node, comments, sourcefile, checkInfoMap) {
   // 必填校验
-  legalityCheck(node, comments, commentNodeWhiteList, ['since', 'syscap'], true, checkInfoMap,
-    (currentNode, checkResult) => {
-      return true;
-    }
-  );
+  legalityCheck(node, comments, commentNodeWhiteList, ['since', 'syscap'], true, checkInfoMap);
   // const定义语句必填
   legalityCheck(node, comments, [ts.SyntaxKind.VariableStatement], ['constant'], true, checkInfoMap,
     (currentNode, checkResult) => {
-      if ((checkResult && (currentNode.kind !== ts.SyntaxKind.VariableStatement || !/^const /.test(currentNode.getText()))) ||
-        (!checkResult && currentNode.kind === ts.SyntaxKind.VariableStatement && /^const /.test(currentNode.getText()))) {
-        return true;
-      }
-      return false;
+      return (checkResult && (currentNode.kind !== ts.SyntaxKind.VariableStatement || !/^const\s/.test(currentNode.getText()))) ||
+        (!checkResult && currentNode.kind === ts.SyntaxKind.VariableStatement && /^const\s/.test(currentNode.getText()));
     });
   // 'enum'
-  legalityCheck(node, comments, [ts.SyntaxKind.EnumDeclaration], ['enum'], true, checkInfoMap,
-    (currentNode, checkResult) => {
-      return true;
-    }
-  );
+  legalityCheck(node, comments, [ts.SyntaxKind.EnumDeclaration], ['enum'], true, checkInfoMap,);
   // 'extends'
   legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration], ['extends'], true, checkInfoMap,
     (currentNode, checkResult) => {
@@ -50,23 +39,16 @@ function checkJsDocLegality(node, comments, sourcefile, checkInfoMap) {
       if (ts.isClassDeclaration(currentNode) && currentNode.heritageClauses) {
         const clauses = currentNode.heritageClauses;
         clauses.forEach(claus => {
-          if (/^extends /.test(claus.getText())) {
+          if (/^extends\s/.test(claus.getText())) {
             tagCheckResult = true;
           }
         });
       }
-      if ((checkResult && !tagCheckResult) || (!checkResult && tagCheckResult)) {
-        return true;
-      }
-      return false;
+      return (checkResult && !tagCheckResult) || (!checkResult && tagCheckResult);
     }
   );
   // 'namespace'
-  legalityCheck(node, comments, [ts.SyntaxKind.ModuleDeclaration], ['namespace'], true, checkInfoMap,
-    (currentNode, checkResult) => {
-      return true;
-    }
-  );
+  legalityCheck(node, comments, [ts.SyntaxKind.ModuleDeclaration], ['namespace'], true, checkInfoMap);
   // 'param'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
   ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
@@ -86,7 +68,9 @@ function checkJsDocLegality(node, comments, sourcefile, checkInfoMap) {
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) {
         return false;
       }
-      return currentNode.type && currentNode.type.kind !== ts.SyntaxKind.VoidKeyword;
+      return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type
+        && currentNode.type.kind !== ts.SyntaxKind.VoidKeyword);
     }
   );
   // 'useinstead'
@@ -96,23 +80,13 @@ function checkJsDocLegality(node, comments, sourcefile, checkInfoMap) {
     }
   );
   // typedef/interface
-  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration], ['interface', 'typedef'], true, checkInfoMap,
-    (currentNode, checkResult) => {
-      return true;
-    }
-  );
+  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration], ['interface', 'typedef'], true, checkInfoMap);
   // 'type', 'readonly'
   legalityCheck(node, comments, [ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.PropertySignature],
-    ['type', 'readonly'], false, checkInfoMap, (currentNode, checkResult) => {
-      return true;
-    }
-  );
+    ['type', 'readonly'], false, checkInfoMap);
   // 'default'
   legalityCheck(node, comments, [ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.PropertySignature,
-  ts.SyntaxKind.VariableStatement], ['default'], false, checkInfoMap, (currentNode, checkResult) => {
-    return true;
-  }
-  );
+  ts.SyntaxKind.VariableStatement], ['default'], false, checkInfoMap);
   return checkInfoMap;
 }
 exports.checkJsDocLegality = checkJsDocLegality;
@@ -126,6 +100,17 @@ function getIllegalKinds(legalKinds) {
     }
   });
   return illegalKinds;
+}
+
+function dealSpecialTag(comment, tagName, useinsteadResultObj, checkResult, paramTagNum) {
+  comment.tags.forEach(tag => {
+    useinsteadResultObj.hasUseinstead = tag.tag === tagName || tag.tag === 'deprecated';
+    checkResult = (tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' ||
+      tag.tag === 'typedef') || tag.tag === tagName;
+    if (tag.tag === 'param') {
+      paramTagNum++;
+    }
+  });
 }
 
 function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInfoMap, extraCheckCallback) {
@@ -147,40 +132,30 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
       };
       let paramTagNum = 0;
       let parameterNum = 0;
-      comment.tags.forEach(tag => {
-        if (tagName === 'useinstead') {
-          if (tag.tag === tagName) {
-            useinsteadResultObj.hasUseinstead = true;
-          } else if (tag.tag === 'deprecated') {
-            useinsteadResultObj.hasDeprecated = true;
-          }
-        } else if ((tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' || tag.tag === 'typedef')) {
-          checkResult = true;
-        } else if (tag.tag === tagName) {
-          checkResult = true;
-        }
-        if (tag.tag === 'param') {
-          paramTagNum++;
-        }
-      });
+      dealSpecialTag(comment, tagName, useinsteadResultObj, checkResult, paramTagNum);
       if (tagName === 'param' && (ts.isMethodDeclaration(node) || ts.isMethodSignature(node) ||
         ts.isFunctionDeclaration(node) || ts.isCallSignatureDeclaration(node) || ts.isConstructorDeclaration(node))) {
         parameterNum = node.parameters.length;
         checkResult = parameterNum !== paramTagNum;
       }
+      let extraCheckResult = false;
+      if (!extraCheckCallback) {
+        extraCheckResult = true;
+      } else {
+        extraCheckResult = extraCheckCallback(node, checkResult);
+      }
       // useinstead特殊处理
-      if (isRequire && tagName !== 'useinstead' && ((tagName !== 'useinstead' && tagName !== 'param' && !checkResult && legalKindSet.has(node.kind)) ||
-        (tagName === 'param' && paramTagNum < parameterNum)) && extraCheckCallback(node, checkResult)) {
+      if (isRequire && tagName !== 'useinstead' && ((tagName !== 'useinstead' && tagName !== 'param' && !checkResult &&
+        legalKindSet.has(node.kind)) || (tagName === 'param' && paramTagNum < parameterNum)) && extraCheckResult) {
         // 报错
         checkInfoMap[index].missingTags.push(tagName);
       } else if (((tagName !== 'useinstead' && tagName !== 'param' && checkResult && illegalKindSet.has(node.kind)) ||
         (tagName === 'useinstead' && !useinsteadResultObj.hasDeprecated && useinsteadResultObj.hasUseinstead) ||
-        (tagName === 'param' && paramTagNum > parameterNum)) && extraCheckCallback(node, checkResult)) {
+        (tagName === 'param' && paramTagNum > parameterNum)) && extraCheckResult) {
         // 报错
-
-        let errorInfo = `不允许使用[${tagName}]标签, 请检查标签使用方法.`;
+        let errorInfo = createErrorInfo(ErrorValueInfo.ERROR_USE, [tagName]);
         if (tagName === 'param') {
-          errorInfo = `第[${parameterNum + 1}]个[${tagName}]标签多余, 请检查是否应该删除标签.`;
+          errorInfo = createErrorInfo(ErrorValueInfo.ERROR_MORELABEL, [parameterNum + 1, tagName]);
         }
         checkInfoMap[index].illegalTags.push({
           checkResult: false,
@@ -197,7 +172,6 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
 function checkTagsQuantity(comment, index, errorLogs) {
   const multipleTags = ['throws', 'param']
   const tagCountObj = {};
-  const checkResult = [];
   comment.tags.forEach(tag => {
     if (!tagCountObj[tag.tag]) {
       tagCountObj[tag.tag] = 0;
@@ -208,7 +182,7 @@ function checkTagsQuantity(comment, index, errorLogs) {
     if (tagCountObj[tagName] > 1 && multipleTags.indexOf(tagName) < 0) {
       errorLogs.push({
         checkResult: false,
-        errorInfo: `[${tagName}]标签不允许重复使用, 请删除多余标签.`,
+        errorInfo: createErrorInfo(ErrorValueInfo.ERROR_REPEATLABEL, [index+1,tagName]),
         index: index
       });
     }
@@ -217,7 +191,7 @@ function checkTagsQuantity(comment, index, errorLogs) {
   if (tagCountObj['interface'] > 0 & tagCountObj['typedef'] > 0) {
     errorLogs.push({
       checkResult: false,
-      errorInfo: 'interface标签与typedef标签不允许同时使用, 请确认接口类型.',
+      errorInfo: createErrorInfo(ErrorValueInfo.ERROR_USE_INTERFACE,[index+1]),
       index: index
     });
   }
@@ -232,11 +206,11 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
     let valueCheckResult;
     if (tag.tag === 'param' && [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
     ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
-      valueCheckResult = checker(tag, node, fileName, paramIndex++);
+      valueCheckResult = checker(tag, node, fileName, index, paramIndex++);
     } else if (tag.tag === 'throws') {
-      valueCheckResult = checker(tag, node, fileName, throwsIndex++);
+      valueCheckResult = checker(tag, node, fileName, index, throwsIndex++);
     } else {
-      valueCheckResult = checker(tag, node, fileName);
+      valueCheckResult = checker(tag, node, fileName, index);
     }
     if (!valueCheckResult.checkResult) {
       valueCheckResult.index = index;
@@ -252,7 +226,7 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
     permissionFile = permissionConfigPath;
   }
   const checkInfoArray = [];
-  const comments = parseJsDoc(node);
+  const comments = parseJSDoc(node);
   const checkInfoMap = checkJsDocLegality(node, comments, sourcefile, {});
   const checkOrderResult = checkApiOrder(comments);
   checkOrderResult.forEach((result, index) => {
@@ -261,10 +235,10 @@ function checkJsDocOfCurrentNode(node, sourcefile, permissionConfigPath, fileNam
   comments.forEach((comment, index) => {
     let errorLogs = [];
     // 继承校验
-    checkInheritTag(comment, node, sourcefile, fileName);
+    checkInheritTag(comment, node, sourcefile, fileName,index);
     // 值检验
     comment.tags.forEach(tag => {
-      const checkAPIDecorator = checkAPITagName(tag, node, sourcefile, fileName);
+      const checkAPIDecorator = checkAPITagName(tag, node, sourcefile, fileName,index);
       if (!checkAPIDecorator.checkResult) {
         errorLogs.push(checkAPIDecorator);
       }
@@ -288,7 +262,7 @@ function checkJSDoc(node, sourcefile, permissionConfigPath, fileName) {
     let errorInfo = '';
     if (item.missingTags.length > 0) {
       item.missingTags.forEach(lostLabel => {
-        errorInfo = `jsdoc标签合法性校验失败,请确认是否遗失@${lostLabel}标签.`
+        errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
           ErrorLevel.LOW);
       });

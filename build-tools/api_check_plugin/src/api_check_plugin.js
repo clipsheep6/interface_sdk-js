@@ -21,7 +21,7 @@ const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
 const { checkJSDoc } = require('./check_legality');
-const { hasAPINote, ApiCheckResult, requireTypescriptModule, ErrorValueInfo } = require('./utils');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule, ErrorValueInfo,createErrorInfo } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
 

@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
-  inheritArr } = require('../utils');
+const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJSDoc, ErrorType, ErrorLevel, FileType,
+  inheritArr, ErrorValueInfo, createErrorInfo } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 const ts = requireTypescriptModule();
@@ -31,20 +31,20 @@ function isOfficialTag(tagName) {
  */
 function isAscendingOrder(tags) {
   let checkResult = true;
-  tags.forEach((tag, index) => {
-    if (index + 1 < tags.length) {
+  for (let tagIndex = 0; tagIndex < tags.length; tagIndex++) {
+    if (tagIndex + 1 < tags.length) {
       // 获取前后两个tag下标
-      const firstIndex = tagsArrayOfOrder.indexOf(tag.tag);
-      const secondIndex = tagsArrayOfOrder.indexOf(tags[index + 1].tag);
+      const firstIndex = tagsArrayOfOrder.indexOf(tags[tagIndex].tag);
+      const secondIndex = tagsArrayOfOrder.indexOf(tags[tagIndex + 1].tag);
       // 判断标签是否为官方标签
-      const firstTag = isOfficialTag(tag.tag);
+      const firstTag = isOfficialTag(tags[tagIndex].tag);
       // 非自定义标签在前或数组降序时报错
       if ((firstTag && secondIndex > 1) || firstIndex > secondIndex) {
         checkResult = false;
-        return;
+        break;
       }
     }
-  });
+  };
   return checkResult;
 }
 
@@ -58,7 +58,7 @@ function checkApiOrder(comments) {
         errorInfo: "",
       });
     } else {
-      let errorInfo = 'jsDoc标签顺序错误,请进行调整';
+      let errorInfo = ErrorValueInfo.ERROR_ORDER;
       checkOrderRusult.push({
         checkResult: false,
         errorInfo: errorInfo,
@@ -69,7 +69,7 @@ function checkApiOrder(comments) {
 }
 exports.checkApiOrder = checkApiOrder;
 
-function checkAPITagName(tag, node, sourcefile, fileName) {
+function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   let APITagNameResult = {
     checkResult: true,
     errorInfo: '',
@@ -79,7 +79,7 @@ function checkAPITagName(tag, node, sourcefile, fileName) {
   const decoratorRuleSet = new Set(docTags);
   if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
     APITagNameResult.checkResult = false;
-    APITagNameResult.errorInfo = `@${tagName}标签不存在, 请使用合法的JSDoc标签.`;
+    APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [JSDocIndec+1, tagName]);
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APITagNameResult.errorInfo,
       FileType.JSDOC, ErrorLevel.LOW);
   }
@@ -87,33 +87,32 @@ function checkAPITagName(tag, node, sourcefile, fileName) {
 }
 exports.checkAPITagName = checkAPITagName;
 
-function getParentApiInfo(node, inheritTag, inheritResult) {
+function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
   let parentTagArr = [];
   if (ts.isSourceFile(node)) {
     return inheritResult;
   }
   if (!ts.isModuleBlock(node.parent)) {
-    const comments = parseJsDoc(node.parent);
+    const comments = parseJSDoc(node.parent);
     if (comments.length > 0 && Array.isArray(comments[comments.length - 1].tags)) {
       comments[comments.length - 1].tags.forEach(tag => {
         parentTagArr.push(tag.tag);
       })
       if (parentTagArr.includes(inheritTag)) {
         inheritResult.checkResult = false;
-        inheritResult.errorInfo +=
-          `jsdoc标签合法性校验失败,检测到当前文件中存在可继承标签@${inheritTag}，但存在子节点没有此标签.`;
+        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [JSocIndex+1, inheritTag])
       } else {
-        getParentApiInfo(node.parent, inheritTag, inheritResult);
+        checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
       }
     }
   } else if (ts.isModuleBlock(node.parent)) {
-    getParentApiInfo(node.parent, inheritTag, inheritResult);
+    checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
   }
 
   return inheritResult;
 }
 
-function checkInheritTag(comment, node, sourcefile, fileName) {
+function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
   let inheritResult = {
     checkResult: true,
     errorInfo: '',
@@ -125,7 +124,7 @@ function checkInheritTag(comment, node, sourcefile, fileName) {
     })
     inheritArr.forEach((inheritTag, index) => {
       if (!tagArr.includes(inheritTag)) {
-        getParentApiInfo(node, inheritArr[index], inheritResult, sourcefile, fileName);
+        checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
       }
     })
     if (!inheritResult.checkResult) {
