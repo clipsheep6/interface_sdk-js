@@ -116,7 +116,7 @@ declare namespace inputMethod {
 
     /**
      * Switch current input method subtype
-     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @permission ohos.permission.CONNECT_IME_ABILITY, If this interface is invoked by the current IME, this permission is ignored.
      * @param {InputMethodSubtype} target - Indicates the input method subtype which will replace the current one.
      * @returns {Promise<boolean>} the promise returned by the function.
      * @throws {BusinessError} 201 - permissions check fails.
@@ -486,6 +486,13 @@ declare namespace inputMethod {
         readonly label?: string;
 
         /**
+         * The label id of input method
+         * @since 10
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        readonly labelId?: number;
+
+        /**
          * The icon of input method
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -504,7 +511,7 @@ declare namespace inputMethod {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
-        extra: object;
+        extra?: object;
     }
 }
 

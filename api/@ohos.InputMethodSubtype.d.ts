@@ -25,6 +25,13 @@
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     readonly label?: string;
+    
+    /**
+     * The label id of input method subtype.
+     * @since 10
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    readonly labelId?: number;
 
     /**
      * The name of input method.
@@ -80,5 +87,5 @@
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
-    extra: object;
+    extra?: object;
 }
