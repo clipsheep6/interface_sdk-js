@@ -550,11 +550,11 @@ declare namespace radio {
   function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
   /**
-   * Get the version of BaseBand.
+   * Get the version of Baseband.
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
-   * @param { AsyncCallback<String> } callback - Returns BaseBand version.
+   * @param { AsyncCallback<String> } callback - Returns Baseband version.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -565,14 +565,14 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getBaseBandVersion(slot: number, callback: AsyncCallback<String>): void;
+  function getBasebandVersion(slot: number, callback: AsyncCallback<String>): void;
 
   /**
-   * Get the version of BaseBand.
+   * Get the version of Baseband.
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
-   * @param { Promise<String> } - Returns BaseBand version.
+   * @return { Promise<String> } Returns Baseband version.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -583,7 +583,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getBaseBandVersion(slot: number): Promise<String>;
+  function getBasebandVersion(slot: number): Promise<String>;
 
   /**
    * Set the NR option mode.
@@ -610,7 +610,7 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
    * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
-   * @param { Promise<void> } - Returns option result.
+   * @return { Promise<void> } Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.

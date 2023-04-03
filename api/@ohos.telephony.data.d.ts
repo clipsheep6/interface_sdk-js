@@ -195,7 +195,7 @@ declare namespace data {
   /**
    * Obtains the default cellular data sim id.
    *
-   * @param { Promise<number> } - Returns the sim id of the default cellular data sim
+   * @return { Promise<number> } Returns the sim id of the default cellular data sim
    * and sim id will increase from 1.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
