@@ -26,10 +26,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Whether to trim whitespace characters that may exist before and after the text, default false.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         trim: boolean;
         /**
          * Whether to ignore writing declaration directives of xml.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Whether to ignore writing declaration directives of xml.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreDeclaration?: boolean;
@@ -38,10 +50,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Whether to ignore writing processing instruction of xml.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         ignoreInstruction?: boolean;
         /**
          * Whether to print attributes across multiple lines and indent them.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Whether to print attributes across multiple lines and indent them.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreAttributes?: boolean;
@@ -50,10 +74,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Whether to ignore writing comments of the elements.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         ignoreComment?: boolean;
         /**
          * Whether to ignore writing CDATA of the elements.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Whether to ignore writing CDATA of the elements.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreCDATA?: boolean;
@@ -62,10 +98,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Whether to ignore writing Doctype of the elements.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         ignoreDoctype?: boolean;
         /**
          * Whether to ignore writing texts of the elements.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Whether to ignore writing texts of the elements.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         ignoreText?: boolean;
@@ -74,10 +122,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Name of the property key which will be used for the declaration.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         declarationKey: string;
         /**
          * Name of the property key which will be used for the processing instruction.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Name of the property key which will be used for the processing instruction.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         instructionKey: string;
@@ -86,10 +146,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Name of the property key which will be used for the attributes.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         attributesKey: string;
         /**
          * Name of the property key which will be used for the text.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Name of the property key which will be used for the text.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         textKey: string;
@@ -98,10 +170,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Name of the property key which will be used for the cdata.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         cdataKey: string;
         /**
          * Name of the property key which will be used for the doctype.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Name of the property key which will be used for the doctype.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         doctypeKey: string;
@@ -110,10 +194,22 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Name of the property key which will be used for the comment.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         commentKey: string;
         /**
          * Name of the property key which will be used for the parent.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Name of the property key which will be used for the parent.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         parentKey: string;
@@ -122,16 +218,34 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Name of the property key which will be used for the type.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         typeKey: string;
         /**
          * Name of the property key which will be used for the name.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          */
+        /**
+         * Name of the property key which will be used for the name.
+         * @crossplatform
+         * @since 10
+         * @syscap SystemCapability.Utils.Lang
+         */
         nameKey: string;
         /**
          * Name of the property key which will be used for the elements.
          * @since 8
+         * @syscap SystemCapability.Utils.Lang
+         */
+        /**
+         * Name of the property key which will be used for the elements.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          */
         elementsKey: string;
@@ -141,6 +255,13 @@ declare namespace xml {
      * ConvertXML representation refers to extensible markup language.
      * @name ConvertXML
      * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * ConvertXML representation refers to extensible markup language.
+     * @name ConvertXML
+     * @crossplatform
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     class ConvertXML {
@@ -159,6 +280,17 @@ declare namespace xml {
         /**
          * To convert XML text to JavaScript object.
          * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param xml The xml text to be converted.
+         * @param option Option Inputted by user to set.
+         * @returns Returns a JavaScript object converting from XML text.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
+         * @throws {BusinessError} 10200002 - Invalid xml string.
+         */
+        /**
+         * To convert XML text to JavaScript object.
+         * @crossplatform
+         * @since 10
          * @syscap SystemCapability.Utils.Lang
          * @param xml The xml text to be converted.
          * @param option Option Inputted by user to set.
