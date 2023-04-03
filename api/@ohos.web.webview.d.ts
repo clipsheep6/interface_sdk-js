@@ -109,19 +109,19 @@ declare namespace webview {
          * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
          * @since 10
          */
-        Off = 0,
+        OFF = 0,
         /**
          * By default, the set HttpDns server is used for dns resolution, and if it fails,
          * the system dns is used for resolution.
          * @since 10
          */
-        Auto = 1,
+        AUTO = 1,
         /**
          * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
          * fall back to the system dns, which will directly cause the page to fail to load.
          * @since 10
          */
-        SecureOnly = 2,
+        SECUREONLY = 2,
     }
 
     /**

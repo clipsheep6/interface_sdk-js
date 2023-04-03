@@ -2268,7 +2268,7 @@ declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Justify,
+  JUSTIFY,
 }
 
 /**
@@ -2319,7 +2319,7 @@ declare enum TextOverflow {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Marquee,
+  MARQUEE,
 }
 
 /**

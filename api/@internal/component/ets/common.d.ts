@@ -1238,7 +1238,7 @@ declare enum BlurStyle {
    * @since 9
    */
   Regular,
-
+ 
   /**
    * Defines the thick card material.
    * @form
@@ -1250,25 +1250,25 @@ declare enum BlurStyle {
    * Defines the thin background material.
    * @since 10
    */
-  BackgroundThin,
+  BACKGROUNDTHIN,
 
   /**
    * Defines the thin regular material.
    * @since 10
    */
-  BackgroundRegular,
+  BACKGROUNDREGULAR,
 
   /**
    * Defines the thin thick material.
    * @since 10
    */
-  BackgroundThick,
+  BACKGROUNDTHICK,
 
   /**
    * Defines the thin ultra thick material.
    * @since 10
    */
-  BackgroundUltraThick,
+  BACKGROUNDULTRATHICK,
 }
 
 /**
@@ -1280,19 +1280,19 @@ declare enum ThemeColorMode {
    * Defines the mode which is follow up with system.
    * @since 10
    */
-  System,
+  SYSTEM,
 
   /**
    * Defines the light mode.
    * @since 10
    */
-  Light,
+  LIGHT,
 
   /**
    * Defines the dark mode.
    * @since 10
    */
-  Dark,
+  DARK,
 }
 
 /**
@@ -1304,13 +1304,13 @@ declare enum AdaptiveColor {
    * Defines the fixed value color adaptive mode.
    * @since 10
    */
-  Default,
+  DEFAULT,
 
   /**
    * Defines the background average color adaptive mode.
    * @since 10
    */
-  Average,
+  AVERAGE,
 }
 
 /**
@@ -1324,21 +1324,21 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Default,
+  DEFAULT,
 
   /**
    * Use none animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  None,
+  NONE,
 
   /**
    * Use alpha animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Alpha,  
+  ALPHA,  
 }
 
 /**
@@ -1448,37 +1448,37 @@ declare enum ShadowStyle {
    * Defines the super small default shadow style.
    * @since 10
    */
-  OuterDefaultXS,
+  OUTERDEFAULTXS,
 
   /**
    * Defines the small default shadow style.
    * @since 10
    */
-  OuterDefaultSM,
+  OUTERDEFAULTSM,
 
   /**
    * Defines the medium default shadow style.
    * @since 10
    */
-  OuterDefaultMD,
+  OUTERDEFAULTMD,
 
   /**
    * Defines the large default shadow style.
    * @since 10
    */
-  OuterDefaultLG,
+  OUTERDEFAULTLG,
 
   /**
    * Defines the small floating shadow style.
    * @since 10
    */
-  OuterFloatingSM,
+  OUTERFLOATINGSM,
 
   /**
    * Defines the medium floating shadow style.
    * @since 10
    */
-  OuterFloatingMD,
+  OUTERFLOATINGMD,
 }
 
 /**
