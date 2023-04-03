@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
+import colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
 
 /**
  * @namespace image
@@ -1206,6 +1207,40 @@ declare namespace image {
      * @since 9
      */
     crop(region: Region): Promise<void>;
+
+    /**
+     * Get color space of pixel map. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    getColorSpace(callback: AsyncCallback<colorSpaceManager.ColorSpaceManager>): void;
+
+    /**
+     * Get color space of pixel map. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    getColorSpace(): Promise<colorSpaceManager.ColorSpaceManager>;
+
+    /**
+     * Set color space of pixel map. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param colorSpace The color space for pixel map.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set color space of pixel map. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param colorSpace The color space for pixel map.
+     * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
     /**
      * Releases this PixelMap object. This method uses a callback to return the result.
