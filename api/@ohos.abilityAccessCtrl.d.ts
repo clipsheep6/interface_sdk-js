@@ -21,14 +21,14 @@ import { PermissionRequestResult } from './security/PermissionRequestResult';
 /**
  * @namespace abilityAccessCtrl
  * @syscap SystemCapability.Security.AccessToken
- * @since 8
+ * @since123 8
  */
 declare namespace abilityAccessCtrl {
   /**
    * Obtains the AtManager instance.
    *
    * @returns { AtManager } Returns the instance of the AtManager.
-   * @syscap SystemCapability.Security.AccessToken
+   * @syscap SystemCapability.Security.AccessToken456
    * @since 8
    */
   function createAtManager(): AtManager;
@@ -126,7 +126,7 @@ declare namespace abilityAccessCtrl {
     /**
      * Grants a specified user_grant permission to the given application.
      *
-     * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
+     * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS123
      * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be granted.
      * @param { number } permissionFlags - Flags of permission state.

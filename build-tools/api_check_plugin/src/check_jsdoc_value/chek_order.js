@@ -18,7 +18,6 @@ const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 const ts = requireTypescriptModule();
 
-
 /**
  * 判断标签是否为官方标签
  */
@@ -79,9 +78,9 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   const decoratorRuleSet = new Set(docTags);
   if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
     APITagNameResult.checkResult = false;
-    APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [JSDocIndec+1, tagName]);
+    APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [JSDocIndec + 1, tagName]);
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DECORATOR, APITagNameResult.errorInfo,
-      FileType.JSDOC, ErrorLevel.LOW);
+      FileType.JSDoc, ErrorLevel.LOW);
   }
   return APITagNameResult;
 }
@@ -100,7 +99,7 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
       })
       if (parentTagArr.includes(inheritTag)) {
         inheritResult.checkResult = false;
-        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [JSocIndex+1, inheritTag])
+        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [JSocIndex + 1, inheritTag])
       } else {
         checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
       }
