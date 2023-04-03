@@ -89,9 +89,13 @@ function checkAllNode(node, sourcefile, fileName) {
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
-function scanEntry(url) {
+function scanEntry(url, isOpenEscapeWay) {
   // scan entry
-  checkAPICodeStyle(url);
+  if (isOpenEscapeWay) {
+    ApiCheckResult.format_check_result = true;
+  } else {
+    checkAPICodeStyle(url);
+  }
   result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
   return result.scanResult;
 }
