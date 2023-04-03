@@ -26,6 +26,13 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * enum Curve.
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   enum Curve {
     Linear,
     Ease,
@@ -48,14 +55,29 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Interface for curve object.
+   * @typedef ICurve
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   interface ICurve {
-    /**
+   /**
     * Get curve value by fraction.
     * @param { number } fraction
     * @returns { number }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 9
     */ 
+   /**
+    * Get curve value by fraction.
+    * @param { number } fraction
+    * @returns { number }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 10
+    */
      interpolate(fraction : number) : number;
   }
 
@@ -65,6 +87,14 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * Initializes the interpolator curve when called.
+   * @param { Curve } [curve]
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   function initCurve(curve?: Curve): ICurve;
 
@@ -86,6 +116,15 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * Constructs a step curve when called.
+   * @param { number } count
+   * @param { boolean } end
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
    function stepsCurve(count: number, end: boolean): ICurve;
  
@@ -110,6 +149,17 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * Constructs a third-order Bezier curve when called.
+   * @param { number } x1
+   * @param { number } y1
+   * @param { number } x2
+   * @param { number } y2
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
  
@@ -137,6 +187,17 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Constructs a spring curve when called.
+   * @param { number } velocity
+   * @param { number } mass
+   * @param { number } stiffness
+   * @param { number } damping
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   function springCurve(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
  
   /**
@@ -162,6 +223,16 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Constructs a spring motion when called.
+   * @param { number } [response]
+   * @param { number } [dampingFraction]
+   * @param { number } [overlapDuration]
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
   /**
@@ -172,6 +243,16 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * Constructs a responsive spring motion when called.
+   * @param { number } [response]
+   * @param { number } [dampingFraction]
+   * @param { number } [overlapDuration]
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -185,6 +266,19 @@ declare namespace curves {
    * @param { number } damping the damping value of spring
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Constructs an interpolating spring curve when called, the animation duration can not be specified manually,
+   * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
+   * to calculate the actual animation values.
+   * @param { number } velocity the initial velocity of the spring, and is a normalized speed corresponding to the value changes from 0 to 1
+   * @param { number } mass the mass of object in the mass-damper-spring system
+   * @param { number } stiffness the stiffness of spring
+   * @param { number } damping the damping value of spring
+   * @returns { ICurve }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   function interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
