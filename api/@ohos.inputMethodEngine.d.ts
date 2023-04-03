@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback} from './basic';
+import {KeyEvent as InputKeyEvent} from './@ohos.multimodalInput.keyEvent.d.ts'
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import {Movement, Range} from './imf/InputMethodCommon';
 
@@ -308,6 +309,8 @@ declare namespace inputMethodEngine {
 
     /**
      * @since 8
+     * @deprecated since 10
+     * @useinstead ohos.inputMethodEngine.InputMethodAbility
      */
     interface InputMethodEngine {
         /**
@@ -577,13 +580,15 @@ declare namespace inputMethodEngine {
 
         /**
          * Delete text forward.
-         * @since 9
          * @param { number } length - length of text which will be deleted forward.
          * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800002 - Input method engine error.
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
+         * @deprecated 10
+         * @useinstead deleteTextLeft
          */
         deleteForward(length: number, callback: AsyncCallback<boolean>): void;
 
@@ -596,6 +601,8 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * @useinstead deleteTextLeft
          */
         deleteForward(length: number): Promise<boolean>;
 
@@ -608,6 +615,8 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * @useinstead deleteTextRight
          */
         deleteBackward(length: number, callback: AsyncCallback<boolean>): void;
 
@@ -620,8 +629,58 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * @useinstead deleteTextRight
          */
         deleteBackward(length: number): Promise<boolean>;
+
+        /**
+         * Delete text at left of cursor.
+         * @param { number } length - length of text which will be deleted.
+         * @param { AsyncCallback<boolean> } callback - the callback of this function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        deleteTextLeft(length: number, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Delete text at left of cursor.
+         * @param { number } length - length of text which will be deleted.
+         * @returns { Promise<boolean> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        deleteTextLeft(length: number): Promise<boolean>;
+
+        /**
+         * Delete text at right of cursor.
+         * @param { number } length - length of text which will be deleted.
+         * @param { AsyncCallback<boolean> } callback - the callback of this function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        deleteTextRight(length: number, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Delete text at right of cursor.
+         * @param { number } length - length of text which will be deleted.
+         * @returns { Promise<boolean> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        deleteTextRight(length: number): Promise<boolean>;
 
         /**
          * Insert text into Editor.
@@ -656,6 +715,8 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * @useinstead getTextLeft
          */
         getForward(length: number, callback: AsyncCallback<string>): void;
 
@@ -668,6 +729,8 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * useinstead getTextLeft
          */
         getForward(length: number): Promise<string>;
 
@@ -680,6 +743,8 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * @useinstead getTextRight
          */
         getBackward(length: number, callback: AsyncCallback<string>): void;
 
@@ -692,8 +757,58 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
+         * @deprecated 10
+         * @useinstead getTextRight
          */
         getBackward(length: number): Promise<string>;
+
+        /**
+         * Get the text at left of cursor.
+         * @param { number } length - the length of text which will be got.
+         * @param { AsyncCallback<string> } callback - the callback of this funciton.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextLeft(length: number, callback: AsyncCallback<string>): void;
+
+        /**
+         * Get the text at left of cursor.
+         * @param { number } length - the length of text which will be got.
+         * @returns { Promise<string> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextLeft(length: number): Promise<string>;
+
+        /**
+         * Get the text at right of cursor.
+         * @param { number } length - the length of text which will be got.
+         * @param { AsyncCallback<string> } callback - the callback of this function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextRight(length: number, callback: AsyncCallback<string>): void;
+
+        /**
+         * Get the text at right of cursor.
+         * @param { number } length - the length of text which will be got.
+         * @returns { Promise<string> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextRight(length: number): Promise<string>;
 
         /**
          * Get attribute about editor.
@@ -812,6 +927,8 @@ declare namespace inputMethodEngine {
          * Subscribe key up or down event
          *
          * @since 8
+         * @deprecated 10
+         * @useinstead 'keyEvent'
          */
         on(type: 'keyDown'|'keyUp', callback: (event: KeyEvent) => boolean): void;
 
@@ -819,8 +936,24 @@ declare namespace inputMethodEngine {
          * Unsubscribe key up or down event
          *
          * @since 8
+         * @deprecated 10
+         * @useinstead 'keyEvent'
          */
         off(type: 'keyDown'|'keyUp', callback?: (event: KeyEvent) => boolean): void;
+
+        /**
+         * Subscribe key event
+         *
+         * @since 10
+         */
+        on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void;
+
+        /**
+         * Unsubscribe key event
+         *
+         * @since 10
+         */
+        off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void;
 
         /**
          * Subscribe cursor context change
