@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,63 +18,63 @@ import { AsyncCallback } from './basic';
 declare namespace rpc {
   /**
    * The error code of rpc.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9
    */
   enum ErrorCode {
     /**
-     * Check param failed 
-     * 
+     * Check param failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     CHECK_PARAM_ERROR = 401,
 
     /**
-     * Os mmap function failed 
-     *   
+     * Os mmap function failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     OS_MMAP_ERROR = 1900001,
 
     /**
-     * Os ioctl function failed 
-     * 
+     * Os ioctl function failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     OS_IOCTL_ERROR = 1900002,
 
     /**
-     * Write to ashmem failed 
-     * 
+     * Write to ashmem failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     WRITE_TO_ASHMEM_ERROR = 1900003,
 
     /**
-     * Read from ashmem failed 
-     * 
+     * Read from ashmem failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     READ_FROM_ASHMEM_ERROR = 1900004,
 
     /**
-     * Only proxy object permitted 
-     * 
+     * Only proxy object permitted
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     ONLY_PROXY_OBJECT_PERMITTED_ERROR = 1900005,
 
     /**
-     * Only remote object permitted 
-     * 
+     * Only remote object permitted
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -82,55 +82,55 @@ declare namespace rpc {
 
     /**
      * Communication failed
-     * 
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     COMMUNICATION_ERROR = 1900007,
 
     /**
-     * Proxy or remote object is invalid 
-     * 
+     * Proxy or remote object is invalid
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     PROXY_OR_REMOTE_OBJECT_INVALID_ERROR = 1900008,
 
     /**
-     * Write data to message sequence failed 
-     * 
+     * Write data to message sequence failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     WRITE_DATA_TO_MESSAGE_SEQUENCE_ERROR = 1900009,
 
     /**
-     * Read data from message sequence failed 
-     * 
+     * Read data from message sequence failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     READ_DATA_FROM_MESSAGE_SEQUENCE_ERROR = 1900010,
 
     /**
-     * Parcel memory alloc failed 
-     * 
+     * Parcel memory alloc failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     PARCEL_MEMORY_ALLOC_ERROR = 1900011,
 
     /**
-     * Call js method failed 
-     * 
+     * Call js method failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
     CALL_JS_METHOD_ERROR = 1900012,
 
     /**
-     * Os dup function failed 
-     * 
+     * Os dup function failed
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -271,7 +271,7 @@ declare namespace rpc {
      * Obtains the writable data space (in bytes) in the {@link MessageParcel} object.
      * <p>Writable data space = Storage capacity of the {@link MessageParcel} – Size of data contained in the {@link MessageParcel}.
      *
-     * @returns  { number } Return the writable data space of the {@link MessageParcel} object.
+     * @returns { number } Return the writable data space of the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -282,7 +282,7 @@ declare namespace rpc {
      * Obtains the readable data space (in bytes) in the {@link MessageParcel} object.
      * <p>Readable data space = Size of data contained in the {@link MessageParcel} – Size of data that has been read.
      *
-     * @returns  { number } Return the readable data space of the {@link MessageParcel} object.
+     * @returns { number } Return the readable data space of the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -292,7 +292,7 @@ declare namespace rpc {
     /**
      * Obtains the current read position in the {@link MessageParcel} object.
      *
-     * @returns  { number } Return the current read position in the {@link MessageParcel} object.
+     * @returns { number } Return the current read position in the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -302,7 +302,7 @@ declare namespace rpc {
     /**
      * Obtains the current write position in the {@link MessageParcel} object.
      *
-     * @returns  { number } Return the current write position in the {@link MessageParcel} object.
+     * @returns { number } Return the current write position in the {@link MessageParcel} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -314,8 +314,8 @@ declare namespace rpc {
      * <p>Generally, you are advised not to change the current read position. If you must
      * change it, change it to an accurate position. Otherwise, the read data may be incorrect.
      *
-     * @param  { number } pos - Indicates the target position to start data reading.
-     * @returns  { boolean } Return {@code true} if the read position is changed; return {@code false} otherwise.
+     * @param { number } pos - Indicates the target position to start data reading.
+     * @returns { boolean } Return {@code true} if the read position is changed; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -327,8 +327,8 @@ declare namespace rpc {
      * <p>Generally, you are advised not to change the current write position. If you must
      * change it, change it to an accurate position. Otherwise, the data to be read may be incorrect.
      *
-     * @param  { number } pos - Indicates the target position to start data writing.
-     * @returns  { boolean } Return {@code true} if the write position is changed; return {@code false} otherwise.
+     * @param { number } pos - Indicates the target position to start data writing.
+     * @returns { boolean } Return {@code true} if the write position is changed; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -386,8 +386,7 @@ declare namespace rpc {
      *
      * @param { number } val - Indicates the integer value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
-     *                     return {@code false} otherwise.
-     *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -399,8 +398,7 @@ declare namespace rpc {
      *
      * @param { number } val - Indicates the long integer value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
-     *                     return {@code false} otherwise.
-     *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -412,7 +410,7 @@ declare namespace rpc {
      *
      * @param { number } val - Indicates the floating point value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
-     *                     return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -424,7 +422,7 @@ declare namespace rpc {
      *
      * @param { number }  val - Indicates the double-precision floating point value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
-     *          return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -436,7 +434,7 @@ declare namespace rpc {
      *
      * @param { boolean } val - Indicates the boolean value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
-     *                    return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -448,7 +446,7 @@ declare namespace rpc {
      *
      * @param { number } val - Indicates the single character value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
-     *                     return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -459,7 +457,7 @@ declare namespace rpc {
      * Writes a string value into the {@link MessageParcel} object.
      *
      * @param { string }  val - Indicates the string value to write.
-     * @returns { boolean }  Return {@code true} if the value has been written into the {@link MessageParcel};
+     * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -471,7 +469,8 @@ declare namespace rpc {
      * Writes a {@link Sequenceable} object into the {@link MessageParcel} object.
      *
      * @param { Sequenceable } val - Indicates the {@link Sequenceable} object to write.
-     * @returns { boolean }
+     * @returns { boolean }  Return {@code true} if the value has been written into the {@link MessageParcel};
+     *                       return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -483,7 +482,7 @@ declare namespace rpc {
      *
      * @param { number[] } byteArray - Indicates the byte array to write.
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
-     *                     return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -511,7 +510,7 @@ declare namespace rpc {
      *
      * @param { number[] } intArray - Indicates the integer array to write.
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
-     *                     return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -539,7 +538,7 @@ declare namespace rpc {
      *
      * @param { number[] } floatArray - Indicates the floating point array to write.
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
-     *                       return {@code false} otherwise.
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -606,8 +605,8 @@ declare namespace rpc {
      * Writes a {@link Sequenceable} object array into the {@link MessageParcel} object.
      *
      * @param { Sequenceable[] }  sequenceableArray - Indicates the {@link Sequenceable} object array to write.
-     * @returns { boolean }  Return {@code true} if the array has been written into the {@link MessageParcel};
-     *                       return {@code false} otherwise.
+     * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
+     *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -1873,7 +1872,7 @@ declare namespace rpc {
     /**
      * Reads a file descriptor from this {@link MessageSequence} object.
      *
-     * @returns  { number } File descriptor obtained.
+     * @returns { number } File descriptor obtained.
      * @throws { BusinessError } 1900010 - read data from message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1883,7 +1882,7 @@ declare namespace rpc {
     /**
      * Writes an anonymous shared memory object to this {@link MessageSequence} object.
      *
-     * @param  { Ashmem } ashmem - Anonymous shared memory object to wrote.
+     * @param { Ashmem } ashmem - Anonymous shared memory object to wrote.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900003 - write to ashmem failed
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1894,7 +1893,7 @@ declare namespace rpc {
     /**
      * Reads the anonymous shared memory object from this {@link MessageSequence} object.
      *
-     * @returns  { Ashmem } Anonymous share object obtained.
+     * @returns { Ashmem } Anonymous share object obtained.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900004 - read from ashmem failed
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1914,7 +1913,7 @@ declare namespace rpc {
     /**
      * Writes raw data to this {@link MessageSequence} object.
      *
-     * @param  { number[] } rawData - Raw data to wrote.
+     * @param { number[] } rawData - Raw data to wrote.
      * @param { number } size - Size of the raw data, in bytes.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900009 - write data to message sequence failed
@@ -1926,8 +1925,8 @@ declare namespace rpc {
     /**
      * Reads raw data from this {@link MessageSequence} object.
      *
-     * @param  { number } size - Size of the raw data to read.
-     * @returns  { number[] }Raw data obtained, in bytes.
+     * @param { number } size - Size of the raw data to read.
+     * @returns { number[] } Raw data obtained, in bytes.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900010 - read data from message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1947,9 +1946,9 @@ declare namespace rpc {
     /**
      * Marshal this {@code Sequenceable} object into a {@link MessageParcel}.
      *
-     * @param  { MessageParcel } dataOut - Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
-     *        object will be marshalled..
-     * @returns  { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
+     * @param { MessageParcel } dataOut - Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
+     *        object will be marshalled.
+     * @returns { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -1978,8 +1977,8 @@ declare namespace rpc {
     /**
      * Marshal this {@code Parcelable} object into a {@link MessageSequence}.
      *
-     * @param  { MessageSequence } dataOut - Indicates the {@link MessageSequence} object to which the {@code Parcelable}
-     *                     object will be marshalled..
+     * @param { MessageSequence } dataOut - Indicates the {@link MessageSequence} object to which the {@code Parcelable}
+     *        object will be marshalled.
      * @returns  { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1990,7 +1989,7 @@ declare namespace rpc {
      * Unmarshal this {@code Parcelable} object from a {@link MessageSequence}.
      *
      * @param { MessageSequence } dataIn - Indicates the {@link MessageSequence} object into which the {@code Parcelable}
-     *                           object has been marshalled.
+     *        object has been marshalled.
      * @returns { boolean } Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -2155,16 +2154,12 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a promise will be fulfilled when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
+     
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageParcel} object holding the data to send.
-     * param reply {@link MessageParcel} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     *
-     * @param { number } code
-     * @param { MessageParcel } data
-     * @param { MessageParcel } reply
-     * @param { MessageOption } options
+     * @param { MessageParcel } data - {@link MessageParcel} object holding the data to send.
+     * @param { MessageParcel } reply - {@link MessageParcel} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns  { Promise<SendRequestResult> } Promise used to return the {@link SendRequestResult} instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
@@ -2184,16 +2179,12 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a promise will be fulfilled when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageSequence} object holding the data to send.
-     * param reply {@link MessageSequence} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
      *
-     * @param { number } code
-     * @param { MessageSequence } data
-     * @param { MessageSequence } reply
-     * @param { MessageOption } options
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns  { Promise<RequestResult> } Promise used to return the {@link RequestResult} instance.
      * @throws { BusinessError } 401 - check param failed
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2212,18 +2203,13 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a callback will be invoked when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
+     
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageParcel} object holding the data to send.
-     * param reply {@link MessageParcel} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     * param callback Callback for receiving the sending result.
-     *
-     * @param { number } code
-     * @param { MessageParcel } data
-     * @param { MessageParcel } reply
-     * @param { MessageOption } options
-     * @param { AsyncCallback<SendRequestResult> } callback
+     * @param { MessageParcel } data - {@link MessageParcel} object holding the data to send.
+     * @param { MessageParcel } reply - {@link MessageParcel} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<SendRequestResult> } callback - Callback for receiving the sending result.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -2243,18 +2229,13 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a callback will be invoked when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageSequence} object holding the data to send.
-     * param reply {@link MessageSequence} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     * param callback Callback for receiving the sending result.
      *
-     * @param { number } code
-     * @param { MessageSequence } data
-     * @param { MessageSequence } reply
-     * @param { MessageOption } options
-     * @param { AsyncCallback<RequestResult> } callback
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
      * @throws { BusinessError } 401 - check param failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -2454,7 +2435,7 @@ declare namespace rpc {
     /**
      * Sets the SendRequest call flag, which can be synchronous or asynchronous.
      *
-     * @param  { number } flags - Indicates the call flag, which can be synchronous or asynchronous.
+     * @param { number } flags - Indicates the call flag, which can be synchronous or asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      */
@@ -2621,16 +2602,12 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a promise will be fulfilled when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageParcel} object holding the data to send.
-     * param reply {@link MessageParcel} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
      *
-     * @param { number } code
-     * @param { MessageParcel } data
-     * @param { MessageParcel } reply
-     * @param { MessageOption } options
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageParcel } data - {@link MessageParcel} object holding the data to send.
+     * @param { MessageParcel } reply - {@link MessageParcel} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { Promise<SendRequestResult> } Promise used to return the {@link SendRequestResult} instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
@@ -2650,16 +2627,12 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a promise will be fulfilled when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageSequence} object holding the data to send.
-     * param reply {@link MessageSequence} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
      *
-     * @param { number } code
-     * @param { MessageSequence } data
-     * @param { MessageSequence } reply
-     * @param { MessageOption } options
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { Promise<RequestResult> } Promise used to return the {@link RequestResult} instance.
      * @throws { BusinessError } 401 - check param failed
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2678,18 +2651,13 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a callback will be invoked when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageParcel} object holding the data to send.
-     * param reply {@link MessageParcel} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     * param callback Callback for receiving the sending result.
      *
-     * @param { number } code
-     * @param { MessageParcel } data
-     * @param { MessageParcel } reply
-     * @param { MessageOption } options
-     * @param { AsyncCallback<SendRequestResult> } callback
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageParcel } data - {@link MessageParcel} object holding the data to send.
+     * @param { MessageParcel } reply - {@link MessageParcel} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<SendRequestResult> } callback - Callback for receiving the sending result.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -2709,18 +2677,13 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a callback will be invoked when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageSequence} object holding the data to send.
-     * param reply {@link MessageSequence} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     * param callback Callback for receiving the sending result.
      *
-     * @param { number } code
-     * @param { MessageSequence } data
-     * @param { MessageSequence } reply
-     * @param { MessageOption } options
-     * @param { AsyncCallback<RequestResult> } callback
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
      * @throws { BusinessError } 401 - check param failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -2832,7 +2795,7 @@ declare namespace rpc {
     /**
      * Queries a local interface with a specified descriptor.
      *
-     * @param { string } Interface - Indicates the descriptor of the interface to query.
+     * @param { string } interface - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2947,16 +2910,12 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a promise will be fulfilled when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageParcel} object holding the data to send.
-     * param reply {@link MessageParcel} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
      *
-     * @param { number } code
-     * @param { MessageParcel } data
-     * @param { MessageParcel } reply
-     * @param { MessageOption } options
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageParcel } data - {@link MessageParcel} object holding the data to send.
+     * @param { MessageParcel } reply - {@link MessageParcel} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns { Promise<SendRequestResult> } Promise used to return the {@link sendRequestResult} instance.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
@@ -2976,16 +2935,12 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a promise will be fulfilled when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageSequence} object holding the data to send.
-     * param reply {@link MessageSequence} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
      *
-     * @param { number } code
-     * @param { MessageSequence } data
-     * @param { MessageSequence } reply
-     * @param { MessageOption } options
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
      * @returns {  Promise<RequestResult> }  Promise used to return the {@link RequestResult} instance.
      * @throws { BusinessError } 401 - check param failed
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3004,18 +2959,13 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a callback will be invoked when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageParcel} object holding the data to send.
-     * param reply {@link MessageParcel} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     * param callback Callback for receiving the sending result.
      *
-     * @param { number } code
-     * @param { MessageParcel } data
-     * @param { MessageParcel } reply
-     * @param { MessageOption } options
-     * @param { AsyncCallback<SendRequestResult> } callback
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageParcel } data - {@link MessageParcel} object holding the data to send.
+     * @param { MessageParcel } reply - {@link MessageParcel} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<SendRequestResult> } callback - Callback for receiving the sending result.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @deprecated since 9
@@ -3035,18 +2985,13 @@ declare namespace rpc {
      * and the reply message does not contain any content. If options indicates the synchronous mode,
      * a callback will be invoked when the response to sendRequest is returned,
      * and the reply message contains the returned information.
-     * param code Message code called by the request, which is determined by the client and server.
-     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-     * param data {@link MessageSequence} object holding the data to send.
-     * param reply {@link MessageSequence} object that receives the response.
-     * param operations Indicates the synchronous or asynchronous mode to send messages.
-     * param callback Callback for receiving the sending result.
      *
-     * @param { number } code
-     * @param { MessageSequence } data
-     * @param { MessageSequence } reply
-     * @param { MessageOption } options
-     * @param { AsyncCallback<RequestResult> } callback
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
      * @throws { BusinessError } 401 - check param failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -3341,7 +3286,7 @@ declare namespace rpc {
      * Creates the shared file mapping on the virtual address space of this process.
      * The size of the mapping region is specified by this Ashmem object.
      *
-     * @param { number } mapType Protection level of the memory region to which the shared file is mapped.
+     * @param { number } mapType - Protection level of the memory region to which the shared file is mapped.
      * @returns { boolean } Return true if the operation is successful; return false otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
