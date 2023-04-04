@@ -32,6 +32,31 @@ declare interface SelectOption {
 }
 
 /**
+ * The declare of optionAlign.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface OptionAlign {
+  /**
+   * The type of alignment between select and menu.
+   * @type { HorizontalAlign }
+   * @default HorizontalAlign.Start
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  alignType: HorizontalAlign;
+
+  /**
+   * The option offset.
+   * @type { Offset }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  offset?: Offset;
+}
+
+/**
  * Provides the select interface.
  * @since 8
  */
@@ -150,6 +175,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 10
    */
   arrowPosition(value: ArrowPosition): SelectAttribute;
+
+  /**
+   * Set the alignment between select and menu.
+   * @param { OptionAlign } value - alignment between select and menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */ 
+  optionAlign(value: OptionAlign): SelectAttribute;
 }
 
 /**
