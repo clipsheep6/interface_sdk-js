@@ -96,6 +96,8 @@ declare namespace ethernet {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -111,6 +113,8 @@ declare namespace ethernet {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
    * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
    * @systemapi Hide this for inner system use.
    * @since 10
    */
