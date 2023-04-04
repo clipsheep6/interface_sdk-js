@@ -109,6 +109,12 @@ declare namespace userFileManager {
      */
     displayName: string;
     /**
+     * The time of pending
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     */
+    pendingTime: number;
+    /**
      * Return the fileAsset member parameter.
      * @since 9
      * @systemapi
@@ -226,6 +232,38 @@ declare namespace userFileManager {
      * @param isFavorite True is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
+    /**
+     * Set pending for file.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param isPending true is set file pending, false is revert file pending
+     * @param callback Callback used to return, No value is returned.
+     */
+    pending(isPending: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set pending for file.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param isPending true is set file pending, false is revert file pending
+     */
+    pending(isPending: boolean): Promise<void>;
+    /**
+     * If the file is pending when the file is located.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param callback Callback used to return true or false.
+     */
+    isPending(callback: AsyncCallback<boolean>): void;
+    /**
+     * If the file is pending when the file is located.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @permission ohos.permission.READ_MEDIA
+     */
+    isPending():Promise<boolean>;
   }
 
   /**
