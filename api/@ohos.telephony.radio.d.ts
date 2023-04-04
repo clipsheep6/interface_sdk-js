@@ -219,6 +219,8 @@ declare namespace radio {
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
+   * @deprecated since 10
+   * @useinstead telephony.radio#getNROptionMode
    */
   function getNrOptionMode(callback: AsyncCallback<NrOptionMode>): void;
   function getNrOptionMode(slotId: number, callback: AsyncCallback<NrOptionMode>): void;
@@ -565,7 +567,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getBasebandVersion(slot: number, callback: AsyncCallback<String>): void;
+  function getBasebandVersion(slotId: number, callback: AsyncCallback<String>): void;
 
   /**
    * Get the version of Baseband.
@@ -583,7 +585,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getBasebandVersion(slot: number): Promise<String>;
+  function getBasebandVersion(slotId: number): Promise<String>;
 
   /**
    * Set the NR option mode.
@@ -622,6 +624,38 @@ declare namespace radio {
    * @since 10
    */
   function setNROptionMode(slotId: number, mode: NrOptionMode): Promise<void>;
+
+  /**
+   * Get the option mode of NR.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * index number supported by the device.
+   * @param { AsyncCallback<NrOptionMode> } callback - Returns the selection mode of NR.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getNROptionMode(slotId: number, callback: AsyncCallback<NrOptionMode>): void;
+
+  /**
+   * Get the option mode of NR.
+   *
+   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * index number supported by the device.
+   * @return { AsyncCallback<NrOptionMode> } Returns the selection mode of NR.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getNROptionMode(slotId: number): Promise<NrOptionMode>;
 
   /**
    * @systemapi Hide this for inner system use.

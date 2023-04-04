@@ -909,7 +909,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @since 10
    */
-   function getDefaultVoiceSimId(callback: AsyncCallback<number>): void;
+  function getDefaultVoiceSimId(callback: AsyncCallback<number>): void;
 
   /**
    * Obtains the default sim id for the voice service.
@@ -925,7 +925,7 @@ declare namespace sim {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @since 10
    */
-   function getDefaultVoiceSimId(): Promise<number>;
+  function getDefaultVoiceSimId(): Promise<number>;
 
   /**
    * @systemapi Hide this for inner system use.

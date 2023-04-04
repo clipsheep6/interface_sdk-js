@@ -339,7 +339,7 @@ declare namespace sms {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @since 10
    */
-   function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
+  function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
 
   /**
    * Obtains the default SIM id for sending SMS messages.
@@ -355,7 +355,7 @@ declare namespace sms {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @since 10
    */
-   function getDefaultSmsSimId(): Promise<number>;
+  function getDefaultSmsSimId(): Promise<number>;
 
   /**
    * @systemapi Hide this for inner system use.

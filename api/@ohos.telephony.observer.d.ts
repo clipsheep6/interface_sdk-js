@@ -277,8 +277,8 @@ declare namespace observer {
    * and the observer is added to monitor the updates.
    *
    * @param { string } type - iccAccountInfoChange
-   * @param { Callback<void> } callback - no extra data included except reason Indicates the cause of the change.
-   *   The value of reason is an empty string if the application does not have
+   * @param { Callback<void> } callback - including state Indicates the icc account information,
+   * and reason Indicates the cause of the change.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -292,8 +292,8 @@ declare namespace observer {
    * Cancel to receive an icc account change.
    *
    * @param { string } type - iccAccountInfoChange
-   * @param { Callback<void> } callback - no extra data included except reason Indicates the cause of the change.
-   *   The value of reason is an empty string if the application does not have
+   * @param { Callback<void> } callback - including state Indicates the icc account information,
+   * and reason Indicates the cause of the change.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
