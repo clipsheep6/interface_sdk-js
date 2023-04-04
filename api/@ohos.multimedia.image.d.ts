@@ -1210,35 +1210,39 @@ declare namespace image {
 
     /**
      * Get color space of pixel map. This method uses a callback to return the operation result.
-     * @since 10
+     *
+     * @param { AsyncCallback<colorSpaceManager.ColorSpaceManager> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @since 10
      */
     getColorSpace(callback: AsyncCallback<colorSpaceManager.ColorSpaceManager>): void;
 
     /**
      * Get color space of pixel map. This method uses a promise to return the result.
-     * @since 10
+     *
+     * @returns { Promise<colorSpaceManager.ColorSpaceManager> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @since 10
      */
     getColorSpace(): Promise<colorSpaceManager.ColorSpaceManager>;
 
     /**
      * Set color space of pixel map. This method uses a callback to return the operation result.
-     * @since 10
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @param colorSpace The color space for pixel map.
-     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @since 10
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback<void>): void;
 
     /**
      * Set color space of pixel map. This method uses a promise to return the result.
-     * @since 10
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @param colorSpace The color space for pixel map.
-     * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @since 10
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
