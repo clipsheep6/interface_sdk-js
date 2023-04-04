@@ -988,6 +988,23 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
+   * Handle special code from dialer.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { string } inputCode - Indicates the special code entered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
+  function inputDialerSpecialCode(inputCode: string): Promise<void>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
