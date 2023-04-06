@@ -92,7 +92,6 @@ declare namespace dataShare {
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @param { CreateOption } option
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
