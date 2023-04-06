@@ -19,7 +19,6 @@ import { AsyncCallback } from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import LocalStorage from 'StateManagement';
 import BaseContext from './application/BaseContext';
-import { Movement, Range } from './imf/InputMethodCommon';
 
 /**
  * Input method engine
@@ -500,7 +499,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'setCallingWindow', callback: (wid:number) => void): void;
+    on(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
      * Unsubscribe 'setCallingWindow'.
@@ -510,7 +509,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'setCallingWindow', callback: (wid:number) => void): void;
+    off(type: 'setCallingWindow', callback: (wid: number) => void): void;
 
     /**
      * Subscribe 'keyboardShow'|'keyboardHide'.
@@ -1031,6 +1030,32 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     getTextIndexAtCursor(): Promise<number>;
+
+    /**
+     * Send extend action code.
+     *
+     * @param { ExtendAction } action - action code which will be send.
+     * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    sendExtendAction(action: ExtendAction, callback: AsyncCallback<void>): void;
+
+    /**
+     * Send extend action code.
+     *
+     * @param { ExtendAction } action - action code which will be send.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    sendExtendAction(action: ExtendAction): Promise<void>;
   }
 
   /**
@@ -1435,6 +1460,125 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     flag?: PanelFlag;
+  }
+
+  /**
+   * Enumerates the moving direction of cursor
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export enum Direction {
+    /**
+     * Cursor moves up
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_UP = 1,
+
+    /**
+     * Cursor moves down
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_DOWN,
+
+    /**
+     * Cursor moves left
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_LEFT,
+
+    /**
+     * Cursor moves right
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CURSOR_RIGHT
+  }
+
+  /**
+   * Range of selected text.
+   *
+   * @interface Range
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface Range {
+    /**
+     * Indicates the index of the first character of the selected text.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    start: number;
+
+    /**
+     * Indicates the index of the last character of the selected text.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    end: number;
+  }
+
+  /**
+   * Movement of cursor.
+   *
+   * @interface Movement
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface Movement {
+    /**
+     * Indicates the direction of cursor movement
+     *
+     * @type { number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    direction: Direction;
+  }
+
+  /**
+   * Enumerates the extend action.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export enum ExtendAction {
+    /**
+     * Select all text.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    SELECT_ALL = 0,
+
+    /**
+     * Cut selecting text.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    CUT = 3,
+
+    /**
+     * Copy selecting text.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    COPY = 4,
+
+    /**
+     * Paste from paste board.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    PASTE = 5
   }
 }
 
