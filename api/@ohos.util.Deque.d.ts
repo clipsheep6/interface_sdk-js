@@ -20,10 +20,23 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * A constructor used to create a Deque object.
+   * @throws { BusinessError } 10200012 - The Deque's constructor cannot be directly invoked.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   constructor();
   /**
    * Gets the element number of the Deque.This is a number one higher than the highest index in the deque.
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Gets the element number of the Deque.This is a number one higher than the highest index in the deque.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   length: number;
@@ -34,12 +47,28 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Inserts an element into the deque header.
+   * @param element to be appended to this deque
+   * @throws { BusinessError } 10200011 - The insertFront method cannot be bound.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   insertFront(element: T): void;
   /**
    * Inserting an element at the end of a deque
    * @param element to be appended to this deque
    * @throws { BusinessError } 10200011 - The insertEnd method cannot be bound.
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Inserting an element at the end of a deque
+   * @param element to be appended to this deque
+   * @throws { BusinessError } 10200011 - The insertEnd method cannot be bound.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   insertEnd(element: T): void;
@@ -51,12 +80,29 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Check if deque contains the specified element
+   * @param element element to be contained
+   * @returns the boolean type,if deque contains the specified element,return true,else return false
+   * @throws { BusinessError } 10200011 - The has method cannot be bound.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   has(element: T): boolean;
   /**
    * Obtains the header element of a deque.
    * @returns the T type
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Obtains the header element of a deque.
+   * @returns the T type
+   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   getFirst(): T;
@@ -67,6 +113,14 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Obtains the end element of a deque.
+   * @returns the T type
+   * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   getLast(): T;
   /**
    * Obtains the header element of a deque and delete the element.
@@ -75,12 +129,28 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Obtains the header element of a deque and delete the element.
+   * @returns the T type
+   * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   popFirst(): T;
   /**
    * Obtains the end element of a deque and delete the element.
    * @returns the T type
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Obtains the end element of a deque and delete the element.
+   * @returns the T type
+   * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   popLast(): T;
@@ -97,12 +167,33 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Executes a provided function once for each value in the deque object.
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to be called for each element in the deque
+   * @param Value (required) current element
+   * @param Index (Optional) The index value of the current element.
+   * @param deque (Optional) The deque object to which the current element belongs.
+   * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
+   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * returns an iterator.Each item of the iterator is a Javascript Object
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   [Symbol.iterator](): IterableIterator<T>;
