@@ -18,7 +18,7 @@ import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
-import Ashmem from './@ohos.rpc.d.ts';
+import rpc from './@ohos.rpc';
 
 /**
  * This module provides the dataShare capability for consumer.
@@ -92,6 +92,7 @@ declare namespace dataShare {
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
+   * @param { CreateOption } option
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
@@ -174,7 +175,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    data: string | Ashmem;
+    data: string | rpc.Ashmem;
     /**
      * Specifies the subscriber id
      *
@@ -205,7 +206,7 @@ declare namespace dataShare {
      */
     uri: string;
     /**
-     * Specifies the tempalteId of the callback¡£
+     * Specifies the tempalteId of the callback.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
