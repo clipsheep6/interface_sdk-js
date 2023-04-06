@@ -1278,7 +1278,7 @@ declare namespace inputMethod {
   /**
    * Config of editor.
    *
-   * @enum { number }
+   * @typedef { typedef }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
