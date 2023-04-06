@@ -626,6 +626,14 @@ declare namespace userAuth {
    */
   enum UserAuthType {
     /**
+     * Authentication type pin.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    PIN = 1,
+
+    /**
      * Authentication type face.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -789,6 +797,78 @@ declare namespace userAuth {
   }
 
   /**
+   * Auth parameter.
+   *
+   * @typedef AuthParam
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface AuthParam {
+    /**
+     * Pass in challenge value.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    challenge: Uint8Array;
+
+    /**
+     * Credential type for authentication.
+     *
+     * @type { UserAuthType[] }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    authType: UserAuthType[];
+
+    /**
+     * Trust level of authentication result.
+     *
+     * @type { AuthTrustLevel }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    authTrustLevel: AuthTrustLevel;
+  }
+
+  /**
+   * Auth widget parameter.
+   *
+   * @typedef WidgetParam
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 10
+   */
+  interface WidgetParam {
+    /**
+     * Title of widget.
+     *
+     * @type { string }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    title: string;
+
+    /**
+     * The description text of negation button.
+     *
+     * @type { string }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    negationButtonText: string;
+
+    /**
+     * Full screen or not.
+     *
+     * @type { number }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 10
+     */
+    windowMode: number;
+  }
+
+  /**
    * Authentication instance, used to initiate a complete authentication.
    *
    * @interface AuthInstance
@@ -799,22 +879,25 @@ declare namespace userAuth {
     /**
      * Turn on authentication event listening.
      *
+     * @param { AuthEventKey } name Event name.
+     * @param { AuthEvent } callback Event information return.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    on: (name: AuthEventKey, callback: AuthEvent) => void;
+    on(name: AuthEventKey, callback: AuthEvent): void;
 
     /**
      * Turn off authentication event listening.
      *
+     * @param { AuthEventKey } name Event name.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    off: (name: AuthEventKey) => void;
+    off(name: AuthEventKey): void;
 
     /**
      * Start this authentication, an instance can only perform authentication once.
@@ -834,7 +917,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    start: () => void;
+    start(): void;
 
     /**
      * Cancel this authentication.
@@ -846,7 +929,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    cancel: () => void;
+    cancel(): void;
   }
 
   /**
@@ -881,6 +964,21 @@ declare namespace userAuth {
    * @since 9
    */
   function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
+
+  /**
+   * Get Authentication instance.
+   *
+   * @param { AuthParam } authParam Auth parameter.
+   * @param { WidgetParam } widgetParam Widget parameter.
+   * @returns { AuthInstance } Returns an authentication instance.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   */
+  function getAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): AuthInstance;
 
   /**
    * Enum for operation result.
