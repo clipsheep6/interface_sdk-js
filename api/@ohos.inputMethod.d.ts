@@ -372,7 +372,6 @@ declare namespace inputMethod {
      * Let the application can attach to the input method service.
      *
      * @param { AsyncCallback<void> } callback - the callback of attach.
-     * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -383,7 +382,7 @@ declare namespace inputMethod {
     /**
      * Let the application can attach to the input method service.
      *
-     * @param { boolean } showkeyboard - show the key board or not when attach the input method.
+     * @param { boolean } showKeyboard - show the key board or not when attach the input method.
      * @param { AsyncCallback<void> } callback - the callback of attach.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
@@ -391,12 +390,12 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    attach(showkeyboard: boolean, callback: AsyncCallback<void>): void;
+    attach(showKeyboard: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Let the application can attach to the input method service.
      *
-     * @param { boolean } showkeyboard - show the key board or not when attach the input method.
+     * @param { boolean } showKeyboard - show the key board or not when attach the input method.
      * @param { InputAttribute } attribute - indicates the extra attribute information of the textInput.
      * @param { AsyncCallback<void> } callback - the callback of attach.
      * @throws { BusinessError } 401 - parameter error.
@@ -405,12 +404,12 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    attach(showkeyboard: boolean, attribute: InputAttribute, callback: AsyncCallback<void>): void;
+    attach(showKeyboard: boolean, attribute: InputAttribute, callback: AsyncCallback<void>): void;
 
     /**
      * Let the application can attach to the input method service.
      *
-     * @param { boolean } showkeyboard - show the key board or not when attach the input method.
+     * @param { boolean } showKeyboard - show the key board or not when attach the input method.
      * @param { InputAttribute } attribute - indicates the extra attribute information of the textInput.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
@@ -419,13 +418,12 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    attach(showkeyboard?: boolean, attribute?: InputAttribute): Promise<void>;
+    attach(showKeyboard?: boolean, attribute?: InputAttribute): Promise<void>;
 
     /**
      * Show the text input and start typing.
      *
      * @param { AsyncCallback<void> } callback - the callback of showTextInput.
-     * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -450,7 +448,6 @@ declare namespace inputMethod {
      * Hide the text input and stop typing.
      *
      * @param { AsyncCallback<void> } callback - the callback of hideTextInput.
-     * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -475,7 +472,6 @@ declare namespace inputMethod {
      * Let applications can detach from the input method manager service.
      *
      * @param { AsyncCallback<void> } callback - the callback of detach.
-     * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
