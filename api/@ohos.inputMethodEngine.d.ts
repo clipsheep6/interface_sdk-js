@@ -553,9 +553,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.
-     * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
-     * status bar, and vice versa.</p>
+     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
      *
      * @param { BaseContext } ctx - indicates the context on which the window depends.
      * @param { PanelInfo } info - the info of panel to be created.
@@ -569,9 +567,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Creates a panel.
-     * <p>The system only allows one soft keyboard and one status bar to be created.
-     * Once you create a soft keyboard with FLG_FIXED or FLG_FLOATING, you cannot create
-     * status bar, and vice versa.</p>
+     * <p>The system only allows one soft keyboard and one status bar to be created.</p>
      *
      * @param { BaseContext } ctx - indicates the context on which the window depends.
      * @param { PanelInfo } info - the info of panel to be created.

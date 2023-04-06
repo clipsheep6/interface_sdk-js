@@ -371,18 +371,8 @@ declare namespace inputMethod {
     /**
      * Let the application can attach to the input method service.
      *
-     * @param { AsyncCallback<void> } callback - the callback of attach.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    attach(callback: AsyncCallback<void>): void;
-
-    /**
-     * Let the application can attach to the input method service.
-     *
      * @param { boolean } showKeyboard - show the key board or not when attach the input method.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
      * @param { AsyncCallback<void> } callback - the callback of attach.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
@@ -390,27 +380,13 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    attach(showKeyboard: boolean, callback: AsyncCallback<void>): void;
+    attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback<void>): void;
 
     /**
      * Let the application can attach to the input method service.
      *
      * @param { boolean } showKeyboard - show the key board or not when attach the input method.
-     * @param { InputAttribute } attribute - indicates the extra attribute information of the textInput.
-     * @param { AsyncCallback<void> } callback - the callback of attach.
-     * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    attach(showKeyboard: boolean, attribute: InputAttribute, callback: AsyncCallback<void>): void;
-
-    /**
-     * Let the application can attach to the input method service.
-     *
-     * @param { boolean } showKeyboard - show the key board or not when attach the input method.
-     * @param { InputAttribute } attribute - indicates the extra attribute information of the textInput.
+     * @param { TextConfig } textConfig - indicates the config of the textInput.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
@@ -418,7 +394,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    attach(showKeyboard?: boolean, attribute?: InputAttribute): Promise<void>;
+    attach(showKeyboard: boolean, textConfig: TextConfig): Promise<void>;
 
     /**
      * Show the text input and start typing.
@@ -1297,6 +1273,24 @@ declare namespace inputMethod {
      * @since 10
      */
     height: number;
+  }
+
+  /**
+   * Config of editor.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 10
+   */
+  export interface TextConfig {
+    /**
+     * Attribute of Input.
+     *
+     * @typedef Movement
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    inputAttribute: InputAttribute
   }
 
   /**
