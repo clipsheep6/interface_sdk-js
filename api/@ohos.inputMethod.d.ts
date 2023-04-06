@@ -1290,7 +1290,7 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    inputAttribute: InputAttribute
+    inputAttribute: InputAttribute;
   }
 
   /**
