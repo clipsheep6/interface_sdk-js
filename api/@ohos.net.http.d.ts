@@ -31,17 +31,33 @@ declare namespace http {
   /**
    * Creates an HTTP request task.
    */
+  /**
+   * Creates an HTTP request task.
+   * @crossplatform
+   * @since 10
+   */
   function createHttp(): HttpRequest;
 
   export interface HttpRequestOptions {
     /**
      * Request method.
      */
+    /**
+     * Request method.
+     * @crossplatform
+     * @since 10
+     */
     method?: RequestMethod; // default is GET
 
     /**
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     */
+    /**
+     * Additional data of the request.
+     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * @crossplatform
+     * @since 10
      */
     extraData?: string | Object | ArrayBuffer;
 
@@ -50,35 +66,67 @@ declare namespace http {
      *
      * @since 9
      */
+    /**
+     * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
+     *
+     * @crossplatform
+     * @since 10
+     */
     expectDataType?: HttpDataType;
 
     /**
      * @since 9
+     */
+    /**
+     * @crossplatform
+     * @since 10
      */
     usingCache?: boolean; // default is true
 
     /**
      * @since 9
      */
+    /**
+     * @crossplatform
+     * @since 10
+     */
     priority?: number; // [1, 1000], default is 1.
 
     /**
      * HTTP request header.
+     */
+    /**
+     * HTTP request header.
+     * @crossplatform
+     * @since 10
      */
     header?: Object; // default is 'content-type': 'application/json'
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
      */
+    /**
+     * Read timeout period. The default value is 60,000, in ms.
+     * @crossplatform
+     * @since 10
+     */
     readTimeout?: number; // default is 60s
 
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
      */
+    /**
+     * Connection timeout interval. The default value is 60,000, in ms.
+     * @crossplatform
+     */
     connectTimeout?: number; // default is 60s.
 
     /**
      * @since 9
+     */
+    /**
+     * @crossplatform
+     * @since 10
      */
     usingProtocol?: HttpProtocol; // default is automatically specified by the system.
 
@@ -137,6 +185,47 @@ declare namespace http {
      * @throws {BusinessError} 2300078 - Remote file not found.
      * @throws {BusinessError} 2300094 - An authentication function returned an error.
      * @throws {BusinessError} 2300999 - Unknown Other Error.
+     */
+    /**
+     * Initiates an HTTP request to a given URL.
+     *
+     * @param url URL for initiating an HTTP request.
+     * @param options Optional parameters {@link HttpRequestOptions}.
+     * @param callback Returns {@link HttpResponse}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2300001 - Unsupported protocol.
+     * @throws {BusinessError} 2300003 - URL using bad/illegal format or missing URL.
+     * @throws {BusinessError} 2300005 - Couldn't resolve proxy name.
+     * @throws {BusinessError} 2300006 - Couldn't resolve host name.
+     * @throws {BusinessError} 2300007 - Couldn't connect to server.
+     * @throws {BusinessError} 2300008 - Weird server reply.
+     * @throws {BusinessError} 2300009 - Access denied to remote resource.
+     * @throws {BusinessError} 2300016 - Error in the HTTP2 framing layer.
+     * @throws {BusinessError} 2300018 - Transferred a partial file.
+     * @throws {BusinessError} 2300023 - Failed writing received data to disk/application.
+     * @throws {BusinessError} 2300025 - Upload failed.
+     * @throws {BusinessError} 2300026 - Failed to open/read local data from file/application.
+     * @throws {BusinessError} 2300027 - Out of memory.
+     * @throws {BusinessError} 2300028 - Timeout was reached.
+     * @throws {BusinessError} 2300047 - Number of redirects hit maximum amount.
+     * @throws {BusinessError} 2300052 - Server returned nothing (no headers, no data).
+     * @throws {BusinessError} 2300055 - Failed sending data to the peer.
+     * @throws {BusinessError} 2300056 - Failure when receiving data from the peer.
+     * @throws {BusinessError} 2300058 - Problem with the local SSL certificate.
+     * @throws {BusinessError} 2300059 - Couldn't use specified SSL cipher.
+     * @throws {BusinessError} 2300060 - SSL peer certificate or SSH remote key was not OK.
+     * @throws {BusinessError} 2300061 - Unrecognized or bad HTTP Content or Transfer-Encoding.
+     * @throws {BusinessError} 2300063 - Maximum file size exceeded.
+     * @throws {BusinessError} 2300070 - Disk full or allocation exceeded.
+     * @throws {BusinessError} 2300073 - Remote file already exists.
+     * @throws {BusinessError} 2300077 - Problem with the SSL CA cert (path? access rights?).
+     * @throws {BusinessError} 2300078 - Remote file not found.
+     * @throws {BusinessError} 2300094 - An authentication function returned an error.
+     * @throws {BusinessError} 2300999 - Unknown Other Error.
+     * @crossplatform
+     * @since 10
      */
     request(url: string, callback: AsyncCallback<HttpResponse>): void;
     request(url: string, options: HttpRequestOptions, callback: AsyncCallback<HttpResponse>): void;
@@ -273,6 +362,11 @@ declare namespace http {
     /**
      * Destroys an HTTP request.
      */
+    /**
+     * Destroys an HTTP request.
+     * @crossplatform
+     * @since 10
+     */
     destroy(): void;
 
     /**
@@ -296,6 +390,12 @@ declare namespace http {
      *
      * @since 8
      */
+    /**
+     * Registers an observer for HTTP Response Header events.
+     *
+     * @crossplatform
+     * @since 10
+     */
     on(type: "headersReceive", callback: Callback<Object>): void;
 
     /**
@@ -303,12 +403,24 @@ declare namespace http {
      *
      * @since 8
      */
+    /**
+     * Unregisters the observer for HTTP Response Header events.
+     *
+     * @crossplatform
+     * @since 10
+     */
     off(type: "headersReceive", callback?: Callback<Object>): void;
 
     /**
      * Registers a one-time observer for HTTP Response Header events.
      *
      * @since 8
+     */
+    /**
+     * Registers a one-time observer for HTTP Response Header events.
+     *
+     * @crossplatform
+     * @since 10
      */
     once(type: "headersReceive", callback: Callback<Object>): void;
 
@@ -409,6 +521,11 @@ declare namespace http {
    *
    * @since 9
    */
+  /**
+   * Supported protocols.
+   * @crossplatform
+   * @since 10
+   */
   export enum HttpProtocol {
     HTTP1_1,
     HTTP2,
@@ -418,6 +535,11 @@ declare namespace http {
    * Indicates the type of the returned data.
    *
    * @since 9
+   */
+  /**
+   * Indicates the type of the returned data.
+   * @crossplatform
+   * @since 10
    */
   export enum HttpDataType {
     /**
@@ -439,6 +561,12 @@ declare namespace http {
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
      * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
      */
+    /**
+     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
+     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
+     * @crossplatform
+     * @since 10
+     */
     result: string | Object | ArrayBuffer;
 
     /**
@@ -448,20 +576,42 @@ declare namespace http {
      *
      * @since 9
      */
+    /**
+     * If the resultType is string, you can get result directly.
+     * If the resultType is Object, you can get result such as this: result['key'].
+     * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
+     *
+     * @crossplatform
+     * @since 10
+     */
     resultType: HttpDataType;
 
     /**
      * Server status code.
+     */
+    /**
+     * Server status code.
+     * @crossplatform
+     * @since 10
      */
     responseCode: ResponseCode | number;
 
     /**
      * All headers in the response from the server.
      */
+    /**
+     * All headers in the response from the server.
+     * @crossplatform
+     * @since 10
+     */
     header: Object;
 
     /**
      * @since 8
+     */
+    /**
+     * @crossplatform
+     * @since 10
      */
     cookies: string;
   }
@@ -472,6 +622,13 @@ declare namespace http {
    * @param cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @since 9
    */
+  /**
+   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
+   *
+   * @param cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @crossplatform
+   * @since 10
+   */
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;
 
   /**
@@ -481,11 +638,21 @@ declare namespace http {
     /**
      * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
      */
+    /**
+     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     * @crossplatform
+     * @since 10
+     */
     flush(callback: AsyncCallback<void>): void;
     flush(): Promise<void>;
 
     /**
      * Disables a cache and deletes the data in it.
+     */
+    /**
+     * Disables a cache and deletes the data in it.
+     * @crossplatform
+     * @since 10
      */
     delete(callback: AsyncCallback<void>): void;
     delete(): Promise<void>;
