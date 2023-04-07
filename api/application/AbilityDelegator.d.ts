@@ -34,6 +34,7 @@ export interface AbilityDelegator {
      * @param { AbilityMonitor } monitor - AbilityMonitor object
      * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -44,6 +45,7 @@ export interface AbilityDelegator {
      * @param { AbilityMonitor } monitor - AbilityMonitor object
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -54,6 +56,7 @@ export interface AbilityDelegator {
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -64,6 +67,7 @@ export interface AbilityDelegator {
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -74,6 +78,7 @@ export interface AbilityDelegator {
      * @param { AbilityMonitor } monitor - AbilityMonitor object.
      * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -84,6 +89,7 @@ export interface AbilityDelegator {
      * @param { AbilityMonitor } monitor - AbilityMonitor object.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -94,6 +100,7 @@ export interface AbilityDelegator {
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -104,6 +111,7 @@ export interface AbilityDelegator {
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -114,6 +122,7 @@ export interface AbilityDelegator {
      * @param { AbilityMonitor } monitor - AbilityMonitor object.
      * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -125,6 +134,7 @@ export interface AbilityDelegator {
      * @param { number } timeout - Maximum wait time, in milliseconds.
      * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -136,6 +146,7 @@ export interface AbilityDelegator {
      * @param { number } timeout - Maximum wait time, in milliseconds.
      * @returns { Promise<UIAbility> } Returns the Ability object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -146,6 +157,7 @@ export interface AbilityDelegator {
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -157,6 +169,7 @@ export interface AbilityDelegator {
      * @param { number } timeout - Maximum wait time, in milliseconds.
      * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -168,6 +181,7 @@ export interface AbilityDelegator {
      * @param { number } timeout - Maximum wait time, in milliseconds.
      * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -195,6 +209,7 @@ export interface AbilityDelegator {
      * Obtain the ability that is currently being displayed in this process.
      * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -203,6 +218,8 @@ export interface AbilityDelegator {
     /**
      * Obtain the ability that is currently being displayed in this process.
      * @returns { Promise<UIAbility> } Returns the Ability object.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - GetCurrentTopAbility failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -213,6 +230,19 @@ export interface AbilityDelegator {
      * @param { Want } want - Indicates the ability to start
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -223,6 +253,19 @@ export interface AbilityDelegator {
      * @param { Want } want - Indicates the ability to start
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000001 - The specified ability does not exist.
+     * @throws { BusinessError } 16000002 - Incorrect ability type.
+     * @throws { BusinessError } 16000004 - Can not start invisible component.
+     * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+     * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+     * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+     * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+     * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+     * @throws { BusinessError } 16000055 - Installation-free timed out.
+     * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -233,6 +276,7 @@ export interface AbilityDelegator {
      * @param { UIAbility } ability - The ability object.
      * @param { AsyncCallback<void> } callback - The callback of doAbilityForeground.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -243,6 +287,7 @@ export interface AbilityDelegator {
      * @param { UIAbility } ability - The ability object.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - DoAbilityForeground failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -253,6 +298,7 @@ export interface AbilityDelegator {
      * @param { UIAbility } ability - The ability object.
      * @param { AsyncCallback<void> } callback - The callback of doAbilityBackground.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -263,6 +309,7 @@ export interface AbilityDelegator {
      * @param { UIAbility } ability - The ability object.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - DoAbilityBackground failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -309,6 +356,7 @@ export interface AbilityDelegator {
      * @param { number } code - Result code.
      * @param { AsyncCallback<void> } callback - The callback of finishTest.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - FinishTest failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
@@ -321,6 +369,7 @@ export interface AbilityDelegator {
      * @param { number } code - Result code.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000100 - FinishTest failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
