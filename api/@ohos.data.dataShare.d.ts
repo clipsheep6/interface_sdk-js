@@ -40,8 +40,8 @@ declare namespace dataShare {
    */
   interface CreateOption {
     /**
-     * Specifies whether the helper in proxy mode.
-     * If value is true, all operations will not open provider APP as possible
+     * Specifies whether the {@link DataShareHelper} in proxy mode.
+     * If value is true, the {@link DataShareHelper} to be created is in proxy mode, and all operations will not open provider APP as possible
      *
      * @default false
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
