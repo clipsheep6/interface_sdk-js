@@ -369,9 +369,9 @@ declare namespace inputMethod {
    */
   interface InputMethodController {
     /**
-     * Let the application can attach to the input method service.
+     * Attach application to the input method service.
      *
-     * @param { boolean } showKeyboard - show the key board or not when attach the input method.
+     * @param { boolean } showKeyboard - show the keyboard or not when attach the input method.
      * @param { TextConfig } textConfig - indicates the config of the textInput.
      * @param { AsyncCallback<void> } callback - the callback of attach.
      * @throws { BusinessError } 401 - parameter error.
@@ -385,7 +385,7 @@ declare namespace inputMethod {
     /**
      * Let the application can attach to the input method service.
      *
-     * @param { boolean } showKeyboard - show the key board or not when attach the input method.
+     * @param { boolean } showKeyboard - show the keyboard or not when attach the input method.
      * @param { TextConfig } textConfig - indicates the config of the textInput.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
@@ -445,7 +445,7 @@ declare namespace inputMethod {
     hideTextInput(): Promise<void>;
 
     /**
-     * Let applications can detach from the input method manager service.
+     * Let applications detach itself from the input method manager service.
      *
      * @param { AsyncCallback<void> } callback - the callback of detach.
      * @throws { BusinessError } 12800003 - input method client error.
@@ -497,7 +497,7 @@ declare namespace inputMethod {
     setCallingWindow(windowId: number): Promise<void>;
 
     /**
-     * Notify the input method that the current application cursor has changed.
+     * Update Cursor and notify the input method that the current application cursor has changed.
      *
      * @param { CursorInfo } cursorInfo - the CursorInfo object.
      * @param { AsyncCallback<void> } callback - the callback of updateCursor.
@@ -511,7 +511,7 @@ declare namespace inputMethod {
     updateCursor(cursorInfo: CursorInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Notify the input method that the current application cursor has changed.
+     * Update Cursor and notify the input method that the current application cursor has changed.
      *
      * @param { CursorInfo } cursorInfo - the CursorInfo object.
      * @returns { Promise<void> } the promise returned by the function.
@@ -525,7 +525,7 @@ declare namespace inputMethod {
     updateCursor(cursorInfo: CursorInfo): Promise<void>;
 
     /**
-     * Notify the input method that the selection range of the current application text has changed.
+     * Notify the input method the selected text and the selection range of the current application text has changed.
      *
      * @param { string } text - the whole input text.
      * @param { number } start - start position of selected text.
@@ -541,7 +541,7 @@ declare namespace inputMethod {
     changeSelection(text: string, start: number, end: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Notify the input method that the selection range of the current application text has changed.
+     * Notify the input method the selected text and the selection range of the current application text has changed.
      *
      * @param { string } text - the selected text.
      * @param { number } start - start position of selected text.
@@ -729,8 +729,8 @@ declare namespace inputMethod {
      * Register a callback and when IME sends insert text event, the callback will be invoked.
      *
      * @param { string } type - event type, fixed as 'insertText'.
-     * @param { (text: string) => void } callback - processes insertText command. The text of insert is provided for
-     *     this callback. It must update selected text and cursor info if they are changed.
+     * @param { (text: string) => void } callback - processes insertText command. The text of insert is provided for this callback.
+     *        Subscribers are expected to process the inserted text and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -753,7 +753,8 @@ declare namespace inputMethod {
      *
      * @param { string } type - event type, fixed as 'deleteLeft' or 'deleteRight'.
      * @param { (length: number) => void } callback - processes deleteLeft/deleteRight command. The length of
-     *     delete is provided for this callback. It must update selected text and cursor info if they are changed.
+     *     delete is provided for this callback. Subscribers are expected to delete specified length of text
+     *     to the left/right of the cursor and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -797,7 +798,8 @@ declare namespace inputMethod {
      *
      * @param { string } type - event type, fixed as 'sendFunctionKey'.
      * @param { (functionKey: FunctionKey) => void } callback - processes sendFunctionKey command.
-     *     The functionKey is provided for this callback.
+     *     The functionKey is provided for this callback.Subscribers are expected to complete the
+     *     corresponding task based on the value of functionKey.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -819,7 +821,8 @@ declare namespace inputMethod {
      *
      * @param { string } type - event type, fixed as 'moveCursor'.
      * @param { (direction: Direction) => void } callback - processes moveCursor command. The direction of
-     *     cursor is provided for this callback. It must update selected text and cursor info if they are changed.
+     *     cursor is provided for this callback. Subscribers are expected to move the cursor and update changes
+     *     in editor by changeSelection and updateCursor.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
