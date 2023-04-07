@@ -1233,7 +1233,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Moves a panel.
-     * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { number } x - the x-coordinate of the new position.
      * @param { number } y - the y-coordinate of the new position.
@@ -1246,7 +1246,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Moves a panel.
-     * <p>It's unavailable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     * <p>It's unusable for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { number } x - the x-coordinate of the new position.
      * @param { number } y - the y-coordinate of the new position.
@@ -1317,7 +1317,7 @@ declare namespace inputMethodEngine {
 
     /**
      * Changes panel flag.
-     * <p>When flag is changed, the panel will be hide. Developers should change the content, size, point of the panel
+     * <p>Before flag is changed, Developers should hide the panel.After that, developers can change the content, size, point of the panel
      *    and show it again at appropriate opportunity.</p>
      *
      * @param { PanelFlag } flag - the callback of changeFlag.
