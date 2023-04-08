@@ -17,7 +17,7 @@ import { AsyncCallback } from "./basic";
  * Declares interfaces related to short key attributes.
  *
  * @namespace shortKey
- * @syscap SystemCapability.MultimodalInput.Input.Shortkey
+ * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
  * @since 10
  */
@@ -28,7 +28,7 @@ declare namespace shortKey {
      * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.MultimodalInput.Input.Shortkey
+     * @syscap SystemCapability.MultimodalInput.Input.ShortKey
      * @systemapi hide for inner use
      * @since 10
      */
@@ -40,7 +40,7 @@ declare namespace shortKey {
      * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
      * @returns { Promise<void> } Returns the result through a promise.
      * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.MultimodalInput.Input.Shortkey
+     * @syscap SystemCapability.MultimodalInput.Input.ShortKey
      * @systemapi hide for inner use
      * @since 10
      */
