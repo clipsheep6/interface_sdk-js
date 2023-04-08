@@ -592,7 +592,7 @@ declare namespace radio {
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
-   * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
+   * @param { NROptionMode } mode - Indicates the nr option mode to be set.
    * @param { AsyncCallback<void> } callback - Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
@@ -604,14 +604,14 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setNROptionMode(slotId: number, mode: NrOptionMode, callback: AsyncCallback<void>): void;
+  function setNROptionMode(slotId: number, mode: NROptionMode, callback: AsyncCallback<void>): void;
 
   /**
    * Set the NR option mode.
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
-   * @param { NrOptionMode } mode - Indicates the nr option mode to be set.
+   * @param { NROptionMode } mode - Indicates the nr option mode to be set.
    * @return { Promise<void> } Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
@@ -623,14 +623,14 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setNROptionMode(slotId: number, mode: NrOptionMode): Promise<void>;
+  function setNROptionMode(slotId: number, mode: NROptionMode): Promise<void>;
 
   /**
    * Get the option mode of NR.
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
-   * @param { AsyncCallback<NrOptionMode> } callback - Returns the selection mode of NR.
+   * @param { AsyncCallback<NROptionMode> } callback - Returns the selection mode of NR.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -639,14 +639,14 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getNROptionMode(slotId: number, callback: AsyncCallback<NrOptionMode>): void;
+  function getNROptionMode(slotId: number, callback: AsyncCallback<NROptionMode>): void;
 
   /**
    * Get the option mode of NR.
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
-   * @return { AsyncCallback<NrOptionMode> } Returns the selection mode of NR.
+   * @return { AsyncCallback<NROptionMode> } Returns the selection mode of NR.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
@@ -655,7 +655,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getNROptionMode(slotId: number): Promise<NrOptionMode>;
+  function getNROptionMode(slotId: number): Promise<NROptionMode>;
 
   /**
    * @systemapi Hide this for inner system use.
