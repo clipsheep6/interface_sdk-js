@@ -1086,8 +1086,28 @@ declare namespace radio {
   /**
    * @systemapi Hide this for inner system use.
    * @since 8
+   * @deprecated since 10
+   * @useinstead telephony.radio#NROptionMode
    */
   export enum NrOptionMode {
+    /** Indicates unknown NR networking mode. */
+    NR_OPTION_UNKNOWN,
+
+    /** Indicates that the NR networking mode is NSA only. */
+    NR_OPTION_NSA_ONLY,
+
+    /** Indicates that the NR networking mode is SA only. */
+    NR_OPTION_SA_ONLY,
+
+    /** Indicates that the NR networking mode is NSA and SA. */
+    NR_OPTION_NSA_AND_SA,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum NROptionMode {
     /** Indicates unknown NR networking mode. */
     NR_OPTION_UNKNOWN,
 
