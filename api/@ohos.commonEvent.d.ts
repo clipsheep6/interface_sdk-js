@@ -455,6 +455,7 @@ declare namespace commonEvent {
 
     /**
      * Indicates Wi-Fi MpLink state notification acknowledged by binding or unbinding MpLink.
+     * @permission ohos.permission.MPLINK_CHANGE_STATE
      */
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = "usual.event.wifi.mplink.STATE_CHANGE",
 
