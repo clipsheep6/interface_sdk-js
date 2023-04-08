@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./basic";
-import Want from "./@ohos.app.ability.Want";
+import { AsyncCallback } from './basic';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the accounts of the enterprise devices.
