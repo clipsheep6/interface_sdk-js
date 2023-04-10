@@ -276,6 +276,62 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
 }
 
 /**
+ * Arrow object.
+ * @interface Arrow
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface Arrow {
+  /**
+   * The arrow background board size.
+   * The size of the arrow is three-quarters of the background board size.
+   * @default false
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  isShowBoard?: boolean;
+
+  /**
+   * The arrow background board size.
+   * The size of the arrow is three-quarters of the background board size, when the board is displayed.
+   * @default 24vp
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  boardSize?: Length;
+
+  /**
+   * The arrow background board color.
+   * @default #19182431
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  boardColor?: ResourceColor;
+
+  /**
+   * The arrow size.
+   * The arrow size can be set, when the board is not displayed.
+   * @default 24vp
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  arrowSize?: Length;
+
+  /**
+   * The arrow color.
+   * @default #182431
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  arrowColor?: ResourceColor;
+}
+
+/**
  * Declare the size of the swiper on the spindle.
  * @since 7
  */
@@ -450,6 +506,15 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
+
+  /**
+   * Set arrow is enabled, or set the arrow style.
+   * @default false
+   * @param { Arrow | boolean } value - arrow is enabled or set the arrow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  displayArrow(value: Arrow | boolean): SwiperAttribute;
 
   /**
    * Called when setting whether to turn on cyclic sliding.
