@@ -400,6 +400,8 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
@@ -411,6 +413,8 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
@@ -421,6 +425,8 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @since 8
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -430,6 +436,8 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
@@ -441,6 +449,8 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
@@ -451,6 +461,8 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -462,7 +474,9 @@ declare namespace deviceManager {
      * @since 10
      * @param { string } networkId - device network id.
      * @param { AsyncCallback<DeviceInfo> } callback - Indicates the callback to be invoked upon getDeviceInfo.
-     * @throws { BusinessError } 401 - Input parameter error.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -473,7 +487,9 @@ declare namespace deviceManager {
      *
      * @since 10
      * @param { string } networkId - device network id.
-     * @throws { BusinessError } 401 - Input parameter error.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -484,8 +500,9 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param subscribeInfo subscribe info to discovery device
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
-     * @throws {BusinessError} 201 - Permission verify failed.
      * @throws {BusinessError} 11600104 - Discovery invalid.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
@@ -498,8 +515,9 @@ declare namespace deviceManager {
      * @since 9
      * @param subscribeInfo subscribe info to discovery device
      * @param filterOptions filterOptions to filter discovery device
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
-     * @throws {BusinessError} 201 - Permission verify failed.
      * @throws {BusinessError} 11600104 - Discovery invalid.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
@@ -510,8 +528,9 @@ declare namespace deviceManager {
      * Stop to discover device.
      *
      * @param subscribeId Service subscribe ID
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
-     * @throws {BusinessError} 201 - Permission verify failed.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
@@ -521,8 +540,9 @@ declare namespace deviceManager {
      * Publish discover device.
      * @since 9
      * @param publishInfo publish info to Publish discovery device
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
-     * @throws {BusinessError} 201 - Permission verify failed.
      * @throws {BusinessError} 11600105 - Publish invalid.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
@@ -533,8 +553,9 @@ declare namespace deviceManager {
      * UnPublish discover device.
      * @since 9
      * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
-     * @throws {BusinessError} 201 - Permission verify failed.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
@@ -546,6 +567,8 @@ declare namespace deviceManager {
      * @param deviceInfo deviceInfo of device to authenticate
      * @param authParam authParam of device to authenticate
      * @param callback Indicates the callback to be invoked upon authenticateDevice
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -556,8 +579,9 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param deviceInfo deviceInfo of device to unAuthenticate
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
-     * @throws {BusinessError} 201 - Permission verify failed.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
@@ -568,6 +592,8 @@ declare namespace deviceManager {
      *
      * @param authInfo device auth info o verify
      * @param callback Indicates the callback to be invoked upon verifyAuthInfo
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -579,6 +605,8 @@ declare namespace deviceManager {
      * @since 9
      * @param operateAction User Operation Actions.
      * @param params Indicates the input param of the user.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -590,6 +618,8 @@ declare namespace deviceManager {
      * @since 10
      * @param { string } requestInfo - Request credential params, the params is json string, it includes version and userId.
      * @param { AsyncCallback<{registerInfo: string}> } callback - Indicates the callback to be invoked upon requestCredential
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns device credential registerInfo, it include deviceId, devicePk, useId and version.
      * @systemapi this method can be used only by system applications.
@@ -604,6 +634,8 @@ declare namespace deviceManager {
      * userId, deviceId, version, devicePk and credentialData, the credentialData is array, each array element
      * include credentialType, credentialId, serverPk, pkInfoSignature, pkInfo, authCode, peerDeviceId.
      * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon importCredential.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
@@ -616,6 +648,8 @@ declare namespace deviceManager {
      * @since 10
      * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
      * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @returns Returns the groupId to which the device belongs.
      * @systemapi this method can be used only by system applications.
@@ -628,6 +662,8 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the devicemanager ui state to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -638,6 +674,8 @@ declare namespace deviceManager {
       *
       * @since 9
       * @param callback Indicates the devicemanager ui state to unregister.
+      * @permission ohos.permission.ACCESS_SERVICE_DM
+      * @throws {BusinessError} 202 - Permission verify failed.
       * @throws {BusinessError} 401 - Input parameter error.
       * @systemapi this method can be used only by system applications.
       */
@@ -649,6 +687,8 @@ declare namespace deviceManager {
      *
      * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -659,6 +699,8 @@ declare namespace deviceManager {
      *
      * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -668,6 +710,8 @@ declare namespace deviceManager {
      * Register a device found callback so that the application can be notified when the device was found
      *
      * @param callback Indicates the device found callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -677,6 +721,8 @@ declare namespace deviceManager {
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
      * @param callback Indicates the device found callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -686,6 +732,8 @@ declare namespace deviceManager {
      * Register a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param callback Indicates the device found result callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -695,6 +743,8 @@ declare namespace deviceManager {
      * UnRegister a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param callback Indicates the device found result callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -705,6 +755,8 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -715,6 +767,8 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -725,6 +779,8 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -735,6 +791,8 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -744,6 +802,8 @@ declare namespace deviceManager {
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -753,6 +813,8 @@ declare namespace deviceManager {
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @throws {BusinessError} 202 - Permission verify failed.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
