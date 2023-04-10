@@ -41,233 +41,325 @@ declare namespace observer {
   type SimState = sim.SimState;
 
   /**
-   * Called when the network state corresponding to a monitored {@code slotId} updates.
+   * Callback when the network state corresponding to the default sim card is updated.
    *
-   * @param type networkStateChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including an instance of the {@code NetworkState} class.
+   * @param { string } type - networkStateChange.
+   * @param { Callback<NetworkState> } callback - Indicates the callback for getting an instance of the {@code NetworkState} class.
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
+
+  /**
+   * Callback when the network state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { string } type - networkStateChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param { Callback<NetworkState> } callback - Indicates the callback for getting an instance of the {@code NetworkState} class.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
   function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
 
   /**
-   * Cancel Called when the network state corresponding to a monitored {@code slotId} updates.
+   * Cancel callback when the network state is updated.
    *
-   * @param type networkStateChange
-   * @param callback including an instance of the {@code NetworkState} class.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - networkStateChange.
+   * @param { Callback<NetworkState> } callback - Indicates the callback to unsubscribe from the networkStateChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function off(type: 'networkStateChange', callback?: Callback<NetworkState>): void;
 
   /**
-   * Called when the signal strength corresponding to a monitored {@code slotId} updates.
+   * Callback when the signal strength corresponding to the default sim card is updated.
    *
-   * @param type signalInfoChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including an array of instances of the classes derived from {@link SignalInformation}.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - signalInfoChange.
+   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
+   * an array of instances of the classes derived from {@link SignalInformation}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
-  function on(type: 'signalInfoChange', options: { slotId: number },
-    callback: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Cancel Called when the signal strength corresponding to a monitored {@code slotId} updates.
+   * Callback when the signal strength corresponding to a monitored {@code slotId} is updated.
    *
-   * @param type signalInfoChange
-   * @param callback including an array of instances of the classes derived from {@link SignalInformation}.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - signalInfoChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
+   * an array of instances of the classes derived from {@link SignalInformation}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
+  function on(type: 'signalInfoChange', options: { slotId: number }, callback: Callback<Array<SignalInformation>>): void;
+
+  /**
+   * Cancel callback when the signal strength is updated.
+   *
+   * @param { string } type - signalInfoChange.
+   * @param { Callback<NetworkState> } callback - Indicates the callback to unsubscribe from the signalInfoChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Called back when the cell information corresponding to a monitored {@code slotId} updates.
+   * Callback when the cell information corresponding to the default sim card is updated.
    *
-   * @param type cellInfoChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including an array of instances of the classes derived from {@link CellInformation}.
+   * @param { string } type - cellInfoChange.
+   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
+   * an array of instances of the classes derived from {@link CellInformation}.
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'cellInfoChange', callback: Callback<Array<CellInformation>>): void;
-  function on(type: 'cellInfoChange', options: { slotId: number },
-    callback: Callback<Array<CellInformation>>): void;
 
   /**
-   * Cancel Called back when the cell information corresponding to a monitored {@code slotId} updates.
+   * Callback when the cell information corresponding to a monitored {@code slotId} is updated.
    *
-   * @param type cellInfoChange
-   * @param callback including an array of instances of the classes derived from {@link CellInformation}.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - cellInfoChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
+   * an array of instances of the classes derived from {@link CellInformation}.
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function on(type: 'cellInfoChange', options: { slotId: number }, callback: Callback<Array<CellInformation>>): void;
+
+  /**
+   * Cancel callback when the cell information is updated.
+   *
+   * @param { string } type - cellInfoChange.
+   * @param { Callback<Array<CellInformation>> } callback - Indicates the callback to unsubscribe from the cellInfoChange event.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function off(type: 'cellInfoChange', callback?: Callback<Array<CellInformation>>): void;
 
   /**
-   * Called when the cellular data link connection state updates.
+   * Callback when the cellular data link connection state corresponding to the default sim card is updated.
    *
-   * @param type cellularDataConnectionStateChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including state Indicates the cellular data link connection state,
-   *   and networkType Indicates the radio access technology for cellular data services.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - cellularDataConnectionStateChange.
+   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for getting the cellular data link connection state,
+   * and networkType Indicates the radio access technology for cellular data services.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function on(type: 'cellularDataConnectionStateChange',
     callback: Callback<{ state: DataConnectState, network: RatType }>): void;
+
+  /**
+   * Callback when the cellular data link connection state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { string } type - cellularDataConnectionStateChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for getting the cellular data link connection state,
+   * and networkType Indicates the radio access technology for cellular data services.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function on(type: 'cellularDataConnectionStateChange', options: { slotId: number },
     callback: Callback<{ state: DataConnectState, network: RatType }>): void;
 
   /**
-   * Cancel Called when the cellular data link connection state updates.
+   * Cancel callback when the cellular data link connection state is updated.
    *
-   * @param type cellularDataConnectionStateChange
-   * @param callback including state Indicates the cellular data link connection state,
-   *   and networkType Indicates the radio access technology for cellular data services.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - cellularDataConnectionStateChange.
+   * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback to unsubscribe from
+   * the cellularDataConnectionStateChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function off(type: 'cellularDataConnectionStateChange',
     callback?: Callback<{ state: DataConnectState, network: RatType }>): void;
 
   /**
-   * Called when the uplink and downlink data flow state of cellular data services updates.
+   * Callback when the uplink and downlink data flow state of cellular data services corresponding to the default sim card is updated.
    *
-   * @param type cellularDataFlowChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including the cellular data flow state.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - cellularDataFlowChange.
+   * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function on(type: 'cellularDataFlowChange', callback: Callback<DataFlowType>): void;
-  function on(type: 'cellularDataFlowChange', options: { slotId: number },
-    callback: Callback<DataFlowType>): void;
 
   /**
-   * Cancel Called when the uplink and downlink data flow state of cellular data services updates.
+   * Callback when the uplink and downlink data flow state of cellular data services corresponding to the monitored {@code slotId} is updated.
    *
-   * @param type cellularDataFlowChange
-   * @param callback including the cellular data flow state.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - cellularDataFlowChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
+  function on(type: 'cellularDataFlowChange', options: { slotId: number }, callback: Callback<DataFlowType>): void;
+
+  /**
+   * Cancel callback when the uplink and downlink data flow state of cellular data services is updated.
+   *
+   * @param { string } type - cellularDataFlowChange.
+   * @param { Callback<DataFlowType> } callback - Indicates the callback to unsubscribe from the cellularDataFlowChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function off(type: 'cellularDataFlowChange', callback?: Callback<DataFlowType>): void;
 
   /**
-   * Receives a call state change. This callback is invoked when the call state of a specified card updates
-   * and the observer is added to monitor the updates.
+   * Callback when the call state corresponding to the default sim card is updated.
    *
-   * @param type callStateChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including state Indicates the call state, and number Indicates the called number.
-   *   The value of number is an empty string if the application does not have the
-   *   ohos.permission.READ_CALL_LOG permission.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - callStateChange.
+   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for getting the call state and the called number.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: string }>): void;
-  function on(type: 'callStateChange', options: { slotId: number },
-    callback: Callback<{ state: CallState, number: string }>): void;
 
   /**
-   * Cancel Receives a call state change. This callback is invoked when the call state of a specified card updates
-   * and the observer is added to monitor the updates.
+   * Callback when the call state corresponding to the monitored {@code slotId} is updated.
    *
-   * @param type callStateChange
-   * @param callback including state Indicates the call state, and number Indicates the called number.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - callStateChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for getting the call state and the called number.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   */
+  function on(type: 'callStateChange', options: { slotId: number }, callback: Callback<{ state: CallState, number: string }>): void;
+
+  /**
+   * Cancel callback when the call state is updated.
+   *
+   * @param { string } type - callStateChange.
+   * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback to unsubscribe from the callStateChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    */
   function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: string }>): void;
 
   /**
-   * Receives a sim state change. This callback is invoked when the sim state of a specified card updates
-   * and the observer is added to monitor the updates.
+   * Callback when the sim state corresponding to the default sim card is updated.
    *
-   * @param type simStateChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including state Indicates the sim state, and reason Indicates the cause of the change.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - simStateChange.
+   * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
+   * including state Indicates the sim state, and reason Indicates the cause of the change.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
+
+  /**
+   * Callback when the sim state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { string } type - simStateChange.
+   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
+   * @@param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @since 7
+   */
   function on(type: 'simStateChange', options: { slotId: number }, callback: Callback<SimStateData>): void;
 
   /**
-   * Receives a sim state change. This callback is invoked when the sim state of a specified card updates
-   * and the observer is delete.
+   * Cancel callback when the sim state is updated.
    *
-   * @param type simStateChange
-   * @param callback including state Indicates the sim state, and reason Indicates the cause of the change.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - simStateChange.
+   * @param { Callback<SimStateData> } callback - Indicates the callback to unsubscribe from the simStateChange event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 7
    */
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
@@ -276,9 +368,19 @@ declare namespace observer {
    * @since 7
    */
   export interface SimStateData {
-    type: CardType;
-    state: SimState;
     /**
+     * Indicates the SIM card type.
+     */
+    type: CardType;
+
+    /**
+     * Indicates the SIM card states.
+     */
+    state: SimState;
+
+    /**
+     * Indicates the SIM card lock type.
+     *
      * @since 8
      */
     reason: LockReason;
@@ -288,18 +390,69 @@ declare namespace observer {
    * @since 8
    */
   export enum LockReason {
+    /**
+     * Indicates no SIM lock.
+     */
     SIM_NONE,
+
+    /**
+     * Indicates the PIN lock.
+     */
     SIM_PIN,
+
+    /**
+     * Indicates the PUK lock.
+     */
     SIM_PUK,
-    SIM_PN_PIN, //Network Personalization (refer 3GPP TS 22.022 [33])
+
+    /**
+     * Indicates the network PIN lock(refer 3GPP TS 22.022 [33]).
+     */
+    SIM_PN_PIN,
+
+    /**
+     * Indicates the network PUK lock.
+     */
     SIM_PN_PUK,
-    SIM_PU_PIN, //Network Subset Personalization (refer 3GPP TS 22.022 [33])
+
+    /**
+     * Indicates the subnet PIN lock(refer 3GPP TS 22.022 [33]).
+     */
+    SIM_PU_PIN,
+
+    /**
+     * Indicates the subnet PUK lock.
+     */
     SIM_PU_PUK,
-    SIM_PP_PIN, //Service Provider Personalization (refer 3GPP TS 22.022 [33])
+
+    /**
+     * Indicates the service provider PIN lock(refer 3GPP TS 22.022 [33]).
+     */
+    SIM_PP_PIN,
+
+    /**
+     * Indicates the service provider PUK lock.
+     */
     SIM_PP_PUK,
-    SIM_PC_PIN, //Corporate Personalization (refer 3GPP TS 22.022 [33])
+
+    /**
+     * Indicates the organizational PIN lock(refer 3GPP TS 22.022 [33]).
+     */
+    SIM_PC_PIN,
+
+    /**
+     * Indicates the organizational PUK lock.
+     */
     SIM_PC_PUK,
-    SIM_SIM_PIN, //SIM/USIM Personalization (refer 3GPP TS 22.022 [33])
+
+    /**
+     * Indicates the SIM PIN lock.(refer 3GPP TS 22.022 [33]).
+     */
+    SIM_SIM_PIN,
+
+    /**
+     * Indicates the SIM PUK lock.
+     */
     SIM_SIM_PUK,
   }
 }
