@@ -38,7 +38,7 @@ declare namespace dataShare {
    * @StageModelOnly
    * @since 10
    */
-  interface CreateOption {
+  interface DataShareHelperOption {
     /**
      * Specifies whether the {@link DataShareHelper} in proxy mode.
      * If value is true, the {@link DataShareHelper} to be created is in proxy mode, and all operations will not open provider APP as possible
@@ -59,7 +59,7 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
-   * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - the DataShareHelper is not created successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -71,10 +71,10 @@ declare namespace dataShare {
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @param { CreateOption } option - Indicates the optional config.
+   * @param { DataShareHelperOption } option - Indicates the optional config.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
-   * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - the DataShareHelper is not created successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -83,7 +83,7 @@ declare namespace dataShare {
   function createDataShareHelper(
     context: Context,
     uri: string,
-    option: CreateOption,
+    option: DataShareHelperOption,
     callback: AsyncCallback<DataShareHelper>
   ): void;
 
@@ -94,7 +94,7 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
-   * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - the DataShareHelper is not created successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
@@ -105,19 +105,25 @@ declare namespace dataShare {
    *
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
-   * @param { CreateOption } option - Indicates the optional config.
+   * @param { DataShareHelperOption } option - Indicates the optional config.
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: the dataShareHelper for consumer.
    * @throws { BusinessError } 401 - the parameter check failed.
-   * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - the DataShareHelper is not created successfully.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @StageModelOnly
    * @since 10
    */
-  function createDataShareHelper(context: Context, uri: string, option?: CreateOption): Promise<DataShareHelper>;
+  function createDataShareHelper(
+    context: Context,
+    uri: string,
+    option?: DataShareHelperOption
+  ): Promise<DataShareHelper>;
 
   /**
    * Specifies the {@link Template} id structure.
+   * A template is marked by the template id. Note that the template id is auto generated in {@link DataShareHelper#addTemplate}.
+   * After {@link DataShareHelper#addTemplate}, can use the template id to direct a template.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
