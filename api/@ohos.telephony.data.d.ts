@@ -182,7 +182,7 @@ declare namespace data {
    * @return Returns the sim id of the default cellular data sim and sim id will increase from 1.
    * @since 10
    */
-  function getDefaultCellularDataSimIdSync(): number;
+  function getDefaultCellularDataSimId(): number;
 
   /**
    * Describes the cellular data flow type.
