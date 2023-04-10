@@ -1139,6 +1139,26 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     release(): Promise<void>;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param options Options of URI list
+     * @param callback thumbnails in PixelMap format
+     */
+    getThumbnails(options: UriListOptions, callback: AsyncCallback<Array<image.PixelMap>>): void;
+    /**
+     * Get thumbnails
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA
+     * @param options Options of URI list
+     * @returns Promise used to return thumbnails in PixelMap format
+     */
+    getThumbnails(options: UriListOptions): Promise<Array<image.PixelMap>>;
   }
 
   /**
@@ -1241,6 +1261,43 @@ declare namespace userFileManager {
      * @returns A Promise instance, no value returned
      */
     recover(uri: string): Promise<void>;
+  }
+
+  /**
+   * Options of URI list
+   * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+   * @systemapi
+   * @since 9
+   */
+  interface UriListOptions {
+    /**
+     * uri list of thumbnails to be obtained
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    uriList: Array<string>;
+    /**
+     * position of uri list to start get thumbnails
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    offset: number;
+    /**
+     * counts of thumbnails will be got
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    maxCount: number;
+    /**
+     * size size of all thumbnails will be got
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
+     * @systemapi
+     */
+    size?: image.Size;
   }
 }
 
