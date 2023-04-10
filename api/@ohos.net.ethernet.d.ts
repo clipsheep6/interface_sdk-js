@@ -90,7 +90,7 @@ declare namespace ethernet {
    * Register a callback for the ethernet interface active state change.
    *
    * @param { string } type - interfaceStateChange
-   * @param { Callback<{ interfaceName: string, active: boolean }> } callback - including state Indicates the ethernet
+   * @param { Callback<{ iface: string, active: boolean }> } callback - including state Indicates the ethernet
    * interface, and active Indicates whether the interface is active.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
@@ -101,13 +101,13 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'interfaceStateChange', callback?: Callback<{ interfaceName: string, active: boolean }>): void;
+  function on(type: 'interfaceStateChange', callback?: Callback<{ iface: string, active: boolean }>): void;
 
   /**
    * Unregister a callback for the ethernet interface active state change.
    *
    * @param { string } type - interfaceStateChange
-   * @param { Callback<{ interfaceName: string, active: boolean }> } callback - including state Indicates the ethernet
+   * @param { Callback<{ iface: string, active: boolean }> } callback - including state Indicates the ethernet
    * interface, and active Indicates whether the interface is active.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
@@ -118,7 +118,7 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'interfaceStateChange', callback?: Callback<{ interfaceName: string, active: boolean }>): void;
+  function off(type: 'interfaceStateChange', callback?: Callback<{ iface: string, active: boolean }>): void;
 
   /**
    * @systemapi Hide this for inner system use.
