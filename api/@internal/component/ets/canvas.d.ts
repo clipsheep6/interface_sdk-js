@@ -1108,6 +1108,12 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @since 8
    */
   onReady(event: () => void): CanvasAttribute;
+
+  /**
+   * Event notification after the position of the canvas component is changed.
+   * @since 10
+   */
+  onPositionChange(event: (position: Position) => void): CanvasAttribute;
 }
 
 declare const Canvas: CanvasInterface;
