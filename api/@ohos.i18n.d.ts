@@ -1164,7 +1164,7 @@ declare namespace i18n {
      * @since 9
      */
     static getTimezoneFromCity(cityID: string): TimeZone;
-}
+  }
 
   /**
    * Provides the API for transliterate text from one format to another.
@@ -1208,7 +1208,7 @@ declare namespace i18n {
   /**
    * Enumerates the Normalizer modes.
    *
-   * @enum {number}
+   * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @since 10
    */
