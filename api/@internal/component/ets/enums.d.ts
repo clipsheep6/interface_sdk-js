@@ -2781,3 +2781,25 @@ declare enum CtrlKey {
    */
   ALT = 2,
 }
+
+/**
+ * Enum of springback effect level.
+ * @since 11
+ */
+declare enum SpringbackEffectLevel {
+    /**
+     * Springback effect level1.
+     * @since 11
+     */
+    Light,
+    /**
+     * Springback effect level2.
+     * @since 11
+     */
+    Middle,
+    /**
+     * Springback effect level3.
+     * @since 11
+     */
+    Heavy,
+}

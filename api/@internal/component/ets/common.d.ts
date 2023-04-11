@@ -2251,6 +2251,31 @@ declare interface PixelStretchEffectOptions {
 }
 
 /**
+ * Defines the springback effect.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface SpringbackEffect {
+  /**
+   * Set the springback effect level.
+   * @type { SpringbackEffectLevel }
+   * @default: SpringbackEffectLevel.Light
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  springbackEffectLevel: SpringbackEffectLevel;
+
+  /**
+   * Set scale number.
+   * @type { number }
+   * @default 90%
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  scaleNumber: number;
+}
+
+/**
  * CommonMethod.
  * @since 7
  */
@@ -3105,6 +3130,13 @@ declare class CommonMethod<T> {
    * @since 9
    */
   aspectRatio(value: number): T;
+
+  /**
+   * The springback effect level and scale number.
+   * @param { SpringbackEffect } value
+   * @since 11
+   */
+  springbackEffect(value: SpringbackEffect): T;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
