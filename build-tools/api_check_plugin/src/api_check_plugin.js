@@ -15,11 +15,13 @@
 
 const path = require('path');
 const fs = require('fs');
-const { checkAPIDecorators } = require('./check_decorator');
 const { checkSpelling } = require('./check_spelling');
+const { checkAPIDecorators } = require('./check_decorator');
 const { checkPermission } = require('./check_permission');
 const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
+const { checkAPINameOfHump, checkAPIFileName } = require('./check_hump');
+const { checkJSDoc } = require('./check_legality');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
@@ -57,6 +59,7 @@ function tsTransform(uFiles, callback) {
 function checkAPICodeStyleCallback(fileName) {
   return (context) => {
     return (node) => {
+      checkAPIFileName(node, fileName);
       checkAllNode(node, node, fileName);
       return node;
     };
@@ -64,8 +67,9 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  if (!ts.isImportDeclaration) {
-
+  if (!ts.isImportDeclaration(node) && !ts.isSourceFile(node)) {
+    // check hump naming
+    checkAPINameOfHump(node, sourcefile, fileName);
   }
   if (hasAPINote(node)) {
     // check decorator

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import { AsyncCallback, Callback } from "./@ohos.base";
 import Want from './@ohos.app.ability.Want';
 import Context from './application/Context';
 import { Filter } from './@ohos.file.fs';
@@ -539,6 +539,21 @@ declare namespace fileAccess {
         next(): {value: RootInfo, done: boolean}
     }
 
+  /**
+   * CopyResult describe the return information of the copy operation.
+   *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @since 10
+   */
+  interface CopyResult {
+    sourceUri: string;
+    destUri: string;
+    errCode: number;
+    errMsg: string;
+  }
+
     /**
      * OPENFLAGS represents the way to open the file.
      * @since 9
@@ -553,6 +568,79 @@ declare namespace fileAccess {
         WRITE = 0o1,
         /** file is openFile write_read */
         WRITE_READ = 0o2
+    }
+
+    /**
+     * Describes the key that can be queried.
+     * @since 10
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi
+     */
+    enum FileKey {
+        /**
+         * The key represents the file name, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DISPLAY_NAME = "display_name",
+
+        /**
+         * The key represents the date of the file creation, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DATE_ADDED = "date_added",
+
+        /**
+         * The key represents the modify date of the file, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DATE_MODIFIED = "date_modified",
+
+        /**
+         * The key represents the relative path, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        RELATIVE_PATH = "relative_path",
+
+        /**
+         * The key represents the file size, which is generic
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        FILE_SIZE = "size",
+
+        /**
+         * The key represents width of the image file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        WIDTH = "width",
+
+        /**
+         * The key represents height of the image file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        HEIGHT = "height",
+
+        /**
+         * The key represents duration of the audio and video file
+         * @since 10
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileService
+         */
+        DURATION = "duration",
     }
 
     /**
@@ -807,6 +895,47 @@ declare namespace fileAccess {
         move(sourceFile: string, destFile: string) : Promise<string>;
         move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
 
+    /**
+     * Copy file or directory in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be copied.
+     * @param { string } destUri - Represents the destination directory.
+     * @param { boolean } force - Optional parameter that determines whether to forcibly copy files.
+     * @returns { Promise<Array<CopyResult> } Returns the file information where the error occurred.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    copy(sourceUri: string, destUri: string, force?: boolean): Promise<Array<CopyResult>>;
+
+    /**
+     * Copy file or directory in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be copied.
+     * @param { string } destUri - Represents the destination directory.
+     * @param { AsyncCallback<Array<CopyResult> } callback - The callback is used to return the file information where the error occurred.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    copy(sourceUri: string, destUri: string, callback: AsyncCallback<Array<CopyResult>>): void;
+
+    /**
+     * Copy file or directory in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be copied.
+     * @param { string } destUri - Represents the destination directory.
+     * @param { boolean } force - Determines whether to forcibly copy files.
+     * @param { AsyncCallback<Array<CopyResult> } callback - The callback is used to return the file information where the error occurred.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>): void;
+
         /**
          * Rename the selected file or directory.
          *
@@ -903,6 +1032,34 @@ declare namespace fileAccess {
          */
         access(sourceFileUri: string) : Promise<boolean>;
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
+
+        /**
+         * Query file related information by the uri in the promise way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {string} metaJson The json string includes query property.
+         * @returns {Promise<string>} Returns the json string, includes query property and value.
+         */
+        query(uri: string, metaJson: string) : Promise<string>;
+
+        /**
+         * Query file related information by the uri in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {string} metaJson The json string includes query property.
+         * @param {AsyncCallback<string>} callback - Returns the json string, includes query property and value.
+         */
+        query(uri: string, metaJson: string, callback: AsyncCallback<string>) : void;
 
         /**
          * Get a FileInfo by the uri in the promise way.

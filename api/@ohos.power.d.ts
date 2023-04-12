@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, BusinessError } from './basic';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
  * Provides interfaces to manage power.
@@ -81,7 +81,6 @@ declare namespace power {
    * @useinstead { @link power#isActive }
    */
   function isScreenOn(callback: AsyncCallback<boolean>): void;
-  function isScreenOn(): Promise<boolean>;
 
   /**
    * Checks whether the screen of a device is on or off.

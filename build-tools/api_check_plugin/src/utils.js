@@ -40,7 +40,7 @@ const commentNodeWhiteList = [
   ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.Constructor, ts.SyntaxKind.ModuleDeclaration,
   ts.SyntaxKind.NamespaceExportDeclaration, ts.SyntaxKind.ClassDeclaration, ts.SyntaxKind.InterfaceDeclaration,
   ts.SyntaxKind.EnumDeclaration, ts.SyntaxKind.Parameter, ts.SyntaxKind.TypeLiteral, ts.SyntaxKind.FunctionDeclaration,
-  ts.SyntaxKind.LabeledStatement
+  ts.SyntaxKind.LabeledStatement, ts.SyntaxKind.TypeAliasDeclaration
 ];
 exports.commentNodeWhiteList = commentNodeWhiteList;
 
@@ -115,9 +115,18 @@ const ErrorType = {
   UNKNOW_SYSCAP: 'unknow syscap',
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order'
+  WRONG_ORDER: 'wrong order',
+  WRONG_VALUE: 'wrong value',
+  WRONG_SCENE: 'wrong scene',
 };
 exports.ErrorType = ErrorType;
+
+const LogType = {
+  LOG_API: 'Api',
+  LOG_JSDOC: 'JsDoc',
+  LOG_FILE: 'File'
+};
+exports.LogType = LogType;
 
 const ErrorLevel = {
   HIGH: 3,
@@ -143,11 +152,11 @@ exports.ApiCheckResult = new ApiCheckResultClass();
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Js Api', { views: [{ xSplit: 1 }] });
-  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'type', 'errorInfo', 'version', 'model'];
+  sheet.getRow(1).values = ['order', 'errorType', 'fileName', 'apiName', 'apiContent', 'type', 'errorInfo', 'version', 'model'];
   for (let i = 1; i <= apiCheckArr.length; i++) {
     const apiData = apiCheckArr[i - 1];
-    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.type, apiData.errorInfo,
-      apiData.version, apiData.basename];
+    sheet.getRow(i + 1).values = [i, apiData.errorType, apiData.fileName, apiData.apiName, apiData.apiFullText,
+      apiData.type, apiData.errorInfo, apiData.version, apiData.basename];
   }
   const buffer = await workbook.xlsx.writeBuffer();
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
@@ -164,40 +173,43 @@ function getApiInfo(node) {
   const notesStr = getAPINote(node);
   let apiInfo = {};
   if (notesStr !== '') {
-    if (/\@[S|s][Y|y][S|s][T|t][E|e][M|m][A|a][P|p][I|i]/g.test(notesStr)) {
+    if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
     }
-    if (/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
-      notesStr.replace(/\@[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g, (versionInfo) => {
-        apiInfo.version = versionInfo.replace(/\@[S|s][I|i][N|n][C|c][E|e]/g, '').trim();
+    if (/\@constant/g.test(notesStr)) {
+      apiInfo.isConstant = true;
+    }
+    if (/\@since\s*(\d+)/g.test(notesStr)) {
+      notesStr.replace(/\@since\s*(\d+)/g, (versionInfo) => {
+        apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
     }
-    if (/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g.test(notesStr)) {
-      notesStr.replace(/\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*(\d+)/g,
+    if (/\@deprecated.*since\s*(\d+)/g.test(notesStr)) {
+      notesStr.replace(/\@deprecated.*since\s*(\d+)/g,
         versionInfo => {
           apiInfo.deprecated = versionInfo.replace(
-            /\@[D|d][E|e][P|p][R|r][E|e][C|c][A|a][T|t][E|e][D|d].*[S|s][I|i][N|n][C|c][E|e]\s*/g, '').trim();
+            /\@deprecated.*since\s*/g, '').trim();
         });
     }
-    if (/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
-      notesStr.replace(/\@[F|f][A|a][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
+    if (/\@famodelonly/g.test(notesStr)) {
+      notesStr.replace(/\@famodelonly/g, modelInfo => {
         apiInfo.model = modelInfo;
       });
-    } else if (/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g.test(notesStr)) {
-      notesStr.replace(/\@[S|s][T|t][A|a][G|g][E|e][M|m][O|o][D|d][E|e][L|l][O|o][N|n][L|l][Y|y]/g, modelInfo => {
+    } else if (/\@stagemodelonly/g.test(notesStr)) {
+      notesStr.replace(/\@stagemodelonly/g, modelInfo => {
         apiInfo.model = modelInfo;
       });
     }
-    if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
-      notesStr.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
-        apiInfo.sysCap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
+    if (/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
+      notesStr.replace(/\@syscap\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
+        apiInfo.sysCap = sysCapInfo.replace(/\@syscap/g, '').trim();
       });
     }
-    if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
-      notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
+    if (/\@permission\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
+      notesStr.replace(/\@permission\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
         permissionInfo => {
           apiInfo.permission =
-            permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
+            permissionInfo.replace(/\@permission/g, '').trim();
         });
     }
   }
@@ -233,3 +245,59 @@ exports.systemPermissionFile = systemPermissionFile;
 exports.checkOption = {
   permissionContent: undefined
 };
+
+const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'deprecated',
+  'systemapi'];
+exports.inheritArr = inheritArr;
+
+const ErrorValueInfo = {
+  ERROR_INFO_VALUE_EXTENDS: '第[$$]段JSDoc中, extends标签值错误, 请检查标签值是否与继承类名保持一致.',
+  ERROR_INFO_VALUE_ENUM: '第[$$]段JSDoc中,enum标签类型错误, 请检查标签类型是否为string或number.',
+  ERROR_INFO_VALUE_SINCE: '第[$$]段JSDoc中,since标签值错误, 请检查标签值是否为数值.',
+  ERROR_INFO_RETURNS: '第[$$]段JSDoc中,returns标签使用错误, 返回类型为void时不应该使用returns标签.',
+  ERROR_INFO_VALUE_RETURNS: '第[$$]段JSDoc中,returns标签类型错误, 请检查标签类型是否与返回类型一致.',
+  ERROR_INFO_VALUE_USEINSTEAD: '第[$$]段JSDoc中,useinstead标签值错误, 请检查使用方法.',
+  ERROR_INFO_VALUE_TYPE: '第[$$]段JSDoc中,type标签类型错误, 请检查类型是否与属性类型一致.',
+  ERROR_INFO_VALUE_DEFAULT: '第[$$]段JSDoc中,default标签值错误, 请补充默认值.',
+  ERROR_INFO_VALUE_PERMISSION: '第[$$]段JSDoc中,permission标签值书写错误, 请检查权限字段是否已配置或者更新配置文件.',
+  ERROR_INFO_VALUE_DEPRECATED: '第[$$]段JSDoc中,deprecated标签值错误, 请检查使用方法.',
+  ERROR_INFO_VALUE_SYSCAP: '第[$$]段JSDoc中,syscap标签值错误, 请检查syscap字段是否已配置.',
+  ERROR_INFO_VALUE_NAMESPACE: '第[$$]段JSDoc中,namespace标签值错误, 请检查是否与namespace名称保持一致.',
+  ERROR_INFO_VALUE_INTERFACE: '第[$$]段JSDoc中,interface标签值错误, 请检查是否与interface名称保持一致.',
+  ERROR_INFO_VALUE_TYPEDEF: '第[$$]段JSDoc中,typedef标签值错误, 请检查是否与interface名称保持一致.',
+  ERROR_INFO_TYPE_PARAM: '第[$$]段JSDoc中,第[$$]个param标签类型错误, 请检查是否与第[$$]个参数类型保持一致.',
+  ERROR_INFO_VALUE_PARAM: '第[$$]段JSDoc中,第[$$}]个param标签值错误, 请检查是否与第[$$]个参数名保持一致.',
+  ERROR_INFO_VALUE1_THROWS: '第[$$]段JSDoc中,第[$$}]个throws标签类型错误, 请填写BusinessError.',
+  ERROR_INFO_VALUE2_THROWS: '第[$$]段JSDoc中,第[$$}]个throws标签类型错误, 请检查标签值是否为数值.',
+  ERROR_INFO_INHERIT: '第[$$]段JSDoc中,检测到当前文件中存在可继承标签[$$]，但存在子节点没有此标签.',
+  ERROR_ORDER: 'JSDoc标签顺序错误,请进行调整',
+  ERROR_LABELNAME: '第[$$]段JSDoc中,[$$]标签不存在, 请使用合法的JSDoc标签.',
+  ERROR_LOST_LABEL: 'JSDoc标签合法性校验失败,请确认是否遗失$$标签.',
+  ERROR_USE: 'JSDoc标签合法性校验失败,不允许使用[$$]标签, 请检查标签使用方法.',
+  ERROR_MORELABEL: 'JSDoc标签合法性校验失败,第[$$]个[$$]标签多余, 请检查是否应该删除标签',
+  ERROR_REPEATLABEL: '第[$$]段JSDoc中,JSDoc标签合法性校验失败,[$$]标签不允许重复使用, 请删除多余标签.',
+  ERROR_USE_INTERFACE: '第[$$]段JSDoc中,JSDoc标签合法性校验失败,interface标签与typedef标签不允许同时使用, 请确认接口类型.',
+};
+exports.ErrorValueInfo = ErrorValueInfo;
+
+/**
+   * 组装错误信息
+   */
+function createErrorInfo(errorInfo, params) {
+  params.forEach((param) => {
+    errorInfo = errorInfo.replace('$$', param);
+  });
+  return errorInfo;
+}
+exports.createErrorInfo = createErrorInfo;
+
+/**
+ * 判断是否为arkui的api文件
+ */
+function isArkUIApiFile(fileName) {
+  if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
+    return true;
+  }
+  return false;
+}
+exports.isArkUIApiFile = isArkUIApiFile;

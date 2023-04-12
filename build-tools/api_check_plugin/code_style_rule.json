@@ -307,7 +307,9 @@
       "SystemCapability.Cloud.Push",
       "SystemCapability.XTS.DeviceAttest",
       "SystemCapability.XTS.DeviceAttestLite",
-      "SystemCapability.Base"
+      "SystemCapability.Base",
+      "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
+      "SystemCapability.MultimodalInput.Input.ShortKey"
     ]
   }
 }
