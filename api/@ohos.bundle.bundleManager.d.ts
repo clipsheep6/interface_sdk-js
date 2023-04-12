@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
@@ -465,6 +465,7 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
    * @since 9
    */
   export enum LaunchType {
@@ -480,6 +481,7 @@ declare namespace bundleManager {
      * Indicates that the ability can have multiple instances
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
      * @since 9
      */
     MULTITON = 1,
@@ -1220,7 +1222,7 @@ declare namespace bundleManager {
    * Sets whether to enable a specified ability.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { AbilityInfo } abilityInfo - Indicates information about the ability to set.
+   * @param { AbilityInfo } info - Indicates information about the ability to set.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @param { AsyncCallback<void> } callback - The callback of setting ability enabled result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1238,7 +1240,7 @@ declare namespace bundleManager {
    * Sets whether to enable a specified ability.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { AbilityInfo } abilityInfo - Indicates information about the ability to set.
+   * @param { AbilityInfo } info - Indicates information about the ability to set.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @returns { Promise<void> } set ability enabled result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1413,7 +1415,7 @@ declare namespace bundleManager {
    * @param { string } moduleName - Indicates the moduleName of the application.
    * @param { string } extensionAbilityName - Indicates the extensionAbilityName of the application.
    * @param { string } metadataName - Indicates the name of metadata in ability.
-   * @param { AsyncCallback } callback - The callback of returning string in json-format of the corresponding config file.
+   * @param { AsyncCallback<Array<string>> } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
