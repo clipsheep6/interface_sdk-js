@@ -162,4 +162,22 @@ export default class App {
    * @since 7
    */
   static setImageFileCacheSize(value: number): void;
+
+  /**
+   * Enable or disable app level default drag ability of Image components.
+   * Component level default drag can still be configured with .draggable property, overriding this setting.
+   * @param { boolean } value - Enable or disable the default drag.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static setImageDefaultDrag(value: boolean): void;
+
+  /**
+   * Enable or disable app level default drag ability of Text components.
+   * Component level default drag can still be configured with .draggable property, overriding this setting.
+   * @param { boolean } value - Enable or disable the default drag.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  static setTextDefaultDrag(value: boolean): void;
 }
