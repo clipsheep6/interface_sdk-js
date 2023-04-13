@@ -1139,6 +1139,114 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      */
     release(): Promise<void>;
+        /**
+     * Copy media assets
+     * @since 9
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @param uriList uri list to be copied
+     * @param path destination path of copying file
+     * @param callback returned fail list
+     */
+        copyAssets(uriList: Array<string>, path: string, callback: AsyncCallback<Array<string>>): void;
+
+        /**
+         * Copy media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be copied
+         * @param path destination path of copying file
+         * @param overwrite whether to overwrite if the same file exists
+         * @param callback returned fail list
+         */
+        copyAssets(uriList: Array<string>, path: string, overwrite: boolean, callback: AsyncCallback<Array<string>>): void;
+        
+        /**
+         * Copy media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be copied
+         * @param path destination path of copying file
+         * @returns Promise used to return the list of fail
+         */
+        copyAssets(uriList: Array<string>, path: string): Promise<Array<string>>;
+    
+        /**
+         * Copy media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be copied
+         * @param path destination path of copying file
+         * @param overwrite whether to overwrite if the same file exist
+         * @returns Promise used to return the list of fail
+         */
+        copyAssets(uriList: Array<string>, path: string , overwrite: boolean): Promise<Array<string>>;
+        
+        /**
+         * Move media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be moved
+         * @param path destination path of moving file
+         * @param callback returned fail list
+         */
+        moveAssets(uriList: Array<string>, path: string, callback: AsyncCallback<Array<string>>): void;
+    
+        /**
+         * Move media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be moved
+         * @param path destination path of moving file
+         * @param overwrite whether to overwrite if the same file exist
+         * @param callback returned fail list
+         */
+        moveAssets(uriList: Array<string>, path: string, overwrite: boolean, callback: AsyncCallback<Array<string>>): void;
+    
+        /**
+         * Move media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be moved
+         * @param path destination path of moving file
+         * @returns Promise used to return the list of fail
+         */
+        moveAssets(uriList: Array<string>, path: string): Promise<Array<string>>;
+    
+        /**
+         * Move media assets
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+         * @param uriList uri list to be moved
+         * @param path destination path of moving file
+         * @param overwrite whether to overwrite if the same file exist
+         * @returns Promise used to return the list of fail
+         */
+        moveAssets(uriList: Array<string>, path: string, overwrite: boolean): Promise<Array<string>>;
+        /**
+         * Get thumbnails
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.FileManagement.UserFileManager.Core
+         * @permission ohos.permission.READ_MEDIA
+         * @param options Options of URI list
+         * @param callback thumbnails in PixelMap format
+         */
   }
 
   /**
