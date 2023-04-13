@@ -792,6 +792,7 @@ declare namespace commonEventManager {
     /**
      * Sent when the list of exempt applications in idle mode is updated.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_DEVICE_IDLE_EXEMPTION_UPDATE = "usual.event.DEVICE_IDLE_EXEMPTION_UPDATE",
@@ -799,6 +800,7 @@ declare namespace commonEventManager {
     /**
      * Sent when screen is off for about 30 minutes, network access is restricted or restored
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_DEVICE_IDLE_CTRL_NETWORK = "usual.event.DEVICE_IDLE_CTRL_NETWORK",
