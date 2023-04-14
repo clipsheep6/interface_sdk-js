@@ -2169,6 +2169,22 @@ declare interface ContextMenuOptions {
    */
   placement?: Placement;
 
+  /**
+   * whether show arrow belong to the menu, default: false, not show arrow
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
+
+  /**
+    * The horizontal offset to the left of menu or virtical offset to the top of menu
+    * @type { ?Length }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  arrowOffset?: Length; 
+
   /**s
    * Callback function when the context menu appears.
    * @type { ?() => void }
