@@ -3397,6 +3397,20 @@ declare class CommonMethod<T> {
    * @since 10
    */
   keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
+
+  /**
+   * createAnimatableProperty
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  createAnimatableProperty(name: string, value: number, callback: (value: number) => void): T;
+
+  /**
+   * createAnimatableProperty
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  updateAnimatableProperty(name: string, value: number): T;
 }
 
 /**
