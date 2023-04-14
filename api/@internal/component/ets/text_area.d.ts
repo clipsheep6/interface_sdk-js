@@ -160,6 +160,22 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Define the max length content of the text area.
+   * @param { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  maxLength(value: number): TextAreaAttribute;
+
+  /**
+   * Define show counter of the text area.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showCounter(value: boolean): TextAreaAttribute;
 }
 
 /**
