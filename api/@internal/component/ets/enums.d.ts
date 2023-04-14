@@ -2696,6 +2696,12 @@ declare enum CopyOptions {
    * @since 9
    */
   LocalDevice = 2,
+
+  /**
+   * Share in cross device.
+   * @since 10
+   */
+  CrossDevice = 3,
 }
 
 /**
