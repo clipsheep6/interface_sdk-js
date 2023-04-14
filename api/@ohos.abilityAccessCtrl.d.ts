@@ -430,7 +430,7 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @since 10
      */
-     PERMISSION_GRANTED = 0
+    PERMISSION_GRANTED = 0
   }
 
   /**
