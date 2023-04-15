@@ -684,8 +684,8 @@ export declare namespace agent {
      * New task' status is "initialized" and enqueued.
      * For background, no callbacks.
      * Can `start` a initialized task.
-     * Can `pause` a waiting/running/retrying task.
-     * Can `resume` a paused task.
+     * Can `pause` a waiting/running/retrying background task.
+     * Can `resume` a paused background task.
      * Can `stop` a running/waiting/retrying task and dequeue it.
      * @since 10
      * @syscap SystemCapability.Request.FileTransferAgent
@@ -731,6 +731,7 @@ export declare namespace agent {
          * @param { "progress"|"completed"|"failed" } evt event types.
          * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
+         * @throws {BusinessError} 13400005 - task mode error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -740,6 +741,7 @@ export declare namespace agent {
          * @param { "progress"|"completed"|"failed" } evt event types.
          * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
+         * @throws {BusinessError} 13400005 - task mode error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -750,7 +752,7 @@ export declare namespace agent {
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - application task queue full error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -760,43 +762,51 @@ export declare namespace agent {
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - application task queue full error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
          */
         start(): Promise<void>;
         /**
-         * Pauses the task.
+         * Pauses the background task.
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - task mode error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         pause(callback: AsyncCallback<void>): void;
         /**
-         * Pauses the task.
+         * Pauses the background task.
          * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - task mode error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
          */
         pause(): Promise<void>;
         /**
-         * Resumes the task.
+         * Resumes the background task.
          * @permission ohos.permission.INTERNET
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - task mode error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         resume(callback: AsyncCallback<void>): void;
         /**
-         * Resumes the task.
+         * Resumes the background task.
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400005 - task mode error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
@@ -806,6 +816,7 @@ export declare namespace agent {
          * Stops the task.
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -813,6 +824,7 @@ export declare namespace agent {
         /**
          * Stops the task.
          * @throws {BusinessError} 13400003 - task service ability error.
+         * @throws {BusinessError} 13400007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
@@ -881,6 +893,7 @@ export declare namespace agent {
     }
     /**
      * Removes specifed task belongs to the caller.
+     * The task will be forced to stop if in processing.
      * @param { BaseContext } context context of the caller.
      * @param { string } id the task id.
      * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating sucess or not.
@@ -893,6 +906,7 @@ export declare namespace agent {
     function remove(context: BaseContext, id: string, callback: AsyncCallback<void>): void;
     /**
      * Removes specifed task belongs to the caller.
+     * The task will be forced to stop if in processing.
      * @param { BaseContext } context context of the caller.
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
@@ -1007,6 +1021,7 @@ export declare namespace agent {
     function query(context: BaseContext, id: string): Promise<TaskInfo>;
     /**
      * Deletes specifed tasks.
+     * The task will be forced to stop if in processing.
      * @param { BaseContext } context context of the caller.
      * @param { Array<string> } ids the task id.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids had cleared.
@@ -1020,6 +1035,7 @@ export declare namespace agent {
     function clear(context: BaseContext, ids: Array<string>, callback: AsyncCallback<Array<string>>): void;
     /**
      * Deletes specifed tasks.
+     * The task will be forced to stop if in processing.
      * @param { BaseContext } context context of the caller.
      * @param { Array<string> } ids the task id.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
