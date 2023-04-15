@@ -556,7 +556,7 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
    * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceAbility}.
-   * @param {Callback<ServiceAbility>} callback - Returns option result.
+   * @param {AsyncCallback<ServiceAbility>} callback - Returns option result.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -568,7 +568,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setServiceAbility(slotId: number, type: ServiceType, ability: ServiceAbility, callback: Callback<void>): void;
+  function setServiceAbility(slotId: number, type: ServiceType, ability: ServiceAbility, callback: AsyncCallback<void>): void;
 
   /**
    * Set service ability.
@@ -597,7 +597,7 @@ declare namespace radio {
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
-   * @param {Callback<ServiceAbility>} callback - including an instance of the {@link ServiceAbility} class.
+   * @param {AsyncCallback<ServiceAbility>} callback - including an instance of the {@link ServiceAbility} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -609,7 +609,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getServiceAbility(slotId: number, type: ServiceType, callback: Callback<ServiceAbility>): void;
+  function getServiceAbility(slotId: number, type: ServiceType, callback: AsyncCallback<ServiceAbility>): void;
 
   /**
    * Get service ability.
