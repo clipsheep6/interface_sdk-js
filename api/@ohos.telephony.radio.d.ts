@@ -577,7 +577,7 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
    * @param {ServiceAbility} ability - Indicates the service ability of the {@link ServiceAbility}.
-   * @returns {Promise<void>}  Returns option result.
+   * @returns {Promise<void>} Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -630,6 +630,8 @@ declare namespace radio {
    * @since 10
    */
   function getServiceAbility(slotId: number, type: ServiceType): Promise<ServiceAbility>;
+
+
 
   /**
    * @systemapi Hide this for inner system use.

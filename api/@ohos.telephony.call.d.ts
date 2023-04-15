@@ -988,6 +988,38 @@ declare namespace call {
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
   /**
+   * Cancel missed incoming call notification.
+   *
+   * @param {AsyncCallback<ServiceAbility>} callback - Returns option result.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function cancelMissedIncomingCallNotification(callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancel missed incoming call notification.
+   *
+   * @returns {Promise<void>}  Returns option result.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function cancelMissedIncomingCallNotification(): Promise<void>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
