@@ -557,7 +557,7 @@ declare namespace radio {
    * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
    * @param {ServiceAbility} ability - Indicates the service ability of the {@link ServiceAbility}.
    * @param {AsyncCallback<ServiceAbility>} callback - Returns option result.
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
    * @throws {BusinessError} 401 - Parameter error.
@@ -578,7 +578,7 @@ declare namespace radio {
    * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
    * @param {ServiceAbility} ability - Indicates the service ability of the {@link ServiceAbility}.
    * @returns {Promise<void>}  Returns option result.
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
    * @throws {BusinessError} 401 - Parameter error.
