@@ -555,8 +555,8 @@ declare namespace radio {
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
-   * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceType}.
-   * @param {Callback<ServiceAbility>} callback - including an instance of the {@link ServiceAbility} class.
+   * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceAbility}.
+   * @param {Callback<ServiceAbility>} callback - Returns option result.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -576,7 +576,7 @@ declare namespace radio {
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
-   * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceType}.
+   * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceAbility}.
    * @returns {Promise<void>}  Returns option result.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
