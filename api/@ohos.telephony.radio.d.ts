@@ -550,6 +550,88 @@ declare namespace radio {
   function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
   /**
+   * Set service ability.
+   *
+   * @param {number} slotId - Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
+   * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceType}.
+   * @param {Callback<ServiceAbility>} callback - including an instance of the {@link ServiceAbility} class.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setServiceAbility(slotId: number, type: ServiceType, ability: ServiceAbility, callback: Callback<void>): void;
+
+  /**
+   * Set service ability.
+   *
+   * @param {number} slotId - Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
+   * @param {ServiceAbility} ability - Indicates the ims service type of the {@link ServiceType}.
+   * @returns {Promise<void>}  Returns option result.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setServiceAbility(slotId: number, type: ServiceType, ability: ServiceAbility): Promise<void>;
+
+  /**
+   * Get service ability.
+   *
+   * @param {number} slotId - Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
+   * @param {Callback<ServiceAbility>} callback - including an instance of the {@link ServiceAbility} class.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getServiceAbility(slotId: number, type: ServiceType, callback: Callback<ServiceAbility>): void;
+
+  /**
+   * Get service ability.
+   *
+   * @param {number} slotId - Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param {ServiceType} type - Indicates the ims service type of the {@link ServiceType}.
+   * @returns {Promise<ServiceAbility} Return an instance of the {@link ServiceAbility} class.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getServiceAbility(slotId: number, type: ServiceType): Promise<ServiceAbility>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -1107,6 +1189,30 @@ declare namespace radio {
 
     /** Indicates SMS service. */
     TYPE_SMS,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum ServiceType {
+    /** Indicates LTE service type. */
+    SERVICE_TYPE_LTE,
+
+    /** Indicates NR service type. */
+    SERVICE_TYPE_NR,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export enum ServiceAbility {
+    /** Indicates turn off service ability. */
+    SERVICE_ABILITY_OFF,
+
+    /** Indicates turn on service ability. */
+    SERVICE_ABILITY_ON,
   }
 }
 
