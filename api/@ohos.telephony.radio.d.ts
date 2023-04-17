@@ -550,12 +550,12 @@ declare namespace radio {
   function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
   /**
-   * Set service ability.
+   * Set network ability switch.
    *
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
-   * @param {ServiceAbility} ability - Indicates the service ability of the {@link ServiceAbility}.
+   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @param {NetworkSwitchState} state - Indicates the service ability of the {@link NetworkSwitchState}.
    * @param {AsyncCallback<ServiceAbility>} callback - Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
@@ -568,15 +568,15 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setServiceAbility(slotId: number, type: ServiceType, ability: ServiceAbility, callback: AsyncCallback<void>): void;
+  function setNetworkAbilitySwitch(slotId: number, type: NetworkSwitchType, state: NetworkSwitchState, callback: AsyncCallback<void>): void;
 
   /**
-   * Set service ability.
+   * Set network ability switch.
    *
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
-   * @param {ServiceAbility} ability - Indicates the service ability of the {@link ServiceAbility}.
+   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @param {NetworkSwitchState} state - Indicates the service ability of the {@link NetworkSwitchState}.
    * @returns {Promise<void>} Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
@@ -589,15 +589,15 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setServiceAbility(slotId: number, type: ServiceType, ability: ServiceAbility): Promise<void>;
+  function setNetworkAbilitySwitch(slotId: number, type: NetworkSwitchType, state: NetworkSwitchState): Promise<void>;
 
   /**
-   * Get service ability.
+   * Get network ability switch state.
    *
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
-   * @param {AsyncCallback<ServiceAbility>} callback - including an instance of the {@link ServiceAbility} class.
+   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @param {AsyncCallback<NetworkSwitchState>} callback - including an instance of the {@link NetworkSwitchState} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -609,15 +609,15 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getServiceAbility(slotId: number, type: ServiceType, callback: AsyncCallback<ServiceAbility>): void;
+  function getNetworkAbilitySwitch(slotId: number, type: NetworkSwitchType, callback: AsyncCallback<NetworkSwitchState>): void;
 
   /**
-   * Get service ability.
+   * Get network ability switch state.
    *
    * @param {number} slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {ServiceType} type - Indicates the service type of the {@link ServiceType}.
-   * @returns {Promise<ServiceAbility} Return an instance of the {@link ServiceAbility} class.
+   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @returns {Promise<NetworkSwitchState} Return an instance of the {@link NetworkSwitchState} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -629,9 +629,7 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getServiceAbility(slotId: number, type: ServiceType): Promise<ServiceAbility>;
-
-
+  function getNetworkAbilitySwitch(slotId: number, type: NetworkSwitchType): Promise<NetworkSwitchState>;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -1197,11 +1195,11 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export enum ServiceType {
-    /** Indicates LTE service type. */
+  export enum NetworkSwitchType {
+    /** Indicates LTE network switch type. */
     SERVICE_TYPE_LTE,
 
-    /** Indicates NR service type. */
+    /** Indicates NR network switch type. */
     SERVICE_TYPE_NR,
   }
 
@@ -1209,11 +1207,11 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export enum ServiceAbility {
-    /** Indicates turn off service ability. */
+  export enum NetworkSwitchState {
+    /** Indicates turn off network switch. */
     SERVICE_ABILITY_OFF,
 
-    /** Indicates turn on service ability. */
+    /** Indicates turn on network switch. */
     SERVICE_ABILITY_ON,
   }
 }
