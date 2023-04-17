@@ -392,6 +392,47 @@ declare namespace wallpaper {
      * @deprecated since 9
      */
     function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
+
+    /**
+     * The launcher application uses this interface to control the wallpaper offset. The wallpaper size must be larger than the screen size.
+     * @param xOffset Indicates the offset ratio of the X axis. The value ranges from 0 to 100.
+     * @param yOffset Indicates the offset ratio of the Y axis. The value ranges from 0 to 100.
+     * @returns Returns {@code true} if launcher application uses this interface to control the wallpaper offset is success; returns {@code false} otherwise.
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+     function setOffset(xOffset: number, yOffset: number): boolean;
+
+    /**
+     * Sets live wallpaper of the specified type based on the uri path of the MP4 file.
+     * @param source Indicates the uri path of the MP4 file.
+     * @param wallpaperType Indicates the wallpaper type.
+     * @permission ohos.permission.SET_WALLPAPER
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 201 - permission denied.
+     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    function setVideo(source: string, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;   
+
+    /**
+     * Sets live wallpaper of the specified type based on the uri path of the MP4 file.
+     * @param source Indicates the uri path of the MP4 file.
+     * @param wallpaperType Indicates the wallpaper type.
+     * @permission ohos.permission.SET_WALLPAPER
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 201 - permission denied.
+     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.MiscServices.Wallpaper
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    function setVideo(source: string, wallpaperType: WallpaperType): Promise<void>;
 }
 
 export default wallpaper;

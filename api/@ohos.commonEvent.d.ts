@@ -199,6 +199,7 @@ declare namespace commonEvent {
 
     /**
      * This commonEvent means when the user is present after the device is awakened.
+     * @deprecated since 10
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
@@ -944,6 +945,18 @@ declare namespace commonEvent {
      * @since 8
      */
     COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN",
+
+    /**
+     * This commonEvent means when the screen is unlocked.
+     * @since 10
+     */
+    COMMON_EVENT_SCREEN_UNLOCKED = "common.event.SCREEN_UNLOCKED",
+
+    /**
+     * This commonEvent means when the screen is locked.
+     * @since 10
+     */
+    COMMON_EVENT_SCREEN_LOCKED = "common.event.SCREEN_LOCKED",
   }
 }
 
