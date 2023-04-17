@@ -1273,30 +1273,11 @@ declare namespace request {
      * @throws {BusinessError} 401 - the parameters check fails
      * @syscap SystemCapability.MiscServices.Download
      */
-    /**
-     * Suspend the download task
-     * @crossplatform
-     * @since 10
-     * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 201 - the permissions check fails
-     * @throws {BusinessError} 401 - the parameters check fails
-     * @syscap SystemCapability.MiscServices.Download
-     */
     suspend(callback: AsyncCallback<boolean>): void;
 
     /**
      * Suspend the download task
      * @since 9
-     * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 201 - the permissions check fails
-     * @throws {BusinessError} 401 - the parameters check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @returns { Promise<boolean> } the promise returned by the function.
-     */
-    /**
-     * Suspend the download task
-     * @crossplatform
-     * @since 10
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
      * @throws {BusinessError} 401 - the parameters check fails
@@ -1313,30 +1294,11 @@ declare namespace request {
      * @throws {BusinessError} 401 - the parameters check fails
      * @syscap SystemCapability.MiscServices.Download
      */
-    /**
-     * Restore the download task
-     * @crossplatform
-     * @since 10
-     * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 201 - the permissions check fails
-     * @throws {BusinessError} 401 - the parameters check fails
-     * @syscap SystemCapability.MiscServices.Download
-     */
     restore(callback: AsyncCallback<boolean>): void;
 
     /**
      * Restore the download task
      * @since 9
-     * @permission ohos.permission.INTERNET
-     * @throws {BusinessError} 201 - the permissions check fails
-     * @throws {BusinessError} 401 - the parameters check fails
-     * @syscap SystemCapability.MiscServices.Download
-     * @returns { Promise<boolean> } the promise returned by the function.
-     */
-    /**
-     * Restore the download task
-     * @crossplatform
-     * @since 10
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
      * @throws {BusinessError} 401 - the parameters check fails
