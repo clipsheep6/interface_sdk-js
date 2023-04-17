@@ -1034,6 +1034,8 @@ declare namespace request {
      * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
      */
+    on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
+
     /**
      * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
@@ -1046,7 +1048,7 @@ declare namespace request {
      * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
      */
-    on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
+    on(type: 'complete' | 'remove', callback: () => void): void;
 
     /**
      * Called when the current download session complete pause or remove.
@@ -1059,6 +1061,8 @@ declare namespace request {
      * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
      */
+    off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
+
     /**
      * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
@@ -1071,7 +1075,7 @@ declare namespace request {
      * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
      */
-    off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
+    off(type: 'complete' | 'remove', callback?: () => void): void;
 
     /**
      * Called when the current download session fails.
