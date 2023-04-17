@@ -283,6 +283,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 9
    */
   textAlign(value: TextAlign): SearchAttribute;
+
+  /**
+   * Text selection pop-up extension of PC.
+   * @param {  Array<TextMenuOption> | CustomBuilder } content - Indicates the content of menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+  */
+  textExtensionMenuOptions(content:  Array<TextMenuOption> | CustomBuilder): SearchAttribute;
 }
 
 /**

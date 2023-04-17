@@ -177,6 +177,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Text selection pop-up extension of PC.
+   * @param {  Array<TextMenuOption> | CustomBuilder } content - Indicates the content of menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+  */
+  textExtensionMenuOptions(content:  Array<TextMenuOption> | CustomBuilder): TextAreaAttribute;
 }
 
 /**
