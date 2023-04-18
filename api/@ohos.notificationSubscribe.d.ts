@@ -134,106 +134,106 @@ declare namespace notificationSubscribe {
    * @systemapi
    * @since 9
    */
-   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
+  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
-   /**
-    * Remove notification.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { BundleOption } bundle - The bundle option.
-    * @param { NotificationKey } notificationKey - The notification key.
-    * @param { RemoveReason } reason - The remove reason.
-    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
- 
-   /**
-    * Remove notification.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { string } hashCode - The hashCode.
-    * @param { RemoveReason } reason - The remove reason.
-    * @param { AsyncCallback<void> } callback - The callback of remove.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
- 
-   /**
-    * Remove notification.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { string } hashCode - The hashCode.
-    * @param { RemoveReason } reason - The remove reason.
-    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
- 
-   /**
-    * RemoveAll all notifications.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { BundleOption } bundle - The bundle option.
-    * @param { AsyncCallback<void> } callback - The callback of removeAll.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
- 
-   /**
-    * RemoveAll all notifications.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { AsyncCallback<void> } callback - The callback of removeAll.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function removeAll(callback: AsyncCallback<void>): void;
- 
-   /**
-    * Remove all notifications under the specified user.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { number } userId - The userId.
-    * @param { AsyncCallback<void> } callback - The callback of removeAll.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function removeAll(userId: number, callback: AsyncCallback<void>): void;
- 
-   /**
-    * Remove all notifications under the specified user.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { number } userId - The userId.
-    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function removeAll(userId: number): Promise<void>;
- 
-   /**
-    * RemoveAll all notifications.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @param { BundleOption } bundle - The bundle option.
-    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-    * @syscap SystemCapability.Notification.Notification
-    * @systemapi
-    * @since 9
-    */
-   function removeAll(bundle?: BundleOption): Promise<void>;
+  /**
+   * Remove notification.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationKey } notificationKey - The notification key.
+   * @param { RemoveReason } reason - The remove reason.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
+
+  /**
+   * Remove notification.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - The hashCode.
+   * @param { RemoveReason } reason - The remove reason.
+   * @param { AsyncCallback<void> } callback - The callback of remove.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove notification.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - The hashCode.
+   * @param { RemoveReason } reason - The remove reason.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function remove(hashCode: string, reason: RemoveReason): Promise<void>;
+
+  /**
+   * RemoveAll all notifications.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { AsyncCallback<void> } callback - The callback of removeAll.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
+
+  /**
+   * RemoveAll all notifications.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { AsyncCallback<void> } callback - The callback of removeAll.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function removeAll(callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove all notifications under the specified user.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } userId - The userId.
+   * @param { AsyncCallback<void> } callback - The callback of removeAll.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function removeAll(userId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove all notifications under the specified user.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } userId - The userId.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function removeAll(userId: number): Promise<void>;
+
+  /**
+   * RemoveAll all notifications.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function removeAll(bundle?: BundleOption): Promise<void>;
 
   /**
    * Describes a bundleOption in a notification.

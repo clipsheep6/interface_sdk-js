@@ -18,7 +18,7 @@
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- declare namespace taskpool {
+declare namespace taskpool {
   /**
    * The Priority defines the task priority.
    * @since 9

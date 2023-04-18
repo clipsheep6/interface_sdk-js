@@ -609,7 +609,7 @@ declare enum ResizeDirection {
    * @since 9
    * @test
    */
-  RIGHT_DOWN = 7 
+  RIGHT_DOWN = 7
 }
 
 /**
@@ -618,7 +618,7 @@ declare enum ResizeDirection {
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
-declare enum DisplayRotation { 
+declare enum DisplayRotation {
   /**
    * Device display does not rotate to display vertically.
    * @syscap SystemCapability.Test.UiTest
@@ -728,11 +728,11 @@ declare interface WindowFilter {
    * @since 9
    */
   focused?: boolean;
-   /**
+  /**
    * The active state of the window.
    * @type boolean
    * @since 9
-   */ 
+   */
   actived?: boolean;
 }
 
@@ -1698,4 +1698,4 @@ declare const BY: By;
  */
 declare const ON: On;
 
-export {UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix};
+export { UiComponent, UiDriver, Component, Driver, UiWindow, ON, BY, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix };

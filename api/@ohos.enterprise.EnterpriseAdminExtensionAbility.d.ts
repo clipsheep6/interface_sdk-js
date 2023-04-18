@@ -22,43 +22,43 @@
  * @StageModelOnly
  */
 export default class EnterpriseAdminExtensionAbility {
-    /**
-     * Called back when an application is enabled.
-     *
-     * @since 9
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @StageModelOnly
-     */
-    onAdminEnabled(): void;
+  /**
+   * Called back when an application is enabled.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   */
+  onAdminEnabled(): void;
 
-    /**
-     * Called back when an application is disabled.
-     *
-     * @since 9
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @StageModelOnly
-     */
-    onAdminDisabled(): void;
+  /**
+   * Called back when an application is disabled.
+   *
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   */
+  onAdminDisabled(): void;
 
-    /**
-     * Called back when a bundle is installed.
-     * @param { string } bundleName - bundleName indicates the name of the bundle installed.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    onBundleAdded(bundleName: string): void;
+  /**
+   * Called back when a bundle is installed.
+   * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  onBundleAdded(bundleName: string): void;
 
-    /**
-     * Called back when a bundle is uninstalled.
-     * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @StageModelOnly
-     * @since 9
-     */
-    onBundleRemoved(bundleName: string): void;
+  /**
+   * Called back when a bundle is uninstalled.
+   * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  onBundleRemoved(bundleName: string): void;
 }

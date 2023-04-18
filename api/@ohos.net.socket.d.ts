@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback, ErrorCallback} from "./basic";
+import { AsyncCallback, Callback, ErrorCallback } from "./basic";
 import connection from "./@ohos.net.connection";
 import cert from "./@ohos.security.cert";
 
@@ -184,12 +184,12 @@ declare namespace socket {
     /**
      * Listens for message receiving events of the UDPSocket connection.
      */
-    on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
      * Cancels listening for message receiving events of the UDPSocket connection.
      */
-    off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
      * Listens for data packet message events or close events of the UDPSocket connection.
@@ -255,7 +255,7 @@ declare namespace socket {
     /**
      * Socket linger.
      */
-    socketLinger?: {on: boolean, linger: number};
+    socketLinger?: { on: boolean, linger: number };
   }
 
   export interface TCPSocket {
@@ -334,12 +334,12 @@ declare namespace socket {
     /**
      * Listens for message receiving events of the TCPSocket connection.
      */
-    on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
      */
-    off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
      * Listens for connection or close events of the TCPSocket connection.
@@ -416,14 +416,14 @@ declare namespace socket {
      *
      * @throws {BusinessError} 401 - Parameter error.
      */
-    on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
      * Cancels listening for message receiving events of the TLSSocket connection.
      *
      * @throws {BusinessError} 401 - Parameter error.
      */
-    off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
+    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
      * Listens for connection or close events of the TLSSocket connection.
@@ -555,8 +555,8 @@ declare namespace socket {
      * @throws {BusinessError} 2303506 - Error clearing tls connection.
      * @throws {BusinessError} 2300002 - System internal error.
      */
-     close(callback: AsyncCallback<void>): void;
-     close(): Promise<void>;
+    close(callback: AsyncCallback<void>): void;
+    close(): Promise<void>;
   }
 
   /**

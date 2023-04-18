@@ -20,13 +20,13 @@
  * @since 6
  */
 declare namespace intl {
-/**
- * Provides the options of Locale.
- *
- * @since 6
- * @syscap SystemCapability.Global.I18n
- */
-export interface LocaleOptions {
+  /**
+   * Provides the options of Locale.
+   *
+   * @since 6
+   * @syscap SystemCapability.Global.I18n
+   */
+  export interface LocaleOptions {
     /**
      * Indicates the calendar.
      * @type { string } calendar
@@ -50,7 +50,7 @@ export interface LocaleOptions {
      * @since 9
      */
     collation?: string;
-    
+
     /**
      * Indicates the hourCycle.
      * @type { string } hourCycle
@@ -62,7 +62,7 @@ export interface LocaleOptions {
      * @since 9
      */
     hourCycle?: string;
-    
+
     /**
      * Indicates the numberingSystem.
      * @type { string } numberingSystem
@@ -74,7 +74,7 @@ export interface LocaleOptions {
      * @since 9
      */
     numberingSystem?: string;
-    
+
     /**
      * Indicates the numeric.
      * @type { boolean } numeric
@@ -86,7 +86,7 @@ export interface LocaleOptions {
      * @since 9
      */
     numeric?: boolean;
-    
+
     /**
      * Indicates the caseFirst.
      * @type { string } caseFirst
@@ -98,22 +98,22 @@ export interface LocaleOptions {
      * @since 9
      */
     caseFirst?: string;
-}
+  }
 
-/**
- * Provides APIs for obtaining locale information.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export class Locale {
+  /**
+   * Provides APIs for obtaining locale information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export class Locale {
     /**
      * A constructor used to create a Locale object.
      *
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
-   constructor();
+    constructor();
 
     /**
      * A constructor used to create a Locale object.
@@ -124,7 +124,7 @@ export class Locale {
      * @param options Indicates Locale option object use to initialize the Locale object.
      * @since 6
      */
-   constructor(locale: string, options?: LocaleOptions);
+    constructor(locale: string, options?: LocaleOptions);
 
     /**
      * Indicates the language of the locale.
@@ -189,7 +189,7 @@ export class Locale {
      * @syscap SystemCapability.Global.I18n
      * @since 6
      */
-    hourCycle:  string
+    hourCycle: string
 
     /**
      * Indicates the numbering system.
@@ -233,15 +233,15 @@ export class Locale {
      * @since 6
      */
     minimize(): Locale;
-}
+  }
 
-/**
- * Provides the options of date time format.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export interface DateTimeOptions {
+  /**
+   * Provides the options of date time format.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export interface DateTimeOptions {
     /**
      * Indicates the locale.
      * @type { string } locale
@@ -507,15 +507,15 @@ export interface DateTimeOptions {
      * @since 9
      */
     formatMatcher?: string
-}
+  }
 
-/**
- * Provides the API for formatting date strings.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export class DateTimeFormat {
+  /**
+   * Provides the API for formatting date strings.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
@@ -564,15 +564,15 @@ export class DateTimeFormat {
      * @since 6
      */
     resolvedOptions(): DateTimeOptions;
-}
+  }
 
-/**
- * Provides the options of number format.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export interface NumberOptions {
+  /**
+   * Provides the options of number format.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export interface NumberOptions {
     /**
      * Indicates the locale.
      * @type { string } locale
@@ -838,15 +838,15 @@ export interface NumberOptions {
      * @since 9
      */
     maximumSignificantDigits?: number
-}
+  }
 
-/**
- * Provides the API for formatting number strings.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 6
- */
-export class NumberFormat {
+  /**
+   * Provides the API for formatting number strings.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 6
+   */
+  export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
      *
@@ -884,15 +884,15 @@ export class NumberFormat {
      * @since 6
      */
     resolvedOptions(): NumberOptions;
-}
+  }
 
-/**
- * Provides the options of Collator
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface CollatorOptions {
+  /**
+   * Provides the options of Collator
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface CollatorOptions {
     /**
      * The locale matching algorithm to use.
      * Possible values are "lookup" and "best fit"; the default is "best fit".
@@ -1023,15 +1023,15 @@ export interface CollatorOptions {
      * @since 9
      */
     caseFirst?: string;
-}
+  }
 
-/**
- * Enable language-sensitive string comparison.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class Collator {
+  /**
+   * Enable language-sensitive string comparison.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class Collator {
     /**
      * A constructor used to create Collator object.
      *
@@ -1073,15 +1073,15 @@ export class Collator {
      * @since 8
      */
     resolvedOptions(): CollatorOptions;
-}
+  }
 
-/**
- * Provides the options of PluralRules
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface PluralRulesOptions {
+  /**
+   * Provides the options of PluralRules
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface PluralRulesOptions {
     /**
      * The locale matching algorithm to use.
      * Possible values are "lookup" and "best fit"; the default is "best fit".
@@ -1207,15 +1207,15 @@ export interface PluralRulesOptions {
      * @since 9
      */
     maximumSignificantDigits?: number;
-}
+  }
 
-/**
- * Enables plural-sensitive formatting and plural-related language rules.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class PluralRules {
+  /**
+   * Enables plural-sensitive formatting and plural-related language rules.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class PluralRules {
     /**
      * A constructor used to create PluralRules object.
      *
@@ -1245,15 +1245,15 @@ export class PluralRules {
      * @since 8
      */
     select(n: number): string;
-}
+  }
 
-/**
- * Provides the input options of RelativeTimeFormat.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
- export interface RelativeTimeFormatInputOptions {
+  /**
+   * Provides the input options of RelativeTimeFormat.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface RelativeTimeFormatInputOptions {
     /**
      * The locale matching algorithm to use.
      * Possible values are: lookup, best fit
@@ -1307,15 +1307,15 @@ export class PluralRules {
      * @since 9
      */
     style?: string;
-}
+  }
 
-/**
- * Provides the resolved options of RelativeTimeFormat.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface RelativeTimeFormatResolvedOptions {
+  /**
+   * Provides the resolved options of RelativeTimeFormat.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface RelativeTimeFormatResolvedOptions {
     /**
      * The BCP 47 language tag for the locale actually used.
      *
@@ -1349,16 +1349,16 @@ export interface RelativeTimeFormatResolvedOptions {
      * @since 8
      */
     numberingSystem: string;
-}
+  }
 
-/**
- * Given a Time period length value and a unit, RelativeTimeFormat object enables
- * language-sensitive relative time formatting.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class RelativeTimeFormat {
+  /**
+   * Given a Time period length value and a unit, RelativeTimeFormat object enables
+   * language-sensitive relative time formatting.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
      *
@@ -1412,6 +1412,6 @@ export class RelativeTimeFormat {
      * @since 8
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
-}
+  }
 }
 export default intl;

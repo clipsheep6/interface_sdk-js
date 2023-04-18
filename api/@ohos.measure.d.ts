@@ -24,47 +24,47 @@ import { Resource } from 'GlobalResource';
  */
 export interface MeasureOptions {
 
-    /**
-     * Text to display.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    textContent: string;
+  /**
+   * Text to display.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  textContent: string;
 
-    /**
-     * Font Size.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    fontSize?: number | string | Resource;
+  /**
+   * Font Size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  fontSize?: number | string | Resource;
 
-    /**
-     * Font style.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    fontStyle?: number | FontStyle;
+  /**
+   * Font style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  fontStyle?: number | FontStyle;
 
-    /**
-     * Font weight.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    fontWeight?: number | string | FontWeight;
+  /**
+   * Font weight.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  fontWeight?: number | string | FontWeight;
 
-    /**
-     * Font list of text.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    fontFamily?: string | Resource;
+  /**
+   * Font list of text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  fontFamily?: string | Resource;
 
-    /**
-     * Distance between text fonts.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    letterSpacing?: number | string;
+  /**
+   * Distance between text fonts.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  letterSpacing?: number | string;
 }
 
 /**
@@ -73,11 +73,11 @@ export interface MeasureOptions {
  */
 export default class MeasureText {
 
-    /**
-     * Displays the textWidth.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @param options Options.
-     * @since 9
-     */
-    static measureText(options: MeasureOptions): number;
+  /**
+   * Displays the textWidth.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param options Options.
+   * @since 9
+   */
+  static measureText(options: MeasureOptions): number;
 }

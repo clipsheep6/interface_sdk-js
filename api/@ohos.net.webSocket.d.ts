@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, ErrorCallback} from "./basic";
+import { AsyncCallback, ErrorCallback } from "./basic";
 
 /**
  * Provides WebSocket APIs.

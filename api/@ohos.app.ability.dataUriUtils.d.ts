@@ -20,48 +20,48 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
- declare namespace dataUriUtils {
-    /**
-     * Obtains the ID attached to the end of the path component of the given uri.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param uri Indicates the uri object from which the ID is to be obtained.
-     * @returns Returns the ID attached to the end of the path component;
-     */
-    function getId(uri: string): number
-  
-    /**
-     * Attaches the given ID to the end of the path component of the given uri.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param uri Indicates the uri string from which the ID is to be obtained.
-     * @param id Indicates the ID to attach.
-     * @returns Returns the uri object with the given ID attached.
-     */
-    function attachId(uri: string, id: number): string
-  
-    /**
-     * Deletes the ID from the end of the path component of the given uri.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param uri Indicates the uri object from which the ID is to be deleted.
-     * @returns Returns the uri object with the ID deleted.
-     */
-    function deleteId(uri: string): string
-  
-    /**
-     * Updates the ID in the specified uri
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param uri Indicates the uri object to be updated.
-     * @param id Indicates the new ID.
-     * @returns Returns the updated uri object.
-     */
-    function updateId(uri: string, id: number): string
-  
-  }
-  export default dataUriUtils;
+declare namespace dataUriUtils {
+  /**
+   * Obtains the ID attached to the end of the path component of the given uri.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param uri Indicates the uri object from which the ID is to be obtained.
+   * @returns Returns the ID attached to the end of the path component;
+   */
+  function getId(uri: string): number
+
+  /**
+   * Attaches the given ID to the end of the path component of the given uri.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param uri Indicates the uri string from which the ID is to be obtained.
+   * @param id Indicates the ID to attach.
+   * @returns Returns the uri object with the given ID attached.
+   */
+  function attachId(uri: string, id: number): string
+
+  /**
+   * Deletes the ID from the end of the path component of the given uri.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param uri Indicates the uri object from which the ID is to be deleted.
+   * @returns Returns the uri object with the ID deleted.
+   */
+  function deleteId(uri: string): string
+
+  /**
+   * Updates the ID in the specified uri
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @param uri Indicates the uri object to be updated.
+   * @param id Indicates the new ID.
+   * @returns Returns the updated uri object.
+   */
+  function updateId(uri: string, id: number): string
+
+}
+export default dataUriUtils;

@@ -32,7 +32,7 @@ interface EllipseInterface {
    * @form
    * @since 9
    */
-  new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+  new(value?: { width?: string | number; height?: string | number }): EllipseAttribute;
 
   /**
    * Set the value.
