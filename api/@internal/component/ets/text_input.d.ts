@@ -47,6 +47,13 @@ declare enum InputType {
    * @since 7
    */
   Password,
+
+  /**
+   * Underline input mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  UNDERLINE,
 }
 
 /**
@@ -348,6 +355,46 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 10
    */
   caretPosition(value: number): TextInputAttribute;
+
+  /**
+   * Define the password icon of the text input.
+   * @param { string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  passwordIcon(value: string | Resource): TextInputAttribute;
+
+  /**
+   * Define the show error of the text input.
+   * @param { string | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showError(value?: string | undefined): TextInputAttribute;
+
+  /**
+   * Define the show unit of the text input.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  showUnit(value: boolean): TextInputAttribute;
+
+  /**
+   * Define the unit value of the text input.
+   * @param { Array<ResourceStr> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  unitValue(value: Array<ResourceStr>): TextInputAttribute;
+
+  /**
+   * Callback for selecting an item from the select of the text input.
+   * @param { (index: number, value?: string) => void } callback - the callback of onSelect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onSelect(callback: (index: number, value?: string) => void): TextInputAttribute;
 }
 
 /**
