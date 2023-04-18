@@ -82,7 +82,7 @@ declare namespace update {
          * Get new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
-         * @param { AsyncCallback<CheckResult> } callback - Callback used to return the result.
+         * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
@@ -132,7 +132,7 @@ declare namespace update {
          * Get current version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
-         * @param { AsyncCallback<Array<CurrentVersionInfo>> } callback - Callback used to return the result.
+         * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
@@ -143,7 +143,7 @@ declare namespace update {
          * Get current version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
-         * @@returns { Promise<Array<CurrentVersionInfo>> } Promise used to return the result.
+         * @returns { Promise<CurrentVersionInfo> } Promise used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
@@ -168,7 +168,7 @@ declare namespace update {
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-         * @returns { Promise<Array<ComponentDescription> } Promise used to return the result.
+         * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
@@ -323,7 +323,7 @@ declare namespace update {
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-         * @param { ClearOptions } ClearOptions - Clear options. 
+         * @param { ClearOptions } clearOptions - Clear options. 
          * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -384,7 +384,7 @@ declare namespace update {
          * Set upgrade policy.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
-         * @param { policy } UpgradePolicy - Update policy.
+         * @param { UpgradePolicy } policy - Update policy.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
@@ -491,7 +491,7 @@ declare namespace update {
          * 
          * @param { UpgradeFile } upgradeFile - Update file.
          * @param { string } certsFile - Path of the certificate file.
-         * returns { Promise<void> } Promise that returns no value.
+         * @returns { Promise<void> } Promise that returns no value.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -505,7 +505,7 @@ declare namespace update {
          * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
-         * @param { UpgradeFile } upgradeFile - Update file.
+         * @param { Array<UpgradeFile> } upgradeFiles - Update file.
          * @param { AsyncCallback<void> } callback - Callback used to return the apply new version result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -519,7 +519,7 @@ declare namespace update {
          * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
-         * @param { UpgradeFile } upgradeFile - Update file.
+         * @param { Array<UpgradeFile> } upgradeFiles - Update file.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -555,14 +555,14 @@ declare namespace update {
     export interface UpgradeInfo {
         /**
          * Upgrade client package name
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         upgradeApp: string;
 
         /**
          * BusinessType of upgrade
-         * @type {BusinessType}
+         * @type { BusinessType }
          * @since 9
          */
         businessType: BusinessType;
@@ -576,14 +576,14 @@ declare namespace update {
     export interface BusinessType {
         /**
          * Vendor of business type
-         * @type {BusinessVendor}
+         * @type { BusinessVendor }
          * @since 9
          */
         vendor: BusinessVendor;
 
         /**
          * Update service type
-         * @type {BusinessSubType}
+         * @type { BusinessSubType }
          * @since 9
          */
         subType: BusinessSubType;
@@ -597,14 +597,14 @@ declare namespace update {
     export interface CheckResult {
         /**
          * New version exist or not
-         * @type {boolean}
+         * @type { boolean }
          * @since 9
          */
         isExistNewVersion: boolean;
 
         /**
          * New version info
-         * @type {NewVersionInfo}
+         * @type { NewVersionInfo }
          * @since 9
          */
         newVersionInfo: NewVersionInfo;
@@ -618,14 +618,14 @@ declare namespace update {
     export interface NewVersionInfo {
         /**
          * Digest info of new version
-         * @type {VersionDigestInfo}
+         * @type { VersionDigestInfo }
          * @since 9
          */
         versionDigestInfo: VersionDigestInfo;
 
         /**
          * New version component array
-         * @type {Array<VersionComponent>}
+         * @type { Array<VersionComponent> }
          * @since 9
          */
         versionComponents: Array<VersionComponent>;
@@ -639,7 +639,7 @@ declare namespace update {
     export interface VersionDigestInfo {
         /**
          * Version digest value
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         versionDigest: string;
@@ -653,21 +653,21 @@ declare namespace update {
     export interface VersionComponent {
         /**
          * Version component id
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         componentId: string;
 
         /**
          * Version component type
-         * @type {ComponentType}
+         * @type { ComponentType }
          * @since 9
          */
         componentType: ComponentType;
 
         /**
          * Upgrade action
-         * @type {UpgradeAction}
+         * @type { UpgradeAction }
          * @since 9
          */
         upgradeAction: UpgradeAction;
@@ -681,28 +681,28 @@ declare namespace update {
 
         /**
          * Internal version number
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         innerVersion: string;
 
         /**
          * Update package size
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         size: number;
 
         /**
          * Effective mode
-         * @type {EffectiveMode}
+         * @type { EffectiveMode }
          * @since 9
          */
         effectiveMode: EffectiveMode;
 
         /**
          * Information about the version description file
-         * @type {DescriptionInfo}
+         * @type { DescriptionInfo }
          * @since 9
          */
         descriptionInfo: DescriptionInfo;
@@ -716,14 +716,14 @@ declare namespace update {
     export interface DescriptionOptions {
         /**
          * Format of the description file
-         * @type {DescriptionFormat}
+         * @type { DescriptionFormat }
          * @since 9
          */
         format: DescriptionFormat;
 
         /**
          * Language of the description file
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         language: string;
@@ -737,14 +737,14 @@ declare namespace update {
     export interface ComponentDescription {
         /**
          * Component id
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         componentId: string;
 
         /**
          * Information about the description file
-         * @type {DescriptionInfo}
+         * @type { DescriptionInfo }
          * @since 9
          */
         descriptionInfo: DescriptionInfo;
@@ -758,14 +758,14 @@ declare namespace update {
     export interface DescriptionInfo {
         /**
          * Description content type
-         * @type {DescriptionType}
+         * @type { DescriptionType }
          * @since 9
          */
         descriptionType: DescriptionType;
 
         /**
          * Content of the description file
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         content: string;
@@ -779,21 +779,21 @@ declare namespace update {
     export interface CurrentVersionInfo {
         /**
          * System version number
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         osVersion: string;
 
         /**
          * Device name
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         deviceName: string;
 
         /**
          * Current version component array
-         * @type {Array<VersionComponent>}
+         * @type { Array<VersionComponent> }
          * @since 9
          */
         versionComponents: Array<VersionComponent>;
@@ -807,14 +807,14 @@ declare namespace update {
     export interface DownloadOptions {
         /**
          * Allow download with the network type
-         * @type {NetType}
+         * @type { NetType }
          * @since 9
          */
         allowNetwork: NetType;
 
         /**
          * Upgrade command
-         * @type {Order}
+         * @type { Order }
          * @since 9
          */
         order: Order;
@@ -828,7 +828,7 @@ declare namespace update {
     export interface ResumeDownloadOptions {
         /**
          * Allow download with the network type
-         * @type {NetType}
+         * @type { NetType }
          * @since 9
          */
         allowNetwork: NetType;
@@ -842,7 +842,7 @@ declare namespace update {
     export interface PauseDownloadOptions {
         /**
          * Whether allow auto resume when net available
-         * @type {boolean}
+         * @type { boolean }
          * @since 9
          */
         isAllowAutoResume: boolean;
@@ -856,7 +856,7 @@ declare namespace update {
     export interface UpgradeOptions {
         /**
          * Upgrade command
-         * @type {Order}
+         * @type { Order }
          * @since 9
          */
         order: Order;
@@ -870,7 +870,7 @@ declare namespace update {
     export interface ClearOptions {
         /**
          * Clear status error
-         * @type {UpgradeStatus}
+         * @type { UpgradeStatus }
          * @since 9
          */
         status: UpgradeStatus;
@@ -884,21 +884,21 @@ declare namespace update {
     export interface UpgradePolicy {
         /**
          * Download strategy: open or close
-         * @type {boolean}
+         * @type { boolean }
          * @since 9
          */
         downloadStrategy: boolean;
 
         /**
          * Auto upgrade strategy: open or close
-         * @type {boolean}
+         * @type { boolean }
          * @since 9
          */
         autoUpgradeStrategy: boolean;
 
         /**
          * Auto upgrade period
-         * @type {Array<UpgradePeriod>}
+         * @type { Array<UpgradePeriod> }
          * @since 9
          */
         autoUpgradePeriods: Array<UpgradePeriod>;
@@ -912,14 +912,14 @@ declare namespace update {
     export interface UpgradePeriod {
         /**
          * Start time of upgrade period
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         start: number;
 
         /**
          * End time of upgrade period
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         end: number;
@@ -933,14 +933,14 @@ declare namespace update {
     export interface TaskInfo {
         /**
          * Whether upgrade task exist
-         * @type {boolean}
+         * @type { boolean }
          * @since 9
          */
         existTask: boolean;
 
         /**
          * Task body info
-         * @type {TaskBody}
+         * @type { TaskBody }
          * @since 9
          */
         taskBody: TaskBody;
@@ -954,14 +954,14 @@ declare namespace update {
     export interface EventInfo {
         /**
          * Event id
-         * @type {EventId}
+         * @type { EventId }
          * @since 9
          */
         eventId: EventId;
 
         /**
          * Task body info
-         * @type {TaskBody}
+         * @type { TaskBody }
          * @since 9
          */
         taskBody: TaskBody;
@@ -975,49 +975,49 @@ declare namespace update {
     export interface TaskBody {
         /**
          * Digest info of new version
-         * @type {VersionDigestInfo}
+         * @type { VersionDigestInfo }
          * @since 9
          */
         versionDigestInfo: VersionDigestInfo;
 
         /**
          * Upgrade status
-         * @type {UpgradeStatus}
+         * @type { UpgradeStatus }
          * @since 9
          */
         status: UpgradeStatus;
 
         /**
          * Upgrade sub status
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         subStatus: number;
 
         /**
          * Upgrade progress
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         progress: number;
 
         /**
          * Install mode
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         installMode: number;
 
         /**
          * Error messages
-         * @type {Array<ErrorMessage>}
+         * @type { Array<ErrorMessage> }
          * @since 9
          */
         errorMessages: Array<ErrorMessage>;
 
         /**
          * Version component array
-         * @type {Array<VersionComponent>}
+         * @type { Array<VersionComponent> }
          * @since 9
          */
         versionComponents: Array<VersionComponent>;
@@ -1031,14 +1031,14 @@ declare namespace update {
     export interface ErrorMessage {
         /**
          * Error code
-         * @type {number}
+         * @type { number }
          * @since 9
          */
         errorCode: number;
 
         /**
          * Error message
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         errorMessage: string;
@@ -1052,14 +1052,14 @@ declare namespace update {
     export interface EventClassifyInfo {
         /**
          * Event classify
-         * @type {EventClassify}
+         * @type { EventClassify }
          * @since 9
          */
         eventClassify: EventClassify;
 
         /**
          * Additional information
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         extraInfo: string;
@@ -1073,14 +1073,14 @@ declare namespace update {
     export interface UpgradeFile {
         /**
          * Upgrade file type
-         * @type {ComponentType}
+         * @type { ComponentType }
          * @since 9
          */
         fileType: ComponentType;
 
         /**
          * Upgrade file path
-         * @type {string}
+         * @type { string }
          * @since 9
          */
         filePath: string;
@@ -1305,22 +1305,46 @@ declare namespace update {
      */
     export enum UpgradeStatus {
         /**
-         * Upgrade status is waiting for download.
+         * Upgrade status is init.
          * @since 9
          */
-        WAITING_DOWNLOAD = 20,
+        INIT = 0,
+
+        /**
+         * Upgrade status is checking version.
+         * @since 9
+         */
+        CHECKING_VERSION = 10,
+
+        /**
+         * Upgrade status is check version failed.
+         * @since 9
+         */
+        CHECK_VERSION_FAIL = 11,
+
+        /**
+         * Upgrade status is check version succeeded.
+         * @since 9
+         */
+        CHECK_VERSION_SUCCESS = 12,
 
         /**
          * Upgrade status is downloading.
          * @since 9
          */
-        DOWNLOADING = 21,
+        DOWNLOADING = 20,
 
         /**
          * Upgrade status is download paused.
          * @since 9
          */
-        DOWNLOAD_PAUSED = 22,
+        DOWNLOAD_PAUSED = 21,
+
+        /**
+         * Upgrade status is download cancel.
+         * @since 9
+         */
+        DOWNLOAD_CANCEL = 22,
 
         /**
          * Upgrade status is download failed.
@@ -1329,40 +1353,82 @@ declare namespace update {
         DOWNLOAD_FAIL = 23,
 
         /**
-         * Upgrade status is waiting for installation.
+         * Upgrade status is download succeeded.
          * @since 9
          */
-        WAITING_INSTALL = 30,
+        DOWNLOAD_SUCCESS = 24,
 
         /**
-         * Upgrade status is upgrading.
+         * Upgrade status is verifying.
          * @since 9
          */
-        UPDATING = 31,
+        VERIFYING = 30,
 
         /**
-         * Upgrade status is waiting for applying the update.
+         * Upgrade status is verify failed.
          * @since 9
          */
-        WAITING_APPLY = 40,
+        VERIFY_FAILED = 31,
 
         /**
-         * Upgrade status is applying the update.
+         * Upgrade status is verify succeeded.
          * @since 9
          */
-        APPLYING = 41,
+        VERIFY_SUCCESS = 32,
 
         /**
-         * Upgrade status is update succeeded.
+         * Upgrade status is transing package.
          * @since 9
          */
-        UPGRADE_SUCCESS = 50,
+        PACKAGE_TRANSING = 70,
+
+        /**
+         * Upgrade status is trans failed.
+         * @since 9
+         */
+        PACKAGE_TRANS_FAIL = 71,
+
+        /**
+         * Upgrade status is trans succeeded.
+         * @since 9
+         */
+        PACKAGE_TRANS_SUCCESS = 72,
+
+        /**
+         * Upgrade status is installing.
+         * @since 9
+         */
+        INSTALLING = 80,
+
+        /**
+         * Upgrade status is install failed.
+         * @since 9
+         */
+        INSTALL_FAIL = 81,
+
+        /**
+         * Upgrade status is install succeeded.
+         * @since 9
+         */
+        INSTALL_SUCCESS = 82,
+
+        /**
+         * Upgrade status is updating.
+         * @since 9
+         */
+        UPDATING = 90,
 
         /**
          * Upgrade status is update failed.
          * @since 9
          */
-        UPGRADE_FAIL = 51
+        UPDATE_FAIL = 91,
+
+        /**
+         * Upgrade status is update succeeded.
+         * @since 9
+         */
+        UPDATE_SUCCESS = 92
     }
 
     /**
