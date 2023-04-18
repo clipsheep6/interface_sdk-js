@@ -286,7 +286,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 10
    */
-   function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
+  function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
 
   /**
    * Cancel to receive an icc account change.
@@ -301,7 +301,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @since 10
    */
-   function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
+  function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
 
   /**
    * @since 7
