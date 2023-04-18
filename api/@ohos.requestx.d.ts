@@ -680,7 +680,7 @@ export declare namespace agent {
         readonly extras?: JSON;
     }
     /**
-     * The task object prototype.
+     * The task entry.
      * New task' status is "initialized" and enqueued.
      * For background, no callbacks.
      * Can `start` a initialized task.
@@ -690,7 +690,7 @@ export declare namespace agent {
      * @since 10
      * @syscap SystemCapability.Request.FileTransferAgent
      */
-    class Task {
+    interface Task {
         /**
          * The task id, unique on system.
          * Generated automatically by system.
@@ -708,30 +708,11 @@ export declare namespace agent {
          */
         conf: Conf;
         /**
-         * Creates a task for upload or download and enqueue it.
-         * Only foreground application can create the frontend task.
-         * It can deal only one frontend task at a time.
-         * A in processing frontend task will be forced to stop when its application had switched to background.
-         * A new frontend task will interrupt a existed in processing frontend task.
-         * The background task is highly recommended.
-         * @permission ohos.permission.INTERNET
-         * @param { Conf } conf configurations for a task.
-         * @throws {BusinessError} 201 - Permission denied.
-         * @throws {BusinessError} 401 - Parameter error.
-         * @throws {BusinessError} 13400001 - file operation error.
-         * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400004 - application task queue full error.
-         * @throws {BusinessError} 13400005 - task mode error.
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        constructor(conf: Conf);
-        /**
          * Enable the specified callback for a frontend task.
          * @param { "progress"|"completed"|"failed" } evt event types.
          * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
-         * @throws {BusinessError} 13400005 - task mode error.
+         * @throws {BusinessError} 21900005 - task mode error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -741,7 +722,7 @@ export declare namespace agent {
          * @param { "progress"|"completed"|"failed" } evt event types.
          * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
-         * @throws {BusinessError} 13400005 - task mode error.
+         * @throws {BusinessError} 21900005 - task mode error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -752,7 +733,7 @@ export declare namespace agent {
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -762,7 +743,7 @@ export declare namespace agent {
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
@@ -772,8 +753,8 @@ export declare namespace agent {
          * Pauses the background task.
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - task mode error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900005 - task mode error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -781,8 +762,8 @@ export declare namespace agent {
         /**
          * Pauses the background task.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - task mode error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900005 - task mode error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
@@ -794,8 +775,8 @@ export declare namespace agent {
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - task mode error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900005 - task mode error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -805,8 +786,8 @@ export declare namespace agent {
          * @permission ohos.permission.INTERNET
          * @throws {BusinessError} 201 - Permission denied.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400005 - task mode error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900005 - task mode error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
@@ -816,7 +797,7 @@ export declare namespace agent {
          * Stops the task.
          * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -824,7 +805,7 @@ export declare namespace agent {
         /**
          * Stops the task.
          * @throws {BusinessError} 13400003 - task service ability error.
-         * @throws {BusinessError} 13400007 - task state error.
+         * @throws {BusinessError} 21900007 - task state error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @returns { Promise<void> } the promise returned by the function.
          * @since 10
@@ -892,6 +873,45 @@ export declare namespace agent {
         mode?: Mode;
     }
     /**
+     * Creates a task for upload or download and enqueue it.
+     * Only foreground application can create the frontend task.
+     * It can deal only one frontend task at a time.
+     * A in processing frontend task will be forced to stop when its application had switched to background.
+     * A new frontend task will interrupt a existed in processing frontend task.
+     * The background task is highly recommended.
+     * @permission ohos.permission.INTERNET
+     * @param { Conf } conf configurations for a task.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400001 - file operation error.
+     * @throws {BusinessError} 13400003 - task service ability error.
+     * @throws {BusinessError} 21900004 - application task queue full error.
+     * @throws {BusinessError} 21900005 - task mode error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    function create(conf: Conf, callback: AsyncCallback<Task>): void;
+    /**
+     * Creates a task for upload or download and enqueue it.
+     * Only foreground application can create the frontend task.
+     * It can deal only one frontend task at a time.
+     * A in processing frontend task will be forced to stop when its application had switched to background.
+     * A new frontend task will interrupt a existed in processing frontend task.
+     * The background task is highly recommended.
+     * @permission ohos.permission.INTERNET
+     * @param { Conf } conf configurations for a task.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 13400001 - file operation error.
+     * @throws {BusinessError} 13400003 - task service ability error.
+     * @throws {BusinessError} 21900004 - application task queue full error.
+     * @throws {BusinessError} 21900005 - task mode error.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @returns { Promise<Task> } the promise returned by the function.
+     * @since 10
+     */
+    function create(conf: Conf): Promise<Task>;
+    /**
      * Removes specifed task belongs to the caller.
      * The task will be forced to stop if in processing.
      * @param { BaseContext } context context of the caller.
@@ -899,7 +919,7 @@ export declare namespace agent {
      * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating sucess or not.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -911,7 +931,7 @@ export declare namespace agent {
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<void> } the promise returned by the function.
      * @since 10
@@ -924,7 +944,7 @@ export declare namespace agent {
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -935,7 +955,7 @@ export declare namespace agent {
      * @param { string } id the task id.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @since 10
@@ -949,7 +969,7 @@ export declare namespace agent {
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -961,7 +981,7 @@ export declare namespace agent {
      * @param { string } token the in-application isolation key.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @since 10
@@ -999,7 +1019,7 @@ export declare namespace agent {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi
      * @since 10
@@ -1012,7 +1032,7 @@ export declare namespace agent {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 13400003 - task service ability error.
-     * @throws {BusinessError} 13400006 - task not found error.
+     * @throws {BusinessError} 21900006 - task not found error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @systemapi
