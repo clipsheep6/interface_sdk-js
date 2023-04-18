@@ -990,7 +990,7 @@ declare namespace call {
   /**
    * Cancel missed incoming call notification.
    *
-   * @param {AsyncCallback<ServiceAbility>} callback - Returns option result.
+   * @param {AsyncCallback<void>} callback - Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
@@ -1007,7 +1007,7 @@ declare namespace call {
   /**
    * Cancel missed incoming call notification.
    *
-   * @returns {Promise<void>}  Returns option result.
+   * @returns {Promise<void>} Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.

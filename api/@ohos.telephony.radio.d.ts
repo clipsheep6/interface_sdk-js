@@ -556,7 +556,7 @@ declare namespace radio {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
    * @param {NetworkSwitchState} state - Indicates the service ability of the {@link NetworkSwitchState}.
-   * @param {AsyncCallback<ServiceAbility>} callback - Returns option result.
+   * @param {AsyncCallback<void>} callback - Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Applicable only to system applications.
