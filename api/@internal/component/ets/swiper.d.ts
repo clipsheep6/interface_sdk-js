@@ -296,7 +296,7 @@ declare enum SwiperDisplayMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Stretch,
+  STRETCH,
 
   /**
    * The rotation chart is self linear.
@@ -308,7 +308,7 @@ declare enum SwiperDisplayMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  AutoLinear,
+  AUTOLINEAR,
 }
 
 /**
