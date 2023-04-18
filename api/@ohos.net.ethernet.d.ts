@@ -87,6 +87,40 @@ declare namespace ethernet {
   function getAllActiveIfaces(): Promise<Array<string>>;
 
   /**
+   * Register a callback for the ethernet interface active state change.
+   *
+   * @param { string } type - interfaceStateChange
+   * @param { Callback<{ iface: string, active: boolean }> } callback - including state Indicates the ethernet
+   * interface, and active Indicates whether the interface is active.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'interfaceStateChange', callback?: Callback<{ iface: string, active: boolean }>): void;
+
+  /**
+   * Unregister a callback for the ethernet interface active state change.
+   *
+   * @param { string } type - interfaceStateChange
+   * @param { Callback<{ iface: string, active: boolean }> } callback - including state Indicates the ethernet
+   * interface, and active Indicates whether the interface is active.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Applicable only to system applications.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'interfaceStateChange', callback?: Callback<{ iface: string, active: boolean }>): void;
+
+  /**
    * @systemapi Hide this for inner system use.
    */
   export interface InterfaceConfiguration {
