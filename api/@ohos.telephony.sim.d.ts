@@ -1194,11 +1194,15 @@ declare namespace sim {
     /**
      * Indicates whether hide nr witch.
      */
-    KEY_NR_SWITCH_HIDE = "nr_switch_hide",
+    KEY_HIDE_NR_SWITCH = "hide_nr_switch",
     /**
      * Indicates whether turn on nr witch or not.
      */
     KEY_NR_SWITCH_DEFAULT_STATUS = "nr_switch_default_status",
+    /**
+     * Indicates whether turn on nr witch or not.
+     */
+    KEY_HIDE_PREFERRED_NETWORK_MODE = "hide_preferred_network_mode",
   }
 }
 
