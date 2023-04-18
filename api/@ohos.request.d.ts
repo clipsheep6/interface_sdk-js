@@ -1024,7 +1024,7 @@ declare namespace request {
     off(type: 'progress', callback?: (receivedSize: number, totalSize: number) => void): void;
 
     /**
-     * Called when the current download session complete pause or remove.
+     * Called when the current download session complete or remove.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @param type Indicates the download session event type
@@ -1035,7 +1035,7 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     /**
-     * Called when the current download session complete pause or remove.
+     * Called when the current download session complete or remove.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1049,7 +1049,7 @@ declare namespace request {
     on(type: 'complete' | 'remove', callback: () => void): void;
 
     /**
-     * Called when the current download session complete pause or remove.
+     * Called when the current download session pause.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @param type Indicates the download session event type
