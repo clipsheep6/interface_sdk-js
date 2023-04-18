@@ -1031,7 +1031,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete pause or remove change event.
+     * @param callback The callback function for the download complete or remove change event.
      * @permission ohos.permission.INTERNET
      */
     /**
@@ -1043,7 +1043,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete pause or remove change event.
+     * @param callback The callback function for the download complete or remove change event.
      * @permission ohos.permission.INTERNET
      */
     on(type: 'complete' | 'remove', callback: () => void): void;
@@ -1056,7 +1056,7 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete pause or remove change event.
+     * @param callback The callback function for the download pause change event.
      * @permission ohos.permission.INTERNET
      */
     on(type: 'pause', callback: () => void): void;
