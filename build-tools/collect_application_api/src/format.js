@@ -18,89 +18,89 @@ const path = require('path');
 const ts = require('typescript')
 const { importFiles, applicationApis, finalClassName } = require('./collect_import_name');
 function getApiData(fileData) {
-    const SDK_API_FILES = [];
-    getAllApiFiles(SDK_API_FILES);
-    const APP_API_FILES = [];
-    fileData.forEach((value, key) => {
-        for (let i = 0; i < SDK_API_FILES.length; i++) {
-            const filePath = SDK_API_FILES[i];
-            if (path.basename(filePath).replace(/\.d\.ts/, '') === key) {
-                APP_API_FILES.push(filePath);
-                break;
-            }
-        }
-    });
-    const apis = parse(APP_API_FILES);
-    const newApis = filterData(apis, fileData);
-    const finalApis = [];
-    for (let i = 0; i < applicationApis.length; i++) {
-        for (let j = 0; j < newApis.length; j++) {
-            if (!applicationApis[i].value) {
-                if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
-                    applicationApis[i].apiName == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                } else if (applicationApis[i].apiName == newApis[j].className) {
-                    finalApis.push(newApis[j]);
-                } else if (applicationApis[i].apiName == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                }
-            } else {
-                if (applicationApis[i].apiName == newApis[j].className &&
-                    applicationApis[i].value == newApis[j].methodName) {
-                    finalApis.push(newApis[j]);
-                }
-            }
-        }
+  const SDK_API_FILES = [];
+  getAllApiFiles(SDK_API_FILES);
+  const APP_API_FILES = [];
+  fileData.forEach((value, key) => {
+    for (let i = 0; i < SDK_API_FILES.length; i++) {
+      const filePath = SDK_API_FILES[i];
+      if (path.basename(filePath).replace(/\.d\.ts/, '') === key) {
+        APP_API_FILES.push(filePath);
+        break;
+      }
     }
-    for (let i = 0; i < applicationModules.length; i++) {
-        for (let j = 0; j < newApis.length; j++) {
-            if (applicationModules[i].packageName == newApis[j].packageName &&
-                applicationModules[i].methodName == newApis[j].className) {
-                newApis[j].namespace = applicationModules[i].className;
-            }
+  });
+  const apis = parse(APP_API_FILES);
+  const newApis = filterData(apis, fileData);
+  const finalApis = [];
+  for (let i = 0; i < applicationApis.length; i++) {
+    for (let j = 0; j < newApis.length; j++) {
+      if (!applicationApis[i].value) {
+        if (applicationApis[i].moduleName.match(new RegExp(newApis[j].className, 'i')) &&
+            applicationApis[i].apiName == newApis[j].methodName) {
+          finalApis.push(newApis[j]);
+        } else if (applicationApis[i].apiName == newApis[j].className) {
+          finalApis.push(newApis[j]);
+        } else if (applicationApis[i].apiName == newApis[j].methodName) {
+          finalApis.push(newApis[j]);
         }
+      } else {
+        if (applicationApis[i].apiName == newApis[j].className &&
+          applicationApis[i].value == newApis[j].methodName) {
+          finalApis.push(newApis[j]);
+        }
+      }
     }
-    let noRepeatApis = [...new Set(finalApis)];
-    count(finalApis, noRepeatApis);
-    excel(noRepeatApis);
+  }
+  for (let i = 0; i < applicationModules.length; i++) {
+    for (let j = 0; j < newApis.length; j++) {
+      if (applicationModules[i].packageName == newApis[j].packageName &&
+        applicationModules[i].methodName == newApis[j].className) {
+        newApis[j].namespace = applicationModules[i].className;
+      }
+    }
+  }
+  let noRepeatApis = [...new Set(finalApis)];
+  count(finalApis, noRepeatApis);
+  excel(noRepeatApis);
 }
 
 function getAllApiFiles(files) {
-    readFile(path.resolve(__dirname, '../sdk'), files);
+  readFile(path.resolve(__dirname, '../sdk'), files);
 }
 
 function filterData(apis, rulers) {
-    const appApis = [];
-    rulers.forEach((value, key) => {
-        const modules = rulers.get(key);
-        modules.forEach(module => {
-            apis.forEach(api => {
-                if (key.replace(/^\@/, '') === api.packageName && module.match(new RegExp(api.className, 'i'))) {
-                    appApis.push(api);
-                } else if (key.replace(/^\@/, '') === api.packageName) {
-                    appApis.push(api);
-                }
-            });
-        });
+  const appApis = [];
+  rulers.forEach((value, key) => {
+    const modules = rulers.get(key);
+    modules.forEach(module => {
+      apis.forEach(api => {
+        if (key.replace(/^\@/, '') === api.packageName && module.match(new RegExp(api.className, 'i'))) {
+          appApis.push(api);
+        } else if (key.replace(/^\@/, '') === api.packageName) {
+          appApis.push(api);
+        }
+      });
     });
-    return appApis;
+  });
+  return appApis;
 }
 
 function count(finalApis, noRepeatApis) {
-    let newArr = new Array(noRepeatApis.length);
-    for (let j = 0; j < noRepeatApis.length; j++) {
-        let number = 0;
-        for (let k = 0; k < finalApis.length; k++) {
-            if (noRepeatApis[j] == finalApis[k]) {
-                number++
-            }
-        }
-        noRepeatApis[j].count = number;
+  let newArr = new Array(noRepeatApis.length);
+  for (let j = 0; j < noRepeatApis.length; j++) {
+    let number = 0;
+    for (let k = 0; k < finalApis.length; k++) {
+      if (noRepeatApis[j] == finalApis[k]) {
+        number++
+      }
     }
+    noRepeatApis[j].count = number;
+  }
 }
 
 try {
-    getApiData(importFiles);
+  getApiData(importFiles);
 } catch (error) {
-    console.error("FORMAT API ERROR: ", error);
+  console.error("FORMAT API ERROR: ", error);
 }

@@ -21,49 +21,49 @@ const { getAPINote, error_type } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkDeprecated(node, sourcefile, fileName) {
-    const apiNote = getAPINote(node);
-    const apiNoteArr = apiNote.split('*');
-    let hasDeprecatedError = false;
-    let errorInfo = "";
-    apiNoteArr.forEach(note => {
-        if (note.match(new RegExp('@deprecated'))) {
-            const deprecatedNote = note.replace('@deprecated', '').trim();
-            const regx = /since [0-9]/;
-            const arr = deprecatedNote.match(regx);
-            if (arr != null) {
-                const errorNote = deprecatedNote.replace(arr[0], '');
-                if (/[A-z]/.test(errorNote)) {
-                    hasDeprecatedError = true;
-                    if (errorInfo !== "") {
-                        errorInfo += `,${note}`;
-                    } else {
-                        errorInfo += note;
-                    }
-                } else {
-                    if (/@useinstead/.test(apiNote)) {
+  const apiNote = getAPINote(node);
+  const apiNoteArr = apiNote.split('*');
+  let hasDeprecatedError = false;
+  let errorInfo = "";
+  apiNoteArr.forEach(note => {
+    if (note.match(new RegExp('@deprecated'))) {
+      const deprecatedNote = note.replace('@deprecated', '').trim();
+      const regx = /since [0-9]/;
+      const arr = deprecatedNote.match(regx);
+      if (arr != null) {
+        const errorNote = deprecatedNote.replace(arr[0], '');
+        if (/[A-z]/.test(errorNote)) {
+          hasDeprecatedError = true;
+          if (errorInfo !== "") {
+            errorInfo += `,${note}`;
+          } else {
+            errorInfo += note;
+          }
+        } else {
+          if (/@useinstead/.test(apiNote)) {
 
-                    } else {
-                        hasDeprecatedError = true;
-                        if (errorInfo !== "") {
-                            errorInfo += `,${note}`;
-                        } else {
-                            errorInfo += note;
-                        }
-                    }
-                }
-            } else if (arr == null) {
-                hasDeprecatedError = true;
-                if (errorInfo !== "") {
-                    errorInfo += `,${note}`;
-                } else {
-                    errorInfo += note;
-                }
+          } else {
+            hasDeprecatedError = true;
+            if (errorInfo !== "") {
+              errorInfo += `,${note}`;
+            } else {
+              errorInfo += note;
             }
+          }
         }
-    });
-
-    if (hasDeprecatedError) {
-        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DEPRECATED, errorInfo);
+      } else if (arr == null) {
+        hasDeprecatedError = true;
+        if (errorInfo !== "") {
+          errorInfo += `,${note}`;
+        } else {
+          errorInfo += note;
+        }
+      }
     }
+  });
+
+  if (hasDeprecatedError) {
+    addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DEPRECATED, errorInfo);
+  }
 }
 exports.checkDeprecated = checkDeprecated;
