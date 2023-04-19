@@ -326,10 +326,10 @@ declare namespace sms {
   function encodeMms(mms: MmsInformation): Promise<Array<number>>;
 
   /**
-   * Obtains the default SIM id for sending SMS messages.
+   * Obtains the default SIM ID for sending SMS messages.
    *
-   * @param { AsyncCallback<number> } callback - Returns the sim id of the default sms sim and
-   * sim id will increase from 1.
+   * @param { AsyncCallback<number> } callback - Returns the SIM ID of the default sms sim and
+   * SIM ID will increase from 1.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -342,10 +342,10 @@ declare namespace sms {
   function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the default SIM id for sending SMS messages.
+   * Obtains the default SIM ID for sending SMS messages.
    *
-   * @returns { Promise<number> } Returns the sim id of the default sms sim and
-    * sim id will increase from 1.
+   * @returns { Promise<number> } Returns the SIM ID of the default sms sim and
+    * SIM ID will increase from 1.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
