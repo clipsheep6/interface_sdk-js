@@ -38,8 +38,51 @@ declare interface TextPickerRangeContent {
 }
 
 /**
+ * Defines the cascade options of TextPicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface TextCascadePickerOptions {
+  /**
+   * Specifies the range of the selector.
+   * Support the display of pictures, text and pictures plus text.
+   * @default ""
+   * @type { string[] | Resource | TextPickerRangeContent[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  range ?: string[] | Resource | TextPickerRangeContent[];
+
+  /**
+   * Specifies the value of the selector.
+   * Support the display of pictures, text and pictures plus text.
+   * @default ""
+   * @type { string | Resource | TextPickerRangeContent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  value?: string | Resource | TextPickerRangeContent;
+
+  /**
+   * Current selected subscript.
+   * @default the half of the picker options size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  selected?: number;
+  
+  /**
+   * Defines the text cascade picker children.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  children?: TextCascadePickerOptions[];
+}
+
+/**
  * Defines the options of TextPicker.
  * @since 8
+ * @deprecated since 11
  */
 declare interface TextPickerOptions {
   /**
@@ -77,12 +120,35 @@ declare interface TextPickerOptions {
 }
 
 /**
+ * Defines the struct of cascade Options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+ declare interface CascadeOptions {
+  /**
+   *The cascade options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  options: TextCascadePickerOptions | TextCascadePickerOptions[];
+
+  /**
+   * Show cascade text picker.
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  isCascade: boolean
+ }
+
+/**
  * @since 8
  */
 interface TextPickerInterface {
   /**
    * Defines the TextPicker constructor.
    * @since 8
+   * @deprecated since 11
    */
   (options?: TextPickerOptions): TextPickerAttribute;
 }
@@ -147,7 +213,22 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
+   /**
+   * This event is triggered when a TextPicker item is selected.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   * @param { value: string | string[], index: number | number[]) => void } callback - the callback of onChange.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
+
+  /**
+   * Sets the cascade options
+   * @param { CascadeOptions } options - the cascade options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  cascadeOptions(options: CascadeOptions): TextPickerAttribute;
 }
 
 /**
@@ -168,19 +249,34 @@ declare interface TextPickerResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  value: string;
+  /**
+   * The subscript of the current selection for multi columns.
+   * @type { string | string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  value: string | string[];
   /**
    * The subscript of the current selection.
+   * @type { number }
    * @since 8
    */
-  index: number;
+  /**
+   * The subscript of the current selection for multi columns.
+   * @type { number | number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  index: number | number[];
 }
 
 /**
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
- * @since 8
+ * @extends TextCascadePickerOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
  */
-declare interface TextPickerDialogOptions extends TextPickerOptions {
+declare interface TextPickerDialogOptions extends TextCascadePickerOptions {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
