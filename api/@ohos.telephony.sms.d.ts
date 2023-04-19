@@ -344,7 +344,7 @@ declare namespace sms {
   /**
    * Obtains the default SIM id for sending SMS messages.
    *
-   * @return { Promise<number> } Returns the sim id of the default sms sim and
+   * @returns { Promise<number> } Returns the sim id of the default sms sim and
     * sim id will increase from 1.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.

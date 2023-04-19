@@ -574,7 +574,7 @@ declare namespace radio {
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
-   * @return { Promise<String> } Returns Baseband version.
+   * @returns { Promise<String> } Returns Baseband version.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -612,7 +612,7 @@ declare namespace radio {
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
    * @param { NROptionMode } mode - Indicates the nr option mode to be set.
-   * @return { Promise<void> } Returns option result.
+   * @returns { Promise<void> } Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -646,7 +646,7 @@ declare namespace radio {
    *
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
-   * @return { AsyncCallback<NROptionMode> } Returns the selection mode of NR.
+   * @returns { AsyncCallback<NROptionMode> } Returns the selection mode of NR.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.

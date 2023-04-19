@@ -179,7 +179,7 @@ declare namespace data {
   /**
    * Obtains the default cellular data sim id.
    *
-   * @return Returns the sim id of the default cellular data sim and sim id will increase from 1.
+   * @returns Returns the sim id of the default cellular data sim and sim id will increase from 1.
    * @since 10
    */
   function getDefaultCellularDataSimId(): number;
