@@ -1139,6 +1139,20 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
+  /**
+   * Creates a template object using the specified image
+   * @param image Objects as duplicate image sources
+   * @param repetition Specifies how to repeat images. The following four modes are supported:
+   * "repeat": Repeated images in both X and Y directions
+   * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
+   * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
+   * "no-repeat": Non-repeating images in both X and Y directions
+   * "clamp": Replicate the edge color if the shader draws outside of its original bounds.
+   * "mirror": Repeat the shader's image horizontally and vertically, alternating mirror images so that adjacent images always seam.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
   /**
@@ -1165,6 +1179,22 @@ declare class CanvasRenderer extends CanvasPath {
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
+   * Creates a gradient around a point with given coordinates.
+   * @param startAngle The angle at which to begin the gradient, in radians.
+   *                   Angle measurements start horizontally the right of the center and move around clockwise.
+   * @param x The x-axis coordinate of the center of the gradient.
+   * @param y The y-axis coordinate of the center of the gradient.
+   * @returns CanvasGradient A CanvasGradient object that draws a conic gradient around the given coordinates.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  createConicGradient(
+    startAngle: number,
+    x: number,
+    y: number
+  ): CanvasGradient;
+
+  /**
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
    * blur(<length>): Adds a Gaussian blur effect to the drawing
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
@@ -1217,7 +1247,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  filter(filter: string): void;
+  filter: string;
 
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -1358,7 +1388,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  imageSmoothingQuality(quality: ImageSmoothingQuality): void;
+  imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
@@ -1624,7 +1654,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  direction(direction: CanvasDirection): void;
+  direction: CanvasDirection;
 
   /**
    * Font style. The default value is 10px sans-serif.

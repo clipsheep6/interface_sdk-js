@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./basic";
+import {AsyncCallback, Callback} from "./@ohos.base";
 import http from "./@ohos.net.http";
 import socket from "./@ohos.net.socket";
 
@@ -202,7 +202,7 @@ declare namespace connection {
    *
    * @param host Indicates the host name or the domain.
    * @param callback Returns the NetAddress list.
-   * @permission ohos.permission.GET_NETWORK_INFO
+   * @permission ohos.permission.INTERNET
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 2100001 - Invalid parameter value.
@@ -388,7 +388,7 @@ declare namespace connection {
      *
      * @param host Indicates the host name or the domain.
      * @param callback Returns the NetAddress list.
-     * @permission ohos.permission.GET_NETWORK_INFO
+     * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 2100001 - Invalid parameter value.
@@ -403,7 +403,7 @@ declare namespace connection {
      *
      * @param host Indicates the host name or the domain.
      * @param callback Returns the first NetAddress.
-     * @permission ohos.permission.GET_NETWORK_INFO
+     * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 2100001 - Invalid parameter value.

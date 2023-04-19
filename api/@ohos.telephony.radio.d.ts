@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./basic";
+import {AsyncCallback, Callback} from "./@ohos.base";
 
 /**
  * Provides interfaces for applications to obtain the network state, cell information, signal information,
@@ -297,7 +297,6 @@ declare namespace radio {
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */

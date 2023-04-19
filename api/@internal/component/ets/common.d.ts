@@ -1578,7 +1578,7 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  source?: string | Resource | linearGradient,
+  source?: string | Resource | LinearGradient,
 
   /**
    * Border image width
@@ -1973,8 +1973,20 @@ declare interface PopupOptions {
   /**
    * placement On Top
    * @since 7
+   * @deprecated since 10
+   * @useinstead PopupOptions#placement
    */
   placementOnTop?: boolean;
+
+  /**
+   * Placement of popup
+   * supports four positions: top, bottom, left and right
+   * @type { Placement }
+   * @default bottom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  placement?: Placement;
 
   /**
    * The first button.
@@ -2134,28 +2146,60 @@ declare interface CustomPopupOptions {
 }
 
 /**
- * Defines the menu options.
+ * Defines the context menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface MenuOptions {
+declare interface ContextMenuOptions {
   /**
-   * Sets the title of the menu window.
-   * @type { ResourceStr }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  title?: ResourceStr;
-
-  /**
-   * Sets the position offset of the menu window.
-   * @type { Position }
+   * Sets the position offset of the context menu window.
+   * @type { ?Position }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   offset?: Position;
+
+  /**
+   * Sets the placement of the context menu window.
+   * @type { ?Placement }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  placement?: Placement;
+
+  /**s
+   * Callback function when the context menu appears.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onAppear?: () => void;
+
+  /**
+   * Callback function when the context menu disappear.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onDisappear?: () => void;
+}
+
+/**
+ * Defines the menu options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface MenuOptions extends ContextMenuOptions {
+  /**
+   * Sets the title of the menu window.
+   * @type { ?ResourceStr }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  title?: ResourceStr;
 }
 
 /**
@@ -2428,6 +2472,7 @@ declare class CommonMethod<T> {
    * blurStyle:Blur style type.
    * @param { BlurStyle } value
    * @param { BackgroundBlurStyleOptions } options
+   * @form
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
@@ -2656,6 +2701,7 @@ declare class CommonMethod<T> {
    * Transition parameter
    * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 10
    */
   transition(value: TransitionOptions | TransitionEffect): T;
@@ -3228,6 +3274,7 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    * @param { ShadowOptions | ShadowStyle } value
+   * @form
    * @since 10
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
@@ -3259,6 +3306,7 @@ declare class CommonMethod<T> {
    * Applies a mask of the specified shape to the current assembly.
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @since 10
    */  
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
@@ -3312,7 +3360,15 @@ declare class CommonMethod<T> {
    * ContextMenu control
    * @since 8
    */
-  bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
+  /**
+   * ContextMenu control
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { responseType } responseType - Indicates response type of context menu.
+   * @param { ContextMenuOptions } options - Indicates the options of context menu.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
    * Bind content cover
@@ -3583,6 +3639,22 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 9
    */
   strokeDashArray(value: Array<any>): T;
+}
+
+/**
+ * Linear Gradient Interface
+ * @param { number | string } angle - Angle of Linear Gradient.
+ * @param { GradientDirection } direction - Direction of Linear Gradient.
+ * @param { Array<any> } colors - Array of colors
+ * @param { boolean } repeating: Image slice repeating.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ */
+declare interface LinearGradient {
+  angle?: number | string;
+  direction?: GradientDirection;
+  colors: Array<any>;
+  repeating?: boolean;
 }
 
 /**

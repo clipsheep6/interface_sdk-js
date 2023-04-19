@@ -147,15 +147,18 @@ function deleteRepeatApi(oldApis, newApis, newFilesApi, oldFilesApi) {
 function collectSameTypeFun(apiArr) {
 	apiArr.forEach(api => {
 		let sameNameFun = '';
-		let number = 0
+		// 标记既不是Promise也不是callback的同名函数
+		let number = 0;
+		let sameNamePromiseText = ''
 		apiArr.forEach(newApi => {
 			if (api.dtsPath.replace(newDir, '') === newApi.dtsPath.replace(newDir, '') && api.className === newApi.className &&
 				api.methodName === newApi.methodName && api.apiType == 'Method' && api.funType === newApi.funType) {
 				if (sameNameFun.indexOf(newApi.methodText) < 0 && api.funType === 'callback') {
 					sameNameFun += `\n${newApi.methodText}`;
 					api.callbackMethodText = sameNameFun;
-				} else if (api.funType === 'Promise') {
-					api.promiseMethodText = api.methodText;
+				} else if (sameNamePromiseText.indexOf(newApi.methodText) < 0 && api.funType === 'Promise') {
+					sameNamePromiseText += `\n${newApi.methodText}`;
+					api.promiseMethodText = sameNamePromiseText;
 				} else if (!api.funType) {
 					number++;
 					api.note = number;
@@ -386,8 +389,8 @@ function collectTypeDiff(newType, oldType, startDiffNew, startDiffOld, diffApis,
 		flag = 'type有变化';
 	}
 	if (flag) {
-		diffOld = startDiffOld + '起始版本：' + oldType;
-		diffNew = startDiffNew + '起始版本：' + newType;
+		diffOld = startDiffOld + 'type：' + oldType;
+		diffNew = startDiffNew + 'type：' + newType;
 		let sysCapInfo = getSubsystemBySyscap(newApi, newApi.sysCap);
 		diffApis.push(getApiInfoWithFlag(newApi, flag, diffOld, diffNew, subsystemMap, sysCapInfo, notes, fileNameMap));
 	}
@@ -704,9 +707,15 @@ function exportDiffMd(subsystem, diffInfos) {
 	for (let i = 0; i < diffInfos.length; i++) {
 		let apiData = diffInfos[i];
 		let fileName = apiData.dtsPath ? path.basename(apiData.dtsPath) : apiData.packageName;
-		finalContent += `|${apiData.flag}|${apiData.diffOld.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|')}|` +
-			`${apiData.diffNew.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|')}|${fileName}|\n`;
+		const oldData = apiData.diffOld.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|').replace(/\<(?!br>)/g, '\\<');
+		const newData = apiData.diffNew.replace(/\r|\n/g, '<br>').replace(/\|/g, '\\|').replace(/\<(?!br>)/g, '\\<');
+		finalContent += `|${apiData.flag}|${oldData}|${newData}|${fileName}|\n`;
 	}
+	const mdFilesDir = `${__dirname.replace('src', '')}diff合集`;
+	if (!fs.existsSync(mdFilesDir)) {
+		fs.mkdirSync('../diff合集')
+	}
+
 	fs.writeFile(`../diff合集/js-apidiff-${subsystem}.md`, finalContent, function (err) {
 		if (err) {
 			console.log('WRITE FAILED:::', err);

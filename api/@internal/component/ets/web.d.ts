@@ -184,6 +184,23 @@ declare enum WebDarkMode {
 }
 
 /**
+ * Defines the Media Options.
+ * @since 10
+ */
+declare interface WebMediaOptions {
+  /**
+   * The time interval for audio playback to resume.
+   * @since 10
+   */
+  resumeInterval?: number;
+  /**
+   * Whether the audio of each web is exclusive.
+   * @since 10
+   */
+  audioExclusive?: boolean;
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -1494,6 +1511,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   forceDarkAccess(access: boolean): WebAttribute;
 
   /**
+   * Sets the media options.
+   * @param options The media options, which can be {@link WebMediaOptions}.
+   *
+   * @since 10
+   */
+  mediaOptions(options: WebMediaOptions): WebAttribute;
+
+  /**
    * Sets whether the Web should save the table data.
    * @param tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    *
@@ -1694,6 +1719,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered callback when the URL loading is intercepted.
    *
    * @since 8
+   * @deprecated since 10
+   * @useinstead ohos.web.WebAttribute#onLoadIntercept
    */
   onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
 
@@ -2045,6 +2072,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onAudioStateChanged(callback: (event: { playing: boolean }) => void): WebAttribute;
+
+  /**
+   * Triggered when the first content rendering of web page.
+   * @param navigationStartTick Absolute navigation start time, as TimeTicks.
+   * it is represented in microseconds.
+   * @param firstContentfulPaintMs Time to first contentful paint from navigation start.
+   * it is represented in milliseconds.
+   * @since 10
+   */
+  onFirstContentfulPaint(callback: (event?: { navigationStartTick: number,
+    firstContentfulPaintMs: number }) => void): WebAttribute;
 
   /**
    * Triggered when the resources loading is intercepted.

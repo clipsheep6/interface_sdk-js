@@ -24,10 +24,11 @@ declare namespace hilog {
   /**
    * Outputs debug-level logs.
    *
-   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
+   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
@@ -35,10 +36,11 @@ declare namespace hilog {
   /**
    * Outputs info-level logs.
    *
-   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
+   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
@@ -46,10 +48,11 @@ declare namespace hilog {
   /**
    * Outputs warning-level logs.
    *
-   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
+   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
@@ -57,10 +60,11 @@ declare namespace hilog {
   /**
    * Outputs error-level logs.
    *
-   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
+   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
@@ -68,10 +72,11 @@ declare namespace hilog {
   /**
    * Outputs fatal-level logs.
    *
-   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
+   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
@@ -79,9 +84,10 @@ declare namespace hilog {
   /**
    * Checks whether logs of the specified tag, and level can be printed.
    *
-   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
+   * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
    * @param tag Identifies the log tag.
    * @param level log level
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
@@ -89,6 +95,7 @@ declare namespace hilog {
   /**
    * Log level define
    *
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
