@@ -32,7 +32,7 @@ interface PathInterface {
    * @form
    * @since 9
    */
-  new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
+  new(value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 
   /**
    * Called when drawing path.

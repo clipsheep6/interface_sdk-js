@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import {AsyncCallback, Callback} from "./@ohos.base";
+import { AsyncCallback, Callback } from "./@ohos.base";
 import wantConstant from "./@ohos.ability.wantConstant";
 
 /**
@@ -24,23 +24,23 @@ import wantConstant from "./@ohos.ability.wantConstant";
  */
 declare namespace fileShare {
 
-    /**
-     * Provides grant uri permission for app
-     * 
-     * @since 9
-     * @param {string} uri uri
-     * @param {string} bundleName bundleName
-     * @param {wantConstant.Flags} flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
-     * @throws { BusinessError } 201 - Permission verification failed
-     * @throws { BusinessError } 202 - The caller is not a system application
-     * @throws { BusinessError } 401 - The input parameter is invalid
-     * @throws { BusinessError } 143000001 - IPC error
-     * @syscap SystemCapability.FileManagement.AppFileService
-     * @returns {void | Promise<void>} no callback return Promise otherwise return void
-     * @systemapi
-     */
-    function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags, callback: AsyncCallback<void>): void;
-    function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
+  /**
+   * Provides grant uri permission for app
+   * 
+   * @since 9
+   * @param {string} uri uri
+   * @param {string} bundleName bundleName
+   * @param {wantConstant.Flags} flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @throws { BusinessError } 201 - Permission verification failed
+   * @throws { BusinessError } 202 - The caller is not a system application
+   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 143000001 - IPC error
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @returns {void | Promise<void>} no callback return Promise otherwise return void
+   * @systemapi
+   */
+  function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags, callback: AsyncCallback<void>): void;
+  function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 }
 
 export default fileShare;

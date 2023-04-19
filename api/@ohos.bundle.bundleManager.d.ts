@@ -773,7 +773,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getBundleInfo(bundleName: string,
-      bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
+    bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -832,7 +832,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getApplicationInfo(bundleName: string,
-      appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
+    appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -934,7 +934,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getAllApplicationInfo(appFlags: number,
-      userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
@@ -994,7 +994,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryAbilityInfo(want: Want,
-      abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+    abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1037,7 +1037,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-      extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+    extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1060,7 +1060,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-      extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+    extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1083,7 +1083,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-      extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+    extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -1640,7 +1640,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 10
    */
-  function getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+  function getSharedBundleInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
 
   /**
    * Obtains SharedBundleInfo of shared bundle by bundle name and module name.

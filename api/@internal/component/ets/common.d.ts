@@ -1338,7 +1338,7 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Alpha,  
+  Alpha,
 }
 
 /**
@@ -3308,7 +3308,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 10
-   */  
+   */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -3378,7 +3378,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Sets styles for component state.
@@ -3448,7 +3448,7 @@ declare class CommonMethod<T> {
  * @form
  * @since 9
  */
-declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
  * CommonInterface for ide.

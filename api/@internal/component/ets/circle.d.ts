@@ -65,7 +65,7 @@ interface CircleInterface {
    * @form
    * @since 9
    */
-  new (value?: CircleOptions): CircleAttribute;
+  new(value?: CircleOptions): CircleAttribute;
 
   /**
    * Set the value..

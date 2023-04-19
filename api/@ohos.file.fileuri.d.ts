@@ -21,16 +21,16 @@
  */
 declare namespace fileUri {
 
-    /**
-     * Get the uri from the path of file in app sandbox
-     * 
-     * @since 9
-     * @param {string} path the path of file in app sandbox
-     * @throws { BusinessError } 401 - The input parameter is invalid
-     * @syscap SystemCapability.FileManagement.AppFileService
-     * @returns Return the file uri
-     */
-    function getUriFromPath(path: string): string;
+  /**
+   * Get the uri from the path of file in app sandbox
+   * 
+   * @since 9
+   * @param {string} path the path of file in app sandbox
+   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @returns Return the file uri
+   */
+  function getUriFromPath(path: string): string;
 }
 
 export default fileUri;

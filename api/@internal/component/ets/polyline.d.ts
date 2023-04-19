@@ -32,7 +32,7 @@ interface PolylineInterface {
    * @form
    * @since 9
    */
-  new (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
+  new(value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 
   /**
    * Called when using the draw fold.
