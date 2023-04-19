@@ -602,7 +602,7 @@ declare class Matrix2D {
 
   /**
    * Adds the rotation effect of the X and Y axes to the current matrix.
-   * @param { number } degree - The rotation angle, clockwise in degree.
+   * @param { number } degree - The rotation angle, clockwise in radians.
    * @param { number } rx - Rotation effect of the X-axis
    * @param { number } ry - Rotation effect of the Y-axis
    * @returns { Matrix2D }
