@@ -386,6 +386,14 @@ declare namespace media {
     selectTrack(index: number): void;
 
     /**
+     * Deselect the current subtitle track.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param index Subtitle index that needs to be cancelled.
+     */
+    deselectTrack(index: number): void;
+
+    /**
      * Obtain the current audio track or subtitle track.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -404,14 +412,6 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      */
     getSelectedTrack(trackType: MediaType): Promise<number>;
-
-    /**
-     * Deselect the current subtitle track.
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param index Subtitle index that needs to be cancelled.
-     */
-    deselectTrack(index: number): void;
 
     /**
      * Media URI. Mainstream media formats are supported.
