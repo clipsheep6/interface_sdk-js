@@ -379,24 +379,11 @@ declare namespace media {
     /**
      * Set audio or subtitle track. By default, the first audio stream with data is played, and the
      * subtitle track is not played. Please read or set it in the prepared/playing/paused/completed state.
-     * Track infos reference {@link #getTrackDescription}.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param callback Async callback return when the track selection is completed.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @param index Track index, reference {@link #getTrackDescription}.
      */
-    selectTrack(index: number, callback: AsyncCallback<void>): void;
-
-     /**
-     * Set audio or subtitle track. By default, the first audio stream with data is played, and the
-     * subtitle track is not played. Please read or set it in the prepared/playing/paused/completed state.
-     * Track infos reference {@link #getTrackDescription}.
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @returns A Promise instance used to return when the track selection is completed.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     */
-    selectTrack(index: number): Promise<void>;
+    selectTrack(index: number): void;
 
     /**
      * Obtain the current audio track or subtitle track.
@@ -423,20 +410,8 @@ declare namespace media {
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Subtitle index that needs to be cancelled.
-     * @param callback Async callback return when the track is successfully cancelled.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      */
-    deselectTrack(index: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Deselect the current subtitle track.
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param index Subtitle index that needs to be cancelled.
-     * @returns A Promise instance used to return when the track is successfully cancelled.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     */
-    deselectTrack(index: number): Promise<void>;
+    deselectTrack(index: number): void;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -689,8 +664,18 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the playback event return audio or subtitle track.
      */
-    on(type: 'trackChange', callback: (trackType: MediaType, index: number) => void): void;
+    on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
     off(type: 'trackChange'): void;
+    /**
+     * Register or unregister to listen for trackinfo update events.
+     * This event will be reported after setting {@link #addSubUrl}.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the track info update event.
+     */
+     on(type: 'trackInfoUpdate', callback: Callback<void>): void;
+     off(type: 'trackInfoUpdate'): void;
     /**
      * Register or unregister to receive subtitle data.
      * @since 11
@@ -2862,6 +2847,40 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     AUDIO_FLAC = 'audio/flac',
+  }
+
+  interface SubtitleDescriptor {
+    /**
+     * Whether render this text or not. If false
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    isRender: boolean;
+    textSubInfo?: TextSubDescriptor;
+  }
+  interface TextSubDescriptor {
+    text: string;
+    color?: string; // rgb or argb，default:white
+    size?: number; // default:10
+    style?: FontStyle; // default:NORMAL
+    weight?: FontWeight; // default:NORMAL
+    decorationType?: TextDecorationType; // default:NONE
+  }
+
+  enum FontStyle {
+    NORMAL = 0,
+    ITALIC = 1
+  }
+
+  enum FontWeight {
+    NORMAL = 0,
+    BOLD = 1
+  }
+
+  enum TextDecorationType {
+    NONE = 0,
+    UNDERLINE = 1,
+    LINETHROUGH = 2
   }
 }
 export default media;
