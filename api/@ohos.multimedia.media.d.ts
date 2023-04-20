@@ -474,6 +474,14 @@ declare namespace media {
     videoScaleType ?: VideoScaleType;
 
     /**
+     * Currently playing audio stream. By default the first audio stream with data is played. Please read
+     * or set it in the prepared/playing/paused state, track infos reference {@link #getTrackDescription}.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    currentAudioTrack?: number;
+
+    /**
      * Set payback speed.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -611,6 +619,16 @@ declare namespace media {
      */
     on(type: 'availableBitrates', callback: (bitrates: Array<number>) => void): void;
     off(type: 'availableBitrates'): void;
+    /**
+     * Register or unregister listens for audio track change event.
+     * This event will be reported after setting {@link #currentAudioTrack}.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the playback event return audio track.
+     */
+    on(type: 'audioTrackChange', callback: (trackIndex: number) => void): void;
+    off(type: 'audioTrackChange'): void;
     /**
      * Register or unregister listens for playback error events.
      * @since 9
