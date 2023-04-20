@@ -348,6 +348,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 10
    */
   caretPosition(value: number): TextInputAttribute;
+
+  /**
+   * Sets whether request keyboard or not when on focus.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  requestKeyboardOnFocus(value: boolean): TextInputAttribute;
 }
 
 /**

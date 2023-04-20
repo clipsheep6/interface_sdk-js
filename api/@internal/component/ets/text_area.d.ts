@@ -177,6 +177,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Sets whether request keyboard or not when on focus.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  requestKeyboardOnFocus(value: boolean): TextInputAttribute;
 }
 
 /**
