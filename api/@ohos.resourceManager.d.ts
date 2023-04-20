@@ -1145,6 +1145,18 @@ declare namespace resourceManager {
     getRawFileContent(path: string): Promise<Uint8Array>;
 
     /**
+     * Obtains the raw file resource corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Uint8Array } the raw file resource corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileContentSync(path: string): Uint8Array;
+
+    /**
      * Obtains the raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
      * @param { string } path - Indicates the resource relative path.
@@ -1169,6 +1181,18 @@ declare namespace resourceManager {
     getRawFd(path: string): Promise<RawFileDescriptor>;
 
     /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { RawFileDescriptor } The raw file resource descriptor corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFdSync(path: string): RawFileDescriptor;
+
+    /**
      * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
      *
      * @param { string } path - Indicates the resource relative path.
@@ -1191,6 +1215,29 @@ declare namespace resourceManager {
      * @since 9
      */
     closeRawFd(path: string): Promise<void>;
+
+    /**
+     * Close raw file resource descriptor corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    closeRawFdSync(path: string): void;
+
+    /**
+     * Get raw file list corresponding to the specified resource path.
+     *
+     * @param { string } path - Indicates the resource relative path.
+     * @returns { Array<string> } The raw file list corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 10
+     */
+    getRawFileList(path: string): Array<string>;
 
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
