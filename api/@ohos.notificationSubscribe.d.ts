@@ -64,7 +64,12 @@ declare namespace notificationSubscribe {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { AsyncCallback<void> } callback - The callback of subscribe.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -78,7 +83,12 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscribeInfo } info - The notification subscribe info.
    * @param { AsyncCallback<void> } callback - The callback of subscribe.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -91,7 +101,12 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { NotificationSubscribeInfo } info - The notification subscribe info.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -103,7 +118,12 @@ declare namespace notificationSubscribe {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -115,7 +135,12 @@ declare namespace notificationSubscribe {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -129,111 +154,166 @@ declare namespace notificationSubscribe {
    * @param { NotificationKey } notificationKey - The notification key.
    * @param { RemoveReason } reason - The remove reason.
    * @param { AsyncCallback<void> } callback - The callback of remove.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
-  /**
-   * Remove notification.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
-   * @param { NotificationKey } notificationKey - The notification key.
-   * @param { RemoveReason } reason - The remove reason.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
-
-  /**
-   * Remove notification.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - The hashCode.
-   * @param { RemoveReason } reason - The remove reason.
-   * @param { AsyncCallback<void> } callback - The callback of remove.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
-
-  /**
-   * Remove notification.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } hashCode - The hashCode.
-   * @param { RemoveReason } reason - The remove reason.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function remove(hashCode: string, reason: RemoveReason): Promise<void>;
-
-  /**
-   * RemoveAll all notifications.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
-   * @param { AsyncCallback<void> } callback - The callback of removeAll.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
-
-  /**
-   * RemoveAll all notifications.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<void> } callback - The callback of removeAll.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function removeAll(callback: AsyncCallback<void>): void;
-
-  /**
-   * Remove all notifications under the specified user.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
-   * @param { AsyncCallback<void> } callback - The callback of removeAll.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function removeAll(userId: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Remove all notifications under the specified user.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function removeAll(userId: number): Promise<void>;
-
-  /**
-   * RemoveAll all notifications.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } bundle - The bundle option.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  function removeAll(bundle?: BundleOption): Promise<void>;
+   /**
+    * Remove notification.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { BundleOption } bundle - The bundle option.
+    * @param { NotificationKey } notificationKey - The notification key.
+    * @param { RemoveReason } reason - The remove reason.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 1600007 - The notification is not exist.
+    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
+ 
+   /**
+    * Remove notification.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { string } hashCode - The hashCode.
+    * @param { RemoveReason } reason - The remove reason.
+    * @param { AsyncCallback<void> } callback - The callback of remove.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 1600007 - The notification is not exist.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
+ 
+   /**
+    * Remove notification.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { string } hashCode - The hashCode.
+    * @param { RemoveReason } reason - The remove reason.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 1600007 - The notification is not exist.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
+ 
+   /**
+    * RemoveAll all notifications.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { BundleOption } bundle - The bundle option.
+    * @param { AsyncCallback<void> } callback - The callback of removeAll.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
+ 
+   /**
+    * RemoveAll all notifications.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { AsyncCallback<void> } callback - The callback of removeAll.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function removeAll(callback: AsyncCallback<void>): void;
+ 
+   /**
+    * Remove all notifications under the specified user.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { number } userId - The userId.
+    * @param { AsyncCallback<void> } callback - The callback of removeAll.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 1600008 - The user is not exist.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function removeAll(userId: number, callback: AsyncCallback<void>): void;
+ 
+   /**
+    * Remove all notifications under the specified user.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { number } userId - The userId.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 1600008 - The user is not exist.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function removeAll(userId: number): Promise<void>;
+ 
+   /**
+    * RemoveAll all notifications.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    * @param { BundleOption } bundle - The bundle option.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permission denied.
+    * @throws { BusinessError } 202 - Not system application to call the interface.
+    * @throws { BusinessError } 401 - The parameter check failed.
+    * @throws { BusinessError } 1600001 - Internal error.
+    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+    * @throws { BusinessError } 1600003 - Failed to connect service.
+    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+    * @syscap SystemCapability.Notification.Notification
+    * @systemapi
+    * @since 9
+    */
+   function removeAll(bundle?: BundleOption): Promise<void>;
 
   /**
    * Describes a bundleOption in a notification.
