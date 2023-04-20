@@ -565,6 +565,7 @@ declare namespace radio {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -586,6 +587,7 @@ declare namespace radio {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -606,6 +608,7 @@ declare namespace radio {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -626,6 +629,7 @@ declare namespace radio {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -1192,26 +1196,46 @@ declare namespace radio {
   }
 
   /**
+   * Enum for network switch type.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum NetworkSwitchType {
-    /** Indicates LTE network switch type. */
+    /**
+     * Indicates LTE network switch type.
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 10
+     */
     SERVICE_TYPE_LTE,
 
-    /** Indicates NR network switch type. */
+    /**
+     * Indicates NR network switch type.
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 10
+     */
     SERVICE_TYPE_NR,
   }
 
   /**
+   * Enum for network switch state.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum NetworkSwitchState {
-    /** Indicates turn off network switch. */
+    /**
+     * Indicates turn off network switch.
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 10
+     */
     SERVICE_ABILITY_OFF,
 
-    /** Indicates turn on network switch. */
+    /**
+     * Indicates turn on network switch.
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 10
+     */
     SERVICE_ABILITY_ON,
   }
 }

@@ -999,6 +999,7 @@ declare namespace call {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -1014,6 +1015,7 @@ declare namespace call {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
