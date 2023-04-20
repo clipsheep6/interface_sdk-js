@@ -552,19 +552,19 @@ declare namespace radio {
   /**
    * Set network ability switch.
    *
-   * @param {number} slotId - Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
-   * @param {NetworkSwitchState} state - Indicates the service ability of the {@link NetworkSwitchState}.
-   * @param {AsyncCallback<void>} callback - Returns option result.
+   * @param { NetworkSwitchType } type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @param { NetworkSwitchState } state - Indicates the service ability of the {@link NetworkSwitchState}.
+   * @param { AsyncCallback<void> } callback - Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Applicable only to system applications.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Applicable only to system applications.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -574,19 +574,19 @@ declare namespace radio {
   /**
    * Set network ability switch.
    *
-   * @param {number} slotId - Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
-   * @param {NetworkSwitchState} state - Indicates the service ability of the {@link NetworkSwitchState}.
-   * @returns {Promise<void>} Returns option result.
+   * @param { NetworkSwitchType } type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @param { NetworkSwitchState } state - Indicates the service ability of the {@link NetworkSwitchState}.
+   * @returns { Promise<void> } Returns option result.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Applicable only to system applications.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Applicable only to system applications.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -596,18 +596,18 @@ declare namespace radio {
   /**
    * Get network ability switch state.
    *
-   * @param {number} slotId - Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
-   * @param {AsyncCallback<NetworkSwitchState>} callback - including an instance of the {@link NetworkSwitchState} class.
+   * @param { NetworkSwitchType } type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @param { AsyncCallback<NetworkSwitchState> } callback - including an instance of the {@link NetworkSwitchState} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Applicable only to system applications.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Applicable only to system applications.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -617,18 +617,18 @@ declare namespace radio {
   /**
    * Get network ability switch state.
    *
-   * @param {number} slotId - Indicates the card slot index number,
+   * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param {NetworkSwitchType} type - Indicates the service type of the {@link NetworkSwitchType}.
-   * @returns {Promise<NetworkSwitchState} Return an instance of the {@link NetworkSwitchState} class.
+   * @param { NetworkSwitchType } type - Indicates the service type of the {@link NetworkSwitchType}.
+   * @returns { Promise<NetworkSwitchState } Return an instance of the {@link NetworkSwitchState} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Applicable only to system applications.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Applicable only to system applications.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10

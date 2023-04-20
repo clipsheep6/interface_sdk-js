@@ -1193,16 +1193,19 @@ declare namespace sim {
     KEY_EMERGENCY_CALL_STRING_ARRAY = "emergency_call_string_array",
     /**
      * Indicates whether hide nr witch.
+     * @syscap SystemCapability.Telephony.CoreService
      * @since 10
      */
     KEY_HIDE_NR_SWITCH = "hide_nr_switch",
     /**
      * Indicates whether turn on nr witch or not.
+     * @syscap SystemCapability.Telephony.CoreService
      * @since 10
      */
     KEY_NR_SWITCH_DEFAULT_STATUS = "nr_switch_default_status",
     /**
      * Indicates whether turn on nr witch or not.
+     * @syscap SystemCapability.Telephony.CoreService
      * @since 10
      */
     KEY_HIDE_PREFERRED_NETWORK_MODE = "hide_preferred_network_mode",
