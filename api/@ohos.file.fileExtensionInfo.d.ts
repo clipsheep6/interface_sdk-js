@@ -16,34 +16,94 @@
 /**
  * This module provides the capability to parse file or device information.
  *
- * @since 9
+ * @namespace fileExtensionInfo
  * @syscap SystemCapability.FileManagement.UserFileService
  * @systemapi
+ * @since 9
  */
 declare namespace fileExtensionInfo {
   /**
    * DeviceType Indicates the type of device connected to the fileaccess server.
-   * @since 9
+   *
+   * @enum { number }
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   enum DeviceType {
-    DEVICE_LOCAL_DISK = 1,              // Local c,d... disk
-    DEVICE_SHARED_DISK,                 // Multi-user shared disk
-    DEVICE_SHARED_TERMINAL,             // Distributed networking terminal device
-    DEVICE_NETWORK_NEIGHBORHOODS,       // Network neighbor device
-    DEVICE_EXTERNAL_MTP,                // MTP device
-    DEVICE_EXTERNAL_USB,                // USB device
-    DEVICE_EXTERNAL_CLOUD               // Cloud disk device
+    /**
+     * Local c,d... disk.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_LOCAL_DISK = 1,
+
+    /**
+     * Multi-user shared disk.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_SHARED_DISK,
+
+    /**
+     * Distributed networking terminal device.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_SHARED_TERMINAL,
+
+    /**
+     * Network neighbor device.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_NETWORK_NEIGHBORHOODS,
+
+    /**
+     * MTP device.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_EXTERNAL_MTP,
+
+    /**
+     * USB device.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_EXTERNAL_USB,
+
+    /**
+     * Cloud disk device.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 9
+     */
+    DEVICE_EXTERNAL_CLOUD
   }
 
   /**
    * Indicates the supported capabilities of the device.
-   * @since 9
+   *
+   * @namespace DeviceFlag
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   namespace DeviceFlag {
     const SUPPORTS_READ = 0b1;
@@ -52,10 +112,12 @@ declare namespace fileExtensionInfo {
 
   /**
    * Indicate the supported capabilities of the file or directory.
-   * @since 9
+   *
+   * @namespace DocumentFlag
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   namespace DocumentFlag {
     const REPRESENTS_FILE = 0b1;
