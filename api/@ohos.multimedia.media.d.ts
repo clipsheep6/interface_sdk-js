@@ -692,6 +692,15 @@ declare namespace media {
     on(type: 'trackChange', callback: (trackType: MediaType, index: number) => void): void;
     off(type: 'trackChange'): void;
     /**
+     * Register or unregister to receive subtitle data.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to receive subtitle data.
+     */
+    on(type: 'subtextUpdate', callback: (subtext: SubtitleDescriptor) => void): void;
+    off(type: 'subtextUpdate'): void;
+    /**
      * Register or unregister listens for playback error events.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2373,7 +2382,7 @@ declare namespace media {
     MEDIA_TYPE_VID = 1,
     /**
      * Track is subtitle.
-     * @since 10
+     * @since 11
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     MEDIA_TYPE_SUBTITLE = 2,
