@@ -31,7 +31,6 @@ export interface ProcessRunningInfo {
      * @since 8
      * @deprecated since 9
      * @useinstead ProcessInformation.pid
-
      */
     pid: number;
 
