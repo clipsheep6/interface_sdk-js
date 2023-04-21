@@ -30,6 +30,8 @@ declare namespace fileIo {
   export { closeSync };
   export { copyFile };
   export { copyFileSync };
+  export { createRandomAccessFile };
+  export { createRandomAccessFileSync };
   export { createStream };
   export { createStreamSync };
   export { createWatcher };
@@ -72,6 +74,7 @@ declare namespace fileIo {
   export { writeSync };
   export { File };
   export { OpenMode };
+  export type { RandomAccessFile };
   export { Stat };
   export { Stream };
   export { Watcher };
@@ -328,6 +331,93 @@ declare function copyFile(
  * @since 9
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
+
+/**
+ * Create RandomAccessFile.
+ * 
+ * @param { string | number } file - the path or fd of file.
+ * @param { number } fp - the file pointer of file.
+ * @param { number } [mode = 0o0] - mode.
+ * @returns { Promise<RandomAccessFile> } - return Promise
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function createRandomAccessFile(file: string | number, fp: number,
+  mode?: number): Promise<RandomAccessFile>;
+
+/**
+ * Create RandomAccessFile.
+ * 
+ * @param { string | number } file - the path or fd of file.
+ * @param { number } fp - the file pointer of file.
+ * @param { AsyncCallback<RandomAccessFile> } [callback] - callback.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function createRandomAccessFile(file: string | number, fp: number,
+  callback: AsyncCallback<RandomAccessFile>): void;
+
+/**
+ * Create RandomAccessFile.
+ * 
+ * @param { string | number } file - the path or fd of file.
+ * @param { number } fp - the file pointer of file.
+ * @param { number } mode - mode.
+ * @param { AsyncCallback<RandomAccessFile> } [callback] - callback.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function createRandomAccessFile(file: string | number, fp: number, mode: number,
+  callback: AsyncCallback<RandomAccessFile>): void;
+
+/**
+ * Create RandomAccessFile with sync interface.
+ * 
+ * @param { string | number } file - the path or fd of file.
+ * @param { number } fp - the file pointer of file.
+ * @param { number } [mode = 0o0] - mode.
+ * @returns { RandomAccessFile } - RandomAccessFile object.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function createRandomAccessFileSync(file: string | number, fp: number,
+  mode?: number): RandomAccessFile;
 
 /**
  * Create class Stream.
@@ -2246,6 +2336,243 @@ declare interface File {
    */
   unlock(): void;
 }
+
+/**
+ * RandomAccessFile object
+ * @interface RandomAccessFile
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare interface RandomAccessFile {
+  /**
+   * @type {number}
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly fd: number;
+
+  /**
+   * @type {number}
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly fp: number;
+
+  /**
+   * Close RandomAccessFile.
+   *
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  close(): void;
+
+  /**
+   * Set file pointer.
+   * @param { number } fp - file pointer.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  setFilePointer(fp: number): void;
+
+  /**
+   * Write RandomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { Object } [options] - options.
+   * @returns { Promise<number> } - return Promise
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  write(buffer: ArrayBuffer, options?: {
+      offset?: number;
+      length?: number;
+  }): Promise<number>;
+
+  /**
+   * Write RandomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { AsyncCallback<number> } [callback] - callback.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
+
+  /**
+   * Write RandomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { Object } options - options.
+   * @param { AsyncCallback<number> } [callback] - callback.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  write(buffer: ArrayBuffer, options: {
+      offset?: number;
+      length?: number;
+  }, callback: AsyncCallback<number>): void;
+
+  /**
+   * Write RandomAccessFile with sync interface.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { Object } [options] - options.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  writeSync(buffer: ArrayBuffer, options?: {
+      offset?: number;
+      length?: number;
+  }): number;
+
+  /**
+   * Read RandomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { Object } [options] - options.
+   * @returns { Promise<number> } number of bytesRead
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  read(buffer: ArrayBuffer, options?: {
+      offset?: number;
+      length?: number;
+  }): Promise<number>;
+
+  /**
+   * Read RandomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { AsyncCallback<number> } [callback] - callback.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
+
+  /**
+   * Read RandomAccessFile.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { Object } options - options.
+   * @param { AsyncCallback<number> } [callback] - callback.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  read(buffer: ArrayBuffer, options: {
+      offset?: number;
+      length?: number;
+  }, callback: AsyncCallback<number>): void;
+
+  /**
+   * Read RandomAccessFile with sync interface.
+   *
+   * @param { ArrayBuffer } buffer - buffer.
+   * @param { Object } [options] - options.
+   * @returns { number } - actual read bytes.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readSync(buffer: ArrayBuffer, options?: {
+      offset?: number;
+      length?: number;
+  }): number;
+}
+
 /**
  * Stat object.
  *
