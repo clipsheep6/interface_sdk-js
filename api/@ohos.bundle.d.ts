@@ -625,7 +625,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getNameForUid
+   * @useinstead ohos.bundle.bundleManager#getBundleNameByUid
    */
   function getNameForUid(uid: number, callback: AsyncCallback<string>): void;
 
@@ -637,7 +637,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getNameForUid
+   * @useinstead ohos.bundle.bundleManager#getBundleNameByUid
    */
   function getNameForUid(uid: number): Promise<string>;
 
