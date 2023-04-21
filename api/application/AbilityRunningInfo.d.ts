@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,57 +19,64 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
 /**
  * The class of an ability running information.
  *
- * @since 8
+ * @interface AbilityRunningInfo
+ * @permission N/A
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide this for inner system use
- * @permission N/A
+ * @since 8
  */
 export interface AbilityRunningInfo {
     /**
+    * @permission N/A
     * @default ability element name
-    * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 8
     */
     ability: ElementName;
 
     /**
+    * @permission N/A
     * @default process id
-    * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 8
     */
     pid: number;
 
     /**
+    * @permission N/A
     * @default user id
-    * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 8
     */
     uid: number;
 
     /**
+    * @permission N/A
     * @default the name of the process
-    * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 8
     */
     processName: string;
 
     /**
+    * @permission N/A
     * @default ability start time
-    * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 8
     */
     startTime: number;
 
     /**
+    * @permission N/A
     * @default Enumerates state of the ability state info
-    * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 8
     */
     abilityState: abilityManager.AbilityState;
 }
