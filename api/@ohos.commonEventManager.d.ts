@@ -796,7 +796,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_DEVICE_IDLE_EXEMPTION_UPDATE = "usual.event.DEVICE_IDLE_EXEMPTION_UPDATE",
 
     /**
-     * Sent when screen is off for about 30 minutes, the app's network access is restricted or restored
+     * Sent when screen is off for about 30 minutes, the app's network access is restricted.
      * @systemapi
      * @since 10
      */
