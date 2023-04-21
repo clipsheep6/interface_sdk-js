@@ -1024,18 +1024,18 @@ declare namespace request {
     off(type: 'progress', callback?: (receivedSize: number, totalSize: number) => void): void;
 
     /**
-     * Called when the current download session complete or remove.
+     * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete or remove change event.
+     * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
      */
     /**
-     * Called when the current download session complete or remove.
+     * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1043,23 +1043,10 @@ declare namespace request {
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete or remove change event.
+     * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
      */
-    on(type: 'complete' | 'remove', callback: () => void): void;
-
-    /**
-     * Called when the current download session pause.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @param type Indicates the download session event type
-     *        complete: download task completed,
-     *        pause: download task stopped,
-     *        remove: download task deleted.
-     * @param callback The callback function for the download pause change event.
-     * @permission ohos.permission.INTERNET
-     */
-    on(type: 'pause', callback: () => void): void;
+    on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
 
     /**
      * Called when the current download session complete pause or remove.
@@ -1085,19 +1072,6 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
-
-    /**
-     * Called when the current download session complete pause or remove.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     * @param type Indicates the download session event type
-     *        complete: download task completed,
-     *        pause: download task stopped,
-     *        remove: download task deleted.
-     * @param callback The callback function for the download complete pause or remove change event.
-     * @permission ohos.permission.INTERNET
-     */
-    off(type: 'pause', callback?: () => void): void;
 
     /**
      * Called when the current download session fails.
@@ -1299,11 +1273,30 @@ declare namespace request {
      * @throws {BusinessError} 401 - the parameters check fails
      * @syscap SystemCapability.MiscServices.Download
      */
+    /**
+     * Suspend the download task
+     * @crossplatform
+     * @since 10
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     */
     suspend(callback: AsyncCallback<boolean>): void;
 
     /**
      * Suspend the download task
      * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
+    /**
+     * Suspend the download task
+     * @crossplatform
+     * @since 10
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
      * @throws {BusinessError} 401 - the parameters check fails
@@ -1320,11 +1313,30 @@ declare namespace request {
      * @throws {BusinessError} 401 - the parameters check fails
      * @syscap SystemCapability.MiscServices.Download
      */
+    /**
+     * Restore the download task
+     * @crossplatform
+     * @since 10
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     */
     restore(callback: AsyncCallback<boolean>): void;
 
     /**
      * Restore the download task
      * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
+    /**
+     * Restore the download task
+     * @crossplatform
+     * @since 10
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - the permissions check fails
      * @throws {BusinessError} 401 - the parameters check fails
