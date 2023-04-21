@@ -25,7 +25,7 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
  * The class of an ability.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCores
  * @FAModelOnly
  */
 declare namespace ability {
