@@ -61,68 +61,79 @@ export interface CalleeCallback {
  * @since 9
  */
 export interface Caller {
-  /**
-   * Notify the server of Parcelable type data.
-   * @param { string } method - The notification event string listened to by the callee.
-   * @param { rpc.Parcelable } data - Notification data to the callee.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  call(method: string, data: rpc.Parcelable): Promise<void>;
+    /**
+     * Notify the server of Parcelable type data.
+     * @param { string } method - The notification event string listened to by the callee.
+     * @param { rpc.Parcelable } data - Notification data to the callee.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    call(method: string, data: rpc.Parcelable): Promise<void>;
 
-  /**
-   * Notify the server of Parcelable type data and return the notification result.
-   * @param { string } method - The notification event string listened to by the callee.
-   * @param { rpc.Parcelable } data - Notification data to the callee.
-   * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
+    /**
+     * Notify the server of Parcelable type data and return the notification result.
+     * @param { string } method - The notification event string listened to by the callee.
+     * @param { rpc.Parcelable } data - Notification data to the callee.
+     * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
-  /**
-   * Clear service records.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  release(): void;
+    /**
+     * Clear service records.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    release(): void;
 
-  /**
-   * Register death listener notification callback.
-   * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  onRelease(callback: OnReleaseCallback): void;
+    /**
+     * Register death listener notification callback.
+     * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    onRelease(callback: OnReleaseCallback): void;
 
-  /**
-   * Register state changed listener notification callback of remote ability.
-   * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 10
-   */
-  onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
+    /**
+     * Register state changed listener notification callback of remote ability.
+     * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 10
+     */
+    onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
-  /**
-   * Register death listener notification callback.
-   * @param { string } type - release.
-   * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  on(type: "release", callback: OnReleaseCallback): void;
+    /**
+     * Register death listener notification callback.
+     * @param { string } type - release.
+     * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    on(type: "release", callback: OnReleaseCallback): void;
 
   /**
    * Unregister death listener notification callback.
@@ -154,26 +165,30 @@ export interface Caller {
  * @since 9
  */
 export interface Callee {
-  /**
-   * Register data listener callback.
-   * @param { string } method - A string registered to listen for notification events.
-   * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  on(method: string, callback: CalleeCallback): void;
+    /**
+     * Register data listener callback.
+     * @param { string } method - A string registered to listen for notification events.
+     * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200004 Method registered. The method has registered.
+     * @throws { BusinessError } 16000050 Internal error.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    on(method: string, callback: CalleeCallback): void;
 
-  /**
-   * Unregister data listener callback.
-   * @param { string } method - A string registered to listen for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  off(method: string): void;
+    /**
+     * Unregister data listener callback.
+     * @param { string } method - A string registered to listen for notification events.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16200005 Method not registered. The method has not registered.
+     * @throws { BusinessError } 16000050 Internal error.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    off(method: string): void;
 }
 
 /**

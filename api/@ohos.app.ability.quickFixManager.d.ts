@@ -86,8 +86,16 @@ declare namespace quickFixManager {
     readonly bundleVersionCode: number;
 
     /**
-     * The version name of the bundle.
-     * @type { string }
+     * Apply quick fix files.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
+     *                                                   path and file name.
+     * @param { AsyncCallback<void> } callback - The callback of applyQuickFix.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 18500002 - The specified quick fix is invalid. It may not exist or inaccessible.
+     * @throws { BusinessError } 18500008 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -95,8 +103,16 @@ declare namespace quickFixManager {
     readonly bundleVersionName: string;
 
     /**
-     * The version number of the quick fix.
-     * @type { number }
+     * Apply quick fix files.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
+     *                                                   path and file name.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 18500002 - The specified quick fix is invalid. It may not exist or inaccessible.
+     * @throws { BusinessError } 18500008 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -104,8 +120,15 @@ declare namespace quickFixManager {
     readonly quickFixVersionCode: number;
 
     /**
-     * The version name of the quick fix.
-     * @type { string }
+     * Get application quick fix info by bundle name.
+     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+     * @param { string } bundleName - Bundle name wish to query.
+     * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - The callback is used to return the ApplicationQuickFixInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 18500001 - The specified bundleName is invalid.
+     * @throws { BusinessError } 18500008 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
@@ -113,8 +136,15 @@ declare namespace quickFixManager {
     readonly quickFixVersionName: string;
 
     /**
-     * Hap module quick fix info.
-     * @type { Array<HapModuleQuickFixInfo> }
+     * Get application quick fix info by bundle name.
+     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+     * @param { string } bundleName - Bundle name wish to query.
+     * @returns { Promise<ApplicationQuickFixInfo> } Returns the ApplicationQuickFixInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 18500001 - The specified bundleName is invalid.
+     * @throws { BusinessError } 18500008 - Internal error.
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9

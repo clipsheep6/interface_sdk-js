@@ -101,45 +101,51 @@ export default class ApplicationContext extends Context {
    */
   off(type: "environment", callbackId: number): Promise<void>;
 
-  /**
-   * Get information about running processes
-   * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @since 9
-   */
-  getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
+    /**
+     * Get information about running processes
+     * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 9
+     */
+    getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
-  /**
-   * Get information about running processes
-   * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @since 9
-   */
-  getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+    /**
+     * Get information about running processes
+     * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @throws { BusinessError } 16000050 - Internal error.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 9
+     */
+    getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
-  /**
-   * Kill all processes of the application
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  killAllProcesses(): Promise<void>;
+    /**
+     * Kill all processes of the application
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
+    killAllProcesses(): Promise<void>;
 
-  /**
-   * Kill all processes of the application
-   * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 9
-   */
-  killAllProcesses(callback: AsyncCallback<void>);
+    /**
+     * Kill all processes of the application
+     * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16000011 - The context does not exist.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
+    killAllProcesses(callback: AsyncCallback<void>);
 }
