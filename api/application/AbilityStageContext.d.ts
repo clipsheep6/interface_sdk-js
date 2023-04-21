@@ -38,12 +38,13 @@ export default class AbilityStageContext extends Context {
    */
   currentHapModuleInfo: HapModuleInfo;
 
-  /**
-   * Indicates configuration information.
-   *
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   */
-  config: Configuration;
+    /**
+     * Indicates configuration information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @crossplatform
+     */
+    config: Configuration;
 }
