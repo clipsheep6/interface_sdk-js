@@ -20,19 +20,19 @@ const ts = require('typescript');
 const { isExportSpecifier } = require('typescript');
 
 function readFile(dir, utFiles) {
-    try {
-        const files = fs.readdirSync(dir);
-        files.forEach((element) => {
-            const filePath = path.join(dir, element);
-            const status = fs.statSync(filePath);
-            if (status.isDirectory()) {
-                readFile(filePath, utFiles);
-            } else {
-                utFiles.push(filePath);
-            }
-        })
-    } catch (e) {
-        console.log('ETS ERROR: ' + e);
-    }
+  try {
+    const files = fs.readdirSync(dir);
+    files.forEach((element) => {
+      const filePath = path.join(dir, element);
+      const status = fs.statSync(filePath);
+      if (status.isDirectory()) {
+        readFile(filePath, utFiles);
+      } else {
+        utFiles.push(filePath);
+      }
+    })
+  } catch (e) {
+    console.log('ETS ERROR: ' + e);
+  }
 }
 exports.readFile=readFile;
