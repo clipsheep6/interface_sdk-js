@@ -187,23 +187,23 @@ export interface AbilityDelegator {
      */
     waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>;
 
-    /**
-     * Obtain the application context.
-     * @returns { Context } Returns the app Context.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    getAppContext(): Context;
+  /**
+   * Obtain the application context.
+   * @returns { Context } Returns the app Context.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  getAppContext(): Context;
 
-    /**
-     * Obtain the lifecycle state of a specified ability.
-     * @param { UIAbility } ability - The Ability object.
-     * @returns { number } Returns the state of the Ability object.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    getAbilityState(ability: UIAbility): number;
+  /**
+   * Obtain the lifecycle state of a specified ability.
+   * @param { UIAbility } ability - The Ability object.
+   * @returns { number } Returns the state of the Ability object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  getAbilityState(ability: UIAbility): number;
 
     /**
      * Obtain the ability that is currently being displayed in this process.
@@ -334,15 +334,15 @@ export interface AbilityDelegator {
      */
     print(msg: string): Promise<void>;
 
-    /**
-     * Prints log information to the unit testing console.
-     * The total length of the log information to be printed cannot exceed 1000 characters.
-     * @param { string } msg - Log information.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    printSync(msg: string): void;
+  /**
+   * Prints log information to the unit testing console.
+   * The total length of the log information to be printed cannot exceed 1000 characters.
+   * @param { string } msg - Log information.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  printSync(msg: string): void;
 
     /**
      * Execute the given command in the aa tools side.

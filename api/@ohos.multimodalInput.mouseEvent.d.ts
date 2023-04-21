@@ -232,20 +232,20 @@ export declare interface MouseEvent extends InputEvent {
   /**
    * Whether fnKey is being pressed
    */
-  fnKey:boolean
-  
+  fnKey: boolean
+
   /**
    * Whether capsLock is active
    */
-  capsLock:boolean
-  
+  capsLock: boolean
+
   /**
    * Whether numLock is active
    */
-  numLock:boolean
-  
+  numLock: boolean
+
   /**
    * Whether scrollLock is active
    */
-  scrollLock:boolean
+  scrollLock: boolean
 }

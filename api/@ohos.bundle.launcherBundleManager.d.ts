@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from './basic';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
-import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './bundleManager/ShortcutInfo';
+import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant } from './bundleManager/ShortcutInfo';
 
 
 /**
@@ -42,25 +42,25 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getLauncherAbilityInfo(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
+  function getLauncherAbilityInfo(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
-   /**
-   * Obtains launcher abilities info based on a given bundleName and userId.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } userId - Indicates the id for the user.
-   * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
-   * @throws {BusinessError} 201 - Verify permission denied.
-   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
-   * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 801 - Capability not support.
-   * @throws {BusinessError} 17700001 - The specified bundle name is not found.
-   * @throws {BusinessError} 17700004 - The specified user ID is not found.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  function getLauncherAbilityInfo(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  /**
+  * Obtains launcher abilities info based on a given bundleName and userId.
+  * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+  * @param { string } bundleName - Indicates the application bundle name to be queried.
+  * @param { number } userId - Indicates the id for the user.
+  * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
+  * @throws {BusinessError} 201 - Verify permission denied.
+  * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
+  * @throws {BusinessError} 401 - The parameter check failed.
+  * @throws {BusinessError} 801 - Capability not support.
+  * @throws {BusinessError} 17700001 - The specified bundle name is not found.
+  * @throws {BusinessError} 17700004 - The specified user ID is not found.
+  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+  * @systemapi
+  * @since 9
+  */
+  function getLauncherAbilityInfo(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains launcher abilities info based on a given userId.
@@ -76,7 +76,7 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
+  function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
   /**
    * Obtains launcher abilities info based on a given userId.
@@ -92,7 +92,7 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getAllLauncherAbilityInfo(userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getAllLauncherAbilityInfo(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains shortcut info based on a given bundleName.
@@ -108,7 +108,7 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
+  function getShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
 
   /**
    * Obtains shortcut info based on a given bundleName.
@@ -124,7 +124,7 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  function getShortcutInfo(bundleName : string) : Promise<Array<ShortcutInfo>>;
+  function getShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.

@@ -41,29 +41,29 @@ export interface HapModuleInfo {
    */
   readonly icon: string;
 
-   /**
-    * Indicates the icon id of this hap module
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the icon id of this hap module
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly iconId: number;
 
-   /**
-    * Indicates the label of this hap module
-    * @type {string}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-   readonly label: string;
+  /**
+   * Indicates the label of this hap module
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly label: string;
 
-   /**
-    * Indicates the label id of this hap module
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
-   readonly labelId: number;
+  /**
+   * Indicates the label id of this hap module
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly labelId: number;
 
   /**
    * Describes the hap module
@@ -105,12 +105,12 @@ export interface HapModuleInfo {
    */
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
-   /**
-    * Indicates the metadata of ability
-    * @type {Array<Metadata>}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the metadata of ability
+   * @type {Array<Metadata>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly metadata: Array<Metadata>;
 
   /**
@@ -119,7 +119,7 @@ export interface HapModuleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly deviceTypes: Array<string>;
+  readonly deviceTypes: Array<string>;
 
   /**
    * Indicates whether free installation of the hap module is supported
@@ -129,36 +129,36 @@ export interface HapModuleInfo {
    */
   readonly installationFree: boolean;
 
-   /**
-    * Indicates the hash value of the hap module
-    * @type {string}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the hash value of the hap module
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly hashValue: string;
 
-   /**
-    * Indicates the type of the module
-    * @type {bundleManager.ModuleType}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the type of the module
+   * @type {bundleManager.ModuleType}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly type: bundleManager.ModuleType;
 
-   /**
-    * Indicates the dependency module that this module depends on
-    * @type {Array<Dependency>}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the dependency module that this module depends on
+   * @type {Array<Dependency>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly dependencies: Array<Dependency>;
 
-   /**
-    * Indicates the preload module
-    * @type {Array<PreloadItem>}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the preload module
+   * @type {Array<PreloadItem>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   readonly preloads: Array<PreloadItem>;
 }
 
@@ -184,7 +184,7 @@ export interface Dependency {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 9
  */
-export interface PreloadItem{
+export interface PreloadItem {
   /**
    * Indicates the module name need preload
    * @type {string}

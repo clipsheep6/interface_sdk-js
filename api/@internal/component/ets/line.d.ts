@@ -36,7 +36,7 @@ interface LineInterface {
    * @form
    * @since 9
    */
-  new (value?: { width?: string | number; height?: string | number }): LineAttribute;
+  new(value?: { width?: string | number; height?: string | number }): LineAttribute;
 
   /**
    * The return value of the parameter is Line.

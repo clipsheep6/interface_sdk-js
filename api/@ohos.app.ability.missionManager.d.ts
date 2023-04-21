@@ -311,29 +311,29 @@ declare namespace missionManager {
      */
     function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
 
-    /**
-     * Mission information corresponding to ability.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi
-     * @since 9
-     */
-    export type MissionInfo = _MissionInfo
+  /**
+   * Mission information corresponding to ability.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9
+   */
+  export type MissionInfo = _MissionInfo
 
-    /**
-     * MissionListener registered by app.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi
-     * @since 9
-     */
-    export type MissionListener = _MissionListener
+  /**
+   * MissionListener registered by app.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9
+   */
+  export type MissionListener = _MissionListener
 
-    /**
-     * Mission snapshot corresponding to mission.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi
-     * @since 9
-     */
-    export type MissionSnapshot = _MissionSnapshot
+  /**
+   * Mission snapshot corresponding to mission.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9
+   */
+  export type MissionSnapshot = _MissionSnapshot
 }
 
 export default missionManager;

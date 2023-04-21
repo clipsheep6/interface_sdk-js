@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ElementName }  from './bundle/elementName';
+import { ElementName } from './bundle/elementName';
 import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
 
 /**
@@ -26,7 +26,7 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
  * @deprecated since 9
  * @useinstead ohos.bundle.distributedBundleManager
  */
- declare namespace distributedBundle {
+declare namespace distributedBundle {
   /**
    * Obtains information about the ability info of the remote device.
    *
@@ -39,8 +39,8 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */
-   function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
-   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
+  function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
+  function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
 
   /**
    * Obtains information about the ability infos of the remote device.
@@ -54,7 +54,7 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */
-   function getRemoteAbilityInfos(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
-   function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
+  function getRemoteAbilityInfos(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
+  function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 }
 export default distributedBundle;

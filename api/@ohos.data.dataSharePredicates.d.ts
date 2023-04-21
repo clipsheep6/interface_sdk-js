@@ -26,15 +26,15 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @StageModelOnly
  */
 declare namespace dataSharePredicates {
-    /**
-     * Manages relational database configurations.
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
-     * @StageModelOnly
-     */
-    class DataSharePredicates {
+  /**
+   * Manages relational database configurations.
+   *
+   * @since 9
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @systemapi
+   * @StageModelOnly
+   */
+  class DataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.
@@ -215,7 +215,7 @@ declare namespace dataSharePredicates {
      * is a wildcard (like * in a regular expression).
      * @returns Returns the DataSharePredicates that match the specified field.
      */
-     unlike(field: string, value: string): DataSharePredicates;
+    unlike(field: string, value: string): DataSharePredicates;
 
     /**
      * Configure DataSharePredicates to match the specified field whose data type is string and the value contains
@@ -439,7 +439,7 @@ declare namespace dataSharePredicates {
      * @returns Returns the query object.
      */
     inKeys(keys: Array<string>): DataSharePredicates;
-    }
+  }
 }
 
 export default dataSharePredicates;

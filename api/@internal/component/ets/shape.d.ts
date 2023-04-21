@@ -27,7 +27,7 @@ interface ShapeInterface {
    * Use the new function to create Shape.
    * @since 7
    */
-  new (value?: PixelMap): ShapeAttribute;
+  new(value?: PixelMap): ShapeAttribute;
 
   /**
    * Called when a component is drawn.
@@ -186,7 +186,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 9
    */
   antiAlias(value: boolean): ShapeAttribute;
-  
+
   /**
    * Called when shape mesh.
    * @since 8

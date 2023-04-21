@@ -24,32 +24,32 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent'
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 export default class AccessibilityExtensionAbility {
-    /**
-     * Indicates accessibility extension ability context.
-     */
-    context: AccessibilityExtensionContext;
+  /**
+   * Indicates accessibility extension ability context.
+   */
+  context: AccessibilityExtensionContext;
 
-    /**
-     * Called when extension ability is connected.
-     */
-    onConnect(): void;
+  /**
+   * Called when extension ability is connected.
+   */
+  onConnect(): void;
 
-    /**
-     * Called when extension ability is disconnected.
-     */
-    onDisconnect(): void;
+  /**
+   * Called when extension ability is disconnected.
+   */
+  onDisconnect(): void;
 
-    /**
-     * Called when an accessibility event occurs, such as when the user touches the application interface.
-     * @param event Indicates an accessibility event.
-     */
-    onAccessibilityEvent(event: AccessibilityEvent): void;
+  /**
+   * Called when an accessibility event occurs, such as when the user touches the application interface.
+   * @param event Indicates an accessibility event.
+   */
+  onAccessibilityEvent(event: AccessibilityEvent): void;
 
-    /**
-     * Called when a physical key is pressed, such as when the user presses the volume button .
-     * @param keyEvent Indicates the physical key event.
-     */
-    onKeyEvent(keyEvent: KeyEvent): boolean;
+  /**
+   * Called when a physical key is pressed, such as when the user presses the volume button .
+   * @param keyEvent Indicates the physical key event.
+   */
+  onKeyEvent(keyEvent: KeyEvent): boolean;
 }
 
 /**
@@ -60,10 +60,10 @@ export default class AccessibilityExtensionAbility {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 declare interface AccessibilityEvent {
-    eventType: accessibility.EventType | accessibility.WindowUpdateType |
-        TouchGuideType | GestureType | PageUpdateType;
-    target?: AccessibilityElement;
-    timeStamp?: number;
+  eventType: accessibility.EventType | accessibility.WindowUpdateType |
+    TouchGuideType | GestureType | PageUpdateType;
+  target?: AccessibilityElement;
+  timeStamp?: number;
 }
 
 /**
@@ -72,9 +72,9 @@ declare interface AccessibilityEvent {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
-    'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
-    'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-    'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
+  'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+  'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
 
 /**
  * Indicates the page update type.

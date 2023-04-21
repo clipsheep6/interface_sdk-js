@@ -69,7 +69,7 @@ export interface PackageConfig {
    * @since 9
    */
   readonly moduleType: string;
-  
+
   /**
    * Indicates whether this package is delivery and install
    * @type {boolean}
@@ -136,7 +136,7 @@ export interface BundleConfigInfo {
  * @systemapi
  * @since 9
  */
- export interface ExtensionAbility {
+export interface ExtensionAbility {
   /**
    * Indicates the name of this extension ability
    * @type {string}
@@ -151,7 +151,7 @@ export interface BundleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-   readonly forms: Array<AbilityFormInfo>;
+  readonly forms: Array<AbilityFormInfo>;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface ModuleConfigInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-   readonly extensionAbilities: Array<ExtensionAbility>;
+  readonly extensionAbilities: Array<ExtensionAbility>;
 }
 
 /**
@@ -332,7 +332,7 @@ export interface AbilityFormInfo {
    * @since 9
    */
   readonly scheduledUpdateTime: string;
-  
+
   /**
    * Indicates the update duration
    * @type {number}

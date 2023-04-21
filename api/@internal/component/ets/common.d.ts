@@ -241,7 +241,7 @@ declare type Context = import('../api/application/Context').default;
  * @StageModelOnly
  * @since 9
  */
- declare function postCardAction(component: Object, action: Object): void;
+declare function postCardAction(component: Object, action: Object): void;
 
 /**
  * Defines the data type of the interface restriction.
@@ -433,8 +433,8 @@ interface ICurve {
    * Get curve value by fraction.
    * @form
    * @since 9
-   */ 
-  interpolate(fraction : number) : number;
+   */
+  interpolate(fraction: number): number;
 }
 
 /**
@@ -1054,7 +1054,7 @@ declare enum RepeatMode {
    * @since 9
    */
   Repeat,
-  
+
   /**
    * Stretch mode.
    * @form
@@ -1082,7 +1082,7 @@ declare enum RepeatMode {
  * @since 9
  * @systemapi
  */
- declare enum BlurStyle {
+declare enum BlurStyle {
   /**
    * Defines the fuzzy scale.
    * @form
@@ -1623,13 +1623,13 @@ declare interface PopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?: Length;
+  arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
    * @since 9
    */
-   showInSubWindow?: boolean;
+  showInSubWindow?: boolean;
 }
 
 /**
@@ -1683,13 +1683,13 @@ declare interface CustomPopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?: Length;
+  arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
    * @since 9
    */
-   showInSubWindow?: boolean;
+  showInSubWindow?: boolean;
 }
 
 /**
@@ -1876,8 +1876,8 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   backgroundBlurStyle(value: BlurStyle): T;
-  
+  backgroundBlurStyle(value: BlurStyle): T;
+
   /**
    * Opacity
    * @since 7
@@ -1918,7 +1918,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderStyle(value: EdgeStyles): T;
+  borderStyle(value: EdgeStyles): T;
 
   /**
    * Border width
@@ -1940,7 +1940,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderWidth(value: EdgeWidths): T;
+  borderWidth(value: EdgeWidths): T;
 
   /**
    * Border color
@@ -1958,7 +1958,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderColor(value: EdgeColors): T;
+  borderColor(value: EdgeColors): T;
 
   /**
    * Border radius
@@ -1976,7 +1976,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-   borderRadius(value: BorderRadiuses): T;
+  borderRadius(value: BorderRadiuses): T;
 
   /**
    * Border image
@@ -2746,7 +2746,7 @@ declare class CommonMethod<T> {
    * Trigger a visible area change event.
    * @since 9
    */
-   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 }
 
 /**

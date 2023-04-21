@@ -24,32 +24,32 @@ import InputMethodExtensionContext from "./@ohos.InputMethodExtensionContext";
  * @StageModelOnly
  */
 export default class InputMethodExtensionAbility {
-    /**
-     * Indicates input method extension ability context.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    context: InputMethodExtensionContext;
+  /**
+   * Indicates input method extension ability context.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   */
+  context: InputMethodExtensionContext;
 
-    /**
-     * Called back when a input method extension is started for initialization.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @param want Indicates the want of created service extension.
-     * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
-     */
-    onCreate(want: Want): void;
+  /**
+   * Called back when a input method extension is started for initialization.
+   *
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @param want Indicates the want of created service extension.
+   * @throws {BusinessError} 401 - parameter error.
+   * @StageModelOnly
+   */
+  onCreate(want: Want): void;
 
-    /**
-     * Called back before a input method extension is destroyed.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
-     */
-    onDestroy(): void;
+  /**
+   * Called back before a input method extension is destroyed.
+   *
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @throws {BusinessError} 401 - parameter error.
+   * @StageModelOnly
+   */
+  onDestroy(): void;
 }

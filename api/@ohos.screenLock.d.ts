@@ -89,7 +89,7 @@ declare namespace screenLock {
    * @since 7
    * @deprecated since 9
    */
-  function unlockScreen():Promise<void>;
+  function unlockScreen(): Promise<void>;
 
   /**
    * Unlock the screen.
@@ -114,7 +114,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function unlock():Promise<boolean>;
+  function unlock(): Promise<boolean>;
 
   /**
    * Lock the screen.
@@ -137,7 +137,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function lock():Promise<boolean>;
+  function lock(): Promise<boolean>;
 
   /**
    * Indicates the system event type related to the screenlock management service.
@@ -147,20 +147,20 @@ declare namespace screenLock {
    * @since 9
    */
   type EventType =
-      'beginWakeUp'
-      | 'endWakeUp'
-      | 'beginScreenOn'
-      | 'endScreenOn'
-      | 'beginScreenOff'
-      | 'endScreenOff'
-      | 'unlockScreen'
-      | 'lockScreen'
-      | 'beginExitAnimation'
-      | 'beginSleep'
-      | 'endSleep'
-      | 'changeUser'
-      | 'screenlockEnabled'
-      | 'serviceRestart'
+    'beginWakeUp'
+    | 'endWakeUp'
+    | 'beginScreenOn'
+    | 'endScreenOn'
+    | 'beginScreenOff'
+    | 'endScreenOff'
+    | 'unlockScreen'
+    | 'lockScreen'
+    | 'beginExitAnimation'
+    | 'beginSleep'
+    | 'endSleep'
+    | 'changeUser'
+    | 'screenlockEnabled'
+    | 'serviceRestart'
 
   /**
    * Indicates the system event type and parameter related to the screenlock management service.

@@ -18,67 +18,67 @@
  * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
- export default interface InputMethodSubtype {
-    /**
-     * The label of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly label?: string;
+export default interface InputMethodSubtype {
+  /**
+   * The label of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly label?: string;
 
-    /**
-     * The name of input method.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly name: string;
+  /**
+   * The name of input method.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly name: string;
 
-    /**
-     * The id of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly id: string;
+  /**
+   * The id of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly id: string;
 
-    /**
-     * The mode of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly mode?: 'upper'|'lower';
+  /**
+   * The mode of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly mode?: 'upper' | 'lower';
 
-    /**
-     * The locale of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly locale: string;
+  /**
+   * The locale of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly locale: string;
 
-    /**
-     * The language of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly language: string;
+  /**
+   * The language of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly language: string;
 
-    /**
-     * The icon of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly icon?: string;
+  /**
+   * The icon of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly icon?: string;
 
-    /**
-     * The icon id of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    readonly iconId?: number;
+  /**
+   * The icon id of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  readonly iconId?: number;
 
-    /**
-     * The extra info of input method subtype.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    extra: object;
+  /**
+   * The extra info of input method subtype.
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   */
+  extra: object;
 }

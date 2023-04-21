@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
-import { ElementName }  from './bundleManager/ElementName';
+import { ElementName } from './bundleManager/ElementName';
 
 /**
  * The class of an ability manager.
@@ -27,21 +27,21 @@ import { ElementName }  from './bundleManager/ElementName';
  * @since 9
  */
 declare namespace abilityManager {
-    /**
-     * Enum for the ability state.
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export enum AbilityState {
-        INITIAL = 0,
-        FOCUS = 2,
-        FOREGROUND = 9,
-        BACKGROUND = 10,
-        FOREGROUNDING = 11,
-        BACKGROUNDING = 12
-    }
+  /**
+   * Enum for the ability state.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export enum AbilityState {
+    INITIAL = 0,
+    FOCUS = 2,
+    FOREGROUND = 9,
+    BACKGROUND = 10,
+    FOREGROUNDING = 11,
+    BACKGROUNDING = 12
+  }
 
     /**
      * Updates the configuration by modifying the configuration.
@@ -149,21 +149,21 @@ declare namespace abilityManager {
      */
     function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
-    /**
-     * The class of an ability running information.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export type AbilityRunningInfo = _AbilityRunningInfo
+  /**
+   * The class of an ability running information.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export type AbilityRunningInfo = _AbilityRunningInfo
 
-    /**
-     * The class of an extension running information.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export type ExtensionRunningInfo = _ExtensionRunningInfo
+  /**
+   * The class of an extension running information.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export type ExtensionRunningInfo = _ExtensionRunningInfo
 }
 
 export default abilityManager;
