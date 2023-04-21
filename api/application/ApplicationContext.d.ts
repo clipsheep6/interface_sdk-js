@@ -27,79 +27,79 @@ import { ProcessInformation } from "./ProcessInformation";
  * @since 9
  */
 export default class ApplicationContext extends Context {
-    /**
-     * Register ability lifecycle callback.
-     * @param { string } type - abilityLifecycle.
-     * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
-     * @returns { number } Returns the number code of the callback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 9
-     */
-    on(type: "abilityLifecycle", callback: AbilityLifecycleCallback): number;
+  /**
+   * Register ability lifecycle callback.
+   * @param { string } type - abilityLifecycle.
+   * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
+   * @returns { number } Returns the number code of the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 9
+   */
+  on(type: "abilityLifecycle", callback: AbilityLifecycleCallback): number;
 
-    /**
-     * Unregister ability lifecycle callback.
-     * @param { string } type - abilityLifecycle.
-     * @param { number } callbackId - Indicates the number code of the callback.
-     * @param { AsyncCallback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 9
-     */
-    off(type: "abilityLifecycle", callbackId: number, callback: AsyncCallback<void>): void;
+  /**
+   * Unregister ability lifecycle callback.
+   * @param { string } type - abilityLifecycle.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @param { AsyncCallback<void> } callback - The callback of off.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 9
+   */
+  off(type: "abilityLifecycle", callbackId: number, callback: AsyncCallback<void>): void;
 
-    /**
-     * Unregister ability lifecycle callback.
-     * @param { string } type - abilityLifecycle.
-     * @param { number } callbackId - Indicates the number code of the callback.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    off(type: "abilityLifecycle", callbackId: number): Promise<void>;
+  /**
+   * Unregister ability lifecycle callback.
+   * @param { string } type - abilityLifecycle.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  off(type: "abilityLifecycle", callbackId: number): Promise<void>;
 
-    /**
-     * Register environment callback.
-     * @param { string } type - environment.
-     * @param { EnvironmentCallback } callback - The environment callback.
-     * @returns { number } Returns the number code of the callback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    on(type: "environment", callback: EnvironmentCallback): number;
+  /**
+   * Register environment callback.
+   * @param { string } type - environment.
+   * @param { EnvironmentCallback } callback - The environment callback.
+   * @returns { number } Returns the number code of the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  on(type: "environment", callback: EnvironmentCallback): number;
 
-    /**
-     * Unregister environment callback.
-     * @param { string } type - environment.
-     * @param { number } callbackId - Indicates the number code of the callback.
-     * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    off(type: "environment", callbackId: number, callback: AsyncCallback<void>): void;
+  /**
+   * Unregister environment callback.
+   * @param { string } type - environment.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  off(type: "environment", callbackId: number, callback: AsyncCallback<void>): void;
 
-    /**
-     * Unregister environment callback.
-     * @param { string } type - environment.
-     * @param { number } callbackId - Indicates the number code of the callback.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     */
-    off(type: "environment", callbackId: number): Promise<void>;
+  /**
+   * Unregister environment callback.
+   * @param { string } type - environment.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 9
+   */
+  off(type: "environment", callbackId: number): Promise<void>;
 
     /**
      * Get information about running processes

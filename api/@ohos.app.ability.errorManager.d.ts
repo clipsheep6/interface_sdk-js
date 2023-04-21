@@ -59,12 +59,12 @@ declare namespace errorManager {
      */
     function off(type: "error", observerId: number): Promise<void>;
 
-    /**
-     * The observer will be called by system when an error occurs.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type ErrorObserver = _ErrorObserver.default
+  /**
+   * The observer will be called by system when an error occurs.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export type ErrorObserver = _ErrorObserver.default
 }
 
 export default errorManager;

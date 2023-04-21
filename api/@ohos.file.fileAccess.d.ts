@@ -1267,7 +1267,7 @@ declare namespace fileAccess {
     move(sourceFile: string, destFile: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Copy file or directory in the promise way.
+     * Get a FileInfo by the relative path in the promise way.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceUri - Indicates the file or directory to be copied.
@@ -1275,13 +1275,29 @@ declare namespace fileAccess {
      * @param { boolean } force - Optional parameter that determines whether to forcibly copy files.
      * @returns { Promise<Array<CopyResult>> } Returns the file information where the error occurred.
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
      * @systemapi
-     * @since 10
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param {string} relativePath - Indicates the selected file or directory.
+     * @returns {Promise<FileInfo>} Returns a FileInfo.
      */
-    copy(sourceUri: string, destUri: string, force?: boolean): Promise<Array<CopyResult>>;
+    getFileInfoFromRelativePath(relativePath: string): Promise<FileInfo>;
 
     /**
-     * Copy file or directory in the asyncCallback way.
+     * Get a FileInfo by the relative path in the asyncCallback way.
+     *
+     * @since 10
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @StageModelOnly
+     * @systemapi
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param {string} relativePath - Indicates the selected file or directory.
+     * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
+     */
+    getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>): void;
+
+    /**
+     * Get a PixelMap object by the uri in the promise way.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceUri - Indicates the file or directory to be copied.
@@ -1289,12 +1305,13 @@ declare namespace fileAccess {
      * @param { AsyncCallback<Array<CopyResult>> } callback - The callback is used to return the file information where the error occurred.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
-    copy(sourceUri: string, destUri: string, callback: AsyncCallback<Array<CopyResult>>): void;
+    getThumbnail(uri: string, size: image.Size): Promise<image.PixelMap>;
 
     /**
-     * Copy file or directory in the asyncCallback way.
+     * Get a PixelMap object by the uri in the asyncCallback way.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @param { string } sourceUri - Indicates the file or directory to be copied.
@@ -1303,6 +1320,7 @@ declare namespace fileAccess {
      * @param { AsyncCallback<Array<CopyResult>> } callback - The callback is used to return the file information where the error occurred.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     copy(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<CopyResult>>): void;

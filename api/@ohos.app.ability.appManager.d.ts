@@ -27,35 +27,35 @@ import { ProcessInformation as _ProcessInformation } from './application/Process
  *
  */
 declare namespace appManager {
-    /**
-     * Enum for the application state
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export enum ApplicationState {
-        STATE_CREATE,
-        STATE_FOREGROUND,
-        STATE_ACTIVE,
-        STATE_BACKGROUND,
-        STATE_DESTROY
-    }
+  /**
+   * Enum for the application state
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export enum ApplicationState {
+    STATE_CREATE,
+    STATE_FOREGROUND,
+    STATE_ACTIVE,
+    STATE_BACKGROUND,
+    STATE_DESTROY
+  }
 
-    /**
-     * Enum for the process state
-     * @enum { number }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export enum ProcessState {
-        STATE_CREATE,
-        STATE_FOREGROUND,
-        STATE_ACTIVE,
-        STATE_BACKGROUND,
-        STATE_DESTROY
-    }
+  /**
+   * Enum for the process state
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export enum ProcessState {
+    STATE_CREATE,
+    STATE_FOREGROUND,
+    STATE_ACTIVE,
+    STATE_BACKGROUND,
+    STATE_DESTROY
+  }
 
     /**
      * Register application state observer.
@@ -352,36 +352,36 @@ declare namespace appManager {
     function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
 
-    /**
-     * The ability or extension state data.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export type AbilityStateData = _AbilityStateData.default
+  /**
+   * The ability or extension state data.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export type AbilityStateData = _AbilityStateData.default
 
-    /**
-     * The application state data.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export type AppStateData = _AppStateData.default
+  /**
+   * The application state data.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export type AppStateData = _AppStateData.default
 
-    /**
-     * The application state observer.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
-     */
-    export type ApplicationStateObserver = _ApplicationStateObserver.default
+  /**
+   * The application state observer.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
+   */
+  export type ApplicationStateObserver = _ApplicationStateObserver.default
 
-    /**
-     * The class of a process information.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    export type ProcessInformation = _ProcessInformation
+  /**
+   * The class of a process information.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
+  export type ProcessInformation = _ProcessInformation
 }
 
 export default appManager;

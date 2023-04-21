@@ -23,104 +23,67 @@ import { AsyncCallback } from "./@ohos.base";
  * @since 9
  */
 declare namespace quickFixManager {
+  /**
+   * Quick fix info of hap module.
+   * @typedef HapModuleQuickFixInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 9
+   */
+  export interface HapModuleQuickFixInfo {
     /**
-     * Quick fix info of hap module.
-     * @typedef HapModuleQuickFixInfo
+     * Indicates hap module name.
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
      */
-    export interface HapModuleQuickFixInfo {
-        /**
-         * Indicates hap module name.
-         * @type { string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly moduleName: string;
-
-        /**
-         * Indicates hash value of a hap.
-         * @type { string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly originHapHash: string;
-
-        /**
-         * Indicates installed path of quick fix file.
-         * @type { string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly quickFixFilePath: string;
-    }
+    readonly moduleName: string;
 
     /**
-     * Quick fix info of application.
-     * @typedef ApplicationQuickFixInfo
+     * Indicates hash value of a hap.
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
      */
-    export interface ApplicationQuickFixInfo {
-        /**
-         * Bundle name.
-         * @type { string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly bundleName: string;
+    readonly originHapHash: string;
 
-        /**
-         * The version number of the bundle.
-         * @type { number }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly bundleVersionCode: number;
+    /**
+     * Indicates installed path of quick fix file.
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+     * @systemapi
+     * @since 9
+     */
+    readonly quickFixFilePath: string;
+  }
 
-        /**
-         * The version name of the bundle.
-         * @type { string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly bundleVersionName: string;
+  /**
+   * Quick fix info of application.
+   * @typedef ApplicationQuickFixInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 9
+   */
+  export interface ApplicationQuickFixInfo {
+    /**
+     * Bundle name.
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+     * @systemapi
+     * @since 9
+     */
+    readonly bundleName: string;
 
-        /**
-         * The version number of the quick fix.
-         * @type { number }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly quickFixVersionCode: number;
-
-        /**
-         * The version name of the quick fix.
-         * @type { string }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly quickFixVersionName: string;
-
-        /**
-         * Hap module quick fix info.
-         * @type { Array<HapModuleQuickFixInfo> }
-         * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
-         * @systemapi
-         * @since 9
-         */
-        readonly hapModuleQuickFixInfo: Array<HapModuleQuickFixInfo>;
-    }
+    /**
+     * The version number of the bundle.
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+     * @systemapi
+     * @since 9
+     */
+    readonly bundleVersionCode: number;
 
     /**
      * Apply quick fix files.
@@ -137,7 +100,7 @@ declare namespace quickFixManager {
      * @systemapi
      * @since 9
      */
-    function applyQuickFix(hapModuleQuickFixFiles: Array<string>, callback: AsyncCallback<void>): void;
+    readonly bundleVersionName: string;
 
     /**
      * Apply quick fix files.
@@ -154,7 +117,7 @@ declare namespace quickFixManager {
      * @systemapi
      * @since 9
      */
-    function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
+    readonly quickFixVersionCode: number;
 
     /**
      * Get application quick fix info by bundle name.
@@ -170,7 +133,7 @@ declare namespace quickFixManager {
      * @systemapi
      * @since 9
      */
-    function getApplicationQuickFixInfo(bundleName: string, callback: AsyncCallback<ApplicationQuickFixInfo>): void;
+    readonly quickFixVersionName: string;
 
     /**
      * Get application quick fix info by bundle name.
@@ -186,7 +149,58 @@ declare namespace quickFixManager {
      * @systemapi
      * @since 9
      */
-    function getApplicationQuickFixInfo(bundleName: string): Promise<ApplicationQuickFixInfo>;
+    readonly hapModuleQuickFixInfo: Array<HapModuleQuickFixInfo>;
+  }
+
+  /**
+   * Apply quick fix files.
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
+   *                                                   path and file name.
+   * @param { AsyncCallback<void> } callback - The callback of applyQuickFix.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 9
+   */
+  function applyQuickFix(hapModuleQuickFixFiles: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Apply quick fix files.
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { Array<string> } hapModuleQuickFixFiles - Quick fix files need to apply, this value should include file
+   *                                                   path and file name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 9
+   */
+  function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
+
+  /**
+   * Get application quick fix info by bundle name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Bundle name wish to query.
+   * @param { AsyncCallback<ApplicationQuickFixInfo> } callback - The callback is used to return the ApplicationQuickFixInfo.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 9
+   */
+  function getApplicationQuickFixInfo(bundleName: string, callback: AsyncCallback<ApplicationQuickFixInfo>): void;
+
+  /**
+   * Get application quick fix info by bundle name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Bundle name wish to query.
+   * @returns { Promise<ApplicationQuickFixInfo> } Returns the ApplicationQuickFixInfo.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
+   * @systemapi
+   * @since 9
+   */
+  function getApplicationQuickFixInfo(bundleName: string): Promise<ApplicationQuickFixInfo>;
 }
 
 export default quickFixManager;

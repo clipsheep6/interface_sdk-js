@@ -32,7 +32,7 @@ interface RectInterface {
    * @form
    * @since 9
    */
-  new (
+  new(
     value?:
       {
         width?: number | string;
@@ -40,11 +40,11 @@ interface RectInterface {
         radius?: number | string | Array<any>;
       }
       | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
   ): RectAttribute;
 
   /**
@@ -64,11 +64,11 @@ interface RectInterface {
         radius?: number | string | Array<any>;
       }
       | {
-          width?: number | string;
-          height?: number | string;
-          radiusWidth?: number | string;
-          radiusHeight?: number | string;
-        },
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
   ): RectAttribute;
 }
 
