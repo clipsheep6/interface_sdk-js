@@ -1338,7 +1338,7 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  Alpha,  
+  Alpha,
 }
 
 /**
@@ -3308,7 +3308,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 10
-   */  
+   */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -3378,7 +3378,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Sets styles for component state.
@@ -3409,6 +3409,7 @@ declare class CommonMethod<T> {
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @systemapi
    */
   sphericalEffect(value: number): T;
 
@@ -3418,6 +3419,7 @@ declare class CommonMethod<T> {
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @systemapi
    */
   lightUpEffect(value: number): T;
 
@@ -3426,6 +3428,7 @@ declare class CommonMethod<T> {
    * @param {PixelStretchEffectOptions} options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @systemapi
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
