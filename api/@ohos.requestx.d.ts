@@ -566,15 +566,13 @@ export declare namespace agent {
          */
         readonly mode: Mode;
         /**
-         * The MiME types.
-         * For upload, it is each file's MIME type.
-         * For download, it is the `Content-Type` of task's configuration.
-         * @type { Array<string> }
+         * The MiME type in the configuration of the task.
+         * @type { string }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        readonly mimetype: Array<string>;
+        readonly mimetype: string;
         /**
          * An instance of `Progress` for a task.
          * @type { Progress }
