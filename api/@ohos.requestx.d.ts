@@ -91,20 +91,6 @@ export declare namespace agent {
      */
     interface Attachment {
         /**
-         * For upload request, the name of the form item, the default is file.
-         * @type { string }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        name?: string;
-        /**
-         * The MIME type of the file, the default is obtained by the suffix of the filename or uri.
-         * @type { string }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        type?: string;
-        /**
          * Currently support:
          * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
          * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
@@ -114,7 +100,14 @@ export declare namespace agent {
          */
         path: string;
         /**
-         * For upload request, the filename in the header, the default is obtained by uri.
+         * The MIME type of the file, the default is obtained by the suffix of the filename or uri.
+         * @type { string }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        mimetype?: string;
+        /**
+         * For upload request, the filename in the header, the default is obtained by path.
          * @type { string }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
@@ -198,7 +191,7 @@ export declare namespace agent {
         method?: string;
         /**
          * The HTTP headers.
-         * For upload request, the default `Content-Type` is `application/octet-stream`.
+         * For upload request, the `Content-Type` is forced to `multipart/form-data`.
          * For download request, the default `Content-Type` is `application/json`.
          * @type { JSON }
          * @syscap SystemCapability.Request.FileTransferAgent
@@ -206,20 +199,10 @@ export declare namespace agent {
          */
         headers?: JSON;
         /**
-         * The HTTP parameters.
-         * Do not cut and parse url parameters into here.
-         * For download, it will be encoded and appended into url, too many parameters could cause the an overlength url, use data instead at this moment.
-         * For upload, it could be others item of the form.
-         * The default is empty.
-         * @type { JSON }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        parameters?: JSON;
-        /**
-         * The HTTP body for download, it will be ignored in upload.
-         * Uses json usually, it can be any text.
-         * The default is empty.
+         * The arguments, it can be any text, uses json usually.
+         * For download, it is the raw body.
+         * For upload, it is the others form items besides files.
+         * The default is "{}".
          * @type { string }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
@@ -250,33 +233,13 @@ export declare namespace agent {
          */
         roaming?: boolean;
         /**
-         * The timeout for a task, in seconds.
-         * The default is no timeout, but died task which stays on a status more than 30 days will be cleared.
-         * @type { number }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        timeout?: number;
-        /**
-         * Enable automatic retry or not.
-         * Just for background, frontend always fast-fail.
+         * Enable automatic retry or not for the background task.
+         * The frontend task is always fast-fail.
          * @type { boolean }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         retry?: boolean;
-        /**
-         * The proxies for HTTP/HTTPS.
-         * Currently support:
-         * .httpProxy: http://user:password@proxy-domain:proxy-port/proxy-path?proxy-parameters
-         * .httpsProxy: http://user:password@proxy-domain:proxy-port/proxy-path?proxy-parameters
-         * .noProxy: domainx;domainy;domainz;...
-         * Each filed with a 4096 bytes limit.
-         * @type { JSON }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        proxy?: JSON;
         /**
          * Allows redirect or not.
          * The default is yes.
@@ -562,6 +525,13 @@ export declare namespace agent {
          */
         readonly attachments?: Array<Attachment>;
         /**
+         * The arguments.
+         * @type { string }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        readonly data?: string;
+        /**
          * The task id.
          * @type { string }
          * @readonly
@@ -594,7 +564,9 @@ export declare namespace agent {
          */
         readonly mode: Mode;
         /**
-         * The MiMEType of a task when request.
+         * The MiME types.
+         * For upload, it is each file's MIME type.
+         * For download, it is the `Content-Type` of task's configuration.
          * @type { Array<string> }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
