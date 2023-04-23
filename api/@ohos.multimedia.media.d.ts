@@ -428,6 +428,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
     addSubUrl ?: string;
+    /**
+     * External subtitle file descriptor.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    addSubFdSrc ?: AVFileDescriptor;
 
     /**
      * Media file descriptor. Mainstream media formats are supported.
@@ -825,7 +831,7 @@ declare namespace media {
    */
   interface AVFileDescriptor {
     /**
-     * The file descriptor of audio or video source from file system. The caller
+     * The file descriptor of media source from file system. The caller
      * is responsible to close the file descriptor.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -2849,38 +2855,134 @@ declare namespace media {
     AUDIO_FLAC = 'audio/flac',
   }
 
-  interface SubtitleDescriptor {
-    /**
-     * Whether render this text or not. If false
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.Core
-     */
-    isRender: boolean;
-    textSubInfo?: TextSubDescriptor;
-  }
-  interface TextSubDescriptor {
-    text: string;
-    color?: string; // rgb or argb，default:white
-    size?: number; // default:10
-    style?: FontStyle; // default:NORMAL
-    weight?: FontWeight; // default:NORMAL
-    decorationType?: TextDecorationType; // default:NONE
-  }
+/**
+ * Subtitle descriptor.
+ * @since 11
+ * @syscap SystemCapability.Multimedia.Media.Core
+ */
+interface SubtitleDescriptor {
+  /**
+   * Whether render this text or not. If false, stop rendering current text.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  isRender: boolean;
+  /**
+   * Subtitle text information descriptor. Should be filled when isRender is true.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  textInfo?: TextInfoDescriptor;
+}
 
-  enum FontStyle {
-    NORMAL = 0,
-    ITALIC = 1
-  }
+/**
+ * Subtitle text information descriptor.
+ * @since 11
+ * @syscap SystemCapability.Multimedia.Media.Core
+ */
+interface TextInfoDescriptor {
+  /**
+   * Subtitle text.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  text: string;
+  /**
+   * Color of subtitle text, rgb or argb, default is "0xffffff"(white).
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  color?: string;
+  /**
+   * Font size of subtitle text, default is 16 fp.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  size?: number;
+  /**
+   * Font style of subtitle text, default is normal.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  style?: FontStyle;
+  /**
+   * Font weight of subtitle text, default is normal.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  weight?: FontWeight;
+  /**
+   * Decoration of subtitle text, default is none, without any decoration.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  decorationType?: TextDecorationType;
+}
 
-  enum FontWeight {
-    NORMAL = 0,
-    BOLD = 1
-  }
+/**
+ * Enumerates font style of subtitle text.
+ * @since 11
+ * @syscap SystemCapability.Multimedia.Media.Core
+ */
+enum FontStyle {
+  /**
+   * Normal font style.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  NORMAL = 0,
+  /**
+   * Italic font style.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  ITALIC = 1,
+}
 
-  enum TextDecorationType {
-    NONE = 0,
-    UNDERLINE = 1,
-    LINETHROUGH = 2
-  }
+/**
+ * Enumerates font weight of subtitle text.
+ * @since 11
+ * @syscap SystemCapability.Multimedia.Media.Core
+ */
+enum FontWeight {
+  /**
+   * Normal font weight.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  NORMAL = 0,
+  /**
+   * Bold font weight.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  BOLD = 1
+}
+
+/**
+ * Enumerates decoration type of subtitle text.
+ * @since 11
+ * @syscap SystemCapability.Multimedia.Media.Core
+ */
+enum TextDecorationType {
+  /**
+   * No decoration.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  NONE = 0,
+  /**
+   * Underline.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  UNDERLINE = 1,
+  /**
+   * LineThrough.
+   * @since 11
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  LINETHROUGH = 2,
+}
 }
 export default media;
