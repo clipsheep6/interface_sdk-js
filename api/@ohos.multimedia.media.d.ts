@@ -425,7 +425,6 @@ declare namespace media {
 
     /**
      * Obtains the current audio scene effect mode, refer to {@link #audio.AudioSceneEffectMode}.
-     * Read or write it after the {@link #on('availableAudioEffects')} event.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
@@ -611,26 +610,23 @@ declare namespace media {
     off(type: 'audioInterrupt'): void;
 
     /**
-     * Register or unregister listens for available audio scene modes. Refer to
-     * {@link #audio.AudioSceneEffectInfoArray}. This event will be reported after the {@link #prepare} called.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param type Type of the playback event to listen for.
-     * @param callback Callback used to listen for the playback event return available audio scene modes.
-     */
-     on(type: 'availableAudioEffects', callback: (audioEffects: audio.AudioSceneEffectInfoArray) => void): void;
-     off(type: 'availableAudioEffects'): void;
-
-    /**
-     * Register or unregister listens for audio scene effect change events.
+     * Register listens for audio scene effect change events.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to get the audio scene effect change event.
      * Refer to {@link #audio.EffectStateChangeEvent}.
      */
-     on(type: 'audioEffectStateChange', callback: (info: audio.EffectStateChangeEvent) => void): void;
-     off(type: 'audioEffectStateChange'): void;
+    on(type: 'audioEffectStateChange', callback: (info: audio.EffectStateChangeEvent) => void): void;
+
+    /**
+     * Cancel listens for audio scene effect change events.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @param type Type of the playback event to listen for.
+     */
+    off(type: 'audioEffectStateChange'): void;
+
     /**
      * Register or unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
