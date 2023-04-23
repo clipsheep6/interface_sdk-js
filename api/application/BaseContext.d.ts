@@ -19,6 +19,7 @@
  *
  * @permission N/A
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
  * @since 8
  */
 export default abstract class BaseContext {
