@@ -20,21 +20,20 @@ import { AsyncCallback } from './basic'
  * @since 9
  */
 declare namespace hash {
-    /**
-     * Hash file.
-     * @static
-     * @syscap SystemCapability.FileManagement.File.FileIO
-     * @since 9
-     * @param {string} path - path.
-     * @param {string} algorithm - algorithm md5 sha1 sha256.
-     * @param {AsyncCallback<string>} [callback] - callback.
-     * @returns {void | Promise<string>} no callback return Promise otherwise return void
-     * @throws { BusinessError } 13900020  - Invalid argument
-     * @throws { BusinessError } 13900042  - Unknown error
-     */
-    function hash(path: string, algorithm: string): Promise<string>;
-    function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
+  /**
+   * Hash file.
+   * @static
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 9
+   * @param {string} path - path.
+   * @param {string} algorithm - algorithm md5 sha1 sha256.
+   * @param {AsyncCallback<string>} [callback] - callback.
+   * @returns {void | Promise<string>} no callback return Promise otherwise return void
+   * @throws { BusinessError } 13900020  - Invalid argument
+   * @throws { BusinessError } 13900042  - Unknown error
+   */
+  function hash(path: string, algorithm: string): Promise<string>;
+  function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 }
 
 export default hash;
- 

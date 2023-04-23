@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic';
+import { AsyncCallback } from './basic';
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -24,22 +24,22 @@ import ExtensionContext from './application/ExtensionContext';
  * @StageModelOnly
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
-    /**
-     * Destroy the input method extension.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    destroy(callback: AsyncCallback<void>): void;
+  /**
+   * Destroy the input method extension.
+   *
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @StageModelOnly
+   */
+  destroy(callback: AsyncCallback<void>): void;
 
-    /**
-     * Destroy the input method extension.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @returns { Promise<void> } the promise returned by the function.
-     * @StageModelOnly
-     */
-    destroy(): Promise<void>;
+  /**
+   * Destroy the input method extension.
+   *
+   * @since 9
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @returns { Promise<void> } the promise returned by the function.
+   * @StageModelOnly
+   */
+  destroy(): Promise<void>;
 }

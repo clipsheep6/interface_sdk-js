@@ -18,7 +18,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
- declare class SubTabBarStyle {
+declare class SubTabBarStyle {
   /**
    * constructor.
    * @since 9
@@ -31,7 +31,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
- declare class BottomTabBarStyle {
+declare class BottomTabBarStyle {
   /**
    * constructor.
    * @since 9
@@ -61,13 +61,13 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @since 7
    */
   tabBar(value: string | Resource | CustomBuilder |
-    { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+  { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
 
   /**
    * Called when tabbar is entered.
    * @since 9
    */
-   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
+  tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
 /**

@@ -38,7 +38,7 @@ export interface LauncherAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 9
    */
-  readonly elementName : ElementName;
+  readonly elementName: ElementName;
 
   /**
    * Obtains labelId about an launcher ability.
@@ -70,5 +70,5 @@ export interface LauncherAbilityInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 9
    */
-  readonly installTime : number;
+  readonly installTime: number;
 }

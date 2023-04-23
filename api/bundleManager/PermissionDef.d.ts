@@ -20,36 +20,36 @@
  * @systemapi
  * @since 9
  */
- export interface PermissionDef {
-    /**
-     * Indicates the name of this permission
-     * @type {string}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-     readonly permissionName: string;
+export interface PermissionDef {
+  /**
+   * Indicates the name of this permission
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly permissionName: string;
 
-    /**
-     * Indicates the grant mode of this permission
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-     readonly grantMode: number;
+  /**
+   * Indicates the grant mode of this permission
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly grantMode: number;
 
-    /**
-     * Indicates the labelId of this permission
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-     readonly labelId: number;
+  /**
+   * Indicates the labelId of this permission
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly labelId: number;
 
-    /**
-     * Indicates the descriptionId of this permission
-     * @type {number}
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-     readonly descriptionId: number;
-  }
+  /**
+   * Indicates the descriptionId of this permission
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
+  readonly descriptionId: number;
+}

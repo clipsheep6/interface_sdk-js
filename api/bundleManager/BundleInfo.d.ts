@@ -62,7 +62,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly minCompatibleVersionCode: number;
+  readonly minCompatibleVersionCode: number;
 
   /**
    * Indicates the target version number of the bundle
@@ -70,7 +70,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly targetVersion: number;
+  readonly targetVersion: number;
 
   /**
    * Obtains configuration information about an application
@@ -152,12 +152,12 @@ export interface ReqPermissionDetail {
    */
   reason: string;
 
-   /**
-    * Indicates the reason id of this required permissions
-    * @type {number}
-    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @since 9
-    */
+  /**
+   * Indicates the reason id of this required permissions
+   * @type {number}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */
   reasonId: number;
 
   /**
@@ -215,5 +215,5 @@ export interface SignatureInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly fingerprint: string;
+  readonly fingerprint: string;
 }

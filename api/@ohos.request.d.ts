@@ -934,7 +934,7 @@ declare namespace request {
    * @syscap SystemCapability.MiscServices.Upload
    * @permission ohos.permission.INTERNET
    */
-   interface TaskState {
+  interface TaskState {
     /**
      * Upload file path.
      *
@@ -1021,18 +1021,18 @@ declare namespace request {
      * @param callback The callback function for the upload complete or fail change event.
      * @permission ohos.permission.INTERNET
      */
-     on(type:'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
+    on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
 
-     /**
-      * Called when the current upload session complete or fail.
-      * @syscap SystemCapability.MiscServices.Upload
-      * @since 9
-      * @param type Indicates the upload session event type
-      *        complete: upload task completed
-     *         fail: upload task failed
-      * @permission ohos.permission.INTERNET
-      */
-    off(type:'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
+    /**
+     * Called when the current upload session complete or fail.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 9
+     * @param type Indicates the upload session event type
+     *        complete: upload task completed
+    *         fail: upload task failed
+     * @permission ohos.permission.INTERNET
+     */
+    off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
 
     /**
      * Deletes a upload session.

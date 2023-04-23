@@ -34,7 +34,7 @@ export interface BundleStatusCallback {
    *
    * @systemapi Hide this for inner system use
    */
-  add: (bundleName : string, userId: number) => void;
+  add: (bundleName: string, userId: number) => void;
 
   /**
    * @name Obtains update callback about an launcherStatusCallback.
@@ -44,7 +44,7 @@ export interface BundleStatusCallback {
    *
    * @systemapi Hide this for inner system use
    */
-  update: (bundleName : string, userId: number) => void;
+  update: (bundleName: string, userId: number) => void;
 
   /**
    * @name Obtains remove callback about an launcherStatusCallback.
@@ -54,5 +54,5 @@ export interface BundleStatusCallback {
    *
    * @systemapi Hide this for inner system use
    */
-  remove: (bundleName : string, userId: number) => void;
+  remove: (bundleName: string, userId: number) => void;
 }

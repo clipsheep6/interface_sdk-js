@@ -32,5 +32,5 @@ export type ValueType = number | string | boolean;
  * @StageModelOnly
  */
 export type ValuesBucket = {
-    [key: string]: ValueType | Uint8Array | null;
+  [key: string]: ValueType | Uint8Array | null;
 }

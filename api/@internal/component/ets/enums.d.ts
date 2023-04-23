@@ -1937,7 +1937,7 @@ declare enum FontWeight {
    * Defines a value that is heavier than [Inherited Value].
    * @since 7
    */
-   /**
+  /**
    * Defines a value that is heavier than [Inherited Value].
    * @form
    * @since 9

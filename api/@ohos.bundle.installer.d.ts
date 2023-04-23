@@ -74,8 +74,8 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>) : void;
-    install(hapFilePaths: Array<string>, callback: AsyncCallback<void>) : void;
+    install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
+    install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Install haps for an application.
@@ -98,7 +98,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    install(hapFilePaths: Array<string>, installParam?: InstallParam) : Promise<void>;
+    install(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
     /**
      * Uninstall an application.
@@ -116,8 +116,8 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    uninstall(bundleName: string, installParam: InstallParam, callback : AsyncCallback<void>) : void;
-    uninstall(bundleName: string, callback : AsyncCallback<void>) : void;
+    uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
+    uninstall(bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
      * Uninstall an application.
@@ -135,7 +135,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    uninstall(bundleName: string, installParam?: InstallParam) : Promise<void>;
+    uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
     /**
      * Recover an application.
@@ -170,7 +170,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-    recover(bundleName: string, installParam?: InstallParam) : Promise<void>;
+    recover(bundleName: string, installParam?: InstallParam): Promise<void>;
   }
 
   /**

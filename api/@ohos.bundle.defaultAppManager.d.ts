@@ -90,7 +90,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9
    */
-  function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
+  function isDefaultApplication(type: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Query whether the caller is default application based on type.
@@ -101,7 +101,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9
    */
-  function isDefaultApplication(type: string) : Promise<boolean>;
+  function isDefaultApplication(type: string): Promise<boolean>;
 
   /**
    * Get default application based on type.
@@ -120,8 +120,8 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>) : void;
-  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>) : void;
+  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>): void;
+  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Get default application based on type.
@@ -140,7 +140,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function getDefaultApplication(type: string, userId?: number) : Promise<BundleInfo>;
+  function getDefaultApplication(type: string, userId?: number): Promise<BundleInfo>;
 
   /**
    * Set default application based on type.
@@ -160,8 +160,8 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function setDefaultApplication(type: string, elementName: ElementName, userId: number, callback: AsyncCallback<void>) : void;
-  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>) : void;
+  function setDefaultApplication(type: string, elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
+  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.
@@ -181,7 +181,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function setDefaultApplication(type: string, elementName: ElementName, userId?: number) : Promise<void>;
+  function setDefaultApplication(type: string, elementName: ElementName, userId?: number): Promise<void>;
 
   /**
    * Reset default application based on type.
@@ -199,8 +199,8 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>) : void;
-  function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
+  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>): void;
+  function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
 
   /**
    * Reset default application based on type.
@@ -218,7 +218,7 @@ declare namespace defaultAppManager {
    * @systemapi
    * @since 9
    */
-  function resetDefaultApplication(type: string, userId?: number) : Promise<void>;
+  function resetDefaultApplication(type: string, userId?: number): Promise<void>;
 }
 
 export default defaultAppManager;

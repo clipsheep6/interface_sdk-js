@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import{ AsyncCallback, Callback } from './basic';
-import{ ResultSet as _ResultSet } from './data/rdb/resultSet';
+import { AsyncCallback, Callback } from './basic';
+import { ResultSet as _ResultSet } from './data/rdb/resultSet';
 import Context from "./application/BaseContext";
 
 /**
@@ -25,488 +25,488 @@ import Context from "./application/BaseContext";
  * @deprecated since 9
  * @useinstead ohos.data.relationalStore
  */
-declare namespace rdb
-{
+declare namespace rdb {
+  /**
+   * Obtains an RDB store.
+   *
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param {Context} context - Indicates the context of application or capability.
+   * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store. 
+   * @param {number} version - Indicates the database version for upgrade or downgrade.
+   * @param {AsyncCallback<RdbStore>} callback - the RDB store {@link RdbStore}.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.getRdbStore
+   */
+  function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
+
+  /**
+   * Obtains an RDB store.
+   *
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param {Context} context - Indicates the context of application or capability.
+   * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store. 
+   * @param {number} version - Indicates the database version for upgrade or downgrade.
+   * @returns {Promise<RdbStore>} the RDB store {@link RdbStore}.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.getRdbStore
+   */
+  function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
+
+  /**
+   * Deletes the database with a specified name.
+   *
+   * @param {Context} context - Indicates the context of application or capability.
+   * @param {string} name - Indicates the database name.
+   * @param {AsyncCallback<void>} callback - the callback of deleteRdbStore.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.deleteRdbStore
+   */
+  function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
+  /**
+   * Deletes the database with a specified name.
+   *
+   * @param {Context} context - Indicates the context of application or capability.
+   * @param {string} name - Indicates the database name.
+   * @returns {Promise<void>} the promise returned by the function.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.deleteRdbStore
+   */
+  function deleteRdbStore(context: Context, name: string): Promise<void>;
+
+  /**
+   * Indicates the database synchronization mode.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.SyncMode
+   */
+  enum SyncMode {
     /**
-     * Obtains an RDB store.
+     * Indicates the data is pushed to remote device from local device.
      *
-     * You can set parameters of the RDB store as required. In general, this method is recommended
-     * to obtain a rdb store.
-     *
-     * @param {Context} context - Indicates the context of application or capability.
-     * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store. 
-     * @param {number} version - Indicates the database version for upgrade or downgrade.
-     * @param {AsyncCallback<RdbStore>} callback - the RDB store {@link RdbStore}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.getRdbStore
+     * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PUSH
      */
-    function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
+    SYNC_MODE_PUSH = 0,
 
     /**
-     * Obtains an RDB store.
+     * Indicates the data is pulled from remote device to local device.
      *
-     * You can set parameters of the RDB store as required. In general, this method is recommended
-     * to obtain a rdb store.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PULL
+     */
+    SYNC_MODE_PULL = 1,
+  }
+
+  /**
+   * Describes the subscription type.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.SubscribeType
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   */
+  enum SubscribeType {
+    /**
+     * Subscription to remote data changes
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
+     */
+    SUBSCRIBE_TYPE_REMOTE = 0,
+  }
+
+  /**
+   * Provides methods for managing the relational database (RDB).
+   *
+   * This class provides methods for creating, querying, updating, and deleting RDBs.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.RdbStore
+   */
+  interface RdbStore {
+    /**
+     * Inserts a row of data into the target table.
      *
-     * @param {Context} context - Indicates the context of application or capability.
-     * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store. 
-     * @param {number} version - Indicates the database version for upgrade or downgrade.
-     * @returns {Promise<RdbStore>} the RDB store {@link RdbStore}.
+     * @param {string} table - Indicates the row of data to be inserted into the table.
+     * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table. 
+     * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.getRdbStore
+     * @useinstead ohos.data.relationalStore.RdbStore.insert
      */
-    function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
+    insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
-     * Deletes the database with a specified name.
+     * Inserts a row of data into the target table.
      *
-     * @param {Context} context - Indicates the context of application or capability.
-     * @param {string} name - Indicates the database name.
-     * @param {AsyncCallback<void>} callback - the callback of deleteRdbStore.
+     * @param {string} table - Indicates the row of data to be inserted into the table.
+     * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table. 
+     * @returns {Promise<void>} return the row ID if the operation is successful. return -1 otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.deleteRdbStore
+     * @useinstead ohos.data.relationalStore.RdbStore.insert
      */
-    function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
+    insert(table: string, values: ValuesBucket): Promise<number>;
+
     /**
-     * Deletes the database with a specified name.
+     * Inserts a batch of data into the target table.
      *
-     * @param {Context} context - Indicates the context of application or capability.
-     * @param {string} name - Indicates the database name.
+     * @param {string} table - Indicates the target table.
+     * @param {Array<ValuesBucket>} values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @param {AsyncCallback<number>} callback - the number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
+     */
+    batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+
+    /**
+     * Inserts a batch of data into the target table.
+     *
+     * @param {string} table - Indicates the target table.
+     * @param {Array<ValuesBucket>} values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+     * @returns {Promise<void>} return the number of values that were inserted if the operation is successful. returns -1 otherwise.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
+     */
+    batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+
+    /**
+     * Updates data in the database based on a a specified instance object of RdbPredicates.
+     *
+     * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+     * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param {AsyncCallback<number>} callback - the number of affected rows.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.update
+     */
+    update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+
+    /**
+     * Updates data in the database based on a a specified instance object of RdbPredicates.
+     *
+     * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+     * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @returns {Promise<number>} return the number of affected rows.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.update
+     */
+    update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param {RdbPredicates} predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
+     * @param {AsyncCallback<number>} callback - the number of affected rows.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.delete
+     */
+    delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates.
+     *
+     * @param {RdbPredicates} predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
+     * @returns {Promise<number>} return the number of affected rows.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.delete
+     */
+    delete(predicates: RdbPredicates): Promise<number>;
+
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param {RdbPredicates} predicates - the specified query condition by the instance object of {@link RdbPredicates}.
+     * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
+     * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.query
+     */
+    query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param {RdbPredicates} predicates - the specified query condition by the instance object of {@link RdbPredicates}.
+     * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
+     * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.query
+     */
+    query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database based on SQL statement.
+     *
+     * @param {string} sql - Indicates the SQL statement to execute.
+     * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.querySql
+     */
+    querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
+
+    /**
+     * Queries data in the database based on SQL statement.
+     *
+     * @param {string} sql - Indicates the SQL statement to execute.
+     * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.querySql
+     */
+    querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
+     * Executes an SQL statement that contains specified parameters but returns no value.
+     *
+     * @param {string} sql - Indicates the SQL statement to execute.
+     * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @param {AsyncCallback<void>} callback - the callback of executeSql.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.executeSql
+     */
+    executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Executes an SQL statement that contains specified parameters but returns no value.
+     *
+     * @param {string} sql - Indicates the SQL statement to execute.
+     * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns {Promise<void>} the promise returned by the function.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.deleteRdbStore
+     * @useinstead ohos.data.relationalStore.RdbStore.executeSql
      */
-    function deleteRdbStore(context: Context, name: string): Promise<void>;
+    executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
     /**
-     * Indicates the database synchronization mode.
+     * Begin Transaction before execute your sql.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.SyncMode
+     * @useinstead ohos.data.relationalStore.RdbStore.beginTransaction
      */
-    enum SyncMode {
-        /**
-         * Indicates the data is pushed to remote device from local device.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PUSH
-         */
-        SYNC_MODE_PUSH = 0,
-
-        /**
-         * Indicates the data is pulled from remote device to local device.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PULL
-         */
-        SYNC_MODE_PULL = 1,
-    }
+    beginTransaction(): void;
 
     /**
-     * Describes the subscription type.
+     * Commit the the sql you have executed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.SubscribeType
+     * @useinstead ohos.data.relationalStore.RdbStore.commit
+     */
+    commit(): void;
+
+    /**
+     * Roll back the sql you have already executed.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.rollBack
+     */
+    rollBack(): void;
+
+    /**
+     * Set table to be distributed table.
+     *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param {Array<string>} tables - Indicates the tables name you want to set.
+     * @param {AsyncCallback<void>} callback - the callback of setDistributedTables.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
      */
-    enum SubscribeType {
-        /**
-         * Subscription to remote data changes
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
-         */
-        SUBSCRIBE_TYPE_REMOTE = 0,
-    }
+    setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
-     * Provides methods for managing the relational database (RDB).
+     * Set table to be distributed table.
      *
-     * This class provides methods for creating, querying, updating, and deleting RDBs.
-     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param {Array<string>} tables - Indicates the tables name you want to set.
+     * @returns {Promise<void>} the promise returned by the function.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore
+     * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
      */
-    interface RdbStore {
-        /**
-         * Inserts a row of data into the target table.
-         *
-         * @param {string} table - Indicates the row of data to be inserted into the table.
-         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table. 
-         * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.insert
-         */
-        insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
-
-        /**
-         * Inserts a row of data into the target table.
-         *
-         * @param {string} table - Indicates the row of data to be inserted into the table.
-         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table. 
-         * @returns {Promise<void>} return the row ID if the operation is successful. return -1 otherwise.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.insert
-         */
-        insert(table: string, values: ValuesBucket): Promise<number>;
-
-        /**
-         * Inserts a batch of data into the target table.
-         *
-         * @param {string} table - Indicates the target table.
-         * @param {Array<ValuesBucket>} values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-         * @param {AsyncCallback<number>} callback - the number of values that were inserted if the operation is successful. returns -1 otherwise.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
-         */
-        batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
-
-        /**
-         * Inserts a batch of data into the target table.
-         *
-         * @param {string} table - Indicates the target table.
-         * @param {Array<ValuesBucket>} values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-         * @returns {Promise<void>} return the number of values that were inserted if the operation is successful. returns -1 otherwise.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
-         */
-        batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
-
-        /**
-         * Updates data in the database based on a a specified instance object of RdbPredicates.
-         *
-         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-         * @param {AsyncCallback<number>} callback - the number of affected rows.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.update
-         */
-        update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
-
-        /**
-         * Updates data in the database based on a a specified instance object of RdbPredicates.
-         *
-         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
-         * @returns {Promise<number>} return the number of affected rows.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.update
-         */
-        update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
-
-        /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
-         *
-         * @param {RdbPredicates} predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
-         * @param {AsyncCallback<number>} callback - the number of affected rows.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.delete
-         */
-        delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
-
-        /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
-         *
-         * @param {RdbPredicates} predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
-         * @returns {Promise<number>} return the number of affected rows.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.delete
-         */
-        delete(predicates: RdbPredicates): Promise<number>;
-
-        /**
-         * Queries data in the database based on specified conditions.
-         *
-         * @param {RdbPredicates} predicates - the specified query condition by the instance object of {@link RdbPredicates}.
-         * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
-         * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.query
-         */
-        query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-
-        /**
-         * Queries data in the database based on specified conditions.
-         *
-         * @param {RdbPredicates} predicates - the specified query condition by the instance object of {@link RdbPredicates}.
-         * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
-         * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 7
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.query
-         */
-        query(predicates: RdbPredicates, columns ?: Array<string>): Promise<ResultSet>;
-
-        /**
-         * Queries data in the database based on SQL statement.
-         *
-         * @param {string} sql - Indicates the SQL statement to execute.
-         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-         * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.querySql
-         */
-        querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
-
-        /**
-         * Queries data in the database based on SQL statement.
-         *
-         * @param {string} sql - Indicates the SQL statement to execute.
-         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-         * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.querySql
-         */
-        querySql(sql: string, bindArgs ?: Array<ValueType>): Promise<ResultSet>;
-
-        /**
-         * Executes an SQL statement that contains specified parameters but returns no value.
-         *
-         * @param {string} sql - Indicates the SQL statement to execute.
-         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-         * @param {AsyncCallback<void>} callback - the callback of executeSql.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.executeSql
-         */
-        executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
-
-        /**
-         * Executes an SQL statement that contains specified parameters but returns no value.
-         *
-         * @param {string} sql - Indicates the SQL statement to execute.
-         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
-         * @returns {Promise<void>} the promise returned by the function.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.executeSql
-         */
-        executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
-
-        /**
-         * Begin Transaction before execute your sql.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.beginTransaction
-         */
-        beginTransaction(): void;
-
-        /**
-         * Commit the the sql you have executed.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.commit
-         */
-        commit(): void;
-
-        /**
-         * Roll back the sql you have already executed.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.rollBack
-         */
-        rollBack(): void;
-
-        /**
-         * Set table to be distributed table.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param {Array<string>} tables - Indicates the tables name you want to set.
-         * @param {AsyncCallback<void>} callback - the callback of setDistributedTables.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
-         */
-        setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
-
-        /**
-         * Set table to be distributed table.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param {Array<string>} tables - Indicates the tables name you want to set.
-         * @returns {Promise<void>} the promise returned by the function.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
-         */
-        setDistributedTables(tables: Array<string>): Promise<void>;
-
-        /**
-         * Obtain distributed table name of specified remote device according to local table name.
-         * When query remote device database, distributed table name is needed.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param {string} device - Indicates the remote device.
-         * @param {AsyncCallback<string>} callback - {string}: the distributed table name.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
-         */
-        obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
-
-        /**
-         * Obtain distributed table name of specified remote device according to local table name.
-         * When query remote device database, distributed table name is needed.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param {string} device - Indicates the remote device.
-         * @returns {Promise<string>} {string}: the distributed table name.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
-         */
-        obtainDistributedTableName(device: string, table: string): Promise<string>;
-
-        /**
-         * Sync data between devices.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param {string} device - Indicates the remote device.
-         * @param {AsyncCallback<Array<[string, number]>>} callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.sync
-         */
-        sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[ string, number ]>>): void;
-
-        /**
-         * Sync data between devices.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param {string} device - Indicates the remote device.
-         * @returns {Promise<Array<[string, number]>>} {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.sync
-         */
-        sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[ string, number ]>>;
-
-        /**
-        * Registers an observer for the database. When data in the distributed database changes,
-         * the callback will be invoked.
-        *
-        * @param {string} event - Indicates the event must be string 'dataChange'.
-        * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-        * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the observer of data change events in the distributed database.
-        * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-        * @since 8
-        * @deprecated since 9
-        * @useinstead ohos.data.relationalStore.RdbStore.on
-        */
-        on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
-        /**
-         * Remove specified observer of specified type from the database.
-         *
-         * @param {string} event - Indicates the event must be string 'dataChange'.
-         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-         * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 8
-         * @deprecated since 9
-         * @useinstead ohos.data.relationalStore.RdbStore.off
-         */
-        off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-    }
+    setDistributedTables(tables: Array<string>): Promise<void>;
 
     /**
-     * Indicates possible value types
+     * Obtain distributed table name of specified remote device according to local table name.
+     * When query remote device database, distributed table name is needed.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param {string} device - Indicates the remote device.
+     * @param {AsyncCallback<string>} callback - {string}: the distributed table name.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ValueType
+     * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
      */
-    type ValueType = number | string | boolean;
+    obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Values in buckets are stored in key-value pairs
+     * Obtain distributed table name of specified remote device according to local table name.
+     * When query remote device database, distributed table name is needed.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param {string} device - Indicates the remote device.
+     * @returns {Promise<string>} {string}: the distributed table name.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 7
+     * @since 8
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ValuesBucket
+     * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
      */
-    type ValuesBucket = { [key:string]: ValueType | Uint8Array | null;
-}
+    obtainDistributedTableName(device: string, table: string): Promise<string>;
 
-/**
- * Manages relational database configurations.
- *
- * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.data.relationalStore.StoreConfig
- */
-interface StoreConfig {
+    /**
+     * Sync data between devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param {string} device - Indicates the remote device.
+     * @param {AsyncCallback<Array<[string, number]>>} callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.sync
+     */
+    sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
+
+    /**
+     * Sync data between devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param {string} device - Indicates the remote device.
+     * @returns {Promise<Array<[string, number]>>} {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.sync
+     */
+    sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
+
+    /**
+    * Registers an observer for the database. When data in the distributed database changes,
+     * the callback will be invoked.
+    *
+    * @param {string} event - Indicates the event must be string 'dataChange'.
+    * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+    * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the observer of data change events in the distributed database.
+    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+    * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.data.relationalStore.RdbStore.on
+    */
+    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @param {string} event - Indicates the event must be string 'dataChange'.
+     * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore.off
+     */
+    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+  }
+
+  /**
+   * Indicates possible value types
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.ValueType
+   */
+  type ValueType = number | string | boolean;
+
+  /**
+   * Values in buckets are stored in key-value pairs
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.ValuesBucket
+   */
+  type ValuesBucket = {
+    [key: string]: ValueType | Uint8Array | null;
+  }
+
+  /**
+   * Manages relational database configurations.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.StoreConfig
+   */
+  interface StoreConfig {
     name: string;
-}
+  }
 
-/**
- * Manages relational database configurations.
- *
- * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.data.relationalStore.RdbPredicates
- */
-class RdbPredicates {
+  /**
+   * Manages relational database configurations.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.data.relationalStore.RdbPredicates
+   */
+  class RdbPredicates {
     /**
      * A parameterized constructor used to create an RdbPredicates instance.
      *
@@ -920,9 +920,9 @@ class RdbPredicates {
      * @useinstead ohos.data.relationalStore.RdbPredicates.notIn
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
-}
+  }
 
-export type ResultSet = _ResultSet;
+  export type ResultSet = _ResultSet;
 }
 
 export default rdb;

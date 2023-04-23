@@ -115,14 +115,14 @@ declare namespace featureAbility {
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
-   /**
-   * Checks whether the main window of this ability has window focus.
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @returns Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
-   * @FAModelOnly
-   */
+  /**
+  * Checks whether the main window of this ability has window focus.
+  *
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @returns Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
+  * @FAModelOnly
+  */
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
   function hasWindowFocus(): Promise<boolean>;
 
@@ -136,7 +136,7 @@ declare namespace featureAbility {
    * @returns Returns the number code of the ability connected
    * @FAModelOnly
    */
-  function connectAbility(request: Want, options:ConnectOptions ): number;
+  function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
   * The callback interface was connect successfully.
@@ -146,7 +146,7 @@ declare namespace featureAbility {
   * @param connection The number code of the ability connected
   * @FAModelOnly
   */
-  function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
+  function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
   function disconnectAbility(connection: number): Promise<void>;
 
   /**

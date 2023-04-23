@@ -133,5 +133,5 @@ export interface BundleInstaller {
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#recover
    */
-   recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 }

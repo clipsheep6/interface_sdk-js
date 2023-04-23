@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ElementName }  from './ElementName';
+import { ElementName } from './ElementName';
 
 /**
  * Contains basic remote ability information.

@@ -27,11 +27,11 @@ interface BlankInterface {
    * The minimum size of the blank fill assembly on the container spindle.
    * @since 7
    */
-    /**
-   * The minimum size of the blank fill assembly on the container spindle.
-   * @form
-   * @since 9
-   */
+  /**
+ * The minimum size of the blank fill assembly on the container spindle.
+ * @form
+ * @since 9
+ */
   (min?: number | string): BlankAttribute;
 }
 

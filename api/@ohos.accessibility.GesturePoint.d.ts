@@ -19,15 +19,15 @@
  * @since 9
  */
 export declare class GesturePoint {
-    constructor(positionX: number, positionY: number);
-    /**
-     * Indicates the X coordinate of point.
-     * @type {number}
-     */
-    positionX: number;
-    /**
-     * Indicates the Y coordinate of point.
-     * @type {number}
-     */
-    positionY: number;
+  constructor(positionX: number, positionY: number);
+  /**
+   * Indicates the X coordinate of point.
+   * @type {number}
+   */
+  positionX: number;
+  /**
+   * Indicates the Y coordinate of point.
+   * @type {number}
+   */
+  positionY: number;
 }

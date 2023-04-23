@@ -65,14 +65,14 @@ declare namespace display {
    * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
-   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
+  function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
-   /**
-    * Obtain all displays.
-    * @throws {BusinessError} 1400001 - If display or screen is invalid
-    * @since 9
-    */
-   function getAllDisplays(): Promise<Array<Display>>;
+  /**
+   * Obtain all displays.
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @since 9
+   */
+  function getAllDisplays(): Promise<Array<Display>>;
 
   /**
    * Check whether there is a privacy window on the current display.
@@ -159,7 +159,7 @@ declare namespace display {
      * @since 9
      */
     width: number;
-    
+
     /**
      * Height of the rectangle, in pixels.
      * @since 9

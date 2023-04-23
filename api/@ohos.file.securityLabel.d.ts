@@ -24,7 +24,7 @@ import { AsyncCallback } from "./basic";
 
 declare namespace securityLabel {
 
-  type DataLevel = 's0'|'s1'|'s2'|'s3'|'s4';
+  type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
   /**
    * Set the SecurityLabel.
    *
@@ -64,23 +64,23 @@ declare namespace securityLabel {
    */
   function setSecurityLabelSync(path: string, type: DataLevel): void;
 
-    /**
-   * Get the SecurityLabel.
-   *
-   * @since 9
-   * @syscap  SystemCapability.FileManagement.File.FileIO
-   * @param {string} path - path
-   * @param {AsyncCallback<void>} [callback] - callback
-   * @returns {void | Promise<void>} no callback return Promise otherwise return void
-   * @throws { BusinessError } 13900001  - Operation not permitted
-   * @throws { BusinessError } 13900007  - Arg list too long
-   * @throws { BusinessError } 13900015  - File exists
-   * @throws { BusinessError } 13900020  - Invalid argument
-   * @throws { BusinessError } 13900025  - No space left on device
-   * @throws { BusinessError } 13900037  - No data available
-   * @throws { BusinessError } 13900041  - Quota exceeded
-   * @throws { BusinessError } 13900042  - Unknown error
-   */
+  /**
+ * Get the SecurityLabel.
+ *
+ * @since 9
+ * @syscap  SystemCapability.FileManagement.File.FileIO
+ * @param {string} path - path
+ * @param {AsyncCallback<void>} [callback] - callback
+ * @returns {void | Promise<void>} no callback return Promise otherwise return void
+ * @throws { BusinessError } 13900001  - Operation not permitted
+ * @throws { BusinessError } 13900007  - Arg list too long
+ * @throws { BusinessError } 13900015  - File exists
+ * @throws { BusinessError } 13900020  - Invalid argument
+ * @throws { BusinessError } 13900025  - No space left on device
+ * @throws { BusinessError } 13900037  - No data available
+ * @throws { BusinessError } 13900041  - Quota exceeded
+ * @throws { BusinessError } 13900042  - Unknown error
+ */
   function getSecurityLabel(path: string): Promise<string>;
   function getSecurityLabel(path: string, callback: AsyncCallback<string>): void;
 
@@ -101,7 +101,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900041  - Quota exceeded
    * @throws { BusinessError } 13900042  - Unknown error
    */
-   function getSecurityLabelSync(path: string): string;
+  function getSecurityLabelSync(path: string): string;
 }
 
 export default securityLabel;

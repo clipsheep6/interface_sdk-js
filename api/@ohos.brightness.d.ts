@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {BusinessError} from './basic';
+import { BusinessError } from './basic';
 
 /**
  * Provides interfaces to control the power of display.
@@ -23,15 +23,15 @@ import {BusinessError} from './basic';
  * @since 7
  */
 declare namespace brightness {
-    /**
-     * Sets the screen brightness.
-     *
-     * @param {number} value Brightness value, ranging from 0 to 255.
-     * @throws {BusinessError} 401 - If the value is not valid.
-     * @throws {BusinessError} 4700101 - If connecting to the service failed.
-     * @systemapi
-     * @since 7
-     */
-    function setValue(value: number): void;
+  /**
+   * Sets the screen brightness.
+   *
+   * @param {number} value Brightness value, ranging from 0 to 255.
+   * @throws {BusinessError} 401 - If the value is not valid.
+   * @throws {BusinessError} 4700101 - If connecting to the service failed.
+   * @systemapi
+   * @since 7
+   */
+  function setValue(value: number): void;
 }
 export default brightness;

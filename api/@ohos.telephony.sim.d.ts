@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
+import { AsyncCallback } from "./basic";
 
 /**
  * Provides applications with APIs for obtaining SIM card status, card file information, and card specifications.
