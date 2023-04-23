@@ -84,12 +84,12 @@ export declare namespace agent {
         CELLULAR = 2,
     }
     /**
-     * The files information for a task.
-     * @typedef Attachment
+     * The file item information for a task.
+     * @typedef FileItem
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    interface Attachment {
+    interface FileItem {
         /**
          * Currently support:
          * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
@@ -100,14 +100,16 @@ export declare namespace agent {
          */
         path: string;
         /**
-         * The MIME type of the file, the default is obtained by the suffix of the filename or uri.
+         * The MIME type of the file.
+         * For upload, the default is obtained by the suffix of the filename or uri.
+         * For download, the default if the `Content-Type` of response.
          * @type { string }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         mimetype?: string;
         /**
-         * For upload request, the filename in the header, the default is obtained by path.
+         * The filename, the default is obtained by path.
          * @type { string }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
@@ -145,11 +147,11 @@ export declare namespace agent {
          * For download task, only one file in a task.
          * Each path length complies system's requirements.
          * But there is a 4K bytes limit in total.
-         * @type { Array<Attachment> }
+         * @type { Array<FileItem> }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        attachments: Array<Attachment>;
+        fileset: Array<FileItem>;
         /**
          * The title for a task, give a meaningful title please.
          * The maximum length is 256 characters.
@@ -518,12 +520,12 @@ export declare namespace agent {
         /**
          * The files of a task.
          * For normal query only, empty as system.
-         * @type { Array<Attachment> }
+         * @type { Array<FileItem> }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        readonly attachments?: Array<Attachment>;
+        readonly fileset?: Array<FileItem>;
         /**
          * The arguments.
          * @type { string }
