@@ -31,13 +31,11 @@ declare namespace uriPermissionManager {
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @param { callback } callback - the callback of grantUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide this for inner system use.
    * @since 10
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, callback: AsyncCallback<number>): void;
@@ -50,13 +48,11 @@ declare namespace uriPermissionManager {
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000058 - Invalid URI flag.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide this for inner system use.
    * @since 10
    */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
@@ -68,12 +64,10 @@ declare namespace uriPermissionManager {
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @param { callback } callback - the callback of revokeUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide this for inner system use
    * @since 10
    */
   function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
@@ -85,12 +79,10 @@ declare namespace uriPermissionManager {
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000059 - Invalid URI type.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide this for inner system use
    * @since 10
    */
   function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
