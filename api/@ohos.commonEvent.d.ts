@@ -747,6 +747,11 @@ declare namespace commonEvent {
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = "usual.event.DEVICE_IDLE_MODE_CHANGED",
 
     /**
+     * Sent when device's idle mode changed
+     */
+    COMMON_EVENT_CHARGE_IDLE = "usual.event.CHARGE_IDLE",
+
+    /**
      * Sent when device's power save mode changed
      */
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = "usual.event.POWER_SAVE_MODE_CHANGED",
