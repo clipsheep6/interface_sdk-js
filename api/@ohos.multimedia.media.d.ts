@@ -427,13 +427,13 @@ declare namespace media {
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    addSubUrl ?: string;
+    addSubtitleUrl ?: string;
     /**
      * External subtitle file descriptor.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    addSubFdSrc ?: AVFileDescriptor;
+    addSubtitleFdSrc ?: AVFileDescriptor;
 
     /**
      * Media file descriptor. Mainstream media formats are supported.
@@ -689,8 +689,8 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to receive subtitle data.
      */
-    on(type: 'subtextUpdate', callback: (subtext: SubtitleDescriptor) => void): void;
-    off(type: 'subtextUpdate'): void;
+    on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
+    off(type: 'subtitleTextUpdate'): void;
     /**
      * Register or unregister listens for playback error events.
      * @since 9
@@ -2856,33 +2856,13 @@ declare namespace media {
   }
 
 /**
- * Subtitle descriptor.
- * @since 11
- * @syscap SystemCapability.Multimedia.Media.Core
- */
-interface SubtitleDescriptor {
-  /**
-   * Whether render this text or not. If false, stop rendering current text.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  isRender: boolean;
-  /**
-   * Subtitle text information descriptor. Should be filled when isRender is true.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  textInfo?: TextInfoDescriptor;
-}
-
-/**
  * Subtitle text information descriptor.
  * @since 11
  * @syscap SystemCapability.Multimedia.Media.Core
  */
 interface TextInfoDescriptor {
   /**
-   * Subtitle text.
+   * Subtitle text. If null, stop rendering current text.
    * @since 11
    * @syscap SystemCapability.Multimedia.Media.Core
    */
