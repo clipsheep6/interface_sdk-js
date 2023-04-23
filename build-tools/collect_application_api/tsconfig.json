@@ -575,8 +575,11 @@
         "property": "stateStyles"
       },
       "customComponent": "CustomComponent",
+      "propertyDecorators": [],
+      "emitDecorators": [],
+      "libs": []
     },
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "preserve",
