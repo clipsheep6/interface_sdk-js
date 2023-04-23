@@ -36,7 +36,7 @@ declare namespace effectKit {
     * @param radius The degree of blur, the value is measured in pixels.
     * @returns Filters for the current effect have been added.
     */
-    blur(radius:number): Filter;
+    blur(radius: number): Filter;
 
     /**
     * A Brightness effect is added to the image.
@@ -45,7 +45,7 @@ declare namespace effectKit {
     * @param bright The degree of light and darkness,the value range is 0 to 1.
     * @returns Filters for the current effect have been added.
     */
-    brightness(bright:number): Filter;
+    brightness(bright: number): Filter;
 
     /**
     * A Grayscale effect is added to the image.
@@ -150,4 +150,4 @@ declare namespace effectKit {
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
 }
 
-export default  effectKit;
+export default effectKit;

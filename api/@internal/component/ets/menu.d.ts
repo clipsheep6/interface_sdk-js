@@ -17,36 +17,35 @@
  * Defines the Menu Component.
  * @since 9
  */
- interface MenuInterface {
-    /**
-     * Creates the menu component.
-     * @since 9
-     */
-    (): MenuAttribute;
-  }
-  
+interface MenuInterface {
   /**
-   * Defines the Menu component attribute functions.
+   * Creates the menu component.
    * @since 9
    */
-  declare class MenuAttribute extends CommonMethod<MenuAttribute> {
-    /**
-     * Set the Menu text size.
-     * @since 9
-     */
-    fontSize(value: Length): MenuAttribute;
+  (): MenuAttribute;
+}
 
-  }
-  
-  /**
- * Defines Menu Component.
+/**
+ * Defines the Menu component attribute functions.
  * @since 9
  */
-  declare const Menu: MenuInterface;
-
+declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
- * Defines Menu Component instance.
- * @since 9
- */
-  declare const MenuInstance: MenuAttribute;
-  
+   * Set the Menu text size.
+   * @since 9
+   */
+  fontSize(value: Length): MenuAttribute;
+
+}
+
+/**
+* Defines Menu Component.
+* @since 9
+*/
+declare const Menu: MenuInterface;
+
+/**
+* Defines Menu Component instance.
+* @since 9
+*/
+declare const MenuInstance: MenuAttribute;

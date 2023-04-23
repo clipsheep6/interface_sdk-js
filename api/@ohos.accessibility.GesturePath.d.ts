@@ -21,15 +21,15 @@ import { GesturePoint } from "./@ohos.accessibility.GesturePoint";
  * @since 9
  */
 export declare class GesturePath {
-    constructor(durationTime: number);
-    /**
-     * Indicates the position of the points that make up the gesture.
-     * @type {Array<GesturePoint>}
-     */
-    points: Array<GesturePoint>;
-    /**
-     * Indicates the duration of the gesture.
-     * @type {number}
-     */
-    durationTime: number;
+  constructor(durationTime: number);
+  /**
+   * Indicates the position of the points that make up the gesture.
+   * @type {Array<GesturePoint>}
+   */
+  points: Array<GesturePoint>;
+  /**
+   * Indicates the duration of the gesture.
+   * @type {number}
+   */
+  durationTime: number;
 }

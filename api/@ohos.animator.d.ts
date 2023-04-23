@@ -205,5 +205,5 @@ export default class Animator {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-   static create(options: AnimatorOptions): AnimatorResult;
+  static create(options: AnimatorOptions): AnimatorResult;
 }

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, Callback} from "./basic";
+import { AsyncCallback, Callback } from "./basic";
 
 /**
  * Provides interfaces to manage ethernet.
@@ -94,11 +94,11 @@ declare namespace ethernet {
      * See {@link IPSetMode}
      */
     mode: IPSetMode;
-   /**
-     * Ethernet connection static configuration IP information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
-     * (DHCP mode does not need to be configured)
-     */
+    /**
+      * Ethernet connection static configuration IP information.
+      * The address value range is 0-255.0-255.0-255.0-255.0-255
+      * (DHCP mode does not need to be configured)
+      */
     ipAddr: string;
 
     /**

@@ -46,7 +46,7 @@ declare namespace statfs {
    */
   function getFreeSize(path: string): Promise<number>;
   function getFreeSize(path: string, callback: AsyncCallback<number>): void;
-  
+
   /**
    * Get the number of total bytes on the specified path.
    *

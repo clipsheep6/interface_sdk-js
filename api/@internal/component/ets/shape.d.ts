@@ -186,7 +186,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 9
    */
   antiAlias(value: boolean): ShapeAttribute;
-  
+
   /**
    * Called when shape mesh.
    * @since 8

@@ -42,8 +42,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
-  function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
-  function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+  function getLauncherAbilityInfos(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Register Callback.
@@ -58,8 +58,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#on
    */
-  function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback, callback: AsyncCallback<string>) : void;
-  function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback): Promise<string>;
+  function on(type: "BundleStatusChange", bundleStatusCallback: BundleStatusCallback, callback: AsyncCallback<string>): void;
+  function on(type: "BundleStatusChange", bundleStatusCallback: BundleStatusCallback): Promise<string>;
 
   /**
    * UnRegister Callback.
@@ -73,8 +73,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleMonitor#off
    */
-  function off(type:"BundleStatusChange", callback: AsyncCallback<string>) : void;
-  function off(type:"BundleStatusChange"): Promise<string>;
+  function off(type: "BundleStatusChange", callback: AsyncCallback<string>): void;
+  function off(type: "BundleStatusChange"): Promise<string>;
 
   /**
    * Obtains based on a given userId.
@@ -88,8 +88,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
-  function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
-  function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
+  function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+  function getAllLauncherAbilityInfos(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains based on a given bundleName.
@@ -103,8 +103,8 @@ declare namespace innerBundleManager {
    * @deprecated since 9
    * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
    */
-  function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
-  function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
+  function getShortcutInfos(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
+  function getShortcutInfos(bundleName: string): Promise<Array<ShortcutInfo>>;
 }
 
 export default innerBundleManager;

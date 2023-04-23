@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ElementName }  from './elementName';
+import { ElementName } from './elementName';
 
 /**
  * @name Contains basic remote ability information.
@@ -24,24 +24,24 @@ import { ElementName }  from './elementName';
  * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
-    /**
-     * @default Indicates the ability information
-     * @since 8
-     * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-     */
-    readonly elementName: ElementName;
+  /**
+   * @default Indicates the ability information
+   * @since 8
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   */
+  readonly elementName: ElementName;
 
-    /**
-    * @default Indicates the label of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly label: string;
+  /**
+  * @default Indicates the label of the ability
+  * @since 8
+  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+  */
+  readonly label: string;
 
-    /**
-    * @default Indicates the icon of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly icon: string;
+  /**
+  * @default Indicates the icon of the ability
+  * @since 8
+  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+  */
+  readonly icon: string;
 }

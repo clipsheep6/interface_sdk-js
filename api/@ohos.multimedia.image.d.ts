@@ -97,7 +97,7 @@ declare namespace image {
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      */
-    NV12 = 9, 
+    NV12 = 9,
   }
 
   /**
@@ -224,7 +224,7 @@ declare namespace image {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    */
-   enum ImageFormat {
+  enum ImageFormat {
     /**
      * YCBCR422 semi-planar format.
      * @since 9
@@ -328,7 +328,7 @@ declare namespace image {
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      */
-    JPEG = 4, 
+    JPEG = 4,
   }
 
   /**
@@ -534,7 +534,7 @@ declare namespace image {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    */
-   interface Component {
+  interface Component {
     /**
      * Component type.
      * @since 9
@@ -887,7 +887,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @returns The number of density.
      */
-    getDensity():number;
+    getDensity(): number;
 
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
@@ -928,7 +928,7 @@ declare namespace image {
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param x The zoom value of width.
-	 * @param y The zoom value of height.
+   * @param y The zoom value of height.
      * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
      */
     scale(x: number, y: number, callback: AsyncCallback<void>): void;
@@ -938,7 +938,7 @@ declare namespace image {
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param x The zoom value of width.
-	 * @param y The zoom value of height.
+   * @param y The zoom value of height.
      * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      */
     scale(x: number, y: number): Promise<void>;
@@ -948,7 +948,7 @@ declare namespace image {
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param x The position value of width.
-	 * @param y The position value of height.
+   * @param y The position value of height.
      * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
      */
     translate(x: number, y: number, callback: AsyncCallback<void>): void;
@@ -958,7 +958,7 @@ declare namespace image {
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param x The position value of width.
-	 * @param y The position value of height.
+   * @param y The position value of height.
      * @returns A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      */
     translate(x: number, y: number): Promise<void>;
@@ -1078,7 +1078,7 @@ declare namespace image {
      * @returns A Promise instance used to return the PixelMap object.
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
-    
+
     /**
      * Creates a PixelMap object. This method uses a callback to return the object.
      * @since 7
@@ -1117,7 +1117,7 @@ declare namespace image {
      * @param callback Callback used to return the property value. If the operation fails, an error message is returned.
      */
     getImageProperty(key: string, callback: AsyncCallback<string>): void;
-	
+
     /**
      * Obtains the value of a property in an image with the specified index. This method uses
      * a callback to return the property value in a string.
@@ -1233,17 +1233,17 @@ declare namespace image {
      * @param option Option for image packing.
      * @param callback Callback used to return the packed data.
      */
-     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
+    packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
-     /**
-      * Compresses or packs an image and uses a promise to return the result.
-      * @since 8
-      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-      * @param source PixelMap to be processed.
-      * @param option Option for image packing.
-      * @returns A Promise instance used to return the compressed or packed data.
-      */
-     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
+    /**
+     * Compresses or packs an image and uses a promise to return the result.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @param source PixelMap to be processed.
+     * @param option Option for image packing.
+     * @returns A Promise instance used to return the compressed or packed data.
+     */
+    packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
      * Releases an ImagePacker instance and uses a callback to return the result.

@@ -21,7 +21,7 @@
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.PermissionDef
  */
- export interface PermissionDef {
+export interface PermissionDef {
   /**
     * @default Indicates the name of this permission
     * @since 8

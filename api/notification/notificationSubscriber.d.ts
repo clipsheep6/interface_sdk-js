@@ -28,26 +28,26 @@ import notification from '../@ohos.notification';
  * @since 7
  */
 export interface NotificationSubscriber {
-  onConsume?:(data: SubscribeCallbackData) => void;
-  onCancel?:(data: SubscribeCallbackData) => void;
-  onUpdate?:(data: NotificationSortingMap) => void;
-  onConnect?:() => void;
-  onDisconnect?:() => void;
-  onDestroy?:() => void;
+  onConsume?: (data: SubscribeCallbackData) => void;
+  onCancel?: (data: SubscribeCallbackData) => void;
+  onUpdate?: (data: NotificationSortingMap) => void;
+  onConnect?: () => void;
+  onDisconnect?: () => void;
+  onDestroy?: () => void;
 
   /**
    * Callback when the Do Not Disturb setting changed.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
-  onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
+  onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
 
   /**
    * Callback when the notification permission is changed.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
-  onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
+  onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 }
 
 /**

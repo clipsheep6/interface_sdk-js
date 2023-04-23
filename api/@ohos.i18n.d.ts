@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {BusinessError} from "./basic";
+import { BusinessError } from "./basic";
 
 /**
  * Provides international settings related APIs.
@@ -21,74 +21,74 @@ import {BusinessError} from "./basic";
  * @since 7
  */
 declare namespace i18n {
-/**
- * Obtains the country or region name localized for display on a given locale.
- *
- * @syscap SystemCapability.Global.I18n
- * @param country The locale whose country or region name will be displayed.
- * @param locale The locale used to display the country or region.
- * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
- * @returns Returns the country or region name localized for display on a given locale.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.getDisplayCountry
- */
-export function getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
+  /**
+   * Obtains the country or region name localized for display on a given locale.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @param country The locale whose country or region name will be displayed.
+   * @param locale The locale used to display the country or region.
+   * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
+   * @returns Returns the country or region name localized for display on a given locale.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.getDisplayCountry
+   */
+  export function getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
-/**
- * Obtains the language name localized for display on a given locale.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The locale whose language name will be displayed.
- * @param locale The locale used to display the language.
- * @param sentenceCase Specifies whether the language name is displayed in sentence case.
- * @returns Returns the language name localized for display on a given locale.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.getDisplayLanguage
- */
-export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
+  /**
+   * Obtains the language name localized for display on a given locale.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @param language The locale whose language name will be displayed.
+   * @param locale The locale used to display the language.
+   * @param sentenceCase Specifies whether the language name is displayed in sentence case.
+   * @returns Returns the language name localized for display on a given locale.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.getDisplayLanguage
+   */
+  export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
-/**
- * Obtains the language currently used by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @returns Returns the language currently used by the system.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.getSystemLanguage
- */
-export function getSystemLanguage(): string;
+  /**
+   * Obtains the language currently used by the system.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @returns Returns the language currently used by the system.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.getSystemLanguage
+   */
+  export function getSystemLanguage(): string;
 
-/**
- * Obtains the region currently used by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @returns Returns the region currently used by the system.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.getSystemRegion
- */
-export function getSystemRegion(): string;
+  /**
+   * Obtains the region currently used by the system.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @returns Returns the region currently used by the system.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.getSystemRegion
+   */
+  export function getSystemRegion(): string;
 
-/**
- * Obtains the locale currently used by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @returns Returns the locale currently used by the system.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.getSystemLocale
- */
-export function getSystemLocale(): string;
+  /**
+   * Obtains the locale currently used by the system.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @returns Returns the locale currently used by the system.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.getSystemLocale
+   */
+  export function getSystemLocale(): string;
 
-/**
- * Provides system functions.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 9
- */
-export class System {
+  /**
+   * Provides system functions.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 9
+   */
+  export class System {
     /**
      * Obtains the country or region name localized for display on a given locale.
      *
@@ -312,25 +312,25 @@ export class System {
      */
     static setUsingLocalDigit(flag: boolean): void;
 
-     /**
-      * Get whether to use local digit.
-      *
-      * @syscap SystemCapability.Global.I18n
-      * @returns Returns a boolean represents whether to use local digit.
-      * @since 9
-      */
+    /**
+     * Get whether to use local digit.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a boolean represents whether to use local digit.
+     * @since 9
+     */
     static getUsingLocalDigit(): boolean;
-}
+  }
 
-/**
- * Provides util functions.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- * @deprecated since 9
- * @useinstead I18NUtil
- */
-export interface Util {
+  /**
+   * Provides util functions.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   * @deprecated since 9
+   * @useinstead I18NUtil
+   */
+  export interface Util {
     /**
      * Convert from unit to unit and format according to the locale.
      *
@@ -345,15 +345,15 @@ export interface Util {
      * @useinstead I18NUtil.unitConvert
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
-}
+  }
 
-/**
- * Provides util functions.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 9
- */
- export class I18NUtil {
+  /**
+   * Provides util functions.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 9
+   */
+  export class I18NUtil {
     /**
      * Convert from unit to unit and format according to the locale.
      *
@@ -377,15 +377,15 @@ export interface Util {
      * @since 9
      */
     static getDateOrder(locale: string): string;
-}
+  }
 
-/**
- * Provides the options of unit.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface UnitInfo {
+  /**
+   * Provides the options of unit.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface UnitInfo {
     /**
      * Unit name.
      */
@@ -395,15 +395,15 @@ export interface UnitInfo {
      * The measurement system of the unit.
      */
     measureSystem: string
-}
+  }
 
-/**
- * Provides the options of PhoneNumberFormat.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export interface PhoneNumberFormatOptions {
+  /**
+   * Provides the options of PhoneNumberFormat.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
      *
@@ -417,15 +417,15 @@ export interface PhoneNumberFormatOptions {
      * @since 9
      */
     type?: string;
-}
+  }
 
-/**
- * Provides the API for formatting phone number strings
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class PhoneNumberFormat {
+  /**
+   * Provides the API for formatting phone number strings
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class PhoneNumberFormat {
     /**
      * A constructor used to create a PhoneNumberFormat object.
      *
@@ -466,21 +466,21 @@ export class PhoneNumberFormat {
      * @since 9
      */
     getLocationName(number: string, locale: string): string;
-}
+  }
 
-/**
- * Get a Calendar instance specified by locale and type.
- *
- * @syscap SystemCapability.Global.I18n
- * @param locale The locale used to get calendar.
- * @param type If type is not specified, get locale's default Calendar, else get the specified type of Calendar.
- *  such as buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura,
- *  japanese, persian.
- * @since 8
- */
- export function getCalendar(locale: string, type?: string): Calendar;
+  /**
+   * Get a Calendar instance specified by locale and type.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @param locale The locale used to get calendar.
+   * @param type If type is not specified, get locale's default Calendar, else get the specified type of Calendar.
+   *  such as buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura,
+   *  japanese, persian.
+   * @since 8
+   */
+  export function getCalendar(locale: string, type?: string): Calendar;
 
-export class Calendar {
+  export class Calendar {
     /**
      * set the date.
      *
@@ -497,7 +497,7 @@ export class Calendar {
      * @param time Indicates the elapsed milliseconds from 1970.1.1 00:00:00 GMT.
      * @since 8
      */
-     setTime(time: number): void;
+    setTime(time: number): void;
 
     /**
      * Set the time
@@ -511,7 +511,7 @@ export class Calendar {
      * @param second the second field of the calendar, ranges from 0 to 59.
      * @since 8
      */
-    set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number): void;
+    set(year: number, month: number, date: number, hour?: number, minute?: number, second?: number): void;
 
     /**
      * Set the timezone of this calendar.
@@ -599,36 +599,36 @@ export class Calendar {
      * @since 8
      */
     isWeekend(date?: Date): boolean;
-}
+  }
 
-/**
- * Judge whether the locale is RTL locale.
- *
- * @syscap SystemCapability.Global.I18n
- * @param locale The locale to be used.
- * @returns Returns true representing the locale is an RTL locale
- *
- * @since 7
- */
-export function isRTL(locale: string): boolean;
+  /**
+   * Judge whether the locale is RTL locale.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @param locale The locale to be used.
+   * @returns Returns true representing the locale is an RTL locale
+   *
+   * @since 7
+   */
+  export function isRTL(locale: string): boolean;
 
-/**
- * Obtains a BreakIterator object for finding the location of break point in text.
- *
- * @syscap SystemCapability.Global.I18n
- * @param locale the returned BreakIterator will adapt the rule, specified by the locale, to break text.
- * @returns Returns a newly constructed BreakIterator object.
- * @since 8
- */
- export function getLineInstance(locale: string): BreakIterator;
+  /**
+   * Obtains a BreakIterator object for finding the location of break point in text.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @param locale the returned BreakIterator will adapt the rule, specified by the locale, to break text.
+   * @returns Returns a newly constructed BreakIterator object.
+   * @since 8
+   */
+  export function getLineInstance(locale: string): BreakIterator;
 
-/**
- * The BreakIterator class is used for finding the location of break point in text.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class BreakIterator {
+  /**
+   * The BreakIterator class is used for finding the location of break point in text.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class BreakIterator {
     /**
      * Obtains the current position of the BreakIterator instance.
      * 
@@ -715,27 +715,27 @@ export class BreakIterator {
      * @since 8
      */
     isBoundary(offset: number): boolean;
-}
+  }
 
-/**
- * Get IndexUtil object.
- *
- * @syscap SystemCapability.Global.I18n
- * @param locale Indicates a character string containing the locale information, including
- *               the language and optionally the script and region, for the NumberFormat object.
- * @returns Returns IndexUtil object.
- * @since 8
- */
-export function getInstance(locale?:string): IndexUtil;
+  /**
+   * Get IndexUtil object.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @param locale Indicates a character string containing the locale information, including
+   *               the language and optionally the script and region, for the NumberFormat object.
+   * @returns Returns IndexUtil object.
+   * @since 8
+   */
+  export function getInstance(locale?: string): IndexUtil;
 
-/**
- * Sequence text can be grouped under the specified area,
- * and grouping index with different lengths can be specified.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- */
-export class IndexUtil {
+  /**
+   * Sequence text can be grouped under the specified area,
+   * and grouping index with different lengths can be specified.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   */
+  export class IndexUtil {
     /**
      * Get a list of labels for use as a UI index
      *
@@ -762,17 +762,17 @@ export class IndexUtil {
      * @since 8
      */
     getIndex(text: string): string;
-}
+  }
 
-/**
- * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 8
- * @deprecated since 9
- * @useinstead Unicode
- */
-export class Character {
+  /**
+   * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 8
+   * @deprecated since 9
+   * @useinstead Unicode
+   */
+  export class Character {
     /**
      * Determines whether the specified code point is a digit character
      *
@@ -880,15 +880,15 @@ export class Character {
      * @useinstead Unicode.getType
      */
     getType(char: string): string;
-}
+  }
 
-/**
- * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 9
- */
- export class Unicode {
+  /**
+   * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 9
+   */
+  export class Unicode {
     /**
      * Determines whether the specified code point is a digit character
      *
@@ -978,98 +978,98 @@ export class Character {
      * @since 9
      */
     static getType(char: string): string;
-}
+  }
 
-/**
- * check out whether system is 24-hour system.
- *
- * @syscap SystemCapability.Global.I18n
- * @returns Returns a boolean represent whether system is 24-hour system.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.is24HourClock
- */
- export function is24HourClock(): boolean;
+  /**
+   * check out whether system is 24-hour system.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @returns Returns a boolean represent whether system is 24-hour system.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.is24HourClock
+   */
+  export function is24HourClock(): boolean;
 
-/**
- * set 24-hour system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param option represent the boolean to be set.
- * @returns Returns a boolean represent whether setting 24-hour system success.
- * @since 7
- * @deprecated since 9
- * @useinstead ohos.System.set24HourClock
- */
+  /**
+   * set 24-hour system.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @syscap SystemCapability.Global.I18n
+   * @param option represent the boolean to be set.
+   * @returns Returns a boolean represent whether setting 24-hour system success.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.System.set24HourClock
+   */
   export function set24HourClock(option: boolean): boolean;
 
-/**
- * Add one language to preferred language List.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param language the language to be added.
- * @param index the position of preferred language list to be inserted. 
- * @returns Returns a boolean represent whether language added success.
- * @since 8
- * @deprecated since 9
- * @useinstead ohos.System.addPreferredLanguage
- */
-export function addPreferredLanguage(language: string, index?: number): boolean;
+  /**
+   * Add one language to preferred language List.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @syscap SystemCapability.Global.I18n
+   * @param language the language to be added.
+   * @param index the position of preferred language list to be inserted. 
+   * @returns Returns a boolean represent whether language added success.
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.System.addPreferredLanguage
+   */
+  export function addPreferredLanguage(language: string, index?: number): boolean;
 
-/**
- * Remove one language from preferred language list.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param index the position of removed language in preferred language list.
- * @returns Returns a boolean represent whether removed success.
- * @since 8
- * @deprecated since 9
- * @useinstead ohos.System.removePreferredLanguage
- */
-export function removePreferredLanguage(index: number): boolean;
+  /**
+   * Remove one language from preferred language list.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @syscap SystemCapability.Global.I18n
+   * @param index the position of removed language in preferred language list.
+   * @returns Returns a boolean represent whether removed success.
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.System.removePreferredLanguage
+   */
+  export function removePreferredLanguage(index: number): boolean;
 
-/**
- * Access the system preferred language list.
- *
- * @syscap SystemCapability.Global.I18n
- * @returns Returns a string Array represent the preferred language list.
- * @since 8
- * @deprecated since 9
- * @useinstead ohos.System.getPreferredLanguageList
- */
-export function getPreferredLanguageList(): Array<string>;
+  /**
+   * Access the system preferred language list.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @returns Returns a string Array represent the preferred language list.
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.System.getPreferredLanguageList
+   */
+  export function getPreferredLanguageList(): Array<string>;
 
-/**
- * Get the first preferred language of system.
- *
- * @syscap SystemCapability.Global.I18n
- * @returns Returns a string represent the first preferred language of system.
- * @since 8
- * @deprecated since 9
- * @useinstead ohos.System.getFirstPreferredLanguage
- */
-export function getFirstPreferredLanguage(): string;
+  /**
+   * Get the first preferred language of system.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @returns Returns a string represent the first preferred language of system.
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.System.getFirstPreferredLanguage
+   */
+  export function getFirstPreferredLanguage(): string;
 
-/**
- * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
- * 
- * @syscap SystemCapability.Global.I18n
- * @param zoneID TimeZone ID used to create TimeZone Object.
- * @returns Returns a TimeZone object corresponds to zoneID.
- * @since 7
- */
-export function getTimeZone(zoneID?: string): TimeZone;
+  /**
+   * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
+   * 
+   * @syscap SystemCapability.Global.I18n
+   * @param zoneID TimeZone ID used to create TimeZone Object.
+   * @returns Returns a TimeZone object corresponds to zoneID.
+   * @since 7
+   */
+  export function getTimeZone(zoneID?: string): TimeZone;
 
-/**
- * Provides the API for accessing TimeZone name, rawOffset and offset information.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 7
- */
-export class TimeZone {
+  /**
+   * Provides the API for accessing TimeZone name, rawOffset and offset information.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 7
+   */
+  export class TimeZone {
     /**
      * Get the id of the TimeZone object.
      * 
@@ -1118,44 +1118,44 @@ export class TimeZone {
      */
     static getAvailableIDs(): Array<string>;
 
-     /**
-      * Get available Zone City ID list.
-      *
-      * @syscap SystemCapability.Global.I18n
-      * @returns Returns a string array represents the available Zone City ID list.
-      * @since 9
-      */
+    /**
+     * Get available Zone City ID list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a string array represents the available Zone City ID list.
+     * @since 9
+     */
     static getAvailableZoneCityIDs(): Array<string>;
- 
-     /**
-      * Get City display name in a certain locale.
-      *
-      * @syscap SystemCapability.Global.I18n
-      * @param cityID Zone City ID.
-      * @param locale locale used to display city name.
-      * @returns Returns a string represents the display name of City in locale.
-      * @since 9
-      */
-    static getCityDisplayName(cityID: string, locale: string): string;
- 
-     /**
-      * Get TimeZone Object from city ID.
-      *
-      * @syscap SystemCapability.Global.I18n
-      * @param cityID Zone City ID.
-      * @returns Returns a TimeZone Object from city ID.
-      * @since 9
-      */
-    static getTimezoneFromCity(cityID: string): TimeZone;
-}
 
-/**
- * Provides the API for transliterate text from one format to another.
- *
- * @syscap SystemCapability.Global.I18n
- * @since 9
- */
-export class Transliterator {
+    /**
+     * Get City display name in a certain locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param cityID Zone City ID.
+     * @param locale locale used to display city name.
+     * @returns Returns a string represents the display name of City in locale.
+     * @since 9
+     */
+    static getCityDisplayName(cityID: string, locale: string): string;
+
+    /**
+     * Get TimeZone Object from city ID.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param cityID Zone City ID.
+     * @returns Returns a TimeZone Object from city ID.
+     * @since 9
+     */
+    static getTimezoneFromCity(cityID: string): TimeZone;
+  }
+
+  /**
+   * Provides the API for transliterate text from one format to another.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 9
+   */
+  export class Transliterator {
     /**
      * Get a string array of all available transliterator ids.
      *
@@ -1186,6 +1186,6 @@ export class Transliterator {
      * @since 9
      */
     transform(text: string): string;
-}
+  }
 }
 export default i18n;

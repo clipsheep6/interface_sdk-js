@@ -2041,15 +2041,15 @@ export interface CanvasRenderingContext2D {
     dHeight: number,
   ): void;
 
-/**
-   * Draws an image.
-   * @param image Image resource.
-   * @param dx X-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
-   * @param dWidth Width of the drawing area.
-   * @param dHeight Height of the drawing area.
-   * @since 9
-   */
+  /**
+     * Draws an image.
+     * @param image Image resource.
+     * @param dx X-coordinate of the upper left corner of the drawing area on the canvas.
+     * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
+     * @param dWidth Width of the drawing area.
+     * @param dHeight Height of the drawing area.
+     * @since 9
+     */
   drawImage(image: image.PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
   /**
@@ -2667,23 +2667,23 @@ export interface ViewModel {
  */
 export interface ElementReferences {
   [k: string]: AnimationElement &
-    CanvasElement &
-    object &
-    WebElement &
-    CameraElement &
-    ListElement &
-    SwiperElement &
-    DialogElement &
-    ImageAnimatorElement &
-    MarqueeElement &
-    MenuElement &
-    ChartElement &
-    InputElement &
-    ButtonElement &
-    TextAreaElement &
-    PickerElement &
-    VideoElement &
-    DivElement;
+  CanvasElement &
+  object &
+  WebElement &
+  CameraElement &
+  ListElement &
+  SwiperElement &
+  DialogElement &
+  ImageAnimatorElement &
+  MarqueeElement &
+  MenuElement &
+  ChartElement &
+  InputElement &
+  ButtonElement &
+  TextAreaElement &
+  PickerElement &
+  VideoElement &
+  DivElement;
 }
 
 /**

@@ -158,7 +158,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-    readonly labelResource: Resource;
+  readonly labelResource: Resource;
 
   /**
    * Indicates description resource of the application
@@ -190,7 +190,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-   readonly systemApp: boolean;
+  readonly systemApp: boolean;
 
   /**
    * Indicates the type of application is APP or atomicService.

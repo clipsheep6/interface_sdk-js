@@ -197,7 +197,7 @@ declare namespace accessibility {
    * @returns Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
-   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
+  function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Get the captions manager.
@@ -205,98 +205,98 @@ declare namespace accessibility {
    * @since 8
    * @returns Returns the captions manager.
    */
-   function getCaptionsManager(): CaptionsManager;
+  function getCaptionsManager(): CaptionsManager;
 
-   /**
-    * Indicates the captions manager.
-    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-    * @since 8
-    */
-   interface CaptionsManager {
-     /**
-      * Indicates whether captions are enabled.
-      */
-     enabled: boolean;
-     /**
-      * Indicates the style of captions.
-      */
-     style: CaptionsStyle;
- 
-     /**
-      * Register the observer of the enable state.
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     on(type: 'enableChange', callback: Callback<boolean>): void;
+  /**
+   * Indicates the captions manager.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+   * @since 8
+   */
+  interface CaptionsManager {
+    /**
+     * Indicates whether captions are enabled.
+     */
+    enabled: boolean;
+    /**
+     * Indicates the style of captions.
+     */
+    style: CaptionsStyle;
 
-     /**
-      * Register the observer of the style.
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
+    /**
+     * Register the observer of the enable state.
+     * @throws { BusinessError } 401 - Input parameter error.
+     */
+    on(type: 'enableChange', callback: Callback<boolean>): void;
 
-     /**
-      * Unregister the observer of the enable state.
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     off(type: 'enableChange', callback?: Callback<boolean>): void;
+    /**
+     * Register the observer of the style.
+     * @throws { BusinessError } 401 - Input parameter error.
+     */
+    on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
 
-     /**
-      * Unregister the observer of the style.
-      * @throws { BusinessError } 401 - Input parameter error.
-      */
-     off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
-   }
- 
-   /**
-    * Indicates the edge type of the captions font.
-    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-    * @since 8
-    */
-   type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow';
-   /**
-    * Indicates the font family of captions.
-    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-    * @since 8
-    */
-   type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
-     'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
-   /**
-    * Indicates the style of captions.
-    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-    * @since 8
-    */
-   interface CaptionsStyle {
-     /**
-      * Indicates the font family of captions.
-      */
-     fontFamily: CaptionsFontFamily;
-     /**
-      * Indicates the font scaling of captions.
-      */
-     fontScale: number;
-     /**
-      * Indicates the font color of captions.
-      */
-     fontColor: number | string;
-     /**
-      * Indicates the edge type of the captions font.
-      */
-     fontEdgeType: CaptionsFontEdgeType;
-     /**
-      * Indicates the background color of captions.
-      */
-     backgroundColor: number | string;
-     /**
-      * Indicates the window color of captions.
-      */
-     windowColor: number | string;
-   }
+    /**
+     * Unregister the observer of the enable state.
+     * @throws { BusinessError } 401 - Input parameter error.
+     */
+    off(type: 'enableChange', callback?: Callback<boolean>): void;
 
-   /**
-    * Indicates the info of accessibility.
-    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-    * @since 7
-    */
+    /**
+     * Unregister the observer of the style.
+     * @throws { BusinessError } 401 - Input parameter error.
+     */
+    off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
+  }
+
+  /**
+   * Indicates the edge type of the captions font.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+   * @since 8
+   */
+  type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow';
+  /**
+   * Indicates the font family of captions.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+   * @since 8
+   */
+  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
+    'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
+  /**
+   * Indicates the style of captions.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
+   * @since 8
+   */
+  interface CaptionsStyle {
+    /**
+     * Indicates the font family of captions.
+     */
+    fontFamily: CaptionsFontFamily;
+    /**
+     * Indicates the font scaling of captions.
+     */
+    fontScale: number;
+    /**
+     * Indicates the font color of captions.
+     */
+    fontColor: number | string;
+    /**
+     * Indicates the edge type of the captions font.
+     */
+    fontEdgeType: CaptionsFontEdgeType;
+    /**
+     * Indicates the background color of captions.
+     */
+    backgroundColor: number | string;
+    /**
+     * Indicates the window color of captions.
+     */
+    windowColor: number | string;
+  }
+
+  /**
+   * Indicates the info of accessibility.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 7
+   */
   interface AccessibilityAbilityInfo {
     /**
      * The ability id.
@@ -379,7 +379,7 @@ declare namespace accessibility {
     /** The page id of the event source.
      * @since 7
      */
-    pageId ?: number;
+    pageId?: number;
 
     /**
      * The accessibility event description.

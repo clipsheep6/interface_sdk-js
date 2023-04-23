@@ -20,7 +20,7 @@
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.HapModuleInfo
  */
- export interface ModuleInfo {
+export interface ModuleInfo {
   /**
    * The module name.
    *

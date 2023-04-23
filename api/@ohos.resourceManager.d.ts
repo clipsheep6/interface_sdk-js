@@ -24,12 +24,12 @@ import { AsyncCallback as _AsyncCallback } from './basic';
  * @syscap SystemCapability.Global.ResourceManager
  */
 declare namespace resourceManager {
-/**
- * Enumerates screen directions.
- *
- * @since 6
- */
-export enum Direction {
+  /**
+   * Enumerates screen directions.
+   *
+   * @since 6
+   */
+  export enum Direction {
     /**
      * Indicates the vertical direction.
      *
@@ -43,14 +43,14 @@ export enum Direction {
      * @since 6
      */
     DIRECTION_HORIZONTAL = 1
-}
+  }
 
-/**
- * Enumerates device types.
- *
- * @since 6
- */
-export enum DeviceType {
+  /**
+   * Enumerates device types.
+   *
+   * @since 6
+   */
+  export enum DeviceType {
     /**
      * Indicates a phone.
      *
@@ -92,14 +92,14 @@ export enum DeviceType {
      * @since 6
      */
     DEVICE_TYPE_WEARABLE = 0x06
-}
+  }
 
-/**
- * Enumerates screen density types.
- *
- * @since 6
- */
-export enum ScreenDensity {
+  /**
+   * Enumerates screen density types.
+   *
+   * @since 6
+   */
+  export enum ScreenDensity {
     /**
      * Indicates small screen density.
      *
@@ -141,14 +141,14 @@ export enum ScreenDensity {
      * @since 6
      */
     SCREEN_XXXLDPI = 640
-}
+  }
 
-/**
- * Provides the device configuration.
- *
- * @since 6
- */
-export class Configuration {
+  /**
+   * Provides the device configuration.
+   *
+   * @since 6
+   */
+  export class Configuration {
     /**
      * Indicates the screen direction of the current device.
      *
@@ -162,14 +162,14 @@ export class Configuration {
      * @since 6
      */
     locale: string
-}
+  }
 
-/**
- * Provides the device capability.
- *
- * @since 6
- */
-export class DeviceCapability {
+  /**
+   * Provides the device capability.
+   *
+   * @since 6
+   */
+  export class DeviceCapability {
     /**
      * Indicates the screen density of the current device.
      *
@@ -183,61 +183,61 @@ export class DeviceCapability {
      * @since 6
      */
     deviceType: DeviceType
-}
+  }
 
-/**
- * The ResourceManager callback.
- * @since 6
- * @deprecated since 9
- */
- export interface AsyncCallback<T> {
+  /**
+   * The ResourceManager callback.
+   * @since 6
+   * @deprecated since 9
+   */
+  export interface AsyncCallback<T> {
     (err: Error, data: T): void;
-}
+  }
 
-/**
- * Obtains the ResourceManager object of the current application.
- *
- * @param callback Indicates the callback containing the ResourceManager object.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
+  /**
+   * Obtains the ResourceManager object of the current application.
+   *
+   * @param callback Indicates the callback containing the ResourceManager object.
+   * @since 6
+   * @FAModelOnly
+   */
+  export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
 
-/**
- * Obtains the ResourceManager object of the specified application.
- *
- * @param bundleName Indicates the bundle name of the specified application.
- * @param callback Indicates the callback containing the ResourceManager object.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
+  /**
+   * Obtains the ResourceManager object of the specified application.
+   *
+   * @param bundleName Indicates the bundle name of the specified application.
+   * @param callback Indicates the callback containing the ResourceManager object.
+   * @since 6
+   * @FAModelOnly
+   */
+  export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
 
-/**
- * Obtains the ResourceManager object of the current application.
- *
- * @returns Returns that the ResourceManager object is returned in Promise mode.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(): Promise<ResourceManager>;
+  /**
+   * Obtains the ResourceManager object of the current application.
+   *
+   * @returns Returns that the ResourceManager object is returned in Promise mode.
+   * @since 6
+   * @FAModelOnly
+   */
+  export function getResourceManager(): Promise<ResourceManager>;
 
-/**
- * Obtains the ResourceManager object of the specified application.
- *
- * @param bundleName Indicates the bundle name of the specified application.
- * @returns Returns that the ResourceManager object is returned in Promise mode.
- * @since 6
- * @FAModelOnly
- */
-export function getResourceManager(bundleName: string): Promise<ResourceManager>;
+  /**
+   * Obtains the ResourceManager object of the specified application.
+   *
+   * @param bundleName Indicates the bundle name of the specified application.
+   * @returns Returns that the ResourceManager object is returned in Promise mode.
+   * @since 6
+   * @FAModelOnly
+   */
+  export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
-/**
- * Provides the capability of accessing application resources.
- *
- * @since 6
- */
-export interface ResourceManager {
+  /**
+   * Provides the capability of accessing application resources.
+   *
+   * @since 6
+   */
+  export interface ResourceManager {
     /**
      * Obtains the character string corresponding to a specified resource ID in callback mode.
      *
@@ -554,15 +554,15 @@ export interface ResourceManager {
      */
     getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
 
-     /**
-      * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
-      *
-      * @param path Indicates the resource relative path.
-      * @returns Returns the raw file resource descriptor corresponding to the specified resource path.
-      * @since 8
-      * @deprecated since 9
-      * @useinstead ohos.resourceManager.getRawFd
-      */
+    /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @returns Returns the raw file resource descriptor corresponding to the specified resource path.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getRawFd
+     */
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
     /**
@@ -611,7 +611,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-     getStringByName(resName: string): Promise<string>;
+    getStringByName(resName: string): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name in callback mode.
@@ -857,17 +857,17 @@ export interface ResourceManager {
      */
     getStringValue(resId: number, callback: _AsyncCallback<string>): void;
 
-     /**
-     * Obtains string resources associated with a specified resource ID in Promise mode.
-     *
-     * @param resId Indicates the resource ID.
-     * @returns Returns the character string corresponding to the resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid.
-     * @throws { BusinessError } 9001001 - If the resId invalid.
-     * @throws { BusinessError } 9001002 - If the resource not found by resId.
-     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
-     * @since 9
-     */
+    /**
+    * Obtains string resources associated with a specified resource ID in Promise mode.
+    *
+    * @param resId Indicates the resource ID.
+    * @returns Returns the character string corresponding to the resource ID.
+    * @throws { BusinessError } 401 - If the input parameter invalid.
+    * @throws { BusinessError } 9001001 - If the resId invalid.
+    * @throws { BusinessError } 9001002 - If the resource not found by resId.
+    * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+    * @since 9
+    */
     getStringValue(resId: number): Promise<string>;
 
     /**
@@ -1041,24 +1041,24 @@ export interface ResourceManager {
      * @since 9
      */
     closeRawFd(path: string): Promise<void>;
-}
+  }
 
-    /**
-     * Contains rawFile descriptor information.
-     * @name Contains rawFile descriptor information
-     * @since 9
-     * @syscap SystemCapability.Global.ResourceManager
-     *
-     */
-    export type RawFileDescriptor = _RawFileDescriptor;
+  /**
+   * Contains rawFile descriptor information.
+   * @name Contains rawFile descriptor information
+   * @since 9
+   * @syscap SystemCapability.Global.ResourceManager
+   *
+   */
+  export type RawFileDescriptor = _RawFileDescriptor;
 
-    /**
-     * Contains resource descriptor information.
-     * @name Contains resource descriptor information
-     * @since 9
-     * @syscap SystemCapability.Global.ResourceManager
-     *
-     */
-    export type Resource = _Resource;
+  /**
+   * Contains resource descriptor information.
+   * @name Contains resource descriptor information
+   * @since 9
+   * @syscap SystemCapability.Global.ResourceManager
+   *
+   */
+  export type Resource = _Resource;
 }
 export default resourceManager;

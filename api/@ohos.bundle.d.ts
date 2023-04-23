@@ -16,7 +16,7 @@
 import { AsyncCallback } from './basic';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
-import { PermissionDef } from  './bundle/PermissionDef';
+import { PermissionDef } from './bundle/PermissionDef';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import { BundleInfo } from './bundle/bundleInfo';
@@ -32,14 +32,14 @@ import { BundleInstaller } from './bundle/bundleInstaller';
  */
 declare namespace bundle {
 
-/**
- * @name BundleFlag
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.BundleFlag, ohos.bundle.bundleManager.ApplicationFlag or
- *          ohos.bundle.bundleManager.AbilityFlag
- */
+  /**
+   * @name BundleFlag
+   * @since 7
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager.BundleFlag, ohos.bundle.bundleManager.ApplicationFlag or
+   *          ohos.bundle.bundleManager.AbilityFlag
+   */
   enum BundleFlag {
     GET_BUNDLE_DEFAULT = 0x00000000,
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
@@ -55,7 +55,7 @@ declare namespace bundle {
     /**
      * @since 8
      */
-     GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
+    GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
     /**
      * @since 8
      */
@@ -70,25 +70,25 @@ declare namespace bundle {
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
   }
 
-/**
- * @name ColorMode
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @deprecated since 9
- */
+  /**
+   * @name ColorMode
+   * @since 7
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @deprecated since 9
+   */
   export enum ColorMode {
     AUTO_MODE = -1,
     DARK_MODE = 0,
     LIGHT_MODE = 1,
   }
 
-/**
- * @name GrantStatus
- * @since 7
- * @syscap SystemCapability.BundleManager.BundleFramework
- * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.PermissionGrantState
- */
+  /**
+   * @name GrantStatus
+   * @since 7
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager.PermissionGrantState
+   */
   export enum GrantStatus {
     PERMISSION_DENIED = -1,
     PERMISSION_GRANTED = 0,
@@ -223,7 +223,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @deprecated since 9
    */
-  export enum InstallErrorCode{
+  export enum InstallErrorCode {
     SUCCESS = 0,
     STATUS_INSTALL_FAILURE = 1,
     STATUS_INSTALL_FAILURE_ABORTED = 2,
@@ -280,9 +280,9 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getBundleInfo
    */
-   function getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
-   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
-   function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
+  function getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
 
   /**
    * Obtains the interface used to install bundles.
@@ -327,9 +327,9 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getApplicationInfo
    */
-  function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
-  function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>) : void;
-  function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number) : Promise<ApplicationInfo>;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<ApplicationInfo>;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -348,7 +348,7 @@ declare namespace bundle {
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
   function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
-  function queryAbilityByWant(want: Want, bundleFlags: number, userId?:number): Promise<Array<AbilityInfo>>;
+  function queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
@@ -363,9 +363,9 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
    */
-  function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>) : void;
-  function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>) : void;
-  function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number) : Promise<Array<BundleInfo>>;
+  function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+  function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
+  function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains information about all installed applications of a specified user.
@@ -380,9 +380,9 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-  function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
-  function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
-  function getAllApplicationInfo(bundleFlags: number, userId?: number) : Promise<Array<ApplicationInfo>>;
+  function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+  function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+  function getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -394,8 +394,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getNameForUid
    */
-   function getNameForUid(uid: number, callback: AsyncCallback<string>) : void
-   function getNameForUid(uid: number) : Promise<string>;
+  function getNameForUid(uid: number, callback: AsyncCallback<string>): void
+  function getNameForUid(uid: number): Promise<string>;
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
@@ -410,8 +410,8 @@ declare namespace bundle {
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getBundleArchiveInfo
    */
-  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
-  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
+  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void
+  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
 
   /**
    * Obtains the Want for starting the main ability of an application based on the

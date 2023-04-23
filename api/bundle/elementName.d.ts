@@ -23,7 +23,7 @@
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ElementName
  */
- export interface ElementName {
+export interface ElementName {
   /**
    * device id
    * @default -

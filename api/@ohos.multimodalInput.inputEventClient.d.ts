@@ -13,43 +13,43 @@
 * limitations under the License.
 */
 
- /**
- * Global Key Event Injection
- *
- * @since 8
- * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @systemapi hide for inner use
- */
+/**
+* Global Key Event Injection
+*
+* @since 8
+* @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+* @systemapi hide for inner use
+*/
 
 declare namespace inputEventClient {
-    /**
-     * Defines event of key that user want to inject.
-     *
-     * @since 8
-     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
-     * @systemapi hide for inner use
-     * @param isPressed The status of key.
-     * @param keyCode The keyCode value of key.
-     * @param keyDownDuration Key hold duration.
-     * @param isIntercepted Whether the key is blocked.
-     */
-    interface KeyEvent {
-        isPressed: boolean;
-        keyCode: number;
-        keyDownDuration: number;
-        isIntercepted: boolean;
-    }
+  /**
+   * Defines event of key that user want to inject.
+   *
+   * @since 8
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @param isPressed The status of key.
+   * @param keyCode The keyCode value of key.
+   * @param keyDownDuration Key hold duration.
+   * @param isIntercepted Whether the key is blocked.
+   */
+  interface KeyEvent {
+    isPressed: boolean;
+    keyCode: number;
+    keyDownDuration: number;
+    isIntercepted: boolean;
+  }
 
-    /**
-     * Inject system keys.
-     *
-     * @since 8
-     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
-     * @systemapi hide for inner use
-     * @param KeyEvent the key event to be injected.
-     * @throws {BusinessError} 401 - Parameter error.
-     */
-    function injectEvent({KeyEvent: KeyEvent}): void;
+  /**
+   * Inject system keys.
+   *
+   * @since 8
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @param KeyEvent the key event to be injected.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function injectEvent({ KeyEvent: KeyEvent }): void;
 }
 
 export default inputEventClient;
