@@ -23,7 +23,7 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @since 10
      */
-    enum Action{
+    enum Action {
         /**
          * Indicates clearing cloud-related data only, which includes cloud meta data and cloud-related lacal data. 
          * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
