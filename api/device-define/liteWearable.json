@@ -3,6 +3,7 @@
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.Base",
     "SystemCapability.Location.Location.Lite",
+    "SystemCapability.Security.Huks.Lite",
     "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.Startup.SystemInfo",

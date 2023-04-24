@@ -67,7 +67,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - call service failed
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
@@ -134,7 +134,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function deleteKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
@@ -471,7 +471,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occured in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function isKeyItemExist(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
@@ -540,7 +540,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>): void;
@@ -616,7 +616,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function updateSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
@@ -724,7 +724,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
@@ -825,7 +825,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occured in crypto engine
    * @throws { BusinessError } 12000012 - external error
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
@@ -935,7 +935,7 @@ declare namespace huks {
    * Interface of huks handle.
    *
    * @typedef HuksSessionHandle
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   export interface HuksSessionHandle {
@@ -947,7 +947,7 @@ declare namespace huks {
    * Interface of huks option.
    *
    * @typedef HuksOptions
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 8
    */
   export interface HuksOptions {
@@ -975,7 +975,7 @@ declare namespace huks {
    * Interface of huks result.
    *
    * @typedef HuksReturnResult
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   export interface HuksReturnResult {
@@ -1069,7 +1069,7 @@ declare namespace huks {
    * Enum for huks exception error code.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 9
    */
   export enum HuksExceptionErrCode {
@@ -1103,8 +1103,16 @@ declare namespace huks {
    */
   export enum HuksKeyPurpose {
     /* Usable with RSA, EC and AES keys. */
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
     /* Usable with RSA, EC and AES keys. */
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_KEY_PURPOSE_DECRYPT = 2,
     /* Usable with RSA, EC keys. */
     HUKS_KEY_PURPOSE_SIGN = 4,
@@ -1152,11 +1160,19 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyPadding {
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_PADDING_NONE = 0,
     HUKS_PADDING_OAEP = 1,
     HUKS_PADDING_PSS = 2,
     HUKS_PADDING_PKCS1_V1_5 = 3,
     HUKS_PADDING_PKCS5 = 4,
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_PADDING_PKCS7 = 5
   }
 
@@ -1164,7 +1180,7 @@ declare namespace huks {
    * Enum for huks cipher mode.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 8
    */
   export enum HuksCipherMode {
@@ -1196,9 +1212,25 @@ declare namespace huks {
     HUKS_ECC_KEY_SIZE_384 = 384,
     HUKS_ECC_KEY_SIZE_521 = 521,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_AES_KEY_SIZE_128 = 128,
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_AES_KEY_SIZE_192 = 192,
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_AES_KEY_SIZE_256 = 256,
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_AES_KEY_SIZE_512 = 512,
 
     HUKS_CURVE25519_KEY_SIZE_256 = 256,
@@ -1231,6 +1263,10 @@ declare namespace huks {
     HUKS_ALG_ECC = 2,
     HUKS_ALG_DSA = 3,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Lite
+     * @since 8
+     */
     HUKS_ALG_AES = 20,
     HUKS_ALG_HMAC = 50,
     HUKS_ALG_HKDF = 51,
@@ -1417,7 +1453,7 @@ declare namespace huks {
    * Enum for huks tag.
    *
    * @enum { number }
-   * @syscap SystemCapability.Security.Huks
+   * @syscap SystemCapability.Security.Huks.Lite
    * @since 8
    */
   export enum HuksTag {
