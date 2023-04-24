@@ -223,6 +223,98 @@ declare namespace formInfo {
   }
 
   /**
+   * information about a formInstance.
+   * @typedef FormInstance
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  interface FormInstance {
+    /**
+     * Obtains the formId of this form.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    formId: string;
+
+    /**
+     * Obtains the bundleName of the user application bundleName.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    formHostBundle: string;
+
+    /**
+     * Obtains the visibility of this form.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    visibilityType: VisibilityType;
+
+    /**
+     * Obtains the dimension of this form.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    dimension: number;
+  }
+
+  /**
+   * information about a formInstance.
+   * @typedef FormInstanceFilter
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+   interface FormInstanceFilter {
+    /**
+     * Obtains the bundle name of the provider application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    bundleName: string;
+
+    /**
+     * Obtains the form name of the provider application form.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    formName ?: string;
+
+    /**
+     * Obtains the module name of the provider application module.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    moduleName ?: string;
+
+    /**
+     * Obtains the ability name of the provider application module.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    abilityName ?: string;
+  }
+
+  /**
    * Provides state about a form.
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
@@ -486,6 +578,14 @@ declare namespace formInfo {
    * @since 9
    */
   enum VisibilityType {
+    /**
+     * Indicates the type of the form type is unknown.
+     * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
+     * changing to unknown.
+     * @syscap SystemCapability.Ability.Form
+     * @since 10
+     */
+    UNKNOWN = 0, 
     /**
      * Indicates the type of the form is visible.
      * Often used as a condition variable in function OnVisibilityChange to specify actions only on forms that are
