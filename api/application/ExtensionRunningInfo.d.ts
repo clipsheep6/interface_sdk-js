@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,65 +19,73 @@ import bundle from '../@ohos.bundle.bundleManager';
 /**
  * The class of an extension running information.
  *
- * @since 9
+ * @interface ExtensionRunningInfo
+ * @permission N/A
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide this for inner system use
- * @permission N/A
+ * @since 9
  */
 export interface ExtensionRunningInfo {
     /**
+    * @permission N/A
     * @default Indicates the extension of the extension info
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     extension: ElementName;
 
     /**
+    * @permission N/A
     * @default process id
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     pid: number;
 
     /**
+    * @permission N/A
     * @default user id
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     uid: number;
 
     /**
+    * @permission N/A
     * @default the name of the process
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     processName: string;
 
     /**
+    * @permission N/A
     * @default ability start time
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     startTime: number;
 
     /**
+    * @permission N/A
     * @default All package names under the current process
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     clientPackage: Array<String>;
 
     /**
+    * @permission N/A
     * @default Enumerates types of the extension info
-    * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use
+    * @since 9
     */
     type: bundle.ExtensionAbilityType;
 }
