@@ -15,9 +15,6 @@
 
 import {AsyncCallback, Callback} from './basic';
 
-
-
-
 declare namespace cloudData {
 
     /**
@@ -60,7 +57,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static enableCloud (accountId: string, switches: {[bundleName: string]: boolean}, callback: AsyncCallback<void>): void;
+        static enableCloud(accountId: string, switches: {[bundleName: string]: boolean}, callback: AsyncCallback<void>): void;
 
         /**
          * opens the cloud sync function.
@@ -73,7 +70,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static enableCloud (accountId: string, switches: {[bundleName: string]: boolean}): Promise<void>;
+        static enableCloud(accountId: string, switches: {[bundleName: string]: boolean}): Promise<void>;
 
         /**
          * closes the cloud sync function.
@@ -83,7 +80,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static disableCloud (accountId: string, callback: AsyncCallback<void>): void;
+        static disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
         /**
          * closes the cloud sync function.
@@ -93,7 +90,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static disableCloud (accountId: string): Promise<void>;
+        static disableCloud(accountId: string): Promise<void>;
 
         /**
          * Changes the cloud sync switch of a single application.
@@ -105,7 +102,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static changeAppCloudSwitch (accountId: string, bundleName: string, status :boolean, callback: AsyncCallback<void>): void;
+        static changeAppCloudSwitch(accountId: string, bundleName: string, status :boolean, callback: AsyncCallback<void>): void;
 
         /**
          * Changes the cloud sync switch of a single application.
@@ -117,7 +114,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static changeAppCloudSwitch (accountId: string, bundleName: string, status :boolean): Promise<void>;
+        static changeAppCloudSwitch(accountId: string, bundleName: string, status :boolean): Promise<void>;
 
         /**
          * deletes cloud information from local data.
@@ -128,7 +125,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static clean (accountId: string, appActions: {[bundleName: string]: Action}, callback: AsyncCallback<void>): void;
+        static clean(accountId: string, appActions: {[bundleName: string]: Action}, callback: AsyncCallback<void>): void;
 
         /**
          * deletes cloud information from local data.
@@ -139,7 +136,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static clean (accountId: string, appActions: {[bundleName: string]: Action}): Promise<void>;
+        static clean(accountId: string, appActions: {[bundleName: string]: Action}): Promise<void>;
 
         /**
          * notifies changes of the cloud records 
@@ -150,7 +147,7 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static notifyDataChange (accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
+        static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
          /**
          * notifies changes of the cloud records 
@@ -161,6 +158,6 @@ declare namespace cloudData {
          * @systemapi
          * @since 10
          */
-        static notifyDataChange (accountId: string, bundleName: string): Promise<void>;
+        static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
      }
 }
