@@ -123,6 +123,7 @@ cpy
 crl
 crops
 crosshair
+crossplatform
 crowdtest
 crowdtested
 crowdtesting

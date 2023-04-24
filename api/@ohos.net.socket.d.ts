@@ -31,17 +31,32 @@ declare namespace socket {
    * @crossplatform
    * @since 9
    */
+  /**
+   * Deposit certificate
+   * @crossplatform
+   * @since 10
+   */
   export type X509CertRawData = cert.EncodingBlob;
 
   /**
    * Creates a UDPSocket object.
    * @crossplatform
    */
+  /**
+   * Creates a UDPSocket object.
+   * @crossplatform
+   * @since 10
+   */
   function constructUDPSocketInstance(): UDPSocket;
 
   /**
    * Creates a TCPSocket object.
    * @crossplatform
+   */
+  /**
+   * Creates a TCPSocket object.
+   * @crossplatform
+   * @since 10
    */
   function constructTCPSocketInstance(): TCPSocket;
 
@@ -51,6 +66,11 @@ declare namespace socket {
    * @crossplatform
    * @since 9
    */
+  /**
+   * Creates a TLSSocket object.
+   * @crossplatform
+   * @since 10
+   */
   function constructTLSSocketInstance(): TLSSocket;
 
   export interface UDPSendOptions {
@@ -58,11 +78,21 @@ declare namespace socket {
      * Data to send.
      * @crossplatform
      */
+    /**
+     * Data to send.
+     * @crossplatform
+     * @since 10
+     */
     data: string | ArrayBuffer;
 
     /**
      * Destination address.
      * @crossplatform
+     */
+    /**
+     * Destination address.
+     * @crossplatform
+     * @since 10
      */
     address: NetAddress;
   }
@@ -72,11 +102,21 @@ declare namespace socket {
      * Size of the receive buffer, in MBS.
      * @crossplatform
      */
+    /**
+     * Size of the receive buffer, in MBS.
+     * @crossplatform
+     * @since 10
+     */
     receiveBufferSize?: number;
 
     /**
      * Size of the send buffer, in MBS.
      * @crossplatform
+     */
+    /**
+     * Size of the send buffer, in MBS.
+     * @crossplatform
+     * @since 10
      */
     sendBufferSize?: number;
 
@@ -84,11 +124,21 @@ declare namespace socket {
      * Whether to reuse addresses. The default value is false.
      * @crossplatform
      */
+    /**
+     * Whether to reuse addresses. The default value is false.
+     * @crossplatform
+     * @since 10
+     */
     reuseAddress?: boolean;
 
     /**
      * Timeout duration of the UDPSocket connection, in milliseconds.
      * @crossplatform
+     */
+    /**
+     * Timeout duration of the UDPSocket connection, in milliseconds.
+     * @crossplatform
+     * @since 10
      */
     socketTimeout?: number;
   }
@@ -98,6 +148,11 @@ declare namespace socket {
      * Whether to send broadcast messages. The default value is false.
      * @crossplatform
      */
+    /**
+     * Whether to send broadcast messages. The default value is false.
+     * @crossplatform
+     * @since 10
+     */
     broadcast?: boolean;
   }
 
@@ -106,17 +161,32 @@ declare namespace socket {
      * Whether the connection is in the bound state.
      * @crossplatform
      */
+    /**
+     * Whether the connection is in the bound state.
+     * @crossplatform
+     * @since 10
+     */
     isBound: boolean;
 
     /**
      * Whether the connection is in the closed state.
      * @crossplatform
      */
+    /**
+     * Whether the connection is in the closed state.
+     * @crossplatform
+     * @since 10
+     */
     isClose: boolean;
 
     /**
      * Whether the connection is in the connected state.
      * @crossplatform
+     */
+    /**
+     * Whether the connection is in the connected state.
+     * @crossplatform
+     * @since 10
      */
     isConnected: boolean;
   }
@@ -126,11 +196,21 @@ declare namespace socket {
      * Bound IP address.
      * @crossplatform
      */
+    /**
+     * Bound IP address.
+     * @crossplatform
+     * @since 10
+     */
     address: string;
 
     /**
      * Network protocol type. The options are as follows: IPv4, IPv6.
      * @crossplatform
+     */
+    /**
+     * Network protocol type. The options are as follows: IPv4, IPv6.
+     * @crossplatform
+     * @since 10
      */
     family: 'IPv4' | 'IPv6';
 
@@ -138,11 +218,21 @@ declare namespace socket {
      * Port number. The value ranges from 0 to 65535.
      * @crossplatform
      */
+    /**
+     * Port number. The value ranges from 0 to 65535.
+     * @crossplatform
+     * @since 10
+     */
     port: number;
 
     /**
      * Length of the server response message, in bytes.
      * @crossplatform
+     */
+    /**
+     * Length of the server response message, in bytes.
+     * @crossplatform
+     * @since 10
      */
     size: number;
   }
@@ -157,6 +247,16 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     *
+     * @param address Destination address. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
 
@@ -169,6 +269,16 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Sends data over a UDPSocket connection.
+     *
+     * @param options Optional parameters {@link UDPSendOptions}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     send(options: UDPSendOptions, callback: AsyncCallback<void>): void;
     send(options: UDPSendOptions): Promise<void>;
 
@@ -177,6 +287,13 @@ declare namespace socket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
+     */
+    /**
+     * Closes a UDPSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
      */
     close(callback: AsyncCallback<void>): void;
     close(): Promise<void>;
@@ -188,6 +305,15 @@ declare namespace socket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
+     */
+    /**
+     * Obtains the status of the UDPSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link SocketStateBase}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -201,6 +327,16 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Sets other attributes of the UDPSocket connection.
+     *
+     * @param options Optional parameters {@link UDPExtraOptions}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     setExtraOptions(options: UDPExtraOptions, callback: AsyncCallback<void>): void;
     setExtraOptions(options: UDPExtraOptions): Promise<void>;
 
@@ -208,11 +344,21 @@ declare namespace socket {
      * Listens for message receiving events of the UDPSocket connection.
      * @crossplatform
      */
+    /**
+     * Listens for message receiving events of the UDPSocket connection.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
     /**
      * Cancels listening for message receiving events of the UDPSocket connection.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for message receiving events of the UDPSocket connection.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
@@ -220,11 +366,21 @@ declare namespace socket {
      * Listens for data packet message events or close events of the UDPSocket connection.
      * @crossplatform
      */
+    /**
+     * Listens for data packet message events or close events of the UDPSocket connection.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'listening' | 'close', callback: Callback<void>): void;
 
     /**
      * Cancels listening for data packet message events or close events of the UDPSocket connection.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for data packet message events or close events of the UDPSocket connection.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'listening' | 'close', callback?: Callback<void>): void;
 
@@ -232,11 +388,21 @@ declare namespace socket {
      * Listens for error events of the UDPSocket connection.
      * @crossplatform
      */
+    /**
+     * Listens for error events of the UDPSocket connection.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Cancels listening for error events of the UDPSocket connection.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for error events of the UDPSocket connection.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
@@ -246,11 +412,21 @@ declare namespace socket {
      * Bound IP address and port number.
      * @crossplatform
      */
+    /**
+     * Bound IP address and port number.
+     * @crossplatform
+     * @since 10
+     */
     address: NetAddress;
 
     /**
      * Timeout duration of the TCPSocket connection, in milliseconds.
      * @crossplatform
+     */
+    /**
+     * Timeout duration of the TCPSocket connection, in milliseconds.
+     * @crossplatform
+     * @since 10
      */
     timeout?: number;
   }
@@ -260,11 +436,21 @@ declare namespace socket {
      * Data to send.
      * @crossplatform
      */
+    /**
+     * Data to send.
+     * @crossplatform
+     * @since 10
+     */
     data: string | ArrayBuffer;
 
     /**
      * Character encoding format.
      * @crossplatform
+     */
+    /**
+     * Character encoding format.
+     * @crossplatform
+     * @since 10
      */
     encoding?: string;
   }
@@ -274,11 +460,21 @@ declare namespace socket {
      * Whether to keep the connection alive. The default value is false.
      * @crossplatform
      */
+    /**
+     * Whether to keep the connection alive. The default value is false.
+     * @crossplatform
+     * @since 10
+     */
     keepAlive?: boolean;
 
     /**
      * Whether to enable OOBInline. The default value is false.
      * @crossplatform
+     */
+    /**
+     * Whether to enable OOBInline. The default value is false.
+     * @crossplatform
+     * @since 10
      */
     OOBInline?: boolean;
 
@@ -286,11 +482,21 @@ declare namespace socket {
      * Whether to enable no-delay on the TCPSocket connection. The default value is false.
      * @crossplatform
      */
+    /**
+     * Whether to enable no-delay on the TCPSocket connection. The default value is false.
+     * @crossplatform
+     * @since 10
+     */
     TCPNoDelay?: boolean;
 
     /**
      * Socket linger.
      * @crossplatform
+     */
+    /**
+     * Socket linger.
+     * @crossplatform
+     * @since 10
      */
     socketLinger?: {on: boolean, linger: number};
   }
@@ -305,6 +511,16 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     *
+     * @param address Destination address. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
 
@@ -316,6 +532,16 @@ declare namespace socket {
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
+     */
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     *
+     * @param options Optional parameters {@link TCPConnectOptions}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
      */
     connect(options: TCPConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TCPConnectOptions): Promise<void>;
@@ -329,6 +555,16 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Sends data over a TCPSocket connection.
+     *
+     * @param options Optional parameters {@link TCPSendOptions}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     send(options: TCPSendOptions, callback: AsyncCallback<void>): void;
     send(options: TCPSendOptions): Promise<void>;
 
@@ -337,6 +573,13 @@ declare namespace socket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
+     */
+    /**
+     * Closes a TCPSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
      */
     close(callback: AsyncCallback<void>): void;
     close(): Promise<void>;
@@ -349,6 +592,15 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Obtains the peer address of a TCPSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -359,6 +611,15 @@ declare namespace socket {
      * @permission ohos.permission.INTERNET
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
+     */
+    /**
+     * Obtains the status of the TCPSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link SocketStateBase}
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -372,6 +633,16 @@ declare namespace socket {
      * @throws {BusinessError} 201 - Permission denied.
      * @crossplatform
      */
+    /**
+     * Sets other attributes of the TCPSocket connection.
+     *
+     * @param options Optional parameters {@link TCPExtraOptions}.
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @crossplatform
+     * @since 10
+     */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -379,11 +650,21 @@ declare namespace socket {
      * Listens for message receiving events of the TCPSocket connection.
      * @crossplatform
      */
+    /**
+     * Listens for message receiving events of the TCPSocket connection.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
     /**
      * Cancels listening for message receiving events of the TCPSocket connection.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for message receiving events of the TCPSocket connection.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
@@ -391,11 +672,21 @@ declare namespace socket {
      * Listens for connection or close events of the TCPSocket connection.
      * @crossplatform
      */
+    /**
+     * Listens for connection or close events of the TCPSocket connection.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
      * Cancels listening for connection or close events of the TCPSocket connection.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for connection or close events of the TCPSocket connection.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
@@ -403,11 +694,21 @@ declare namespace socket {
      * Listens for error events of the TCPSocket connection.
      * @crossplatform
      */
+    /**
+     * Listens for error events of the TCPSocket connection.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Cancels listening for error events of the TCPSocket connection.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for error events of the TCPSocket connection.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
@@ -429,6 +730,18 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
+     *
+     * @param address Destination address. {@link NetAddress}
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 2303198 - Address already in use.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     bind(address: NetAddress, callback: AsyncCallback<void>): void;
     bind(address: NetAddress): Promise<void>;
 
@@ -440,6 +753,15 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Obtains the peer address of a TLSSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link NetAddress}
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     getRemoteAddress(callback: AsyncCallback<NetAddress>): void;
     getRemoteAddress(): Promise<NetAddress>;
 
@@ -450,6 +772,15 @@ declare namespace socket {
      * @throws {BusinessError} 2303188 - Socket operation on non-socket.
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
+     */
+    /**
+     * Obtains the status of the TLSSocket connection.
+     *
+     * @param callback Callback used to return the result. {@link SocketStateBase}
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
      */
     getState(callback: AsyncCallback<SocketStateBase>): void;
     getState(): Promise<SocketStateBase>;
@@ -463,6 +794,16 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Sets other attributes of the TLSSocket connection.
+     *
+     * @param options Optional parameters {@link TCPExtraOptions}.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     setExtraOptions(options: TCPExtraOptions, callback: AsyncCallback<void>): void;
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
@@ -472,6 +813,13 @@ declare namespace socket {
      * @throws {BusinessError} 401 - Parameter error.
      * @crossplatform
      */
+    /**
+     * Listens for message receiving events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'message', callback: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
     /**
@@ -479,6 +827,13 @@ declare namespace socket {
      *
      * @throws {BusinessError} 401 - Parameter error.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for message receiving events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'message', callback?: Callback<{message: ArrayBuffer, remoteInfo: SocketRemoteInfo}>): void;
 
@@ -488,6 +843,13 @@ declare namespace socket {
      * @throws {BusinessError} 401 - Parameter error.
      * @crossplatform
      */
+    /**
+     * Listens for connection or close events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
@@ -495,6 +857,13 @@ declare namespace socket {
      *
      * @throws {BusinessError} 401 - Parameter error.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for connection or close events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
@@ -504,6 +873,13 @@ declare namespace socket {
      * @throws {BusinessError} 401 - Parameter error.
      * @crossplatform
      */
+    /**
+     * Listens for error events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -511,6 +887,13 @@ declare namespace socket {
      *
      * @throws {BusinessError} 401 - Parameter error.
      * @crossplatform
+     */
+    /**
+     * Cancels listening for error events of the TLSSocket connection.
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @crossplatform
+     * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -521,6 +904,15 @@ declare namespace socket {
      * @throws {BusinessError} 2303504 - Error looking up x509
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
+     */
+    /**
+     * Returns an object representing a local certificate.
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303504 - Error looking up x509
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
      */
     getCertificate(callback: AsyncCallback<X509CertRawData>): void;
     getCertificate(): Promise<X509CertRawData>;
@@ -533,6 +925,16 @@ declare namespace socket {
      * @throws {BusinessError} 2303501 - SSL is null.
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
+     */
+    /**
+     * Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * an empty object will be returned. If the socket is destroyed, null is returned.
+     * It only contains the peer's certificate.
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
      */
     getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
     getRemoteCertificate(): Promise<X509CertRawData>;
@@ -547,6 +949,17 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     getProtocol(callback: AsyncCallback<string>): void;
     getProtocol(): Promise<string>;
 
@@ -560,6 +973,17 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303502 - Error in tls reading.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     getCipherSuite(callback: AsyncCallback<Array<string>>): void;
     getCipherSuite(): Promise<Array<string>>;
 
@@ -570,6 +994,15 @@ declare namespace socket {
      * @throws {BusinessError} 2303501 - SSL is null.
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
+     */
+    /**
+     * The list of signature algorithms shared between the server and the client, in descending order of priority.
+     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     *
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
      */
     getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
     getSignatureAlgorithms(): Promise<Array<string>>;
@@ -596,6 +1029,29 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Sets up a connection to the specified IP address and port number.
+     * Only TCP is supported.
+     *
+     * @param options Optional parameters {@link TLSConnectOptions}.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303104 - Interrupted system call.
+     * @throws {BusinessError} 2303109 - Bad file number.
+     * @throws {BusinessError} 2303111 - Resource temporarily unavailable try again.
+     * @throws {BusinessError} 2303188 - Socket operation on non-socket.
+     * @throws {BusinessError} 2303191 - Protocol wrong type for socket.
+     * @throws {BusinessError} 2303198 - Address already in use.
+     * @throws {BusinessError} 2303199 - Cannot assign requested address.
+     * @throws {BusinessError} 2303210 - Connection timed out.
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303502 - Error in tls reading.
+     * @throws {BusinessError} 2303503 - Error in tls writing
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2303506 - Error clearing tls connection.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
     connect(options: TLSConnectOptions): Promise<void>;
 
@@ -611,6 +1067,19 @@ declare namespace socket {
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
      */
+    /**
+     * Sends data over a TLSSocket connection.
+     *
+     * @param data Optional parameters {@link string}.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303503 - Error in tls writing.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2303506 - Error clearing tls connection.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
+     */
     send(data: string, callback: AsyncCallback<void>): void;
     send(data: string): Promise<void>;
 
@@ -623,6 +1092,17 @@ declare namespace socket {
      * @throws {BusinessError} 2303506 - Error clearing tls connection.
      * @throws {BusinessError} 2300002 - System internal error.
      * @crossplatform
+     */
+    /**
+     * Closes a TLSSocket connection
+     *
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 2303501 - SSL is null.
+     * @throws {BusinessError} 2303505 - Error occurred in the tls system call.
+     * @throws {BusinessError} 2303506 - Error clearing tls connection.
+     * @throws {BusinessError} 2300002 - System internal error.
+     * @crossplatform
+     * @since 10
      */
      close(callback: AsyncCallback<void>): void;
      close(): Promise<void>;
@@ -637,11 +1117,21 @@ declare namespace socket {
      * Certificate used to verify the identity of the server
      * @crossplatform
      */
+    /**
+     * Certificate used to verify the identity of the server
+     * @crossplatform
+     * @since 10
+     */
     ca: string | Array<string>;
 
     /**
      * Certificate proving the identity of the client
      * @crossplatform
+     */
+    /**
+     * Certificate proving the identity of the client
+     * @crossplatform
+     * @since 10
      */
     cert?: string;
 
@@ -649,11 +1139,21 @@ declare namespace socket {
      * Private key of client certificate
      * @crossplatform
      */
+    /**
+     * Private key of client certificate
+     * @crossplatform
+     * @since 10
+     */
     key?: string;
 
     /**
      * Password of the private key
      * @crossplatform
+     */
+    /**
+     * Password of the private key
+     * @crossplatform
+     * @since 10
      */
     password?: string;
 
@@ -661,11 +1161,21 @@ declare namespace socket {
      * TLS protocol version
      * @crossplatform
      */
+    /**
+     * TLS protocol version
+     * @crossplatform
+     * @since 10
+     */
     protocols?: Protocol | Array<Protocol>;
 
     /**
      * default is false, use local cipher.
      * @crossplatform
+     */
+    /**
+     * default is false, use local cipher.
+     * @crossplatform
+     * @since 10
      */
     useRemoteCipherPrefer?: boolean;
 
@@ -675,11 +1185,23 @@ declare namespace socket {
      * or TLS v1.3 Scheme name（For example  rsa_pss_pss_sha512）
      * @crossplatform
      */
+    /**
+     * Supported signature algorithms. This string can contain summary algorithms（SHA256、MD5、etc）、
+     * Public key algorithm（RSA-PSS、ECDSA、etc）、Combination of the two（For example 'RSA+SHA384'）
+     * or TLS v1.3 Scheme name（For example  rsa_pss_pss_sha512）
+     * @crossplatform
+     * @since 10
+     */
     signatureAlgorithms?: string;
 
     /**
      * Crypto suite specification
      * @crossplatform
+     */
+    /**
+     * Crypto suite specification
+     * @crossplatform
+     * @since 10
      */
     cipherSuite?: string;
   }
@@ -687,6 +1209,11 @@ declare namespace socket {
   /**
    * @crossplatform
    * @since 9
+   */
+  /**
+   * TLSSOCKET connection options
+   * @crossplatform
+   * @since 10
    */
   export interface TLSConnectOptions {
     address: NetAddress;
@@ -696,12 +1223,22 @@ declare namespace socket {
      * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
      * @crossplatform
      */
+    /**
+     * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
+     * @crossplatform
+     * @since 10
+     */
     ALPNProtocols?: Array<string>;
   }
 
   /**
    * @crossplatform
    * @since 9
+   */
+  /**
+   * TLS protocol version
+   * @crossplatform
+   * @since 10
    */
   export enum Protocol {
     TLSv12 = "TLSv1.2",
