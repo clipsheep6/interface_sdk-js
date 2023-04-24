@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
+import { AsyncCallback } from "./@ohos.base";
 
 /**
  * Provides the capabilities and methods for obtaining Short Message Service (SMS) management objects.
@@ -1481,16 +1481,6 @@ declare namespace sms {
 
     /**
      * Indicates the content location.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Telephony.SmsMms
-     * @systemapi Hide this for inner system use.
-     * @since 8
-     */
-    contentLocation: string;
-
-    /**
-     * Indicates the content location for the attachment.
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
