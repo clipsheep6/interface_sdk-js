@@ -34,6 +34,35 @@ function readFile(dir, utFiles) {
     console.error('ETS ERROR: ' + error);
   }
 }
+
+function listApiDeclarationFiles(dir) {
+  const allFiles = [];
+  const apiSubDirs = ['api', 'component'];
+  apiSubDirs.forEach((subdir) => {
+    internalListFiles(path.resolve(dir, subdir),
+      (filePath) => path.basename(filePath).endsWith('.d.ts'), allFiles);
+  });
+  return allFiles;
+}
+
+function internalListFiles(dir, filter, output) {
+  const files = fs.readdirSync(dir);
+  files.forEach((element) => {
+    const filePath = path.join(dir, element);
+    const status = fs.statSync(filePath);
+    if (status.isDirectory()) {
+      internalListFiles(filePath, filter, output);
+    } else if (filter(filePath)) {
+      output.push(filePath);
+    }
+  });
+}
+
+function isInDirectory(parentDir, subPath) {
+  const relative = path.relative(parentDir, subPath);
+  return relative === '' || !relative.startsWith('..');
+}
+
 function getFilePath(filePath){
   if (filePath.indexOf("\\component\\") > 0 || filePath.indexOf("\\api\\") >= 0) {
     if (/\.d\.ts/.test(filePath)) {
@@ -118,6 +147,8 @@ function getApiInfoDeleteDtsPath(baseApi) {
 }
 
 exports.readFile = readFile;
+exports.listApiDeclarationFiles = listApiDeclarationFiles;
 exports.getSubsystemBySyscap = getSubsystemBySyscap;
 exports.getApiInfoWithFlag = getApiInfoWithFlag;
 exports.getApiInfoDeleteDtsPath = getApiInfoDeleteDtsPath;
+exports.isInDirectory = isInDirectory;
