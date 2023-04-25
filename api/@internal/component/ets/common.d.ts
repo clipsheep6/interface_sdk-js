@@ -1318,6 +1318,13 @@ declare enum BlurStyle {
    * @since 10
    */
   BACKGROUND_ULTRA_THICK,
+
+  /**
+   * Defines none material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE,  
 }
 
 /**
@@ -1464,11 +1471,29 @@ declare enum ModalTransition {
 
 /**
  * Defines the options of backgroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface BackgroundBlurStyleOptions {
+declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of ForeroundBlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
+
+/**
+ * Defines the options of BlurStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface BlurStyleOptions {
   /**
    * color mode
+   * @type { ThemeColorMode }
+   * @default ThemeColorMode.System
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   colorMode?: ThemeColorMode;
@@ -1476,9 +1501,24 @@ declare interface BackgroundBlurStyleOptions {
 
   /**
    * adaptive color
+   * @type { AdaptiveColor }
+   * @default AdaptiveColor.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
+
+  /**
+   * Define the scale of foreground blur effect. 
+   * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
+   * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
+   * @type { number }
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @systemapi
+   */
+  scale?: number;
 }
 
 /**
@@ -2651,6 +2691,18 @@ declare class CommonMethod<T> {
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+
+  /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
+   * @param { BlurStyle } value
+   * @param { ForegroundBlurStyleOptions } options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
+   * @since 10
+   */
+  foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
   /**
    * Opacity
