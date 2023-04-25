@@ -487,7 +487,10 @@
         "DataShare.Core",
         "DataShare.Consumer",
         "DataShare.Provider",
-        "UDMF.Core"
+        "UDMF.Core",
+        "CloudSync.Config",
+        "CloudSync.Server",
+        "CloudSync.Client"
       ],
       "Ability": [
         "AbilityBase",
