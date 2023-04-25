@@ -793,14 +793,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 10
      */
-    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_UPDATE = "usual.event.DEVICE_IDLE_EXEMPTION_UPDATE",
-
-    /**
-     * Sent when screen is off for about 30 minutes, the app's network access is restricted.
-     * @systemapi
-     * @since 10
-     */
-    COMMON_EVENT_DEVICE_IDLE_CTRL_NETWORK = "usual.event.DEVICE_IDLE_CTRL_NETWORK",
+    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_SYSTEM_UPDATE = "usual.event.DEVICE_IDLE_EXEMPTION_SYSTEM_UPDATE",
 
     /**
      * Sent when device's power save mode changed
