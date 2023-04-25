@@ -75,7 +75,7 @@ declare namespace cloudData {
        * closes the cloud sync function.
        * @param {string} accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
        * @param {AsyncCallback<void>} callback - the callback of disableCloud.
-       * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @systemapi
        * @since 10
        */
@@ -85,7 +85,7 @@ declare namespace cloudData {
        * closes the cloud sync function.
        * @param {string} accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
        * @returns {Promise<void>} the promise returned by the function.
-       * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @systemapi
        * @since 10
        */
