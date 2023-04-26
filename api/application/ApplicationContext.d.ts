@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,6 +21,7 @@ import { ProcessInformation } from "./ProcessInformation";
 
 /**
  * The context of an application. It allows access to application-specific resources.
+ * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -29,7 +30,7 @@ import { ProcessInformation } from "./ProcessInformation";
 export default class ApplicationContext extends Context {
   /**
    * Register ability lifecycle callback.
-   * @param { string } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -42,7 +43,7 @@ export default class ApplicationContext extends Context {
 
   /**
    * Unregister ability lifecycle callback.
-   * @param { string } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -55,7 +56,7 @@ export default class ApplicationContext extends Context {
 
   /**
    * Unregister ability lifecycle callback.
-   * @param { string } type - abilityLifecycle.
+   * @param { "abilityLifecycle" } type - abilityLifecycle.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -67,7 +68,7 @@ export default class ApplicationContext extends Context {
 
   /**
    * Register environment callback.
-   * @param { string } type - environment.
+   * @param { "environment" } type - environment.
    * @param { EnvironmentCallback } callback - The environment callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -79,7 +80,7 @@ export default class ApplicationContext extends Context {
 
   /**
    * Unregister environment callback.
-   * @param { string } type - environment.
+   * @param { "environment" } type - environment.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -91,7 +92,7 @@ export default class ApplicationContext extends Context {
 
   /**
    * Unregister environment callback.
-   * @param { string } type - environment.
+   * @param { "environment" } type - environment.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
