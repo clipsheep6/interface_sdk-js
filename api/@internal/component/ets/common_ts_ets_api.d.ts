@@ -18,10 +18,21 @@
  * UI state of app-wide access and same life cycle as the app.
  * @since 7
  */
+/**
+ * AppStorage singleton is sub-class of see LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ * @crossplatform
+ * @since 10
+ */
 declare class AppStorage {
   /**
    * Called when a link is set.
    * @since 7
+   */
+  /**
+   * Called when a link is set.
+   * @crossplatform
+   * @since 10
    */
   static Link(propName: string): any;
 
@@ -37,11 +48,29 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Like see Link(), but will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndLink()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage
+   *        default value must be of type T, must not be 'undefined' or 'null'.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *
+   * @crossplatform
+   * @since 10
+   */
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Called when a property is set.
    * @since 7
+   */
+  /**
+   * Called when a property is set.
+   * @crossplatform
+   * @since 10
    */
   static Prop(propName: string): any;
 
@@ -58,6 +87,20 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Like see prop(), will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndProp()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { S } defaultValue value to be used for initializing if new creating new property in AppStorage.
+   *        default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           return undefined if named property does not already exist in AppStorage.
+   *
+   * @crossplatform
+   * @since 10
+   */
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
@@ -72,6 +115,19 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Checks if AppStorage has a property with given name
+   * returns true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   *
+   * Same as see LocalStorage.has()
+   *
+   * @param { string } propName searched property
+   * @returns { boolean } true if property with such name exists in AppStorage
+   *
+   * @crossplatform
+   * @since 10
+   */
   static Has(propName: string): boolean;
 
   /**
@@ -83,6 +139,17 @@ declare class AppStorage {
    * @returns { T | undefined } property value of type T if found or undefined
    *
    * @since 7
+   */
+  /**
+   * Same as see LocalStorage.get()
+   *
+   * Obtain the value of property with given name, returns undefined if the property does not exist in AppStorage.
+   *
+   * @param { string } propName
+   * @returns { T | undefined } property value of type T if found or undefined
+   *
+   * @crossplatform
+   * @since 10
    */
   static Get<T>(propName: string): T | undefined;
 
@@ -99,6 +166,19 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Set value of given property in AppStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null`.
+   *
+   * Same as see LocalStorage.set
+   *
+   * @param { string } propName
+   * @param { T } newValue must be of type T and must not be undefined or null
+   * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
+   * @crossplatform
+   * @since 10
+   */
   static Set<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -112,6 +192,19 @@ declare class AppStorage {
    * @param { T } newValue must be of type T and must not be undefined or null
    *
    * @since 7
+   */
+  /**
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
+   * Do nothing and return false if newValue is undefined or null
+   *
+   * see LocalStorage.setOrCreate()
+   *
+   * @param { string } propName
+   * @param { T } newValue must be of type T and must not be undefined or null
+   *
+   * @crossplatform
+   * @since 10
    */
   static SetOrCreate<T>(propName: string, newValue: T): void;
 

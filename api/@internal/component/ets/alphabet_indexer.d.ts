@@ -31,7 +31,7 @@ declare enum IndexerAlign {
    * A dialog box is displayed on the right of the index bar.
    * @crossplatform
    * @since 10
-   */  
+   */
   Left,
 
   /**

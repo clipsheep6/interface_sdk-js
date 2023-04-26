@@ -148,11 +148,11 @@ declare interface AlertDialogParam {
    * Title Properties
    * @since 7
    */
-    /**
-   * Title Properties
-   * @crossplatform
-   * @since 10
-   */
+  /**
+ * Title Properties
+ * @crossplatform
+ * @since 10
+ */
   title?: ResourceStr;
 
   /**

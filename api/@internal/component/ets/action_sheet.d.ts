@@ -136,7 +136,7 @@ declare class ActionSheet {
     /**
      * Execute Cancel Function.
      * @since 8
-     */    
+     */
     /**
      * Execute Cancel Function.
      * @crossplatform
