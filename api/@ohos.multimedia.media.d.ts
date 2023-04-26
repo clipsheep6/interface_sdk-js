@@ -608,7 +608,6 @@ declare namespace media {
      */
     on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void;
     off(type: 'audioInterrupt'): void;
-
     /**
      * Register or unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
