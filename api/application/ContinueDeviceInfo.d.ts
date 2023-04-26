@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,7 +18,7 @@
  *
  * @interface ContinueDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @systemapi hide for inner use.
+ * @systemapi
  * @since 9
  */
 export interface ContinueDeviceInfo {
@@ -26,6 +26,7 @@ export interface ContinueDeviceInfo {
    * Indicates the original deviceId to continue mission.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
    * @since 9
    */
   srcDeviceId: string;
@@ -33,6 +34,7 @@ export interface ContinueDeviceInfo {
    * Indicates the target deviceId to continue mission.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
    * @since 9
    */
   dstDeviceId: string;
@@ -40,6 +42,7 @@ export interface ContinueDeviceInfo {
   * Indicates the mission to continue.
   *
   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+  * @systemapi
   * @since 9
   */
   missionId: number;
@@ -47,6 +50,7 @@ export interface ContinueDeviceInfo {
    * Indicates the extended param.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
    * @since 9
    */
   wantParam: { [key: string]: any };

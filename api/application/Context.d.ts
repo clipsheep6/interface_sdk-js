@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,6 +23,7 @@ import contextConstant from "../@ohos.app.ability.contextConstant"
 /**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
+ * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -129,7 +130,7 @@ export default class Context extends BaseContext {
 
   /**
    * Indicates file area.
-   * @type { AreaMode }
+   * @type { contextConstant.AreaMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
