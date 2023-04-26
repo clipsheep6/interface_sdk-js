@@ -14,27 +14,26 @@
  */
 
 /**
-* @name DataAbilityResult
-* @since 7
+* @interface DataAbilityResult
 * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-* @permission N/A
+* @since 7
 */
 export interface DataAbilityResult {
   /**
    * Indicates the path of data to operate.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   uri?: string;
 
   /**
   * Indicates the number of rows affected by the operation.
   * @default -
-  * @since 7
   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
   * @FAModelOnly
+  * @since 7
   */
   count?: number;
 }
