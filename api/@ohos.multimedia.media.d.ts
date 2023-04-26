@@ -610,24 +610,6 @@ declare namespace media {
     off(type: 'audioInterrupt'): void;
 
     /**
-     * Register listens for audio effect mode change events.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param type Type of the playback event to listen for.
-     * @param callback Callback used to get the audio effect mode change event.
-     * Refer to {@link #audio.EffectStateChangeEvent}.
-     */
-    on(type: 'audioEffectChange', callback: (info: audio.EffectStateChangeEvent) => void): void;
-
-    /**
-     * Cancel listens for audio effect mode change events.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @param type Type of the playback event to listen for.
-     */
-    off(type: 'audioEffectChange'): void;
-
-    /**
      * Register or unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
      * @since 9
