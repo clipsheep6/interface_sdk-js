@@ -424,11 +424,11 @@ declare namespace media {
     audioRendererInfo ?: audio.AudioRendererInfo;
 
     /**
-     * Obtains the current audio scene effect mode, refer to {@link #audio.AudioSceneEffectMode}.
+     * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
-    audioSenceEffectMode ?: audio.AudioSceneEffectMode;
+    audioEffectMode ?: audio.AudioEffectMode;
 
     /**
      * Current playback position.
@@ -610,22 +610,22 @@ declare namespace media {
     off(type: 'audioInterrupt'): void;
 
     /**
-     * Register listens for audio scene effect change events.
+     * Register listens for audio effect mode change events.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
-     * @param callback Callback used to get the audio scene effect change event.
+     * @param callback Callback used to get the audio effect mode change event.
      * Refer to {@link #audio.EffectStateChangeEvent}.
      */
-    on(type: 'audioEffectStateChange', callback: (info: audio.EffectStateChangeEvent) => void): void;
+    on(type: 'audioEffectChange', callback: (info: audio.EffectStateChangeEvent) => void): void;
 
     /**
-     * Cancel listens for audio scene effect change events.
+     * Cancel listens for audio effect mode change events.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @param type Type of the playback event to listen for.
      */
-    off(type: 'audioEffectStateChange'): void;
+    off(type: 'audioEffectChange'): void;
 
     /**
      * Register or unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
