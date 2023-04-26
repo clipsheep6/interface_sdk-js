@@ -229,9 +229,11 @@ export interface Context extends BaseContext {
   setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void
 
   /**
-  * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state. 
+  * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the
+  * ability in the ACTIVE state.
   * The interface can only take effect in API8 and below versions.
-  * @param { boolean } show Specifies whether to show this ability on top of the lock screen. The value true means to show it on the lock screen, and the value false means not.
+  * @param { boolean } show Specifies whether to show this ability on top of the lock screen. The value true means to
+  *                         show it on the lock screen, and the value false means not.
   * @returns { Promise<void> } the promise returned by the function.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @since 7
