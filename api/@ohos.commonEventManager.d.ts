@@ -793,7 +793,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 10
      */
-    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_SYSTEM_UPDATE = "usual.event.DEVICE_IDLE_EXEMPTION_SYSTEM_UPDATE",
+    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = "usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED",
 
     /**
      * Sent when device's power save mode changed
