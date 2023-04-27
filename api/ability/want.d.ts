@@ -92,7 +92,7 @@ export declare interface Want {
    * @since 6
    * @deprecated since 9
    */
-  parameters?: {[key: string]: any};
+  parameters?: { [key: string]: any };
 
   /**
    * The description of a entities in a Want.
