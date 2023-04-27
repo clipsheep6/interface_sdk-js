@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1051,6 +1051,12 @@ declare namespace commonEventManager {
      * This common event can be triggered only by system.
      */
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
+
+    /**
+     * Indicate the result of quick fix revoke apply.
+     * This common event can be triggered only by system.
+     */
+    COMMON_EVENT_QUICK_FIX_REVOKE_APPLY_RESULT = "usual.event.QUICK_FIX_REVOKE_APPLY_RESULT",
 
     /**
      * Indicate the action of a common event that the user information has been updated.
