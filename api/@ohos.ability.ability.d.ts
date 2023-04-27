@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,62 +24,61 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
 /**
  * The class of an ability.
  *
- * @since 9
+ * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @FAModelOnly
+ * @since 9
  */
 declare namespace ability {
-
     /**
      * DataAbilityHelper
-     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      *
-     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
+     * @since 9
      */
     export type DataAbilityHelper = _DataAbilityHelper
 
     /**
      * Defines a PacMap object for storing a series of values.
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
+     * @since 9
      */
     export type PacMap = _PacMap
 
     /**
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
+     * @since 9
      */
     export type DataAbilityOperation = _DataAbilityOperation
 
     /**
-     * @name DataAbilityResult
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
+     * @since 9
      */
     export type DataAbilityResult = _DataAbilityResult
 
     /**
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      * @FAModelOnly
+     * @since 9
      */
     export type AbilityResult = _AbilityResult
 
     /**
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @FAModelOnly
+     * @since 9
      */
     export type ConnectOptions = _ConnectOptions
 
     /**
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
+     * @since 9
      */
     export type StartAbilityParameter = _StartAbilityParameter
 }
