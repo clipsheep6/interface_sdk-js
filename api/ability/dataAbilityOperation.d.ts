@@ -17,45 +17,45 @@ import featureAbility from '../@ohos.ability.featureAbility';
 import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
-/**
-* @since 7
-* @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-* @permission N/A
-*/
+ /**
+ * @interface DataAbilityOperation
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @since 7
+ */
 export interface DataAbilityOperation {
   /**
    * Indicates the path of data to operate.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   uri: string;
 
   /**
    * Indicates a operation type.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   type: featureAbility.DataAbilityOperationType;
 
   /**
    * Indicates the data values to be set.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   valuesBucket?: rdb.ValuesBucket;
 
   /**
    * Indicates the valuesBucket object containing a set of key-value pairs.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   valueBackReferences?: rdb.ValuesBucket;
 
@@ -63,36 +63,36 @@ export interface DataAbilityOperation {
    * Indicates the filter criteria to set. If this parameter is null, all data records
    * will be operated by default.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   predicates?: dataAbility.DataAbilityPredicates;
 
   /**
    * Indicates the back reference to be used as a filter criterion in predicates.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   predicatesBackReferences?: Map<number, number>;
 
   /**
    * Specifies whether a batch operation can be interrupted.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   interrupted?: boolean;
 
   /**
    * Indicates the expected number of rows to update or delete.
    * @default -
-   * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
+   * @since 7
    */
   expectedCount?: number;
 }
