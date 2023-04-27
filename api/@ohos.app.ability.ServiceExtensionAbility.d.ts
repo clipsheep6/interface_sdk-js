@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -70,6 +70,8 @@ export default class ServiceExtensionAbility {
   /**
    * Called back when a service extension is first connected to an ability.
    * @param { Want } want - Indicates connection information about the Service ability.
+   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } A RemoteObject for communication between the client
+   *                                                           and server.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -80,6 +82,7 @@ export default class ServiceExtensionAbility {
   /**
    * Called back when all abilities connected to a service extension are disconnected.
    * @param { Want } want - Indicates disconnection information about the service extension.
+   * @returns { void | Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
