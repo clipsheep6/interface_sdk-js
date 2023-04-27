@@ -39,6 +39,6 @@ export interface StartAbilityParameter {
    * @FAModelOnly
    * @since 6
    */
-  abilityStartSetting?: {[key: string]: any};
+  abilityStartSetting?: { [key: string]: any };
 
 }
