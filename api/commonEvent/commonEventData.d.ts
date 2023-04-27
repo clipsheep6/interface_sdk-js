@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,22 +15,21 @@
 
 /**
  * the data of the commonEvent
- * @name CommonEventData
+ * @interface CommonEventData
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
- * @permission N/A
  */
 export interface CommonEventData {
   /**
    * event type
-   * @default -
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   event: string
 
   /**
    * bundle name
-   * @default -
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   bundleName?: string;
@@ -39,6 +38,7 @@ export interface CommonEventData {
    * The custom result code of the common event.
    *
    * @default 0
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   code?: number;
@@ -46,7 +46,7 @@ export interface CommonEventData {
   /**
    * The custom result data of the common event.
    *
-   * @default ""
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   data?: string;
@@ -54,7 +54,7 @@ export interface CommonEventData {
   /**
    * The description of the parameters in a common event.
    *
-   * @default -
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   parameters?: { [key: string]: any };
