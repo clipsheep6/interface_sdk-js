@@ -56,7 +56,7 @@ declare namespace businessAbilityRouter {
   /**
    * This filter value is used to filter business ability info
    *
-   * @typedef BusinessAbilityFilter
+   * @interface BusinessAbilityFilter
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10
