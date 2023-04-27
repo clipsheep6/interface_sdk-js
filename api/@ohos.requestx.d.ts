@@ -195,11 +195,11 @@ export declare namespace agent {
          * The HTTP headers.
          * For upload request, the `Content-Type` is forced to `multipart/form-data`.
          * For download request, the default `Content-Type` is `application/json`.
-         * @type { JSON }
+         * @type { object }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        headers?: JSON;
+        headers?: object;
         /**
          * The arguments, it can be any text, uses json usually.
          * For download, it is the raw body.
@@ -322,11 +322,11 @@ export declare namespace agent {
         token?: string;
         /**
          * The extras for the configuration.
-         * @type { JSON }
+         * @type { object }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        extras?: JSON;
+        extras?: object;
     }
     /**
      * @enum { number }
@@ -407,41 +407,46 @@ export declare namespace agent {
         /**
          * The current state of the task.
          * @type { State }
+         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        state: State;
+        readonly astate: State;
         /**
          * The current processing file index in a task.
          * @type { number }
+         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        index: number;
+        readonly index: number;
         /**
          * The processed data size for the current file in a task.
          * @type { number }
+         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        processed: number;
+        readonly processed: number;
         /**
          * The sizes of files in a task.
          * @type { Array<number> }
+         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        sizes: Array<number>;
+        readonly sizes: Array<number>;
         /**
          * The extras for an interaction.
          * Such as headers and body of response from server.
          * But when the Content-Disposition header responsed, the body will be into the uri of its attachment only, the body here is empty.
          * {"headers": {"key": v}, "body": "contents"}
-         * @type { JSON }
+         * @type { object }
+         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        extras?: JSON;
+        readonly extras?: object;
     }
     /**
      * @enum { number }
@@ -644,12 +649,12 @@ export declare namespace agent {
          * The extras of a task.
          * For background, the last response from server.
          * For frontend, nothing now.
-         * @type { JSON }
+         * @type { object }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        readonly extras?: JSON;
+        readonly extras?: object;
     }
     /**
      * The task entry.
