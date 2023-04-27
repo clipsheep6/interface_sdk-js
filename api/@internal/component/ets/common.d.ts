@@ -649,6 +649,15 @@ declare interface AlignRuleOption {
   center?: { anchor: string, align: VerticalAlign };
 }
 
+/**
+ * The param of rotate.
+ * @since 7
+ */
+/**
+ * The param of rotate.
+ * @form
+ * @since 9
+ */
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -3597,12 +3606,13 @@ declare class CommonMethod<T> {
 
   /**
    * Sets hot keys
-   * @param { string } value , single character of the Combination key
-   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
+   * @param { string | FunctionKey } value - Character of the combination key.
+   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
+   * @param { () => void } action - Callback function, triggered when the shortcut keyboard is pressed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
+  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 }
 
 /**
@@ -3829,8 +3839,25 @@ declare interface LinearGradient {
  * @since 9
  */
 declare interface LayoutBorderInfo {
+  /**
+   * Sub component borderWidth info.
+   * @form
+   * @since 9
+   */
   borderWidth: EdgeWidths,
+
+  /**
+   * Sub component margin info.
+   * @form
+   * @since 9
+   */
   margin: Margin,
+
+  /**
+   * Sub component padding info.
+   * @form
+   * @since 9
+   */
   padding: Padding,
 }
 
@@ -3840,7 +3867,18 @@ declare interface LayoutBorderInfo {
  * @since 9
  */
 declare interface LayoutInfo {
+  /**
+   * Sub component position info.
+   * @form
+   * @since 9
+   */
   position: Position,
+
+  /**
+   * Sub component constraint info.
+   * @form
+   * @since 9
+   */
   constraint: ConstraintSizeOptions,
 }
 
@@ -4003,6 +4041,13 @@ declare class View {
    * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
+   */
+  /**
+   * Just use for generate tsbundle
+   * @ignore ide should ignore this attribute
+   * @systemapi
+   * @form
+   * @since 9
    */
   create(value: any): any;
 }
