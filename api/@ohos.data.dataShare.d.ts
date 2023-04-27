@@ -49,7 +49,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    isProxy: boolean;
+    isProxy?: boolean;
   }
 
   /**
@@ -211,14 +211,14 @@ declare namespace dataShare {
      */
     uri: string;
     /**
-     * Specifies the tempalteId of the callback.
+     * Specifies the templateId of the callback.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
      * @since 10
      */
-    tempalteId: TemplateId;
+    templateId: TemplateId;
     /**
      * Specifies the datas of the callback.
      * every node is a json, json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}].
@@ -497,6 +497,25 @@ declare namespace dataShare {
      *
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
+     * @param { AsyncCallback<void> } callback
+     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 15700012 - the data area is not exist.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    publish(
+        data: Array<PublishedItem>,
+        bundleName: string,
+        callback: AsyncCallback<Array<OperationResult>>
+    ): void;
+
+    /**
+     * Update a single data into host data area.
+     *
+     * @param { Array<PublishedItem> } data - Indicates the data to publish.
+     * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - the parameter check failed.
@@ -506,7 +525,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    publish(data: Array<PublishedItem>, bundleName: string, version: number): Promise<Array<OperationResult>>;
+    publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
 
     /**
      * Registers a one-time observer to observe data specified by the given uri and template.
