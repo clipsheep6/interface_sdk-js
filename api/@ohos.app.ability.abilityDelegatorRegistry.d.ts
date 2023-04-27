@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36,7 +36,7 @@ declare namespace abilityDelegatorRegistry {
 
   /**
    * Get unit test arguments stored in the AbilityDelegatorArgs object.
-   * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
+   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
