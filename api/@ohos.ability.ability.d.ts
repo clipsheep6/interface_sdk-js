@@ -30,6 +30,7 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
  * @since 9
  */
 declare namespace ability {
+
     /**
      * DataAbilityHelper
      *
