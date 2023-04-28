@@ -14,8 +14,9 @@
  */
 
 /**
- * @since 3
+ * 
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 3
  */
 export interface NetworkResponse {
   /**
@@ -31,8 +32,9 @@ export interface NetworkResponse {
 }
 
 /**
- * @since 3
+ * 
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 3
  */
 export default class Network {
   /**
