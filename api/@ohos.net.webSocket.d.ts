@@ -18,8 +18,8 @@ import { AsyncCallback, ErrorCallback } from "./@ohos.base";
 /**
  * Provides WebSocket APIs.
  *
- * @since 6
  * @syscap SystemCapability.Communication.NetStack
+ * @since 6
  */
 declare namespace webSocket {
   /**
