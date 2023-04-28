@@ -16,7 +16,7 @@
  * @syscap SystemCapability.Request.FileTransferAgent
  * @since 10
  */
-export declare namespace agent {
+ export declare namespace agent {
     /**
      * The action options.
      * @enum { number }
@@ -84,12 +84,12 @@ export declare namespace agent {
         CELLULAR = 2,
     }
     /**
-     * The file item information for a task.
-     * @typedef FileItem
+     * The file information for a form item.
+     * @typedef FileSpec
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
-    interface FileItem {
+    interface FileSpec {
         /**
          * Currently support:
          * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
@@ -115,6 +115,42 @@ export declare namespace agent {
          * @since 10
          */
         filename?: string;
+        /**
+         * The extras for the file information.
+         * @type { object }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        extras?: object;
+    }
+    /**
+     * The form item information for a task.
+     * @typedef FormItem
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 10
+     */
+    interface FormItem {
+        /**
+         * The item's name.
+         * @type { string }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        name: string;
+        /**
+         * The item's type.
+         * @type { string }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        type: string;
+        /**
+         * The item's value.
+         * @type { string | number | FileSpec | Array<FileSpec> }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        value: string | number | FileSpec | Array<FileSpec>;
     }
     /**
      * The configurations for a task.
@@ -142,17 +178,6 @@ export declare namespace agent {
          */
         url: string;
         /**
-         * The files for a task.
-         * For upload task, it supports multiple files per task.
-         * For download task, only one file in a task.
-         * Each path length complies system's requirements.
-         * But there is a 4K bytes limit in total.
-         * @type { Array<FileItem> }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        fileset: Array<FileItem>;
-        /**
          * The title for a task, give a meaningful title please.
          * The maximum length is 256 characters.
          * The default is the same with its action.
@@ -161,6 +186,16 @@ export declare namespace agent {
          * @since 10
          */
         title?: string;
+        /**
+         * The details for a task.
+         * The maximum length is 1024 charactoers.
+         * The default is empty string.
+         * @type { string }
+         * @default ""
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        description?: string;
         /**
          * Indicates task's mode.
          * The default is background.
@@ -202,14 +237,24 @@ export declare namespace agent {
         headers?: object;
         /**
          * The arguments, it can be any text, uses json usually.
-         * For download, it is the raw body.
-         * For upload, it is the others form items besides files.
-         * The default is "{}".
-         * @type { string }
+         * For download, it can be raw string or object which will be converted to json text, the default is "{}".
+         * For upload, it can be form items, the default is a empty form.
+         * @type { object | string | Array<FormItem> }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        data?: string;
+        data?: object | string | Array<FormItem>;
+        /**
+         * The path to save the downloaded file, the default is "./".
+         * Currently support:
+         * 1, relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+         * 2, uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+         * @type { string }
+         * @default "./"
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        saveas?: string;
         /**
          * The network.
          * @type { Network }
@@ -222,6 +267,7 @@ export declare namespace agent {
          * Allows work in metered network or not.
          * The default is false.
          * @type { boolean }
+         * @default false
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
@@ -523,21 +569,12 @@ export declare namespace agent {
          */
         readonly url?: string;
         /**
-         * The files of a task.
-         * For normal query only, empty as system.
-         * @type { Array<FileItem> }
-         * @readonly
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        readonly fileset?: Array<FileItem>;
-        /**
          * The arguments.
-         * @type { string }
+         * @type { object | string | Array<FormItem> }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        readonly data?: string;
+        readonly data?: object | string | Array<FormItem>;
         /**
          * The task id.
          * @type { string }
@@ -554,6 +591,14 @@ export declare namespace agent {
          * @since 10
          */
         readonly title: string;
+        /**
+         * The task details.
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        readonly description: string;
         /**
          * The task action.
          * @type { Action }
