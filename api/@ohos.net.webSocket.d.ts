@@ -20,7 +20,6 @@ import { AsyncCallback, ErrorCallback } from "./@ohos.base";
  *
  * @since 6
  * @syscap SystemCapability.Communication.NetStack
-
  */
 declare namespace webSocket {
   /**

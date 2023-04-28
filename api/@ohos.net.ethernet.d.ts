@@ -18,8 +18,8 @@ import { AsyncCallback, Callback } from "./@ohos.base";
 /**
  * Provides interfaces to manage ethernet.
  *
- * @since 9
  * @syscap SystemCapability.Communication.NetManager.Ethernet
+ * @since 9
  */
 declare namespace ethernet {
   /**

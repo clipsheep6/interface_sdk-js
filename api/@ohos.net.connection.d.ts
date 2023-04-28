@@ -20,8 +20,8 @@ import socket from "./@ohos.net.socket";
 /**
  * Provides interfaces to manage and use data networks.
  *
- * @since 8
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 8
  */
 declare namespace connection {
   type HttpRequest = http.HttpRequest;
