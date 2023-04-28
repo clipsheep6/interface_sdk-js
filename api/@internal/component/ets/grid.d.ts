@@ -73,13 +73,23 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * Allows you to set the spacing between columns.
    * @since 7
    */
-  columnsGap(value: Length): GridAttribute;
+  /**
+   * Allows you to set the spacing between columns.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  columnsGap(value: Length | ILength): GridAttribute;
 
   /**
    * Lets you set the spacing between rows.
    * @since 7
    */
-  rowsGap(value: Length): GridAttribute;
+  /**
+   * Lets you set the spacing between rows.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  rowsGap(value: Length | ILength): GridAttribute;
 
   /**
    * This parameter specifies the width of the scroll bar.

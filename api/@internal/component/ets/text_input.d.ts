@@ -173,11 +173,11 @@ interface TextInputInterface {
 interface CaretStyle {
   /**
    * Define the cursor width of CaretStyle.
-   * @param { Length }
+   * @param { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  width?: Length;
+  width?: Length | ILength;
 }
 
 /**
@@ -257,7 +257,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when the font size is set.
    * @since 7
    */
-  fontSize(value: Length): TextInputAttribute;
+  /**
+   * Called when the font size is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  fontSize(value: Length | ILength): TextInputAttribute;
 
   /**
    * Called when the font style of a font is set.

@@ -87,7 +87,13 @@ declare interface BadgeStyle {
    * @form
    * @since 9
    */
-  fontSize?: number | string;
+  /**
+   * Text size.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  fontSize?: number | StringType | Vp | Px | Fp | Lpx;
 
   /**
    * Size of a badge.
@@ -98,7 +104,13 @@ declare interface BadgeStyle {
    * @form
    * @since 9
    */
-  badgeSize?: number | string;
+  /**
+   * Size of a badge.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  badgeSize?: number | StringType  | Vp | Px | Fp | Lpx;
 
   /**
    * Color of the badge.
@@ -121,11 +133,11 @@ declare interface BadgeStyle {
 
   /**
    * Define the border width of the badge.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  borderWidth?: Length;
+  borderWidth?: Length | ILength;
 
   /**
    * Define the font weight of the badge.

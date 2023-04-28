@@ -32,7 +32,12 @@ interface BlankInterface {
    * @form
    * @since 9
    */
-  (min?: number | string): BlankAttribute;
+  /**
+   * The minimum size of the blank fill assembly on the container spindle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  (min?: number | StringType | Vp | Px | Fp | Lpx): BlankAttribute;
 }
 
 /**

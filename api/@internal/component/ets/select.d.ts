@@ -137,11 +137,11 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
 
   /**
    * Set the space for text and icon in select
-   * @param { Length } value - indicates the length of the space
+   * @param { Length | ILength } value - indicates the length of the space
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  space(value: Length): SelectAttribute;
+  space(value: Length | ILength): SelectAttribute;
 
   /**
    * Set the layout direction for text and arrow in select

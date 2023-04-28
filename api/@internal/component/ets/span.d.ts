@@ -118,7 +118,12 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @form
    * @since 9
    */
-  letterSpacing(value: number | string): SpanAttribute;
+  /**
+   * Called when the distance between text fonts is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  letterSpacing(value: number | StringType | Vp | Px | Fp | Lpx): SpanAttribute;
 
   /**
    * Called when the type of letter in the text font is set.

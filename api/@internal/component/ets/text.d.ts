@@ -74,7 +74,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
-  minFontSize(value: number | string | Resource): TextAttribute;
+  /**
+   * Called when the minimum font size of the font is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  minFontSize(value: number | StringType | Resource | Vp | Px | Fp | Lpx): TextAttribute;
 
   /**
    * Called when the maximum font size of the font is set.
@@ -85,7 +90,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
-  maxFontSize(value: number | string | Resource): TextAttribute;
+  /**
+   * Called when the maximum font size of the font is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  maxFontSize(value: number | StringType | Resource | Vp | Px | Fp | Lpx): TextAttribute;
 
   /**
    * Called when the font style of a font is set.
@@ -129,7 +139,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
-  lineHeight(value: number | string | Resource): TextAttribute;
+  /**
+   * Called when the vertical center mode of the font is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  lineHeight(value: number | StringType | Resource | Vp | Px | Fp | Lpx): TextAttribute;
 
   /**
    * Called when the overflow mode of the font is set.
@@ -184,7 +199,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
-  letterSpacing(value: number | string): TextAttribute;
+  /**
+   * Called when the distance between text fonts is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  letterSpacing(value: number | StringType | Vp | Px | Fp | Lpx): TextAttribute;
 
   /**
    * Called when the type of letter in the text font is set.
@@ -206,7 +226,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @since 9
    */
-  baselineOffset(value: number | string): TextAttribute;
+  /**
+   * Called when the baseline offset is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  baselineOffset(value: number | StringType | Vp | Px | Fp | Lpx): TextAttribute;
 
   /**
    * Allow replication.
@@ -242,12 +267,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Specify the indentation of the first line in a text-block.
-   * @param { Length } value - The length of text indent.
+   * @param { Length | ILength } value - The length of text indent.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  textIndent(value: Length): TextAttribute;
+  textIndent(value: Length | ILength): TextAttribute;
 }
 
 /**

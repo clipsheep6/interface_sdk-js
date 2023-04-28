@@ -36,7 +36,14 @@ interface ColumnInterface {
    * @form
    * @since 9
    */
-  (value?: { space?: string | number }): ColumnAttribute;
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Vertical layout element spacing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  (value?: { space?: StringType | number | Vp | Px| Fp | Lpx}): ColumnAttribute;
 }
 
 /**

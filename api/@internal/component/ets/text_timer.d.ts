@@ -193,7 +193,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  fontSize(value: Length): TextTimerAttribute;
+  fontSize(value: Length | ILength): TextTimerAttribute;
   /**
    * Called when the fontStyle is set
    * @since 8

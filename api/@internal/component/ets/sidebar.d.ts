@@ -107,12 +107,12 @@ interface SideBarContainerInterface {
 interface DividerStyle {
   /**
    * Define the stroke width of the divider
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  strokeWidth: Length;
+  strokeWidth: Length | ILength;
 
   /**
    * Define the color of the divider
@@ -125,21 +125,21 @@ interface DividerStyle {
 
   /**
    * Define the start margin of the divider
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  startMargin?: Length;
+  startMargin?: Length | ILength;
 
   /**
    * Define the end margin of the divider
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  endMargin?: Length;
+  endMargin?: Length | ILength;
 }
 
 /**
@@ -188,19 +188,36 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * Sets the length of sidebar.
    * @since 9
    */
-  sideBarWidth(value: Length): SideBarContainerAttribute;
+  /**
+   * Sets the length of sidebar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  sideBarWidth(value: Length | ILength): SideBarContainerAttribute;
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
    * @since 9
    */
-  minSideBarWidth(value: Length): SideBarContainerAttribute;
+  /**
+   * Sets the min length of sidebar.
+   * default value is 200vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  minSideBarWidth(value: Length | ILength): SideBarContainerAttribute;
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
    * @since 9
    */
-  maxSideBarWidth(value: Length): SideBarContainerAttribute;
+  /**
+   * Sets the max length of sidebar.
+   * default value is 280vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  maxSideBarWidth(value: Length | ILength): SideBarContainerAttribute;
   /**
    * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
    * default value is true.

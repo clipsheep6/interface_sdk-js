@@ -63,11 +63,11 @@ declare type ColorStop = {
 
   /**
    * Offset property.
-   * @type { Length } offset - the color offset.
+   * @type { Length | ILength } offset - the color offset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  offset: Length;
+  offset: Length | ILength;
 }
 
 /**
@@ -233,11 +233,11 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
 
   /**
    * Set the stroke width of the data ratio chart.
-   * @param { Length } value - the stroke width of the data ratio chart.
+   * @param { Length | ILength } value - the stroke width of the data ratio chart.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  strokeWidth(value: Length): DataPanelAttribute;
+  strokeWidth(value: Length | ILength): DataPanelAttribute;
 
   /**
    * Set the shadow width of the data ratio chart.

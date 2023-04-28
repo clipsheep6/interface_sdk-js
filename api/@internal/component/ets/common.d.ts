@@ -295,7 +295,12 @@ declare interface Rectangle {
    * @form
    * @since 9
    */
-  x?: Length;
+  /**
+   * x:Horizontal coordinate
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  x?: Length | ILength;
 
   /**
    * y:Vertical axis coordinate.
@@ -306,7 +311,12 @@ declare interface Rectangle {
    * @form
    * @since 9
    */
-  y?: Length;
+  /**
+   * y:Vertical axis coordinate.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  y?: Length | ILength;
 
   /**
    * Sets the width of the current touchRect.
@@ -317,7 +327,12 @@ declare interface Rectangle {
    * @form
    * @since 9
    */
-  width?: Length;
+  /**
+   * Sets the width of the current touchRect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width?: Length | ILength;
 
   /**
    * Sets the height of the current touchRect.
@@ -328,7 +343,12 @@ declare interface Rectangle {
    * @form
    * @since 9
    */
-  height?: Length;
+  /**
+   * Sets the height of the current touchRect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  height?: Length | ILength;
 }
 
 /**
@@ -390,7 +410,13 @@ declare interface AnimateParam {
    * @form
    * @since 9
    */
-  curve?: Curve | string | ICurve;
+    /**
+   * Animation curve.
+   * @type { string | StringType | ICurve}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  curve?: Curve | StringType | ICurve;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
@@ -478,7 +504,12 @@ declare interface sharedTransitionOptions {
    * Animation duration, in ms.
    * @since 7
    */
-  curve?: Curve | string;
+  /**
+   * Animation duration, in ms.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  curve?: Curve | StringType;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
@@ -520,7 +551,12 @@ declare interface TranslateOptions {
    * @form
    * @since 9
    */
-  x?: number | string;
+  /**
+   * The param of x direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  x?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * The param of y direction.
    * @since 7
@@ -530,7 +566,12 @@ declare interface TranslateOptions {
    * @form
    * @since 9
    */
-  y?: number | string;
+  /**
+   * The param of y direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  y?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * The param of z direction.
    * @since 7
@@ -540,7 +581,12 @@ declare interface TranslateOptions {
    * @form
    * @since 9
    */
-  z?: number | string;
+  /**
+   * The param of z direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  z?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
 }
 
 /**
@@ -592,7 +638,12 @@ declare interface ScaleOptions {
    * @form
    * @since 9
    */
-  centerX?: number | string;
+  /**
+   * The param of center point of x.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  centerX?: number | string | Percentage;
   /**
    * The param of center point of y.
    * @since 7
@@ -602,7 +653,12 @@ declare interface ScaleOptions {
    * @form
    * @since 9
    */
-  centerY?: number | string;
+  /**
+   * The param of center point of y.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  centerY?: number | string | Percentage;
 }
 
 /**
@@ -698,7 +754,12 @@ declare interface RotateOptions {
    * @form
    * @since 9
    */
-  centerX?: number | string;
+  /**
+   * The param of center point of x.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  centerX?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * The param of center point of y.
    * @since 7
@@ -708,7 +769,12 @@ declare interface RotateOptions {
    * @form
    * @since 9
    */
-  centerY?: number | string;
+  /**
+   * The param of center point of y.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  centerY?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * The param of angle.
    * @since 7
@@ -718,7 +784,12 @@ declare interface RotateOptions {
    * @form
    * @since 9
    */
-  angle: number | string;
+  /**
+   * The param of angle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  angle: number | string | Deg | Percentage;
 }
 
 /**
@@ -1739,7 +1810,12 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  slice?: Length | EdgeWidths,
+  /**
+   * Border image slice
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  slice?: Length | ILength | EdgeWidths,
 
   /**
    * Border image repeat
@@ -1760,14 +1836,24 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  width?: Length | EdgeWidths,
+  /**
+   * Border image width
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width?: Length | ILength | EdgeWidths,
 
   /**
    * Border image outset
    * @form
    * @since 9
    */
-  outset?: Length | EdgeWidths,
+  /**
+   * Border image outset
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  outset?: Length | ILength | EdgeWidths,
 
   /**
    * Border image center fill
@@ -2209,7 +2295,12 @@ declare interface PopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-  arrowOffset?: Length;
+  /**
+   * The offset of the sharp corner of popup.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  arrowOffset?: Length | ILength;
 
   /**
    * Whether to display in the sub window.
@@ -2235,11 +2326,11 @@ declare interface PopupOptions {
 
   /**
    * Sets the space of between the popup and target.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  targetSpace?: Length
+  targetSpace?: Length | ILength
 }
 
 /**
@@ -2295,7 +2386,12 @@ declare interface CustomPopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-  arrowOffset?: Length;
+  /**
+   * The offset of the sharp corner of popup.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  arrowOffset?: Length | ILength;
 
   /**
    * Whether to display in the sub window.
@@ -2313,11 +2409,11 @@ declare interface CustomPopupOptions {
 
   /**
    * Sets the space of between the popup and target.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  targetSpace?: Length
+  targetSpace?: Length | ILength | ILength
 }
 
 /**
@@ -2420,41 +2516,42 @@ declare interface PixelStretchEffectOptions {
   /**
    * top property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  top?: Length;
+  top?: Length | ILength;
 
   /**
    * bottom property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bottom?: Length;
+  bottom?: Length | ILength;
 
   /**
    * left property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  left?: Length;
+  left?: Length | ILength;
 
   /**
    * right property. value range (-∞, ∞)
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  right?: Length;
+  right?: Length | ILength | ILength;
 }
 
 /**
@@ -2491,7 +2588,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  width(value: Length): T;
+  /**
+   * Sets the width of the current component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width(value: Length | ILength): T;
 
   /**
    * Sets the height of the current component.
@@ -2502,7 +2604,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  height(value: Length): T;
+  /**
+   * Sets the width of the current component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  height(value: Length | ILength | ILength): T;
 
   /**
    * Sets the response region of the current component.
@@ -2574,7 +2681,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  padding(value: Padding | Length): T;
+  /**
+   * Inner margin.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  padding(value: Padding | Length | ILength): T;
 
   /**
    * Outer Margin.
@@ -2585,7 +2697,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  margin(value: Margin | Length): T;
+  /**
+   * Outer Margin.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  margin(value: Margin | Length | ILength): T;
 
   /**
    * Background color
@@ -2703,7 +2820,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderWidth(value: Length): T;
+  /**
+   * Border width
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  borderWidth(value: Length | ILength): T;
 
   /**
    * Border width
@@ -2743,7 +2865,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  borderRadius(value: Length): T;
+  /**
+   * Border radius
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  borderRadius(value: Length | ILength): T;
 
   /**
    * Border radius
@@ -3027,7 +3154,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  hueRotate(value: number | string): T;
+  /**
+   * Adds the hue rotation effect to the current component.
+   * The input parameter is the rotation angle. When the input parameter is 0deg, the image does not change (the default value is 0deg), and the input parameter does not have a maximum value.
+   * If the value exceeds 360deg, the image is circled again.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  hueRotate(value: number | string | Deg): T;
 
   /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
@@ -3171,7 +3305,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  flexBasis(value: number | string): T;
+  /**
+   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  flexBasis(value: number | StringType | Vp | Px | Fp | Lpx | Percentage): T;
 
   /**
    * Overrides the default configuration of alignItems in the Flex Layout container.
@@ -3367,8 +3506,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
   linearGradient(value: {
-    angle?: number | string;
+    angle?: number | string | Deg | Percentage;
     direction?: GradientDirection;
     colors: Array<any>;
     repeating?: boolean;
@@ -3397,11 +3542,23 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
+   * number:number
+   * rotating:rotating
+   * colors:Color description for gradients
+   * repeating:repeating
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
   sweepGradient(value: {
     center: Array<any>;
-    start?: number | string;
-    end?: number | string;
-    rotation?: number | string;
+    start?: number | string | Deg | Percentage;
+    end?: number | string | Deg | Percentage;
+    rotation?: number | string | Deg | Percentage;
     colors: Array<any>;
     repeating?: boolean;
   }): T;
@@ -3423,7 +3580,16 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient
+   * colors:Color description for gradients
+   * repeating: Refill
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */   
+  radialGradient(value: { center: Array<any>; radius: number | string | Deg | Percentage; colors: Array<any>; repeating?: boolean }): T;
 
   /**
    * Set the motion path of the component
@@ -3792,7 +3958,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
-  strokeWidth(value: Length): T;
+  /**
+   * Sets the width of the dividing line.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  strokeWidth(value: Length | ILength): T;
 
   /**
    * Indicates whether to enable anti-aliasing

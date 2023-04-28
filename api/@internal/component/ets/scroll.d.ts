@@ -58,9 +58,14 @@ declare class Scroller {
    * Called when the setting slides to the specified position.
    * @since 7
    */
+  /**
+   * Called when the setting slides to the specified position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
   scrollTo(value: {
-    xOffset: number | string;
-    yOffset: number | string;
+    xOffset: number | StringType | Vp | Px | Fp | Lpx;
+    yOffset: number | StringType | Vp | Px | Fp | Lpx;
     animation?: { duration: number; curve: Curve };
   });
 
@@ -99,7 +104,12 @@ declare class Scroller {
    * Called when the setting slides by offset.
    * @since 9
    */
-  scrollBy(dx: Length, dy: Length);
+  /**
+   * Called when the setting slides by offset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  scrollBy(dx: Length | ILength, dy: Length | ILength);
 }
 
 /**
@@ -173,7 +183,12 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * Called when the width of the scroll bar is set.
    * @since 7
    */
-  scrollBarWidth(value: number | string): ScrollAttribute;
+  /**
+   * Called when the width of the scroll bar is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  scrollBarWidth(value: number | StringType | Vp | Px | Fp | Lpx): ScrollAttribute;
 
   /**
    * Called when the sliding effect is set.

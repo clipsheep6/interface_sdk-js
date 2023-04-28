@@ -147,19 +147,19 @@ declare enum ChainEdgeEffect {
 declare interface ChainAnimationOptions {
   /**
    * Minimum space for chain animation.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  minSpace: Length;
+  minSpace: Length | ILength;
 
   /**
    * Maximum space for chain animation.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  maxSpace: Length;
+  maxSpace: Length | ILength;
 
   /**
    * Conductivity of chain animation.
@@ -275,12 +275,17 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the ListItem split line style is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
   divider(
     value: {
-      strokeWidth: Length;
+      strokeWidth: Length | ILength;
       color?: ResourceColor;
-      startMargin?: Length;
-      endMargin?: Length;
+      startMargin?: Length | ILength;
+      endMargin?: Length | ILength;
     } | null,
   ): ListAttribute;
 

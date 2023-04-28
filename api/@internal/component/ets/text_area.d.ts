@@ -114,7 +114,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the font size is set.
    * @since 7
    */
-  fontSize(value: Length): TextAreaAttribute;
+  /**
+   * Called when the font size is set.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  fontSize(value: Length | ILength): TextAreaAttribute;
 
   /**
    * Called when the font style of a font is set.

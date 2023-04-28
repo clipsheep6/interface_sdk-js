@@ -32,7 +32,12 @@ declare interface CircleOptions {
    * @form
    * @since 9
    */
-  width?: string | number;
+  /**
+   * Defines the width property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width?: StringType | number | Px | Vp | Fp | Lpx | Percentage;
 
   /**
    * Defines the height property.
@@ -43,7 +48,7 @@ declare interface CircleOptions {
    * @form
    * @since 9
    */
-  height?: string | number;
+  height?: StringType | number | Px | Vp | Fp | Lpx | Percentage;
 }
 
 /**

@@ -65,7 +65,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @form
    * @since 9
    */
-  fontSize(value: Length): MarqueeAttribute;
+  /**
+   * Set marquee font size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  fontSize(value: Length | ILength): MarqueeAttribute;
 
   /**
    * Set marquee allow scale.

@@ -25,42 +25,72 @@ declare interface GridRowSizeOption {
    * @form
    * @since 9
    */
-  xs?: Length,
+  /**
+   * Grid Row Size Option xs
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  xs?: Length | ILength,
 
   /**
    * Grid Row Size Option sm
    * @form
    * @since 9
    */
-  sm?: Length,
+  /**
+   * Grid Row Size Option sm
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  sm?: Length | ILength,
 
   /**
    * Grid Row Size Option md
    * @form
    * @since 9
    */
-  md?: Length,
+  /**
+   * Grid Row Size Option md
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  md?: Length | ILength,
 
   /**
    * Grid Row Size Option lg
    * @form
    * @since 9
    */
-  lg?: Length,
+  /**
+   * Grid Row Size Option lg
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  lg?: Length | ILength,
 
   /**
    * Grid Row Size Option xl
    * @form
    * @since 9
    */
-  xl?: Length,
+  /**
+   * Grid Row Size Option xl
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  xl?: Length | ILength,
 
   /**
    * Grid Row Size Option xxl
    * @form
    * @since 9
    */
-  xxl?: Length,
+  /**
+   * Grid Row Size Option xxl
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  xxl?: Length | ILength,
 }
 
 /**
@@ -123,14 +153,24 @@ declare interface GutterOption {
    * @form
    * @since 9
    */
-  x?: Length | GridRowSizeOption,
+  /**
+   * Define x in GutterOption
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  x?: Length | ILength | GridRowSizeOption,
 
   /**
    * Define y in GutterOption
    * @form
    * @since 9
    */
-  y?: Length | GridRowSizeOption
+  /**
+   * Define y in GutterOption
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  y?: Length | ILength | GridRowSizeOption
 }
 
 /**
@@ -207,7 +247,12 @@ declare interface GridRowOptions {
    * @form
    * @since 9
    */
-  gutter?: Length | GutterOption;
+  /**
+   * layout spacing between sub-components
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  gutter?: Length | ILength | GutterOption;
 
   /**
    * Sets the total number of columns in the current layout.

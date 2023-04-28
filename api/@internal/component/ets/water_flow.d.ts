@@ -71,13 +71,23 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * Set the spacing between columns.
    * @since 9
    */
-  columnsGap(value: Length): WaterFlowAttribute;
+  /**
+   * Set the spacing between columns.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  columnsGap(value: Length | ILength): WaterFlowAttribute;
 
   /**
    * Set the spacing between rows.
    * @since 9
    */
-  rowsGap(value: Length): WaterFlowAttribute;
+  /**
+   * Set the spacing between rows.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  rowsGap(value: Length | ILength): WaterFlowAttribute;
 
   /**
    * Control layout direction of the WaterFlow.

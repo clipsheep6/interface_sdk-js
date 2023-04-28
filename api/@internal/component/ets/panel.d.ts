@@ -101,19 +101,34 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    * Called when the height in the full state is specified.
    * @since 7
    */
-  fullHeight(value: number | string): PanelAttribute;
+  /**
+   * Called when the height in the full state is specified.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  fullHeight(value: number | StringType | Vp | Px | Fp | Lpx): PanelAttribute;
 
   /**
    * Called when the height in the half state is specified.
    * @since 7
    */
-  halfHeight(value: number | string): PanelAttribute;
+  /**
+   * Called when the height in the half state is specified.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */ 
+  halfHeight(value: number | StringType | Vp | Px | Fp | Lpx): PanelAttribute;
 
   /**
    * Called when the height in the mini state is specified.
    * @since 7
    */
-  miniHeight(value: number | string): PanelAttribute;
+  /**
+   * Called when the height in the mini state is specified.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  miniHeight(value: number | StringType | Vp | Px | Fp | Lpx): PanelAttribute;
 
   /**
    * Called when the panel slidable panel pops up.
