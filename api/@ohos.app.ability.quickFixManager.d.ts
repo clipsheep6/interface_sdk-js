@@ -157,7 +157,7 @@ declare namespace quickFixManager {
   function applyQuickFix(hapModuleQuickFixFiles: Array<string>): Promise<void>;
 
   /**
-   * Apply quick fix revoke patch by bundle name.
+   * Revoke quick fix files by bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Bundle name wish to revoke patch.
@@ -166,17 +166,15 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 18500001 - The bundle is not exist or not patch.
-   * @throws { BusinessError } 18500004 - Switch hqf file failed.
-   * @throws { BusinessError } 18500005 - Delete hqf file failed.
    * @throws { BusinessError } 18500009 - The application has a deployment patch task that is being processed.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 10
    */
-  function applyQuickFixRevoke(bundleName: string, callback: AsyncCallback<void>): void;
+  function revokeQuickFix(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Apply quick fix revoke patch by bundle name.
+   * Revoke quick fix files by bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Bundle name wish to revoke patch.
@@ -185,14 +183,12 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 18500001 - The bundle is not exist or not patch.
-   * @throws { BusinessError } 18500004 - Switch hqf file failed.
-   * @throws { BusinessError } 18500005 - Delete hqf file failed.
    * @throws { BusinessError } 18500009 - The application has a deployment patch task that is being processed.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
    * @since 10
    */
-  function applyQuickFixRevoke(bundleName: string): Promise<void>;
+  function revokeQuickFix(bundleName: string): Promise<void>;
 
   /**
    * Get application quick fix info by bundle name.

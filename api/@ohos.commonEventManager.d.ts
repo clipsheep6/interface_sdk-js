@@ -1053,10 +1053,10 @@ declare namespace commonEventManager {
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
 
     /**
-     * Indicate the result of quick fix revoke apply.
+     * Indicate the result of quick fix revoke.
      * This common event can be triggered only by system.
      */
-    COMMON_EVENT_QUICK_FIX_REVOKE_APPLY_RESULT = "usual.event.QUICK_FIX_REVOKE_APPLY_RESULT",
+    COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = "usual.event.QUICK_FIX_REVOKE_RESULT",
 
     /**
      * Indicate the action of a common event that the user information has been updated.
