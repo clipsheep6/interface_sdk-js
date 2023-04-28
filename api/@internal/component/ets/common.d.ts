@@ -1142,12 +1142,6 @@ declare interface RotateOptions {
  * @deprecated since 10
  * @useinstead TransitionEffect
  */
-/**
- * Defines the param of transition.
- * @crossplatform
- * @deprecated since 10
- * @useinstead TransitionEffect
- */
 declare interface TransitionOptions {
   /**
    * Defines the param of type.
@@ -3084,13 +3078,6 @@ declare interface PopupOptions {
    * @deprecated since 10
    * @useinstead PopupOptions#placement
    */
-  /**
-   * placement On Top
-   * @crossplatform
-   * @since 10
-   * @deprecated since 10
-   * @useinstead PopupOptions#placement
-   */
   placementOnTop?: boolean;
 
   /**
@@ -3266,13 +3253,6 @@ declare interface CustomPopupOptions {
   /**
    * mask color of popup
    * @since 8
-   * @deprecated since 10
-   * @useinstead CustomPopupOptions#mask
-   */
-  /**
-   * mask color of popup
-   * @crossplatform
-   * @since 10
    * @deprecated since 10
    * @useinstead CustomPopupOptions#mask
    */
@@ -3642,13 +3622,6 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
-   * @deprecated since 9
-   * @useinstead hitTestBehavior
-   */
-  /**
-   * Sets the touchable of the current component
-   * @crossplatform
-   * @since 10
    * @deprecated since 9
    * @useinstead hitTestBehavior
    */
@@ -4770,12 +4743,6 @@ declare class CommonMethod<T> {
    * Sets the number of occupied columns and offset columns for a specific device width type.
    * @since 7
    * @deprecated since 9
-   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
-   */
-  /**
-   * Sets the number of occupied columns and offset columns for a specific device width type.
-   * @crossplatform
-   * @since 10
    * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
    */
   useSizeType(value: {

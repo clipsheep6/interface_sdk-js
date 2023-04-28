@@ -19,12 +19,6 @@
  * @deprecated since 9
  * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
  */
-/**
- * Defines the size type.
- * @crossplatform 
- * @since 10
- * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
- */
 declare enum SizeType {
   /**
    * Select a value based on the device type.
@@ -88,22 +82,10 @@ declare enum SizeType {
  * @deprecated since 9
  * @useinstead grid_col/[GridColOptions] and grid_row/[GridRowOptions]
  */
-/**
- * Defines the options of GridContainer.
- * @crossplatform 
- * @since 10
- * @useinstead grid_col/[GridColOptions] and grid_row/[GridRowOptions]
- */
 declare interface GridContainerOptions {
   /**
    * Sets the total number of columns in the current layout.
    * @since 7
-   * @deprecated since 9
-   */
-  /**
-   * Sets the total number of columns in the current layout.
-   * @crossplatform 
-   * @since 10
    * @deprecated since 9
    */
   columns?: number | "auto";
@@ -113,12 +95,6 @@ declare interface GridContainerOptions {
    * @since 7
    * @deprecated since 9
    */
-  /**
-   * Select the device width type.
-   * @crossplatform 
-   * @since 10
-   * @deprecated since 9
-   */
   sizeType?: SizeType;
 
   /**
@@ -126,23 +102,11 @@ declare interface GridContainerOptions {
    * @since 7
    * @deprecated since 9
    */
-  /**
-   * Grid layout column spacing.
-   * @crossplatform 
-   * @since 10
-   * @deprecated since 9
-   */
   gutter?: number | string;
 
   /**
    * Spacing on both sides of the grid layout.
    * @since 7
-   * @deprecated since 9
-   */
-  /**
-   * Spacing on both sides of the grid layout.
-   * @crossplatform 
-   * @since 10
    * @deprecated since 9
    */
   margin?: number | string;
@@ -154,22 +118,11 @@ declare interface GridContainerOptions {
  * @deprecated since 9
  * @useinstead grid_col/[GridColInterface] and grid_row/[GridRowInterface]
  */
-/**
- * Defines the GridContainer component.
- * @crossplatform 
- * @since 10
- * @useinstead grid_col/[GridColInterface] and grid_row/[GridRowInterface]
- */
 interface GridContainerInterface {
   /**
    * Defines the constructor of GridContainer.
    * @since 7
    * @deprecated since 9
-   */
-  /**
-   * Defines the constructor of GridContainer.
-   * @crossplatform 
-   * @since 10
    */
   (value?: GridContainerOptions): GridContainerAttribute;
 }
@@ -180,24 +133,12 @@ interface GridContainerInterface {
  * @deprecated since 9
  * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
  */
-/**
- * Defines the grid container attribute from inheritance Column
- * @crossplatform 
- * @since 10
- * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
- */
-declare class GridContainerAttribute extends ColumnAttribute {}
+declare class GridContainerAttribute extends ColumnAttribute { }
 
 /**
  * Defines GridContainer Component.
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
- */
-/**
- * Defines GridContainer Component.
- * @crossplatform 
- * @since 10
  * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
  */
 declare const GridContainer: GridContainerInterface
@@ -206,12 +147,6 @@ declare const GridContainer: GridContainerInterface
  * Defines GridContainer Component instance.
  * @since 7
  * @deprecated since 9
- * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
- */
-/**
- * Defines GridContainer Component instance.
- * @crossplatform 
- * @since 10
  * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
  */
 declare const GridContainerInstance: GridContainerAttribute;

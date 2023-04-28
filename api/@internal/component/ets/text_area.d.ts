@@ -17,15 +17,30 @@
  * Provides the method of switching the cursor position.
  * @since 8
  */
+/**
+ * Provides the method of switching the cursor position.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextAreaController {
   /**
    * constructor.
    * @since 8
    */
+  /**
+   * constructor.
+   * @crossplatform
+   * @since 10
+   */
   constructor();
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+   */
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @crossplatform
+   * @since 10
    */
   caretPosition(value: number): void;
 
@@ -43,10 +58,20 @@ declare class TextAreaController {
  * Defines the options of TextArea.
  * @since 7
  */
+/**
+ * Defines the options of TextArea.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TextAreaOptions {
   /**
    * The place holder text string.
    * @since 7
+   */
+  /**
+   * The place holder text string.
+   * @crossplatform
+   * @since 10
    */
   placeholder?: ResourceStr;
 
@@ -54,11 +79,21 @@ declare interface TextAreaOptions {
    * Sets the current value of TextArea.
    * @since 7
    */
+  /**
+   * Sets the current value of TextArea.
+   * @crossplatform
+   * @since 10
+   */
   text?: ResourceStr;
 
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+   */
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @crossplatform
+   * @since 10
    */
   controller?: TextAreaController;
 }
@@ -67,10 +102,20 @@ declare interface TextAreaOptions {
  * Provides an interface for the multi-line text input component.
  * @since 7
  */
+/**
+ * Provides an interface for the multi-line text input component.
+ * @crossplatform
+ * @since 10
+ */
 interface TextAreaInterface {
   /**
    * Called when writing multiple lines of text.
    * @since 7
+   */
+  /**
+   * Called when writing multiple lines of text.
+   * @crossplatform
+   * @since 10
    */
   (value?: TextAreaOptions): TextAreaAttribute;
 }
@@ -79,10 +124,20 @@ interface TextAreaInterface {
  * Defines the attribute functions of TextArea.
  * @since 7
  */
+/**
+ * Defines the attribute functions of TextArea.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the color of the placeholder is set.
    * @since 7
+   */
+  /**
+   * Called when the color of the placeholder is set.
+   * @crossplatform
+   * @since 10
    */
   placeholderColor(value: ResourceColor): TextAreaAttribute;
 
@@ -90,11 +145,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the font property of the placeholder is set.
    * @since 7
    */
+  /**
+   * Called when the font property of the placeholder is set.
+   * @crossplatform
+   * @since 10
+   */
   placeholderFont(value: Font): TextAreaAttribute;
 
   /**
    * Called when the alignment of the contents of a multiline text box is set.
    * @since 7
+   */
+  /**
+   * Called when the alignment of the contents of a multiline text box is set.
+   * @crossplatform
+   * @since 10
    */
   textAlign(value: TextAlign): TextAreaAttribute;
 
@@ -102,11 +167,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the insertion cursor color is set.
    * @since 7
    */
+  /**
+   * Called when the insertion cursor color is set.
+   * @crossplatform
+   * @since 10
+   */
   caretColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font color is set.
    * @since 7
+   */
+  /**
+   * Called when the font color is set.
+   * @crossplatform
+   * @since 10
    */
   fontColor(value: ResourceColor): TextAreaAttribute;
 
@@ -114,11 +189,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the font size is set.
    * @since 7
    */
+  /**
+   * Called when the font size is set.
+   * @crossplatform
+   * @since 10
+   */
   fontSize(value: Length): TextAreaAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
+   */
+  /**
+   * Called when the font style of a font is set.
+   * @crossplatform
+   * @since 10
    */
   fontStyle(value: FontStyle): TextAreaAttribute;
 
@@ -126,11 +211,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the font weight is set.
    * @since 7
    */
+  /**
+   * Called when the font weight is set.
+   * @crossplatform
+   * @since 10
+   */
   fontWeight(value: number | FontWeight | string): TextAreaAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
+   */
+  /**
+   * Called when the font list of text is set.
+   * @crossplatform
+   * @since 10
    */
   fontFamily(value: ResourceStr): TextAreaAttribute;
 
@@ -138,11 +233,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the inputFilter of text is set.
    * @since 8
    */
+  /**
+   * Called when the inputFilter of text is set.
+   * @crossplatform
+   * @since 10
+   */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when the input changes.
    * @since 7
+   */
+  /**
+   * Called when the input changes.
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (value: string) => void): TextAreaAttribute;
 
@@ -158,11 +263,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when using the Clipboard menu
    * @since 7
    */
+  /**
+   * Called when using the Clipboard menu
+   * @crossplatform
+   * @since 10
+   */
   onCopy(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
+   */
+  /**
+   * Called when using the Clipboard menu
+   * @crossplatform
+   * @since 10
    */
   onCut(callback: (value: string) => void): TextAreaAttribute;
 
@@ -170,11 +285,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when using the Clipboard menu
    * @since 7
    */
+  /**
+   * Called when using the Clipboard menu
+   * @crossplatform
+   * @since 10
+   */
   onPaste(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when the copy option is set.
    * @since 9
+   */
+  /**
+   * Called when the copy option is set.
+   * @crossplatform
+   * @since 10
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
 }
@@ -183,10 +308,20 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
  * Defines TextArea Component.
  * @since 7
  */
+/**
+ * Defines TextArea Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TextArea: TextAreaInterface;
 
 /**
  * Defines TextArea Component instance.
  * @since 7
+ */
+/**
+ * Defines TextArea Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TextAreaInstance: TextAreaAttribute;

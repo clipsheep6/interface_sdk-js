@@ -86,13 +86,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @deprecated since 8
    * @useinstead onSelect
    */
-  /**
-   * Index bar selection callback.
-   * @crossplatform
-   * @since 10
-   * @deprecated since 8
-   * @useinstead onSelect
-   */
   onSelected(callback: (index: number) => void): AlphabetIndexerAttribute;
 
   /**

@@ -27,16 +27,30 @@ interface GridItemInterface {
    * Return to get GridItem.
    * @since 7
    */
+  /**
+   * Return to get GridItem.
+   * @crossplatform
+   * @since 10
+   */
   (): GridItemAttribute;
 }
 
 /**
  * @since 7
  */
+/**
+ * @crossplatform
+ * @since 10
+ */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * This parameter specifies the start line number of the current element.
    * @since 7
+   */
+  /**
+   * This parameter specifies the start line number of the current element.
+   * @crossplatform
+   * @since 10
    */
   rowStart(value: number): GridItemAttribute;
 
@@ -44,17 +58,32 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * Specifies the end line number of the current element.
    * @since 7
    */
+  /**
+   * Specifies the end line number of the current element.
+   * @crossplatform
+   * @since 10
+   */
   rowEnd(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies the start column number of the current element.
    * @since 7
    */
+  /**
+   * This parameter specifies the start column number of the current element.
+   * @crossplatform
+   * @since 10
+   */
   columnStart(value: number): GridItemAttribute;
 
   /**
    * This parameter specifies the end column number of the current element.
    * @since 7
+   */
+  /**
+   * This parameter specifies the end column number of the current element.
+   * @crossplatform
+   * @since 10
    */
   columnEnd(value: number): GridItemAttribute;
 
@@ -69,11 +98,21 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * Called when judging whether it is selectable.
    * @since 8
    */
+  /**
+   * Called when judging whether it is selectable.
+   * @crossplatform
+   * @since 10
+   */
   selectable(value: boolean): GridItemAttribute;
 
   /**
    * Called when the gridItem is selected.
    * @since 8
+   */
+  /**
+   * Called when the gridItem is selected.
+   * @crossplatform
+   * @since 10
    */
   onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
 }
@@ -82,10 +121,20 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
  * Defines GridItem Component.
  * @since 7
  */
+/**
+ * Defines GridItem Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const GridItem: GridItemInterface
 
 /**
  * Defines GridItem Component instance.
  * @since 7
+ */
+/**
+ * Defines GridItem Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const GridItemInstance: GridItemAttribute;
