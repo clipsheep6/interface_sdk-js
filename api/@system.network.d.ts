@@ -14,8 +14,9 @@
  */
 
 /**
+ * 
  * @since 3
- * @syscap SystemCapability.Communication.NetManager.Core
+ * @syscap SystemCapability.Communication.NetManager.Core 
  */
 export interface NetworkResponse {
   /**
