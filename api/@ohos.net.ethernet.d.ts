@@ -18,8 +18,8 @@ import { AsyncCallback, Callback } from "./@ohos.base";
 /**
  * Provides interfaces to manage ethernet.
  *
- * @syscap SystemCapability.Communication.NetManager.Ethernet
  * @since 9
+ * @syscap SystemCapability.Communication.NetManager.Ethernet
  */
 declare namespace ethernet {
   /**
@@ -180,6 +180,7 @@ declare namespace ethernet {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   export interface InterfaceConfiguration {
     /**
@@ -232,7 +233,16 @@ declare namespace ethernet {
    *  @since 9
    */
   export enum IPSetMode {
+  /**
+   * Ethernet connection static configuration network information.
+   *  @since 9
+   */
     STATIC = 0,
+
+  /**
+   * Dynamically configure network information for Ethernet connections.
+   *  @since 9
+   */
     DHCP = 1
   }
 }

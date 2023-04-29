@@ -521,7 +521,16 @@ declare namespace connection {
   }
 
   export interface NetSpecifier {
+    /**
+     * The transmission capacity and support of the network's global proxy storage data network.
+     * @since 10
+     */
     netCapabilities: NetCapabilities;
+
+    /**
+     * Network identifier, the identifier for Wi Fi networks is "wifi", and the identifier for cellular networks is "slot0" (corresponding to SIM card 1).
+     * @since 10
+     */
     bearerPrivateIdentifier?: string;
   }
 
@@ -792,15 +801,36 @@ declare namespace connection {
      * @since 9
      */
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
+
+    /**
+     * Port, value range [0, 65535].
+     * @since 9
+     */
     port?: number; // [0, 65535]
   }
 
   /**
+   * Network Global Proxy Configuration Information.
    * @since 10
    */
+  
   export interface HttpProxy {
+    /**
+     * Proxy server host name.
+     * @since 10
+     */
     host: string;
+
+    /**
+     * Host port.
+     * @since 10
+     */
     port: number;
+
+    /**
+     * Do not use a blocking list for proxy servers.
+     * @since 10
+     */
     exclusionList: Array<string>;
   }
 }

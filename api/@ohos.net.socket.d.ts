@@ -1037,7 +1037,18 @@ declare namespace socket {
    * @since 9
    */
   export interface TLSConnectOptions {
+    /**
+     * Gateway address.
+     * @crossplatform
+     * @since 9
+     */
     address: NetAddress;
+
+    /**
+     * Protocol http2TLS security related operations.
+     * @crossplatform
+     * @since 9
+     */
     secureOptions: TLSSecureOptions;
 
     /**
@@ -1053,7 +1064,18 @@ declare namespace socket {
    * @since 9
    */
   export enum Protocol {
+    /**
+     * Use TLSv1.2 protocol for communication.
+     * @crossplatform
+     * @since 9
+     */
     TLSv12 = "TLSv1.2",
+
+    /**
+     * Use TLSv1.2 protocol for communication.
+     * @crossplatform
+     * @since 9
+     */
     TLSv13 = "TLSv1.3",
   }
 }

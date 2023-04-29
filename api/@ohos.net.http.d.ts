@@ -465,13 +465,44 @@ declare namespace http {
    * @crossplatform
    */
   export enum RequestMethod {
+    /**
+     * HTTP request OPTIONS.
+     */
     OPTIONS = "OPTIONS",
+
+    /**
+     * HTTP request GET.
+     */
     GET = "GET",
+
+    /**
+     * HTTP request HEAD.
+     */
     HEAD = "HEAD",
+
+    /**
+     * HTTP request POST.
+     */
     POST = "POST",
+
+    /**
+     * HTTP request PUT.
+     */
     PUT = "PUT",
+
+    /**
+     * HTTP request DELETE.
+     */
     DELETE = "DELETE",
+
+    /**
+     * HTTP request TRACE.
+     */
     TRACE = "TRACE",
+
+    /**
+     * HTTP request CONNECT.
+     */
     CONNECT = "CONNECT"
   }
 
@@ -479,40 +510,179 @@ declare namespace http {
    * @crossplatform
    */
   export enum ResponseCode {
+    /**
+     * The request was successful. Typically used for GET and POST requests.
+     */
     OK = 200,
+
+     /**
+     * Created. Successfully requested and created a new resource.
+     */
+
     CREATED,
+
+     /**
+     * Accepted. The request has been accepted but has not been processed completely.
+     */
     ACCEPTED,
+
+     /**
+     * Unauthorized information. The request was successful.
+     */
     NOT_AUTHORITATIVE,
+
+    /**
+     * No content. The server successfully processed, but did not return content.
+     */
     NO_CONTENT,
+
+    /**
+     *Reset the content.
+     */
     RESET,
+
+     /**
+     *Partial content. The server successfully processed some GET requests.
+     */
     PARTIAL,
+
+    /**
+     *Multiple options.
+     */
     MULT_CHOICE = 300,
+
+     /**
+     *Permanently move. The requested resource has been permanently moved to a new URI, and the returned information will include the new URI. The browser will automatically redirect to the new URI.
+     */
     MOVED_PERM,
+
+    /**
+     *Temporary movement.
+     */
     MOVED_TEMP,
+
+    /**
+     *View other addresses.
+     */
     SEE_OTHER,
+
+    /**
+     *Not modified.
+     */
     NOT_MODIFIED,
+
+     /**
+     *Using proxies.
+     */
     USE_PROXY,
+
+    /**
+     *The server cannot understand the syntax error error requested by the client.
+     */
     BAD_REQUEST = 400,
+
+    /**
+     *Request for user authentication.
+     */
     UNAUTHORIZED,
+
+    /**
+     *Reserved for future use.
+     */
     PAYMENT_REQUIRED,
+
+     /**
+     *The server understands the request from the requesting client, but refuses to execute it.
+     */
     FORBIDDEN,
+
+    /**
+     *The server was unable to find resources (web pages) based on the client's request.
+     */
     NOT_FOUND,
+
+     /**
+     *The method in the client request is prohibited.
+     */
     BAD_METHOD,
+
+   /**
+     *The server is unable to complete the request based on the content characteristics requested by the client.
+     */
     NOT_ACCEPTABLE,
+
+     /**
+     *Request authentication of the proxy's identity.
+     */
     PROXY_AUTH,
+
+   /**
+     *The request took too long and timed out.
+     */
     CLIENT_TIMEOUT,
+    /**
+     *The server may have returned this code when completing the client's PUT request, as there was a conflict when the server was processing the request.
+     */
     CONFLICT,
+
+    /**
+     *The resource requested by the client no longer exists.
+     */
     GONE,
+
+    /**
+     *The server is unable to process request information sent by the client without Content Length.
+     */
     LENGTH_REQUIRED,
+
+    /**
+     *The prerequisite for requesting information from the client is incorrect.
+     */
     PRECON_FAILED,
+
+    /**
+     *The request was rejected because the requested entity was too large for the server to process.
+     */
     ENTITY_TOO_LARGE,
+
+    /**
+     *The requested URI is too long (usually a URL) and the server cannot process it.
+     */
     REQ_TOO_LONG,
+
+    /**
+     *The server is unable to process the requested format.
+     */
     UNSUPPORTED_TYPE,
+
+    /**
+     *Internal server error, unable to complete the request.
+     */
     INTERNAL_ERROR = 500,
+
+    /**
+     *The server does not support the requested functionality and cannot complete the request.
+     */
     NOT_IMPLEMENTED,
+
+    /**
+     *The server acting as a gateway or proxy received an invalid request from the remote server.
+     */
     BAD_GATEWAY,
+
+    /**
+     *Due to overload or system maintenance, the server is temporarily unable to process client requests.
+     */
     UNAVAILABLE,
+
+    /**
+     *The server acting as a gateway or proxy did not obtain requests from the remote server in a timely manner.
+     */
     GATEWAY_TIMEOUT,
+
+    /**
+     *The version of the HTTP protocol requested by the server.
+     */
     VERSION
   }
 
@@ -523,7 +693,14 @@ declare namespace http {
    * @since 9
    */
   export enum HttpProtocol {
+    /**
+     *Protocol http1.1
+     */
     HTTP1_1,
+
+    /**
+     *Protocol http2
+     */
     HTTP2,
   }
 
@@ -537,16 +714,19 @@ declare namespace http {
     /**
      * The returned type is string.
      * @crossplatform
+     * @since 9
      */
     STRING,
     /**
      * The returned type is Object.
      * @crossplatform
+     * @since 9
      */
     OBJECT = 1,
     /**
      * The returned type is ArrayBuffer.
      * @crossplatform
+     * @since 9
      */
     ARRAY_BUFFER = 2,
   }
