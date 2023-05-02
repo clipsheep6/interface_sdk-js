@@ -100,7 +100,6 @@ interface BoardStyle {
    */
   borderRadius?: Length;
 }
-
 /**
  * LabelStyle object.
  * @interface LabelStyle
@@ -262,10 +261,20 @@ declare class BottomTabBarStyle {
  * Provides an interface for switching the content view on a tab page.
  * @since 7
  */
+/**
+ * Provides an interface for switching the content view on a tab page.
+ * @crossplatform
+ * @since 10
+ */
 interface TabContentInterface {
   /**
    * Called when the content view of the switch tab is set.
    * @since 7
+   */
+  /**
+   * Called when the content view of the switch tab is set.
+   * @crossplatform
+   * @since 10
    */
   (): TabContentAttribute;
 }
@@ -274,10 +283,20 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  * @since 7
  */
+/**
+ * Defines the attribute functions of TabContent.
+ * @crossplatform
+ * @since 10
+ */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * Called when tabbar is entered.
    * @since 7
+   */
+  /**
+   * Called when tabbar is entered.
+   * @crossplatform
+   * @since 10
    */
   tabBar(value: string | Resource | CustomBuilder |
     { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
@@ -286,6 +305,11 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * Called when tabbar is entered.
    * @since 9
    */
+  /**
+   * Called when tabbar is entered.
+   * @crossplatform
+   * @since 10
+   */
    tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
@@ -293,10 +317,20 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
  * Defines TabContent Component.
  * @since 7
  */
+/**
+ * Defines TabContent Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TabContent: TabContentInterface;
 
 /**
  * Defines TabContent Component instance.
  * @since 7
+ */
+/**
+ * Defines TabContent Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TabContentInstance: TabContentAttribute;

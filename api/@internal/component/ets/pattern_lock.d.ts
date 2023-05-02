@@ -33,6 +33,11 @@ declare class PatternLockController {
  * Provides an interface for generating PatternLock.
  * @since 9
  */
+/**
+ * Provides an interface for generating PatternLock.
+ * @crossplatform
+ * @since 10
+ */
 interface PatternLockInterface {
   (controller?: PatternLockController): PatternLockAttribute;
 }
@@ -40,10 +45,19 @@ interface PatternLockInterface {
 /**
  * @since 9
  */
+/**
+ * @crossplatform
+ * @since 10
+ */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * The square side length of pattern lock component.
    * @since 9
+   */
+  /**
+   * The square side length of pattern lock component.
+   * @crossplatform
+   * @since 10
    */
   sideLength(value: Length): PatternLockAttribute;
 
@@ -51,11 +65,21 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * Circle radius.
    * @since 9
    */
+  /**
+   * Circle radius.
+   * @crossplatform
+   * @since 10
+   */
   circleRadius(value: Length): PatternLockAttribute;
 
   /**
    * The background color.
    * @since 9
+   */
+  /**
+   * The background color.
+   * @crossplatform
+   * @since 10
    */
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
@@ -63,11 +87,21 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * Regular color.
    * @since 9
    */
+  /**
+   * Regular color.
+   * @crossplatform
+   * @since 10
+   */
   regularColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is selected.
    * @since 9
+   */
+  /**
+   * The color when cell is selected.
+   * @crossplatform
+   * @since 10
    */
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
@@ -75,11 +109,21 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * The color when cell is active state.
    * @since 9
    */
+  /**
+   * The color when cell is active state.
+   * @crossplatform
+   * @since 10
+   */
   activeColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line color.
    * @since 9
+   */
+  /**
+   * The path line color.
+   * @crossplatform
+   * @since 10
    */
   pathColor(value: ResourceColor): PatternLockAttribute;
 
@@ -87,17 +131,32 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * The path line stroke width.
    * @since 9
    */
+  /**
+   * The path line stroke width.
+   * @crossplatform
+   * @since 10
+   */
   pathStrokeWidth(value: number | string): PatternLockAttribute;
 
   /**
    * Called when the pattern input completed.
    * @since 9
    */
+  /**
+   * Called when the pattern input completed.
+   * @crossplatform
+   * @since 10
+   */
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
    * @since 9
+   */
+  /**
+   * Called when judging whether the input state can be reset by touch pattern lock.
+   * @crossplatform
+   * @since 10
    */
   autoReset(value: boolean): PatternLockAttribute;
 }
@@ -106,10 +165,20 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
  * Defines PatternLock Component.
  * @since 9
  */
+/**
+ * Defines PatternLock Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const PatternLock: PatternLockInterface;
 
 /**
  * Defines PatternLock Component instance.
  * @since 9
+ */
+/**
+ * Defines PatternLock Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const PatternLockInstance: PatternLockAttribute;

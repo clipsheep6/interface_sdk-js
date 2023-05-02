@@ -17,16 +17,31 @@
  * The declare of selectOption.
  * @since 8
  */
+/**
+ * The declare of selectOption.
+ * @crossplatform
+ * @since 10
+ */
 declare interface SelectOption {
   /**
    * option string.
    * @since 8
+   */
+  /**
+   * option string.
+   * @crossplatform
+   * @since 10
    */
   value: ResourceStr;
 
   /**
    * option icon.
    * @since 8
+   */
+  /**
+   * option icon.
+   * @crossplatform
+   * @since 10
    */
   icon?: ResourceStr;
 }
@@ -35,10 +50,20 @@ declare interface SelectOption {
  * Provides the select interface.
  * @since 8
  */
+/**
+ * Provides the select interface.
+ * @crossplatform
+ * @since 10
+ */
 interface SelectInterface {
   /**
    * Called when the select is set.
    * @since 8
+   */
+  /**
+   * Called when the select is set.
+   * @crossplatform
+   * @since 10
    */
   (options: Array<SelectOption>): SelectAttribute;
 }
@@ -68,10 +93,20 @@ declare enum ArrowPosition {
  * The commonMethod of select.
  * @since 8
  */
+/**
+ * The commonMethod of select.
+ * @crossplatform
+ * @since 10
+ */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the serial number of the select item, starting from 0.
    * @since 8
+   */
+  /**
+   * Sets the serial number of the select item, starting from 0.
+   * @crossplatform
+   * @since 10
    */
   selected(value: number): SelectAttribute;
 
@@ -79,11 +114,21 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the text display of the select button itself.
    * @since 8
    */
+  /**
+   * Sets the text display of the select button itself.
+   * @crossplatform
+   * @since 10
+   */
   value(value: string): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.
    * @since 8
+   */
+  /**
+   * Sets the text properties of the select button itself.
+   * @crossplatform
+   * @since 10
    */
   font(value: Font): SelectAttribute;
 
@@ -91,11 +136,21 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the text color of the select button itself.
    * @since 8
    */
+  /**
+   * Sets the text color of the select button itself.
+   * @crossplatform
+   * @since 10
+   */
   fontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the background color of the selected items in the select.
    * @since 8
+   */
+  /**
+   * Sets the background color of the selected items in the select.
+   * @crossplatform
+   * @since 10
    */
   selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
@@ -103,11 +158,21 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the text style of the selected items in the select.
    * @since 8
    */
+  /**
+   * Sets the text style of the selected items in the select.
+   * @crossplatform
+   * @since 10
+   */
   selectedOptionFont(value: Font): SelectAttribute;
 
   /**
    * Sets the text color of the selected item in the select.
    * @since 8
+   */
+  /**
+   * Sets the text color of the selected item in the select.
+   * @crossplatform
+   * @since 10
    */
   selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
@@ -115,11 +180,21 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the background color of the select item.
    * @since 8
    */
+  /**
+   * Sets the background color of the select item.
+   * @crossplatform
+   * @since 10
+   */
   optionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the text style for select items.
    * @since 8
+   */
+  /**
+   * Sets the text style for select items.
+   * @crossplatform
+   * @since 10
    */
   optionFont(value: Font): SelectAttribute;
 
@@ -127,11 +202,21 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the text color for select items.
    * @since 8
    */
+  /**
+   * Sets the text color for select items.
+   * @crossplatform
+   * @since 10
+   */
   optionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Callback for selecting an item from the select.
    * @since 8
+   */
+  /**
+   * Callback for selecting an item from the select.
+   * @crossplatform
+   * @since 10
    */
   onSelect(callback: (index: number, value?: string) => void): SelectAttribute;
 
@@ -156,10 +241,20 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * Defines Select Component.
  * @since 8
  */
+/**
+ * Defines Select Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Select: SelectInterface;
 
 /**
  * Defines Select Component instance.
  * @since 8
+ */
+/**
+ * Defines Select Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const SelectInstance: SelectAttribute;

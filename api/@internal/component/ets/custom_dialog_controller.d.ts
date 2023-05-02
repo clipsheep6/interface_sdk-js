@@ -19,8 +19,8 @@
  */
 /**
  * Defines the options of CustomDialogController.
- * @crossplatform 
- * @since 10 
+ * @crossplatform
+ * @since 10
  */
 declare interface CustomDialogControllerOptions {
   /**
@@ -29,8 +29,8 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Custom builder function.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   builder: any;
 
@@ -40,8 +40,8 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Defines the cancel function.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   cancel?: () => void;
 
@@ -51,8 +51,8 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Defines if use auto cancel when click on the outside of the dialog.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   autoCancel?: boolean;
 
@@ -62,8 +62,8 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Defines the dialog alignment of the screen.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   alignment?: DialogAlignment;
 
@@ -73,8 +73,8 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Defines the dialog offset.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   offset?: Offset;
 
@@ -84,8 +84,8 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Defines if use custom style.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   customStyle?: boolean;
 
@@ -95,29 +95,29 @@ declare interface CustomDialogControllerOptions {
    */
   /**
    * Grid count of dialog.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   gridCount?: number;
 
   /**
    * Mask color of dialog.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   maskColor?: ResourceColor;
 
   /**
    * Animation parameters of dialog opening.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   openAnimation?: AnimateParam;
 
   /**
   * Animation parameters of dialog closing.
-  * @crossplatform 
-  * @since 10 
+  * @crossplatform
+  * @since 10
   */
   closeAnimation?: AnimateParam;
 
@@ -136,8 +136,8 @@ declare interface CustomDialogControllerOptions {
  */
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
- * @crossplatform 
- * @since 10 
+ * @crossplatform
+ * @since 10
  */
 declare class CustomDialogController {
   /**
@@ -146,8 +146,8 @@ declare class CustomDialogController {
    */
   /**
    * The constructor transfers parameter settings.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   constructor(value: CustomDialogControllerOptions);
 
@@ -157,8 +157,8 @@ declare class CustomDialogController {
    */
   /**
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   open();
 
@@ -168,8 +168,8 @@ declare class CustomDialogController {
    */
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
-   * @crossplatform 
-   * @since 10 
+   * @crossplatform
+   * @since 10
    */
   close();
 }

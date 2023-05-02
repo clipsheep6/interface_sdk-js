@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Input parameter for creating a radio box.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface RadioOptions {
   /**
    * Radio group name.
@@ -31,6 +37,12 @@ declare interface RadioOptions {
    * Radio group name.
    * @form
    * @since 9
+   */
+  /**
+   * Radio group name.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   group: string;
 
@@ -42,6 +54,12 @@ declare interface RadioOptions {
    * Radio name.
    * @form
    * @since 9
+   */
+  /**
+   * Radio name.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   value: string;
 }
@@ -89,6 +107,12 @@ declare interface RadioStyle {
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for creating a radio box.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface RadioInterface {
   /**
    * Called when a radio box is created.
@@ -98,6 +122,12 @@ interface RadioInterface {
    * Called when a radio box is created.
    * @form
    * @since 9
+   */
+  /**
+   * Called when a radio box is created.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   (options: RadioOptions): RadioAttribute;
 }
@@ -109,6 +139,11 @@ interface RadioInterface {
  * @form
  * @since 9
  */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box is selected.
@@ -119,6 +154,13 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the radio box is selected.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  
   checked(value: boolean): RadioAttribute;
 
   /**
@@ -129,6 +171,12 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * Called when the radio box selection status changes.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the radio box selection status changes.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
@@ -150,6 +198,12 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Radio Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Radio: RadioInterface;
 
 /**
@@ -160,5 +214,11 @@ declare const Radio: RadioInterface;
  * Defines Radio Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Radio Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const RadioInstance: RadioAttribute;

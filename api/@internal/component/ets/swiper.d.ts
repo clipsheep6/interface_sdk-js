@@ -21,6 +21,7 @@
  * Provides methods for switching components.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class SwiperController {
@@ -32,6 +33,7 @@ declare class SwiperController {
    * constructor.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor();
@@ -44,6 +46,7 @@ declare class SwiperController {
    * Called when the next child component is displayed.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   showNext();
@@ -56,6 +59,7 @@ declare class SwiperController {
    * Called when the previous subcomponent is displayed.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   showPrevious();
@@ -68,6 +72,7 @@ declare class SwiperController {
    * Called when need to stop the swiper animation.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   finishAnimation(callback?: () => void);
@@ -115,7 +120,6 @@ declare class Indicator<T> {
    * @since 10
    */
   bottom(value: Length): T;
-
   /**
    * DotIndicator class object.
    * @static
@@ -283,6 +287,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
  * Declare the size of the swiper on the spindle.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SwiperDisplayMode {
@@ -294,6 +299,7 @@ declare enum SwiperDisplayMode {
    * Carousel map extension.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   Stretch,
@@ -306,6 +312,7 @@ declare enum SwiperDisplayMode {
    * The rotation chart is self linear.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   AutoLinear,
@@ -319,6 +326,7 @@ declare enum SwiperDisplayMode {
  * Provides an interface for sliding containers.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface SwiperInterface {
@@ -330,6 +338,7 @@ interface SwiperInterface {
    * Called when a sliding container is set.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   (controller?: SwiperController): SwiperAttribute;
@@ -345,11 +354,21 @@ declare interface IndicatorStyle {
    * Set the indicator to the left.
    * @since 8
    */
+  /**
+   * Set the indicator to the left.
+   * @crossplatform
+   * @since 10
+   */
   left?: Length;
 
   /**
    * Set the indicator to the top.
    * @since 8
+   */
+  /**
+   * Set the indicator to the top.
+   * @crossplatform
+   * @since 10
    */
   top?: Length;
 
@@ -357,11 +376,21 @@ declare interface IndicatorStyle {
    * Set the indicator to the right.
    * @since 8
    */
+  /**
+   * Set the indicator to the right.
+   * @crossplatform
+   * @since 10
+   */
   right?: Length;
 
   /**
    * Set the indicator to the bottom.
    * @since 8
+   */
+  /**
+   * Set the indicator to the bottom.
+   * @crossplatform
+   * @since 10
    */
   bottom?: Length;
 
@@ -369,11 +398,21 @@ declare interface IndicatorStyle {
    * Set the indicator size.
    * @since 8
    */
+  /**
+   * Set the indicator size.
+   * @crossplatform
+   * @since 10
+   */
   size?: Length;
 
   /**
    * Setting indicator style mask.
    * @since 8
+   */
+  /**
+   * Setting indicator style mask.
+   * @crossplatform
+   * @since 10
    */
   mask?: boolean;
 
@@ -381,11 +420,21 @@ declare interface IndicatorStyle {
    * Set the indicator color.
    * @since 8
    */
+  /**
+   * Set the indicator color.
+   * @crossplatform
+   * @since 10
+   */
   color?: ResourceColor;
 
   /**
    * Set the navigation point color.
    * @since 8
+   */
+  /**
+   * Set the navigation point color.
+   * @crossplatform
+   * @since 10
    */
   selectedColor?: ResourceColor;
 }
@@ -466,6 +515,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the animation duration of the switch is set.
    * @since 7
+   */
+  /**
+   * Called when the animation duration of the switch is set.
+   * 
+   * @since 10
    */
   duration(value: number): SwiperAttribute;
 
