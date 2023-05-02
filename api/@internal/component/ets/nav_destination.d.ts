@@ -17,16 +17,31 @@
  * Defines the navigation destination common title.
  * @since 9
  */
+/**
+ * Defines the navigation destination common title.
+ * @crossplatform
+ * @since 10
+ */
 declare interface NavDestinationCommonTitle {
   /**
    * Sets the main title.
    * @since 9
+   */
+  /**
+   * Sets the main title.
+   * @crossplatform
+   * @since 10
    */
   main: string;
 
   /**
    * Sets the sub title.
    * @since 9
+   */
+  /**
+   * Sets the sub title.
+   * @crossplatform
+   * @since 10
    */
   sub: string;
 }
@@ -35,16 +50,31 @@ declare interface NavDestinationCommonTitle {
  * Defines the navigation destination custom title.
  * @since 9
  */
+/**
+ * Defines the navigation destination custom title.
+ * @crossplatform
+ * @since 10
+ */
 declare interface NavDestinationCustomTitle {
   /**
    * Sets the custom title builder.
    * @since 9
+   */
+  /**
+   * Sets the custom title builder.
+   * @crossplatform
+   * @since 10
    */
   builder: CustomBuilder;
 
   /**
    * Sets the custom title height.
    * @since 9
+   */
+  /**
+   * Sets the custom title height.
+   * @crossplatform
+   * @since 10
    */
   height: TitleHeight | Length;
 }
@@ -53,10 +83,20 @@ declare interface NavDestinationCustomTitle {
  * The construct function of NavDestination.
  * @since 9
  */
+/**
+ * The construct function of NavDestination.
+ * @crossplatform
+ * @since 10
+ */
 declare interface NavDestinationInterface {
   /**
    * Constructor.
    * @since 9
+   */
+  /**
+   * Constructor.
+   * @crossplatform
+   * @since 10
    */
   (): NavDestinationAttribute;
 }
@@ -65,16 +105,31 @@ declare interface NavDestinationInterface {
  * The attribute function of NavDestination
  * @since 9
  */
+/**
+ * The attribute function of NavDestination
+ * @crossplatform
+ * @since 10
+ */
 declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribute> {
   /**
    * Navigation title bar
    * @since 9
+   */
+  /**
+   * Navigation title bar
+   * @crossplatform
+   * @since 10
    */
   title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
    * @since 9
+   */
+  /**
+   * Hide navigation title bar
+   * @crossplatform
+   * @since 10
    */
   hideTitleBar(value: boolean): NavDestinationAttribute;
 }
@@ -83,11 +138,21 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
  * Defines NavDestination Component.
  * @since 9
  */
+/**
+ * Defines NavDestination Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const NavDestination: NavDestinationInterface;
 
 /**
  * Defines NavDestination Component instance.
  * @since 9
+ */
+/**
+ * Defines NavDestination Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
      

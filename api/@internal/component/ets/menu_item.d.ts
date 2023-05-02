@@ -17,10 +17,20 @@
  * Defines the option of MenuItem.
  * @since 9
  */
+/**
+ * Defines the option of MenuItem.
+ * @crossplatform
+ * @since 10
+ */
 declare interface MenuItemOptions {
   /**
    * Defines the start display image info.
    * @since 9
+   */
+  /**
+   * Defines the start display image info.
+   * @crossplatform
+   * @since 10
    */
   startIcon?: ResourceStr;
 
@@ -28,11 +38,21 @@ declare interface MenuItemOptions {
    * Defines the content string display info.
    * @since 9
    */
+  /**
+   * Defines the content string display info.
+   * @crossplatform
+   * @since 10
+   */
   content?: ResourceStr;
 
   /**
    * Defines the end display image info.
    * @since 9
+   */
+  /**
+   * Defines the end display image info.
+   * @crossplatform
+   * @since 10
    */
   endIcon?: ResourceStr;
 
@@ -40,11 +60,21 @@ declare interface MenuItemOptions {
    * Defines the end label info like shortcut.
    * @since 9
    */
+  /**
+   * Defines the end label info like shortcut.
+   * @crossplatform
+   * @since 10
+   */
   labelInfo?: ResourceStr;
 
   /**
    * Create the submenu.
    * @since 9
+   */
+  /**
+   * Create the submenu.
+   * @crossplatform
+   * @since 10
    */
   builder?: CustomBuilder;
 }
@@ -53,10 +83,20 @@ declare interface MenuItemOptions {
  * Defines the MenuItem Component.
  * @since 9
  */
+/**
+ * Defines the MenuItem Component.
+ * @crossplatform
+ * @since 10
+ */
 interface MenuItemInterface {
   /**
    * Creates the MenuItem component.
    * @since 9
+   */
+  /**
+   * Creates the MenuItem component.
+   * @crossplatform
+   * @since 10
    */
   (value?: MenuItemOptions | CustomBuilder): MenuItemAttribute;
 }
@@ -65,10 +105,20 @@ interface MenuItemInterface {
  * Defines the MenuItem component attribute functions.
  * @since 9
  */
+/**
+ * Defines the MenuItem component attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Setting whether menuItem is selected.
    * @since 9
+   */
+  /**
+   * Setting whether menuItem is selected.
+   * @crossplatform
+   * @since 10
    */
   selected(value: boolean): MenuItemAttribute;
 
@@ -86,6 +136,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    *                                          false: does not displays icon when selected.
    *                                          ResourceStr: displays the specified icon when selected.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectIcon(value: boolean | ResourceStr): MenuItemAttribute;
@@ -94,6 +145,12 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Triggers a callback when a menu item is selected or unchecked.
    * @param callback
    * @since 9
+   */
+  /**
+   * Triggers a callback when a menu item is selected or unchecked.
+   * @param callback
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (selected: boolean) => void): MenuItemAttribute;
 
@@ -136,10 +193,20 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
  * Defines MenuItem Component.
  * @since 9
  */
+/**
+ * Defines MenuItem Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const MenuItem: MenuItemInterface;
 
 /**
  * Defines MenuItem Component instance.
  * @since 9
+ */
+/**
+ * Defines MenuItem Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const MenuItemInstance: MenuItemAttribute;

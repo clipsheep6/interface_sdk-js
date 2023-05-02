@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Defines the options of Checkbox.
+ * @crossplatform
+ * @since 10
+ */
 declare interface CheckboxOptions {
   /**
    * Current name of Checkbox.
@@ -31,6 +36,11 @@ declare interface CheckboxOptions {
    * Current name of Checkbox.
    * @form
    * @since 9
+   */
+  /**
+   * Current name of Checkbox.
+   * @crossplatform
+   * @since 10
    */
   name?: string;
 
@@ -42,6 +52,11 @@ declare interface CheckboxOptions {
    * Sets the group of Checkbox.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the group of Checkbox.
+   * @crossplatform
+   * @since 10
    */
   group?: string;
 }
@@ -55,6 +70,11 @@ declare interface CheckboxOptions {
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for the Checkbox component.
+ * @crossplatform
+ * @since 10
+ */
 interface CheckboxInterface {
   /**
    * Construct the Checkbox component.
@@ -66,6 +86,12 @@ interface CheckboxInterface {
    * Called when the Checkbox component is used.
    * @form
    * @since 9
+   */
+  /**
+   * Construct the Checkbox component.
+   * Called when the Checkbox component is used.
+   * @crossplatform
+   * @since 10
    */
   (options?: CheckboxOptions): CheckboxAttribute;
 }
@@ -79,6 +105,11 @@ interface CheckboxInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the attribute functions of Checkbox.
+ * @crossplatform
+ * @since 10
+ */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
    * setting whether checkbox is selected.
@@ -88,6 +119,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * setting whether checkbox is selected.
    * @form
    * @since 9
+   */
+  /**
+   * setting whether checkbox is selected.
+   * @crossplatform
+   * @since 10
    */
   select(value: boolean): CheckboxAttribute;
 
@@ -99,6 +135,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * setting the display color of checkbox.
    * @form
    * @since 9
+   */
+  /**
+   * setting the display color of checkbox.
+   * @crossplatform
+   * @since 10
    */
   selectedColor(value: ResourceColor): CheckboxAttribute;
 
@@ -127,6 +168,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the selection status changes.
+   * @crossplatform
+   * @since 10
+   */
   onChange(callback: (value: boolean) => void): CheckboxAttribute;
 }
 
@@ -139,6 +185,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Checkbox Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Checkbox: CheckboxInterface;
 
 /**
@@ -149,5 +200,10 @@ declare const Checkbox: CheckboxInterface;
  * Defines Checkbox Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Checkbox Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const CheckboxInstance: CheckboxAttribute;
