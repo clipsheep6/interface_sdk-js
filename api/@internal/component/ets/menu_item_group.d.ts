@@ -47,7 +47,7 @@
   }
   
   /**
-   * Defines the MenuItemGroup Component.
+   * Defines the header display info.
    * @since 9
    */
   /**
@@ -69,7 +69,7 @@
   }
   
   /**
-   * Defines the MenuItemGroup component attribute functions.
+   * Defines the footer display info.
    * @since 9
    */
   /**
