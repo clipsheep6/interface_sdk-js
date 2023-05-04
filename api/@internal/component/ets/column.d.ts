@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Defines the Column Component.
+ * @crossplatform
+ * @since 10
+ */
 interface ColumnInterface {
   /**
    * Set the value.
@@ -36,6 +41,13 @@ interface ColumnInterface {
    * @form
    * @since 9
    */
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Vertical layout element spacing.
+   * @crossplatform
+   * @since 10
+   */  
   (value?: { space?: string | number }): ColumnAttribute;
 }
 
@@ -48,6 +60,11 @@ interface ColumnInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the Column component attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
@@ -57,6 +74,11 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * Sets the alignment format of the subassembly in the horizontal direction.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the alignment format of the subassembly in the horizontal direction.
+   * @crossplatform
+   * @since 10
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
@@ -68,6 +90,11 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * Sets the alignment format of the subassembly in the vertical direction.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the alignment format of the subassembly in the vertical direction.
+   * @crossplatform
+   * @since 10
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
 }
@@ -81,6 +108,11 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Column Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Column: ColumnInterface;
 
 /**
@@ -91,5 +123,10 @@ declare const Column: ColumnInterface;
  * Defines Column Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Column Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const ColumnInstance: ColumnAttribute;
