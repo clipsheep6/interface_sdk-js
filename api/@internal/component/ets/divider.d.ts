@@ -80,6 +80,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    */
   /**
    * Sets the width of the dividing line.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the width of the dividing line.
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

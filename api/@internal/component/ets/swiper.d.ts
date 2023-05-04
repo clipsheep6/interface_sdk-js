@@ -371,6 +371,7 @@ declare interface IndicatorStyle {
    */
   /**
    * Set the indicator to the left.
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -382,6 +383,7 @@ declare interface IndicatorStyle {
    */
   /**
    * Set the indicator to the top.
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -393,6 +395,7 @@ declare interface IndicatorStyle {
    */
   /**
    * Set the indicator to the right.
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -404,6 +407,7 @@ declare interface IndicatorStyle {
    */
   /**
    * Set the indicator to the bottom.
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -415,6 +419,7 @@ declare interface IndicatorStyle {
    */
   /**
    * Set the indicator size.
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -536,6 +541,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the size of the rotation chart is set.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the size of the rotation chart
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -608,11 +614,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when sliding is curve
+   * @param { Curve | StringType } value - indecates curve slide
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  curve(value: Curve ): SwiperAttribute;
+  curve(value: Curve | StringType ): SwiperAttribute;
   /**
    * Called when the index value changes.
    * @since 7

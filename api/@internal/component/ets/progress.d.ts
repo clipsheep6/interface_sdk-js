@@ -152,6 +152,8 @@ declare interface ProgressStyleOptions {
    */
   /**
    * Defines the strokeWidth property.
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -179,6 +181,8 @@ declare interface ProgressStyleOptions {
    */
   /**
    * Defines the scaleWidth property.
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

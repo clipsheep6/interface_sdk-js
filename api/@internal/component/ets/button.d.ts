@@ -243,6 +243,8 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Text size.
+   * @param { Length | ILength } value - indecates text size.
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */ 

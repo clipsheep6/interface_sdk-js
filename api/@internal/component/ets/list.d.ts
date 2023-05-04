@@ -277,6 +277,8 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the ListItem split line style is set.
+   * @param {{strokeWidth: Length | ILength; color?: ResourceColor; startMargin?: Length | ILength; endMargin?: Length | ILength;} | null } value - option of divider
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

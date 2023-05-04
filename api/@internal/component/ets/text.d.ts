@@ -76,6 +76,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the minimum font size of the font is set.
+   * @param { number | StringType | Resource | Vp | Px | Fp | Lpx } value - indecates minimum font size of the font
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -92,6 +94,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the maximum font size of the font is set.
+   * @param { number | StringType | Resource | Vp | Px | Fp | Lpx } value - indecates maximum font size of the font
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -201,6 +205,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the distance between text fonts is set.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the distance between text fonts
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -228,6 +234,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the baseline offset is set.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the baseline offset
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

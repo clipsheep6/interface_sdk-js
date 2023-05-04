@@ -48,6 +48,7 @@ declare interface NavDestinationCustomTitle {
    */
   /**
    * Sets the custom title height.
+   * @type { TitleHeight | Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

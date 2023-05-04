@@ -27,6 +27,8 @@ declare interface GridRowSizeOption {
    */
   /**
    * Grid Row Size Option xs
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -39,6 +41,8 @@ declare interface GridRowSizeOption {
    */
   /**
    * Grid Row Size Option sm
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -51,6 +55,8 @@ declare interface GridRowSizeOption {
    */
   /**
    * Grid Row Size Option md
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -63,6 +69,8 @@ declare interface GridRowSizeOption {
    */
   /**
    * Grid Row Size Option lg
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -75,6 +83,8 @@ declare interface GridRowSizeOption {
    */
   /**
    * Grid Row Size Option xl
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -87,6 +97,8 @@ declare interface GridRowSizeOption {
    */
   /**
    * Grid Row Size Option xxl
+   * @type { Length | ILength }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -155,6 +167,8 @@ declare interface GutterOption {
    */
   /**
    * Define x in GutterOption
+   * @type { Length | ILength | GridRowSizeOption }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -167,6 +181,8 @@ declare interface GutterOption {
    */
   /**
    * Define y in GutterOption
+   * @type { Length | ILength | GridRowSizeOption }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -249,6 +265,8 @@ declare interface GridRowOptions {
    */
   /**
    * layout spacing between sub-components
+   * @type { Length | ILength | GutterOption }
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

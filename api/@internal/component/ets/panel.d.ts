@@ -103,6 +103,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    */
   /**
    * Called when the height in the full state is specified.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the height in the full state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -114,6 +115,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    */
   /**
    * Called when the height in the half state is specified.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the height in the half state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */ 
@@ -125,6 +127,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
    */
   /**
    * Called when the height in the mini state is specified.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the height in the mini state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

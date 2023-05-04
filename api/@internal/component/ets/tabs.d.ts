@@ -159,6 +159,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the width of the bar graph is set.
    * Notice: barWidth only supports Number type on 7, supports Length type since 8, use ILength type instead of Length type since 10.
+   * @param { Length | ILength } value - indecates the width of the bar graph
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -172,7 +173,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the height of the bar graph is set.
    * Notice: barHeight only supports Number type on 7, supports Length type since 8, use ILength type instead of Length type since 10.
-   * @since 8
+   * @param { Length | ILength } value - indecates the width of the bar graph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */  
   barHeight(value: Length | ILength): TabsAttribute;
 

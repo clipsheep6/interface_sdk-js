@@ -75,6 +75,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    */
   /**
    * Allows you to set the spacing between columns.
+   * @param { Length | ILength } value - indecates the spacing between columns.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -86,6 +87,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    */
   /**
    * Lets you set the spacing between rows.
+   * @param { Length | ILength } value - indecates the spacing between rows.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

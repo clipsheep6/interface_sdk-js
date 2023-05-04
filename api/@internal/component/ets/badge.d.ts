@@ -89,6 +89,7 @@ declare interface BadgeStyle {
    */
   /**
    * Text size.
+   * @type { number | StringType | Vp | Px | Fp | Lpx }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -106,6 +107,7 @@ declare interface BadgeStyle {
    */
   /**
    * Size of a badge.
+   * @type { number | StringType | Vp | Px | Fp | Lpx }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10

@@ -73,7 +73,7 @@ interface ImageFrameInfo {
    */
   /**
    * Image width
-   * @type: { number | StringType | Vp | Px | Fp | Lpx | Percentage}
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -86,7 +86,7 @@ interface ImageFrameInfo {
    */
   /**
    * Image height
-   * @type: { number | StringType | Vp | Px | Fp | Lpx | Percentage}
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -99,7 +99,7 @@ interface ImageFrameInfo {
    */
   /**
    * Vertical coordinate of the image relative to the upper left corner of the component
-   * @type: { number | StringType | Vp | Px | Fp | Lpx | Percentage}
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -112,7 +112,7 @@ interface ImageFrameInfo {
    */
   /**
    * Horizontal coordinate of the image relative to the upper left corner of the component
-   * @type: { number | StringType | Vp | Px | Fp | Lpx | Percentage}
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10

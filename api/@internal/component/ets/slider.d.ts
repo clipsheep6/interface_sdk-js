@@ -362,6 +362,8 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    */
   /**
    * Called when the thickness of track is set.
+   * @param { Length | ILength } value - indecates the thickness of track.
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since10
    */  

@@ -120,6 +120,8 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the distance between text fonts is set.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the distance between text fonts
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

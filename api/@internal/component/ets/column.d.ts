@@ -40,6 +40,8 @@ interface ColumnInterface {
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
+   * @param { StringType | number | Vp | Px| Fp | Lpx } space -  Vertical layout element spacing.
+   * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

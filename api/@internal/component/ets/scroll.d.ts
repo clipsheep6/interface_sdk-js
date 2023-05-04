@@ -60,6 +60,7 @@ declare class Scroller {
    */
   /**
    * Called when the setting slides to the specified position.
+   * @param {{xOffset: number | StringType | Vp | Px | Fp | Lpx; yOffset: number | StringType | Vp | Px | Fp | Lpx; animation?: { duration: number; curve: Curve }}} value - options of scrollTo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -106,6 +107,8 @@ declare class Scroller {
    */
   /**
    * Called when the setting slides by offset.
+   * @param { Length | ILength } dx - Length of offset x
+   * @param { Length | ILength } dy - Length of offset y
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -185,6 +188,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    */
   /**
    * Called when the width of the scroll bar is set.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - the width of the scroll bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  

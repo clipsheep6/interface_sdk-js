@@ -47,6 +47,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    */
   /**
    * The square side length of pattern lock component.
+   * @param { Length | ILength } value - indecates the square side length of pattern lock component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -58,6 +59,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    */
   /**
    * Circle radius.
+   * @param { Length | ILength } value - indecates the circle radius.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
@@ -99,6 +101,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    */
   /**
    * The path line stroke width.
+   * @param { number | StringType | Vp | Px | Fp | Lpx | Percentage } value - indecates the path line stroke width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */  
