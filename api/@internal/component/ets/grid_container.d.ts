@@ -24,11 +24,21 @@ declare enum SizeType {
    * Select a value based on the device type.
    * @since 7
    */
+  /**
+   * Select a value based on the device type.
+   * @crossplatform 
+   * @since 10
+   */
   Auto,
 
   /**
    * Select a value based on the device type.
    * @since 7
+   */
+  /**
+   * Select a value based on the device type.
+   * @crossplatform 
+   * @since 10
    */
   XS,
 
@@ -36,17 +46,32 @@ declare enum SizeType {
    * Small width type device.
    * @since 7
    */
+  /**
+   * Small width type device.
+   * @crossplatform 
+   * @since 10
+   */
   SM,
 
   /**
    * Medium width type device.
    * @since 7
    */
+  /**
+   * Medium width type device.
+   * @crossplatform 
+   * @since 10
+   */
   MD,
 
   /**
    * Large width type device.
    * @since 7
+   */
+  /**
+   * Large width type device.
+   * @crossplatform 
+   * @since 10
    */
   LG,
 }
@@ -108,7 +133,7 @@ interface GridContainerInterface {
  * @deprecated since 9
  * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
  */
-declare class GridContainerAttribute extends ColumnAttribute {}
+declare class GridContainerAttribute extends ColumnAttribute { }
 
 /**
  * Defines GridContainer Component.
