@@ -21,15 +21,15 @@ const ts = requireTypescriptModule();
 
 // 判断两个set是否完全相同
 function areSetsEqual(set1, set2) {
-    if (set1.size !== set2.size) {
+  if (set1.size !== set2.size) {
+    return false;
+  }
+  for (const value of set1) {
+    if (!set2.has(value)) {
       return false;
     }
-    for (const value of set1) {
-      if (!set2.has(value)) {
-        return false;
-      }
-    }
-    return true;
+  }
+  return true;
 }  
 
 // 判断off函数的callback参数是否为可选类型
