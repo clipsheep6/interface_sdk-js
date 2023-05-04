@@ -45,7 +45,7 @@ function checkEntry(prId) {
       if (resultBody && resultBody.length) {
         for (let i = 0; i < resultBody.length; i++) {
           const comment = resultBody[i];
-          if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
+          if (comment && comment['user'] && comment['user']['id'] && administrators.has(comment['user']['id']) &&
             comment.body && /^approve api check$/.test(comment.body)) {
             isOpenEscapeWay = true;
             break;
