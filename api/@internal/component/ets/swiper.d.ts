@@ -21,6 +21,7 @@
  * Provides methods for switching components.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class SwiperController {
@@ -32,6 +33,7 @@ declare class SwiperController {
    * constructor.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor();
@@ -44,6 +46,7 @@ declare class SwiperController {
    * Called when the next child component is displayed.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   showNext();
@@ -56,6 +59,7 @@ declare class SwiperController {
    * Called when the previous subcomponent is displayed.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   showPrevious();
@@ -68,6 +72,7 @@ declare class SwiperController {
    * Called when need to stop the swiper animation.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   finishAnimation(callback?: () => void);
@@ -115,7 +120,6 @@ declare class Indicator<T> {
    * @since 10
    */
   bottom(value: Length): T;
-
   /**
    * DotIndicator class object.
    * @static
@@ -283,6 +287,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
  * Declare the size of the swiper on the spindle.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SwiperDisplayMode {
@@ -294,6 +299,7 @@ declare enum SwiperDisplayMode {
    * Carousel map extension.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#STRETCH
@@ -308,6 +314,7 @@ declare enum SwiperDisplayMode {
    * The rotation chart is self linear.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    * @deprecated since 10
    * @useinstead SwiperDisplayMode#AUTO_LINEAR
@@ -343,6 +350,7 @@ declare enum SwiperDisplayMode {
  * Provides an interface for sliding containers.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface SwiperInterface {
@@ -354,6 +362,7 @@ interface SwiperInterface {
    * Called when a sliding container is set.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   (controller?: SwiperController): SwiperAttribute;
@@ -369,11 +378,21 @@ declare interface IndicatorStyle {
    * Set the indicator to the left.
    * @since 8
    */
+  /**
+   * Set the indicator to the left.
+   * @crossplatform
+   * @since 10
+   */
   left?: Length;
 
   /**
    * Set the indicator to the top.
    * @since 8
+   */
+  /**
+   * Set the indicator to the top.
+   * @crossplatform
+   * @since 10
    */
   top?: Length;
 
@@ -381,11 +400,21 @@ declare interface IndicatorStyle {
    * Set the indicator to the right.
    * @since 8
    */
+  /**
+   * Set the indicator to the right.
+   * @crossplatform
+   * @since 10
+   */
   right?: Length;
 
   /**
    * Set the indicator to the bottom.
    * @since 8
+   */
+  /**
+   * Set the indicator to the bottom.
+   * @crossplatform
+   * @since 10
    */
   bottom?: Length;
 
@@ -393,11 +422,21 @@ declare interface IndicatorStyle {
    * Set the indicator size.
    * @since 8
    */
+  /**
+   * Set the indicator size.
+   * @crossplatform
+   * @since 10
+   */
   size?: Length;
 
   /**
    * Setting indicator style mask.
    * @since 8
+   */
+  /**
+   * Setting indicator style mask.
+   * @crossplatform
+   * @since 10
    */
   mask?: boolean;
 
@@ -405,11 +444,21 @@ declare interface IndicatorStyle {
    * Set the indicator color.
    * @since 8
    */
+  /**
+   * Set the indicator color.
+   * @crossplatform
+   * @since 10
+   */
   color?: ResourceColor;
 
   /**
    * Set the navigation point color.
    * @since 8
+   */
+  /**
+   * Set the navigation point color.
+   * @crossplatform
+   * @since 10
    */
   selectedColor?: ResourceColor;
 }
@@ -422,6 +471,7 @@ declare interface IndicatorStyle {
  * Defines the swiper attribute functions.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
@@ -433,6 +483,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when the index value of the displayed subcomponent is set in the container.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   index(value: number): SwiperAttribute;
@@ -445,6 +496,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when setting whether the subcomponent plays automatically.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   autoPlay(value: boolean): SwiperAttribute;
@@ -457,6 +509,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when the time interval for automatic playback is set.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   interval(value: number): SwiperAttribute;
@@ -471,6 +524,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { DotIndicator | DigitIndicator | boolean } value - the style value or show indicator of the swiper indicator.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
@@ -483,6 +537,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when setting whether to turn on cyclic sliding.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   loop(value: boolean): SwiperAttribute;
@@ -490,6 +545,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the animation duration of the switch is set.
    * @since 7
+   */
+  /**
+   * Called when the animation duration of the switch is set.
+   * @crossplatform
+   * @since 10
    */
   duration(value: number): SwiperAttribute;
 
@@ -501,6 +561,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when setting whether to slide vertically.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   vertical(value: boolean): SwiperAttribute;
@@ -513,6 +574,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when the size of the rotation chart is set.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   itemSpace(value: number | string): SwiperAttribute;
@@ -525,6 +587,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when setting the size of the swiper container on the spindle.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   displayMode(value: SwiperDisplayMode): SwiperAttribute;
@@ -537,6 +600,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when setting the cached count of the swiper container one side.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   cachedCount(value: number): SwiperAttribute;
@@ -549,6 +613,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * This command is invoked when the number of subcomponents is set.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   displayCount(value: number | string): SwiperAttribute;
@@ -561,6 +626,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Invoked when setting the sliding effect
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   effectMode(value: EdgeEffect): SwiperAttribute;
@@ -573,6 +639,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when sliding is disableSwipe
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   disableSwipe(value: boolean): SwiperAttribute;
@@ -585,6 +652,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when sliding is curve
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   curve(value: Curve | string): SwiperAttribute;
@@ -596,6 +664,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when the index value changes.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onChange(event: (index: number) => void): SwiperAttribute;
@@ -664,6 +733,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
  * Defines Swiper Component.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const Swiper: SwiperInterface;
@@ -676,6 +746,7 @@ declare const Swiper: SwiperInterface;
  * Defines Swiper Component instance.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const SwiperInstance: SwiperAttribute;

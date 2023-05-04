@@ -40,10 +40,20 @@ declare interface RouteInfo {
  * The construct function of NavRouter.
  * @since 9
  */
+/**
+ * The construct function of NavRouter.
+ * @crossplatform
+ * @since 10
+ */
 declare interface NavRouterInterface {
   /**
    * Constructor.
    * @since 9
+   */
+  /**
+   * Constructor.
+   * @crossplatform
+   * @since 10
    */
   (): NavRouterAttribute;
 
@@ -89,10 +99,20 @@ declare enum NavRouteMode {
  * The attribute function of NavRouter
  * @since 9
  */
+/**
+ * The attribute function of NavRouter
+ * @crossplatform
+ * @since 10
+ */
 declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
    * Trigger callback when NavigationView state change.
    * @since 9
+   */
+  /**
+   * Trigger callback when NavigationView state change.
+   * @crossplatform
+   * @since 10
    */
   onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
 
@@ -111,10 +131,20 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
  * Defines NavRouter Component.
  * @since 9
  */
+/**
+ * Defines NavRouter Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const NavRouter: NavRouterInterface;
 
 /**
  * Defines NavRouter Component instance.
  * @since 9
+ */
+/**
+ * Defines NavRouter Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const NavRouterInstance: NavRouterAttribute;

@@ -41,6 +41,11 @@ declare interface TextPickerRangeContent {
  * Defines the options of TextPicker.
  * @since 8
  */
+/**
+ * Defines the options of TextPicker.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TextPickerOptions {
   /**
    * Specifies the range of the text selector.
@@ -73,16 +78,30 @@ declare interface TextPickerOptions {
   /**
    * Current selected subscript.
    */
+  /**
+   * Current selected subscript.
+   * @crossplatform
+   * @since 10
+   */
   selected?: number;
 }
 
 /**
  * @since 8
  */
+/**
+ * @crossplatform
+ * @since 10
+ */
 interface TextPickerInterface {
   /**
    * Defines the TextPicker constructor.
    * @since 8
+   */
+  /**
+   * Defines the TextPicker constructor.
+   * @crossplatform
+   * @since 10
    */
   (options?: TextPickerOptions): TextPickerAttribute;
 }
@@ -91,10 +110,20 @@ interface TextPickerInterface {
  * Style the text selector.
  * @since 8
  */
+/**
+ * Style the text selector.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
+   */
+  /**
+   * Called when the default height of the selected element is set.
+   * @crossplatform
+   * @since 10
    */
   defaultPickerItemHeight(value: number | string): TextPickerAttribute;
 
@@ -154,6 +183,11 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
  * Defines the struct of TextPickerResult.
  * @since 8
  */
+/**
+ * Defines the struct of TextPickerResult.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TextPickerResult {
   /**
    * The currently selected value.
@@ -173,6 +207,11 @@ declare interface TextPickerResult {
    * The subscript of the current selection.
    * @since 8
    */
+  /**
+   * The subscript of the current selection.
+   * @crossplatform
+   * @since 10
+   */
   index: number;
 }
 
@@ -180,10 +219,20 @@ declare interface TextPickerResult {
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  * @since 8
  */
+/**
+ * Defines the TextPickerDialogOptions for Text Picker Dialog.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
+   */
+  /**
+   * Called when the default height of the selected element is set.
+   * @crossplatform
+   * @since 10
    */
   defaultPickerItemHeight?: number | string;
   /**
@@ -213,15 +262,30 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * Called when the OK button in the dialog is clicked.
    * @since 8
    */
+  /**
+   * Called when the OK button in the dialog is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onAccept?: (value: TextPickerResult) => void;
   /**
    * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onCancel?: () => void;
   /**
    * This event is triggered when a TextPicker text is selected in dialog.
    * @since 8
+   */
+  /**
+   * This event is triggered when a TextPicker text is selected in dialog.
+   * @crossplatform
+   * @since 10
    */
   onChange?: (value: TextPickerResult) => void;
 }
@@ -230,10 +294,20 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  * @since 8
  */
+/**
+ * Defines TextPickerDialog which uses show method to show TextPicker dialog.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextPickerDialog {
   /**
    * Invoking method display.
    * @since 8
+   */
+  /**
+   * Invoking method display.
+   * @crossplatform
+   * @since 10
    */
   static show(options?: TextPickerDialogOptions);
 }
@@ -242,10 +316,20 @@ declare class TextPickerDialog {
  * Defines TextPicker Component.
  * @since 8
  */
+/**
+ * Defines TextPicker Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TextPicker: TextPickerInterface;
 
 /**
  * Defines TextPicker Component instance.
  * @since 8
+ */
+/**
+ * Defines TextPicker Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TextPickerInstance: TextPickerAttribute;

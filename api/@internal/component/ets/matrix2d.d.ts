@@ -17,4 +17,9 @@
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  * @since 8
  */
+/**
+ * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
+ * @crossplatform
+ * @since 10
+ */
 declare type Matrix2D = import('../api/@internal/full/canvaspattern').Matrix2D

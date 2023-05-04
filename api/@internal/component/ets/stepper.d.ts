@@ -17,10 +17,20 @@
  * Declare the stepper.
  * @since 8
  */
+/**
+ * Declare the stepper.
+ * @crossplatform
+ * @since 10
+ */
 interface StepperInterface {
   /**
    * Called when the stepper component is used.
    * @since 8
+   */
+  /**
+   * Called when the stepper component is used.
+   * @crossplatform
+   * @since 10
    */
   (value?: { index?: number }): StepperAttribute;
 }
@@ -29,10 +39,20 @@ interface StepperInterface {
  * Defines the stepper attribute functions
  * @since 8
  */
+/**
+ * Defines the stepper attribute functions
+ * @crossplatform
+ * @since 10
+ */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
    * @since 8
+   */
+  /**
+   * Callback when the finish label is clicked.
+   * @crossplatform
+   * @since 10
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -40,11 +60,21 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * Callback when the skip label is clicked.
    * @since 8
    */
+  /**
+   * Callback when the skip label is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onSkip(callback: () => void): StepperAttribute;
 
   /**
    * Callback when the change label is clicked.
    * @since 8
+   */
+  /**
+   * Callback when the change label is clicked.
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (prevIndex?: number, index?: number) => void): StepperAttribute;
 
@@ -52,11 +82,21 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * Callback when the next label is clicked.
    * @since 8
    */
+  /**
+   * Callback when the next label is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onNext(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 
   /**
    * Callback when the previous label is clicked.
    * @since 8
+   */
+  /**
+   * Callback when the previous label is clicked.
+   * @crossplatform
+   * @since 10
    */
   onPrevious(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 }
@@ -65,10 +105,20 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
  * Defines Stepper Component.
  * @since 8
  */
+/**
+ * Defines Stepper Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Stepper: StepperInterface;
 
 /**
  * Defines Stepper Component instance.
  * @since 8
+ */
+/**
+ * Defines Stepper Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const StepperInstance: StepperAttribute;

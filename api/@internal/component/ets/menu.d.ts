@@ -17,10 +17,20 @@
  * Defines the Menu Component.
  * @since 9
  */
+/**
+ * Defines the Menu Component.
+ * @crossplatform
+ * @since 10
+ */
 interface MenuInterface {
   /**
    * Creates the menu component.
    * @since 9
+   */
+  /**
+   * Creates the menu component.
+   * @crossplatform
+   * @since 10
    */
   (): MenuAttribute;
 }
@@ -28,6 +38,11 @@ interface MenuInterface {
 /**
  * Defines the Menu component attribute functions.
  * @since 9
+ */
+/**
+ * Defines the Menu component attribute functions.
+ * @crossplatform
+ * @since 10
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
@@ -62,10 +77,20 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
  * Defines Menu Component.
  * @since 9
  */
+/**
+ * Defines Menu Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Menu: MenuInterface;
 
 /**
  * Defines Menu Component instance.
  * @since 9
+ */
+/**
+ * Defines Menu Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const MenuInstance: MenuAttribute;

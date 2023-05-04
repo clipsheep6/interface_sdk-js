@@ -19,8 +19,8 @@
  */
 /**
  * Defines the data type of the interface restriction.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare interface Resource {
   /**
@@ -29,8 +29,8 @@ declare interface Resource {
    */
   /**
    * Set id.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   readonly id: number;
 
@@ -40,8 +40,8 @@ declare interface Resource {
    */
   /**
    * Set type.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   readonly type: number;
 
@@ -51,8 +51,8 @@ declare interface Resource {
    */
   /**
    * Set params.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   readonly params?: any[];
 
@@ -61,12 +61,22 @@ declare interface Resource {
    * @form
    * @since 9
    */
+  /**
+   * Set bundleName.
+   * @crossplatform
+   * @since 10
+   */
   readonly bundleName: string;
 
   /**
    * Set moduleName.
    * @form
    * @since 9
+   */
+  /**
+   * Set moduleName.
+   * @crossplatform
+   * @since 10
    */
   readonly moduleName: string;
 }
@@ -77,8 +87,8 @@ declare interface Resource {
  */
 /**
  * Defines the length property with string, number and resource unit.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare type Length = string | number | Resource;
 
@@ -88,8 +98,8 @@ declare type Length = string | number | Resource;
  */
 /**
  * Defines the string which can use resource.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare type ResourceStr = string | Resource;
 
@@ -99,8 +109,8 @@ declare type ResourceStr = string | Resource;
  */
 /**
  * Defines the padding property.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare type Padding = {
   /**
@@ -112,6 +122,11 @@ declare type Padding = {
    * @form
    * @since 9
    */
+  /**
+   * top property.
+   * @crossplatform
+   * @since 10
+   */
   top?: Length;
 
   /**
@@ -122,6 +137,11 @@ declare type Padding = {
    * right property.
    * @form
    * @since 9
+   */
+  /**
+   * right property.
+   * @crossplatform
+   * @since 10
    */
   right?: Length;
 
@@ -134,6 +154,11 @@ declare type Padding = {
    * @form
    * @since 9
    */
+  /**
+   * bottom property.
+   * @crossplatform
+   * @since 10
+   */
   bottom?: Length;
 
   /**
@@ -144,6 +169,11 @@ declare type Padding = {
    * left property.
    * @form
    * @since 9
+   */
+  /**
+   * left property.
+   * @crossplatform
+   * @since 10
    */
   left?: Length;
 };
@@ -154,8 +184,8 @@ declare type Padding = {
  */
 /**
  * Defines the margin property.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare type Margin = Padding;
 
@@ -164,11 +194,21 @@ declare type Margin = Padding;
  * @form
  * @since 9
  */
+/**
+ * Defines the border width property.
+ * @crossplatform
+ * @since 10
+ */
 declare type EdgeWidths = {
   /**
    * top property.
    * @form
    * @since 9
+   */
+  /**
+   * top property.
+   * @crossplatform
+   * @since 10
    */
   top?: Length;
 
@@ -177,6 +217,11 @@ declare type EdgeWidths = {
    * @form
    * @since 9
    */
+  /**
+   * right property.
+   * @crossplatform
+   * @since 10
+   */
   right?: Length;
 
   /**
@@ -184,12 +229,22 @@ declare type EdgeWidths = {
    * @form
    * @since 9
    */
+  /**
+   * bottom property.
+   * @crossplatform
+   * @since 10
+   */
   bottom?: Length;
 
   /**
    * left property.
    * @form
    * @since 9
+   */
+  /**
+   * left property.
+   * @crossplatform
+   * @since 10
    */
   left?: Length;
 };
@@ -199,11 +254,21 @@ declare type EdgeWidths = {
  * @form
  * @since 9
  */
+/**
+ * Defines the border radius property.
+ * @crossplatform
+ * @since 10
+ */
 declare type BorderRadiuses = {
   /**
    * top-left property.
    * @form
    * @since 9
+   */
+  /**
+   * top-left property.
+   * @crossplatform
+   * @since 10
    */
   topLeft?: Length;
 
@@ -212,6 +277,11 @@ declare type BorderRadiuses = {
    * @form
    * @since 9
    */
+  /**
+   * top-right property.
+   * @crossplatform
+   * @since 10
+   */
   topRight?: Length;
 
   /**
@@ -219,12 +289,22 @@ declare type BorderRadiuses = {
    * @form
    * @since 9
    */
+  /**
+   * bottom-left property.
+   * @crossplatform
+   * @since 10
+   */
   bottomLeft?: Length;
 
   /**
    * bottom-right property.
    * @form
    * @since 9
+   */
+  /**
+   * bottom-right property.
+   * @crossplatform
+   * @since 10
    */
   bottomRight?: Length;
 };
@@ -234,11 +314,21 @@ declare type BorderRadiuses = {
  * @form
  * @since 9
  */
+/**
+ * Defines the border color property.
+ * @crossplatform
+ * @since 10
+ */
 declare type EdgeColors = {
   /**
    * top property.
    * @form
    * @since 9
+   */
+  /**
+   * top property.
+   * @crossplatform
+   * @since 10
    */
   top?: ResourceColor;
 
@@ -247,6 +337,11 @@ declare type EdgeColors = {
    * @form
    * @since 9
    */
+  /**
+   * right property.
+   * @crossplatform
+   * @since 10
+   */
   right?: ResourceColor;
 
   /**
@@ -254,12 +349,22 @@ declare type EdgeColors = {
    * @form
    * @since 9
    */
+  /**
+   * bottom property.
+   * @crossplatform
+   * @since 10
+   */
   bottom?: ResourceColor;
 
   /**
    * left property.
    * @form
    * @since 9
+   */
+  /**
+   * left property.
+   * @crossplatform
+   * @since 10
    */
   left?: ResourceColor;
 };
@@ -269,11 +374,21 @@ declare type EdgeColors = {
  * @form
  * @since 9
  */
+/**
+ * Defines the border style property.
+ * @crossplatform
+ * @since 10
+ */
 declare type EdgeStyles = {
   /**
    * top property.
    * @form
    * @since 9
+   */
+  /**
+   * top property.
+   * @crossplatform
+   * @since 10
    */
   top?: BorderStyle;
 
@@ -282,12 +397,22 @@ declare type EdgeStyles = {
    * @form
    * @since 9
    */
+  /**
+   * right property.
+   * @crossplatform
+   * @since 10
+   */
   right?: BorderStyle;
 
   /**
    * bottom property.
    * @form
    * @since 9
+   */
+  /**
+   * bottom property.
+   * @crossplatform
+   * @since 10
    */
   bottom?: BorderStyle;
 
@@ -296,6 +421,11 @@ declare type EdgeStyles = {
    * @form
    * @since 9
    */
+  /**
+   * left property.
+   * @crossplatform
+   * @since 10
+   */
   left?: BorderStyle;
 };
 
@@ -303,14 +433,29 @@ declare type EdgeStyles = {
  * Defines the offset property.
  * @since 7
  */
+/**
+ * Defines the offset property.
+ * @crossplatform
+ * @since 10
+ */
 declare type Offset = {
   /**
    * dx property.
+   */
+  /**
+   * dx property.
+   * @crossplatform
+   * @since 10
    */
   dx: Length;
 
   /**
    * dy property.
+   */
+  /**
+   * dy property.
+   * @crossplatform
+   * @since 10
    */
   dy: Length;
 };
@@ -321,8 +466,8 @@ declare type Offset = {
  */
 /**
  * Defines the color which can use resource.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare type ResourceColor = Color | number | string | Resource;
 
@@ -331,11 +476,21 @@ declare type ResourceColor = Color | number | string | Resource;
  * @form
  * @since 9
  */
+/**
+ * Defines the length constrain property.
+ * @crossplatform
+ * @since 10
+ */
 declare type LengthConstrain = {
   /**
    * minimum length.
    * @form
    * @since 9
+   */
+  /**
+   * minimum length.
+   * @crossplatform
+   * @since 10
    */
   minLength: Length;
 
@@ -344,6 +499,11 @@ declare type LengthConstrain = {
    * @form
    * @since 9
    */
+  /**
+   * maximum length.
+   * @crossplatform
+   * @since 10
+   */
   maxLength: Length;
 };
 
@@ -351,24 +511,49 @@ declare type LengthConstrain = {
  * Defines the font used for text.
  * @since 7
  */
+/**
+ * Defines the font used for text.
+ * @crossplatform
+ * @since 10
+ */
 declare interface Font {
   /**
    * font size.
+   */
+  /**
+   * font size.
+   * @crossplatform
+   * @since 10
    */
   size?: Length;
 
   /**
    * font weight.
    */
+  /**
+   * font weight.
+   * @crossplatform
+   * @since 10
+   */
   weight?: FontWeight | number | string;
 
   /**
    * font family.
    */
+  /**
+   * font family.
+   * @crossplatform
+   * @since 10
+   */
   family?: string | Resource;
 
   /**
    * font style.
+   */
+  /**
+   * font style.
+   * @crossplatform
+   * @since 10
    */
   style?: FontStyle;
 }
@@ -379,8 +564,8 @@ declare interface Font {
  */
 /**
  * Defines the area property.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare interface Area {
   /**
@@ -389,8 +574,8 @@ declare interface Area {
    */
   /**
    * Defines the width property.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   width: Length;
 
@@ -400,8 +585,8 @@ declare interface Area {
    */
   /**
    * Defines the height property.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   height: Length;
 
@@ -411,8 +596,8 @@ declare interface Area {
    */
   /**
    * Defines the local position.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   position: Position;
 
@@ -422,8 +607,8 @@ declare interface Area {
    */
   /**
    * Defines the global position.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   globalPosition: Position;
 }
@@ -434,8 +619,8 @@ declare interface Area {
  */
 /**
  * Defines the position.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare interface Position {
   /**
@@ -444,8 +629,8 @@ declare interface Position {
    */
   /**
    * Coordinate x of the Position.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   x?: Length;
   /**
@@ -454,8 +639,8 @@ declare interface Position {
    */
   /**
    * Coordinate y of the Position.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   y?: Length;
 }
@@ -466,8 +651,8 @@ declare interface Position {
  */
 /**
  * Defines the constrain size options.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare interface ConstraintSizeOptions {
   /**
@@ -476,8 +661,8 @@ declare interface ConstraintSizeOptions {
    */
   /**
    * Defines the min width.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   minWidth?: Length;
   /**
@@ -486,8 +671,8 @@ declare interface ConstraintSizeOptions {
    */
   /**
    * Defines the max width.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   maxWidth?: Length;
   /**
@@ -496,8 +681,8 @@ declare interface ConstraintSizeOptions {
    */
   /**
    * Defines the min height.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   minHeight?: Length;
   /**
@@ -506,8 +691,8 @@ declare interface ConstraintSizeOptions {
    */
   /**
    * Defines the max height.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   maxHeight?: Length;
 }
@@ -518,8 +703,8 @@ declare interface ConstraintSizeOptions {
  */
 /**
  * Defines the size options.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare interface SizeOptions {
   /**
@@ -528,8 +713,8 @@ declare interface SizeOptions {
    */
   /**
    * Defines the width.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   width?: Length;
   /**
@@ -538,8 +723,8 @@ declare interface SizeOptions {
    */
   /**
    * Defines the height.
-   * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   height?: Length;
 }
@@ -550,8 +735,8 @@ declare interface SizeOptions {
  */
 /**
  * Defines the options of border.
- * @form
- * @since 9
+ * @crossplatform
+ * @since 10
  */
 declare interface BorderOptions {
   /**
@@ -565,6 +750,12 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the border width.
+   * @type { EdgeWidths | Length }
+   * @crossplatform
+   * @since 10
+   */
   width?: EdgeWidths | Length;
   /**
    * Defines the border color.
@@ -576,6 +767,12 @@ declare interface BorderOptions {
    * @type { EdgeColors | ResourceColor }
    * @form
    * @since 9
+   */
+  /**
+   * Defines the border color.
+   * @type { EdgeColors | ResourceColor }
+   * @crossplatform
+   * @since 10
    */
   color?: EdgeColors | ResourceColor;
   /**
@@ -589,6 +786,12 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the border radius.
+   * @type { BorderRadiuses | Length }
+   * @crossplatform
+   * @since 10
+   */
   radius?: BorderRadiuses | Length;
   /**
    * Defines the border style.
@@ -600,6 +803,12 @@ declare interface BorderOptions {
    * @type { EdgeStyles | BorderStyle }
    * @form
    * @since 9
+   */
+  /**
+   * Defines the border style.
+   * @type { EdgeStyles | BorderStyle }
+   * @crossplatform
+   * @since 10
    */
   style?: EdgeStyles | BorderStyle;
 }
@@ -640,12 +849,23 @@ declare interface MarkStyle {
  * @form
  * @since 9
  */
+/**
+ * Defines the ColorFilter object.
+ * @crossplatform
+ * @since 10
+ */
 declare class ColorFilter {
   /**
    * Creates ColorFilter with 4*5 matrix.
    * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @form
    * @since 9
+   */
+  /**
+   * Creates ColorFilter with 4*5 matrix.
+   * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @crossplatform
+   * @since 10
    */
   constructor(value: number[]);
 }
