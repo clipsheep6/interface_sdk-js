@@ -109,6 +109,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * Sets the text style of disappearing items
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   disappearTextStyle(value: PickerTextStyle): TimePickerAttribute;
@@ -117,6 +118,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * Sets the text style of normal items
    * @param { PickerTextStyle } value - indicates the text style of normal items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textStyle(value: PickerTextStyle): TimePickerAttribute;
@@ -125,6 +127,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * Sets the text style of selected items
    * @param { PickerTextStyle } value - indicates the text style of selected items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
@@ -165,6 +168,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * Text style of disappearing items
    * @type { PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   disappearTextStyle?: PickerTextStyle;
@@ -172,6 +176,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * Text style of normal items
    * @type { PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textStyle?: PickerTextStyle;
@@ -179,6 +184,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * Text style of selected items
    * @type { PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedTextStyle?: PickerTextStyle;

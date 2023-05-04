@@ -102,18 +102,21 @@ declare interface CustomDialogControllerOptions {
 
   /**
    * Mask color of dialog.
+   * @crossplatform
    * @since 10
    */
   maskColor?: ResourceColor;
 
   /**
    * Animation parameters of dialog opening.
+   * @crossplatform
    * @since 10
    */
   openAnimation?: AnimateParam;
 
   /**
   * Animation parameters of dialog closing.
+  * @crossplatform
   * @since 10
   */
   closeAnimation?: AnimateParam;
@@ -122,6 +125,7 @@ declare interface CustomDialogControllerOptions {
    * Whether to display in the sub window.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   showInSubWindow?: boolean;

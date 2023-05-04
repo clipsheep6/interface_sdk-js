@@ -172,6 +172,7 @@ interface SideBarContainerInterface {
  * and end margin
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface DividerStyle {
@@ -180,6 +181,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth: Length;
@@ -189,6 +191,7 @@ interface DividerStyle {
    * @type { ResourceColor }
    * @default #08000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   color?: ResourceColor;
@@ -198,6 +201,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   startMargin?: Length;
@@ -207,6 +211,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   endMargin?: Length;
@@ -358,6 +363,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * Set divider style for sideBarContainer
    * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;

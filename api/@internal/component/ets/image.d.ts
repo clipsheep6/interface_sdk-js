@@ -21,7 +21,6 @@
  * @since 9
  */
 /**
- * @form
  * @crossplatform
  * @since 10
  */
@@ -382,11 +381,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    * @since 9
    */
-  /**
-   * Allow replication.
-   * @crossplatform
-   * @since 10
-   */
   copyOption(value: CopyOptions): ImageAttribute;
 
   /**
@@ -394,12 +388,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Default value is false.
    * @form
    * @since 9
-   */
-  /**
-   * Enable image dragging.
-   * Default value is false.
-   * @crossplatform
-   * @since 10
    */
   draggable(value: boolean): ImageAttribute;
 
@@ -451,12 +439,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * The field of "message" carries the detailed information of failed image loading.
    * @form
    * @since 9
-   */
-   /**
-   * This callback is triggered when an exception occurs during image loading.
-   * The field of "message" carries the detailed information of failed image loading.
-   * @crossplatform
-   * @since 10
    */
   onError(callback: (event?: { componentWidth: number; componentHeight: number; message: string }) => void): ImageAttribute;
 

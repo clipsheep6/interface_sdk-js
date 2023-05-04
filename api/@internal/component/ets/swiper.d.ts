@@ -99,6 +99,7 @@ declare class Indicator<T> {
    * @param { Length } value - the indicator to the top.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+
    * @since 10
    */
   top(value: Length): T;
@@ -657,6 +658,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { Length } value - The length of previous margin.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   prevMargin(value: Length): SwiperAttribute;
@@ -666,6 +668,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { Length } value - The length of next margin.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   nextMargin(value: Length): SwiperAttribute;
@@ -681,6 +684,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { number } index - the index value of the swiper page that when animation start.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @crossplatform
    * @since 10
    */
   onAnimationStart(event: (index: number) => void): SwiperAttribute;
@@ -696,6 +700,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @param { number } index - the index value of the swiper page that when animation end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @crossplatform
    * @since 10
    */
   onAnimationEnd(event: (index: number) => void): SwiperAttribute;

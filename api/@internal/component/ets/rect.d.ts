@@ -159,8 +159,4 @@ declare const RectInStance: RectAttribute;
  * @form
  * @since 9
  */
-/**
- * @crossplatform
- * @since 10
- */
 declare const RectInstance: RectAttribute;

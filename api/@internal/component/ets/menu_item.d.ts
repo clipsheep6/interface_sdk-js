@@ -159,6 +159,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Family and style are not supported currently and will be fixed in future.
    * @param { Font } value - Indicates the font style of content text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   contentFont(value: Font): MenuItemAttribute;
@@ -167,6 +168,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Sets the font color of content text.
    * @param { ResourceColor } value - Indicates the font color of content text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   contentFontColor(value: ResourceColor): MenuItemAttribute;
@@ -176,6 +178,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Family and style are not supported currently and will be fixed in future.
    * @param { Font } value - Indicates the font style of label info text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   labelFont(value: Font): MenuItemAttribute;
@@ -184,6 +187,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * Sets the font color of label info text.
    * @param { ResourceColor } value - Indicates the font color of label info text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   labelFontColor(value: ResourceColor): MenuItemAttribute;

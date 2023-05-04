@@ -192,6 +192,7 @@ interface ButtonInterface {
 /**
  * LabelStyle object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface LabelStyle {
@@ -199,6 +200,7 @@ declare interface LabelStyle {
    * overflow mode.
    * @type { TextOverflow }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   overflow?: TextOverflow;
@@ -207,6 +209,7 @@ declare interface LabelStyle {
    * Label max lines.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */ 
   maxLines?: number;
@@ -215,6 +218,7 @@ declare interface LabelStyle {
    * Min font size for adapted height.
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */  
   minFontSize?: number | ResourceStr;
@@ -223,6 +227,7 @@ declare interface LabelStyle {
    * Max font size for adapted height.
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   maxFontSize?: number | ResourceStr;
@@ -231,6 +236,7 @@ declare interface LabelStyle {
    * Adapt text height option.
    * @type { TextHeightAdaptivePolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
@@ -239,6 +245,7 @@ declare interface LabelStyle {
    * Font style.
    * @type { Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   font?: Font;
@@ -375,6 +382,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * Set button label style.
    * @param { LabelStyle } value - The label style configuration on button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   labelStyle(value: LabelStyle): ButtonAttribute;

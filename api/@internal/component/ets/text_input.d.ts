@@ -181,6 +181,7 @@ declare class TextInputController {
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   setTextSelection(selectionStart: number, selectionEnd: number): void;
@@ -288,6 +289,7 @@ interface TextInputInterface {
 /**
  * CaretStyle object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface CaretStyle {
@@ -295,6 +297,7 @@ interface CaretStyle {
    * Define the cursor width of CaretStyle.
    * @param { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   width?: Length;
@@ -564,6 +567,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Define the caret style of the text input
    * @param { CaretStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   caretStyle(value: CaretStyle): TextInputAttribute;
@@ -572,6 +576,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Define the text selected background color of the text input.
    * @param { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedBackgroundColor(value: ResourceColor): TextInputAttribute;
@@ -580,6 +585,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Define the caret position of the text input.
    * @param { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   caretPosition(value: number): TextInputAttribute;

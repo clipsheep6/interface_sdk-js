@@ -60,6 +60,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * Family and style are not supported currently and will be fixed in future.
    * @param { Font } value - Indicates the font style of menu item.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   font(value: Font): MenuAttribute;
@@ -68,6 +69,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * Sets the Menu font color.
    * @param { ResourceColor } value - Indicates the font color of menu item.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontColor(value: ResourceColor): MenuAttribute;

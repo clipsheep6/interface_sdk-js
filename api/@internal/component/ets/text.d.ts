@@ -316,12 +316,21 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Enable the selectable area can be dragged.
+   * @type boolean
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   draggable(value: boolean): TextAttribute;
 
   /**
    * Called when the text shadow is set.
    * @param { ShadowOptions } value - The shadow options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textShadow(value: ShadowOptions): TextAttribute;
@@ -330,6 +339,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the height adaptive policy is set.
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
@@ -339,6 +349,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Length } value - The length of text indent.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textIndent(value: Length): TextAttribute;

@@ -219,12 +219,14 @@ declare enum Color {
 /**
  * Common enum of color strategy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum ColoringStrategy {
   /**
    * Use the inverse color strategy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   INVERT = "invert",
@@ -3277,6 +3279,7 @@ declare enum TextAlign {
   /**
    * Justify the text
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   Justify,
@@ -3348,6 +3351,7 @@ declare enum TextOverflow {
   /**
    * When the text overflows its dimensions, the text will scroll for displaying.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   Marquee,
@@ -3500,6 +3504,7 @@ declare enum TextCase {
 /**
  * Enum of text height adaptation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum TextHeightAdaptivePolicy {
@@ -3508,6 +3513,7 @@ declare enum TextHeightAdaptivePolicy {
    * If the layout size using the maxLines attribute exceeds the layout constraint, try reducing the font size to 
    * display more text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   MAX_LINES_FIRST,
@@ -3516,6 +3522,7 @@ declare enum TextHeightAdaptivePolicy {
    * If the text can be layout in a single line using the minFontSize property, try increasing the font size and using
    * the maximum possible font size.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   MIN_FONT_SIZE_FIRST,
@@ -3525,6 +3532,7 @@ declare enum TextHeightAdaptivePolicy {
    * the layout constraint after reducing the font size to minFontSize, remove the lines that exceed the layout
    * constraint.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   LAYOUT_CONSTRAINT_FIRST,
@@ -3806,22 +3814,12 @@ declare enum Placement {
    * @form
    * @since 9
    */
-  /**
-   * LeftTop placement
-   * @crossplatform
-   * @since 10
-   */
   LeftTop,
 
   /**
    * LeftBottom placement
    * @form
    * @since 9
-   */
-  /**
-   * LeftBottom placement
-   * @crossplatform
-   * @since 10
    */
   LeftBottom,
 
@@ -3830,22 +3828,12 @@ declare enum Placement {
    * @form
    * @since 9
    */
-  /**
-   * RightTop placement
-   * @crossplatform
-   * @since 10
-   */
   RightTop,
 
   /**
    * RightBottom placement
    * @form
    * @since 9
-   */
-  /**
-   * RightBottom placement
-   * @crossplatform
-   * @since 10
    */
   RightBottom,
 }
@@ -3855,21 +3843,11 @@ declare enum Placement {
  * @form
  * @since 9
  */
-/**
- * Indicates the share option.
- * @crossplatform
- * @since 10
- */
 declare enum CopyOptions {
   /**
    * Not allow share.
    * @form
    * @since 9
-   */
-  /**
-   * Not allow share.
-   * @crossplatform
-   * @since 10
    */
   None = 0,
 
@@ -3878,22 +3856,12 @@ declare enum CopyOptions {
    * @form
    * @since 9
    */
-  /**
-   * Share in app.
-   * @crossplatform
-   * @since 10
-   */
   InApp = 1,
 
   /**
    * Share in local device.
    * @form
    * @since 9
-   */
-  /**
-   * Share in local device.
-   * @crossplatform
-   * @since 10
    */
   LocalDevice = 2,
 }
@@ -3903,23 +3871,12 @@ declare enum CopyOptions {
  * @form
  * @since 9
  */
-/**
- * Defines the hit test mode.
- * @crossplatform
- * @since 10
- */
 declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
    * @form
    * @since 9
-   */
-  /**
-   * Both self and children nodes respond to the hit test for touch events,
-   * but block hit test of the other nodes which is masked by this node.
-   * @crossplatform
-   * @since 10
    */
   Default,
 
@@ -3929,12 +3886,6 @@ declare enum HitTestMode {
    * @form
    * @since 9
    */
-  /**
-   * Self respond to the hit test for touch events,
-   * but block hit test of children and other nodes which is masked by this node.
-   * @crossplatform
-   * @since 10
-   */
   Block,
 
   /**
@@ -3942,12 +3893,6 @@ declare enum HitTestMode {
    * and allow hit test of other nodes which is masked by this node.
    * @form
    * @since 9
-   */
-  /**
-   * Self and children respond to the hit test for touch events,
-   * and allow hit test of other nodes which is masked by this node.
-   * @crossplatform
-   * @since 10
    */
   Transparent,
 
@@ -3957,12 +3902,6 @@ declare enum HitTestMode {
    * @form
    * @since 9
    */
-  /**
-   * Self not respond to the hit test for touch events,
-   * but children respond to the hit test for touch events.
-   * @crossplatform
-   * @since 10
-   */
   None,
 }
 
@@ -3971,11 +3910,6 @@ declare enum HitTestMode {
  * @form
  * @since 9
  */
-/**
- * Title height.
- * @crossplatform
- * @since 10
- */
 declare enum TitleHeight {
   /**
    * Title height when only main title is available.
@@ -3983,10 +3917,6 @@ declare enum TitleHeight {
    * @since 9
    */
     /**
-   * Title height when only main title is available.
-   * @crossplatform
-   * @since 10
-   */
   MainOnly,
 
   /**
@@ -3994,17 +3924,13 @@ declare enum TitleHeight {
    * @form
    * @since 9
    */
-  /**
-   * Title height when main title and subtitle are both available.
-   * @crossplatform
-   * @since 10
-   */
   MainWithSub,
 }
 
 /**
  * Command key for hot key.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum CtrlKey {
@@ -4029,12 +3955,14 @@ declare enum CtrlKey {
 /**
  * The alignment of ImageSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum ImageSpanAlignment {
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   BASELINE,
@@ -4042,6 +3970,7 @@ declare enum ImageSpanAlignment {
   /**
    * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   BOTTOM,
@@ -4049,6 +3978,7 @@ declare enum ImageSpanAlignment {
   /**
    * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   CENTER,
@@ -4056,6 +3986,7 @@ declare enum ImageSpanAlignment {
   /**
    * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   TOP,

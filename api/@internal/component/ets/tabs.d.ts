@@ -137,6 +137,7 @@ interface TabsInterface {
  * and end margin
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface DividerStyle {
@@ -145,6 +146,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth: Length;
@@ -153,6 +155,7 @@ interface DividerStyle {
    * Define the color of the divider
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   color?: ResourceColor;
@@ -162,6 +165,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   startMargin?: Length;
@@ -171,6 +175,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   endMargin?: Length;
@@ -283,6 +288,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { boolean } value - indicates whether the edges of tab bar are fading.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fadingEdge(value: boolean): TabsAttribute;
@@ -292,6 +298,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { DividerStyle | null } value - indicates the style of the indicator.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   divider(value: DividerStyle | null): TabsAttribute;

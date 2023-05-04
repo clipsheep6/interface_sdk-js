@@ -761,6 +761,7 @@ declare interface BorderOptions {
 /**
  * Define the style of checkbox mark.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface MarkStyle {
@@ -776,6 +777,7 @@ declare interface MarkStyle {
    * Define the size of checkbox mark.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   size?: Length;
@@ -784,6 +786,7 @@ declare interface MarkStyle {
    * Define the stroke width of checkbox mark.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth?: Length;

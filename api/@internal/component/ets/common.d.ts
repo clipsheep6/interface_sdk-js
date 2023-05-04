@@ -645,23 +645,11 @@ declare interface AnimateParam {
  * @form
  * @since 9
  */
-/**
- * Interface for curve object.
- * @form
- * @crossplatform
- * @since 10
- */
 interface ICurve {
   /**
    * Get curve value by fraction.
    * @form
    * @since 9
-   */
-  /**
-   * Get curve value by fraction.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   interpolate(fraction: number): number;
 }
@@ -949,23 +937,11 @@ declare interface ScaleOptions {
  * @form
  * @since 9
  */
-/**
- * Defines the align rule options of relative container.
- * @form
- * @crossplatform
- * @since 10
- */
 declare interface AlignRuleOption {
   /**
    * The param of left align.
    * @form
    * @since 9
-   */
-  /**
-   * The param of left align.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   left?: { anchor: string, align: HorizontalAlign };
   /**
@@ -973,23 +949,11 @@ declare interface AlignRuleOption {
    * @form
    * @since 9
    */
-  /**
-   * The param of right align.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   right?: { anchor: string, align: HorizontalAlign };
   /**
    * The param of middle align.
    * @form
    * @since 9
-   */
-  /**
-   * The param of middle align.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   middle?: { anchor: string, align: HorizontalAlign };
   /**
@@ -997,35 +961,17 @@ declare interface AlignRuleOption {
    * @form
    * @since 9
    */
-  /**
-   * The param of top align.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   top?: { anchor: string, align: VerticalAlign };
   /**
    * The param of bottom align.
    * @form
    * @since 9
    */
-  /**
-   * The param of bottom align.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   bottom?: { anchor: string, align: VerticalAlign };
   /**
    * The param of center align.
    * @form
    * @since 9
-   */
-  /**
-   * The param of center align.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   center?: { anchor: string, align: VerticalAlign };
 }
@@ -1387,12 +1333,6 @@ declare class TransitionEffect<
  * @form
  * @since 9
  */
-/**
- * Define Preview property
- * @form
- * @crossplatform
- * @since 10
- */
 interface PreviewParams {
   /**
    * Define Preview title
@@ -1411,23 +1351,11 @@ interface PreviewParams {
    * @form
    * @since 9
    */
-  /**
-   * Define Preview width
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   width?: number;
   /**
    * Define Preview height
    * @form
    * @since 9
-   */
-  /**
-   * Define Preview height
-   * @form
-   * @crossplatform
-   * @since 10
    */
   height?: number;
   /**
@@ -1435,23 +1363,11 @@ interface PreviewParams {
    * @form
    * @since 9
    */
-  /**
-   * Define Preview locale
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   locale?: string;
   /**
    * Define Preview colorMode
    * @form
    * @since 9
-   */
-  /**
-   * Define Preview colorMode
-   * @form
-   * @crossplatform
-   * @since 10
    */
   colorMode?: string;
   /**
@@ -1459,23 +1375,11 @@ interface PreviewParams {
    * @form
    * @since 9
    */
-  /**
-   * Define Preview deviceType
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   deviceType?: string;
   /**
    * Define Preview dpi
    * @form
    * @since 9
-   */
-  /**
-   * Define Preview dpi
-   * @form
-   * @crossplatform
-   * @since 10
    */
   dpi?: number;
   /**
@@ -1483,23 +1387,11 @@ interface PreviewParams {
    * @form
    * @since 9
    */
-  /**
-   * Define Preview orientation
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   orientation?: string;
   /**
    * Define Preview roundScreen
    * @form
    * @since 9
-   */
-  /**
-   * Define Preview roundScreen
-   * @form
-   * @crossplatform
-   * @since 10
    */
   roundScreen?: boolean;
 }
@@ -3735,15 +3627,6 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  /**
-   * Background blur style.
-   * blurStyle:Blur style type.
-   * @param { BlurStyle } value
-   * @param { BackgroundBlurStyleOptions } options
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
 
   /**
@@ -3802,12 +3685,6 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  /**
-   * Border style
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   borderStyle(value: EdgeStyles): T;
 
   /**
@@ -3863,12 +3740,6 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  /**
-   * Border color
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   borderColor(value: EdgeColors): T;
 
   /**
@@ -3892,24 +3763,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  /**
-   * Border radius
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   borderRadius(value: BorderRadiuses): T;
 
   /**
    * Border image
    * @form
    * @since 9
-   */
-  /**
-   * Border image
-   * @form
-   * @crossplatform
-   * @since 10
    */
   borderImage(value: BorderImageOption): T;
 
@@ -5486,12 +5345,6 @@ declare interface LinearGradient {
  * @form
  * @since 9
  */
-/**
- * Sub component border info.
- * @form
- * @crossplatform
- * @since 10
- */
 declare interface LayoutBorderInfo {
   borderWidth: EdgeWidths,
   margin: Margin,
@@ -5503,12 +5356,6 @@ declare interface LayoutBorderInfo {
  * @form
  * @since 9
  */
-/**
- * Sub component layout info.
- * @form
- * @crossplatform
- * @since 10
- */
 declare interface LayoutInfo {
   position: Position,
   constraint: ConstraintSizeOptions,
@@ -5519,23 +5366,11 @@ declare interface LayoutInfo {
  * @form
  * @since 9
  */
-/**
- * Sub component info passed from framework when layout and measure happens.
- * @form
- * @crossplatform
- * @since 10
- */
 declare interface LayoutChild {
   /**
    * Sub component name.
    * @form
    * @since 9
-   */
-  /**
-   * Sub component name.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   name: string,
 
@@ -5544,24 +5379,12 @@ declare interface LayoutChild {
    * @form
    * @since 9
    */
-  /**
-   * Sub component id.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   id: string,
 
   /**
    * Sub component constraint.
    * @form
    * @since 9
-   */
-  /**
-   * Sub component constraint.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   constraint: ConstraintSizeOptions,
 
@@ -5570,24 +5393,12 @@ declare interface LayoutChild {
    * @form
    * @since 9
    */
-  /**
-   * Sub component border info.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   borderInfo: LayoutBorderInfo,
 
   /**
    * Sub component position.
    * @form
    * @since 9
-   */
-  /**
-   * Sub component position.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   position: Position,
 
@@ -5596,24 +5407,12 @@ declare interface LayoutChild {
    * @form
    * @since 9
    */
-  /**
-   * Call this measure method in onMeasure callback to supply sub component size.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   measure(childConstraint: ConstraintSizeOptions),
 
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
    * @form
    * @since 9
-   */
-  /**
-   * Call this layout method in onLayout callback to assign layout info to sub component.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   layout(childLayoutInfo: LayoutInfo)
 }
@@ -5687,24 +5486,12 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    */
-  /**
-   * Custom component override this method to layout each of its sub components.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
   /**
    * Custom component override this method to measure each of its sub components.
    * @form
    * @since 9
-   */
-  /**
-   * Custom component override this method to measure each of its sub components.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 

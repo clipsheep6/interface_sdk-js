@@ -49,6 +49,7 @@ declare class TextAreaController {
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   setTextSelection(selectionStart: number, selectionEnd: number): void;
@@ -255,6 +256,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when judging whether the text editing change finished.
    * @param {boolean} isEditing - Triggered when the text area status changes. If the value of isEditing is true, text area is in progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onEditChange(callback: (isEditing: boolean) => void): TextAreaAttribute;

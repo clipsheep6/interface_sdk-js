@@ -83,21 +83,11 @@ declare enum ScrollState {
  * @form
  * @since 9
  */
-/**
- * Declare list item alignment status
- * @crossplatform
- * @since 10
- */
 declare enum ListItemAlign {
   /**
    * Start position in the direction of cross axis.
    * @form
    * @since 9
-   */
-  /**
-   * Start position in the direction of cross axis.
-   * @crossplatform
-   * @since 10
    */
   Start,
 
@@ -106,22 +96,12 @@ declare enum ListItemAlign {
    * @form
    * @since 9
    */
-  /**
-   * Center position in the direction of cross axis.
-   * @crossplatform
-   * @since 10
-   */
   Center,
 
   /**
    * End position in the direction of cross axis
    * @form
    * @since 9
-   */
-  /**
-   * End position in the direction of cross axis
-   * @crossplatform
-   * @since 10
    */
   End,
 }
@@ -131,21 +111,11 @@ declare enum ListItemAlign {
  * @form
  * @since 9
  */
-/**
- * Declare item group sticky style.
- * @crossplatform
- * @since 10
- */
 declare enum StickyStyle {
   /**
    * The header and footer of each item group will not be pinned.
    * @form
    * @since 9
-   */
-  /**
-   * The header and footer of each item group will not be pinned.
-   * @crossplatform
-   * @since 10
    */
   None = 0,
 
@@ -154,22 +124,12 @@ declare enum StickyStyle {
    * @form
    * @since 9
    */
-  /**
-   * The header of each item group will be pinned.
-   * @crossplatform
-   * @since 10
-   */
   Header = 1,
 
   /**
    * The footer of each item group will be pinned.
    * @form
    * @since 9
-   */
-  /**
-   * The footer of each item group will be pinned.
-   * @crossplatform
-   * @since 10
    */
   Footer = 2,
 }
@@ -186,6 +146,7 @@ declare enum ChainEdgeEffect {
    * Default edge effect. Compress the space in the drag direction
    * and stretch the space in the opposite drag direction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   DEFAULT,
@@ -193,6 +154,7 @@ declare enum ChainEdgeEffect {
   /**
    * Stretch all space.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   STRETCH,
@@ -210,6 +172,7 @@ declare interface ChainAnimationOptions {
    * Minimum space for chain animation.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   minSpace: Length;
@@ -218,6 +181,7 @@ declare interface ChainAnimationOptions {
    * Maximum space for chain animation.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   maxSpace: Length;
@@ -227,6 +191,7 @@ declare interface ChainAnimationOptions {
    * @type { number }
    * @default 0.7
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   conductivity?: number;
@@ -236,6 +201,7 @@ declare interface ChainAnimationOptions {
    * @type { number }
    * @default 0.3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   intensity?: number;
@@ -245,6 +211,7 @@ declare interface ChainAnimationOptions {
    * @type { ChainEdgeEffect }
    * @default ChainEdgeEffect.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   edgeEffect?: ChainEdgeEffect;
@@ -299,22 +266,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
-  /**
-   * Called when need to decide how much lanes the list will show.
-   * @crossplatform
-   * @since 10
-   */
   lanes(value: number | LengthConstrain): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    * @form
    * @since 9
-   */
-  /**
-   * Called when need to decide how to align lanes in the direction of the cross axis.
-   * @crossplatform
-   * @since 10
    */
   alignListItem(value: ListItemAlign): ListAttribute;
 
@@ -459,11 +416,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
-  /**
-   * Called when header or footer of item group will be pinned.
-   * @crossplatform
-   * @since 10
-   */
   sticky(value: StickyStyle): ListAttribute;
 
   /**
@@ -534,11 +486,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the slider start.
    * @form
    * @since 9
-   */
-  /**
-   * Called when the slider start.
-   * @crossplatform
-   * @since 10
    */
   onScrollStart(event: () => void): ListAttribute;
 
