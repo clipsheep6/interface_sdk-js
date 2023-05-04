@@ -17,6 +17,11 @@
  * Mesh container for static fixed-size layout scenarios.
  * @since 7
  */
+/**
+ * Mesh container for static fixed-size layout scenarios.
+ * @crossplatform
+ * @since 10
+ */
 interface GridItemInterface {
   /**
    * Return to get GridItem.
