@@ -750,8 +750,14 @@ declare namespace formHost {
      * @param { AsyncCallback<{[key: string]: Object}> } callback - The callback of acquireFormData.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * invalid input parameter during form operation
      * @syscap SystemCapability.Ability.Form
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     function acquireFormData(formId: string, callback: AsyncCallback<{[key: string]: Object}>): void;
@@ -763,10 +769,84 @@ declare namespace formHost {
      * @returns { Promise<{[key: string]: Object}> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * invalid input parameter during form operation
      * @syscap SystemCapability.Ability.Form
      * @systemapi
+     * @StageModelOnly
      * @since 10
      */
     function acquireFormData(formId: string): Promise<{[key: string]: Object}>;
+
+      /**
+     * get form instance by formInstanceFilter.
+     * @permission ohos.permission.REQUIRE_FORM
+     * @param { formInfo.FormInstanceFilter } formInstanceFilter - Indicates the form provider app info.
+     * @returns { Promise<Array<formInfo.FormInstance>> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16501000 - An internal functional error occurred.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+   function getFormInstancesByFilter(formInstanceFilter: formInfo.FormInstanceFilter): Promise<Array<formInfo.FormInstance>>;
+
+   /**
+    * get form instance by formInstanceFilter.
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { formInfo.FormInstanceFilter } formInstanceFilter - Indicates the form provider app info.
+    * @param { AsyncCallback<Array<formInfo.FormInstance>> } callback - The callback of getFormInstancesByFilter.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 10
+    */
+   function getFormInstancesByFilter(formInstanceFilter: formInfo.FormInstanceFilter, callback: AsyncCallback<Array<formInfo.FormInstance>>): void;
+
+   /**
+    * get form instance by formId.
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { string } formId - Indicates the form provider formId.
+    * @returns { Promise<formInfo.FormInstance> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 10
+    */
+   function getFormInstancesById(formId: string): Promise<formInfo.FormInstance>;
+   /**
+    * get form instance by formId.
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { string } formId - Indicates the form provider formId.
+    * @param { AsyncCallback<formInfo.FormInstance> } callback - The callback of getFormInstancesById.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+    * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 10
+    * 
+    */
+   function getFormInstancesById(formId: string, callback: AsyncCallback<formInfo.FormInstance>): void;
 }
 export default formHost;
