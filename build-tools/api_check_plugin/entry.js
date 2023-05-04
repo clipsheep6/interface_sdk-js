@@ -39,18 +39,20 @@ function checkEntry(prId) {
           'Content-Type': 'application/json;charset=UFT-8'
         }
       });
-      let resBody = new TextDecoder('utf-8').decode(res.body);
-      let comments = JSON.parse(`{"resultBody": '${resBody}'}`);
-      let resultBody = comments.resultBody;
-      if (resultBody && resultBody.length) {
-        for (let i = 0; i < resultBody.length; i++) {
-          const comment = resultBody[i];
-          if (comment && comment['user'] && comment['user']['id'] && administrators.has(comment['user']['id']) &&
-            comment.body && /^approve api check$/.test(comment.body)) {
-            isOpenEscapeWay = true;
-            break;
-          }
-        }
+      if (res && res.body) {
+        let resBody = new TextDecoder('utf-8').decode(res.body);
+        let comments = JSON.parse(`{"resultBody": "${resBody}"}`);
+          // let resultBody = comments.resultBody;
+          // if (resultBody && resultBody.length) {
+          //   for (let i = 0; i < resultBody.length; i++) {
+          //     const comment = resultBody[i];
+          //     if (comment && comment['user'] && comment['user']['id'] && administrators.has(comment['user']['id']) &&
+          //       comment.body && /^approve api check$/.test(comment.body)) {
+          //       isOpenEscapeWay = true;
+          //       break;
+          //     }
+          //   }
+          // }
       }
     }
     const { scanEntry } = require(path.resolve(__dirname, './src/api_check_plugin'));
