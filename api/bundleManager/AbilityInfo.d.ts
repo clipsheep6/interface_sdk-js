@@ -268,7 +268,7 @@ export interface AbilityInfo {
  */
 export interface WindowSize {
   /**
-   * Indicates maximum ratioe of width over height of window under free window status.
+   * Indicates maximum ratio of width over height of window under free window status.
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
