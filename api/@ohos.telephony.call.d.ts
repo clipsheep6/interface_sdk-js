@@ -1253,8 +1253,9 @@ declare namespace call {
    */
   export enum VoNRState {
     /** Indicates the VoNR switch is on */
-    VONR_STATE_ON = 0,
+    VONR_STATE_ON = 1,
     /** Indicates the VoNR switch is off */
+    VONR_STATE_OFF = 0,
   }
 
   /**
