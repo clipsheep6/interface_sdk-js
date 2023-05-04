@@ -160,7 +160,9 @@ declare namespace overlay {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
    * @since 10
@@ -220,6 +222,8 @@ declare namespace overlay {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @throws { BusinessError } 17700035 - The specified bundle is an overlay bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @systemapi
