@@ -2655,12 +2655,6 @@ declare interface PixelMapMock {
    * @systemapi
    * @since 7
    */
-  /**
-   * release function.
-   * @systemapi
-   * @crossplatform
-   * @since 10
-   */
   release(): void;
 }
 
