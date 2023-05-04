@@ -1206,16 +1206,17 @@ declare namespace call {
   /**
    * Subscribe to the audioDeviceChange event.
    *
-   * @param type Indicates the observer type.
-   * @param callback Return the result of current audio device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Non-system applications use system APIs.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - audioDeviceChange.
+   * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -1224,16 +1225,17 @@ declare namespace call {
   /**
    * Unsubscribe from the audioDeviceChange event.
    *
-   * @param type Indicates the observer type.
-   * @param callback Return the result of current audio device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Non-system applications use system APIs.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { string } type - audioDeviceChange.
+   * @param { Callback<AudioDeviceInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -1589,14 +1591,16 @@ declare namespace call {
    * Set the audio device.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param device Indicates the device of audio.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - Non-system applications use system APIs.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @param { AudioDevice } device - Indicates the device of audio.
+   * @returns { Promise<void> } The promise returned by the setAudioDevice.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -1605,9 +1609,11 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AudioDevice } device - Indicates the device of audio.
    * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
    * @param { AsyncCallback<void> } callback - The callback of setAudioDevice.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1623,9 +1629,11 @@ declare namespace call {
   /**
    * Set the audio device with options.
    *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { AudioDevice } device - Indicates the device of audio.
    * @param { AudioDeviceOptions } options - Indicates additional information, such as address of bluetooth.
    * @returns { Promise<void> } The promise returned by the setAudioDevice.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
