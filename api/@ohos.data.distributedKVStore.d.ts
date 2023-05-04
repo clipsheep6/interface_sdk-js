@@ -310,6 +310,23 @@ declare namespace distributedKVStore {
   }
 
   /**
+   * Indicates the database sync policy.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @since 10
+   */
+  enum SyncPolicy {
+    /**
+     *Indicates the database would sync when device is online.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 10
+     */
+    SYNC_ON_ONLINE,
+  }
+
+  /**
    * Describes the subscription type.
    *
    * @enum { number }
@@ -476,6 +493,15 @@ declare namespace distributedKVStore {
      * @since 9
      */
     schema?: Schema;
+
+    /**
+     * Indicates the database sync policies
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 10
+     */
+    policies?: Array<SyncPolicy>;
   }
 
   /**
