@@ -58,6 +58,7 @@ declare interface Resource {
 
   /**
    * Set bundleName.
+   * @form
    * @since 9
    */
   /**
@@ -69,6 +70,7 @@ declare interface Resource {
 
   /**
    * Set moduleName.
+   * @form
    * @since 9
    */
   /**
@@ -113,6 +115,12 @@ declare type ResourceStr = string | Resource;
 declare type Padding = {
   /**
    * top property.
+   * @since 7
+   */
+  /**
+   * top property.
+   * @form
+   * @since 9
    */
   /**
    * top property.
@@ -123,6 +131,12 @@ declare type Padding = {
 
   /**
    * right property.
+   * @since 7
+   */
+  /**
+   * right property.
+   * @form
+   * @since 9
    */
   /**
    * right property.
@@ -133,6 +147,12 @@ declare type Padding = {
 
   /**
    * bottom property.
+   * @since 7
+   */
+  /**
+   * bottom property.
+   * @form
+   * @since 9
    */
   /**
    * bottom property.
@@ -143,6 +163,12 @@ declare type Padding = {
 
   /**
    * left property.
+   * @since 7
+   */
+  /**
+   * left property.
+   * @form
+   * @since 9
    */
   /**
    * left property.
@@ -165,6 +191,7 @@ declare type Margin = Padding;
 
 /**
  * Defines the border width property.
+ * @form
  * @since 9
  */
 /**
@@ -175,6 +202,7 @@ declare type Margin = Padding;
 declare type EdgeWidths = {
   /**
    * top property.
+   * @form
    * @since 9
    */
   /**
@@ -186,6 +214,7 @@ declare type EdgeWidths = {
 
   /**
    * right property.
+   * @form
    * @since 9
    */
   /**
@@ -197,6 +226,7 @@ declare type EdgeWidths = {
 
   /**
    * bottom property.
+   * @form
    * @since 9
    */
   /**
@@ -208,6 +238,7 @@ declare type EdgeWidths = {
 
   /**
    * left property.
+   * @form
    * @since 9
    */
   /**
@@ -220,6 +251,7 @@ declare type EdgeWidths = {
 
 /**
  * Defines the border radius property.
+ * @form
  * @since 9
  */
 /**
@@ -230,6 +262,7 @@ declare type EdgeWidths = {
 declare type BorderRadiuses = {
   /**
    * top-left property.
+   * @form
    * @since 9
    */
   /**
@@ -241,6 +274,7 @@ declare type BorderRadiuses = {
 
   /**
    * top-right property.
+   * @form
    * @since 9
    */
   /**
@@ -252,6 +286,7 @@ declare type BorderRadiuses = {
 
   /**
    * bottom-left property.
+   * @form
    * @since 9
    */
   /**
@@ -263,6 +298,7 @@ declare type BorderRadiuses = {
 
   /**
    * bottom-right property.
+   * @form
    * @since 9
    */
   /**
@@ -275,6 +311,7 @@ declare type BorderRadiuses = {
 
 /**
  * Defines the border color property.
+ * @form
  * @since 9
  */
 /**
@@ -285,6 +322,7 @@ declare type BorderRadiuses = {
 declare type EdgeColors = {
   /**
    * top property.
+   * @form
    * @since 9
    */
   /**
@@ -296,6 +334,7 @@ declare type EdgeColors = {
 
   /**
    * right property.
+   * @form
    * @since 9
    */
   /**
@@ -307,6 +346,7 @@ declare type EdgeColors = {
 
   /**
    * bottom property.
+   * @form
    * @since 9
    */
   /**
@@ -318,6 +358,7 @@ declare type EdgeColors = {
 
   /**
    * left property.
+   * @form
    * @since 9
    */
   /**
@@ -330,6 +371,7 @@ declare type EdgeColors = {
 
 /**
  * Defines the border style property.
+ * @form
  * @since 9
  */
 /**
@@ -340,6 +382,7 @@ declare type EdgeColors = {
 declare type EdgeStyles = {
   /**
    * top property.
+   * @form
    * @since 9
    */
   /**
@@ -351,6 +394,7 @@ declare type EdgeStyles = {
 
   /**
    * right property.
+   * @form
    * @since 9
    */
   /**
@@ -362,6 +406,7 @@ declare type EdgeStyles = {
 
   /**
    * bottom property.
+   * @form
    * @since 9
    */
   /**
@@ -373,6 +418,7 @@ declare type EdgeStyles = {
 
   /**
    * left property.
+   * @form
    * @since 9
    */
   /**
@@ -427,6 +473,7 @@ declare type ResourceColor = Color | number | string | Resource;
 
 /**
  * Defines the length constrain property.
+ * @form
  * @since 9
  */
 /**
@@ -437,6 +484,8 @@ declare type ResourceColor = Color | number | string | Resource;
 declare type LengthConstrain = {
   /**
    * minimum length.
+   * @form
+   * @since 9
    */
   /**
    * minimum length.
@@ -447,6 +496,8 @@ declare type LengthConstrain = {
 
   /**
    * maximum length.
+   * @form
+   * @since 9
    */
   /**
    * maximum length.
@@ -696,6 +747,7 @@ declare interface BorderOptions {
   /**
    * Defines the border width.
    * @type { EdgeWidths | Length }
+   * @form
    * @since 9
    */
   /**
@@ -713,6 +765,7 @@ declare interface BorderOptions {
   /**
    * Defines the border color.
    * @type { EdgeColors | ResourceColor }
+   * @form
    * @since 9
    */
   /**
@@ -730,6 +783,7 @@ declare interface BorderOptions {
   /**
    * Defines the border radius.
    * @type { BorderRadiuses | Length }
+   * @form
    * @since 9
    */
   /**
@@ -747,6 +801,7 @@ declare interface BorderOptions {
   /**
    * Defines the border style.
    * @type { EdgeStyles | BorderStyle }
+   * @form
    * @since 9
    */
   /**
@@ -791,6 +846,7 @@ declare interface MarkStyle {
 
 /**
  * Defines the ColorFilter object.
+ * @form
  * @since 9
  */
 /**
@@ -802,6 +858,7 @@ declare class ColorFilter {
   /**
    * Creates ColorFilter with 4*5 matrix.
    * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @form
    * @since 9
    */
   /**

@@ -795,7 +795,7 @@ declare enum MouseAction {
 /**
  * Animation status.
  * @form
- * @since 9
+ * @since 10
  */
 /**
  * Animation status.
@@ -811,7 +811,7 @@ declare enum AnimationStatus {
   /**
    * Initial state of the animation.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * Initial state of the animation.
@@ -828,7 +828,7 @@ declare enum AnimationStatus {
   /**
    * The animation is playing.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * The animation is playing.
@@ -845,7 +845,7 @@ declare enum AnimationStatus {
   /**
    * The animation is paused.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * The animation is paused.
@@ -862,7 +862,7 @@ declare enum AnimationStatus {
   /**
    * The animation is stopped.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * The animation is stopped.
@@ -1118,7 +1118,7 @@ declare enum Curve {
 /**
  * Sets the state before and after the animation starts.
  * @form
- * @since 9
+ * @since 10
  */
 /**
  * Sets the state before and after the animation starts.
@@ -1134,7 +1134,7 @@ declare enum FillMode {
   /**
    * Restores to the initial state after the playback is complete.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * Restores to the initial state after the playback is complete.
@@ -1151,7 +1151,7 @@ declare enum FillMode {
   /**
    * Retains the state at the end of the animation when the playback is complete.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * Retains the state at the end of the animation when the playback is complete.
@@ -1168,7 +1168,7 @@ declare enum FillMode {
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
@@ -1185,7 +1185,7 @@ declare enum FillMode {
   /**
    * Both forward and backward fill modes are applied.
    * @form
-   * @since 9
+   * @since 10
    */
   /**
    * Both forward and backward fill modes are applied.
@@ -3479,8 +3479,17 @@ declare enum TextAlign {
    * Justify the text
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @deprecated since 10
+   * @useinstead TextAlign#JUSTIFY
    */
   Justify,
+
+  /**
+   * Justify the text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  JUSTIFY,
 }
 
 /**
@@ -3554,8 +3563,17 @@ declare enum TextOverflow {
    * When the text overflows its dimensions, the text will scroll for displaying.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   * @deprecated since 10
+   * @useinstead TextOverflow#MARQUEE
    */
   Marquee,
+
+  /**
+   * When the text overflows its dimensions, the text will scroll for displaying.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  MARQUEE,
 }
 
 /**
@@ -4034,7 +4052,6 @@ declare enum Placement {
 
   /**
    * LeftTop placement
-   * @form
    * @since 9
    */
   /**
@@ -4047,7 +4064,6 @@ declare enum Placement {
 
   /**
    * LeftBottom placement
-   * @form
    * @since 9
    */
   /**
@@ -4060,7 +4076,6 @@ declare enum Placement {
 
   /**
    * RightTop placement
-   * @form
    * @since 9
    */
   /**
@@ -4073,7 +4088,6 @@ declare enum Placement {
 
   /**
    * RightBottom placement
-   * @form
    * @since 9
    */
   /**
@@ -4139,7 +4153,6 @@ declare enum CopyOptions {
 
 /**
  * Defines the hit test mode.
- * @form
  * @since 9
  */
 /**
@@ -4152,7 +4165,6 @@ declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   /**
@@ -4167,7 +4179,6 @@ declare enum HitTestMode {
   /**
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   /**
@@ -4182,7 +4193,6 @@ declare enum HitTestMode {
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   /**
@@ -4197,7 +4207,6 @@ declare enum HitTestMode {
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
-   * @form
    * @since 9
    */
   /**
@@ -4212,7 +4221,6 @@ declare enum HitTestMode {
 
 /**
  * Title height.
- * @form
  * @since 9
  */
 /**
@@ -4224,7 +4232,6 @@ declare enum HitTestMode {
 declare enum TitleHeight {
   /**
    * Title height when only main title is available.
-   * @form
    * @since 9
    */
     /**
@@ -4237,7 +4244,6 @@ declare enum TitleHeight {
 
   /**
    * Title height when main title and subtitle are both available.
-   * @form
    * @since 9
    */
   /**
@@ -4250,27 +4256,116 @@ declare enum TitleHeight {
 }
 
 /**
- * Command key for hot key.
+ * Modifier key for hot key.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum CtrlKey {
+declare enum ModifierKey {
   /**
    * ctrl.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  CTRL = 0,
+  CTRL,
 
   /**
    * shift.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  SHIFT = 1,
+  SHIFT,
   /**
    * alt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  ALT = 2,
+  ALT,
+}
+
+/**
+ * Function key for hot key.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum FunctionKey {
+  /**
+   * Escape key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ESC,
+  /**
+   * F1 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F1,
+  /**
+   * F2 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F2,
+  /**
+   * F3 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F3,
+  /**
+   * F4 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F4,
+  /**
+   * F5 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F5,
+  /**
+   * F6 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F6,
+  /**
+   * F7 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F7,
+  /**
+   * F8 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F8,
+  /**
+   * F9 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F9,
+  /**
+   * F10 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F10,
+  /**
+   * F11 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F11,
+  /**
+   * F12 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  F12,
 }
 
 /**

@@ -147,7 +147,7 @@ interface IconOptions {
    * @since 10
    */
   size?: Length;
-	
+
   /**
    * Set the icon color
    * @type { ResourceColor }
@@ -155,7 +155,7 @@ interface IconOptions {
    * @since 10
    */
   color?: ResourceColor;
-	
+
   /**
    * Set the icon resource
    * @type { ResourceStr }
@@ -178,7 +178,7 @@ interface CaretStyle {
    * @since 10
    */
   width?: Length,
-	
+
   /**
    * Set the cursor color
    * @type { ResourceColor }
@@ -201,7 +201,7 @@ interface SearchButtonOption {
    * @since 10
    */
   fontSize?: Length;
-	
+
   /**
    * Set the SearchButton fontColor
    * @type { ResourceColor }
@@ -236,7 +236,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   searchButton(value: string, option?: SearchButtonOption): SearchAttribute;
-  
+
   /**
    * Set the text Color
    * @param { ResourceColor } value - indicates the color of the text.
@@ -252,15 +252,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   searchIcon(value: IconOptions): SearchAttribute;
-  
+
   /**
    * Set the cancel button style
    * @param { {style?: CancelButtonStyle, icon?: IconOptions} } value - indicates the style of the cancel button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  cancelButton(value: {style?: CancelButtonStyle, icon?: IconOptions}): SearchAttribute;
-  
+  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): SearchAttribute;
+
   /**
    * Set the cursor style
    * @param { CaretStyle } value - indicates the style of the cursor.
@@ -268,7 +268,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   caretStyle(value: CaretStyle): SearchAttribute;
-  
+
   /**
    * Set the place hold text color
    * @since 8

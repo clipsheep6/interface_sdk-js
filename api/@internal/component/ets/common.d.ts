@@ -1043,6 +1043,15 @@ declare interface AlignRuleOption {
   center?: { anchor: string, align: VerticalAlign };
 }
 
+/**
+ * The param of rotate.
+ * @since 7
+ */
+/**
+ * The param of rotate.
+ * @form
+ * @since 9
+ */
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -1267,6 +1276,7 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
+   * @constant
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1276,6 +1286,7 @@ declare class TransitionEffect<
 
   /**
    * Defines an opacity transition effect
+   * @constant
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1285,6 +1296,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide transition effect
+   * @constant
    * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1300,6 +1312,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
+   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1958,6 +1971,8 @@ declare enum BlurStyle {
   /**
    * Defines the thin background material.
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_THIN
    */
   /**
    * Defines the thin background material.
@@ -1970,6 +1985,8 @@ declare enum BlurStyle {
    * Defines the thin regular material.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_REGULAR
    */
   BackgroundRegular,
 
@@ -1977,6 +1994,8 @@ declare enum BlurStyle {
    * Defines the thin thick material.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_THICK
    */
   BackgroundThick,
 
@@ -1984,8 +2003,38 @@ declare enum BlurStyle {
    * Defines the thin ultra thick material.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
    */
   BackgroundUltraThick,
+
+  /**
+   * Defines the thin background material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BACKGROUND_THIN,
+
+  /**
+   * Defines the thin regular material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BACKGROUND_REGULAR,
+
+  /**
+   * Defines the thin thick material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BACKGROUND_THICK,
+
+  /**
+   * Defines the thin ultra thick material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BACKGROUND_ULTRA_THICK,
 }
 
 /**
@@ -1998,6 +2047,8 @@ declare enum ThemeColorMode {
    * Defines the mode which is follow up with system.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ThemeColorMode#SYSTEM
    */
   System,
 
@@ -2005,6 +2056,8 @@ declare enum ThemeColorMode {
    * Defines the light mode.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ThemeColorMode#LIGHT
    */
   Light,
 
@@ -2012,8 +2065,31 @@ declare enum ThemeColorMode {
    * Defines the dark m                                                        ode.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ThemeColorMode#DARK
    */
   Dark,
+
+  /**
+   * Defines the mode which is follow up with system.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SYSTEM,
+
+  /**
+   * Defines the light mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  LIGHT,
+
+  /**
+   * Defines the dark mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DARK,
 }
 
 /**
@@ -2026,6 +2102,8 @@ declare enum AdaptiveColor {
    * Defines the fixed value color adaptive mode.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead AdaptiveColor#DEFAULT
    */
   Default,
 
@@ -2033,8 +2111,24 @@ declare enum AdaptiveColor {
    * Defines the background average color adaptive mode.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead AdaptiveColor#AVERAGE
    */
   Average,
+
+  /**
+   * Defines the fixed value color adaptive mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+
+  /**
+   * Defines the background average color adaptive mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  AVERAGE,
 }
 
 /**
@@ -2049,6 +2143,8 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ModalTransition#DEFAULT
    */
   Default,
 
@@ -2057,6 +2153,8 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ModalTransition#NONE
    */
   None,
 
@@ -2065,8 +2163,31 @@ declare enum ModalTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ModalTransition#ALPHA
    */
-  Alpha,  
+  Alpha,
+
+  /**
+   * Use default animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+
+  /**
+   * Use none animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE,
+
+  /**
+   * Use alpha animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ALPHA,
 }
 
 /**
@@ -2208,6 +2329,8 @@ declare enum ShadowStyle {
    * Defines the super small default shadow style.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_XS
    */
   OuterDefaultXS,
 
@@ -2215,6 +2338,8 @@ declare enum ShadowStyle {
    * Defines the small default shadow style.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_SM
    */
   OuterDefaultSM,
 
@@ -2222,6 +2347,8 @@ declare enum ShadowStyle {
    * Defines the medium default shadow style.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_MD
    */
   OuterDefaultMD,
 
@@ -2229,6 +2356,8 @@ declare enum ShadowStyle {
    * Defines the large default shadow style.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_LG
    */
   OuterDefaultLG,
 
@@ -2236,6 +2365,8 @@ declare enum ShadowStyle {
    * Defines the small floating shadow style.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_FLOATING_SM
    */
   OuterFloatingSM,
 
@@ -2243,8 +2374,52 @@ declare enum ShadowStyle {
    * Defines the medium floating shadow style.
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_FLOATING_MD
    */
   OuterFloatingMD,
+
+  /**
+   * Defines the super small default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  OUTER_DEFAULT_XS,
+
+  /**
+   * Defines the small default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  OUTER_DEFAULT_SM,
+
+  /**
+   * Defines the medium default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  OUTER_DEFAULT_MD,
+
+  /**
+   * Defines the large default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  OUTER_DEFAULT_LG,
+
+  /**
+   * Defines the small floating shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  OUTER_FLOATING_SM,
+
+  /**
+   * Defines the medium floating shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  OUTER_FLOATING_MD,
 }
 
 /**
@@ -5027,7 +5202,7 @@ declare class CommonMethod<T> {
    * @form
    * @crossplatform
    * @since 10
-   */  
+   */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -5122,7 +5297,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Sets styles for component state.
@@ -5193,13 +5368,14 @@ declare class CommonMethod<T> {
 
   /**
    * Sets hot keys
-   * @param { string } value , single character of the Combination key
-   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
+   * @param { string | FunctionKey } value - Character of the combination key.
+   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
+   * @param { () => void } action - Callback function, triggered when the shortcut keyboard is pressed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
+  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 }
 
 /**
@@ -5533,8 +5709,25 @@ declare interface LinearGradient {
  * @since 10
  */
 declare interface LayoutBorderInfo {
+  /**
+   * Sub component borderWidth info.
+   * @form
+   * @since 9
+   */
   borderWidth: EdgeWidths,
+
+  /**
+   * Sub component margin info.
+   * @form
+   * @since 9
+   */
   margin: Margin,
+
+  /**
+   * Sub component padding info.
+   * @form
+   * @since 9
+   */
   padding: Padding,
 }
 
@@ -5550,7 +5743,18 @@ declare interface LayoutBorderInfo {
  * @since 10
  */
 declare interface LayoutInfo {
+  /**
+   * Sub component position info.
+   * @form
+   * @since 9
+   */
   position: Position,
+
+  /**
+   * Sub component constraint info.
+   * @form
+   * @since 9
+   */
   constraint: ConstraintSizeOptions,
 }
 

@@ -142,7 +142,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 10
    */
   textStyle(value: PickerTextStyle): TextPickerAttribute;
- 
+
   /**
    * Sets the text style of selected items
    * @param { PickerTextStyle } value - indicates the text style of selected items.
