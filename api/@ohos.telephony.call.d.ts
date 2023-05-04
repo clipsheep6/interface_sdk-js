@@ -1303,15 +1303,6 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  export interface AudioDevice {
-    deviceType: AudioDevice;
-    address?: string;
-  }
-
-  /**
-   * @systemapi Hide this for inner system use.
    * @since 8
    */
   export interface CallTransferInfo {
