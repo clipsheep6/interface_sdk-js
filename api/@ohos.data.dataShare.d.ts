@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import type { AsyncCallback } from './basic';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
-import rpc from './@ohos.rpc';
+import type { Ashmem } from './@ohos.rpc';
 
 /**
  * This module provides the dataShare capability for consumer.
@@ -180,7 +180,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    data: string | rpc.Ashmem;
+    data: string | Ashmem;
     /**
      * Specifies the subscriber id
      *
@@ -221,7 +221,8 @@ declare namespace dataShare {
     templateId: TemplateId;
     /**
      * Specifies the datas of the callback.
-     * every node is a json, json's key is [key of {@link Template#predicates} and value is the query result from rdb store query by value of{@link Template#predicates}].
+     * every node is a json, json's key is [key of {@link Template#predicates} 
+	 * and value is the query result from rdb store query by value of{@link Template#predicates}].
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
@@ -506,9 +507,9 @@ declare namespace dataShare {
      * @since 10
      */
     publish(
-        data: Array<PublishedItem>,
-        bundleName: string,
-        callback: AsyncCallback<Array<OperationResult>>
+      data: Array<PublishedItem>,
+      bundleName: string,
+      callback: AsyncCallback<Array<OperationResult>>
     ): void;
 
     /**
