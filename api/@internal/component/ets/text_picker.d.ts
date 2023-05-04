@@ -78,6 +78,11 @@ declare interface TextPickerOptions {
   /**
    * Current selected subscript.
    */
+  /**
+   * Current selected subscript.
+   * @crossplatform
+   * @since 10
+   */
   selected?: number;
 }
 

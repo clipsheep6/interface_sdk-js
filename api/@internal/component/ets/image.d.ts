@@ -17,10 +17,6 @@
  * @since 7
  */
 /**
- * @crossplatform
- * @since 10
- */
-/**
  * @form
  * @since 9
  */
@@ -33,11 +29,6 @@ declare enum ImageRenderMode {
   /**
    * Render according to the original image, including colors.
    * @since 7
-   */
-  /**
-   * Render according to the original image, including colors.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Render according to the original image, including colors.
@@ -58,11 +49,6 @@ declare enum ImageRenderMode {
    */
   /**
    * Render the image as a template image, ignoring the color information of the image.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Render the image as a template image, ignoring the color information of the image.
    * @form
    * @since 9
    */
@@ -79,10 +65,6 @@ declare enum ImageRenderMode {
  * @since 7
  */
 /**
- * @crossplatform
- * @since 10
- */
-/**
  * @form
  * @since 9
  */
@@ -95,11 +77,6 @@ declare enum ImageInterpolation {
   /**
    * Do not use interpolated image data.
    * @since 7
-   */
-  /**
-   * Do not use interpolated image data.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Do not use interpolated image data.
@@ -120,11 +97,6 @@ declare enum ImageInterpolation {
    */
   /**
    * Low usage of interpolated image data.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Low usage of interpolated image data.
    * @form
    * @since 9
    */
@@ -139,11 +111,6 @@ declare enum ImageInterpolation {
   /**
    * Interpolated image data is used moderately.
    * @since 7
-   */
-   /**
-   * Interpolated image data is used moderately.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Interpolated image data is used moderately.
@@ -164,11 +131,6 @@ declare enum ImageInterpolation {
    */
   /**
    * High usage of interpolated image data may affect the speed of image rendering.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * High usage of interpolated image data may affect the speed of image rendering.
    * @form
    * @since 9
    */
@@ -184,10 +146,6 @@ declare enum ImageInterpolation {
 
 /**
  * @since 7
- */
-/**
- * @crossplatform
- * @since 10
  */
 /**
  * @form
@@ -223,10 +181,6 @@ interface ImageInterface {
  * @since 7
  */
 /**
- * @crossplatform
- * @since 10
- */
-/**
  * @form
  * @since 9
  */
@@ -239,11 +193,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Placeholder displayed on load
    * @since 7
-   */
-  /**
-   * Placeholder displayed on load
-   * @crossplatform
-   * @since 10
    */
   /**
    * Placeholder displayed on load
@@ -265,11 +214,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * match Text Direction
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * match Text Direction
    * @form
    * @since 9
    */
@@ -284,11 +228,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Indicates whether the image follows the text direction.
    * @since 7
-   */
-  /**
-   * Indicates whether the image follows the text direction.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Indicates whether the image follows the text direction.
@@ -309,11 +248,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * fill Color
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * fill Color
    * @form
    * @since 9
    */
@@ -328,11 +262,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the zoom type of an image.
    * @since 7
-   */
-  /**
-   * Sets the zoom type of an image.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Sets the zoom type of an image.
@@ -353,11 +282,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Set the repeat style of the picture
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the repeat style of the picture
    * @form
    * @since 9
    */
@@ -372,11 +296,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Set the auto style of the picture
    * @since 7
-   */
-  /**
-   * Set the auto style of the picture
-   * @crossplatform
-   * @since 10
    */
   /**
    * Set the auto style of the picture
@@ -397,11 +316,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Sets the image rendering mode.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the image rendering mode.
    * @form
    * @since 9
    */
@@ -416,11 +330,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
    * @since 7
-   */
-  /**
-   * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
@@ -443,12 +352,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Specifies the picture decoding size.
-   * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    * @form
    * @since 9
    */
@@ -465,12 +368,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Sets the synchronous or asynchronous mode for image loading.
    * The default parameter type is bool, and the default value is false.
    * @since 8
-   */
-  /**
-   * Sets the synchronous or asynchronous mode for image loading.
-   * The default parameter type is bool, and the default value is false.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Sets the synchronous or asynchronous mode for image loading.
@@ -538,12 +435,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * This callback is triggered when an image is successfully loaded.
-   * The size of the image source that is successfully loaded is returned, in pixels.
    * @form
    * @since 9
    */
@@ -567,11 +458,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * This callback is triggered when an exception occurs during image loading.
    * @since 7
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   * @crossplatform
-   * @since 10
    */
   /**
    * This callback is triggered when an exception occurs during image loading.
@@ -609,12 +495,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
-   * If the svg image is a wireless loop image, this callback is not triggered.
    * @form
    * @since 9
    */
@@ -634,11 +514,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  */
 /**
  * Defines Image Component.
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Image Component.
  * @form
  * @since 9
  */
@@ -653,11 +528,6 @@ declare const Image: ImageInterface;
 /**
  * Defines Image Component instance.
  * @since 7
- */
-/**
- * Defines Image Component instance.
- * @crossplatform
- * @since 10
  */
 /**
  * Defines Image Component instance.

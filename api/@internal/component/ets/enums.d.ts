@@ -19,11 +19,6 @@
  */
 /**
  * common enum of color
- * @crossplatform
- * @since 10
- */
-/**
- * common enum of color
  * @form
  * @since 9
  */
@@ -37,11 +32,6 @@ declare enum Color {
   /**
    * White.
    * @since 7
-   */
-  /**
-   * White.
-   * @crossplatform
-   * @since 10
    */
   /**
    * White.
@@ -62,11 +52,6 @@ declare enum Color {
    */
   /**
    * Black.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Black.
    * @form
    * @since 9
    */
@@ -81,11 +66,6 @@ declare enum Color {
   /**
    * Blue.
    * @since 7
-   */
-  /**
-   * Blue.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Blue.
@@ -106,11 +86,6 @@ declare enum Color {
    */
   /**
    * Brown.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Brown.
    * @form
    * @since 9
    */
@@ -125,11 +100,6 @@ declare enum Color {
   /**
    * Gray.
    * @since 7
-   */
-  /**
-   * Gray.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Gray.
@@ -150,11 +120,6 @@ declare enum Color {
    */
   /**
    * Green.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Green.
    * @form
    * @since 9
    */
@@ -169,11 +134,6 @@ declare enum Color {
   /**
    * Grey.
    * @since 7
-   */
-  /**
-   * Grey.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Grey.
@@ -194,11 +154,6 @@ declare enum Color {
    */
   /**
    * Orange.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Orange.
    * @form
    * @since 9
    */
@@ -213,11 +168,6 @@ declare enum Color {
   /**
    * color.
    * @since 7
-   */
-  /**
-   * color.
-   * @crossplatform
-   * @since 10
    */
   /**
    * color.
@@ -238,11 +188,6 @@ declare enum Color {
    */
   /**
    * Red.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Red.
    * @form
    * @since 9
    */
@@ -257,11 +202,6 @@ declare enum Color {
   /**
    * Yellow.
    * @since 7
-   */
-  /**
-   * Yellow.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Yellow.
@@ -309,11 +249,6 @@ declare enum ColoringStrategy {
  * @since 7
  */
 /**
- * Image display mode
- * @crossplatform
- * @since 10
- */
-/**
  * Image display mode.
  * @form
  * @since 9
@@ -328,11 +263,6 @@ declare enum ImageFit {
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    * @since 7
-   */
-    /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
@@ -353,11 +283,6 @@ declare enum ImageFit {
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
    * @form
    * @since 9
    */
@@ -372,11 +297,6 @@ declare enum ImageFit {
   /**
    * Adaptive display
    * @since 7
-   */
-  /**
-   * Adaptive display
-   * @crossplatform
-   * @since 10
    */
   /**
    * Adaptive display
@@ -397,11 +317,6 @@ declare enum ImageFit {
    */
   /**
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
    * @form
    * @since 9
    */
@@ -419,11 +334,6 @@ declare enum ImageFit {
    */
   /**
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
    * @form
    * @since 9
    */
@@ -438,11 +348,6 @@ declare enum ImageFit {
   /**
    * Keep the original size and display it in the center.
    * @since 7
-   */
-  /**
-   * Keep the original size and display it in the center.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Keep the original size and display it in the center.
@@ -464,11 +369,6 @@ declare enum ImageFit {
  */
 /**
  * Border Style
- * @crossplatform
- * @since 10
- */
-/**
- * Border Style
  * @form
  * @since 9
  */
@@ -482,11 +382,6 @@ declare enum BorderStyle {
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
    * @since 7
-   */
-  /**
-   * Displays as a series of dots with a radius of half the borderWidth.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
@@ -507,11 +402,6 @@ declare enum BorderStyle {
    */
   /**
    * Shows as a series of short square dashed lines.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Shows as a series of short square dashed lines.
    * @form
    * @since 9
    */
@@ -526,11 +416,6 @@ declare enum BorderStyle {
   /**
    * Shows as a solid line.
    * @since 7
-   */
-  /**
-   * Shows as a solid line.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Shows as a solid line.
@@ -552,11 +437,6 @@ declare enum BorderStyle {
  */
 /**
  * Line Join Style
- * @crossplatform
- * @since 10
- */
-/**
- * Line Join Style
  * @form
  * @since 9
  */
@@ -570,11 +450,6 @@ declare enum LineJoinStyle {
   /**
    * Connect path segments using bevels.
    * @since 7
-   */
-  /**
-   * Connect path segments using bevels.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Connect path segments using bevels.
@@ -595,11 +470,6 @@ declare enum LineJoinStyle {
    */
   /**
    * Connect path segments using sharp corners.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Connect path segments using sharp corners.
    * @form
    * @since 9
    */
@@ -614,11 +484,6 @@ declare enum LineJoinStyle {
   /**
    * Connect path segments using fillets.
    * @since 7
-   */
-  /**
-   * Connect path segments using fillets.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Connect path segments using fillets.
@@ -640,11 +505,6 @@ declare enum LineJoinStyle {
  */
 /**
  * Function Called by Touch
- * @crossplatform
- * @since 10
- */
-/**
- * Function Called by Touch
  * @form
  * @since 9
  */
@@ -658,11 +518,6 @@ declare enum TouchType {
   /**
    * Triggered when the finger is pressed.
    * @since 7
-   */
-  /**
-   * Triggered when the finger is pressed.
-   * @crossplatform
-   * @since 10
    */
   /**
    * Triggered when the finger is pressed.
@@ -1242,7 +1097,7 @@ declare enum Curve {
    * Damping curve, CubicBezier(0.2, 0.0, 0.2, 1.0).
    * @since 7
    */
-  /**
+  /** 
    * Damping curve, CubicBezier(0.2, 0.0, 0.2, 1.0).
    * @form
    * @since 9

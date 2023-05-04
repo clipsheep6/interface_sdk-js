@@ -31,11 +31,6 @@ interface ImageAnimatorInterface {
    */
   /**
    * ImageAnimator is returned.
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ImageAnimator is returned.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

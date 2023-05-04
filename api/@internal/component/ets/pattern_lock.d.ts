@@ -17,14 +17,29 @@
  * Provides methods for control pattern lock component.
  * @since 9
  */
+/**
+ * Provides methods for control pattern lock component.
+ * @crossplatform
+ * @since 10
+ */
 declare class PatternLockController {
   /**
    * constructor.
+   */
+  /**
+   * constructor.
+   * @crossplatform
+   * @since 10
    */
   constructor();
 
   /**
    * Reset pattern lock.
+   */
+  /**
+   * Reset pattern lock.
+   * @crossplatform
+   * @since 10
    */
   reset();
 }

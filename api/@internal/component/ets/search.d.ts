@@ -232,7 +232,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { string } value - indicates the text of the search button.
    * @param { SearchButtonOption } option - indicates the fontSize and fontColor of the search button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * 
+   * @crossplatform
    * @since 10
    */
   searchButton(value: string, option?: SearchButtonOption): SearchAttribute;

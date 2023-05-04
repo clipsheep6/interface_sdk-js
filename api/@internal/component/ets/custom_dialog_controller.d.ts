@@ -102,21 +102,18 @@ declare interface CustomDialogControllerOptions {
 
   /**
    * Mask color of dialog.
-   * @crossplatform
    * @since 10
    */
   maskColor?: ResourceColor;
 
   /**
    * Animation parameters of dialog opening.
-   * @crossplatform
    * @since 10
    */
   openAnimation?: AnimateParam;
 
   /**
   * Animation parameters of dialog closing.
-  * @crossplatform
   * @since 10
   */
   closeAnimation?: AnimateParam;

@@ -37,26 +37,11 @@ declare function getInspectorNodeById(id: number): object;
  * @systemapi
  * @test
  */
-/**
- * Profiler tools for inspectors.
- * @crossplatform
- * @since 10
- * @systemapi
- * @test
- */
 declare namespace Profiler {
   /**
    * Registers vsync callback for profiler.
    * @param callback the callback info is json string with ui update info.
    * @since 8
-   * @systemapi
-   * @test
-   */
-    /**
-   * Registers vsync callback for profiler.
-   * @param callback the callback info is json string with ui update info.
-   * @crossplatform
-   * @since 10
    * @systemapi
    * @test
    */
@@ -67,27 +52,13 @@ declare namespace Profiler {
    * @since 8
    * @systemapi
    * @test
-   */
-  /**
-   * Unregisters vsync callback.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   * @test
-   */  
+   */ 
   function unregisterVsyncCallback(): void;
 }
 
 /**
  * Set app background color.
  * @since 8
- * @systemapi
- * @test
- */
-/**
- * Set app background color.
- * @crossplatform
- * @since 10
  * @systemapi
  * @test
  */

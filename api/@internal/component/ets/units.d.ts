@@ -441,7 +441,7 @@ declare type LengthConstrain = {
   /**
    * minimum length.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   minLength: Length;
 
@@ -451,7 +451,7 @@ declare type LengthConstrain = {
   /**
    * maximum length.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   maxLength: Length;
 };
@@ -463,7 +463,7 @@ declare type LengthConstrain = {
 /**
  * Defines the font used for text.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare interface Font {
   /**
@@ -472,7 +472,7 @@ declare interface Font {
   /**
    * font size.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   size?: Length;
 
@@ -482,7 +482,7 @@ declare interface Font {
   /**
    * font weight.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   weight?: FontWeight | number | string;
 
@@ -492,7 +492,7 @@ declare interface Font {
   /**
    * font family.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   family?: string | Resource;
 
@@ -502,7 +502,7 @@ declare interface Font {
   /**
    * font style.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   style?: FontStyle;
 }
@@ -514,7 +514,7 @@ declare interface Font {
 /**
  * Defines the area property.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare interface Area {
   /**
@@ -524,7 +524,7 @@ declare interface Area {
   /**
    * Defines the width property.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   width: Length;
 
@@ -535,7 +535,7 @@ declare interface Area {
   /**
    * Defines the height property.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   height: Length;
 
@@ -546,7 +546,7 @@ declare interface Area {
   /**
    * Defines the local position.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   position: Position;
 
@@ -557,7 +557,7 @@ declare interface Area {
   /**
    * Defines the global position.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   globalPosition: Position;
 }
@@ -569,7 +569,7 @@ declare interface Area {
 /**
  * Defines the position.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare interface Position {
   /**
@@ -579,7 +579,7 @@ declare interface Position {
   /**
    * Coordinate x of the Position.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   x?: Length;
   /**
@@ -589,7 +589,7 @@ declare interface Position {
   /**
    * Coordinate y of the Position.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   y?: Length;
 }
@@ -601,7 +601,7 @@ declare interface Position {
 /**
  * Defines the constrain size options.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare interface ConstraintSizeOptions {
   /**
@@ -611,7 +611,7 @@ declare interface ConstraintSizeOptions {
   /**
    * Defines the min width.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   minWidth?: Length;
   /**
@@ -621,7 +621,7 @@ declare interface ConstraintSizeOptions {
   /**
    * Defines the max width.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   maxWidth?: Length;
   /**
@@ -631,7 +631,7 @@ declare interface ConstraintSizeOptions {
   /**
    * Defines the min height.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   minHeight?: Length;
   /**
@@ -641,7 +641,7 @@ declare interface ConstraintSizeOptions {
   /**
    * Defines the max height.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   maxHeight?: Length;
 }
@@ -653,7 +653,7 @@ declare interface ConstraintSizeOptions {
 /**
  * Defines the size options.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare interface SizeOptions {
   /**
@@ -663,7 +663,7 @@ declare interface SizeOptions {
   /**
    * Defines the width.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   width?: Length;
   /**
@@ -673,7 +673,7 @@ declare interface SizeOptions {
   /**
    * Defines the height.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   height?: Length;
 }
@@ -685,7 +685,7 @@ declare interface SizeOptions {
 /**
  * Defines the options of border.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare interface BorderOptions {
   /**
@@ -702,7 +702,7 @@ declare interface BorderOptions {
    * Defines the border width.
    * @type { EdgeWidths | Length }
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   width?: EdgeWidths | Length;
   /**
@@ -719,7 +719,7 @@ declare interface BorderOptions {
    * Defines the border color.
    * @type { EdgeColors | ResourceColor }
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   color?: EdgeColors | ResourceColor;
   /**
@@ -736,7 +736,7 @@ declare interface BorderOptions {
    * Defines the border radius.
    * @type { BorderRadiuses | Length }
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   radius?: BorderRadiuses | Length;
   /**
@@ -753,7 +753,7 @@ declare interface BorderOptions {
    * Defines the border style.
    * @type { EdgeStyles | BorderStyle }
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   style?: EdgeStyles | BorderStyle;
 }
@@ -796,7 +796,7 @@ declare interface MarkStyle {
 /**
  * Defines the ColorFilter object.
  * @crossplatform
- * @since 10 
+ * @since 10
  */
 declare class ColorFilter {
   /**
@@ -808,7 +808,7 @@ declare class ColorFilter {
    * Creates ColorFilter with 4*5 matrix.
    * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
    * @crossplatform
-   * @since 10 
+   * @since 10
    */
   constructor(value: number[]);
 }

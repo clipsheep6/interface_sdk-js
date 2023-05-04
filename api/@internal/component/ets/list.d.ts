@@ -343,12 +343,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
- /**
-   * Called when the arrangement direction of the list component is set.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
+  /**
+    * Called when the arrangement direction of the list component is set.
+    * @form
+    * @crossplatform
+    * @since 10
+    */
   listDirection(value: Axis): ListAttribute;
 
   /**
