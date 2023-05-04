@@ -33,7 +33,7 @@ import window from './@ohos.window';
  * @permission N/A
  * @FAModelOnly
  */
-declare namespace featureAbility {
+declare namespace featureAbilityaaaaaa {
   /**
    * Obtain the want sent from the source ability.
    *
