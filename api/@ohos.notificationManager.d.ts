@@ -33,6 +33,7 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
 /**
  * Push App's OnCheckNotification function callback.
  * @typedef OnCheckNotificationCallback
+ * @syscap SystemCapability.Notification.Notification
  * @since 10
  */
 export interface OnCheckNotificationCallback {
@@ -1552,7 +1553,7 @@ declare namespace notificationManager {
   /**
    * Register push application's callback.
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { string } type - pushCheck.
+   * @param { 'pushCheck' } type - pushCheck.
    * @param { OnCheckNotificationCallback } pushcallback - push callback.
    * @param { AsyncCallback<void> } callback - Async Callback.
    * @throws { BusinessError } 401 - parameter error.
@@ -1570,7 +1571,7 @@ declare namespace notificationManager {
   /**
    * Register push application's callback.
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { string } type - pushCheck.
+   * @param { 'pushCheck' } type - pushCheck.
    * @param { OnCheckNotificationCallback } pushcallback - push callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - parameter error
@@ -1588,7 +1589,7 @@ declare namespace notificationManager {
   /**
    * Unregister push application's callback.
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { string } type - pushCheck.
+   * @param { 'pushCheck' } type - pushCheck.
    * @param { AsyncCallback<void> } callback - Async Callback
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
@@ -1605,7 +1606,7 @@ declare namespace notificationManager {
   /**
    * Unregister push application's callback.
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { string } type - pushCheck.
+   * @param { 'pushCheck' } type - pushCheck.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
