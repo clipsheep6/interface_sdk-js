@@ -1260,18 +1260,6 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  export enum AudioDevice {
-    DEVICE_EARPIECE,
-    DEVICE_SPEAKER,
-    DEVICE_WIRED_HEADSET,
-    DEVICE_BLUETOOTH_SCO,
-    DEVICE_MIC,
-  }
-
-  /**
-   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum AudioDeviceType {
@@ -1311,6 +1299,15 @@ declare namespace call {
     RESTRICTION_TYPE_ALL_CALLS,
     RESTRICTION_TYPE_OUTGOING_SERVICES,
     RESTRICTION_TYPE_INCOMING_SERVICES,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface AudioDevice {
+    deviceType: AudioDevice;
+    address?: string;
   }
 
   /**
