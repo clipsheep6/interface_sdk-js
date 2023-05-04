@@ -33,7 +33,8 @@ declare namespace bundleManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { AsyncCallback<void> } callback - the callback of addAllowedInstallBundles.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -54,7 +55,8 @@ declare namespace bundleManager {
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<void> } callback - the callback of addAllowedInstallBundles.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -75,7 +77,8 @@ declare namespace bundleManager {
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promise returned by the addAllowedInstallBundles.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -95,7 +98,8 @@ declare namespace bundleManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { AsyncCallback<void> } callback - the callback of removeAllowedInstallBundles.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -116,7 +120,8 @@ declare namespace bundleManager {
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<void> } callback - the callback of removeAllowedInstallBundles.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -137,7 +142,8 @@ declare namespace bundleManager {
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promise returned by the removeAllowedInstallBundles.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -156,7 +162,8 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -176,7 +183,8 @@ declare namespace bundleManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -196,7 +204,8 @@ declare namespace bundleManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<string>> } the promise that contains the appid list.
-   * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
