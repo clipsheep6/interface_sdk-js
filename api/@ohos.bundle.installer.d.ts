@@ -78,6 +78,9 @@ declare namespace installer {
      * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install because the bundle name in proxy uri is wrong.
+     * @throws { BusinessError } 17700043 - Failed to install because the apl of the permission specified in the data proxy is wrong.
+     * @throws { BusinessError } 17700044 - Failed to install because the isolationMode does not match the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -132,6 +135,9 @@ declare namespace installer {
      * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install because the bundle name in proxy uri is wrong.
+     * @throws { BusinessError } 17700043 - Failed to install because the apl of the permission specified in the data proxy is wrong.
+     * @throws { BusinessError } 17700044 - Failed to install because the isolationMode does not match the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
