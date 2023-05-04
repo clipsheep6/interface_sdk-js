@@ -636,6 +636,35 @@ declare interface MarkStyle {
 }
 
 /**
+ * Defines the options of text selection pop-up menu.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextMenuOption {
+  /**
+   * Defines the text content in the menu options.
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  content: ResourceStr;
+  /**
+   * Defines path to the icon in the menu options.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  icon?: ResourceStr;
+  /**
+   * The callback is triggered when the menu item is tapped.
+   * @type { (selectContent: string) => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  action: (selectContent: string) => void;
+}
+
+/**
  * Defines the ColorFilter object.
  * @form
  * @since 9
