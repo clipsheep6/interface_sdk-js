@@ -100,7 +100,6 @@ interface BoardStyle {
    */
   borderRadius?: Length;
 }
-
 /**
  * LabelStyle object.
  * @interface LabelStyle
@@ -121,7 +120,7 @@ declare interface LabelStyle {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */
+   */ 
   maxLines?: number;
 
   /**
@@ -129,7 +128,7 @@ declare interface LabelStyle {
    * @type { number | ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */
+   */  
   minFontSize?: number | ResourceStr;
 
   /**
@@ -237,13 +236,13 @@ declare class BottomTabBarStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  /**
-  * constructor.
-  * @param { ResourceStr } content - indicates the content of the bottom tab bar 
-  * @param { ResourceStr } text - indicates the text of the bottom tab bar 
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 10
-  */
+   /**
+   * constructor.
+   * @param { ResourceStr } content - indicates the content of the bottom tab bar 
+   * @param { ResourceStr } text - indicates the text of the bottom tab bar 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   constructor(icon: ResourceStr, text: ResourceStr);
 
   /**
@@ -262,10 +261,20 @@ declare class BottomTabBarStyle {
  * Provides an interface for switching the content view on a tab page.
  * @since 7
  */
+/**
+ * Provides an interface for switching the content view on a tab page.
+ * @crossplatform
+ * @since 10
+ */
 interface TabContentInterface {
   /**
    * Called when the content view of the switch tab is set.
    * @since 7
+   */
+  /**
+   * Called when the content view of the switch tab is set.
+   * @crossplatform
+   * @since 10
    */
   (): TabContentAttribute;
 }
@@ -274,29 +283,54 @@ interface TabContentInterface {
  * Defines the attribute functions of TabContent.
  * @since 7
  */
+/**
+ * Defines the attribute functions of TabContent.
+ * @crossplatform
+ * @since 10
+ */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * Called when tabbar is entered.
    * @since 7
    */
+  /**
+   * Called when tabbar is entered.
+   * @crossplatform
+   * @since 10
+   */
   tabBar(value: string | Resource | CustomBuilder |
-  { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+    { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
 
   /**
    * Called when tabbar is entered.
    * @since 9
    */
-  tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
+  /**
+   * Called when tabbar is entered.
+   * @crossplatform
+   * @since 10
+   */
+   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 }
 
 /**
  * Defines TabContent Component.
  * @since 7
  */
+/**
+ * Defines TabContent Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TabContent: TabContentInterface;
 
 /**
  * Defines TabContent Component instance.
  * @since 7
+ */
+/**
+ * Defines TabContent Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TabContentInstance: TabContentAttribute;

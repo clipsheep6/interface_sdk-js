@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Input parameter for creating a radio box.
+ * @crossplatform
+ * @since 10
+ */
 declare interface RadioOptions {
   /**
    * Radio group name.
@@ -31,6 +36,11 @@ declare interface RadioOptions {
    * Radio group name.
    * @form
    * @since 9
+   */
+  /**
+   * Radio group name.
+   * @crossplatform
+   * @since 10
    */
   group: string;
 
@@ -42,6 +52,11 @@ declare interface RadioOptions {
    * Radio name.
    * @form
    * @since 9
+   */
+  /**
+   * Radio name.
+   * @crossplatform
+   * @since 10
    */
   value: string;
 }
@@ -69,7 +84,7 @@ declare interface RadioStyle {
    * @since 10
    */
   uncheckedBorderColor?: ResourceColor;
-
+ 
   /**
    * Set the indicator color when the radio box is checked.
    * @type { ResourceColor } indicatorColor - the indicator color when the radio box is checked.
@@ -89,6 +104,11 @@ declare interface RadioStyle {
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for creating a radio box.
+ * @crossplatform
+ * @since 10
+ */
 interface RadioInterface {
   /**
    * Called when a radio box is created.
@@ -98,6 +118,11 @@ interface RadioInterface {
    * Called when a radio box is created.
    * @form
    * @since 9
+   */
+  /**
+   * Called when a radio box is created.
+   * @crossplatform
+   * @since 10
    */
   (options: RadioOptions): RadioAttribute;
 }
@@ -109,6 +134,10 @@ interface RadioInterface {
  * @form
  * @since 9
  */
+/**
+ * @crossplatform
+ * @since 10
+ */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box is selected.
@@ -119,6 +148,12 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the radio box is selected.
+   * @crossplatform
+   * @since 10
+   */
+  
   checked(value: boolean): RadioAttribute;
 
   /**
@@ -129,6 +164,11 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * Called when the radio box selection status changes.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the radio box selection status changes.
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
@@ -150,6 +190,11 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Radio Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Radio: RadioInterface;
 
 /**
@@ -160,5 +205,10 @@ declare const Radio: RadioInterface;
  * Defines Radio Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Radio Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const RadioInstance: RadioAttribute;

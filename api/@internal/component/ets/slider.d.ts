@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Declare sliderstyle
+ * @crossplatform
+ * @since 10 
+ */
 declare enum SliderStyle {
   /**
    * The slider is on the slide rail.
@@ -31,6 +36,11 @@ declare enum SliderStyle {
    * The slider is on the slide rail.
    * @form
    * @since 9
+   */
+  /**
+   * The slider is on the slide rail.
+   * @crossplatform
+   * @since 10 
    */
   OutSet,
 
@@ -42,6 +52,11 @@ declare enum SliderStyle {
    * The slider is in the slide rail.
    * @form
    * @since 9
+   */
+  /**
+   * The slider is in the slide rail.
+   * @crossplatform
+   * @since 10 
    */
   InSet,
 }
@@ -55,6 +70,11 @@ declare enum SliderStyle {
  * @form
  * @since 9
  */
+/**
+ * Declare SliderChangeMode
+ * @crossplatform
+ * @since 10 
+ */
 declare enum SliderChangeMode {
   /**
    * Start dragging the slider.
@@ -64,6 +84,11 @@ declare enum SliderChangeMode {
    * Start dragging the slider.
    * @form
    * @since 9
+   */
+  /**
+   * Start dragging the slider.
+   * @crossplatform
+   * @since 10 
    */
   Begin,
 
@@ -76,6 +101,11 @@ declare enum SliderChangeMode {
    * @form
    * @since 9
    */
+  /**
+   * Drag the slider.
+   * @crossplatform
+   * @since 10 
+   */
   Moving,
 
   /**
@@ -87,6 +117,11 @@ declare enum SliderChangeMode {
    * @form
    * @since 9
    */
+  /**
+   * End dragging the slider.
+   * @crossplatform
+   * @since 10 
+   */
   End,
 
   /**
@@ -97,6 +132,11 @@ declare enum SliderChangeMode {
    * Click the slider.
    * @form
    * @since 9
+   */
+  /**
+   * Click the slider.
+   * @crossplatform
+   * @since 10 
    */
   Click,
 }
@@ -110,6 +150,11 @@ declare enum SliderChangeMode {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of Slider.
+ * @crossplatform
+ * @since 10 
+ */
 declare interface SliderOptions {
   /**
    * Current value of Slider.
@@ -119,6 +164,11 @@ declare interface SliderOptions {
    * Current value of Slider.
    * @form
    * @since 9
+   */
+  /**
+   * Current value of Slider.
+   * @crossplatform
+   * @since 10 
    */
   value?: number;
 
@@ -131,6 +181,11 @@ declare interface SliderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Sets the min value of Slider.
+   * @crossplatform
+   * @since 10 
+   */
   min?: number;
 
   /**
@@ -141,6 +196,11 @@ declare interface SliderOptions {
    * Sets the max value of Slider.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the max value of Slider.
+   * @crossplatform
+   * @since 10 
    */
   max?: number;
 
@@ -153,6 +213,11 @@ declare interface SliderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Sets the step of each slide value.
+   * @crossplatform
+   * @since 10 
+   */
   step?: number;
 
   /**
@@ -163,6 +228,11 @@ declare interface SliderOptions {
    * Sets the slider style.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the slider style.
+   * @crossplatform
+   * @since 10 
    */
   style?: SliderStyle;
 
@@ -175,6 +245,11 @@ declare interface SliderOptions {
    * @form
    * @since 9
    */
+  /**
+   * Sets the slider direction style.
+   * @crossplatform
+   * @since 10 
+   */
   direction?: Axis;
 
   /**
@@ -185,6 +260,11 @@ declare interface SliderOptions {
    * Set whether the direction of the slider needs to be reversed.
    * @form
    * @since 9
+   */
+  /**
+   * Set whether the direction of the slider needs to be reversed.
+   * @crossplatform
+   * @since 10 
    */
   reverse?: boolean;
 }
@@ -257,6 +337,11 @@ declare interface SliderBlockStyle {
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for the slide bar component.
+ * @crossplatform
+ * @since 10 
+ */
 interface SliderInterface {
   /**
    * Called when the slider bar component is used.
@@ -266,6 +351,11 @@ interface SliderInterface {
    * Called when the slider bar component is used.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the slider bar component is used.
+   * @crossplatform
+   * @since 10 
    */
   (options?: SliderOptions): SliderAttribute;
 }
@@ -279,6 +369,11 @@ interface SliderInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the attribute functions of Slider.
+ * @crossplatform
+ * @since 10 
+ */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the slider color of the slider bar is set.
@@ -288,6 +383,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the slider color of the slider bar is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the slider color of the slider bar is set.
+   * @crossplatform
+   * @since 10 
    */
   blockColor(value: ResourceColor): SliderAttribute;
 
@@ -300,6 +400,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the track color of the slider is set.
+   * @crossplatform
+   * @since 10 
+   */
   trackColor(value: ResourceColor): SliderAttribute;
 
   /**
@@ -310,6 +415,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the slider of the slider bar is set to slide over the area color.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the slider of the slider bar is set to slide over the area color.
+   * @crossplatform
+   * @since 10 
    */
   selectedColor(value: ResourceColor): SliderAttribute;
 
@@ -338,6 +448,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when setting whether to display step size.
+   * @crossplatform
+   * @since 10 
+   */
   showSteps(value: boolean): SliderAttribute;
 
   /**
@@ -348,6 +463,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the percentage of bubble prompt is set when sliding.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the percentage of bubble prompt is set when sliding.
+   * @crossplatform
+   * @since 10 
    */
   showTips(value: boolean): SliderAttribute;
 
@@ -360,6 +480,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the thickness of track is set.
+   * @crossplatform
+   * @since 10 
+   */
   trackThickness(value: Length): SliderAttribute;
 
   /**
@@ -370,6 +495,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the selection value changes.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the selection value changes.
+   * @crossplatform
+   * @since 10 
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 
@@ -439,6 +569,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Slider Component.
+ * @crossplatform
+ * @since 10 
+ */
 declare const Slider: SliderInterface;
 
 /**
@@ -449,5 +584,10 @@ declare const Slider: SliderInterface;
  * Defines Slider Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Slider Component instance.
+ * @crossplatform
+ * @since 10 
  */
 declare const SliderInstance: SliderAttribute;

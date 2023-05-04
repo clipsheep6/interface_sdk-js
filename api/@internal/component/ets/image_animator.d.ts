@@ -21,6 +21,7 @@
  * Defines the ImageAnimator Interface.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface ImageAnimatorInterface {
@@ -32,6 +33,7 @@ interface ImageAnimatorInterface {
    * ImageAnimator is returned.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   (): ImageAnimatorAttribute;
@@ -45,6 +47,7 @@ interface ImageAnimatorInterface {
  * Defines the ImageFrameInfo Interface.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface ImageFrameInfo {
@@ -63,6 +66,7 @@ interface ImageFrameInfo {
    * @type { string | Resource }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   src: string | Resource;
@@ -76,6 +80,7 @@ interface ImageFrameInfo {
    * @type: { number | string }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   width?: number | string;
@@ -89,6 +94,7 @@ interface ImageFrameInfo {
    * @type: { number | string }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   height?: number | string;
@@ -102,6 +108,7 @@ interface ImageFrameInfo {
    * @type: { number | string }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   top?: number | string;
@@ -115,6 +122,7 @@ interface ImageFrameInfo {
    * @type: { number | string }
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   left?: number | string;
@@ -122,6 +130,12 @@ interface ImageFrameInfo {
    * Playback duration of this image frame, in milliseconds.
    * @type: { number }
    * @since 7
+   */
+  /**
+   * Playback duration of this image frame, in milliseconds.
+   * @type: { number }
+   * @crossplatform
+   * @since 10
    */
   duration?: number;
 }
@@ -134,17 +148,20 @@ interface ImageFrameInfo {
  * inheritance CommonMethod
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
    * list images
+   * @crossplatform
    * @since 7
    */
   /**
    * list images
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   images(value: Array<ImageFrameInfo>): ImageAnimatorAttribute;
@@ -157,6 +174,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * The default value is the initial state, which is used to control the playback status.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   state(value: AnimationStatus): ImageAnimatorAttribute;
@@ -169,6 +187,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * The unit is millisecond.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   duration(value: number): ImageAnimatorAttribute;
@@ -181,6 +200,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Set the playback sequence.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   reverse(value: boolean): ImageAnimatorAttribute;
@@ -193,6 +213,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Sets whether the image size is fixed to the component size.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fixedSize(value: boolean): ImageAnimatorAttribute;
@@ -212,6 +233,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Sets the state before and after the animation starts
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fillMode(value: FillMode): ImageAnimatorAttribute;
@@ -219,6 +241,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Played once by default
    * @since 7
+   */
+  /**
+   * Played once by default
+   * @crossplatform
+   * @since 10
    */
   iterations(value: number): ImageAnimatorAttribute;
 
@@ -230,6 +257,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Status callback, which is triggered when the animation starts to play.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onStart(event: () => void): ImageAnimatorAttribute;
@@ -242,6 +270,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Status callback, which is triggered when the animation pauses.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onPause(event: () => void): ImageAnimatorAttribute;
@@ -249,6 +278,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Status callback, triggered when the animation is replayed
    * @since 7
+   */
+  /**
+   * Status callback, triggered when the animation is replayed
+   * @crossplatform
+   * @since 10
    */
   onRepeat(event: () => void): ImageAnimatorAttribute;
 
@@ -260,6 +294,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Status callback, which is triggered when the animation is canceled.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onCancel(event: () => void): ImageAnimatorAttribute;
@@ -272,6 +307,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Status callback, which is triggered when the animation playback is complete.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onFinish(event: () => void): ImageAnimatorAttribute;
@@ -285,6 +321,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
  * Defines ImageAnimator Component.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const ImageAnimator: ImageAnimatorInterface;
@@ -297,6 +334,7 @@ declare const ImageAnimator: ImageAnimatorInterface;
  * Defines ImageAnimator Component instance.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const ImageAnimatorInstance: ImageAnimatorAttribute;

@@ -17,10 +17,20 @@
  * Defines the struct of TimePickerResult.
  * @since 8
  */
+/**
+ * Defines the struct of TimePickerResult.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TimePickerResult {
   /**
    * Application hour
    * @since 8
+   */
+  /**
+   * Application hour
+   * @crossplatform
+   * @since 10
    */
   hour?: number;
 
@@ -28,12 +38,22 @@ declare interface TimePickerResult {
    * Application minute
    * @since 8
    */
+  /**
+   * Application minute
+   * @crossplatform
+   * @since 10
+   */
   minute?: number;
 }
 
 /**
  * Defines the options of TimePicker.
  * @since 8
+ */
+/**
+ * Defines the options of TimePicker.
+ * @crossplatform
+ * @since 10
  */
 declare interface TimePickerOptions {
   /**
@@ -46,10 +66,20 @@ declare interface TimePickerOptions {
  * Defines the TimePicker Component.
  * @since 8
  */
+/**
+ * Defines the TimePicker Component.
+ * @crossplatform
+ * @since 10
+ */
 interface TimePickerInterface {
   /**
    * Defines the TimePicker constructor.
    * @since 8
+   */
+  /**
+   * Defines the TimePicker constructor.
+   * @crossplatform
+   * @since 10
    */
   (options?: TimePickerOptions): TimePickerAttribute;
 }
@@ -58,10 +88,20 @@ interface TimePickerInterface {
  * Defines the TimePicker attribute functions.
  * @since 8
  */
+/**
+ * Defines the TimePicker attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
    * @since 8
+   */
+  /**
+   * Time Selector: indicates whether to display the 24-hour clock.
+   * @crossplatform
+   * @since 10
    */
   useMilitaryTime(value: boolean): TimePickerAttribute;
 
@@ -80,7 +120,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   textStyle(value: PickerTextStyle): TimePickerAttribute;
-
+  
   /**
    * Sets the text style of selected items
    * @param { PickerTextStyle } value - indicates the text style of selected items.
@@ -88,10 +128,15 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 10
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
-
+ 
   /**
    * This event is triggered when a TimePicker time is selected.
    * @since 8
+   */
+  /**
+   * This event is triggered when a TimePicker time is selected.
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (value: TimePickerResult) => void): TimePickerAttribute;
 }
@@ -100,10 +145,20 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
  * @since 8
  */
+/**
+ * Defines the TimePickerDialogOptions for Data Picker Dialog.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
    * @since 8
+   */
+  /**
+   * Time Selector: indicates whether to display the 24-hour clock.
+   * @crossplatform
+   * @since 10
    */
   useMilitaryTime?: boolean;
   /**
@@ -131,15 +186,30 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * Called when the OK button in the dialog is clicked.
    * @since 8
    */
+  /**
+   * Called when the OK button in the dialog is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onAccept?: (value: TimePickerResult) => void;
   /**
    * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onCancel?: () => void;
   /**
    * This event is triggered when a TimePicker Time or time is selected in dialog.
    * @since 8
+   */
+  /**
+   * This event is triggered when a TimePicker Time or time is selected in dialog.
+   * @crossplatform
+   * @since 10
    */
   onChange?: (value: TimePickerResult) => void;
 }
@@ -148,10 +218,20 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
  * Defines TimePickerDialog which uses show method to show TimePicker dialog.
  * @since 8
  */
+/**
+ * Defines TimePickerDialog which uses show method to show TimePicker dialog.
+ * @crossplatform
+ * @since 10
+ */
 declare class TimePickerDialog {
   /**
    * Invoking method display.
    * @since 8
+   */
+  /**
+   * Invoking method display.
+   * @crossplatform
+   * @since 10
    */
   static show(options?: TimePickerDialogOptions);
 }
@@ -160,10 +240,20 @@ declare class TimePickerDialog {
  * Defines TimePicker Component.
  * @since 8
  */
+/**
+ * Defines TimePicker Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TimePicker: TimePickerInterface;
 
 /**
  * Defines TimePicker Component instance.
  * @since 8
+ */
+/**
+ * Defines TimePicker Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TimePickerInstance: TimePickerAttribute;

@@ -17,15 +17,30 @@
  * Provides the method of switching the cursor position.
  * @since 8
  */
+/**
+ * Provides the method of switching the cursor position.
+ * @crossplatform
+ * @since 10
+ */
 declare class SearchController {
   /**
    * constructor.
    * @since 8
    */
+  /**
+   * constructor.
+   * @crossplatform
+   * @since 10
+   */
   constructor();
   /**
    * Called when the position of the insertion cursor is set.
    * @since 8
+   */
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @crossplatform
+   * @since 10
    */
   caretPosition(value: number): void;
 }
@@ -61,36 +76,60 @@ declare enum CancelButtonStyle {
  * The construct function of search
  * @since 8
  */
+/**
+ * The construct function of search
+ * @crossplatform
+ * @since 10
+ */
 interface SearchInterface {
-  (options?: {
-    /**
-     * Text input in the search text box
-     * @type { string }
-     * @since 8
-     */
-    value?: string;
-    /**
-     * Text displayed when there is no input
-     * @type { string }
-     * @since 8
-     */
-    /**
-     * Text displayed when there is no input
-     * @type { ResourceStr }
-     * @since 10
-     */
+  (options?: { 
+  /**
+   * Text input in the search text box
+   * @type { string }
+   * @since 8
+   */
+  /**
+   * Text input in the search text box
+   * @type { string }
+   * @crossplatform
+   * @since 10
+   */
+  value?: string;
+  /**
+   * Text displayed when there is no input
+   * @type { string }
+   * @since 8
+   */
+  /**
+   * Text displayed when there is no input
+   * @type { ResourceStr }
+   * @crossplatform
+   * @since 10
+   */
     placeholder?: ResourceStr;
-    /**
-     * Path to the search icon
-     * @type { string }
-     * @since 8
-     */
+  /**
+   * Path to the search icon
+   * @type { string }
+   * @since 8
+   */
+  /**
+   * Path to the search icon
+   * @type { string }
+   * @crossplatform
+   * @since 10
+   */
     icon?: string;
-    /**
-     * Controller of the <Search> component
-     * @type { SearchController }
-     * @since 8
-     */
+  /**
+   * Controller of the <Search> component
+   * @type { SearchController }
+   * @since 8
+   */
+  /**
+   * Controller of the <Search> component
+   * @type { SearchController }
+   * @crossplatform
+   * @since 10
+   */
     controller?: SearchController
   }): SearchAttribute;
 }
@@ -108,7 +147,7 @@ interface IconOptions {
    * @since 10
    */
   size?: Length;
-
+	
   /**
    * Set the icon color
    * @type { ResourceColor }
@@ -116,7 +155,7 @@ interface IconOptions {
    * @since 10
    */
   color?: ResourceColor;
-
+	
   /**
    * Set the icon resource
    * @type { ResourceStr }
@@ -139,7 +178,7 @@ interface CaretStyle {
    * @since 10
    */
   width?: Length,
-
+	
   /**
    * Set the cursor color
    * @type { ResourceColor }
@@ -162,7 +201,7 @@ interface SearchButtonOption {
    * @since 10
    */
   fontSize?: Length;
-
+	
   /**
    * Set the SearchButton fontColor
    * @type { ResourceColor }
@@ -176,6 +215,11 @@ interface SearchButtonOption {
  * The attribute function of search
  * @since 8
  */
+/**
+ * The attribute function of search
+ * @crossplatform
+ * @since 10
+ */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the search button text
@@ -188,10 +232,11 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { string } value - indicates the text of the search button.
    * @param { SearchButtonOption } option - indicates the fontSize and fontColor of the search button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   searchButton(value: string, option?: SearchButtonOption): SearchAttribute;
-
+  
   /**
    * Set the text Color
    * @param { ResourceColor } value - indicates the color of the text.
@@ -207,15 +252,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   searchIcon(value: IconOptions): SearchAttribute;
-
+  
   /**
    * Set the cancel button style
    * @param { {style?: CancelButtonStyle, icon?: IconOptions} } value - indicates the style of the cancel button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  cancelButton(value: { style?: CancelButtonStyle, icon?: IconOptions }): SearchAttribute;
-
+  cancelButton(value: {style?: CancelButtonStyle, icon?: IconOptions}): SearchAttribute;
+  
   /**
    * Set the cursor style
    * @param { CaretStyle } value - indicates the style of the cursor.
@@ -223,10 +268,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 10
    */
   caretStyle(value: CaretStyle): SearchAttribute;
-
+  
   /**
    * Set the place hold text color
    * @since 8
+   */
+  /**
+   * Set the place hold text color
+   * @crossplatform
+   * @since 10
    */
   placeholderColor(value: ResourceColor): SearchAttribute;
 
@@ -234,11 +284,21 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Set the font used for place holder text
    * @since 8
    */
+  /**
+   * Set the font used for place holder text
+   * @crossplatform
+   * @since 10
+   */
   placeholderFont(value?: Font): SearchAttribute;
 
   /**
    * Set the font used for input text
    * @since 8
+   */
+  /**
+   * Set the font used for input text
+   * @crossplatform
+   * @since 10
    */
   textFont(value?: Font): SearchAttribute;
 
@@ -246,11 +306,21 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Call the function when clicked the search button
    * @since 8
    */
+  /**
+   * Call the function when clicked the search button
+   * @crossplatform
+   * @since 10
+   */
   onSubmit(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Call the function when editing the input text
    * @since 8
+   */
+  /**
+   * Call the function when editing the input text
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (value: string) => void): SearchAttribute;
 
@@ -258,11 +328,21 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Called when using the Clipboard menu
    * @since 8
    */
+  /**
+   * Called when using the Clipboard menu
+   * @crossplatform
+   * @since 10
+   */
   onCopy(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
+   */
+  /**
+   * Called when using the Clipboard menu
+   * @crossplatform
+   * @since 10
    */
   onCut(callback: (value: string) => void): SearchAttribute;
 
@@ -270,17 +350,32 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Called when using the Clipboard menu
    * @since 8
    */
+  /**
+   * Called when using the Clipboard menu
+   * @crossplatform
+   * @since 10
+   */
   onPaste(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when the copy option is set.
    * @since 9
    */
+  /**
+   * Called when the copy option is set.
+   * @crossplatform
+   * @since 10
+   */
   copyOption(value: CopyOptions): SearchAttribute;
 
   /**
    * Called when the text align is set.
    * @since 9
+   */
+  /**
+   * Called when the text align is set.
+   * @crossplatform
+   * @since 10
    */
   textAlign(value: TextAlign): SearchAttribute;
 }
@@ -289,10 +384,20 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
  * Defines Search Component.
  * @since 8
  */
+/**
+ * Defines Search Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Search: SearchInterface;
 
 /**
  * Defines Search Component instance.
  * @since 8
+ */
+/**
+ * Defines Search Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const SearchInstance: SearchAttribute;

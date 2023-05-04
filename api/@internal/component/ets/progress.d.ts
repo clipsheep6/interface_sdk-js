@@ -22,7 +22,12 @@
  * @form
  * @since 9
  */
-declare interface ProgressOptions {
+/**
+ * Defines the option of Progress.
+ * @crossplatform
+ * @since 10
+ */
+ declare interface ProgressOptions {
   /**
    * Sets the value of Progress.
    * @since 7
@@ -31,6 +36,11 @@ declare interface ProgressOptions {
    * Sets the value of Progress.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the value of Progress.
+   * @crossplatform
+   * @since 10
    */
   value: number;
 
@@ -42,6 +52,11 @@ declare interface ProgressOptions {
    * Sets the total of Progress.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the total of Progress.
+   * @crossplatform
+   * @since 10
    */
   total?: number;
 
@@ -58,10 +73,15 @@ declare interface ProgressOptions {
    * @since 8
    */
   /**
-  * Sets the type of Progress.
-  * @form
-  * @since 9
-  */
+   * Sets the type of Progress.
+   * @form
+   * @since 9
+   */
+  /**
+   * Sets the type of Progress.
+   * @crossplatform
+   * @since 10
+   */
   type?: ProgressType
 }
 
@@ -74,6 +94,11 @@ declare interface ProgressOptions {
  * @form
  * @since 9
  */
+/**
+ * Type of progress bar
+ * @crossplatform
+ * @since 10
+ */
 declare enum ProgressType {
   /**
    * Linear progress bar style.
@@ -83,6 +108,11 @@ declare enum ProgressType {
    * Linear progress bar style.
    * @form
    * @since 9
+   */
+  /**
+   * Linear progress bar style.
+   * @crossplatform
+   * @since 10
    */
   Linear,
 
@@ -95,6 +125,11 @@ declare enum ProgressType {
    * @form
    * @since 9
    */
+  /**
+   * Ring progress bar.
+   * @crossplatform
+   * @since 10
+   */
   Ring,
 
   /**
@@ -105,6 +140,11 @@ declare enum ProgressType {
    * Eclipse progress bar.
    * @form
    * @since 9
+   */
+  /**
+   * Eclipse progress bar.
+   * @crossplatform
+   * @since 10
    */
   Eclipse,
 
@@ -117,6 +157,11 @@ declare enum ProgressType {
    * @form
    * @since 9
    */
+  /**
+   * ScaleRing progress bar.
+   * @crossplatform
+   * @since 10
+   */
   ScaleRing,
 
   /**
@@ -127,6 +172,11 @@ declare enum ProgressType {
    * Capsule progress bar.
    * @form
    * @since 9
+   */
+  /**
+   * Capsule progress bar.
+   * @crossplatform
+   * @since 10
    */
   Capsule,
 }
@@ -140,6 +190,11 @@ declare enum ProgressType {
  * @form
  * @since 9
  */
+/**
+ * Defines style options for progress component.
+ * @crossplatform
+ * @since 10
+ */
 declare interface ProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
@@ -149,6 +204,11 @@ declare interface ProgressStyleOptions {
    * Defines the strokeWidth property.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the strokeWidth property.
+   * @crossplatform
+   * @since 10
    */
   strokeWidth?: Length;
 
@@ -161,6 +221,11 @@ declare interface ProgressStyleOptions {
    * @form
    * @since 9
    */
+  /**
+   * Defines the scaleCount property.
+   * @crossplatform
+   * @since 10
+   */
   scaleCount?: number;
 
   /**
@@ -171,6 +236,11 @@ declare interface ProgressStyleOptions {
    * Defines the scaleWidth property.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the scaleWidth property.
+   * @crossplatform
+   * @since 10
    */
   scaleWidth?: Length;
 }
@@ -184,6 +254,11 @@ declare interface ProgressStyleOptions {
  * @form
  * @since 9
  */
+/**
+ * Type of progress bar
+ * @crossplatform
+ * @since 10
+ */
 declare enum ProgressStyle {
   /**
    * Linear progress bar style.
@@ -193,6 +268,11 @@ declare enum ProgressStyle {
    * Linear progress bar style.
    * @form
    * @since 9
+   */
+  /**
+   * Linear progress bar style.
+   * @crossplatform
+   * @since 10
    */
   Linear,
 
@@ -205,6 +285,11 @@ declare enum ProgressStyle {
    * @form
    * @since 9
    */
+  /**
+   * Ring progress bar.
+   * @crossplatform
+   * @since 10
+   */
   Ring,
 
   /**
@@ -215,6 +300,11 @@ declare enum ProgressStyle {
    * Eclipse progress bar.
    * @form
    * @since 9
+   */
+  /**
+   * Eclipse progress bar.
+   * @crossplatform
+   * @since 10
    */
   Eclipse,
 
@@ -227,6 +317,11 @@ declare enum ProgressStyle {
    * @form
    * @since 9
    */
+  /**
+   * ScaleRing progress bar.
+   * @crossplatform
+   * @since 10
+   */
   ScaleRing,
 
   /**
@@ -237,6 +332,11 @@ declare enum ProgressStyle {
    * Capsule progress bar.
    * @form
    * @since 9
+   */
+  /**
+   * Capsule progress bar.
+   * @crossplatform
+   * @since 10
    */
   Capsule,
 }
@@ -250,6 +350,11 @@ declare enum ProgressStyle {
  * @form
  * @since 9
  */
+/**
+ * Provides the progress bar interface.
+ * @crossplatform
+ * @since 10
+ */
 interface ProgressInterface {
   /**
    * Called when the progress bar is set.
@@ -259,6 +364,11 @@ interface ProgressInterface {
    * Called when the progress bar is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the progress bar is set.
+   * @crossplatform
+   * @since 10
    */
   (options: ProgressOptions): ProgressAttribute;
 }
@@ -272,6 +382,11 @@ interface ProgressInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the progress attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
    * Called when the current progress value is set.
@@ -281,6 +396,11 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    * Called when the current progress value is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the current progress value is set.
+   * @crossplatform
+   * @since 10
    */
   value(value: number): ProgressAttribute;
 
@@ -293,6 +413,11 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the progress bar foreground is set.
+   * @crossplatform
+   * @since 10
+   */
   color(value: ResourceColor): ProgressAttribute;
 
   /**
@@ -303,6 +428,11 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    * Called when the style of progress bar is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the style of progress bar is set.
+   * @crossplatform
+   * @since 10
    */
   style(value: ProgressStyleOptions): ProgressAttribute;
 }
@@ -316,6 +446,11 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Progress Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Progress: ProgressInterface;
 
 /**
@@ -326,5 +461,10 @@ declare const Progress: ProgressInterface;
  * Defines Progress Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Progress Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const ProgressInstance: ProgressAttribute;
