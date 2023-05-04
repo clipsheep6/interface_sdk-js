@@ -348,6 +348,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 10
    */
   caretPosition(value: number): TextInputAttribute;
+
+  /**
+   * Text selection pop-up extension.
+   * @param { Array<TextMenuOption> } value - an array of text selection menu extensions.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textMenuOptions(value: Array<TextMenuOption>): TextInputAttribute;
 }
 
 /**
