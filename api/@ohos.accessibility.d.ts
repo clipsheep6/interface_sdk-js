@@ -252,9 +252,9 @@ declare namespace accessibility {
    * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since 10
    */
-  function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
+  function on(type: 'accessibilityStateChange' | '123', callback: Callback<boolean>): void;
 
   /**
    * Register the observe of the touchGuide state changed.
@@ -263,7 +263,7 @@ declare namespace accessibility {
    * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 7
+   * @since 10
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
@@ -274,9 +274,9 @@ declare namespace accessibility {
    * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since 10
    */
-  function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
+  function off(type: 'accessibilityStateChange' | '123', callback?: Callback<boolean>): void;
 
   /**
    * Unregister the observe of the touchGuide state changed.
@@ -285,7 +285,7 @@ declare namespace accessibility {
    * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since 10
    */
   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 

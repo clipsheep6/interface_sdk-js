@@ -131,7 +131,7 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   on(type: "release", callback: OnReleaseCallback): void;
 
@@ -142,7 +142,7 @@ export interface Caller {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   off(type: "release", callback: OnReleaseCallback): void;
 
@@ -152,7 +152,7 @@ export interface Caller {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   off(type: "release"): void;
 }

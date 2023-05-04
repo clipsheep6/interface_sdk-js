@@ -80,7 +80,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 9
      */
-    on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
+    on(type: 123, uri: string, callback: AsyncCallback<void>): void;
 
     /**
      * Deregisters an observer used for monitoring data specified by the given uri.
@@ -93,7 +93,7 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 9
      */
-    off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
+    off(type: 123, uri: string, callback?: AsyncCallback<void>): void;
 
     /**
      * Inserts a single data record into the database.

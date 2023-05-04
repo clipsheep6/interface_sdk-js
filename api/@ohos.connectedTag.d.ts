@@ -125,7 +125,7 @@ declare namespace connectedTag {
    * @param callback The callback function to be registered.
    * @returns Returns NFC_RF_LEAVE or NFC_RF_ENTER
    * @permission ohos.permission.NFC_TAG
-   * @since 8
+   * @since 10
    */
   function on(type: "notify", callback: Callback<number>): void;
 
@@ -137,7 +137,7 @@ declare namespace connectedTag {
    * @type The callback type.
    * @param callback The callback function to be unregistered.
    * @permission ohos.permission.NFC_TAG
-   * @since 8
+   * @since 10
    */
   function off(type: "notify", callback?: Callback<number>): void;
 

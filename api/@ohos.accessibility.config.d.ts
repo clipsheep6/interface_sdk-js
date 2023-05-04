@@ -199,9 +199,9 @@ declare namespace config {
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
-  function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
+  function on(type: 123, callback: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
@@ -212,9 +212,9 @@ declare namespace config {
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
-  function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
+  function off(type: 123, callback?: Callback<void>): void;
 
   /**
    * Indicates setting, getting, and listening to changes in configuration.

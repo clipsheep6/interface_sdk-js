@@ -221,24 +221,24 @@ declare namespace formHost {
    *
    * <p>You can use this method to listen to the event of uninstall form.</p>
    *
-   * @since 8
+   * @since 10
    * @syscap SystemCapability.Ability.Form
    * @param type Indicates event type.
    * @returns -
    */
-  function on(type: "formUninstall", callback: Callback<string>): void;
+  function on(type: "FormUninstall", callback: Callback<string>): void;
 
   /**
    * Cancels listening to the event of uninstall form.
    *
    * <p>You can use this method to cancel listening to the event of uninstall form.</p>
    *
-   * @since 8
+   * @since 10
    * @syscap SystemCapability.Ability.Form
    * @param type Indicates event type.
    * @returns -
    */
-  function off(type: "formUninstall", callback?: Callback<string>): void;
+  function off(type: "FormUninstall", callback?: Callback<string>): void;
 
   /**
    * Notify form is Visible
