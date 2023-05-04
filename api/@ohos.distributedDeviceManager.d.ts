@@ -20,7 +20,6 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * querying device information, and listening for device status change.
  * @since 10
  * @syscap SystemCapability.DistributedHardware.DeviceManager
- * 
  */
 declare namespace deviceManager {
   
@@ -49,7 +48,7 @@ declare namespace deviceManager {
     deviceType: number;
 
     /**
-     * Device network ID.
+     * Device network id.
      * @since 10
      */
     networkId?: string;
@@ -87,7 +86,7 @@ declare namespace deviceManager {
    */
   interface PublishInfo {
     /**
-     * Service publish ID, the value is in scope [0, 65535], should be unique for each publish process
+     * Service publish id, the value is in scope [0, 65535], should be unique for each publish process
      */
     publishId: number;
 
@@ -252,30 +251,30 @@ declare namespace deviceManager {
     getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>;
 
     /**
-     * Get the network ID of the local device.
+     * Get the network id of the local device.
      *
      * @since 10
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device network ID.
+     * @returns Returns local device network id.
      */
     getLocalDeviceNetworkIdSync(): string;
 
     /**
-     * Get the network ID of the local device.
+     * Get the network id of the local device.
      *
      * @since 10
      * @param callback Indicates the callback to be invoked upon getLocalDeviceNetworkId.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device network ID.
+     * @returns Returns local device network id.
      */
     getLocalDeviceNetworkId(callback: AsyncCallback<{networkId: string}>): void;
 
     /**
-     * Get the network ID of the local device.
+     * Get the network id of the local device.
      *
      * @since 10
      * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device network ID.
+     * @returns Returns local device network id.
      */
     getLocalDeviceNetworkId(): Promise<{networkId: string}>;
 
@@ -339,7 +338,7 @@ declare namespace deviceManager {
      * Get the device name by networkId.
      *
      * @since 10
-     * @param { string } networkId - device network ID.
+     * @param { string } networkId - Device network id.
      * @param { AsyncCallback<{deviceName: string}> } callback - Indicates the callback to be invoked upon getDeviceName.
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns device name.
@@ -350,7 +349,7 @@ declare namespace deviceManager {
      * Get the device name by networkId.
      *
      * @since 10
-     * @param { string } networkId - device network ID.
+     * @param { string } networkId - Device network id.
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns device name.
      */
@@ -360,7 +359,7 @@ declare namespace deviceManager {
      * Get the device type by networkId.
      *
      * @since 10
-     * @param { string } networkId - device network ID.
+     * @param { string } networkId - Device network id.
      * @param { AsyncCallback<{deviceType: number}> } callback - Indicates the callback to be invoked upon getDeviceType.
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns device type.
@@ -368,10 +367,10 @@ declare namespace deviceManager {
     getDeviceType(networkId: string, callback: AsyncCallback<{deviceType: number}>): void;
 
     /**
-     * Get the device type by network ID.
+     * Get the device type by network id.
      *
      * @since 10
-     * @param { string } networkId - device network ID.
+     * @param { string } networkId - Device network id.
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns device type.
      */
@@ -393,7 +392,7 @@ declare namespace deviceManager {
     /**
      * Stop discovering device.
      *
-     * @param subscribeId Service subscribe ID
+     * @param subscribeId service subscribe id
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -406,7 +405,7 @@ declare namespace deviceManager {
      * @since 10
      * @param deviceId id of device to bind
      * @param bindParam parameters of device to bind
-     * @param callback Indicates the callback to be invoked upon bindDevice
+     * @param callback indicates the callback to be invoked upon bindDevice
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -440,7 +439,7 @@ declare namespace deviceManager {
     /**
      * UnPublish discover device.
      * @since 10
-     * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
+     * @param publishId service publish id, identify a publish operation, should be a unique id in package range
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
@@ -449,10 +448,10 @@ declare namespace deviceManager {
     unPublishDeviceDiscovery(publishId: number): void;
 
     /**
-     * verify authentication information, such as pin code.
+     * Verify authentication information, such as pin code.
      *
      * @param authInfo device authentication information to verify
-     * @param callback Indicates the callback to be invoked upon verifyAuthInfo
+     * @param callback indicates the callback to be invoked upon verifyAuthInfo
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
@@ -463,8 +462,8 @@ declare namespace deviceManager {
      * Set user Operation from devicemanager sea, this interface can only be used by devicemanager Sea.
      *
      * @since 10
-     * @param operateAction User Operation Actions.
-     * @param params Indicates the input param of the user.
+     * @param operateAction user Operation Actions.
+     * @param params indicates the input param of the user.
      * @throws { BusinessError } 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
@@ -497,10 +496,10 @@ declare namespace deviceManager {
     importCredential(credentialInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
 
     /**
-     * delete credential information.
+     * Delete credential information.
      *
      * @since 10
-     * @param { string } queryInfo - delete credential params. the params is json string, it includes processType, authType, userId.
+     * @param { string } queryInfo - Delete credential params. the params is json string, it includes processType, authType, userId.
      * @param { AsyncCallback<{resultInfo: string}> } callback - Indicates the callback to be invoked upon deleteCredential
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns the groupId to which the device belongs.
