@@ -40,12 +40,12 @@ function checkEntry(prId) {
         }
       });
       let resBody = new TextDecoder('utf-8').decode(res.body);
-      let comments = JSON.parse(`{"resultBody": "${resBody}"}`);
+      let comments = JSON.parse(`{"resultBody": '${resBody}'}`);
       let resultBody = comments.resultBody;
       if (resultBody && resultBody.length) {
         for (let i = 0; i < resultBody.length; i++) {
           const comment = resultBody[i];
-          if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
+          if (comment && comment['user'] && comment['user']['id'] && administrators.has(comment['user']['id']) &&
             comment.body && /^approve api check$/.test(comment.body)) {
             isOpenEscapeWay = true;
             break;
