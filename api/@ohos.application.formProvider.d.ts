@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,9 +21,9 @@ import Want from './@ohos.app.ability.Want';
 /**
  * interface of formProvider.
  *
- * @name formProvider
- * @since 8
+ * @namespace formProvider
  * @syscap SystemCapability.Ability.Form
+ * @since 8
  * @deprecated since 9
  * @useinstead ohos.app.form.formProvider
  */
@@ -31,13 +31,25 @@ declare namespace formProvider {
   /**
    * Set next update time for a specified form.
    *
-   * @since 8
+   * @param { string } formId Indicates the form ID.
+   * @param { number } minute Indicates duration minute before next update.
+   * @param { AsyncCallback<void> } callback Callback function.
    * @syscap SystemCapability.Ability.Form
-   * @param formId Indicates the form ID.
-   * @param minute Indicates duration minute before next update.
-   * @returns -
+   * @since 8
+   * @deprecated since 9
    */
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set next update time for a specified form.
+   *
+   * @param { string } formId Indicates the form ID.
+   * @param { number } minute Indicates duration minute before next update.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.Form
+   * @since 8
+   * @deprecated since 9
+   */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
   /**
@@ -45,14 +57,30 @@ declare namespace formProvider {
    *
    * Client to communication with FormManagerService.
    *
-   * @since 8
+   * @param { string } formId Indicates the form ID
+   * @param { formBindingData.FormBindingData } formBindingData Indicates the form data
+   * @param { AsyncCallback<void> } callback Callback function.
    * @syscap SystemCapability.Ability.Form
-   * @param formId Indicates the form ID
-   * @param formBindingData Indicates the form data
-   * @returns -
+   * @since 8
+   * @deprecated since 9
    */
-  function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
-    callback: AsyncCallback<void>): void;
+  function updateForm(
+    formId: string,
+    formBindingData: formBindingData.FormBindingData,
+    callback: AsyncCallback<void>
+  ): void;
+
+  /**
+   * Update a specified form.
+   * Client to communication with FormManagerService.
+   *
+   * @param { string } formId Indicates the form ID
+   * @param { formBindingData.FormBindingData } formBindingData Indicates the form data
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.Form
+   * @since 8
+   * @deprecated since 9
+   */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 
 }
