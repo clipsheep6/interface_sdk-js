@@ -45,7 +45,7 @@ declare namespace commonEvent {
    *
    * @param { string } event name of the common event.
    * @param { CommonEventPublishData } options Indicate the CommonEventPublishData containing the common event content
-   * and attributes.
+   *                                           and attributes.
    * @param { AsyncCallback<void> } callback Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -61,7 +61,7 @@ declare namespace commonEvent {
    * @param { number } userId Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.publishAsUser
@@ -77,7 +77,7 @@ declare namespace commonEvent {
    *                                           and attributes.
    * @param { AsyncCallback<void> } callback Specified callback method.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.publishAsUser

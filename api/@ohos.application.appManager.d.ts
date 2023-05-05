@@ -124,7 +124,6 @@ declare namespace appManager {
   /**
   * Is user running in stability test.
   *
-  * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
   * @param { AsyncCallback<boolean> } callback Returns whether the current stability testing scenario is in progress.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @since 8
@@ -135,7 +134,6 @@ declare namespace appManager {
   /**
   * Is user running in stability test.
   *
-  * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
   * @returns { Promise<boolean> } Returns true if user is running stability test.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @since 8
@@ -230,7 +228,6 @@ declare namespace appManager {
 
   /**
    * Is it a ram-constrained device
-   * @permission ohos.permission.CLEAN_APPLICATION_DATA
    * @returns { Promise<boolean> } whether a ram-constrained device.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -240,7 +237,6 @@ declare namespace appManager {
 
   /**
    * Is it a ram-constrained device
-   * @permission ohos.permission.CLEAN_APPLICATION_DATA
    * @param { AsyncCallback<boolean> } callback Returns whether the current device is a RAM restricted device.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -250,7 +246,6 @@ declare namespace appManager {
 
   /**
    * Get the memory size of the application
-   * @permission ohos.permission.CLEAN_APPLICATION_DATA
    * @returns { Promise<number> } application memory size.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
@@ -260,7 +255,6 @@ declare namespace appManager {
 
   /**
    * Get the memory size of the application
-   * @permission ohos.permission.CLEAN_APPLICATION_DATA
    * @param { AsyncCallback<number> } callback application memory size in M.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7

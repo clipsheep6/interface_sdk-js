@@ -324,7 +324,6 @@ declare namespace notificationSubscribe {
 
   /**
    * Describes a bundleOption in a notification.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -333,7 +332,6 @@ declare namespace notificationSubscribe {
 
   /**
    * Sets filter criteria of publishers for subscribing to desired notifications.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -343,7 +341,6 @@ declare namespace notificationSubscribe {
   /**
    * Provides methods that will be called back when the subscriber receives a new notification or
    * a notification is canceled.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -353,7 +350,6 @@ declare namespace notificationSubscribe {
   /**
    * Provides methods that will be called back when the subscriber receives a new notification or
    * a notification is canceled.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -362,7 +358,6 @@ declare namespace notificationSubscribe {
 
   /**
    * Describes the properties of the application that the permission to send notifications has changed.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
