@@ -23,6 +23,11 @@
  * @form
  * @since 9
  */
+/**
+ * DataPanelType enum
+ * @crossplatform
+ * @since 10
+ */
 declare enum DataPanelType {
   /**
    * Line Type
@@ -32,6 +37,11 @@ declare enum DataPanelType {
    * Line Type
    * @form
    * @since 9
+   */
+  /**
+   * Line Type
+   * @crossplatform
+   * @since 10
    */
   Line,
 
@@ -44,12 +54,18 @@ declare enum DataPanelType {
    * @form
    * @since 9
    */
+  /**
+   * Line Rainbow
+   * @crossplatform
+   * @since 10
+   */
   Circle,
 }
 
 /**
  * ColorStop type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare type ColorStop = {
@@ -57,6 +73,7 @@ declare type ColorStop = {
    * Color property.
    * @type { ResourceColor } color - the color value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   color: ResourceColor;
@@ -65,6 +82,7 @@ declare type ColorStop = {
    * Offset property.
    * @type { Length } offset - the color offset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   offset: Length;
@@ -73,6 +91,7 @@ declare type ColorStop = {
 /**
  * LinearGradient class
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class LinearGradient {
@@ -80,6 +99,7 @@ declare class LinearGradient {
    * Constructor.
    * @param { ColorStop[] } colorStops - the LinearGradient constructor parameter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor(colorStops: ColorStop[]);
@@ -88,6 +108,7 @@ declare class LinearGradient {
 /**
  * Defines the options of Shadow.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface DataPanelShadowOption {
@@ -96,6 +117,7 @@ declare interface DataPanelShadowOption {
    * @type { number | Resource } radius - the current shadow radius.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @default 5
+   * @crossplatform
    * @since 10
    */
   radius?: number | Resource;
@@ -105,6 +127,7 @@ declare interface DataPanelShadowOption {
    * @type { Array<ResourceColor | LinearGradient> } colors - the current shadow colors.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @default Consistent with valueColors
+   * @crossplatform
    * @since 10
    */
   colors?: Array<ResourceColor | LinearGradient>;
@@ -114,6 +137,7 @@ declare interface DataPanelShadowOption {
    * @type { number | Resource } offsetX - the current shadow offsetX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @default 5
+   * @crossplatform
    * @since 10
    */
   offsetX?: number | Resource;
@@ -123,6 +147,7 @@ declare interface DataPanelShadowOption {
    * @type { number | Resource } offsetY - the current shadow offsetY.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @default 5
+   * @crossplatform
    * @since 10
    */
   offsetY?: number | Resource;
@@ -137,6 +162,11 @@ declare interface DataPanelShadowOption {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of DataPanel.
+ * @crossplatform
+ * @since 10
+ */
 declare interface DataPanelOptions {
   /**
    * Current data value. the max length is 9.
@@ -146,6 +176,11 @@ declare interface DataPanelOptions {
    * Current data value. the max length is 9.
    * @form
    * @since 9
+   */
+  /**
+   * Current data value. the max length is 9.
+   * @crossplatform
+   * @since 10
    */
   values: number[];
 
@@ -158,6 +193,11 @@ declare interface DataPanelOptions {
    * @form
    * @since 9
    */
+  /**
+   * Maximum value of the current data.
+   * @crossplatform
+   * @since 10
+   */
   max?: number;
 
   /**
@@ -168,6 +208,11 @@ declare interface DataPanelOptions {
    * DataPanel Type
    * @form
    * @since 9
+   */
+  /**
+   * DataPanel Type
+   * @crossplatform
+   * @since 10
    */
   type?: DataPanelType;
 }
@@ -181,6 +226,11 @@ declare interface DataPanelOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the DataPanel component.
+ * @crossplatform
+ * @since 10
+ */
 interface DataPanelInterface {
   /**
    * Return a DataPanel.
@@ -190,6 +240,11 @@ interface DataPanelInterface {
    * Return a DataPanel.
    * @form
    * @since 9
+   */
+  /**
+   * Return a DataPanel.
+   * @crossplatform
+   * @since 10
    */
   (options: DataPanelOptions): DataPanelAttribute;
 }
@@ -203,6 +258,11 @@ interface DataPanelInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the DataPanel attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
    * Disable the special effect of the data ratio chart.
@@ -213,12 +273,18 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Disable the special effect of the data ratio chart.
+   * @crossplatform
+   * @since 10
+   */
   closeEffect(value: boolean): DataPanelAttribute;
 
   /**
    * Set the value colors of the data ratio chart.
    * @param { Array<ResourceColor | LinearGradient> } value - the value colors of the data ratio chart.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   valueColors(value: Array<ResourceColor | LinearGradient>): DataPanelAttribute;
@@ -227,6 +293,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * Set track background color of the data ratio chart.
    * @param { ResourceColor } value - track background color of the data ratio chart.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   trackBackgroundColor(value: ResourceColor): DataPanelAttribute;
@@ -235,6 +302,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * Set the stroke width of the data ratio chart.
    * @param { Length } value - the stroke width of the data ratio chart.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform 
    * @since 10
    */
   strokeWidth(value: Length): DataPanelAttribute;
@@ -243,6 +311,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * Set the shadow width of the data ratio chart.
    * @param { DataPanelShadowOption } value - the track shadow width of the data ratio chart.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   trackShadow(value: DataPanelShadowOption): DataPanelAttribute;
@@ -257,6 +326,11 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines DataPanel Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const DataPanel: DataPanelInterface
 
 /**
@@ -267,5 +341,10 @@ declare const DataPanel: DataPanelInterface
  * Defines DataPanel Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines DataPanel Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const DataPanelInstance: DataPanelAttribute;

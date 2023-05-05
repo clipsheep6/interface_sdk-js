@@ -18,10 +18,21 @@
  * UI state of app-wide access and same life cycle as the app.
  * @since 7
  */
+/**
+ * AppStorage singleton is sub-class of see LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ * @crossplatform
+ * @since 10
+ */
 declare class AppStorage {
   /**
    * Called when a link is set.
    * @since 7
+   */
+  /**
+   * Called when a link is set.
+   * @crossplatform
+   * @since 10
    */
   static Link(propName: string): any;
 
@@ -37,11 +48,29 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Like see Link(), but will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndLink()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage
+   *        default value must be of type T, must not be 'undefined' or 'null'.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *
+   * @crossplatform
+   * @since 10
+   */
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Called when a property is set.
    * @since 7
+   */
+  /**
+   * Called when a property is set.
+   * @crossplatform
+   * @since 10
    */
   static Prop(propName: string): any;
 
@@ -58,6 +87,20 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Like see prop(), will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndProp()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { S } defaultValue value to be used for initializing if new creating new property in AppStorage.
+   *        default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           return undefined if named property does not already exist in AppStorage.
+   *
+   * @crossplatform
+   * @since 10
+   */
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
@@ -72,6 +115,19 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Checks if AppStorage has a property with given name
+   * returns true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   *
+   * Same as see LocalStorage.has()
+   *
+   * @param { string } propName searched property
+   * @returns { boolean } true if property with such name exists in AppStorage
+   *
+   * @crossplatform
+   * @since 10
+   */
   static Has(propName: string): boolean;
 
   /**
@@ -83,6 +139,17 @@ declare class AppStorage {
    * @returns { T | undefined } property value of type T if found or undefined
    *
    * @since 7
+   */
+  /**
+   * Same as see LocalStorage.get()
+   *
+   * Obtain the value of property with given name, returns undefined if the property does not exist in AppStorage.
+   *
+   * @param { string } propName
+   * @returns { T | undefined } property value of type T if found or undefined
+   *
+   * @crossplatform
+   * @since 10
    */
   static Get<T>(propName: string): T | undefined;
 
@@ -99,6 +166,19 @@ declare class AppStorage {
    *
    * @since 7
    */
+  /**
+   * Set value of given property in AppStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null`.
+   *
+   * Same as see LocalStorage.set
+   *
+   * @param { string } propName
+   * @param { T } newValue must be of type T and must not be undefined or null
+   * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
+   * @crossplatform
+   * @since 10
+   */
   static Set<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -112,6 +192,19 @@ declare class AppStorage {
    * @param { T } newValue must be of type T and must not be undefined or null
    *
    * @since 7
+   */
+  /**
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name in AppStorage,. yet, and initialize with given value.
+   * Do nothing and return false if newValue is undefined or null
+   *
+   * see LocalStorage.setOrCreate()
+   *
+   * @param { string } propName
+   * @param { T } newValue must be of type T and must not be undefined or null
+   *
+   * @crossplatform
+   * @since 10
    */
   static SetOrCreate<T>(propName: string, newValue: T): void;
 
@@ -137,6 +230,29 @@ declare class AppStorage {
    *
    * @since 7
   */
+  /**
+   * Delete property with given name from AppStorage
+   * Use with caution:
+   * Before deleting a prop from AppStorage all its subscribers need to
+   * unsubscribe from the property.
+   * This method fails and returns false if given property still has subscribers
+   * Another reason for failing is unknown property name.
+   *
+   * Developer advise:
+   * Subscribers to a property in AppStorage are created with see link(), see prop()
+   * and also via @StorageLink and @StorageProp state variable decorators.
+   * That means as long as their is a @Component instance that uses such decorated variable
+   * or a sync relationship with a SubscribedAbstractProperty variable the property can not
+   * (and also should not!) be deleted from AppStorage.
+   *
+   * Same as see LocalStorage.delete()
+   *
+   * @param { string } propName
+   * @returns { boolean } false if method failed
+   *
+   * @crossplatform
+   * @since 10
+  */
   static Delete(propName: string): boolean;
 
   /**
@@ -148,6 +264,17 @@ declare class AppStorage {
    * @returns { IterableIterator<string> } return a Map Iterator
    *
    * @since 7
+   */
+  /**
+   * Provide names of all properties in AppStorage
+   * same as ES6 Map.prototype.keys()
+   *
+   * Same as see LocalStorage.keys()
+   *
+   * @returns { IterableIterator<string> } return a Map Iterator
+   *
+   * @crossplatform
+   * @since 10
    */
   static Keys(): IterableIterator<string>;
 
@@ -168,11 +295,26 @@ declare class AppStorage {
    *
    * @since 9
    */
+  /**
+   * Delete all properties from the AppStorage.
+   *
+   * Precondition is that there are no subscribers, see Delete().
+   * @returns { boolean } false and deletes no properties if there is any property
+   * that still has subscribers.
+   *
+   * @crossplatform
+   * @since 10
+   */
   static Clear(): boolean;
 
   /**
    * Called when the data can be changed.
    * @since 7
+   */
+  /**
+   * Called when the data can be changed.
+   * @crossplatform
+   * @since 10
    */
   static IsMutable(propName: string): boolean;
 
@@ -181,6 +323,13 @@ declare class AppStorage {
    *
    * @returns { number } Returns the number of properties currently in AppStorage
    * @since 7
+   */
+  /**
+   * Method returns the number of properties currently in AppStorage
+   *
+   * @returns { number } Returns the number of properties currently in AppStorage
+   * @crossplatform
+   * @since 10
    */
   static Size(): number;
 }
@@ -202,8 +351,13 @@ declare class AppStorage {
  *   see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
  *        The app must call this function before the SubscribedAbstractProperty<T> object
  *        goes out of scope.
- * @form
  * @since 9
+ */
+/**
+ * Defines the subscribed abstract property.
+ * @crossplatform
+ * @since 10
+ * @systemapi
  */
 declare abstract class SubscribedAbstractProperty<T> {
   /**
@@ -259,6 +413,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    *
    * @returns { string } the property name if set or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   info(): string;
@@ -269,8 +424,16 @@ declare abstract class SubscribedAbstractProperty<T> {
    * then `link.get()` returns the value of "foo" property in AppStorage.
    * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
    *
-   * @form
    * @since 9
+   */
+  /**
+   * Reads value of the sync'ed AppStorage/LocalStorage property.
+   * `let link : SubscribedAbstractProperty<string> =AppStorage.Link<string>("foo")`
+   * then `link.get()` returns the value of "foo" property in AppStorage.
+   * @returns { T } the value of the sync'ed AppStorage/LocalStorage property.
+   *
+   * @crossplatform
+   * @since 10
    */
   abstract get(): T;
 
@@ -281,8 +444,17 @@ declare abstract class SubscribedAbstractProperty<T> {
    * then `link.set("Hello")` will set the value of "foo" property in AppStorage.
    *
    * @param { T } newValue
-   * @form
    * @since 9
+   */
+  /**
+   * Updates the value of value of the sync'ed AppStorage/LocalStorage property.
+   * Sets new value, must be of type T, and must not be 'undefined' or 'null'.
+   * `let link : SubscribedAbstractProperty<string> =AppStorage.Link<string>("foo")`
+   * then `link.set("Hello")` will set the value of "foo" property in AppStorage.
+   *
+   * @param { T } newValue
+   * @crossplatform
+   * @since 10
    */
   abstract set(newValue: T): void;
 
@@ -334,6 +506,7 @@ declare abstract class SubscribedAbstractProperty<T> {
    * variable from the two-way/one-way sync relationship that AppStorage/LocalStorage.link()/prop()
    * and related functions create.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   abstract aboutToBeDeleted(): void;
@@ -534,6 +707,11 @@ declare abstract class SubscribaleAbstract {
  * Defines the Environment interface.
  * @since 7
  */
+/**
+ * Defines the Environment interface.
+ * @crossplatform
+ * @since 10
+ */
 declare class Environment {
   /**
    * Constructor.
@@ -546,11 +724,21 @@ declare class Environment {
    * Called when a property value is checked.
    * @since 7
    */
+  /**
+   * Called when a property value is checked.
+   * @crossplatform
+   * @since 10
+   */
   static EnvProp<S>(key: string, value: S): boolean;
 
   /**
    * Called when multiple property values are checked.
    * @since 7
+   */
+  /**
+   * Called when multiple property values are checked.
+   * @crossplatform
+   * @since 10
    */
   static EnvProps(
     props: {
@@ -563,12 +751,22 @@ declare class Environment {
    * Set the key value.
    * @since 7
    */
+  /**
+   * Set the key value.
+   * @crossplatform
+   * @since 10
+   */
   static Keys(): Array<string>;
 }
 
 /**
  * Defines the PersistentStorage interface.
  * @since 7
+ */
+/**
+ * Defines the PersistentStorage interface.
+ * @crossplatform
+ * @since 10
  */
 declare class PersistentStorage {
   /**
@@ -582,17 +780,32 @@ declare class PersistentStorage {
    * Called when a persistence property is stored.
    * @since 7
    */
+  /**
+   * Called when a persistence property is stored.
+   * @crossplatform
+   * @since 10
+   */
   static PersistProp<T>(key: string, defaultValue: T): void;
 
   /**
    * Called when a property is deleted.
    * @since 7
    */
+  /**
+   * Called when a property is deleted.
+   * @crossplatform
+   * @since 10
+   */
   static DeleteProp(key: string): void;
 
   /**
    * Called when multiple persistence properties are stored.
    * @since 7
+   */
+  /**
+   * Called when multiple persistence properties are stored.
+   * @crossplatform
+   * @since 10
    */
   static PersistProps(
     properties: {
@@ -604,6 +817,11 @@ declare class PersistentStorage {
   /**
    * Set the key value.
    * @since 7
+   */
+  /**
+   * Set the key value.
+   * @crossplatform
+   * @since 10
    */
   static Keys(): Array<string>;
 }

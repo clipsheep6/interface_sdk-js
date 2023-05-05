@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Defines circle options for Circle component.
+ * @crossplatform
+ * @since 10
+ */
 declare interface CircleOptions {
   /**
    * Defines the width property.
@@ -31,6 +36,11 @@ declare interface CircleOptions {
    * Defines the width property.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the width property.
+   * @crossplatform
+   * @since 10
    */
   width?: string | number;
 
@@ -42,6 +52,11 @@ declare interface CircleOptions {
    * Defines the height property.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the height property.
+   * @crossplatform
+   * @since 10
    */
   height?: string | number;
 }
@@ -55,6 +70,11 @@ declare interface CircleOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines circle component.
+ * @crossplatform
+ * @since 10
+ */
 interface CircleInterface {
   /**
    * use new function to set the value.
@@ -64,6 +84,11 @@ interface CircleInterface {
    * use new function to set the value.
    * @form
    * @since 9
+   */
+  /**
+   * use new function to set the value.
+   * @crossplatform
+   * @since 10
    */
   new (value?: CircleOptions): CircleAttribute;
 
@@ -75,6 +100,11 @@ interface CircleInterface {
    * Set the value..
    * @form
    * @since 9
+   */
+  /**
+   * Set the value..
+   * @crossplatform
+   * @since 10
    */
   (value?: CircleOptions): CircleAttribute;
 }
@@ -88,6 +118,11 @@ interface CircleInterface {
  * @form
  * @since 9
  */
+/**
+ * Circle drawing component attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
 /**
@@ -99,6 +134,11 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * @form
  * @since 9
  */
+/**
+ * Defines Circle Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Circle: CircleInterface;
 
 /**
@@ -109,5 +149,10 @@ declare const Circle: CircleInterface;
  * Defines Circle Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Circle Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const CircleInstance: CircleAttribute;

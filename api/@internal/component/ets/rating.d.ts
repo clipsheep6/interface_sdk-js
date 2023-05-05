@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Provides the interface for scoring bars.
+ * @crossplatform
+ * @since 10
+ */
 interface RatingInterface {
   /**
    * Called when a score bar is created.
@@ -31,6 +36,11 @@ interface RatingInterface {
    * Called when a score bar is created.
    * @form
    * @since 9
+   */
+  /**
+   * Called when a score bar is created.
+   * @crossplatform
+   * @since 10
    */
   (options?: { rating: number; indicator?: boolean }): RatingAttribute;
 }
@@ -44,6 +54,11 @@ interface RatingInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the rating attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when the total number of stars is set.
@@ -53,6 +68,11 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * Called when the total number of stars is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the total number of stars is set.
+   * @crossplatform
+   * @since 10
    */
   stars(value: number): RatingAttribute;
 
@@ -65,6 +85,11 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the step size of the operation rating.
+   * @crossplatform
+   * @since 10
+   */
   stepSize(value: number): RatingAttribute;
 
   /**
@@ -76,6 +101,11 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when a picture is set.
+   * @crossplatform
+   * @since 10
+   */
   starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): RatingAttribute;
 
   /**
@@ -86,6 +116,11 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * Called when the star rating of the operation scoring bar changes.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the star rating of the operation scoring bar changes.
+   * @crossplatform
+   * @since 10
    */
   onChange(callback: (value: number) => void): RatingAttribute;
 }
@@ -99,6 +134,11 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Rating Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Rating: RatingInterface;
 
 /**
@@ -109,5 +149,10 @@ declare const Rating: RatingInterface;
  * Defines Rating Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Rating Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const RatingInstance: RatingAttribute;
