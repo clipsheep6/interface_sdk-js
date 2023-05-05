@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * looping function.
+ * @crossplatform
+ * @since 10
+ */
 interface ForEachInterface {
   /**
    * Set the value, array, and key.
@@ -31,6 +36,11 @@ interface ForEachInterface {
    * Set the value, array, and key.
    * @form
    * @since 9
+   */
+  /**
+   * Set the value, array, and key.
+   * @crossplatform
+   * @since 10
    */
   (
     arr: Array<any>,
@@ -47,5 +57,10 @@ interface ForEachInterface {
  * Defines ForEach Component.
  * @form
  * @since 9
+ */
+/**
+ * Defines ForEach Component.
+ * @crossplatform
+ * @since 10
  */
 declare const ForEach: ForEachInterface;

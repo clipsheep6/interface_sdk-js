@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Declare scroll status
+ * @crossplatform
+ * @since 10
+ */
 declare enum ScrollState {
   /**
    * Not activated.
@@ -31,6 +36,11 @@ declare enum ScrollState {
    * Not activated.
    * @form
    * @since 9
+   */
+  /**
+   * Not activated.
+   * @crossplatform
+   * @since 10
    */
   Idle,
 
@@ -43,6 +53,11 @@ declare enum ScrollState {
    * @form
    * @since 9
    */
+  /**
+   * Scrolling status.
+   * @crossplatform
+   * @since 10
+   */
   Scroll,
 
   /**
@@ -53,6 +68,11 @@ declare enum ScrollState {
    * Drag status.
    * @form
    * @since 9
+   */
+  /**
+   * Drag status.
+   * @crossplatform
+   * @since 10
    */
   Fling,
 }
@@ -125,6 +145,7 @@ declare enum ChainEdgeEffect {
    * Default edge effect. Compress the space in the drag direction
    * and stretch the space in the opposite drag direction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   DEFAULT,
@@ -132,6 +153,7 @@ declare enum ChainEdgeEffect {
   /**
    * Stretch all space.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   STRETCH,
@@ -149,6 +171,7 @@ declare interface ChainAnimationOptions {
    * Minimum space for chain animation.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   minSpace: Length;
@@ -157,6 +180,7 @@ declare interface ChainAnimationOptions {
    * Maximum space for chain animation.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   maxSpace: Length;
@@ -166,6 +190,7 @@ declare interface ChainAnimationOptions {
    * @type { number }
    * @default 0.7
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   conductivity?: number;
@@ -175,6 +200,7 @@ declare interface ChainAnimationOptions {
    * @type { number }
    * @default 0.3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   intensity?: number;
@@ -184,6 +210,7 @@ declare interface ChainAnimationOptions {
    * @type { ChainEdgeEffect }
    * @default ChainEdgeEffect.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   edgeEffect?: ChainEdgeEffect;
@@ -198,6 +225,11 @@ declare interface ChainAnimationOptions {
  * @form
  * @since 9
  */
+/**
+ * The list interface is extended.
+ * @crossplatform
+ * @since 10
+ */
 interface ListInterface {
   /**
    * Called when interface data is called.
@@ -208,6 +240,11 @@ interface ListInterface {
    * @form
    * @since 9
    */
+  /**
+   * Called when interface data is called.
+   * @crossplatform
+   * @since 10
+   */
   (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): ListAttribute;
 }
 
@@ -217,6 +254,10 @@ interface ListInterface {
 /**
  * @form
  * @since 9
+ */
+/**
+ * @crossplatform
+ * @since 10
  */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
@@ -242,6 +283,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+    * Called when the arrangement direction of the list component is set.
+    * @crossplatform
+    * @since 10
+    */
   listDirection(value: Axis): ListAttribute;
 
   /**
@@ -252,6 +298,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the display mode of the side slider is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the display mode of the side slider is set.
+   * @crossplatform
+   * @since 10
    */
   scrollBar(value: BarState): ListAttribute;
 
@@ -264,6 +315,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the sliding effect is set.
+   * @crossplatform
+   * @since 10
+   */
   edgeEffect(value: EdgeEffect): ListAttribute;
 
   /**
@@ -272,8 +328,13 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the ListItem split line style is set.
-   * @form
    * @since 9
+   */
+  /**
+   * Called when the ListItem split line style is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   divider(
     value: {
@@ -300,6 +361,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when judging whether it is multiSelectable.
+   * @crossplatform
+   * @since 10
+   */
   multiSelectable(value: boolean): ListAttribute;
 
   /**
@@ -311,6 +377,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * @crossplatform
+   * @since 10
+   */
   cachedCount(value: number): ListAttribute;
 
   /**
@@ -321,6 +392,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when setting whether to enable chain linkage dynamic effect.
    * @form
    * @since 9
+   */
+  /**
+   * Called when setting whether to enable chain linkage dynamic effect.
+   * @crossplatform
+   * @since 10
    */
   chainAnimation(value: boolean): ListAttribute;
 
@@ -350,6 +426,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the offset and status callback of the slide are set.
+   * @crossplatform
+   * @since 10
+   */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;
 
   /**
@@ -360,6 +441,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the start and end positions of the display change.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the start and end positions of the display change.
+   * @crossplatform
+   * @since 10
    */
   onScrollIndex(event: (start: number, end: number) => void): ListAttribute;
 
@@ -372,6 +458,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the list begins to arrive.
+   * @crossplatform
+   * @since 10
+   */
   onReachStart(event: () => void): ListAttribute;
 
   /**
@@ -382,6 +473,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the list reaches the end.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the list reaches the end.
+   * @crossplatform
+   * @since 10
    */
   onReachEnd(event: () => void): ListAttribute;
 
@@ -401,6 +497,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the slider stops.
+   * @crossplatform
+   * @since 10
+   */
   onScrollStop(event: () => void): ListAttribute;
 
   /**
@@ -414,6 +515,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when a list item is moved.
    * @since 7
    */
+  /**
+   * Called when a list item is moved.
+   * @crossplatform
+   * @since 10
+   */
   onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
 
   /**
@@ -421,11 +527,22 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * @crossplatform
+   * @since 10
+   */
   onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * @crossplatform
+   * @since 10
    */
   onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
 
@@ -433,11 +550,21 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 8
    */
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * @crossplatform
+   * @since 10
+   */
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 8
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * @crossplatform
+   * @since 10
    */
   onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): ListAttribute;
 
@@ -445,6 +572,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
+   */
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * @crossplatform
+   * @since 10
    */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 
@@ -465,6 +598,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines List Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const List: ListInterface;
 
 /**
@@ -475,5 +613,10 @@ declare const List: ListInterface;
  * Defines List Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines List Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const ListInstance: ListAttribute;

@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * The components are laid out horizontally
+ * @crossplatform
+ * @since 10
+ */
 interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
@@ -31,6 +36,11 @@ interface RowInterface {
    * Called when the layout is set in the horizontal direction.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the layout is set in the horizontal direction.
+   * @crossplatform
+   * @since 10
    */
   (value?: { space?: string | number }): RowAttribute;
 }
@@ -44,6 +54,11 @@ interface RowInterface {
  * @form
  * @since 9
  */
+/**
+ * Defines the row attribute functions.
+ * @crossplatform
+ * @since 10
+ */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
    * Called when the vertical alignment is set.
@@ -53,6 +68,11 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * Called when the vertical alignment is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the vertical alignment is set.
+   * @crossplatform
+   * @since 10
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
@@ -64,6 +84,11 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * Called when the horizontal alignment is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the horizontal alignment is set.
+   * @crossplatform
+   * @since 10
    */
   justifyContent(value: FlexAlign): RowAttribute;
 }
@@ -77,6 +102,11 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Row Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Row: RowInterface;
 
 /**
@@ -87,5 +117,10 @@ declare const Row: RowInterface;
  * Defines Row Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Row Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const RowInstance: RowAttribute;
