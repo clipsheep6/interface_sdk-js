@@ -267,6 +267,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   colorFilter(value: ColorFilter): ImageAttribute;
 
   /**
+   * Sets the private mode for image
+   * @form
+   * @since 10
+   */
+  privateMode(value: boolean): ImageAttribute;
+
+  /**
    * Allow replication.
    * @form
    * @since 9
