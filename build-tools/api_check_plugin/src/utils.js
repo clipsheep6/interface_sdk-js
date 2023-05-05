@@ -118,6 +118,8 @@ const ErrorType = {
   WRONG_ORDER: 'wrong order',
   WRONG_VALUE: 'wrong value',
   WRONG_SCENE: 'wrong scene',
+  PARAMETER_ERRORS: 'wrong parameter',
+  API_PAIR_ERRORS: 'limited api pair errors',
 };
 exports.ErrorType = ErrorType;
 
@@ -143,6 +145,9 @@ exports.FileType = FileType;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
+
+const eventSubscriptionAPICheckSince = '10';
+exports.eventSubscriptionAPICheckSince = eventSubscriptionAPICheckSince;
 
 class ApiCheckResultClass {
   format_check_result = true;
