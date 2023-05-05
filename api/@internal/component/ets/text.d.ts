@@ -44,6 +44,13 @@ interface TextInterface {
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
+   * Called when the font is set.
+   * @form
+   * @since 10
+   */
+  font(value: Font): TextAttribute;
+
+  /**
    * Called when the font color is set.
    * @since 7
    */
