@@ -28,6 +28,11 @@ declare enum SideBarContainerType {
    * @since 8
    */
   Overlay,
+  /**
+   * The sidebar visible
+   * @since 10
+   */
+  Auto,
 }
 
 /**
@@ -220,6 +225,18 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @since 10
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;
+  /**
+   * Sets the length of minContentWidth.
+   * default value is 360vp.
+   * @since 10
+   */
+  minContentWidth(value: Length): SideBarContainerAttribute;
+  /**
+   * Sets the length of minContentWidth.
+   * default value is 360vp.
+   * @since 10
+   */
+  minContentWidth(value: number): SideBarContainerAttribute;
 }
 
 /**
