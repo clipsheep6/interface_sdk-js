@@ -48,6 +48,7 @@ export interface Context extends BaseContext {
   * @since 7
   */
   getOrCreateLocalDir(): Promise<string>;
+
     /**
     * Get the local root dir of an app. If it is the first call, the dir
     * will be created.
@@ -60,6 +61,7 @@ export interface Context extends BaseContext {
     * @since 7
     */
   getOrCreateLocalDir(callback: AsyncCallback<string>): void;
+
   /**
   * Verify whether the specified permission is allowed for a particular
   * pid and uid running in the system.
@@ -73,7 +75,7 @@ export interface Context extends BaseContext {
   * @FAModelOnly
   * @since 7
   */
-    verifyPermission(permission: string, options?: PermissionOptions): Promise<number>;
+  verifyPermission(permission: string, options?: PermissionOptions): Promise<number>;
 
   /**
   * Verify whether the specified permission is allowed for a particular
@@ -88,7 +90,7 @@ export interface Context extends BaseContext {
   * @FAModelOnly
   * @since 7
   */
-    verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback<number>): void;
+  verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback<number>): void;
 
     /**
     * Verify whether the specified permission is allowed for a particular
@@ -102,7 +104,7 @@ export interface Context extends BaseContext {
     * @FAModelOnly
     * @since 7
     */
-    verifyPermission(permission: string, callback: AsyncCallback<number>): void;
+  verifyPermission(permission: string, callback: AsyncCallback<number>): void;
 
   /**
   * Requests certain permissions from the system.
