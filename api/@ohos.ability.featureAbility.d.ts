@@ -303,7 +303,7 @@ declare namespace featureAbility {
    * @FAModelOnly
    * @since 9
    */
-  export type Context = _Context;
+  export type Context = _Context
 
   /**
    * Defines an AppVersionInfo object.

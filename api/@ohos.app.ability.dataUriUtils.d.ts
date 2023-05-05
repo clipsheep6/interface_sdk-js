@@ -16,7 +16,6 @@
 /**
  * Utility class used for handling objects that use the DataAbilityHelper scheme.
  * @namespace dataUriUtils
- * @permission N/A
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
@@ -24,7 +23,6 @@ declare namespace dataUriUtils {
   /**
    * Obtains the ID attached to the end of the path component of the given uri.
    *
-   * @permission N/A
    * @param { string } uri Indicates the uri object from which the ID is to be obtained.
    * @returns { number } Returns the ID attached to the end of the path component;
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -35,7 +33,6 @@ declare namespace dataUriUtils {
   /**
    * Attaches the given ID to the end of the path component of the given uri.
    *
-   * @permission N/A
    * @param { string } uri Indicates the uri string from which the ID is to be obtained.
    * @param { number } id Indicates the ID to attach.
    * @returns { string } Returns the uri object with the given ID attached.
@@ -47,7 +44,6 @@ declare namespace dataUriUtils {
   /**
    * Deletes the ID from the end of the path component of the given uri.
    *
-   * @permission N/A
    * @param { string } uri Indicates the uri object from which the ID is to be deleted.
    * @returns { string } Returns the uri object with the ID deleted.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -58,7 +54,6 @@ declare namespace dataUriUtils {
   /**
    * Updates the ID in the specified uri
    *
-   * @permission N/A
    * @param { string } uri Indicates the uri object to be updated.
    * @param { number } id Indicates the new ID.
    * @returns { string } Returns the updated uri object.

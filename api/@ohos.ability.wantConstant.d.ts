@@ -377,7 +377,7 @@ declare namespace wantConstant {
      * Indicates the grant for possible persisting on the URI.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 6
      * @deprecated since 9
      */
@@ -387,7 +387,7 @@ declare namespace wantConstant {
      * Returns the result to the source ability slice.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 6
      * @deprecated since 9
      */
@@ -414,7 +414,7 @@ declare namespace wantConstant {
      * Indicates the continuation is reversible.
      *
      * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 6
      * @deprecated since 9
      */

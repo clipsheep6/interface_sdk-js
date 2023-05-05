@@ -114,7 +114,6 @@ declare namespace particleAbility {
   /**
    * Cancel background running of this ability to free up system memory.
    *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { AsyncCallback<void> } callback Returns the result of canceling a long-term task in the form of callback.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
@@ -127,7 +126,6 @@ declare namespace particleAbility {
   /**
    * Cancel background running of this ability to free up system memory.
    *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
@@ -140,7 +138,6 @@ declare namespace particleAbility {
   /**
    * Connects an ability to a Service ability.
    *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Want } request Indicates the Service ability to connect.
    * @param { ConnectOptions } options Callback object for the client. If this parameter is null, an exception is thrown.
    * @returns { number } unique identifier of the connection between the client and the service side.
@@ -152,7 +149,6 @@ declare namespace particleAbility {
 
   /**
    * Disconnects ability to a Service ability.
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { number } connection the connection id returned from connectAbility api.
    * @param { AsyncCallback<void> } callback Returns the disconnection result in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -163,7 +159,6 @@ declare namespace particleAbility {
 
   /**
    * Disconnects ability to a Service ability.
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { number } connection the connection id returned from connectAbility api.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
@@ -175,7 +170,6 @@ declare namespace particleAbility {
   /**
    * Obtain the errorCode.
    *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
