@@ -69,7 +69,7 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Starts a new ability.
-   * @param { Want } want { Want } - Indicates the ability to start.
+   * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
