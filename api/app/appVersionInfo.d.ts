@@ -28,6 +28,13 @@ export interface AppVersionInfo {
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   */
   readonly appName: string;
+  /**
+  * Application name2.
+  * @default appName2
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+  readonly appName2: string;
 
   /**
   * Application version number.
