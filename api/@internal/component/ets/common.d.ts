@@ -6462,3 +6462,10 @@ declare module "SpecialEvent" {
     export { TouchObject, KeyEvent, MouseEvent };
   }
 }
+
+declare module "AnimateToParam" {
+  module "AnimateToParam" {
+    // @ts-ignore
+    export { AnimateParam };
+  }
+}
