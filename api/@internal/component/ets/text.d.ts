@@ -248,6 +248,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+
+  /**
+   * Enable the text to be editable.
+   * @type boolean
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  editable(value: boolean): TextAttribute;
 }
 
 /**
