@@ -80,5 +80,5 @@ export type ValueType = number | string | boolean;
  * @since 9
  */
 export type ValuesBucket = {
-  [key: string]: ValueType | Uint8Array | Asset | Asset[] null;
+  [key: string]: ValueType | Uint8Array | Asset | Asset[] | null;
 };
