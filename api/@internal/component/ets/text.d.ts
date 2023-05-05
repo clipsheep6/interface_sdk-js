@@ -248,6 +248,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+
+  /**
+   * Called when the text privateMode is set.
+   * @param { boolean } value - The privateMode of text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  privateMode(value: boolean): TextAttribute;
 }
 
 /**
