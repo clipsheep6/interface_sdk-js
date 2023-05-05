@@ -190,7 +190,6 @@ declare namespace relationalStore {
      untreated: number;
   }
 
-<<<<<<< HEAD
     /**
      * Describes the {@code Statistic} details of the table.
      *
@@ -214,11 +213,9 @@ declare namespace relationalStore {
      * @enum { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
-     */      
+     */
       download: Statistic;
   }
-=======
->>>>>>> e567852212e0ecc35ecb7df9fdac561220e19769
 
   /**
    * Describes detail of the cloud sync {@code Process}.
@@ -245,30 +242,14 @@ declare namespace relationalStore {
     code: number;
 
     /**
-<<<<<<< HEAD
      * The statistic details of the tables.
-=======
-     * The statistic of upload.
->>>>>>> e567852212e0ecc35ecb7df9fdac561220e19769
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */         
-<<<<<<< HEAD
     details: {
       [table: string]:TableDetail
     };
-=======
-    upload: Statistic;
-    
-    /**
-     * The statistic of download.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    download: Statistic;
->>>>>>> e567852212e0ecc35ecb7df9fdac561220e19769
   }
 
   /**
@@ -1166,11 +1147,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-<<<<<<< HEAD
     setDistributedTables(tables: Array<string>, type?: number, callback: AsyncCallback<void>): void;
-=======
-    setDistributedTables(tables: Array<string>, type: number, callback: AsyncCallback<void>): void;
->>>>>>> e567852212e0ecc35ecb7df9fdac561220e19769
 
     /**
      * Set table to be distributed table.
