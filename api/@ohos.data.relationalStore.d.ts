@@ -166,7 +166,7 @@ declare namespace relationalStore {
     total: number;
 
     /**
-     * Describes the number of successed synced data.
+     * Describes the number of successfully synced data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -187,7 +187,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */ 
-     untreated: number;
+     remained: number;
   }
 
     /**
@@ -298,7 +298,7 @@ declare namespace relationalStore {
   }
 
   /**
-   * Records infomation of the esset.
+   * Records information of the asset.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10

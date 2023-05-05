@@ -14,7 +14,7 @@
  */
  
   /**
-   * Records infomation of the esset.
+   * Records information of the asset.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @since 10
