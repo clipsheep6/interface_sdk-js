@@ -23,7 +23,7 @@ import notification from '../@ohos.notification';
  *
  * @interface NotificationSubscriber
  * @syscap SystemCapability.Notification.Notification
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 7
  */
 export interface NotificationSubscriber {
