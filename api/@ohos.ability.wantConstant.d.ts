@@ -37,7 +37,7 @@ declare namespace wantConstant {
      * @since 6
      * @deprecated since 9
      */
-    ACTION_HOME = 'ohos.want.action.home',
+    ACTION_HOME = "ohos.want.action.home",
 
     /**
      * Indicates the action of starting a Page ability that displays a keypad.
