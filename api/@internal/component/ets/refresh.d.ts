@@ -149,6 +149,7 @@ interface RefreshOptions {
    * Custom component to display during dragging.
    * @type {CustomBuilder}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   builder?: CustomBuilder;

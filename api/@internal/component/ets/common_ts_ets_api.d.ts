@@ -284,12 +284,6 @@ declare class AppStorage {
    * @deprecated since 9
    * @useinstead AppStorage.Clear
    */
-  /**
-   * Called when a cleanup occurs.
-   * @crossplatform
-   * @since 10
-   * @useinstead AppStorage.Clear
-   */
   static staticClear(): boolean;
 
   /**
@@ -371,23 +365,11 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @since 7
    * @systemapi
    */
-  /**
-   * Setting Subscribers.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   protected subscribers_: Set<number>;
 
   /**
    * Private user ID.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Private user ID.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   private id_;
@@ -397,21 +379,10 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @since 7
    * @systemapi
    */
-  /**
-   * Private user information.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   private info_?;
 
   /**
    * @since 7
-   * @systemapi
-   */
-  /**
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   constructor(
@@ -420,22 +391,10 @@ declare abstract class SubscribedAbstractProperty<T> {
      * @since 7
      * @systemapi
      */
-    /**
-     * Subscriber IPropertySubscriber.
-     * @crossplatform
-     * @since 10
-     * @systemapi
-     */
     subscribeMe?: IPropertySubscriber,
     /**
      * Subscriber info.
      * @since 7
-     * @systemapi
-     */
-    /**
-     * Subscriber info.
-     * @crossplatform
-     * @since 10
      * @systemapi
      */
     info?: string,
@@ -444,12 +403,6 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Called when the subscriber ID is entered.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when the subscriber ID is entered.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   id(): number;
@@ -510,23 +463,11 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when a two-way synchronization is created.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   createTwoWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyTwoWay<T>;
 
   /**
    * Called when a one-way synchronization is created.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when a one-way synchronization is created.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   createOneWaySync(subscribeMe?: IPropertySubscriber, info?: string): SyncedPropertyOneWay<T>;
@@ -536,23 +477,11 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when the subscriber is unlinked.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   unlinkSuscriber(subscriberId: number): void;
 
   /**
    * Called when the notification has changed.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when the notification has changed.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   protected notifyHasChanged(newValue: T): void;
@@ -562,23 +491,11 @@ declare abstract class SubscribedAbstractProperty<T> {
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when the notification property is read.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   protected notifyPropertyRead(): void;
 
   /**
    * Called when the number of users is queried.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when the number of users is queried.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   numberOfSubscrbers(): number;
@@ -600,22 +517,10 @@ declare abstract class SubscribedAbstractProperty<T> {
  * @since 7
  * @systemapi
  */
-/**
- * Provides an interface for attribute subscribers.
- * @crossplatform
- * @since 10
- * @systemapi
- */
 interface IPropertySubscriber {
   /**
    * Called when the ID of the property subscriber is queried.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when the ID of the property subscriber is queried.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   id(): number;
@@ -623,12 +528,6 @@ interface IPropertySubscriber {
   /**
    * Provides a single attribute change user interface.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Provides a single attribute change user interface.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   aboutToBeDeleted(owningView?: IPropertySubscriber): void;
@@ -639,23 +538,11 @@ interface IPropertySubscriber {
  * @since 7
  * @systemapi
  */
-/**
- * Defines the state value.
- * @crossplatform
- * @since 10
- * @systemapi
- */
 declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T>
   implements ISinglePropertyChangeSubscriber<T> {
   /**
    * Sources of synchronization attributes bidirectionally.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Sources of synchronization attributes bidirectionally.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   private source_;
@@ -665,23 +552,11 @@ declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T>
    * @since 7
    * @systemapi
    */
-  /**
-   * constructor parameters.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   constructor(source: SubscribedAbstractProperty<T>, subscribeMe?: IPropertySubscriber, info?: string);
 
   /**
    * Called when processing information about to be deleted.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when processing information about to be deleted.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   aboutToBeDeleted(unsubscribeMe?: IPropertySubscriber): void;
@@ -691,12 +566,6 @@ declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T>
    * @since 7
    * @systemapi
    */
-  /**
-   * Information Changed.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   hasChanged(newValue: T): void;
 
   /**
@@ -704,23 +573,11 @@ declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T>
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when data is obtained.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   get(): T;
 
   /**
    * Called when data is created.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when data is created.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   set(newValue: T): void;
@@ -730,24 +587,12 @@ declare class SyncedPropertyTwoWay<T> extends SubscribedAbstractProperty<T>
 * Defines the prop state value.
 * @since 7
 * @systemapi
-/*
-/**
-* Defines the prop state value.
-* @crossplatform
-* @since 10
-* @systemapi
 */
 declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T>
   implements ISinglePropertyChangeSubscriber<T> {
   /**
    * Pack value for single-item binding.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Pack value for single-item binding.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   private wrappedValue_;
@@ -757,22 +602,11 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T>
    * @since 7
    * @systemapi
    */
-  /**
-   * Sources of synchronization attributes bidirectionally.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   private source_;
 
   /**
    * Constructor parameters.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   constructor(source: SubscribedAbstractProperty<T>, subscribeMe?: IPropertySubscriber, info?: string);
@@ -782,23 +616,11 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T>
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when processing information about to be deleted.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   aboutToBeDeleted(unsubscribeMe?: IPropertySubscriber): void;
 
   /**
    * Information Changed.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Information Changed.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   hasChanged(newValue: T): void;
@@ -808,23 +630,11 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T>
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when data is obtained.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   get(): T;
 
   /**
    * Called when data is created.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when data is created.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   set(newValue: T): void;
@@ -835,22 +645,10 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T>
  * @since 7
  * @systemapi
  */
-/**
- * Defines the subscriber.
- * @crossplatform
- * @since 10
- * @systemapi
- */
 interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
   /**
    * Provides a single attribute change user interface.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Provides a single attribute change user interface.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   hasChanged(newValue: T): void;
@@ -861,22 +659,10 @@ interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
  * @since 7
  * @systemapi
  */
-/**
- * Defines the Subscribale base class.
- * @crossplatform
- * @since 10
- * @systemapi
- */
 declare abstract class SubscribaleAbstract {
   /**
    * Returns the ownership attribute set by the.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Returns the ownership attribute set by the.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   private owningProperties_: Set<number>;
@@ -886,23 +672,11 @@ declare abstract class SubscribaleAbstract {
    * @since 7
    * @systemapi
    */
-  /**
-   * Constructor.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   constructor();
 
   /**
    * Called when the notification property has changed.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when the notification property has changed.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   protected notifyPropertyHasChanged(propName: string, newValue: any): void;
@@ -912,12 +686,6 @@ declare abstract class SubscribaleAbstract {
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when adding an already owned property.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   public addOwningProperty(subscriber: IPropertySubscriber): void;
 
   /**
@@ -925,23 +693,11 @@ declare abstract class SubscribaleAbstract {
    * @since 7
    * @systemapi
    */
-  /**
-   * Called when an already owned property is deleted.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   public removeOwningProperty(property: IPropertySubscriber): void;
 
   /**
    * Called when an already owned property is deleted by ID
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Called when an already owned property is deleted by ID
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   public removeOwningPropertyById(subscriberId: number): void;
@@ -960,12 +716,6 @@ declare class Environment {
   /**
    * Constructor.
    * @since 7
-   * @systemapi
-   */
-  /**
-   * Constructor.
-   * @crossplatform
-   * @since 10
    * @systemapi
    */
   constructor();
@@ -1024,12 +774,6 @@ declare class PersistentStorage {
    * @since 7
    * @systemapi
    */
-  /**
-   * Constructor parameters.
-   * @crossplatform
-   * @since 10
-   * @systemapi
-   */
   constructor(appStorage: AppStorage, storage: Storage);
 
   /**
@@ -1085,12 +829,6 @@ declare class PersistentStorage {
 /**
  * Used for ide.
  * @since 7
- * @systemapi
- */
-/**
- * Used for ide.
- * @crossplatform
- * @since 10
  * @systemapi
  */
 declare const appStorage: AppStorage;

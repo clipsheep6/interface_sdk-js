@@ -24,7 +24,6 @@
  */
 /**
  * Provides the polygon drawing interface.
- * @form
  * @crossplatform
  * @since 10
  */

@@ -24,7 +24,6 @@
  */
 /**
  * Defines the Gauge component.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -46,7 +45,6 @@ interface GaugeInterface {
    * value:Current data value.
    * min: Current Segment Minimum Value
    * max: Current Segment Maximum Value
-   * @form
    * @crossplatform
    * @since 10
    */

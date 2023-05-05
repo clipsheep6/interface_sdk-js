@@ -253,11 +253,6 @@ declare const Builder: MethodDecorator;
  * @form
  * @since 9
  */
-/**
- * Defining Styles MethodDecorator
- * @crossplatform
- * @since 10
- */
 declare const Styles: MethodDecorator;
 
 /**
@@ -314,11 +309,6 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * @form
  * @since 9
  */
-/**
- * Defining LocalStorageProp PropertyDecorator
- * @crossplatform
- * @since 10
- */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
 /**
@@ -356,15 +346,6 @@ declare type Context = import('../api/application/Context').default;
  * @form
  * @StageModelOnly
  * @since 9
- */
-/**
- * Post Card Action.
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
- * @form
- * @StageModelOnly
- * @crossplatform
- * @since 10
  */
 declare function postCardAction(component: Object, action: Object): void;
 
@@ -1339,12 +1320,6 @@ interface PreviewParams {
    * @form
    * @since 9
    */
-  /**
-   * Define Preview title
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   title?: string;
   /**
    * Define Preview width
@@ -1724,23 +1699,11 @@ declare enum SourceTool {
  * @form
  * @since 9
  */
-/**
- * Defines the Border Image Repeat Mode.
- * @form
- * @crossplatform
- * @since 10
- */
 declare enum RepeatMode {
   /**
    * Repeat mode.
    * @form
    * @since 9
-   */
-  /**
-   * Repeat mode.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   Repeat,
 
@@ -1749,24 +1712,12 @@ declare enum RepeatMode {
    * @form
    * @since 9
    */
-  /**
-   * Stretch mode.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   Stretch,
 
   /**
    * Round mode.
    * @form
    * @since 9
-   */
-  /**
-   * Round mode.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   Round,
 
@@ -1775,12 +1726,6 @@ declare enum RepeatMode {
    * @form
    * @since 9
    */
-  /**
-   * Space mode.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   Space,
 }
 /**
@@ -1788,23 +1733,11 @@ declare enum RepeatMode {
  * @form
  * @since 9
  */
-/**
- * enum Blur style
- * @form
- * @crossplatform
- * @since 10
- */
 declare enum BlurStyle {
   /**
    * Defines the thin card material.
    * @form
    * @since 9
-   */
-  /**
-   * Defines the thin card material.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   Thin,
 
@@ -1813,12 +1746,6 @@ declare enum BlurStyle {
    * @form
    * @since 9
    */
-  /**
-   * Defines the regular card material.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   Regular,
 
   /**
@@ -1826,18 +1753,8 @@ declare enum BlurStyle {
    * @form
    * @since 9
    */
-  /**
-   * Defines the thick card material.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   Thick,
 
-  /**
-   * Defines the thin background material.
-   * @since 10
-   */
   /**
    * Defines the thin background material.
    * @crossplatform
@@ -2207,12 +2124,6 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
-  /**
-   * The angle between pencil projection on plane-X-Y and axis-Z.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   tiltX: number;
 
   /**
@@ -2220,24 +2131,12 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
-  /**
-   * The angle between pencil projection on plane-Y-Z and axis-Z.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   tiltY: number;
 
   /**
    * The event tool type info.
    * @form
    * @since 9
-   */
-  /**
-   * The event tool type info.
-   * @form
-   * @crossplatform
-   * @since 10
    */
   sourceTool: SourceTool;
 }
@@ -2247,23 +2146,11 @@ declare interface BaseEvent {
  * @form
  * @since 9
  */
-/**
- * Border image option
- * @form
- * @crossplatform
- * @since 10
- */
 declare interface BorderImageOption {
   /**
    * Border image slice
    * @form
    * @since 9
-   */
-  /**
-   * Border image slice
-   * @form
-   * @crossplatform
-   * @since 10
    */
   slice?: Length | EdgeWidths,
 
@@ -2272,24 +2159,12 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  /**
-   * Border image repeat
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   repeat?: RepeatMode,
 
   /**
    * Border image source
    * @form
    * @since 9
-   */
-  /**
-   * Border image source
-   * @form
-   * @crossplatform
-   * @since 10
    */
   source?: string | Resource | LinearGradient,
 
@@ -2298,12 +2173,6 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  /**
-   * Border image width
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   width?: Length | EdgeWidths,
 
   /**
@@ -2311,24 +2180,12 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  /**
-   * Border image outset
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   outset?: Length | EdgeWidths,
 
   /**
    * Border image center fill
    * @form
    * @since 9
-   */
-  /**
-   * Border image center fill
-   * @form
-   * @crossplatform
-   * @since 10
    */
   fill?: boolean
 }
@@ -3537,12 +3394,6 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
-  /**
-   * Outer Margin.
-   * @form
-   * @crossplatform
-   * @since 10
-   */
   margin(value: Margin | Length): T;
 
   /**
@@ -4582,12 +4433,6 @@ declare class CommonMethod<T> {
    * Specifies the alignRules of relative container
    * @form
    * @since 9
-   */
-  /**
-   * Specifies the alignRules of relative container
-   * @form
-   * @crossplatform
-   * @since 10
    */
   alignRules(value: AlignRuleOption): T;
 

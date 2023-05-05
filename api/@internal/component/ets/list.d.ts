@@ -24,7 +24,6 @@
  */
 /**
  * Declare scroll status
- * @form
  * @crossplatform
  * @since 10
  */
@@ -586,11 +585,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when scrolling begin each frame.
    * @form
    * @since 9
-   */
-  /**
-   * Called when scrolling begin each frame.
-   * @crossplatform
-   * @since 10
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
 }

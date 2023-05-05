@@ -24,7 +24,6 @@
  */
 /**
  * Defines the options of Flex.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -40,7 +39,6 @@ declare interface FlexOptions {
    */
   /**
    * Sets the horizontal layout of elements.
-   * @form
    * @crossplatform
    * @since 10
    */

@@ -24,7 +24,6 @@
  */
 /**
  * Provides the path drawing interface.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -40,7 +39,6 @@ interface PathInterface {
    */
   /**
    * Use new to create Path.
-   * @form
    * @crossplatform
    * @since 10
    */

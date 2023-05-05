@@ -368,12 +368,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    * @since 9
    */
-  /**
-   * Sets the color filter effect on the image.
-   * @param value ColorFilter object.
-   * @crossplatform
-   * @since 10
-   */
   colorFilter(value: ColorFilter): ImageAttribute;
 
   /**
