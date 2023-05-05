@@ -1055,6 +1055,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the result of quick fix revoke.
      * This common event can be triggered only by system.
+     * @since 10
      */
     COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = "usual.event.QUICK_FIX_REVOKE_RESULT",
 
