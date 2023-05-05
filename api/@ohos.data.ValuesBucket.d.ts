@@ -16,7 +16,7 @@
   /**
    * Records infomation of the esset.
    *
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @since 10
    */
 export class Asset {
@@ -80,5 +80,5 @@ export type ValueType = number | string | boolean;
  * @since 9
  */
 export type ValuesBucket = {
-    [key: string]: ValueType | Uint8Array | Asset | Asset[] null;
+  [key: string]: ValueType | Uint8Array | Asset | Asset[] null;
 };
