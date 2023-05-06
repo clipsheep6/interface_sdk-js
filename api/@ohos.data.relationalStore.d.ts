@@ -392,7 +392,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_TIME_FIRST,
+    SYNC_MODE_TIME_FIRST = 2,
 
     /**
      * Indicates force push the native data to the cloud.
@@ -400,7 +400,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_NATIVE_FIRST,
+    SYNC_MODE_NATIVE_FIRST = 3,
 
     /**
      * Indicates the data is pulled from cloud to local device.
@@ -408,7 +408,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_CLOUD_FIRST,
+    SYNC_MODE_CLOUD_FIRST = 4,
   }
 
   /**
@@ -427,7 +427,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    SUBSCRIBE_TYPE_REMOTE = 0
+    SUBSCRIBE_TYPE_REMOTE = 0,
     
     /**
      * Subscription to cloud data changes
@@ -436,7 +436,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD,
+    SUBSCRIBE_TYPE_CLOUD = 1,
   }
 
   /**
@@ -455,7 +455,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    DISTRIBUTED_DEVICE,
+    DISTRIBUTED_DEVICE = 0,
 
     /**
      * Indicates the table is distributed between the cloud and the devices.
@@ -464,7 +464,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    DISTRIBUTED_CLOUD
+    DISTRIBUTED_CLOUD = 1,
   }
 
   /**
