@@ -179,6 +179,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
    * @since 10
    */
   function setStaticSubscribeEventState(enable: boolean, callback: AsyncCallback<void>): void;
@@ -192,6 +193,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
    * @since 10
    */
   function setStaticSubscribeEventState(enable: boolean): Promise<void>;
