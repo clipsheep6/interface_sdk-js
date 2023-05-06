@@ -200,6 +200,11 @@ declare namespace camera {
      */
     DEVICE_DISABLED = 7400108,
     /**
+     * Can not use camera cause of preempted.
+     * @since 9
+     */
+    DEVICE_PREEMPTED = 7400109,
+    /**
      * Camera service fatal error.
      * @since 9
      */
