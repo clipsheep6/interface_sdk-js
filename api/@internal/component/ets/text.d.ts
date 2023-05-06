@@ -384,6 +384,54 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+
+  /**
+   * Enable the text to be editable.
+   * @param { boolean } value - make the text editable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  editable(value: boolean): TextAttribute;
+
+  /**
+   * set caret position.
+   * @param { number } position - caret position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setCaretPosition(position: number): TextAttribute;
+
+  /**
+   * get inserted text value infomation.
+   * @param { (value: TextInsertValueInfo) => void) } The triggered function when text content is inserted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onInsertValue(callback: (value: TextInsertValueInfo) => void): TextAttribute;
+
+  /**
+   * get deleted text value infomation.
+   * @param { (value: TextDeleteValueInfo) => void } The triggered function when text content is deleted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onDeleteValue(callback: (value: TextDeleteValueInfo) => void): TextAttribute;
+
+  /**
+   * set caret position.
+   * @param { (value: TextCaretPositionInfo) => void } The triggered function when the caret position changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onCaretPositionChange(callback: (value: TextCaretPositionInfo) => void): TextAttribute;
+
+  /**
+   * set caret position controller.
+   * @param { TextCaretPositionController } controller - caret position controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setCaretPositionController(controller: TextCaretPositionController): TextAttribute;
 }
 
 /**
