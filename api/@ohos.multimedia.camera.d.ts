@@ -1240,6 +1240,79 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'error', callback: ErrorCallback<BusinessError>): void;
+
+    /**
+     * Gets the filter effect.
+     * @returns List of filter effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedFilters():Array<number>;
+
+    /**
+     * Gets the current configuration's filter effect.
+     * @returns current filter effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getFilter(): number;
+
+    /**
+     * Set filter effect to camera device.
+     * @param filter The filter effect need to be set.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    setFilter(filter: number): void;
+
+    /**
+     * Gets supported beauty effect types.
+     * @returns List of beauty effect types.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedBeautyTypes(): Array<BeautyType>;
+
+    /**
+     * Gets the specific beauty effect type range.
+     * @param type The type of beauty effect.
+     * @returns The array of the specific beauty effect range.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedBeautyRange(type: BeautyType): Array<number>;
+
+    /**
+     * Gets the current configuration's beauty effect.
+     * @param type The type of beauty effect.
+     * @returns Number of beauty effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getBeauty(type: BeautyType): number;
+
+    /**
+     * Set beauty effect to camera device.
+     * @param type The type of beauty effect.
+     * @param value The number of beauty effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400103 - Session not config.
+     */
+    setBeauty(type: BeautyType, value: number): void;
   }
 
   /**
@@ -1400,33 +1473,6 @@ declare namespace camera {
    */
   interface PortraitSession extends CaptureSession {
     /**
-     * Gets the filter effect.
-     * @returns List of filter effect.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    getSupportedFilters():Array<number>;
-
-    /**
-     * Gets the current configuration's filter effect.
-     * @returns current filter effect.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    getFilter(): number;
-
-    /**
-     * Set filter effect to camera device.
-     * @param filter The filter effect need to be set.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    setFilter(filter: number): void;
-
-    /**
      * Gets supported portrait effect.
      * @returns List of portrait effect.
      * @since 10
@@ -1452,45 +1498,6 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      */
     setPortraitEffect(effect: PortraitEffect): void;
-
-    /**
-     * Gets supported beauty effect types.
-     * @returns List of beauty effect types.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    getSupportedBeautyTypes(): Array<BeautyType>;
-
-    /**
-     * Gets the specific beauty effect type range.
-     * @param type The type of beauty effect.
-     * @returns The array of the specific beauty effect range.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    getSupportedBeautyRange(type: BeautyType): Array<number>;
-
-    /**
-     * Gets the current configuration's beauty effect.
-     * @param type The type of beauty effect.
-     * @returns Number of beauty effect.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    getBeauty(type: BeautyType): number;
-
-    /**
-     * Set beauty effect to camera device.
-     * @param type The type of beauty effect.
-     * @param value The number of beauty effect.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @throws { BusinessError } 7400103 - Session not config.
-     */
-    setBeauty(type: BeautyType, value: number): void;
   }
 
 
