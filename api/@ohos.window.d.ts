@@ -21,6 +21,7 @@ import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from "./@ohos.app.ability.dialogRequest";
+import uicontent from './@ohos.arkui.uicontent';
 
 /**
  * Window manager.
@@ -1586,6 +1587,14 @@ declare namespace window {
      * @useinstead ohos.window.Window#setUIContent
      */
     loadContent(path: string): Promise<void>;
+	
+    /**
+     * get Content.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+	 * @StageModelOnly
+     */
+    getContent() : uicontent.UIContent;
 
     /**
      * Loads content
