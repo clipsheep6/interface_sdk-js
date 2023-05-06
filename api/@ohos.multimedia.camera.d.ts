@@ -15,6 +15,7 @@
 
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import { Context } from './app/context';
+import { PixelMap } from './app/@ohos.multimedia.image';
 
 /**
  * @name camera
@@ -200,10 +201,30 @@ declare namespace camera {
      */
     DEVICE_DISABLED = 7400108,
     /**
+     * Can not use camera cause of preempted.
+     * @since 10
+     */
+    DEVICE_PREEMPTED = 7400109,
+    /**
      * Camera service fatal error.
      * @since 9
      */
     SERVICE_FATAL_ERROR = 7400201
+  }
+
+  /**
+   * PreLaunch config object.
+   * @since 10
+   * @systemapi
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   */
+  interface PreLaunchConfig {
+    /**
+     * Camera instance.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    cameraDevice: CameraDevice;
   }
 
   /**
@@ -348,6 +369,52 @@ declare namespace camera {
      * @systemapi
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Determine whether the camera device supports prelaunch startup.
+     * Called before the setPreLaunchConfig and preLaunch function.
+     * @param camera Camera device.
+     * @returns Is preLaunch is supported.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    isPreLaunchSupported(camera: CameraDevice): boolean;
+
+    /**
+     * Configure camera preheating parameters, specify camera device.
+     * Send prelaunch configuration parameters to the camera service when exit camera or change configuration for the next time.
+     * @param preLaunchConfig Prelaunch configuration info.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect
+     * @throws { BusinessError } 7400102 - Operation not allow.
+     * @permission ohos.permission.MANAGE_CAMERA_CONFIG
+     */
+    setPreLaunchConfig(preLaunchConfig: PreLaunchConfig): void;
+
+    /**
+     * Enable the camera to prelaunch and start.
+     * The user clicks on the system camera icon, pulls up the camera application, and calls it simultaneously.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400102 - Operation not allow.
+     * @permission ohos.permission.MANAGE_CAMERA_CONFIG
+     */
+    preLaunch(): void;
+
+    /**
+     * Creates a deferred PreviewOutput instance.
+     * @param profile Preview output profile.
+     * @returns the PreviewOutput instance.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     */
+    createDeferredPreviewOutput(profile: Profile): PreviewOutput;
   }
 
   /**
@@ -467,6 +534,27 @@ declare namespace camera {
   }
 
   /**
+   * Enum for remote camera device type.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  enum HostDeviceType {
+    /**
+     * Indicates a smartphone camera.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    PHONE = 0x0E,
+    /**
+     * Indicates a tablet camera.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    TABLET = 0x11
+  }
+
+  /**
    * Camera device object.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -496,6 +584,20 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     readonly connectionType: ConnectionType;
+    /**
+     * Camera remote camera device name attribute.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    readonly hostDeviceName: string;
+    /**
+     * Camera remote camera device type attribute.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    readonly hostDeviceType: HostDeviceType;
   }
 
   /**
@@ -1143,6 +1245,258 @@ declare namespace camera {
   }
 
   /**
+   * Enum for camera mode.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  enum CameraMode {
+    /**
+     * portrait mode.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    PORTRAIT = 1
+  }
+
+  /**
+   * Camera mode manager object.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  interface ModeManager {
+	/**
+     * Gets the modes supported by the specified camera.
+     * @param device Camera device.
+	 * @returns List of modes supported by the camera device.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedModes(device: CameraDevice): Array<CameraMode>;
+
+	/**
+     * Gets supported output capability for specific camera and specific mode.
+     * @param device Camera device.
+	 * @param mode Camera mode.
+	 * @returns The camera output capability.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    getSupportedOutputCapability(camera: CameraDevice, mode: CameraMode): CameraOutputCapability;
+
+	/**
+     * Gets a CaptureSession instance for specific camera mode.
+     * @param mode Camera mode.
+	 * @returns The CaptureSession instance for specific camera mode.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    createCaptureSession(mode: CameraMode): CaptureSession;
+  }
+
+  /**
+   * Enum for camera filter type.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  enum FilterType {
+    /**
+     * Filter closed, no effect.
+     */
+    NONE = 0,
+
+	/**
+     * classic filter effect.
+     */
+    CLASSIC = 1,
+
+	/**
+     * dawn filter effect.
+     */
+    DAWN = 2,
+
+	/**
+     * pure filter effect.
+     */
+    PURE = 3,
+
+	/**
+     * grey filter effect.
+     */
+    GREY = 4,
+
+	/**
+     * natural filter effect.
+     */
+    NATURAL = 5,
+
+	/**
+     * mori filter effect.
+     */
+    MORI = 6,
+
+	/**
+     * fair filter effect.
+     */
+    FAIR = 7,
+
+	/**
+     * pink filter effect.
+     */
+    PINK = 8
+  }
+
+  /**
+   * Enum for camera portrait effect.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  enum PortraitEffect {
+    /**
+     * portrait effect off.
+     */
+    OFF = 0,
+
+	/**
+     * circular blurring for portrait.
+     */
+    CIRCLES = 1
+  }
+
+  /**
+   * Enum for camera beauty effect type.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  enum BeautyType {
+    /**
+     * auto beauty type.
+     */
+    AUTO = 0,
+
+	/**
+     * smooth beauty type.
+     */
+    SKIN_SMOOTH = 1,
+
+	/**
+     * face slender beauty type.
+     */
+    FACE_SLENDER = 2,
+
+	/**
+     * tone beauty type.
+     */
+    SKIN_TONE = 3
+  }
+
+  /**
+   * Portrait session object.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  interface PortraitSession extends CaptureSession {
+    /**
+     * Gets the filter effect.
+	 * @returns List of filter effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedFilters():Array<number>;
+
+	/**
+     * Gets the current configuration's filter effect.
+	 * @returns current filter effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getFilter(): number;
+
+	/**
+     * Set filter effect to camera device.
+	 * @param filter The filter effect need to be set.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    setFilter(filter: number): void;
+
+	/**
+     * Gets supported portrait effect.
+	 * @returns List of portrait effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedPortraitEffects():Array<PortraitEffect>;
+
+	/**
+     * Gets the current configuration's portrait effect.
+	 * @returns current portrait effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getPortraitEffect(): PortraitEffect;
+
+	/**
+     * Set portrait effect to camera device.
+	 * @param effect The portrait effect need to be set.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    setPortraitEffect(effect: PortraitEffect): void;
+
+	/**
+     * Gets supported beauty effect types.
+	 * @returns List of beauty effect types.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedBeautyTypes(): Array<BeautyType>;
+
+	/**
+     * Gets the specific beauty effect type range.
+	 * @param type The type of beauty effect.
+	 * @returns The array of the specific beauty effect range.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getSupportedBeautyRange(type: BeautyType): Array<number>;
+
+	/**
+     * Gets the current configuration's beauty effect.
+	 * @param type The type of beauty effect.
+	 * @returns Number of beauty effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    getBeauty(type: BeautyType): number;
+
+	/**
+     * Set beauty effect to camera device.
+	 * @param type The type of beauty effect.
+	 * @param value The number of beauty effect.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+	 * @throws { BusinessError } 7400103 - Session not config.
+     */
+    setBeauty(type: BeautyType, value: number): void;
+  }
+
+
+  /**
    * Camera output object.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1233,6 +1587,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'error', callback: ErrorCallback<BusinessError>): void;
+
+    /**
+     * Add deferred surface.
+     * @param surfaceId Surface object id used in camera photo output.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     */
+    addDeferredSurface(surfaceId: string): void;
   }
 
   /**
@@ -1445,6 +1809,40 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'error', callback: ErrorCallback<BusinessError>): void;
+
+    /**
+     * Check if PhotoOutput supports quick thumbnails.
+     * Effective between CaptureSession.addOutput() and CaptureSession.commitConfig().
+     * @returns Is quick thumbnail supported.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400104 - session is not running.
+     */
+    isQuickThumbnailSupported(): boolean;
+
+    /**
+     * Enable/disable quick thumbnails.
+     * Effective between CaptureSession.addOutput() and CaptureSession.commitConfig().
+     * @param enabled Enable quick thumbnail if TRUE, otherwise disable quick thumbnail.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400104 - session is not running.
+     */
+    enableQuickThumbnail (enabled: boolean): void;
+
+    /**
+     * Configure camera thumbnail callback interface.
+     * Effective after enableQuickThumbnail(true).
+     * @param type Event type.
+     * @param callback Callback used to get the quick thumbnail.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @throws { BusinessError } 7400104 - session is not running.
+     */
+    on (type: "quickThumbnail", callback: AsyncCallback<PixelMap>): void;
   }
 
   /**
