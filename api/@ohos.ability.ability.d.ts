@@ -28,7 +28,7 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @FAModelOnly
  */
-declare namespace ability {
+declare namespace abilityAAAAAAcasdasdasd {
 
     /**
      * DataAbilityHelper
