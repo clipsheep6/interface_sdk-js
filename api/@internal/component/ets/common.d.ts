@@ -649,15 +649,6 @@ declare interface AlignRuleOption {
   center?: { anchor: string, align: VerticalAlign };
 }
 
-/**
- * The param of rotate.
- * @since 7
- */
-/**
- * The param of rotate.
- * @form
- * @since 9
- */
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -820,7 +811,6 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
-   * @constant
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -829,7 +819,6 @@ declare class TransitionEffect<
 
   /**
    * Defines an opacity transition effect
-   * @constant
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -838,7 +827,6 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide transition effect
-   * @constant
    * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -853,7 +841,6 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
-   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -1262,62 +1249,26 @@ declare enum BlurStyle {
   /**
    * Defines the thin background material.
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THIN
    */
   BackgroundThin,
 
   /**
    * Defines the thin regular material.
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_REGULAR
    */
   BackgroundRegular,
 
   /**
    * Defines the thin thick material.
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THICK
    */
   BackgroundThick,
 
   /**
    * Defines the thin ultra thick material.
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
    */
   BackgroundUltraThick,
-
-  /**
-   * Defines the thin background material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_THIN,
-
-  /**
-   * Defines the thin regular material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_REGULAR,
-
-  /**
-   * Defines the thin thick material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_THICK,
-
-  /**
-   * Defines the thin ultra thick material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_ULTRA_THICK,
 }
 
 /**
@@ -1328,47 +1279,20 @@ declare enum ThemeColorMode {
   /**
    * Defines the mode which is follow up with system.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#SYSTEM
    */
   System,
 
   /**
    * Defines the light mode.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#LIGHT
    */
   Light,
 
   /**
    * Defines the dark mode.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#DARK
    */
   Dark,
-
-  /**
-   * Defines the mode which is follow up with system.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  SYSTEM,
-
-  /**
-   * Defines the light mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  LIGHT,
-
-  /**
-   * Defines the dark mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  DARK,
 }
 
 /**
@@ -1379,32 +1303,14 @@ declare enum AdaptiveColor {
   /**
    * Defines the fixed value color adaptive mode.
    * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#DEFAULT
    */
   Default,
 
   /**
    * Defines the background average color adaptive mode.
    * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#AVERAGE
    */
   Average,
-
-  /**
-   * Defines the fixed value color adaptive mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  DEFAULT,
-
-  /**
-   * Defines the background average color adaptive mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  AVERAGE,
 }
 
 /**
@@ -1417,8 +1323,6 @@ declare enum ModalTransition {
    * Use default animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#DEFAULT
    */
   Default,
 
@@ -1426,8 +1330,6 @@ declare enum ModalTransition {
    * Use none animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#NONE
    */
   None,
 
@@ -1435,31 +1337,8 @@ declare enum ModalTransition {
    * Use alpha animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#ALPHA
    */
-  Alpha,
-
-  /**
-   * Use default animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  DEFAULT,
-
-  /**
-   * Use none animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  NONE,
-
-  /**
-   * Use alpha animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  ALPHA,
+  Alpha,  
 }
 
 /**
@@ -1568,92 +1447,38 @@ declare enum ShadowStyle {
   /**
    * Defines the super small default shadow style.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_XS
    */
   OuterDefaultXS,
 
   /**
    * Defines the small default shadow style.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_SM
    */
   OuterDefaultSM,
 
   /**
    * Defines the medium default shadow style.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_MD
    */
   OuterDefaultMD,
 
   /**
    * Defines the large default shadow style.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_LG
    */
   OuterDefaultLG,
 
   /**
    * Defines the small floating shadow style.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_SM
    */
   OuterFloatingSM,
 
   /**
    * Defines the medium floating shadow style.
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_MD
    */
   OuterFloatingMD,
-
-  /**
-   * Defines the super small default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_XS,
-
-  /**
-   * Defines the small default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_SM,
-
-  /**
-   * Defines the medium default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_MD,
-
-  /**
-   * Defines the large default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_LG,
-
-  /**
-   * Defines the small floating shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_FLOATING_SM,
-
-  /**
-   * Defines the medium floating shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_FLOATING_MD,
 }
 
 /**
@@ -1753,7 +1578,7 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
-  source?: string | Resource | LinearGradient,
+  source?: string | Resource | linearGradient,
 
   /**
    * Border image width
@@ -1830,6 +1655,35 @@ declare interface ClickEvent extends BaseEvent {
    * @since 9
    */
   y: number;
+}
+
+/**
+ * The mouse pcr action triggers this method invocation.
+ * @since 8
+ */
+declare interface HoverEvent extends BaseEvent {
+    /**
+     * X coordinate of the click point relative to the left edge of the device screen.
+     * @since 7
+     */
+    /**
+     * X coordinate of the click point relative to the left edge of the device screen.
+     * @form
+    * @since 9*/
+
+    /**
+     * Y coordinate of the click poinaaaat relative to the left edge of the clicked element.
+     * @form
+    * @since 9
+     */
+    isHover: boolean;
+
+    /**
+     * The blocking event pops up.
+     * @since 7
+     */
+    stopPropagation?: () => void;
+
 }
 
 /**
@@ -2148,20 +2002,8 @@ declare interface PopupOptions {
   /**
    * placement On Top
    * @since 7
-   * @deprecated since 10
-   * @useinstead PopupOptions#placement
    */
   placementOnTop?: boolean;
-
-  /**
-   * Placement of popup
-   * supports four positions: top, bottom, left and right
-   * @type { Placement }
-   * @default bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  placement?: Placement;
 
   /**
    * The first button.
@@ -2321,60 +2163,28 @@ declare interface CustomPopupOptions {
 }
 
 /**
- * Defines the context menu options.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
- */
-declare interface ContextMenuOptions {
-  /**
-   * Sets the position offset of the context menu window.
-   * @type { ?Position }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  offset?: Position;
-
-  /**
-   * Sets the placement of the context menu window.
-   * @type { ?Placement }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  placement?: Placement;
-
-  /**s
-   * Callback function when the context menu appears.
-   * @type { ?() => void }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  onAppear?: () => void;
-
-  /**
-   * Callback function when the context menu disappear.
-   * @type { ?() => void }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  onDisappear?: () => void;
-}
-
-/**
  * Defines the menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface MenuOptions extends ContextMenuOptions {
+declare interface MenuOptions {
   /**
    * Sets the title of the menu window.
-   * @type { ?ResourceStr }
+   * @type { ResourceStr }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   title?: ResourceStr;
+
+  /**
+   * Sets the position offset of the menu window.
+   * @type { Position }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  offset?: Position;
 }
 
 /**
@@ -2647,7 +2457,6 @@ declare class CommonMethod<T> {
    * blurStyle:Blur style type.
    * @param { BlurStyle } value
    * @param { BackgroundBlurStyleOptions } options
-   * @form
    * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
@@ -2781,9 +2590,9 @@ declare class CommonMethod<T> {
 
   /**
    * Trigger a mouse hover event.
-   * @since 8
+   * @since 10
    */
-  onHover(event: (isHover?: boolean) => void): T;
+  onHover(event: (event?: HoverEvent) => void): T;
 
   /**
    * Set hover effect.
@@ -2876,7 +2685,6 @@ declare class CommonMethod<T> {
    * Transition parameter
    * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
    * @since 10
    */
   transition(value: TransitionOptions | TransitionEffect): T;
@@ -3110,6 +2918,13 @@ declare class CommonMethod<T> {
    * @since 9
    */
   onAppear(event: () => void): T;
+  
+   /**
+   * This callback is triggered when a component mounts a onMeasure.
+   * @form
+   * @since 9
+   */
+  onMeasure(event: () => void): T;
 
   /**
    * This callback is triggered when component uninstallation disappears.
@@ -3449,7 +3264,6 @@ declare class CommonMethod<T> {
   /**
    * Add a shadow effect to the current component
    * @param { ShadowOptions | ShadowStyle } value
-   * @form
    * @since 10
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
@@ -3481,9 +3295,8 @@ declare class CommonMethod<T> {
    * Applies a mask of the specified shape to the current assembly.
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
    * @since 10
-   */
+   */  
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -3535,15 +3348,7 @@ declare class CommonMethod<T> {
    * ContextMenu control
    * @since 8
    */
-  /**
-   * ContextMenu control
-   * @param { CustomBuilder } content - Indicates the content of context menu.
-   * @param { responseType } responseType - Indicates response type of context menu.
-   * @param { ContextMenuOptions } options - Indicates the options of context menu.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
+  bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
 
   /**
    * Bind content cover
@@ -3553,7 +3358,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
 
   /**
    * Sets styles for component state.
@@ -3606,13 +3411,12 @@ declare class CommonMethod<T> {
 
   /**
    * Sets hot keys
-   * @param { string | FunctionKey } value - Character of the combination key.
-   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { () => void } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { string } value , single character of the Combination key
+   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
+  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
 }
 
 /**
@@ -3624,7 +3428,7 @@ declare class CommonMethod<T> {
  * @form
  * @since 9
  */
-declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
 
 /**
  * CommonInterface for ide.
@@ -3818,46 +3622,13 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 }
 
 /**
- * Linear Gradient Interface
- * @param { number | string } angle - Angle of Linear Gradient.
- * @param { GradientDirection } direction - Direction of Linear Gradient.
- * @param { Array<any> } colors - Array of colors
- * @param { boolean } repeating: Image slice repeating.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-declare interface LinearGradient {
-  angle?: number | string;
-  direction?: GradientDirection;
-  colors: Array<any>;
-  repeating?: boolean;
-}
-
-/**
  * Sub component border info.
  * @form
  * @since 9
  */
 declare interface LayoutBorderInfo {
-  /**
-   * Sub component borderWidth info.
-   * @form
-   * @since 9
-   */
   borderWidth: EdgeWidths,
-
-  /**
-   * Sub component margin info.
-   * @form
-   * @since 9
-   */
   margin: Margin,
-
-  /**
-   * Sub component padding info.
-   * @form
-   * @since 9
-   */
   padding: Padding,
 }
 
@@ -3867,18 +3638,7 @@ declare interface LayoutBorderInfo {
  * @since 9
  */
 declare interface LayoutInfo {
-  /**
-   * Sub component position info.
-   * @form
-   * @since 9
-   */
   position: Position,
-
-  /**
-   * Sub component constraint info.
-   * @form
-   * @since 9
-   */
   constraint: ConstraintSizeOptions,
 }
 
@@ -4041,13 +3801,6 @@ declare class View {
    * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
-   */
-  /**
-   * Just use for generate tsbundle
-   * @ignore ide should ignore this attribute
-   * @systemapi
-   * @form
-   * @since 9
    */
   create(value: any): any;
 }
