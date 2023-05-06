@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
+/// <reference path="../component/units.d.ts" />
+
 import font from "./@ohos.font"
 import mediaquery from './@ohos.mediaquery'
 import prompt from './@ohos.prompt'
 import router from './@ohos.router'
 import { AnimatorOptions, AnimatorResult} from './@ohos.animator'
-import { AsyncCallback } from './basic'
+import { AsyncCallback } from './@ohos.base'
 import { Resource } from 'GlobalResource';
 
 /**
@@ -91,7 +93,7 @@ declare enum DialogAlignment {
  * The information of sheet.
  * @since 10
  */
-interface SheetInfo {
+declare interface SheetInfo {
   /**
    * Title Properties
    * @since 10
@@ -182,7 +184,7 @@ declare interface ActionSheetValue {
  * @form
  * @since 10
  */
-interface ICurve {
+declare interface ICurve {
   /**
    * Get curve value by fraction.
    * @form
@@ -1019,7 +1021,7 @@ export class Font {
    * @param options FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
-   */   
+   */
   registerFont(options: font.FontOptions): void
 }
 
@@ -1049,7 +1051,7 @@ export class Router{
    * @since 10
    */
   push(options: router.RouterOptions): void;
-  
+
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
@@ -1062,7 +1064,7 @@ export class Router{
    * @since 10
    */
   pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
-  
+
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
@@ -1075,7 +1077,7 @@ export class Router{
    * @since 10
    */
   pushUrl(options: router.RouterOptions): Promise<void>;
-  
+
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
@@ -1089,7 +1091,7 @@ export class Router{
    * @since 10
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
-  
+
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
@@ -1103,7 +1105,7 @@ export class Router{
    * @since 10
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
-  
+
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { RouterOptions } options - Options.
@@ -1111,7 +1113,7 @@ export class Router{
    * @since 10
    */
   replace(options: router.RouterOptions): void;
-  
+
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { RouterOptions } options - Options.
@@ -1123,7 +1125,7 @@ export class Router{
    * @since 10
    */
   replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
-  
+
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { RouterOptions } options - Options.
@@ -1135,7 +1137,7 @@ export class Router{
    * @since 10
    */
   replaceUrl(options: router.RouterOptions): Promise<void>;
-  
+
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { RouterOptions } options - Options.
@@ -1148,7 +1150,7 @@ export class Router{
    * @since 10
    */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
-  
+
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param { RouterOptions } options - Options.
@@ -1161,7 +1163,7 @@ export class Router{
    * @since 10
    */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
-  
+
   /**
    * Returns to the previous page or a specified page.
    * @param { RouterOptions } options - Options.
@@ -1169,14 +1171,14 @@ export class Router{
    * @since 10
    */
   back(options: router.RouterOptions): void;
-  
+
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   clear(): void;
-  
+
   /**
    * Obtains the number of pages in the current stack.
    * @returns { string } Number of pages in the stack. The maximum value is 32.
@@ -1184,7 +1186,7 @@ export class Router{
    * @since 10
    */
   getLength(): string;
-  
+
   /**
    * Obtains information about the current page state.
    * @returns { RouterState }Page state.
@@ -1192,7 +1194,7 @@ export class Router{
    * @since 10
    */
   getState(): router.RouterState;
-  
+
   /**
    * Pop up dialog to ask whether to back
    * @param { EnableAlertOptions } options - Options.
@@ -1200,7 +1202,7 @@ export class Router{
    * @since 10
    */
   enableAlertBeforeBackPage(options: router.EnableAlertOptions): void;
-  
+
   /**
    * Pop up alert dialog to ask whether to back
    * @param { EnableAlertOptions } options - Options.
@@ -1210,21 +1212,21 @@ export class Router{
    * @since 10
    */
   showAlertBeforeBackPage(options: router.EnableAlertOptions): void;
-  
+
   /**
    * Cancel enableAlertBeforeBackPage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   disableAlertBeforeBackPage(): void;
-  
+
   /**
    * Hide alert before back page
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   hideAlertBeforeBackPage(): void;
-  
+
   /**
    * Obtains information about the current page params.
    * @returns { Object }Page params.
@@ -1248,7 +1250,7 @@ export class Animator{
    * @since 10
    */
   create(options: AnimatorOptions): AnimatorResult;
-  
+
   /**
    * Create an animator object for custom animation.
    * @param { AnimatorOptions } options - Options.
@@ -1270,28 +1272,28 @@ export class Prompt{
    * @since 10
    */
   showToast(options: prompt.ShowToastOptions): void;
-  
+
   /**
    * Displays the dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showDialog(options: prompt.ShowDialogOptions, callback: AsyncCallback<prompt.ShowDialogSuccessResponse>): void;
-  
+
   /**
    * Displays the dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showDialog(options: prompt.ShowDialogOptions): Promise<prompt.ShowDialogSuccessResponse>;
-  
+
   /**
    * Displays the menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showActionMenu(options: prompt.ActionMenuOptions, callback: prompt.ActionMenuSuccessResponse): void;
-  
+
   /**
    * Displays the menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1312,35 +1314,35 @@ export class UIContent {
    * @since 10
    */
   getFont(): Font;
-  
+
   /**
    * get object mediaquery
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   getMediaquery(): Mediaquery;
-  
+
   /**
    * get object router
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   getRouter(): Router;
-  
+
   /**
    * get object animator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   getAnimator(): Animator;
-  
+
   /**
    * get object prompt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   getPrompt(): Prompt;
-  
+
   /**
    * Defining animation function.
    * Defining animation function
@@ -1348,49 +1350,49 @@ export class UIContent {
    * @since 10
    */
   animateTo(value: AnimateParam, event: () => void): void;
-  
+
   /**
    * alertDialog display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons): void;
-  
+
   /**
    * actionsheet display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showActionSheet(value: ActionSheetValue): void;
-  
+
   /**
    * datepickerDialog display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showDatePickerDialog(options: DatePickerDialogOptions): void;
-  
+
   /**
    * timepickerDialog display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showTimePickerDialog(options: TimePickerDialogOptions): void;
-	  
+
   /**
    * textpickerDialog display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   showTextPickerDialog(options: TextPickerDialogOptions): void;
-  
+
   /**
    * sync instanceceId
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   enterScope(): void;
-  
+
   /**
    * restore instanceceId
    * @syscap SystemCapability.ArkUI.ArkUI.Ful
