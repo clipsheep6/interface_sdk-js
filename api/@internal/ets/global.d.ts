@@ -275,6 +275,14 @@ export declare function canIUse(syscap: string): boolean;
 export declare function getInspectorByKey(id: string): string;
 
 /**
+ * Provide the ability to obtain the coordinates and size of component drawing areas.
+ * @param id ID of the component whose attributes are to be obtained.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+export declare function GetComponentRectByKey(id: string): string;
+
+/**
  * Get components tree.
  * @since 9
  * @test
