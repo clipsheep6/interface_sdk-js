@@ -310,7 +310,7 @@ declare namespace distributedKVStore {
   }
 
   /**
-   * Indicates the database sync policy.
+   * Indicates the database sync policy which autoSync param is true.
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -318,12 +318,12 @@ declare namespace distributedKVStore {
    */
   enum SyncPolicy {
     /**
-     *Indicates the database would sync when device is online.
+     * If the database autoSync param is true, it would auto sync at device online.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
-    SYNC_ON_ONLINE,
+    SYNC_ON_DEVICE_ONLINE,
   }
 
   /**
@@ -495,7 +495,7 @@ declare namespace distributedKVStore {
     schema?: Schema;
 
     /**
-     * Indicates the database sync policies
+     * The database would sync according to these policies, which autoSync param is true.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
