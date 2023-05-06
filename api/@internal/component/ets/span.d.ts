@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Provide text decoration.
+ * @crossplatform
+ * @since 10 
+ */
 interface SpanInterface {
   /**
    * Called when text is entered in span.
@@ -31,6 +36,11 @@ interface SpanInterface {
    * Called when text is entered in span.
    * @form
    * @since 9
+   */
+  /**
+   * Called when text is entered in span.
+   * @crossplatform
+   * @since 10 
    */
   (value: string | Resource): SpanAttribute;
 }
@@ -42,6 +52,10 @@ interface SpanInterface {
  * @form
  * @since 9
  */
+/**
+ * @crossplatform
+ * @since 10 
+ */
 declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
    * Called when the font color is set.
@@ -51,6 +65,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * Called when the font color is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the font color is set.
+   * @crossplatform
+   * @since 10 
    */
   fontColor(value: ResourceColor): SpanAttribute;
 
@@ -63,6 +82,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the font size is set.
+   * @crossplatform
+   * @since 10 
+   */
   fontSize(value: number | string | Resource): SpanAttribute;
 
   /**
@@ -73,6 +97,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * Called when the font style of a font is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the font style of a font is set.
+   * @crossplatform
+   * @since 10 
    */
   fontStyle(value: FontStyle): SpanAttribute;
 
@@ -85,6 +114,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the font weight is set.
+   * @crossplatform
+   * @since 10 
+   */
   fontWeight(value: number | FontWeight | string): SpanAttribute;
 
   /**
@@ -95,6 +129,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * Called when the font list of text is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the font list of text is set.
+   * @crossplatform
+   * @since 10 
    */
   fontFamily(value: string | Resource): SpanAttribute;
 
@@ -107,6 +146,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the text decoration of the text is set.
+   * @crossplatform
+   * @since 10 
+   */
   decoration(value: { type: TextDecorationType; color?: ResourceColor }): SpanAttribute;
 
   /**
@@ -118,6 +162,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the distance between text fonts is set.
+   * @crossplatform
+   * @since 10 
+   */
   letterSpacing(value: number | string): SpanAttribute;
 
   /**
@@ -127,6 +176,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    * Called when the type of letter in the text font is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the type of letter in the text font is set.
+   * @crossplatform
+   * @since 10 
    */
   textCase(value: TextCase): SpanAttribute;
 }
@@ -140,6 +194,11 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Span Component.
+ * @crossplatform
+ * @since 10 
+ */
 declare const Span: SpanInterface;
 
 /**
@@ -150,5 +209,10 @@ declare const Span: SpanInterface;
  * Defines Span Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Span Component instance.
+ * @crossplatform
+ * @since 10 
  */
 declare const SpanInstance: SpanAttribute;

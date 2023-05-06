@@ -22,6 +22,11 @@
  * @form
  * @since 9
  */
+/**
+ * Load style of progress bar.
+ * @crossplatform
+ * @since 10
+ */
 declare enum LoadingProgressStyle {
   /**
    * Default style.
@@ -31,6 +36,11 @@ declare enum LoadingProgressStyle {
    * Default style.
    * @form
    * @since 9
+   */
+  /**
+   * Default style.
+   * @crossplatform
+   * @since 10
    */
   Default,
 
@@ -43,6 +53,11 @@ declare enum LoadingProgressStyle {
    * @form
    * @since 9
    */
+  /**
+   * Announcement style.
+   * @crossplatform
+   * @since 10
+   */
   Circular,
 
   /**
@@ -53,6 +68,11 @@ declare enum LoadingProgressStyle {
    * The style of the track.
    * @form
    * @since 9
+   */
+  /**
+   * The style of the track.
+   * @crossplatform
+   * @since 10
    */
   Orbital,
 }
@@ -66,6 +86,11 @@ declare enum LoadingProgressStyle {
  * @form
  * @since 9
  */
+/**
+ * Provides an interface for extending the loading progress.
+ * @crossplatform
+ * @since 10
+ */
 interface LoadingProgressInterface {
   /**
    * Called when the progress bar progress is viewed.
@@ -75,6 +100,11 @@ interface LoadingProgressInterface {
    * Called when the progress bar progress is viewed.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the progress bar progress is viewed.
+   * @crossplatform
+   * @since 10
    */
   (): LoadingProgressAttribute;
 }
@@ -88,6 +118,11 @@ interface LoadingProgressInterface {
  * @form
  * @since 9
  */
+/**
+ * Declare the progress bar being loaded
+ * @crossplatform
+ * @since 10
+ */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
    * Load the color of the progress bar.
@@ -97,6 +132,11 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * Load the color of the progress bar.
    * @form
    * @since 9
+   */
+  /**
+   * Load the color of the progress bar.
+   * @crossplatform
+   * @since 10
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 }
@@ -110,6 +150,11 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
  * @form
  * @since 9
  */
+/**
+ * Defines LoadingProgress Component. 
+ * @crossplatform
+ * @since 10
+ */
 declare const LoadingProgress: LoadingProgressInterface;
 
 /**
@@ -120,5 +165,10 @@ declare const LoadingProgress: LoadingProgressInterface;
  * Loading Progress Extensions on Declarative Classes
  * @form
  * @since 9
+ */
+/**
+ * Loading Progress Extensions on Declarative Classes
+ * @crossplatform
+ * @since 10
  */
 declare const LoadingProgressInstance: LoadingProgressAttribute;

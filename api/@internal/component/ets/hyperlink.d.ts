@@ -17,12 +17,24 @@
  * Defines the hyperlink interface.
  * @since 7
  */
+/**
+ * Defines the hyperlink interface.
+ * @crossplatform
+ * @since 10
+ */
 interface HyperlinkInterface {
   /**
    * Return to get Hyperlink.
    * adress: Web page redirected by the hyperlink component.
    * content: Hyperlinks in the hyperlink component display text.
    * @since 7
+   */
+  /**
+   * Return to get Hyperlink.
+   * adress: Web page redirected by the hyperlink component.
+   * content: Hyperlinks in the hyperlink component display text.
+   * @crossplatform
+   * @since 10
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -31,10 +43,20 @@ interface HyperlinkInterface {
  * Defines the hyperlink attribute functions
  * @since 7
  */
+/**
+ * Defines the hyperlink attribute functions
+ * @crossplatform
+ * @since 10
+ */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
    * Set Color
    * @since 7
+   */
+  /**
+   * Set Color
+   * @crossplatform
+   * @since 10
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
@@ -43,10 +65,20 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  * Defines Hyperlink Component.
  * @since 7
  */
+/**
+ * Defines Hyperlink Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const Hyperlink: HyperlinkInterface;
 
 /**
  * Defines Hyperlink Component instance.
  * @since 7
+ */
+/**
+ * Defines Hyperlink Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const HyperlinkInterface: HyperlinkAttribute;
