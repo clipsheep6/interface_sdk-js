@@ -15,7 +15,7 @@
 
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import { Context } from './app/context';
-import { PixelMap } from './app/@ohos.multimedia.image';
+import { PixelMap } from './@ohos.multimedia.image';
 
 /**
  * @name camera
@@ -390,7 +390,6 @@ declare namespace camera {
      * @systemapi
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect
      * @throws { BusinessError } 7400102 - Operation not allow.
-     * @permission ohos.permission.MANAGE_CAMERA_CONFIG
      */
     setPreLaunchConfig(preLaunchConfig: PreLaunchConfig): void;
 
@@ -401,7 +400,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @throws { BusinessError } 7400102 - Operation not allow.
-     * @permission ohos.permission.MANAGE_CAMERA_CONFIG
      */
     preLaunch(): void;
 
@@ -541,15 +539,15 @@ declare namespace camera {
    */
   enum HostDeviceType {
     /**
+     * Indicates an unknown device camera.
+     */
+    UNKNOWN_TYPE = 0,
+    /**
      * Indicates a smartphone camera.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
      */
     PHONE = 0x0E,
     /**
      * Indicates a tablet camera.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Camera.Core
      */
     TABLET = 0x11
   }
@@ -1266,29 +1264,29 @@ declare namespace camera {
    * @systemapi
    */
   interface ModeManager {
-	/**
+    /**
      * Gets the modes supported by the specified camera.
      * @param device Camera device.
-	 * @returns List of modes supported by the camera device.
+     * @returns List of modes supported by the camera device.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getSupportedModes(device: CameraDevice): Array<CameraMode>;
 
-	/**
+    /**
      * Gets supported output capability for specific camera and specific mode.
      * @param device Camera device.
-	 * @param mode Camera mode.
-	 * @returns The camera output capability.
+     * @param mode Camera mode.
+     * @returns The camera output capability.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     getSupportedOutputCapability(camera: CameraDevice, mode: CameraMode): CameraOutputCapability;
 
-	/**
+    /**
      * Gets a CaptureSession instance for specific camera mode.
      * @param mode Camera mode.
-	 * @returns The CaptureSession instance for specific camera mode.
+     * @returns The CaptureSession instance for specific camera mode.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1307,42 +1305,42 @@ declare namespace camera {
      */
     NONE = 0,
 
-	/**
+    /**
      * classic filter effect.
      */
     CLASSIC = 1,
 
-	/**
+    /**
      * dawn filter effect.
      */
     DAWN = 2,
 
-	/**
+    /**
      * pure filter effect.
      */
     PURE = 3,
 
-	/**
+    /**
      * grey filter effect.
      */
     GREY = 4,
 
-	/**
+    /**
      * natural filter effect.
      */
     NATURAL = 5,
 
-	/**
+    /**
      * mori filter effect.
      */
     MORI = 6,
 
-	/**
+    /**
      * fair filter effect.
      */
     FAIR = 7,
 
-	/**
+    /**
      * pink filter effect.
      */
     PINK = 8
@@ -1360,7 +1358,7 @@ declare namespace camera {
      */
     OFF = 0,
 
-	/**
+    /**
      * circular blurring for portrait.
      */
     CIRCLES = 1
@@ -1378,17 +1376,17 @@ declare namespace camera {
      */
     AUTO = 0,
 
-	/**
+    /**
      * smooth beauty type.
      */
     SKIN_SMOOTH = 1,
 
-	/**
+    /**
      * face slender beauty type.
      */
     FACE_SLENDER = 2,
 
-	/**
+    /**
      * tone beauty type.
      */
     SKIN_TONE = 3
@@ -1403,94 +1401,94 @@ declare namespace camera {
   interface PortraitSession extends CaptureSession {
     /**
      * Gets the filter effect.
-	 * @returns List of filter effect.
+     * @returns List of filter effect.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getSupportedFilters():Array<number>;
 
-	/**
+    /**
      * Gets the current configuration's filter effect.
-	 * @returns current filter effect.
+     * @returns current filter effect.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getFilter(): number;
 
-	/**
+    /**
      * Set filter effect to camera device.
-	 * @param filter The filter effect need to be set.
+     * @param filter The filter effect need to be set.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     setFilter(filter: number): void;
 
-	/**
+    /**
      * Gets supported portrait effect.
-	 * @returns List of portrait effect.
+     * @returns List of portrait effect.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getSupportedPortraitEffects():Array<PortraitEffect>;
 
-	/**
+    /**
      * Gets the current configuration's portrait effect.
-	 * @returns current portrait effect.
+     * @returns current portrait effect.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getPortraitEffect(): PortraitEffect;
 
-	/**
+    /**
      * Set portrait effect to camera device.
-	 * @param effect The portrait effect need to be set.
+     * @param effect The portrait effect need to be set.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     setPortraitEffect(effect: PortraitEffect): void;
 
-	/**
+    /**
      * Gets supported beauty effect types.
-	 * @returns List of beauty effect types.
+     * @returns List of beauty effect types.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getSupportedBeautyTypes(): Array<BeautyType>;
 
-	/**
+    /**
      * Gets the specific beauty effect type range.
-	 * @param type The type of beauty effect.
-	 * @returns The array of the specific beauty effect range.
+     * @param type The type of beauty effect.
+     * @returns The array of the specific beauty effect range.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getSupportedBeautyRange(type: BeautyType): Array<number>;
 
-	/**
+    /**
      * Gets the current configuration's beauty effect.
-	 * @param type The type of beauty effect.
-	 * @returns Number of beauty effect.
+     * @param type The type of beauty effect.
+     * @returns Number of beauty effect.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     getBeauty(type: BeautyType): number;
 
-	/**
+    /**
      * Set beauty effect to camera device.
-	 * @param type The type of beauty effect.
-	 * @param value The number of beauty effect.
+     * @param type The type of beauty effect.
+     * @param value The number of beauty effect.
      * @since 10
      * @syscap SystemCapability.Multimedia.Camera.Core
-	 * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400103 - Session not config.
      */
     setBeauty(type: BeautyType, value: number): void;
   }
