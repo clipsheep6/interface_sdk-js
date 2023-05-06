@@ -187,17 +187,17 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */ 
-     remained: number;
+    remained: number;
   }
 
-    /**
-     * Describes the {@code Statistic} details of the table.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
-     */
-    interface TableDetail {
+  /**
+   * Describes the {@code Statistic} details of the table.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface TableDetail {
     /**
      * Describes the {@code Statistic} details of the upload process.
      *
@@ -205,7 +205,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-      upload: Statistic;
+    upload: Statistic;
 
     /**
      * Describes the {@code Statistic} details of the download process.
@@ -214,7 +214,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-      download: Statistic;
+    download: Statistic;
   }
 
   /**

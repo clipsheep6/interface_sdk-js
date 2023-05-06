@@ -13,52 +13,52 @@
  * limitations under the License.
  */
  
+/**
+ * Records information of the asset.
+ *
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @since 10
+ */
+export class Asset {
   /**
-   * Records information of the asset.
+   * The name of asset.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @since 10
    */
-export class Asset {
-    /**
-     * The name of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 10
-     */
-    name: string;
+  name: string;
     
-    /**
-     * The uri of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 10
-     */
-    uri: string;
+  /**
+   * The uri of asset.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @since 10
+   */
+  uri: string;
     
-    /**
-     * The create time  of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 10
-     */
-    createTime: string;
+  /**
+   * The create time  of asset.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @since 10
+   */
+  createTime: string;
     
-    /**
-     * The modify time of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 10
-     */
-    modifyTime: string;
+  /**
+   * The modify time of asset.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @since 10
+   */
+  modifyTime: string;
     
-    /**
-     * The size of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 10
-     */
-    size: string;
+  /**
+   * The size of asset.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @since 10
+   */
+  size: string;
 }
 
 /**
