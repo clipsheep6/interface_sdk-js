@@ -280,7 +280,7 @@ export declare function getInspectorByKey(id: string): string;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare function GetComponentRectByKey(id: string): string;
+export declare function getComponentRectByKey(id: string): string;
 
 /**
  * Get components tree.
