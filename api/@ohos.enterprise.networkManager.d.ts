@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from "./@ohos.base";
 import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module offers set network policies on the devices.
- *
  * @namespace networkManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
@@ -26,10 +25,10 @@ import type Want from './@ohos.app.ability.Want';
  * @since 10
  */
 declare namespace networkManager {
+
   /**
    * Gets all of the network interfaces of the device.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<Array<string>> } callback - the callback of getAllNetworkInterfaces.
@@ -44,11 +43,9 @@ declare namespace networkManager {
    * @since 10
    */
   function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;
-
   /**
    * Gets all of the network interfaces of the device.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<Array<string>> } the promise returned by getAllNetworkInterfaces.
@@ -67,7 +64,6 @@ declare namespace networkManager {
   /**
    * Gets the ip address of the network interface.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
@@ -83,11 +79,9 @@ declare namespace networkManager {
    * @since 10
    */
   function getIpAddress(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;
-
   /**
    * Gets the ip address of the network interface.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
@@ -107,7 +101,6 @@ declare namespace networkManager {
   /**
    * Gets the mac address of the network interface.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
@@ -123,11 +116,9 @@ declare namespace networkManager {
    * @since 10
    */
   function getMac(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;
-
   /**
    * Gets the mac address of the network interface.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.

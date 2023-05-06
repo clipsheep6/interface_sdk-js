@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the bundles of the enterprise devices.
- *
  * @namespace bundleManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
@@ -28,7 +27,6 @@ declare namespace bundleManager {
   /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
@@ -48,7 +46,6 @@ declare namespace bundleManager {
   /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
@@ -69,7 +66,6 @@ declare namespace bundleManager {
   /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
@@ -90,7 +86,6 @@ declare namespace bundleManager {
   /**
    * Remove appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
@@ -110,7 +105,6 @@ declare namespace bundleManager {
   /**
    * Remove appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
@@ -131,7 +125,6 @@ declare namespace bundleManager {
   /**
    * Remove appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle that can be installed.
@@ -149,10 +142,10 @@ declare namespace bundleManager {
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
+
   /**
    * Get the appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
@@ -171,7 +164,6 @@ declare namespace bundleManager {
   /**
    * Get the appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } userId - userId indicates the user ID.
@@ -191,7 +183,6 @@ declare namespace bundleManager {
   /**
    * Get appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.

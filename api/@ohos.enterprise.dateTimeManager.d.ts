@@ -13,22 +13,21 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import { AsyncCallback } from "./@ohos.base";
 import type Want from './@ohos.app.ability.Want';
 
 /**
  * This module provides the capability to manage the datetime of the enterprise devices.
- *
  * @namespace dateTimeManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
  * @since 9
  */
 declare namespace dateTimeManager {
+
   /**
    * Sets the system time.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates the target time stamp (ms).
@@ -48,7 +47,6 @@ declare namespace dateTimeManager {
   /**
    * Sets the system time.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates the target time stamp (ms).
@@ -68,7 +66,6 @@ declare namespace dateTimeManager {
   /**
    * Disallow modify the system time.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { boolean } disallow - true if the user is not allowed to modify the system time.
@@ -88,7 +85,6 @@ declare namespace dateTimeManager {
   /**
    * Disallow modify the system time.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { boolean } disallow - true if the user is not allowed to modify the system time.
@@ -108,7 +104,6 @@ declare namespace dateTimeManager {
   /**
    * Query the capability of modify the system time is allowed or disallowed.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<boolean> } callback - return true if modify datetime is not allowed.
@@ -127,7 +122,6 @@ declare namespace dateTimeManager {
   /**
    * Query the capability of modify the system time is allowed or disallowed.
    * This function can be called by a super administrator.
-   *
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<boolean> } return true if modify datetime is not allowed.

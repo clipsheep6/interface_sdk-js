@@ -20,8 +20,8 @@ import Context from "./application/Context";
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.
  *
- * @since 10
  * @syscap SystemCapability.Communication.NetManager.MDNS
+ * @since 10
  */
 declare namespace mdns {
   type NetAddress = connection.NetAddress;
