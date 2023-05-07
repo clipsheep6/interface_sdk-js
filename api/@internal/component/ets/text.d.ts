@@ -248,6 +248,36 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 10
+   */
+  onSelectAll(callback: (value: string) => void): TextAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 10
+   */
+  onCopy(callback: (value: string) => void): TextAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 10
+   */
+  onCut(callback: (value: string) => void): TextAttribute;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 10
+   */
+  onPaste(callback: (value: string) => void): TextAttribute;
+
+  /**
+   * Called when the text changes.
+   * @since 10
+   */
+  onChange(callback: (value: string) => void): TextAttribute;
 }
 
 /**
