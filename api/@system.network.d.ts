@@ -17,6 +17,7 @@
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  * @deprecated since 8
+ * @useinstead ohos.net.connection.ConnectionProperties
  */
 export interface NetworkResponse {
   /**
@@ -37,30 +38,29 @@ export interface NetworkResponse {
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  * @deprecated since 8
+ * @useinstead ohos.net.connection
  */
 export default class Network {
   /**
    * Obtains the network type.
    * @deprecated since 8
+   * @useinstead ohos.net.connection#getConnectionProperties
    * @param options
    */
   static getType(options?: {
     /**
      * Called when the network type is obtained.
      * @since 3
-     * @deprecated since 8
      */
     success?: (data: NetworkResponse) => void;
     /**
      * Called when the network type fails to be obtained.
      * @since 3
-     * @deprecated since 8
      */
     fail?: (data: any, code: number) => void;
     /**
      * Called when the execution is completed.
      * @since 3
-     * @deprecated since 8
      */
     complete?: () => void;
   }): void;
@@ -68,19 +68,18 @@ export default class Network {
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
    * @deprecated since 8
+   * @useinstead ohos.net.connection.NetConnection#register
    * @param options
    */
   static subscribe(options?: {
     /**
      * Called when the network connection state changes.
      * @since 3
-     * @deprecated since 8
      */
     success?: (data: NetworkResponse) => void;
     /**
      * Called when the listening fails.
      * @since 3
-     * @deprecated since 8
      */
     fail?: (data: any, code: number) => void;
   }): void;
@@ -88,6 +87,7 @@ export default class Network {
   /**
    * Cancels listening to the network connection state.
    * @deprecated since 8
+   * @useinstead ohos.net.connection.NetConnection#unregister
    * @param options
    */
   static unsubscribe(): void;
