@@ -78,8 +78,8 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setIfaceHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
-  function setIfaceHttpProxy(httpProxy: HttpProxy): Promise<void>;
+  function setIfaceHttpProxy(iface: string, httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
+  function setIfaceHttpProxy(iface: string, httpProxy: HttpProxy): Promise<void>;
 
   /**
    * Check whether the specified network is active.
