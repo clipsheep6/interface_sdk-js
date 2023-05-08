@@ -127,7 +127,7 @@ declare namespace relationalStore {
     /**
      * SYNC_BEGIN: means the sync process begin.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     SYNC_BEGIN,
@@ -135,7 +135,7 @@ declare namespace relationalStore {
     /**
      * SYNC_BEGIN: means the sync process is in progress
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     SYNC_IN_PROGRESS,
@@ -143,7 +143,7 @@ declare namespace relationalStore {
     /**
      * SYNC_BEGIN: means the sync process is finished
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */    
     SYNC_FINISH,
@@ -160,7 +160,7 @@ declare namespace relationalStore {
     /**
      * Describes the total number of data to sync.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */      
     total: number;
@@ -168,7 +168,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of successfully synced data.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */  
     success: number;
@@ -176,7 +176,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of data failed to sync.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */ 
     failed: number;
@@ -184,7 +184,7 @@ declare namespace relationalStore {
     /**
      * Describes the number of data remained to sync.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */ 
     remained: number;
@@ -300,7 +300,7 @@ declare namespace relationalStore {
   /**
    * Records information of the asset.
    *
-   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 10
    */
   interface Asset {
@@ -308,7 +308,7 @@ declare namespace relationalStore {
     /**
      * The name of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     name: string;
@@ -316,7 +316,7 @@ declare namespace relationalStore {
     /**
      * The uri of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     uri: string;
@@ -324,7 +324,7 @@ declare namespace relationalStore {
     /**
      * The create time of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     createTime: string;
@@ -332,7 +332,7 @@ declare namespace relationalStore {
     /**
      * The modify time of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     modifyTime: string;
@@ -340,7 +340,7 @@ declare namespace relationalStore {
     /**
      * The size of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
     size: string;
@@ -389,7 +389,7 @@ declare namespace relationalStore {
     /**
      * Indicates the data is pulled from remote device to local device.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     SYNC_MODE_TIME_FIRST = 2,
@@ -397,7 +397,7 @@ declare namespace relationalStore {
     /**
      * Indicates force push the native data to the cloud.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     SYNC_MODE_NATIVE_FIRST = 3,
@@ -405,7 +405,7 @@ declare namespace relationalStore {
     /**
      * Indicates the data is pulled from cloud to local device.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     SYNC_MODE_CLOUD_FIRST = 4,
@@ -461,7 +461,7 @@ declare namespace relationalStore {
      * Indicates the table is distributed between the cloud and the devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     DISTRIBUTED_CLOUD = 1,
