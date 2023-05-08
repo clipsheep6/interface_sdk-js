@@ -18,10 +18,20 @@
  * Provides interfaces for layout in the vertical direction.
  * @since 7
  */
+/**
+ * Provides interfaces for layout in the vertical direction.
+ * @crossplatform
+ * @since 10
+ */
 interface RowSplitInterface {
   /**
    * Called when the layout along the vertical direction is set.
    * @since 7
+   */
+  /**
+   * Called when the layout along the vertical direction is set.
+   * @crossplatform
+   * @since 10
    */
   (): RowSplitAttribute;
 }
@@ -29,10 +39,19 @@ interface RowSplitInterface {
 /**
  * @since 7
  */
+/**
+ * @crossplatform
+ * @since 10
+ */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
    * Called when judging whether the split line can be dragged.
    * @since 7
+   */
+  /**
+   * Called when judging whether the split line can be dragged.
+   * @crossplatform
+   * @since 10
    */
   resizeable(value: boolean): RowSplitAttribute;
 }
@@ -41,10 +60,20 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
  * Defines RowSplit Component.
  * @since 7
  */
+/**
+ * Defines RowSplit Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const RowSplit: RowSplitInterface;
 
 /**
  * Defines RowSplit Component instance.
  * @since 7
+ */
+/**
+ * Defines RowSplit Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const RowSplitInstance: RowSplitAttribute;
