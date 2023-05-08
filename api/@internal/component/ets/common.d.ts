@@ -3632,7 +3632,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilitydescription
-   * @param { boolean } value , set description of accessibility
+   * @param { string } value , set description of accessibility
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
