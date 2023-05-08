@@ -1331,6 +1331,18 @@ declare namespace camera {
   }
 
   /**
+   * Creates a ModeManager instance.
+   * @param context Current application context.
+   * @returns ModeManager instance.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect
+   * @throws { BusinessError } 7400201 - Camera service fatal error.
+   */
+  function getModeManager(context: Context): ModeManager;
+
+  /**
    * Camera mode manager object.
    * @since 10
    * @syscap SystemCapability.Multimedia.Camera.Core
