@@ -29,7 +29,7 @@ declare enum SideBarContainerType {
    */
   Overlay,
   /**
-   * The sidebar auto visible or invisible
+   * The sidebar Auto
    * @since 10
    */
   Auto,
