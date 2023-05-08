@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./@ohos.base";
+import connection from "./@ohos.net.connection";
 
 /**
  * Provides interfaces to manage ethernet.
@@ -22,6 +23,7 @@ import { AsyncCallback, Callback } from "./@ohos.base";
  * @syscap SystemCapability.Communication.NetManager.Ethernet
  */
 declare namespace ethernet {
+  type HttpProxy = connection.HttpProxy;
   /**
    * Get the specified network interface information.
    *
@@ -57,6 +59,27 @@ declare namespace ethernet {
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
+
+  /**
+   * Set the specified network interface {@link HttpProxy} proxy settings.
+   *
+   * @param iface Indicates the network interface name of the network parameter.
+   * @param httpProxy Indicates the proxy settings. For details, see {@link HttpProxy}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201004 - Invalid Ethernet profile.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @throws {BusinessError} 2201006 - Ethernet device not connected.
+   * @throws {BusinessError} 2201007 - Ethernet failed to write user configuration information.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setIfaceHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
+  function setIfaceHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
    * Check whether the specified network is active.
