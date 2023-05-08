@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { RawFileDescriptor } from './global/rawFileDescriptor';
 
 /**
  * This module provides the capability to control motor vibration.
@@ -229,15 +228,46 @@ declare namespace vibrator {
   }
 
   /**
-   * Custom vibration, vibrating a sequence arranged through a configuration file.
+   * Custom vibration, vibrate the effect from a haptic file.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
   interface VibrateFromFile {
-    type: "file";
-    rawFd: RawFileDescriptor; /** The rawFile descriptor of configuration file from resource manager,
-    * and the caller is responsible for closing it. */
-}
+    type: 'file';
+    hapticFd: HapticFileDescriptor; /** Haptic file descriptor, some formats are supported. */
+  }
+
+  /**
+   * Haptic file descriptor. The caller needs to ensure that the fd is valid and
+   * the offset and length are correct.
+   * @since 10
+   * @syscap SystemCapability.Sensors.MiscDevice
+   */
+  interface HapticFileDescriptor {
+    /**
+     * The file descriptor of haptic effect source from file system. The caller
+     * is responsible to close the file descriptor.
+     * @since 10
+     * @syscap SystemCapability.Sensors.MiscDevice
+     */
+    fd: number
+
+    /**
+     * The offset into the file where the data to be read, in bytes. By default,
+     * the offset is zero.
+     * @since 10
+     * @syscap SystemCapability.Sensors.MiscDevice
+     */
+    offset?: number
+
+    /**
+     * The length in bytes of the data to be read. By default, the length is the
+     * rest of bytes in the file from the offset.
+     * @since 10
+     * @syscap SystemCapability.Sensors.MiscDevice
+     */
+    length?: number
+  }
 }
 
 export default vibrator;
