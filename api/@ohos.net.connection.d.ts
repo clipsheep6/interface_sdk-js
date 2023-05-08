@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -274,6 +274,38 @@ declare namespace connection {
    * @since 9
    */
   function setAppNet(netHandle: NetHandle): Promise<void>;
+
+  /**
+   * Obtains the default {@link HttpProxy} proxy settings.
+   *
+   * <p>If a global proxy is set, the global proxy parameters are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet},
+   * the {@link NetHandle} proxy settings are returned.
+   * In other cases, the default proxy settings of {@link NetHandle} are returned.
+   *
+   * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+
+  /**
+   * Obtains the default {@link HttpProxy} proxy settings.
+   *
+   * <p>If a global proxy is set, the global proxy parameters are returned.
+   * If the process is bound to a {@link NetHandle} using {@link setAppNet},
+   * the {@link NetHandle} proxy settings are returned.
+   * In other cases, the default proxy settings of {@link NetHandle} are returned.
+   *
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getDefaultHttpProxy(): Promise<HttpProxy>;
 
   /**
    * Obtains the network independent global {@link HttpProxy} proxy settings.
