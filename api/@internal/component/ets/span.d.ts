@@ -44,6 +44,13 @@ interface SpanInterface {
  */
 declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
+   * Called when the font is set.
+   * @form
+   * @since 10
+   */
+  font(value: Font): SpanAttribute;
+
+  /**
    * Called when the font color is set.
    * @since 7
    */
