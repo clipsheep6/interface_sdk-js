@@ -17,22 +17,22 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module offers set network policies on the devices.
+ * This module provides the capability to manage the applications of the enterprise devices.
  *
- * @namespace networkManager
+ * @namespace applicationManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
- * @stagemodelonly
  * @since 10
  */
-declare namespace networkManager {
+declare namespace applicationManager {
   /**
-   * Gets all of the network interfaces of the device.
+   * Add appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { AsyncCallback<Array<string>> } callback - the callback of getAllNetworkInterfaces.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -40,18 +40,20 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;
+  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Gets all of the network interfaces of the device.
+   * Add appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { Promise<Array<string>> } the promise returned by getAllNetworkInterfaces.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { number } userId - userId indicates the user ID.
+   * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -59,19 +61,20 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function getAllNetworkInterfaces(admin: Want): Promise<Array<string>>;
+  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Gets the ip address of the network interface.
+   * Add appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
-   * @param { AsyncCallback<string> } callback - the callback of getIpAddress.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { number } userId - userId indicates the user ID.
+   * @returns { Promise<void> } the promise returned by the addDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -79,19 +82,19 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function getIpAddress(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;
+  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Gets the ip address of the network interface.
+   * Remove appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to get ip address.
-   * @returns { Promise<string> } the promise returned by getIpAddress.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -99,19 +102,20 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function getIpAddress(admin: Want, networkInterface: string): Promise<string>;
+  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Gets the mac address of the network interface.
+   * Remove appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
-   * @param { AsyncCallback<string> } callback - the callback of getMac.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { number } userId - userId indicates the user ID.
+   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -119,19 +123,20 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function getMac(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;
+  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Gets the mac address of the network interface.
+   * Remove appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
-   * @returns { Promise<string> } the promise returned by getMac.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { number } userId - userId indicates the user ID.
+   * @returns { Promise<void> } the promise returned by the removeDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -139,19 +144,18 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function getMac(admin: Want, networkInterface: string): Promise<string>;
+  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Gets state of whether the network interface is disabled.
+   * Get appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to get status.
-   * @param { AsyncCallback<boolean> } callback - the callback of isNetworkInterfaceDisabled.
+   * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -159,19 +163,19 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function isNetworkInterfaceDisabled(admin: Want, networkInterface: string, callback: AsyncCallback<boolean>): void;
+  function getDisallowedRunningBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Gets state of whether the network interface is disabled.
+   * Get appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to get status.
-   * @returns { Promise<boolean> } the promise returned by isNetworkInterfaceDisabled.
+   * @param { number } userId - userId indicates the user ID.
+   * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -179,20 +183,19 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): Promise<boolean>;
+  function getDisallowedRunningBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Disables the network interfaces.
+   * Get appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_NETWORK
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to set status.
-   * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
-   * @param { AsyncCallback<void> } callback - the callback of setNetworkInterfaceDisabled.
+   * @param { number } userId - userId indicates the user ID.
+   * @returns { Promise<Array<string>> } the promise returned by the getDisallowedRunningBundles.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -200,31 +203,10 @@ declare namespace networkManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 10
    */
-  function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean, callback: AsyncCallback<void>): void;
-
-  /**
-   * Disables the network interfaces.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } networkInterface - networkInterface indicates the network interface to set status.
-   * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
-   * @returns { Promise<void> } the promise returned setNetworkInterfaceDisabled.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
+  function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
 }
 
-export default networkManager;
+export default applicationManager;
