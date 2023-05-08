@@ -236,7 +236,7 @@ declare type Context = import('../api/application/Context').default;
 /**
  * Post Card Action.
  * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
+ * @param { Object } action - indicate the router, message or call event.
  * @form
  * @StageModelOnly
  * @since 9
@@ -1239,6 +1239,13 @@ declare enum RepeatMode {
  */
 declare enum BlurStyle {
   /**
+   * Defines none material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE,  
+
+  /**
    * Defines the thin card material.
    * @form
    * @since 9
@@ -1318,13 +1325,6 @@ declare enum BlurStyle {
    * @since 10
    */
   BACKGROUND_ULTRA_THICK,
-
-  /**
-   * Defines none material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  NONE,  
 }
 
 /**
@@ -1477,7 +1477,7 @@ declare enum ModalTransition {
 declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
 
 /**
- * Defines the options of ForeroundBlurStyle
+ * Defines the options of ForegroundBlurStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -1509,7 +1509,7 @@ declare interface BlurStyleOptions {
   adaptiveColor?: AdaptiveColor;
 
   /**
-   * Define the scale of foreground blur effect. 
+   * Define the scale of blur effect. 
    * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
    * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
    * @type { number }
@@ -1546,6 +1546,27 @@ declare interface PickerTextStyle {
 }
 
 /**
+ * Define the type of shadow
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ShadowType {
+  /**
+   * Define a color type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COLOR,
+
+  /**
+   * Define a blur type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BLUR,
+}
+
+/**
  * Define the options of shadow
  * @since 7
  */
@@ -1565,6 +1586,15 @@ declare interface ShadowOptions {
    * @since 9
    */
   radius: number | Resource;
+
+  /**
+   * Define the type of shadow
+   * @type { ShadowType }
+   * @default ShadowType.COLOR
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type?: ShadowType;
 
   /**
    * Define the color of shadow
