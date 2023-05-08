@@ -179,7 +179,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   sideBarWidth(value: number): SideBarContainerAttribute;
   /**
    * Sets the min length of sidebar.
-   * default value is 200vp.
+   * default value is 240vp.
    * @since 8
    */
   minSideBarWidth(value: number): SideBarContainerAttribute;
@@ -196,7 +196,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   sideBarWidth(value: Length): SideBarContainerAttribute;
   /**
    * Sets the min length of sidebar.
-   * default value is 200vp.
+   * default value is 240vp.
    * @since 9
    */
   minSideBarWidth(value: Length): SideBarContainerAttribute;
