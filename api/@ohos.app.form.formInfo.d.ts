@@ -67,7 +67,7 @@ declare namespace formInfo {
     /**
      * Obtains the description id of this form.
      * @syscap SystemCapability.Ability.Form
-     * @since 9
+     * @since 10
      */
     descriptionId: number;
 
@@ -530,6 +530,52 @@ declare namespace formInfo {
      * @since 10
      */
     FORM_SHARE,
+  }
+
+  /**
+   * information about a running form.
+   * @typedef FormProviderFilter
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+   interface FormProviderFilter {
+    /**
+     * Obtains the bundle name of the provider application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    bundleName: string;
+
+    /**
+     * Obtains the form name of the provider application form.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    formName ?: string;
+
+    /**
+     * Obtains the module name of the provider application module.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    moduleName ?: string;
+
+    /**
+     * Obtains the ability name of the provider application module.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 10
+     */
+    abilityName ?: string;
   }
 }
 export default formInfo;
