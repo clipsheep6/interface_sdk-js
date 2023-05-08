@@ -339,7 +339,7 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
-    Type: PolicyType;
+    type: PolicyType;
 
     /**
      * The sync policy value.
