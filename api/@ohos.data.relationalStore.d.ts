@@ -182,12 +182,12 @@ declare namespace relationalStore {
     failed: number;
     
     /**
-     * Describes the number of data remained to sync.
+     * Describes the number of data untreated to sync.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */ 
-    remained: number;
+    untreated: number;
   }
 
   /**
