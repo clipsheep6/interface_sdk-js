@@ -17,7 +17,7 @@
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  * @deprecated since 8
- * @useinstead ohos.net.connection.ConnectionProperties
+ * @useinstead ohos.net.connection.NetCapabilities
  */
 export interface NetworkResponse {
   /**
@@ -44,7 +44,7 @@ export default class Network {
   /**
    * Obtains the network type.
    * @deprecated since 8
-   * @useinstead ohos.net.connection#getConnectionProperties
+   * @useinstead ohos.net.connection#getNetCapabilities
    * @param options
    */
   static getType(options?: {
