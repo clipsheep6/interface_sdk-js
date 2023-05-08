@@ -228,7 +228,7 @@ declare namespace relationalStore {
     /**
      * Describes the status of data sync progress.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */   
     schedule : Progress;
@@ -236,7 +236,7 @@ declare namespace relationalStore {
     /**
      * Describes the code of data sync progress.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */     
     code: number;
@@ -244,7 +244,7 @@ declare namespace relationalStore {
     /**
      * The statistic details of the tables.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */         
     details: {
