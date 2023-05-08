@@ -24,6 +24,7 @@
  */
 /**
  * Defines the badge position property.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum BadgePosition {
    */
   /**
    * The dot is displayed vertically centered on the right.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare enum BadgePosition {
    */
   /**
    * Dots are displayed in the upper right corner.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare enum BadgePosition {
    */
   /**
    * The dot is displayed in the left vertical center.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -88,6 +92,7 @@ declare enum BadgePosition {
  */
 /**
  * BadgeStyle object
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -103,6 +108,7 @@ declare interface BadgeStyle {
    */
   /**
    * Text Color
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -119,6 +125,7 @@ declare interface BadgeStyle {
    */
   /**
    * Text size.
+   * @form
    * @crossplatform
    * @since 10
    */  
@@ -135,6 +142,7 @@ declare interface BadgeStyle {
    */
   /**
    * Size of a badge.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -151,6 +159,7 @@ declare interface BadgeStyle {
    */
   /**
    * Color of the badge.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -160,7 +169,8 @@ declare interface BadgeStyle {
    * Define the border color of the badge.
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crosspltform
+   * @form
+   * @crossplatform
    * @since 10
    */
   borderColor?: ResourceColor;
@@ -169,7 +179,8 @@ declare interface BadgeStyle {
    * Define the border width of the badge.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crosspltform
+   * @form
+   * @crossplatform
    * @since 10
    */
   borderWidth?: Length;
@@ -178,7 +189,8 @@ declare interface BadgeStyle {
    * Define the font weight of the badge.
    * @type { number | FontWeight | string}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crosspltform
+   * @form
+   * @crossplatform
    * @since 10
    */
   fontWeight?: number | FontWeight | string;
@@ -195,6 +207,7 @@ declare interface BadgeStyle {
  */
 /**
  * Defines the base param of badge.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -210,6 +223,7 @@ declare interface BadgeParam {
    */
   /**
    * Set the display position of the prompt point.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -226,6 +240,7 @@ declare interface BadgeParam {
    */
   /**
    * Defines the style of the Badge component, including the text color, size, dot color, and size.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -243,6 +258,7 @@ declare interface BadgeParam {
  */
 /**
  * Defines the badge param with count and maxCount.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -258,6 +274,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    */
   /**
    * Set the number of reminder messages.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -274,6 +291,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    */
   /**
    * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -291,6 +309,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  */
 /**
  * Defines the badge param with string value.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -306,6 +325,7 @@ declare interface BadgeParamWithString extends BadgeParam {
    */
   /**
    * Text string of the prompt content.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -323,6 +343,7 @@ declare interface BadgeParamWithString extends BadgeParam {
  */
 /**
  * Defines Badge Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -347,6 +368,7 @@ interface BadgeInterface {
    * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * count: Set the number of reminder messages.
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -372,6 +394,7 @@ interface BadgeInterface {
    * position: Set the display position of the prompt point.
    * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
    * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -389,6 +412,7 @@ interface BadgeInterface {
  */
 /**
  * Defines Badge Component attribute.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -405,6 +429,7 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
  */
 /**
  * Defines Badge Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -421,6 +446,7 @@ declare const Badge: BadgeInterface;
  */
 /**
  * Defines Badge Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

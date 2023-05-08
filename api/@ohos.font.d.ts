@@ -18,15 +18,29 @@
  * @since 9
  * @import font from '@ohos.font';
  */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @import font from '@ohos.font';
+ */
 declare namespace font {
   /**
- * @since 9
- */
+   * @since 9
+   */
+  /**
+   * @crossplatform
+   * @since 10
+   */
   interface FontOptions {
-
     /**
      * The font name to register.
      * @since 9
+     */
+    /**
+     * The font name to register.
+     * @crossplatform
+     * @since 10
      */
     familyName: string;
 
@@ -34,12 +48,23 @@ declare namespace font {
      * The path of the font file.
      * @since 9
      */
+    /**
+     * The path of the font file.
+     * @crossplatform
+     * @since 10
+     */
     familySrc: string;
   }
   /**
    * Register a customized font in the FontManager.
    * @param options FontOptions
    * @since 9
+   */
+  /**
+   * Register a customized font in the FontManager.
+   * @param options FontOptions
+   * @crossplatform
+   * @since 10
    */
   function registerFont(options: FontOptions): void;
 

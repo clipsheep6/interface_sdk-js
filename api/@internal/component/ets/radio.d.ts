@@ -24,6 +24,7 @@
  */
 /**
  * Input parameter for creating a radio box.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare interface RadioOptions {
    */
   /**
    * Radio group name.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare interface RadioOptions {
    */
   /**
    * Radio name.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -110,6 +113,7 @@ declare interface RadioStyle {
  */
 /**
  * Provides an interface for creating a radio box.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -125,6 +129,7 @@ interface RadioInterface {
    */
   /**
    * Called when a radio box is created.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -139,6 +144,7 @@ interface RadioInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -154,6 +160,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    */
   /**
    * Called when the radio box is selected.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -171,6 +178,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    */
   /**
    * Called when the radio box selection status changes.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -197,6 +205,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  */
 /**
  * Defines Radio Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -213,6 +222,7 @@ declare const Radio: RadioInterface;
  */
 /**
  * Defines Radio Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

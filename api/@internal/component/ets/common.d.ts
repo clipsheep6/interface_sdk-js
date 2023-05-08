@@ -24,6 +24,7 @@
  */
 /**
  * Defining Component ClassDecorator
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -45,6 +46,7 @@ declare const Component: ClassDecorator;
  * Defines Entry ClassDecorator.
  * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
  * Entry is a ClassDecorator and it supports LocalStorage as parameters.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -61,6 +63,7 @@ declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorato
  */
 /**
  * Defining Observed ClassDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -77,6 +80,7 @@ declare const Observed: ClassDecorator;
  */
 /**
  * Defining Preview ClassDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -93,6 +97,7 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  */
 /**
  * Defining BuilderParam PropertyDecorator
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -109,6 +114,7 @@ declare const BuilderParam: PropertyDecorator;
  */
 /**
  * Defining State PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -125,6 +131,7 @@ declare const State: PropertyDecorator;
  */
 /**
  * Defining Prop PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -141,6 +148,7 @@ declare const Prop: PropertyDecorator;
  */
 /**
  * Defining Link PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -157,6 +165,7 @@ declare const Link: PropertyDecorator;
  */
 /**
  * Defining ObjectLink PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -173,6 +182,7 @@ declare const ObjectLink: PropertyDecorator;
  */
 /**
  * Defining Provide PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -189,6 +199,7 @@ declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator
  */
 /**
  * Defining Consume PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -227,6 +238,7 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  */
 /**
  * Defining Watch PropertyDecorator.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -243,6 +255,7 @@ declare const Watch: (value: string) => PropertyDecorator;
  */
 /**
  * Defining Builder MethodDecorator
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -266,6 +279,7 @@ declare const Styles: MethodDecorator;
  */
 /**
  * Defining Extend MethodDecorator
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -309,6 +323,12 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining LocalStorageProp PropertyDecorator
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
 /**
@@ -347,6 +367,15 @@ declare type Context = import('../api/application/Context').default;
  * @StageModelOnly
  * @since 9
  */
+/**
+ * Post Card Action.
+ * @param { Object } component - indicate the card entry component.
+ * @param { Object } action - indicate the router or message event.
+ * @form
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
+ */
 declare function postCardAction(component: Object, action: Object): void;
 
 /**
@@ -375,6 +404,7 @@ declare interface Configuration {
    */
   /**
    * Set colorMode.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -391,6 +421,7 @@ declare interface Configuration {
    */
   /**
    * Set fontScale.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -408,6 +439,7 @@ declare interface Configuration {
  */
 /**
  * Defines the data type of the interface restriction.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -423,6 +455,7 @@ declare interface Rectangle {
    */
   /**
    * x:Horizontal coordinate
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -439,6 +472,7 @@ declare interface Rectangle {
    */
   /**
    * y:Vertical axis coordinate.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -455,6 +489,7 @@ declare interface Rectangle {
    */
   /**
    * Sets the width of the current touchRect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -471,6 +506,7 @@ declare interface Rectangle {
    */
   /**
    * Sets the height of the current touchRect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -488,6 +524,7 @@ declare interface Rectangle {
  */
 /**
  * global $r function
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -504,6 +541,7 @@ declare function $r(value: string, ...params: any[]): Resource;
  */
 /**
  * global $rawfile function
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -520,6 +558,7 @@ declare function $rawfile(value: string): Resource;
  */
 /**
  * Defines the animate function params.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -535,6 +574,7 @@ declare interface AnimateParam {
    */
   /**
    * Animation duration, in ms.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -565,6 +605,7 @@ declare interface AnimateParam {
   /**
    * Animation curve.
    * @type { string | Curve}
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -600,6 +641,7 @@ declare interface AnimateParam {
    */
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -615,6 +657,7 @@ declare interface AnimateParam {
    */
   /**
    * Callback invoked when the animation playback is complete.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -626,11 +669,23 @@ declare interface AnimateParam {
  * @form
  * @since 9
  */
+/**
+ * Interface for curve object.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface ICurve {
   /**
    * Get curve value by fraction.
    * @form
    * @since 9
+   */
+  /**
+   * Get curve value by fraction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   interpolate(fraction: number): number;
 }
@@ -770,6 +825,7 @@ declare interface sharedTransitionOptions {
  */
 /**
  * Defines the options of translate.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -785,6 +841,7 @@ declare interface TranslateOptions {
    */
   /**
    * The param of x direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -800,6 +857,7 @@ declare interface TranslateOptions {
    */
   /**
    * The param of y direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -815,6 +873,7 @@ declare interface TranslateOptions {
    */
   /**
    * The param of z direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -832,6 +891,7 @@ declare interface TranslateOptions {
  */
 /**
  * Defines the options of scale.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -847,6 +907,7 @@ declare interface ScaleOptions {
    */
   /**
    * The param of x direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -862,6 +923,7 @@ declare interface ScaleOptions {
    */
   /**
    * The param of y direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -877,6 +939,7 @@ declare interface ScaleOptions {
    */
   /**
    * The param of z direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -892,6 +955,7 @@ declare interface ScaleOptions {
    */
   /**
    * The param of center point of x.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -907,6 +971,7 @@ declare interface ScaleOptions {
    */
   /**
    * The param of center point of y.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -918,11 +983,23 @@ declare interface ScaleOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the align rule options of relative container.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface AlignRuleOption {
   /**
    * The param of left align.
    * @form
    * @since 9
+   */
+  /**
+   * The param of left align.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   left?: { anchor: string, align: HorizontalAlign };
   /**
@@ -930,11 +1007,23 @@ declare interface AlignRuleOption {
    * @form
    * @since 9
    */
+  /**
+   * The param of right align.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   right?: { anchor: string, align: HorizontalAlign };
   /**
    * The param of middle align.
    * @form
    * @since 9
+   */
+  /**
+   * The param of middle align.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   middle?: { anchor: string, align: HorizontalAlign };
   /**
@@ -942,17 +1031,35 @@ declare interface AlignRuleOption {
    * @form
    * @since 9
    */
+  /**
+   * The param of top align.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   top?: { anchor: string, align: VerticalAlign };
   /**
    * The param of bottom align.
    * @form
    * @since 9
    */
+  /**
+   * The param of bottom align.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   bottom?: { anchor: string, align: VerticalAlign };
   /**
    * The param of center align.
    * @form
    * @since 9
+   */
+  /**
+   * The param of center align.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   center?: { anchor: string, align: VerticalAlign };
 }
@@ -969,6 +1076,7 @@ declare interface RotateOptions {
    */
   /**
    * The param of x direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -984,6 +1092,7 @@ declare interface RotateOptions {
    */
   /**
    * The param of y direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -999,6 +1108,7 @@ declare interface RotateOptions {
    */
   /**
    * The param of z direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1014,6 +1124,7 @@ declare interface RotateOptions {
    */
   /**
    * The param of center point of x.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1029,6 +1140,7 @@ declare interface RotateOptions {
    */
   /**
    * The param of center point of y.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1044,6 +1156,7 @@ declare interface RotateOptions {
    */
   /**
    * The param of angle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1314,11 +1427,23 @@ declare class TransitionEffect<
  * @form
  * @since 9
  */
+/**
+ * Define Preview property
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface PreviewParams {
   /**
    * Define Preview title
    * @form
    * @since 9
+   */
+  /**
+   * Define Preview title
+   * @form
+   * @crossplatform
+   * @since 10
    */
   title?: string;
   /**
@@ -1326,11 +1451,23 @@ interface PreviewParams {
    * @form
    * @since 9
    */
+  /**
+   * Define Preview width
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width?: number;
   /**
    * Define Preview height
    * @form
    * @since 9
+   */
+  /**
+   * Define Preview height
+   * @form
+   * @crossplatform
+   * @since 10
    */
   height?: number;
   /**
@@ -1338,11 +1475,23 @@ interface PreviewParams {
    * @form
    * @since 9
    */
+  /**
+   * Define Preview locale
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   locale?: string;
   /**
    * Define Preview colorMode
    * @form
    * @since 9
+   */
+  /**
+   * Define Preview colorMode
+   * @form
+   * @crossplatform
+   * @since 10
    */
   colorMode?: string;
   /**
@@ -1350,11 +1499,23 @@ interface PreviewParams {
    * @form
    * @since 9
    */
+  /**
+   * Define Preview deviceType
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   deviceType?: string;
   /**
    * Define Preview dpi
    * @form
    * @since 9
+   */
+  /**
+   * Define Preview dpi
+   * @form
+   * @crossplatform
+   * @since 10
    */
   dpi?: number;
   /**
@@ -1362,11 +1523,23 @@ interface PreviewParams {
    * @form
    * @since 9
    */
+  /**
+   * Define Preview orientation
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   orientation?: string;
   /**
    * Define Preview roundScreen
    * @form
    * @since 9
+   */
+  /**
+   * Define Preview roundScreen
+   * @form
+   * @crossplatform
+   * @since 10
    */
   roundScreen?: boolean;
 }
@@ -1459,6 +1632,7 @@ declare interface DragItemInfo {
  */
 /**
  * Defining animation function.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1475,6 +1649,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  */
 /**
  * Converts a value in vp units to a value in px.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1491,6 +1666,7 @@ declare function vp2px(value: number): number;
  */
 /**
  * Converts a number in units of px to a number in units of vp.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1507,6 +1683,7 @@ declare function px2vp(value: number): number;
  */
 /**
  * Converts a number in fp units to a number in px.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1523,6 +1700,7 @@ declare function fp2px(value: number): number;
  */
 /**
  * Converts a number in units of px to a number in units of fp.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1539,6 +1717,7 @@ declare function px2fp(value: number): number;
  */
 /**
  * Converts a number in units of lpx to a number in units of px.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1555,6 +1734,7 @@ declare function lpx2px(value: number): number;
  */
 /**
  * Converts a number in units of px to a number in units of lpx.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1584,6 +1764,7 @@ declare namespace focusControl {
  */
 /**
  * Defines the event target.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1599,6 +1780,7 @@ declare interface EventTarget {
    */
   /**
    * Area of current target.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1699,11 +1881,23 @@ declare enum SourceTool {
  * @form
  * @since 9
  */
+/**
+ * Defines the Border Image Repeat Mode.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum RepeatMode {
   /**
    * Repeat mode.
    * @form
    * @since 9
+   */
+  /**
+   * Repeat mode.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Repeat,
 
@@ -1712,12 +1906,24 @@ declare enum RepeatMode {
    * @form
    * @since 9
    */
+  /**
+   * Stretch mode.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Stretch,
 
   /**
    * Round mode.
    * @form
    * @since 9
+   */
+  /**
+   * Round mode.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Round,
 
@@ -1726,6 +1932,12 @@ declare enum RepeatMode {
    * @form
    * @since 9
    */
+  /**
+   * Space mode.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Space,
 }
 /**
@@ -1733,11 +1945,23 @@ declare enum RepeatMode {
  * @form
  * @since 9
  */
+/**
+ * enum Blur style
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum BlurStyle {
   /**
    * Defines the thin card material.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the thin card material.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Thin,
 
@@ -1746,12 +1970,24 @@ declare enum BlurStyle {
    * @form
    * @since 9
    */
+  /**
+   * Defines the regular card material.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Regular,
 
   /**
    * Defines the thick card material.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the thick card material.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Thick,
 
@@ -1925,6 +2161,7 @@ declare interface PickerTextStyle {
  */
 /**
  * Define the options of shadow
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1940,6 +2177,7 @@ declare interface ShadowOptions {
    */
   /**
    * Define the radius size of shadow
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1956,6 +2194,7 @@ declare interface ShadowOptions {
    */
   /**
    * Define the color of shadow
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1972,6 +2211,7 @@ declare interface ShadowOptions {
    */
   /**
    * Define the horizontal offset size of shadow
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1988,6 +2228,7 @@ declare interface ShadowOptions {
    */
   /**
    * Define the vertical offset size of shadow
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2054,6 +2295,7 @@ declare enum ShadowStyle {
  */
 /**
  * Defines the base event.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2069,6 +2311,7 @@ declare interface BaseEvent {
    */
   /**
    * Defines the current target which fires this event.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2085,6 +2328,7 @@ declare interface BaseEvent {
    */
   /**
    * Event timestamp.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2101,6 +2345,7 @@ declare interface BaseEvent {
    */
   /**
    * the event source info.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2124,6 +2369,12 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   tiltX: number;
 
   /**
@@ -2131,12 +2382,24 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   tiltY: number;
 
   /**
    * The event tool type info.
    * @form
    * @since 9
+   */
+  /**
+   * The event tool type info.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   sourceTool: SourceTool;
 }
@@ -2146,11 +2409,23 @@ declare interface BaseEvent {
  * @form
  * @since 9
  */
+/**
+ * Border image option
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BorderImageOption {
   /**
    * Border image slice
    * @form
    * @since 9
+   */
+  /**
+   * Border image slice
+   * @form
+   * @crossplatform
+   * @since 10
    */
   slice?: Length | EdgeWidths,
 
@@ -2159,12 +2434,24 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
+  /**
+   * Border image repeat
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   repeat?: RepeatMode,
 
   /**
    * Border image source
    * @form
    * @since 9
+   */
+  /**
+   * Border image source
+   * @form
+   * @crossplatform
+   * @since 10
    */
   source?: string | Resource | LinearGradient,
 
@@ -2173,6 +2460,12 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
+  /**
+   * Border image width
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width?: Length | EdgeWidths,
 
   /**
@@ -2180,12 +2473,24 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
+  /**
+   * Border image outset
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   outset?: Length | EdgeWidths,
 
   /**
    * Border image center fill
    * @form
    * @since 9
+   */
+  /**
+   * Border image center fill
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fill?: boolean
 }
@@ -2201,6 +2506,7 @@ declare interface BorderImageOption {
  */
 /**
  * The tap action triggers this method invocation.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2216,6 +2522,7 @@ declare interface ClickEvent extends BaseEvent {
    */
     /**
    * X coordinate of the click point relative to the left edge of the device screen.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2232,6 +2539,7 @@ declare interface ClickEvent extends BaseEvent {
    */
   /**
    * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2248,6 +2556,7 @@ declare interface ClickEvent extends BaseEvent {
    */
   /**
    * X coordinate of the click point relative to the left edge of the clicked element.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2264,6 +2573,7 @@ declare interface ClickEvent extends BaseEvent {
    */
   /**
    * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2660,6 +2970,7 @@ declare interface KeyEvent {
  */
 /**
  * Component State Styles.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2675,6 +2986,7 @@ declare interface StateStyles {
    */
   /**
    * Defines normal state styles.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2691,6 +3003,7 @@ declare interface StateStyles {
    */
   /**
    * Defines pressed state styles.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2707,6 +3020,7 @@ declare interface StateStyles {
    */
   /**
    * Defines disabled state styles.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2723,6 +3037,7 @@ declare interface StateStyles {
    */
   /**
    * Defines focused state styles.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2739,6 +3054,7 @@ declare interface StateStyles {
    */
   /**
    * Defines clicked state styles.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3233,6 +3549,7 @@ declare interface PixelStretchEffectOptions {
  */
 /**
  * CommonMethod.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3263,6 +3580,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the width of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3279,6 +3597,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the height of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3295,6 +3614,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the response region of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3311,6 +3631,7 @@ declare class CommonMethod<T> {
    */
   /**
    * The size of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3330,6 +3651,7 @@ declare class CommonMethod<T> {
   /**
    * constraint Size：
    * minWidth：minimum Width，maxWidth：maximum Width，minHeight：minimum Height ，maxHeight：maximum Height，
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3367,6 +3689,7 @@ declare class CommonMethod<T> {
    */
   /**
    * layout Weight
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3383,6 +3706,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Inner margin.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3393,6 +3717,12 @@ declare class CommonMethod<T> {
    * Outer Margin.
    * @form
    * @since 9
+   */
+  /**
+   * Outer Margin.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   margin(value: Margin | Length): T;
 
@@ -3407,6 +3737,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Background color
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3425,6 +3756,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Background color
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3441,6 +3773,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Background image size
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3460,6 +3793,7 @@ declare class CommonMethod<T> {
   /**
    * Background image position
    * x:Horizontal coordinate;y:Vertical axis coordinate.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3485,6 +3819,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Opacity
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3504,6 +3839,7 @@ declare class CommonMethod<T> {
   /**
    * Opacity
    * width:Border width;color:Border color;radius:Border radius;
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3520,6 +3856,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Border style
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3543,6 +3880,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Border width
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3559,6 +3897,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Border width
+   * @form
    * @crossplatform
    * @since 10
    */  
@@ -3575,6 +3914,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Border color
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3584,6 +3924,12 @@ declare class CommonMethod<T> {
    * Border color
    * @form
    * @since 9
+   */
+  /**
+   * Border color
+   * @form
+   * @crossplatform
+   * @since 10
    */
   borderColor(value: EdgeColors): T;
 
@@ -3598,6 +3944,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Border radius
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3608,12 +3955,24 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Border radius
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   borderRadius(value: BorderRadiuses): T;
 
   /**
    * Border image
    * @form
    * @since 9
+   */
+  /**
+   * Border image
+   * @form
+   * @crossplatform
+   * @since 10
    */
   borderImage(value: BorderImageOption): T;
 
@@ -3638,6 +3997,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Trigger a click event when a click is clicked.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3786,6 +4146,7 @@ declare class CommonMethod<T> {
    */
   /**
    * animation
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3866,6 +4227,7 @@ declare class CommonMethod<T> {
    * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
    * The larger the blurring radius, the more blurring the content.
    * If the value is 0, the content blurring effect is not blurring.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3888,6 +4250,7 @@ declare class CommonMethod<T> {
    * Adds a highlight effect to the current component.
    * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
    * The component is displayed as all white (percentage).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3907,6 +4270,7 @@ declare class CommonMethod<T> {
   /**
    * Adds a contrast effect to the current component. The input parameter is the contrast value.
    * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3929,6 +4293,7 @@ declare class CommonMethod<T> {
    * Adds a grayscale effect to the current component.
    * The value is the gray scale conversion ratio. If the input parameter is 1.0, the gray scale image is completely converted to the gray scale image. If the input parameter is 0.0, the image does not change.
    * If the input parameter is between 0.0 and 1.0, the effect changes. (Percentage)
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3945,6 +4310,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3970,6 +4336,7 @@ declare class CommonMethod<T> {
    * The saturation is the ratio of the color-containing component to the achromatic component (gray).
    * The larger the color-containing component, the greater the saturation.
    * The larger the achromatic component, the smaller the saturation. (Percentage)
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3989,6 +4356,7 @@ declare class CommonMethod<T> {
   /**
    * Converts the image to sepia. Value defines the scale of the conversion.
    * A value of 1 is completely sepia, and a value of 0 does not change the image. (Percentage)
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4008,6 +4376,7 @@ declare class CommonMethod<T> {
   /**
    * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
    * A value of 0% does not change the image. (Percentage)
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4030,6 +4399,7 @@ declare class CommonMethod<T> {
    * Adds the hue rotation effect to the current component.
    * The input parameter is the rotation angle. When the input parameter is 0deg, the image does not change (the default value is 0deg), and the input parameter does not have a maximum value.
    * If the value exceeds 360deg, the image is circled again.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4049,6 +4419,7 @@ declare class CommonMethod<T> {
   /**
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4071,6 +4442,7 @@ declare class CommonMethod<T> {
    * Sets the translation effect during page transition.
    * The value is the start point of entry and end point of exit.
    * When this parameter is set together with slide, slide takes effect by default.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4087,6 +4459,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4130,6 +4503,7 @@ declare class CommonMethod<T> {
   /**
    * Sets the rotation effect during assembly transition.
    * The values are the start point during insertion and the end point during deletion.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4157,6 +4531,7 @@ declare class CommonMethod<T> {
    */
   /**
    * This callback is triggered when a component mounts a display.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4173,6 +4548,7 @@ declare class CommonMethod<T> {
    */
   /**
    * This callback is triggered when component uninstallation disappears.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4202,6 +4578,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Controls the display or hide of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4218,6 +4595,7 @@ declare class CommonMethod<T> {
    */
   /**
    * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4234,6 +4612,7 @@ declare class CommonMethod<T> {
    */
   /**
    * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4250,6 +4629,7 @@ declare class CommonMethod<T> {
    */
   /**
    * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4266,6 +4646,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Overrides the default configuration of alignItems in the Flex Layout container.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4282,6 +4663,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4298,6 +4680,7 @@ declare class CommonMethod<T> {
    */
   /**
    * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4325,6 +4708,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4341,6 +4725,7 @@ declare class CommonMethod<T> {
    */
   /**
    * align
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4357,6 +4742,7 @@ declare class CommonMethod<T> {
    */
   /**
    * position
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4373,6 +4759,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4392,6 +4779,7 @@ declare class CommonMethod<T> {
   /**
    * Coordinate offset relative to the layout completion position.
    * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4411,6 +4799,7 @@ declare class CommonMethod<T> {
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
    *  If it is set to false, click operations are not responded.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4447,6 +4836,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Specifies the aspect ratio of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4522,6 +4912,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4541,6 +4932,7 @@ declare class CommonMethod<T> {
   /**
    * Linear Gradient
    * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4583,6 +4975,7 @@ declare class CommonMethod<T> {
    * rotating:rotating
    * colors:Color description for gradients
    * repeating:repeating
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4618,6 +5011,7 @@ declare class CommonMethod<T> {
    * radius:Radius of Radial Gradient
    * colors:Color description for gradients
    * repeating: Refill
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4676,6 +5070,7 @@ declare class CommonMethod<T> {
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4720,6 +5115,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Id. User can set an id to the component to identify it.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4799,6 +5195,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets styles for component state.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -4877,6 +5274,7 @@ declare class CommonMethod<T> {
  */
 /**
  * CommonAttribute for ide.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -4893,6 +5291,7 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
  */
 /**
  * CommonInterface for ide.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -4911,6 +5310,7 @@ interface CommonInterface {
  */
 /**
  * CommonInstance for ide.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -4927,6 +5327,7 @@ declare const CommonInstance: CommonAttribute;
  */
 /**
  * Common for ide.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -4943,6 +5344,7 @@ declare const Common: CommonInterface;
  */
 /**
  * Defines the CustomBuilder Type.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -4959,6 +5361,7 @@ declare type CustomBuilder = (() => any) | void;
  */
 /**
  * CommonShapeMethod
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -4987,6 +5390,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * border Color
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5003,6 +5407,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Fill color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5019,6 +5424,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Offset from the start point of the border drawing.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5035,6 +5441,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Path endpoint drawing style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5051,6 +5458,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Border corner drawing style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5067,6 +5475,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Limits for drawing acute angles as bevels
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5083,6 +5492,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Sets the opacity of the border.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5099,6 +5509,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * fill Opacity
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5115,6 +5526,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Sets the width of the dividing line.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5131,6 +5543,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Indicates whether to enable anti-aliasing
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5147,6 +5560,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   /**
    * Sets the gap for the border.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5184,6 +5598,12 @@ declare interface LinearGradient {
  * @form
  * @since 9
  */
+/**
+ * Sub component border info.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface LayoutBorderInfo {
   borderWidth: EdgeWidths,
   margin: Margin,
@@ -5195,6 +5615,12 @@ declare interface LayoutBorderInfo {
  * @form
  * @since 9
  */
+/**
+ * Sub component layout info.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface LayoutInfo {
   position: Position,
   constraint: ConstraintSizeOptions,
@@ -5205,11 +5631,23 @@ declare interface LayoutInfo {
  * @form
  * @since 9
  */
+/**
+ * Sub component info passed from framework when layout and measure happens.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface LayoutChild {
   /**
    * Sub component name.
    * @form
    * @since 9
+   */
+  /**
+   * Sub component name.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   name: string,
 
@@ -5218,12 +5656,24 @@ declare interface LayoutChild {
    * @form
    * @since 9
    */
+  /**
+   * Sub component id.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   id: string,
 
   /**
    * Sub component constraint.
    * @form
    * @since 9
+   */
+  /**
+   * Sub component constraint.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   constraint: ConstraintSizeOptions,
 
@@ -5232,12 +5682,24 @@ declare interface LayoutChild {
    * @form
    * @since 9
    */
+  /**
+   * Sub component border info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   borderInfo: LayoutBorderInfo,
 
   /**
    * Sub component position.
    * @form
    * @since 9
+   */
+  /**
+   * Sub component position.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   position: Position,
 
@@ -5246,12 +5708,24 @@ declare interface LayoutChild {
    * @form
    * @since 9
    */
+  /**
+   * Call this measure method in onMeasure callback to supply sub component size.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   measure(childConstraint: ConstraintSizeOptions),
 
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
    * @form
    * @since 9
+   */
+  /**
+   * Call this layout method in onLayout callback to assign layout info to sub component.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   layout(childLayoutInfo: LayoutInfo)
 }
@@ -5266,11 +5740,6 @@ declare interface LayoutChild {
  * @form
  * @since 9
  */
-/**
- * Custom Component
- * @crossplatform
- * @since 10
- */
 declare class CustomComponent extends CommonAttribute {
   /**
    * Customize the pop-up content constructor.
@@ -5283,6 +5752,7 @@ declare class CustomComponent extends CommonAttribute {
    */
   /**
    * Customize the pop-up content constructor.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5299,6 +5769,7 @@ declare class CustomComponent extends CommonAttribute {
    */
   /**
    * aboutToAppear Method
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -5315,6 +5786,7 @@ declare class CustomComponent extends CommonAttribute {
    */
   /**
    * aboutToDisappear Method
+   * @form
    * @crossplatform
    * @since 10
    */

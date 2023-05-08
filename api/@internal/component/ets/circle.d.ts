@@ -24,6 +24,7 @@
  */
 /**
  * Defines circle options for Circle component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare interface CircleOptions {
    */
   /**
    * Defines the width property.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare interface CircleOptions {
    */
   /**
    * Defines the height property.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -72,6 +75,7 @@ declare interface CircleOptions {
  */
 /**
  * Defines circle component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -87,6 +91,7 @@ interface CircleInterface {
    */
   /**
    * use new function to set the value.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -103,6 +108,7 @@ interface CircleInterface {
    */
   /**
    * Set the value..
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -120,6 +126,7 @@ interface CircleInterface {
  */
 /**
  * Circle drawing component attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -136,6 +143,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  */
 /**
  * Defines Circle Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -152,6 +160,7 @@ declare const Circle: CircleInterface;
  */
 /**
  * Defines Circle Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

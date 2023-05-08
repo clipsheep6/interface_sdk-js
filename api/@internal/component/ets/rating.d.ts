@@ -24,6 +24,7 @@
  */
 /**
  * Provides the interface for scoring bars.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface RatingInterface {
    */
   /**
    * Called when a score bar is created.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ interface RatingInterface {
  */
 /**
  * Defines the rating attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -71,6 +74,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when the total number of stars is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -87,6 +91,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when the step size of the operation rating.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -103,6 +108,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when a picture is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -119,6 +125,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when the star rating of the operation scoring bar changes.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -136,6 +143,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  */
 /**
  * Defines Rating Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -152,6 +160,7 @@ declare const Rating: RatingInterface;
  */
 /**
  * Defines Rating Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

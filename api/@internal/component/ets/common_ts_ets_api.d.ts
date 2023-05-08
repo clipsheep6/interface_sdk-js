@@ -846,6 +846,20 @@ declare const appStorage: AppStorage;
  * @form
  * @since 9
  */
+/**
+ *
+ * LocalStorage
+ *
+ * Class implements a Map of ObservableObjectBase UI state variables.
+ * Instances can be created to manage UI state within a limited "local"
+ * access, and life cycle as defined by the app.
+ * AppStorage singleton is sub-class of LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ *
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare class LocalStorage {
   /**
    * Construct new instance of LocalStorage
@@ -856,6 +870,16 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+  /**
+   * Construct new instance of LocalStorage
+   * initialize with all properties and their values that Object.keys(params) returns
+   * Property values must not be undefined.
+   * @param initializingProperties Object containing keys and values. see set() for valid values
+   *
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   constructor(initializingProperties?: Object);
 
   /**
@@ -863,6 +887,13 @@ declare class LocalStorage {
    * @StageModelOnly
    * @form
    * @since 9
+   */
+  /**
+   * Get current LocalStorage shared from stage.
+   * @StageModelOnly
+   * @form
+   * @crossplatform
+   * @since 10
    */
   static GetShared(): LocalStorage;
 
@@ -876,6 +907,17 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+  /**
+   * Check if LocalStorage has a property with given name
+   * return true if property with given name exists
+   * same as ES6 Map.prototype.has()
+   * @param propName searched property
+   * @returns true if property with such name exists in LocalStorage
+   *
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   has(propName: string): boolean;
 
   /**
@@ -885,6 +927,15 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Provide names of all properties in LocalStorage
+   * same as ES6 Map.prototype.keys()
+   * @returns return a Map Iterator
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   keys(): IterableIterator<string>;
 
@@ -896,6 +947,15 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+  /**
+   * Returns number of properties in LocalStorage
+   * same as Map.prototype.size()
+   * @returns return number of properties
+   *
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   size(): number;
 
   /**
@@ -906,6 +966,16 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Returns value of given property
+   * return undefined if no property with this name
+   * @param propName
+   * @returns property value if found or undefined
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   get<T>(propName: string): T | undefined;
 
@@ -919,6 +989,18 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Set value of given property in LocalStorage
+   * Method sets nothing and returns false if property with this name does not exist
+   * or if newValue is `undefined` or `null` (`undefined`, `null` value are not allowed for state variables).
+   * @param propName
+   * @param newValue must be of type T and must not be undefined or null
+   * @returns true on success, i.e. when above conditions are satisfied, otherwise false
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   set<T>(propName: string, newValue: T): boolean;
 
@@ -934,6 +1016,19 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+  /**
+   * Set value of given property, if it exists, see set() .
+   * Add property if no property with given name and initialize with given value.
+   * Do nothing and return false if newValue is undefined or null
+   * (undefined, null value is not allowed for state variables)
+   * @param propName
+   * @param newValue must be of type T and must not be undefined or null
+   * @returns true on success, i.e. when above conditions are satisfied, otherwise false
+   *
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   setOrCreate<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -945,6 +1040,17 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Create and return a two-way sync "(link") to named property
+   * @param propName name of source property in LocalStorage
+   * @returns  instance of  SubscribedAbstractProperty<T>
+   *           return undefined if named property does not already exist in LocalStorage
+   *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   link<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -959,6 +1065,18 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+  /**
+   * Like see link(), but will create and initialize a new source property in LocalStorage if missing
+   * @param propName name of source property in LocalStorage
+   * @param defaultValue value to be used for initializing if new creating new property in LocalStorage
+   *        default value must be of type T, must not be undefined or null.
+   * @returns  instance of  SubscribedAbstractProperty<T>
+   *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
+   *
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
@@ -970,6 +1088,17 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Create and return a one-way sync ('prop') to named property
+   * @param { string } propName name of source property in LocalStorage
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           return undefined if named property does not already exist in LocalStorage
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   prop<S>(propName: string): SubscribedAbstractProperty<S>;
 
@@ -983,6 +1112,18 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Like see prop(), will create and initialize a new source property in LocalStorage if missing
+   * @param { string } propName name of source property in LocalStorage
+   * @param { S } defaultValue value to be used for initializing if new creating new property in LocalStorage. 
+   *         Default value must be of type T, must not be undefined or null.
+   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
@@ -1007,6 +1148,28 @@ declare class LocalStorage {
    * @form
    * @since 9
   */
+  /**
+   * Delete property from StorageBase
+   * Use with caution:
+   * Before deleting a prop from LocalStorage all its subscribers need to
+   * unsubscribe from the property.
+   * This method fails and returns false if given property still has subscribers
+   * Another reason for failing is unknown property.
+   *
+   * Developer advise:
+   * Subscribers are created with see link(), see prop()
+   * and also via @LocalStorageLink and @LocalStorageProp state variable decorators.
+   * That means as long as their is a @Component instance that uses such decorated variable
+   * or a sync relationship with a SubscribedAbstractProperty variable the property can nit
+   * (and also should not!) be deleted from LocalStorage.
+   *
+   * @param propName
+   * @returns false if method failed
+   *
+   * @form
+   * @crossplatform
+   * @since 10
+  */
   delete(propName: string): boolean;
 
   /**
@@ -1017,6 +1180,16 @@ declare class LocalStorage {
    *
    * @form
    * @since 9
+   */
+  /**
+   * Delete all properties from the LocalStorage instance
+   * Precondition is that there are no subscribers.
+   * method returns false and deletes no properties if there is any property
+   * that still has subscribers
+   *
+   * @form
+   * @crossplatform
+   * @since 10
    */
   clear(): boolean;
 }

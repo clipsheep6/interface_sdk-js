@@ -82,6 +82,7 @@ declare class SwiperController {
  * Defines the indicator class.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class Indicator<T> {
@@ -90,6 +91,7 @@ declare class Indicator<T> {
    * @param { Length } value - the indicator to the left.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   left(value: Length): T;
@@ -99,7 +101,7 @@ declare class Indicator<T> {
    * @param { Length } value - the indicator to the top.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-
+   * @crossplatform
    * @since 10
    */
   top(value: Length): T;
@@ -109,6 +111,7 @@ declare class Indicator<T> {
    * @param { Length } value - the indicator to the right.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   right(value: Length): T;
@@ -118,6 +121,7 @@ declare class Indicator<T> {
    * @param { Length } value - the indicator to the bottom.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   bottom(value: Length): T;
@@ -126,6 +130,7 @@ declare class Indicator<T> {
    * @static
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static dot(): DotIndicator;
@@ -135,6 +140,7 @@ declare class Indicator<T> {
    * @static
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static digit(): DigitIndicator;
@@ -144,6 +150,7 @@ declare class Indicator<T> {
  * Define DotIndicator, the indicator type is dot.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class DotIndicator extends Indicator<DotIndicator> {
@@ -151,6 +158,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * Constructor.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor();
@@ -161,6 +169,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { Length } value - the indicator item width.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   itemWidth(value: Length): DotIndicator;
@@ -171,6 +180,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { Length } value - the indicator item height.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   itemHeight(value: Length): DotIndicator;
@@ -181,6 +191,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { Length } value - the indicator item width when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedItemWidth(value: Length): DotIndicator;
@@ -191,6 +202,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { Length } value - the indicator item height when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedItemHeight(value: Length): DotIndicator;
@@ -201,6 +213,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { boolean } value - the indicator item mask.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   mask(value: boolean): DotIndicator;
@@ -211,6 +224,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { ResourceColor } value - the indicator item color.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   color(value: ResourceColor): DotIndicator;
@@ -221,6 +235,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @param { ResourceColor } value - the indicator item when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedColor(value: ResourceColor): DotIndicator;
@@ -230,6 +245,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
  * Define DigitIndicator, the indicator type is digit.
  * @form
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class DigitIndicator extends Indicator<DigitIndicator> {
@@ -237,6 +253,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * Constructor.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor();
@@ -247,6 +264,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @param { ResourceColor } fontColor - the indicator font color.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontColor(value: ResourceColor): DigitIndicator;
@@ -257,6 +275,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @param { ResourceColor } selectedFontColor - the indicator font color when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedFontColor(value: ResourceColor): DigitIndicator;
@@ -266,6 +285,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @param { Font } value - the indicator font size and weight.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   digitFont(value: Font): DigitIndicator;
@@ -275,6 +295,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @param { Font } value - the indicator font size and weight when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedDigitFont(value: Font): DigitIndicator;

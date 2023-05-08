@@ -24,6 +24,7 @@
  */
 /**
  * Defines the Column Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -45,6 +46,7 @@ interface ColumnInterface {
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
+   * @form
    * @crossplatform
    * @since 10
    */  
@@ -62,6 +64,7 @@ interface ColumnInterface {
  */
 /**
  * Defines the Column component attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -77,6 +80,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    */
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -93,6 +97,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    */
   /**
    * Sets the alignment format of the subassembly in the vertical direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -110,6 +115,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
  */
 /**
  * Defines Column Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -126,6 +132,7 @@ declare const Column: ColumnInterface;
  */
 /**
  * Defines Column Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

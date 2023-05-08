@@ -24,6 +24,7 @@
  */
 /**
  * CheckboxGroup SelectStatus
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum SelectStatus {
    */
   /**
    * All checkboxes are selected.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -54,6 +56,7 @@ declare enum SelectStatus {
    */
   /**
    * Part of the checkbox is selected.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -69,6 +72,7 @@ declare enum SelectStatus {
    */
   /**
    * None of the checkbox is selected.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -86,6 +90,7 @@ declare enum SelectStatus {
  */
 /**
  * Defines the options of CheckboxGroup.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -101,6 +106,7 @@ declare interface CheckboxGroupOptions {
    */
   /**
    * Setting the group of CheckboxGroup.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -118,6 +124,7 @@ declare interface CheckboxGroupOptions {
  */
 /**
  * Defines the options of CheckboxGroupResult.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -133,6 +140,7 @@ declare interface CheckboxGroupResult {
    */
   /**
    * Checkbox name.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -148,6 +156,7 @@ declare interface CheckboxGroupResult {
    */
   /**
    * Set the group of status.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -165,6 +174,7 @@ declare interface CheckboxGroupResult {
  */
 /**
  * Provides an interface for the CheckboxGroup component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -180,6 +190,7 @@ interface CheckboxGroupInterface {
    */
   /**
    * Called when the CheckboxGroup component is used.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -197,6 +208,7 @@ interface CheckboxGroupInterface {
  */
 /**
  * Defines the attribute functions of CheckboxGroup.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -212,6 +224,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    */
   /**
    * setting whether all checkbox is selected.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -228,6 +241,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    */
   /**
    * setting the display color of checkbox.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -262,6 +276,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    */
   /**
    * Called when the selection status changes.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -279,6 +294,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
  */
 /**
  * Defines CheckboxGroup Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -295,6 +311,7 @@ declare const CheckboxGroup: CheckboxGroupInterface;
  */
 /**
  * Defines CheckboxGroup Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

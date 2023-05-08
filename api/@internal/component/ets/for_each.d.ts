@@ -24,6 +24,7 @@
  */
 /**
  * looping function.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface ForEachInterface {
    */
   /**
    * Set the value, array, and key.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -60,6 +62,7 @@ interface ForEachInterface {
  */
 /**
  * Defines ForEach Component.
+ * @form
  * @crossplatform
  * @since 10
  */

@@ -21,6 +21,7 @@
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -36,6 +37,7 @@ declare enum ImageRenderMode {
    */
   /**
    * Render according to the original image, including colors.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -52,6 +54,7 @@ declare enum ImageRenderMode {
    */
   /**
    * Render the image as a template image, ignoring the color information of the image.
+   * @form 
    * @crossplatform
    * @since 10
    */
@@ -66,6 +69,7 @@ declare enum ImageRenderMode {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -81,6 +85,7 @@ declare enum ImageInterpolation {
    */
   /**
    * Do not use interpolated image data.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -97,6 +102,7 @@ declare enum ImageInterpolation {
    */
    /**
    * Low usage of interpolated image data.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -113,6 +119,7 @@ declare enum ImageInterpolation {
    */
   /**
    * Interpolated image data is used moderately.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -129,6 +136,7 @@ declare enum ImageInterpolation {
    */
   /**
    * High usage of interpolated image data may affect the speed of image rendering.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -144,6 +152,7 @@ declare enum ImageInterpolation {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -161,6 +170,7 @@ interface ImageInterface {
    * Set src to obtain images
    * @param { PixelMap | ResourceStr | DrawableDescriptor } src
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -175,6 +185,7 @@ interface ImageInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -190,6 +201,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Placeholder displayed on load
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -207,6 +219,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * match Text Direction
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -223,6 +236,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Indicates whether the image follows the text direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -239,6 +253,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * fill Color
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -255,6 +270,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Sets the zoom type of an image.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -271,6 +287,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Set the repeat style of the picture
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -287,6 +304,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Set the auto style of the picture
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -303,6 +321,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Sets the image rendering mode.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -319,6 +338,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -338,6 +358,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -357,6 +378,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the synchronous or asynchronous mode for image loading.
    * The default parameter type is bool, and the default value is false.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -423,6 +445,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * This callback is triggered when an exception occurs during image loading.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -433,6 +456,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * The field of "message" carries the detailed information of failed image loading.
    * @form
    * @since 9
+   */
+  /**
+   * This callback is triggered when an exception occurs during image loading.
+   * The field of "message" carries the detailed information of failed image loading.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   onError(callback: (event?: { componentWidth: number; componentHeight: number; message: string }) => void): ImageAttribute;
 
@@ -450,6 +480,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -467,6 +498,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  */
 /**
  * Defines Image Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -483,6 +515,7 @@ declare const Image: ImageInterface;
  */
 /**
  * Defines Image Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

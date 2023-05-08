@@ -193,6 +193,7 @@ declare interface SwipeActionOptions {
  */
 /**
  * Values in the list
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -208,6 +209,7 @@ interface ListItemInterface {
    */
   /**
    * Called when an interface is used.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -222,6 +224,7 @@ interface ListItemInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -252,6 +255,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    */
   /**
    * Called when judging whether it is selectable.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -275,6 +279,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    */
   /**
    * Called when the listItem is selected.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -292,6 +297,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  */
 /**
  * Defines ListItem Component instance.
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -308,6 +314,7 @@ declare const ListItemInstance: ListItemAttribute;
  */
 /**
  * Defines ListItem Component.
+ * @form
  * @crossplatform
  * @since 10 
  */

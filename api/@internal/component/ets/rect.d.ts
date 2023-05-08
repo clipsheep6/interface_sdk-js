@@ -24,6 +24,7 @@
  */
 /**
  * Provides an interface for drawing rectangles.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface RectInterface {
    */
   /**
    * Use new function to create Rect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -68,6 +70,7 @@ interface RectInterface {
    */
   /**
    * Called when a rectangle is created.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -95,6 +98,7 @@ interface RectInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -110,7 +114,8 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    */
     /**
    * Called when the fillet width is set.
-   * @crossplatform
+   * @form
+   * @crossplatform 
    * @since 10
    */
   radiusWidth(value: number | string): RectAttribute;
@@ -126,6 +131,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    */
   /**
    * Called when the fillet height is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -142,6 +148,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    */
     /**
    * Called when the fillet size is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -158,5 +165,10 @@ declare const RectInStance: RectAttribute;
 /**
  * @form
  * @since 9
+ */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const RectInstance: RectAttribute;

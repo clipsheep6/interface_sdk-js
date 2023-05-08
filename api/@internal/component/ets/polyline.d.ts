@@ -24,6 +24,7 @@
  */
 /**
  * Provides an interface for drawing polylines.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface PolylineInterface {
    */
   /**
    * Uses new to create Polyline.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ interface PolylineInterface {
    */
   /**
    * Called when using the draw fold.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -69,6 +72,7 @@ interface PolylineInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -84,6 +88,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    */
   /**
    * Called when the polyline is set to pass through the coordinate point list.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -101,6 +106,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  */
 /**
  * Defines Polyline Component.
+ * @form 
  * @crossplatform
  * @since 10
  */
@@ -117,6 +123,7 @@ declare const Polyline: PolylineInterface;
  */
 /**
  * Defines Polyline Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

@@ -24,6 +24,7 @@
  */
 /**
  * Provides an interface for generating QR codes.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface QRCodeInterface {
    */
   /**
    * Called when a QR code is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ interface QRCodeInterface {
  */
 /**
  * Defines the qrcode attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -71,6 +74,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    */
   /**
    * Called when the QR code color is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -87,6 +91,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    */
   /**
    * Called when setting the QR code background color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -104,6 +109,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
  */
 /**
  * Defines QRCode Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -120,6 +126,7 @@ declare const QRCode: QRCodeInterface;
  */
 /**
  * Defines QRCode Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

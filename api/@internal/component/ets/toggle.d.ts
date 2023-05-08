@@ -24,6 +24,7 @@
  */
 /**
  * Declare the type of status button
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum ToggleType {
    */
   /**
    * Checkbox
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare enum ToggleType {
    */
   /**
    * Switch
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare enum ToggleType {
    */
   /**
    * Button
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -88,6 +92,7 @@ declare enum ToggleType {
  */
 /**
  * Defines the toggle interface.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -103,6 +108,7 @@ interface ToggleInterface {
    */
   /**
    * Set parameters to obtain the toggle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -120,6 +126,7 @@ interface ToggleInterface {
  */
 /**
  * Defines the toggle attribute functions
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -135,6 +142,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    */
   /**
    * Called when the selected state of the component changes.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -151,6 +159,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    */
   /**
    * Called when the color of the selected button is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -167,6 +176,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    */
   /**
    * Called when the color of the selected button is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -184,6 +194,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
  */
 /**
  * Defines Toggle Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -200,6 +211,7 @@ declare const Toggle: ToggleInterface;
  */
 /**
  * Defines Toggle Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

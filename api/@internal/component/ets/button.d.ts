@@ -24,6 +24,7 @@
  */
 /**
  * Provides a button component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum ButtonType {
    */
   /**
    * Capsule button (rounded corners default to half the height).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare enum ButtonType {
    */
   /**
    * Round buttons.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare enum ButtonType {
    */
   /**
    * Common button (no rounded corners by default).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -88,6 +92,7 @@ declare enum ButtonType {
  */
 /**
  * Defines the button options.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -103,6 +108,7 @@ declare interface ButtonOptions {
    */
   /**
    * Describes the button style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -119,6 +125,7 @@ declare interface ButtonOptions {
    */
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -136,6 +143,7 @@ declare interface ButtonOptions {
  */
 /**
  * Defines the Button Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -151,6 +159,7 @@ interface ButtonInterface {
    */
   /**
    * Button object
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -167,6 +176,7 @@ interface ButtonInterface {
    */
   /**
    * Create Button with Text child.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -183,6 +193,7 @@ interface ButtonInterface {
    */
   /**
    * Create Button with inner text label.
+   * @form 
    * @crossplatform
    * @since 10
    */
@@ -262,6 +273,7 @@ declare interface LabelStyle {
  */
 /**
  * Defines the button attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -277,6 +289,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Describes the button style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -293,6 +306,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -309,6 +323,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Text color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -325,6 +340,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Text size.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -341,6 +357,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Font weight.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -357,6 +374,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Font style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -373,6 +391,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   /**
    * Font family.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -399,6 +418,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
  */
 /**
  * Defines Button Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -415,6 +435,7 @@ declare const Button: ButtonInterface;
  */
 /**
  * Defines Button Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

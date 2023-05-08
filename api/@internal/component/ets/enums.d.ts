@@ -24,6 +24,7 @@
  */
 /**
  * common enum of color
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum Color {
    */
   /**
    * White.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare enum Color {
    */
   /**
    * Black.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare enum Color {
    */
   /**
    * Blue.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -86,6 +90,7 @@ declare enum Color {
    */
   /**
    * Brown.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -102,6 +107,7 @@ declare enum Color {
    */
   /**
    * Gray.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -118,6 +124,7 @@ declare enum Color {
    */
   /**
    * Green.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -134,6 +141,7 @@ declare enum Color {
    */
   /**
    * Grey.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -150,6 +158,7 @@ declare enum Color {
    */
   /**
    * Orange.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -166,6 +175,7 @@ declare enum Color {
    */
   /**
    * color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -182,6 +192,7 @@ declare enum Color {
    */
   /**
    * Red.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -198,6 +209,7 @@ declare enum Color {
    */
   /**
    * Yellow.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -210,6 +222,7 @@ declare enum Color {
    */
   /**
    * Transparent.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -258,6 +271,7 @@ declare enum ImageFit {
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -274,6 +288,7 @@ declare enum ImageFit {
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -290,6 +305,7 @@ declare enum ImageFit {
    */
   /**
    * Adaptive display
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -306,6 +322,7 @@ declare enum ImageFit {
    */
   /**
    * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -322,6 +339,7 @@ declare enum ImageFit {
    */
   /**
    * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -338,6 +356,7 @@ declare enum ImageFit {
    */
   /**
    * Keep the original size and display it in the center.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -355,6 +374,7 @@ declare enum ImageFit {
  */
 /**
  * Border Style
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -370,6 +390,7 @@ declare enum BorderStyle {
    */
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -386,6 +407,7 @@ declare enum BorderStyle {
    */
   /**
    * Shows as a series of short square dashed lines.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -402,6 +424,7 @@ declare enum BorderStyle {
    */
   /**
    * Shows as a solid line.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -419,6 +442,7 @@ declare enum BorderStyle {
  */
 /**
  * Line Join Style
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -434,6 +458,7 @@ declare enum LineJoinStyle {
    */
   /**
    * Connect path segments using bevels.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -450,6 +475,7 @@ declare enum LineJoinStyle {
    */
   /**
    * Connect path segments using sharp corners.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -466,6 +492,7 @@ declare enum LineJoinStyle {
    */
   /**
    * Connect path segments using fillets.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -483,6 +510,7 @@ declare enum LineJoinStyle {
  */
 /**
  * Function Called by Touch
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -498,6 +526,7 @@ declare enum TouchType {
    */
   /**
    * Triggered when the finger is pressed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -514,6 +543,7 @@ declare enum TouchType {
    */
   /**
    * Triggered when the finger is raised.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -530,6 +560,7 @@ declare enum TouchType {
    */
   /**
    * Triggered when the finger presses on the screen.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -546,6 +577,7 @@ declare enum TouchType {
    */
   /**
    * Triggers when the touch event cancels.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -563,6 +595,7 @@ declare enum TouchType {
  */
 /**
  * Function Called by Mouse
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -578,6 +611,7 @@ declare enum MouseButton {
    */
   /**
    * Mouse Left Button.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -594,6 +628,7 @@ declare enum MouseButton {
    */
   /**
    * Mouse Right Button.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -610,6 +645,7 @@ declare enum MouseButton {
    */
   /**
    * Mouse Middle Button.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -626,6 +662,7 @@ declare enum MouseButton {
    */
   /**
    * Mouse Back Button.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -642,6 +679,7 @@ declare enum MouseButton {
    */
   /**
    * Mouse Forward Button.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -658,6 +696,7 @@ declare enum MouseButton {
    */
   /**
    * Mouse None Button.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -675,6 +714,7 @@ declare enum MouseButton {
  */
 /**
  * Function Called by Mouse
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -690,6 +730,7 @@ declare enum MouseAction {
    */
   /**
    * Triggered when the mouse is pressed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -706,6 +747,7 @@ declare enum MouseAction {
    */
   /**
    * Triggered when the mouse is released.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -722,6 +764,7 @@ declare enum MouseAction {
    */
   /**
    * Triggered when the mouse is Moved.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -738,6 +781,7 @@ declare enum MouseAction {
    */
   /**
    * Triggered when the mouse is Hovered.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -755,6 +799,7 @@ declare enum MouseAction {
  */
 /**
  * Animation status.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -770,6 +815,7 @@ declare enum AnimationStatus {
    */
   /**
    * Initial state of the animation.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -786,6 +832,7 @@ declare enum AnimationStatus {
    */
   /**
    * The animation is playing.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -802,6 +849,7 @@ declare enum AnimationStatus {
    */
   /**
    * The animation is paused.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -818,6 +866,7 @@ declare enum AnimationStatus {
    */
   /**
    * The animation is stopped.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -835,6 +884,7 @@ declare enum AnimationStatus {
  */
 /**
  * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -850,6 +900,7 @@ declare enum Curve {
    */
   /**
    * Indicates that the speed of the animation is the same from start to finish.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -866,6 +917,7 @@ declare enum Curve {
    */
   /**
    * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -882,6 +934,7 @@ declare enum Curve {
    */
   /**
    * Indicates that the animation starts at a low speed, CubicBezier(0.42, 0.0, 1.0, 1.0).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -898,6 +951,7 @@ declare enum Curve {
    */
   /**
    * Indicates that the animation ends at a low speed, CubicBezier(0.0, 0.0, 0.78, 1.0).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -914,6 +968,7 @@ declare enum Curve {
    */
   /**
    * Indicates that the animation starts and ends at a slow speed, CubicBezier(0.42, 0.0, 0.78, 1.0).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -930,6 +985,7 @@ declare enum Curve {
    */
   /**
    * Slow-in, fast-out
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -946,6 +1002,7 @@ declare enum Curve {
    */
   /**
    * Linear Out Slow In
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -962,6 +1019,7 @@ declare enum Curve {
    */
   /**
    * Fast Out Linear In.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -978,6 +1036,7 @@ declare enum Curve {
    */
   /**
    * Extreme Deceleration.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -994,6 +1053,7 @@ declare enum Curve {
    */
   /**
    * Sharp.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1010,6 +1070,7 @@ declare enum Curve {
    */
   /**
    * Rhythm.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1026,6 +1087,7 @@ declare enum Curve {
    */
   /**
    * Smooth.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1042,6 +1104,7 @@ declare enum Curve {
    */
   /**
    * Damping curve, CubicBezier(0.2, 0.0, 0.2, 1.0).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1059,6 +1122,7 @@ declare enum Curve {
  */
 /**
  * Sets the state before and after the animation starts.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1074,6 +1138,7 @@ declare enum FillMode {
    */
   /**
    * Restores to the initial state after the playback is complete.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1090,6 +1155,7 @@ declare enum FillMode {
    */
   /**
    * Retains the state at the end of the animation when the playback is complete.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1106,6 +1172,7 @@ declare enum FillMode {
    */
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1122,6 +1189,7 @@ declare enum FillMode {
    */
   /**
    * Both forward and backward fill modes are applied.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1139,6 +1207,7 @@ declare enum FillMode {
  */
 /**
  * Play Mode
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1154,6 +1223,7 @@ declare enum PlayMode {
    */
   /**
    * The animation plays normally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1170,6 +1240,7 @@ declare enum PlayMode {
    */
   /**
    * The animation plays backwards.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1186,6 +1257,7 @@ declare enum PlayMode {
    */
   /**
    * The animation plays forward on odd numbers (1, 3, 7...) and backward on even numbers (2, 4, 6...).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1202,6 +1274,7 @@ declare enum PlayMode {
    */
   /**
    * The animation plays backwards on odd numbers (1, 3, 7...) and forwards on even numbers (2, 4, 6...)..
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1219,6 +1292,7 @@ declare enum PlayMode {
  */
 /**
  * Type of a key.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1234,6 +1308,7 @@ declare enum KeyType {
    */
   /**
    * Press the key.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1250,6 +1325,7 @@ declare enum KeyType {
    */
   /**
    * The key is released.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1267,6 +1343,7 @@ declare enum KeyType {
  */
 /**
  * Type of the input device that triggers the current key.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1282,6 +1359,7 @@ declare enum KeySource {
    */
   /**
    * The input device type is unknown.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1298,6 +1376,7 @@ declare enum KeySource {
    */
   /**
    * Set Device Type to Keyboard.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1315,6 +1394,7 @@ declare enum KeySource {
  */
 /**
  * Edge.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1330,6 +1410,7 @@ declare enum Edge {
    */
   /**
    * The top is centered horizontally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1354,6 +1435,7 @@ declare enum Edge {
    */
   /**
    * The bottom is centered horizontally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1378,6 +1460,7 @@ declare enum Edge {
    */
   /**
    * Align the head of the cross axis direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1401,6 +1484,7 @@ declare enum Edge {
    */
   /**
    * Align the head of the cross axis direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1418,6 +1502,7 @@ declare enum Edge {
  */
 /**
  * Set Weekend
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1433,6 +1518,7 @@ declare enum Week {
    */
   /**
    * Monday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1449,6 +1535,7 @@ declare enum Week {
    */
   /**
    * Tuesday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1465,6 +1552,7 @@ declare enum Week {
    */
   /**
    * Wednesday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1481,6 +1569,7 @@ declare enum Week {
    */
   /**
    * Thursday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1497,6 +1586,7 @@ declare enum Week {
    */
   /**
    * Friday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1513,6 +1603,7 @@ declare enum Week {
    */
   /**
    * Saturday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1529,6 +1620,7 @@ declare enum Week {
    */
   /**
    * Sunday.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1546,6 +1638,7 @@ declare enum Week {
  */
 /**
  * Sets the horizontal layout of elements.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1561,6 +1654,7 @@ declare enum Direction {
    */
   /**
    * Elements are laid out from left to right.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1577,6 +1671,7 @@ declare enum Direction {
    */
   /**
    * Elements are laid out from right to left.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1593,6 +1688,7 @@ declare enum Direction {
    */
   /**
    * Use the default layout direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1610,6 +1706,7 @@ declare enum Direction {
  */
 /**
  * Used to set the status of the scroll bar.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1625,6 +1722,7 @@ declare enum BarState {
    */
   /**
    * Not displayed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1641,6 +1739,7 @@ declare enum BarState {
    */
   /**
    * On-demand display (displayed when you touch it and disappears after 2 seconds).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1657,6 +1756,7 @@ declare enum BarState {
    */
   /**
    * Resident display.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1674,6 +1774,7 @@ declare enum BarState {
  */
 /**
  * Sliding effect
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1689,6 +1790,7 @@ declare enum EdgeEffect {
    */
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1705,6 +1807,7 @@ declare enum EdgeEffect {
    */
   /**
    * Fade.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1721,6 +1824,7 @@ declare enum EdgeEffect {
    */
   /**
    * Sliding to the edge has no effect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1738,6 +1842,7 @@ declare enum EdgeEffect {
  */
 /**
  * Alignment enumeration description.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1753,6 +1858,7 @@ declare enum Alignment {
    */
   /**
    * Top Start.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1769,6 +1875,7 @@ declare enum Alignment {
    */
   /**
    * The top is centered horizontally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1785,6 +1892,7 @@ declare enum Alignment {
    */
   /**
    * Top tail end.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1801,6 +1909,7 @@ declare enum Alignment {
    */
   /**
    * The starting end is centered longitudinally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1817,6 +1926,7 @@ declare enum Alignment {
    */
   /**
    * Center horizontal and vertical.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1833,6 +1943,7 @@ declare enum Alignment {
    */
   /**
    * The tail end is centered longitudinally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1849,6 +1960,7 @@ declare enum Alignment {
    */
   /**
    * Bottom starting end.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1865,6 +1977,7 @@ declare enum Alignment {
    */
   /**
    * The bottom is centered horizontally.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1881,6 +1994,7 @@ declare enum Alignment {
    */
   /**
    * Bottom end.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1898,6 +2012,7 @@ declare enum Alignment {
  */
 /**
  * TransitionType enumeration description.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1913,6 +2028,7 @@ declare enum TransitionType {
    */
   /**
    * Specifies that the current transition action takes effect in all change scenarios of the component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1929,6 +2045,7 @@ declare enum TransitionType {
    */
   /**
    * Specifies the insertion scenario in which the current transition action takes effect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1945,6 +2062,7 @@ declare enum TransitionType {
    */
   /**
    * Specifies the deletion scenario in which the current transition action takes effect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1962,6 +2080,7 @@ declare enum TransitionType {
  */
 /**
  * RelateType enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -1977,6 +2096,7 @@ declare enum RelateType {
    */
   /**
    * Scales the current component to fill the parent component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1993,6 +2113,7 @@ declare enum RelateType {
    */
   /**
    * Scales the current component to fit the parent component.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2010,6 +2131,7 @@ declare enum RelateType {
  */
 /**
  * Controls the display or hide of the current component
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2025,6 +2147,7 @@ declare enum Visibility {
    */
   /**
    * Show
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2041,6 +2164,7 @@ declare enum Visibility {
    */
   /**
    * Hide, but participate in layout for placeholder.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2057,6 +2181,7 @@ declare enum Visibility {
    */
   /**
    * Hides but does not participate in layout and does not take place.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2074,6 +2199,7 @@ declare enum Visibility {
  */
 /**
  * LineCapStyle enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2089,6 +2215,7 @@ declare enum LineCapStyle {
    */
   /**
    * The two ends of the dividing line are parallel lines.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2105,6 +2232,7 @@ declare enum LineCapStyle {
    */
   /**
    * The two ends of the dividing line are semicircles.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2121,6 +2249,7 @@ declare enum LineCapStyle {
    */
   /**
    * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2138,6 +2267,7 @@ declare enum LineCapStyle {
  */
 /**
  * Axis enumeration description.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2153,6 +2283,7 @@ declare enum Axis {
    */
   /**
    * Longitudinal arrangement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2169,6 +2300,7 @@ declare enum Axis {
    */
   /**
    * Horizontal arrangement.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2186,6 +2318,7 @@ declare enum Axis {
  */
 /**
  * HorizontalAlign enumeration description.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2201,6 +2334,7 @@ declare enum HorizontalAlign {
    */
   /**
    * Aligns the start end in the language direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2217,6 +2351,7 @@ declare enum HorizontalAlign {
    */
   /**
    * Center alignment. The default alignment mode is used.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2233,6 +2368,7 @@ declare enum HorizontalAlign {
    */
   /**
    * Aligns the ends in the language direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2250,6 +2386,7 @@ declare enum HorizontalAlign {
  */
 /**
  * FlexAlign enumeration description.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2268,6 +2405,7 @@ declare enum FlexAlign {
   /**
    * The element is aligned at the head of the principal axis,
    * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2287,6 +2425,7 @@ declare enum FlexAlign {
   /**
    * The elements are centered in the direction of the principal axis,
    * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2306,6 +2445,7 @@ declare enum FlexAlign {
   /**
    * The element is aligned at the tail of the principal axis,
    * the last element is aligned at the end of the row, and the other elements are aligned with the next.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2328,6 +2468,7 @@ declare enum FlexAlign {
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
    * with the same distance between adjacent elements.
    * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2350,6 +2491,7 @@ declare enum FlexAlign {
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
    *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
    * the first element and the distance between the last element and the end of the row.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2372,6 +2514,7 @@ declare enum FlexAlign {
    * Elements in the Flex axis direction are evenly spaced.
    * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
    * and the spacing between the last element and the end of the row are the same.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2389,6 +2532,7 @@ declare enum FlexAlign {
  */
 /**
  * ItemAlign enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2404,6 +2548,7 @@ declare enum ItemAlign {
    */
   /**
    * Use the default configuration in the Flex container.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2420,6 +2565,7 @@ declare enum ItemAlign {
    */
   /**
    * The element is in the Flex container with the cross-axis direction head aligned.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2436,6 +2582,7 @@ declare enum ItemAlign {
    */
   /**
    * The element is centered in the Flex container with the cross axis direction aligned.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2452,6 +2599,7 @@ declare enum ItemAlign {
    */
   /**
    * The element is bottom aligned in the Flex container with the cross axis direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2468,6 +2616,7 @@ declare enum ItemAlign {
    */
   /**
    * Element In the Flex container, the cross-axis direction text baseline is aligned.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2484,6 +2633,7 @@ declare enum ItemAlign {
    */
   /**
    * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2501,6 +2651,7 @@ declare enum ItemAlign {
  */
 /**
  * FlexDirection enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2516,6 +2667,7 @@ declare enum FlexDirection {
    */
   /**
    * The main axis is consistent with the row direction as the layout mode.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2532,6 +2684,7 @@ declare enum FlexDirection {
    */
   /**
    * The main axis is consistent with the column direction as the layout mode.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2548,6 +2701,7 @@ declare enum FlexDirection {
    */
   /**
    * The layout is in the opposite direction to the Row direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2564,6 +2718,7 @@ declare enum FlexDirection {
    */
   /**
    * Layout in the opposite direction to the column.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2581,6 +2736,7 @@ declare enum FlexDirection {
  */
 /**
  * FlexWrap enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2596,6 +2752,7 @@ declare enum FlexWrap {
    */
   /**
    * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2612,6 +2769,7 @@ declare enum FlexWrap {
    */
   /**
    * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2628,6 +2786,7 @@ declare enum FlexWrap {
    */
   /**
    * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2645,6 +2804,7 @@ declare enum FlexWrap {
  */
 /**
  * VerticalAlign enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2660,6 +2820,7 @@ declare enum VerticalAlign {
    */
   /**
    * Top alignment.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2676,6 +2837,7 @@ declare enum VerticalAlign {
    */
   /**
    * Center alignment. The default alignment mode is used.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2692,6 +2854,7 @@ declare enum VerticalAlign {
    */
   /**
    * Bottom alignment.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2709,6 +2872,7 @@ declare enum VerticalAlign {
  */
 /**
  * ImageRepeat enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2724,6 +2888,7 @@ declare enum ImageRepeat {
    */
   /**
    * Do not draw the picture again.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2740,6 +2905,7 @@ declare enum ImageRepeat {
    */
   /**
    * Repeat the drawing only on the horizontal axis.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2756,6 +2922,7 @@ declare enum ImageRepeat {
    */
   /**
    * Repeat the drawing only on the vertical axis.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2772,6 +2939,7 @@ declare enum ImageRepeat {
    */
   /**
    * Draw the picture repeatedly on both axes.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2789,6 +2957,7 @@ declare enum ImageRepeat {
  */
 /**
  * ImageSize enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2804,6 +2973,7 @@ declare enum ImageSize {
    */
   /**
    * Keep the scale of the original image unchanged.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2820,6 +2990,7 @@ declare enum ImageSize {
    */
   /**
    * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2836,6 +3007,7 @@ declare enum ImageSize {
    */
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2853,6 +3025,7 @@ declare enum ImageSize {
  */
 /**
  * GradientDirection enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2868,6 +3041,7 @@ declare enum GradientDirection {
    */
   /**
    * Right to left.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2884,6 +3058,7 @@ declare enum GradientDirection {
    */
   /**
    * From the bottom up.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2900,6 +3075,7 @@ declare enum GradientDirection {
    */
   /**
    * From left to right.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2916,6 +3092,7 @@ declare enum GradientDirection {
    */
   /**
    * From the top down.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2932,6 +3109,7 @@ declare enum GradientDirection {
    */
   /**
    * Top Left
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2948,7 +3126,8 @@ declare enum GradientDirection {
    */
   /**
    * Left Bottom
-   * @crossplatform
+   * @form
+   * @crossplatform 
    * @since 10
    */
   LeftBottom,
@@ -2964,6 +3143,7 @@ declare enum GradientDirection {
    */
   /**
    * Right Top
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2980,6 +3160,7 @@ declare enum GradientDirection {
    */
   /**
    * Right Bottom
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2996,6 +3177,7 @@ declare enum GradientDirection {
    */
   /**
    * None
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3013,6 +3195,7 @@ declare enum GradientDirection {
  */
 /**
  * SharedTransitionEffectType enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3031,6 +3214,7 @@ declare enum SharedTransitionEffectType {
   /**
    * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
    * only the static effect configured for redirecting to the target page takes effect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3047,6 +3231,7 @@ declare enum SharedTransitionEffectType {
    */
   /**
    * Move the source page element to the destination page element location and scale it appropriately.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3064,6 +3249,7 @@ declare enum SharedTransitionEffectType {
  */
 /**
  * Text style
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3079,6 +3265,7 @@ declare enum FontStyle {
    */
   /**
    * Default style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3095,6 +3282,7 @@ declare enum FontStyle {
    */
   /**
    * Italic style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3112,6 +3300,7 @@ declare enum FontStyle {
  */
 /**
  * The font weight of the text
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3127,6 +3316,7 @@ declare enum FontWeight {
    */
   /**
    * Defines a lighter value than [Inherited Value]..
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3143,6 +3333,7 @@ declare enum FontWeight {
    */
   /**
    * Normal font. Equivalent to a digital value of 400.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3159,6 +3350,7 @@ declare enum FontWeight {
    */
   /**
    * Defines a more general value than [Inherited Value].
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3175,6 +3367,7 @@ declare enum FontWeight {
    */
   /**
    * Defines a value that is more centered than [Inherited Value].
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3191,6 +3384,7 @@ declare enum FontWeight {
    */
   /**
    * Bold. Equivalent to a numeric value of 700.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3207,6 +3401,7 @@ declare enum FontWeight {
    */
    /**
    * Defines a value that is heavier than [Inherited Value].
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3224,6 +3419,7 @@ declare enum FontWeight {
  */
 /**
  * Alignment of text.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3239,6 +3435,7 @@ declare enum TextAlign {
    */
   /**
    * Center the text.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3255,6 +3452,7 @@ declare enum TextAlign {
    */
   /**
    * The text is aligned in the same direction as the writing
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3271,6 +3469,7 @@ declare enum TextAlign {
    */
   /**
    * The text is aligned in the opposite direction of writing
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3296,6 +3495,7 @@ declare enum TextAlign {
  */
 /**
  * Declare how text overflows.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3311,6 +3511,7 @@ declare enum TextOverflow {
    */
   /**
    * When the text overflows its dimensions, the text will not be cropped.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3327,6 +3528,7 @@ declare enum TextOverflow {
    */
   /**
    * When the text overflows its dimensions, the text will be cropped and displayed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3343,6 +3545,7 @@ declare enum TextOverflow {
    */
   /**
    * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3368,6 +3571,7 @@ declare enum TextOverflow {
  */
 /**
  * Type of text modifier.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3383,6 +3587,7 @@ declare enum TextDecorationType {
    */
   /**
    * Do not use text decorative lines.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3399,6 +3604,7 @@ declare enum TextDecorationType {
    */
   /**
    * Underline the words.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3415,6 +3621,7 @@ declare enum TextDecorationType {
    */
   /**
    * Text is in all uppercase.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3431,6 +3638,7 @@ declare enum TextDecorationType {
    */
   /**
    * A modifier line that passes through the text.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3448,6 +3656,7 @@ declare enum TextDecorationType {
  */
 /**
  * Letter type in text
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3463,6 +3672,7 @@ declare enum TextCase {
    */
   /**
    * The default is normal.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3479,6 +3689,7 @@ declare enum TextCase {
    */
   /**
    * The text is all lowercase.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3495,6 +3706,7 @@ declare enum TextCase {
    */
   /**
    * The text is all uppercase.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3549,6 +3761,7 @@ declare enum TextHeightAdaptivePolicy {
  */
 /**
  * ResponseType for contextMenu
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3564,6 +3777,7 @@ declare enum ResponseType {
    */
   /**
    * Right click.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3580,6 +3794,7 @@ declare enum ResponseType {
    */
   /**
    * Long press.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3597,6 +3812,7 @@ declare enum ResponseType {
  */
 /**
  * HoverEffect enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3612,6 +3828,7 @@ declare enum HoverEffect {
    */
   /**
    * Default effect
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3628,6 +3845,7 @@ declare enum HoverEffect {
    */
   /**
    * Zoom in and out effect
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3644,6 +3862,7 @@ declare enum HoverEffect {
    */
   /**
    * Highlight effect
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3660,6 +3879,7 @@ declare enum HoverEffect {
    */
   /**
    * None effect
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3677,6 +3897,7 @@ declare enum HoverEffect {
  */
 /**
  * Placement enumeration description
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3692,6 +3913,7 @@ declare enum Placement {
    */
   /**
    * Left placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3708,6 +3930,7 @@ declare enum Placement {
    */
   /**
    * Right placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3724,6 +3947,7 @@ declare enum Placement {
    */
   /**
    * Top placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3740,6 +3964,7 @@ declare enum Placement {
    */
   /**
    * Bottom placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3756,6 +3981,7 @@ declare enum Placement {
    */
   /**
    * TopLeft placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3772,6 +3998,7 @@ declare enum Placement {
    */
   /**
    * TopRight placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3788,6 +4015,7 @@ declare enum Placement {
    */
   /**
    * BottomLeft placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3804,6 +4032,7 @@ declare enum Placement {
    */
   /**
    * BottomRight placement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -3814,12 +4043,24 @@ declare enum Placement {
    * @form
    * @since 9
    */
+  /**
+   * LeftTop placement
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   LeftTop,
 
   /**
    * LeftBottom placement
    * @form
    * @since 9
+   */
+  /**
+   * LeftBottom placement
+   * @form
+   * @crossplatform
+   * @since 10
    */
   LeftBottom,
 
@@ -3828,12 +4069,24 @@ declare enum Placement {
    * @form
    * @since 9
    */
+  /**
+   * RightTop placement
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   RightTop,
 
   /**
    * RightBottom placement
    * @form
    * @since 9
+   */
+  /**
+   * RightBottom placement
+   * @form
+   * @crossplatform
+   * @since 10
    */
   RightBottom,
 }
@@ -3843,11 +4096,23 @@ declare enum Placement {
  * @form
  * @since 9
  */
+/**
+ * Indicates the share option.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum CopyOptions {
   /**
    * Not allow share.
    * @form
    * @since 9
+   */
+  /**
+   * Not allow share.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   None = 0,
 
@@ -3856,12 +4121,24 @@ declare enum CopyOptions {
    * @form
    * @since 9
    */
+  /**
+   * Share in app.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   InApp = 1,
 
   /**
    * Share in local device.
    * @form
    * @since 9
+   */
+  /**
+   * Share in local device.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   LocalDevice = 2,
 }
@@ -3871,7 +4148,19 @@ declare enum CopyOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the hit test mode.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum HitTestMode {
+  /**
+   * Both self and children nodes respond to the hit test for touch events,
+   * but block hit test of the other nodes which is masked by this node.
+   * @form
+   * @since 9
+   */
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
@@ -3884,7 +4173,8 @@ declare enum HitTestMode {
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
    * @form
-   * @since 9
+   * @crossplatform
+   * @since 10
    */
   Block,
 
@@ -3894,6 +4184,13 @@ declare enum HitTestMode {
    * @form
    * @since 9
    */
+  /**
+   * Self and children respond to the hit test for touch events,
+   * and allow hit test of other nodes which is masked by this node.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Transparent,
 
   /**
@@ -3901,6 +4198,13 @@ declare enum HitTestMode {
    * but children respond to the hit test for touch events.
    * @form
    * @since 9
+   */
+  /**
+   * Self not respond to the hit test for touch events,
+   * but children respond to the hit test for touch events.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   None,
 }
@@ -3910,19 +4214,36 @@ declare enum HitTestMode {
  * @form
  * @since 9
  */
+/**
+ * Title height.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum TitleHeight {
   /**
    * Title height when only main title is available.
    * @form
    * @since 9
    */
-    /**
+  /**
+   * Title height when only main title is available.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   MainOnly,
 
   /**
    * Title height when main title and subtitle are both available.
    * @form
    * @since 9
+   */
+  /**
+   * Title height when main title and subtitle are both available.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   MainWithSub,
 }
@@ -3936,17 +4257,20 @@ declare enum TitleHeight {
 declare enum CtrlKey {
   /**
    * ctrl.
+   * @crossplatform
    * @since 10
    */
   CTRL = 0,
 
   /**
    * shift.
+   * @crossplatform
    * @since 10
    */
   SHIFT = 1,
   /**
    * alt.
+   * @crossplatform
    * @since 10
    */
   ALT = 2,

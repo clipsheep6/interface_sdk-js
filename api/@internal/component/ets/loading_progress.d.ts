@@ -24,6 +24,7 @@
  */
 /**
  * Load style of progress bar.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum LoadingProgressStyle {
    */
   /**
    * Default style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare enum LoadingProgressStyle {
    */
   /**
    * Announcement style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare enum LoadingProgressStyle {
    */
   /**
    * The style of the track.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -88,6 +92,7 @@ declare enum LoadingProgressStyle {
  */
 /**
  * Provides an interface for extending the loading progress.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -103,6 +108,7 @@ interface LoadingProgressInterface {
    */
   /**
    * Called when the progress bar progress is viewed.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -120,6 +126,7 @@ interface LoadingProgressInterface {
  */
 /**
  * Declare the progress bar being loaded
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -135,6 +142,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    */
   /**
    * Load the color of the progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -152,6 +160,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
  */
 /**
  * Defines LoadingProgress Component. 
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -168,6 +177,7 @@ declare const LoadingProgress: LoadingProgressInterface;
  */
 /**
  * Loading Progress Extensions on Declarative Classes
+ * @form
  * @crossplatform
  * @since 10
  */

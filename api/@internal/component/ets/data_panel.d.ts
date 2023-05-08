@@ -25,6 +25,7 @@
  */
 /**
  * DataPanelType enum
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -40,6 +41,7 @@ declare enum DataPanelType {
    */
   /**
    * Line Type
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ declare enum DataPanelType {
    */
   /**
    * Line Rainbow
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -164,6 +167,7 @@ declare interface DataPanelShadowOption {
  */
 /**
  * Defines the options of DataPanel.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -179,6 +183,7 @@ declare interface DataPanelOptions {
    */
   /**
    * Current data value. the max length is 9.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -195,6 +200,7 @@ declare interface DataPanelOptions {
    */
   /**
    * Maximum value of the current data.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -211,6 +217,7 @@ declare interface DataPanelOptions {
    */
   /**
    * DataPanel Type
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -228,6 +235,7 @@ declare interface DataPanelOptions {
  */
 /**
  * Defines the DataPanel component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -243,6 +251,7 @@ interface DataPanelInterface {
    */
   /**
    * Return a DataPanel.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -260,6 +269,7 @@ interface DataPanelInterface {
  */
 /**
  * Defines the DataPanel attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -275,6 +285,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    */
   /**
    * Disable the special effect of the data ratio chart.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -328,6 +339,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  */
 /**
  * Defines DataPanel Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -344,6 +356,7 @@ declare const DataPanel: DataPanelInterface
  */
 /**
  * Defines DataPanel Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

@@ -24,6 +24,7 @@
  */
 /**
  * Defines the options of Checkbox.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare interface CheckboxOptions {
    */
   /**
    * Current name of Checkbox.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare interface CheckboxOptions {
    */
   /**
    * Sets the group of Checkbox.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -72,6 +75,7 @@ declare interface CheckboxOptions {
  */
 /**
  * Provides an interface for the Checkbox component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -90,6 +94,7 @@ interface CheckboxInterface {
   /**
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -107,6 +112,7 @@ interface CheckboxInterface {
  */
 /**
  * Defines the attribute functions of Checkbox.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -122,6 +128,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    */
   /**
    * setting whether checkbox is selected.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -138,6 +145,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    */
   /**
    * setting the display color of checkbox.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -172,6 +180,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    */
   /**
    * Called when the selection status changes.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -189,6 +198,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
  */
 /**
  * Defines Checkbox Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -205,6 +215,7 @@ declare const Checkbox: CheckboxInterface;
  */
 /**
  * Defines Checkbox Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

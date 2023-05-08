@@ -33,6 +33,7 @@
  *    two configurations are supported:
  * "evenodd": odd and even round rule
  * "nonzero": (Default) Non-zero Wrap Rules
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -61,6 +62,7 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
  * "round": Segment ends in a circle
  * "square": The end of the segment ends in a square, but a rectangular area is added that is the same width
  *    as the segment and is half the thickness of the segment.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -98,6 +100,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
  *    so that they intersect at a point.
  * "round": Draw the shape of the corner by filling in an additional sector with the center at the end of the
  *    connected section. The radius of the fillet is the width of the segment.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -123,6 +126,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
  * "inherit": (Default) Inherit current Canvas component settings
  * "ltr": The text direction is left to right.
  * "rtl": The text direction is from right to left.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -160,6 +164,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
  * "right": The text is right-aligned.
  * "start": (Default) Where the text snap line begins (Left alignment refers to the local from left to right,
  *    and right alignment refers to the local from right to left)
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -200,6 +205,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  *    baseline, the ideographic baseline is at the bottom of the character itself.
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -225,6 +231,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
  * "high": height
  * "low": (default)low
  * "medium": medium
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -241,6 +248,7 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
  */
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -265,6 +273,7 @@ declare class CanvasGradient {
    * @param number Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
    * @param string CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
    *    a SYNTAX_ERR error is thrown.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -282,6 +291,7 @@ declare class CanvasGradient {
  */
 /**
  * Path object, which provides basic methods for drawing paths.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -318,6 +328,7 @@ declare class CanvasPath {
    * @param endAngle The end point of the arc, in radians.
    * @param counterclockwise If the value is true, the arc is drawn counterclockwise. Otherwise,
    *    the arc is drawn clockwise. The default value is false.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -349,6 +360,7 @@ declare class CanvasPath {
    * @param x2 The x-axis coordinate of the second control point.
    * @param y2 The y-axis coordinate of the second control point.
    * @param radius Radius of the arc.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -383,6 +395,7 @@ declare class CanvasPath {
    * @param cp2y The y-axis coordinate of the second control point.
    * @param x x-axis coordinate of the end point.
    * @param y y-axis coordinate of the end point.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -399,6 +412,7 @@ declare class CanvasPath {
    */
   /**
    * Returns the pen point to the start point of the current sub-path
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -445,6 +459,7 @@ declare class CanvasPath {
    * @param endAngle The angle, in radians, at which the ellipse is to be drawn (not angular degrees).
    * @param counterclockwise If the value is true, the ellipse is drawn counterclockwise. Otherwise,
    *    the ellipse is drawn clockwise. The default value is false.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -476,6 +491,7 @@ declare class CanvasPath {
    * Connect sub-path using straight lines
    * @param x The x-axis coordinate of the end point of the line.
    * @param y The y-axis coordinate of the end point of the line.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -498,6 +514,7 @@ declare class CanvasPath {
    * Moves the start point of a new sub-path to the (x, y) coordinate.
    * @param x The x-axis coordinate of the point.
    * @param y The y-axis coordinate of the point.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -526,6 +543,7 @@ declare class CanvasPath {
    * @param cpy The y-axis coordinate of the control point.
    * @param x x-axis coordinate of the end point.
    * @param y y-axis coordinate of the end point.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -554,6 +572,7 @@ declare class CanvasPath {
    * @param y The y-axis coordinate of the start point of the rectangle.
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -571,6 +590,7 @@ declare class CanvasPath {
  */
 /**
  * 2D path object for path drawing
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -592,6 +612,7 @@ declare class Path2D extends CanvasPath {
    * Adds a path according to the specified path variable.
    * @param path Indicates the path object to be added.
    * @param transform Transformation matrix of the new trail
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -608,6 +629,7 @@ declare class Path2D extends CanvasPath {
    */
   /**
    * Create an empty path object.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -627,6 +649,7 @@ declare class Path2D extends CanvasPath {
   /**
    * Create a copy of a path object
    * @param path Path object to be copied
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -646,6 +669,7 @@ declare class Path2D extends CanvasPath {
   /**
    * Create a new path according to the description.
    * @param d Indicates the path string that compiles with the SVG path description specifications.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -663,6 +687,7 @@ declare class Path2D extends CanvasPath {
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -679,6 +704,7 @@ declare type CanvasPattern = import('../api/@internal/full/canvaspattern').Canva
  */
 /**
  * Size information of the text
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -697,6 +723,7 @@ declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of
    *    the rectangular boundary of the rendered text.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -716,6 +743,7 @@ declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the bottom of
    *    the rectangular boundary of the rendered text.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -735,6 +763,7 @@ declare interface TextMetrics {
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the left of the text rectangle boundary.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -754,6 +783,7 @@ declare interface TextMetrics {
   /**
    * Double, parallel to the baseline, distance from the alignment point determined by the textAlign property to
    *    the right of the text rectangle boundary.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -773,6 +803,7 @@ declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the alphabetic baseline of
    *    the wireframe.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -792,6 +823,7 @@ declare interface TextMetrics {
   /**
    * Double, the distance from the horizontal line indicated by the textBaseline property to the top of the
    *    em square in the wireframe.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -811,6 +843,7 @@ declare interface TextMetrics {
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *    em box in the wireframe.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -830,6 +863,7 @@ declare interface TextMetrics {
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the top of the
    *    highest rectangle boundary of all fonts rendering text.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -849,6 +883,7 @@ declare interface TextMetrics {
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to the bottom of the
    *   rectangular boundary of all fonts rendering text.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -868,6 +903,7 @@ declare interface TextMetrics {
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the hanging baseline of the wireframe.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -887,6 +923,7 @@ declare interface TextMetrics {
   /**
    * Double, distance from the horizontal line indicated by the textBaseline property to
    *    the ideographic baseline of the wireframe.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -903,6 +940,7 @@ declare interface TextMetrics {
    */
   /**
    * Indicates the width of a character string. The value is of the double type.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -919,6 +957,7 @@ declare interface TextMetrics {
    */
   /**
    * Indicates the height of a character string. The value is of the double type.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -936,6 +975,7 @@ declare interface TextMetrics {
  */
 /**
  * Bitmap image object that can be drawn onto the current Canvas
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -951,6 +991,7 @@ declare class ImageBitmap {
    */
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -967,6 +1008,7 @@ declare class ImageBitmap {
    */
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -983,6 +1025,7 @@ declare class ImageBitmap {
    */
   /**
    * Releases all graphics resources associated with an ImageBitmap.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1002,6 +1045,7 @@ declare class ImageBitmap {
   /**
    * Create an ImageBitmap object based on the transferred image path.
    * @param src Path of the image object.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1015,6 +1059,7 @@ declare class ImageBitmap {
   /**
    * Transfer a PixelMap object to construct an ImageBitmap object.
    * @param data PixelMap object
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1032,6 +1077,7 @@ declare class ImageBitmap {
  */
 /**
  * Image data object
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -1047,6 +1093,7 @@ declare class ImageData {
    */
   /**
    * Array containing image pixel data
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1063,6 +1110,7 @@ declare class ImageData {
    */
   /**
    * Width of the image.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1079,6 +1127,7 @@ declare class ImageData {
    */
   /**
    * Height of the image.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1104,6 +1153,7 @@ declare class ImageData {
    * @param width Width of the image.
    * @param height Height of the image.
    * @param data Data of the image. If this parameter is not specified, the default value is a black rectangular image.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1121,6 +1171,7 @@ declare class ImageData {
  */
 /**
  * This object allows you to set properties when creating a rendering context
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -1136,6 +1187,7 @@ declare class RenderingContextSettings {
    */
   /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1155,6 +1207,7 @@ declare class RenderingContextSettings {
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
    * @param antialias Indicates whether anti-aliasing is enabled for canvas
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1172,6 +1225,7 @@ declare class RenderingContextSettings {
  */
 /**
  * Canvas renderer for drawing shapes, text, images and other objects
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -1190,6 +1244,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    The default value is 1.0. If the value is out of range, the assignment is invalid.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1299,6 +1354,7 @@ declare class CanvasRenderer extends CanvasPath {
    * color: The luminance (luma) of the bottom layer is retained while the hue (hue) and chroma (chroma) of
    *    the top layer are used.
    * luminosity: The hue and chroma of the bottom layer are maintained while the luminance of the top layer is used.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1324,6 +1380,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param image Picture objects drawn to the canvas.
    * @param dx x-axis coordinate of the upper left corner of the image on the target canvas.
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1355,6 +1412,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
    * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1398,6 +1456,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
    * @param dw Specifies the drawing width of the image on the target canvas. The width of the drawn image will be scaled.
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -1424,6 +1483,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Clear the sub-path list and start a new path.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1443,6 +1503,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Sets the currently created path as the current clipping path
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1465,6 +1526,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Tailoring according to the specified path
    * @param path Path to be cut.
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1484,6 +1546,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Fills existing paths according to the current fill style.
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1506,6 +1569,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Fills the specified path according to the current fill style
    * @param path Path to be filled.
    * @param fillRule Algorithm rule. For details, see {@link CanvasFillRule}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1522,6 +1586,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Draws an existing path according to the current stroke style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1541,6 +1606,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified path according to the current stroke style
    * @param path Specified stroke path object
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1569,6 +1635,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @param path Specified stroke path object
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1597,6 +1664,7 @@ declare class CanvasRenderer extends CanvasPath {
    * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
    * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
    * @param path Specified stroke path object
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1625,6 +1693,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y0 The y-axis coordinate of the start point.
    * @param x1 x-axis coordinate of the end point.
    * @param y1 y-axis coordinate of the end point.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1697,6 +1766,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param x1 The x-axis coordinate of the end circle.
    * @param y1 The y-axis coordinate of the end circle.
    * @param r1 Radius of the end circle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1796,6 +1866,7 @@ declare class CanvasRenderer extends CanvasPath {
    * sepia(<percentage>)：The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
    *    When the value is 0%, there is no change in the image.
    * none：Turn off filter effects
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1818,6 +1889,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Creates a new, empty ImageData object of the specified size
    * @param sw Width of the ImageData object.
    * @param sh Height of the ImageData object.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1840,6 +1912,7 @@ declare class CanvasRenderer extends CanvasPath {
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
    * @param imagedata ImageData object to be copied.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1868,6 +1941,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param sy y coordinate of the upper left corner of the rectangular area of the image data to be extracted.
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1887,6 +1961,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
    * @param sw The width of the rectangular area of the PixelMap to be extracted.
    * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1912,6 +1987,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param imagedata ImageData object to be drawn.
    * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param dy Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1961,6 +2037,7 @@ declare class CanvasRenderer extends CanvasPath {
    *    The default is the width of the image data.
    * @param dirtyHeight Height of the rectangular area in the source image data.
    *    The default is the height of the image data.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -1988,6 +2065,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Specifies whether to smooth the image. The value true indicates that the image is smooth (default value).
    *    The value false indicates that the image is not smooth.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2004,6 +2082,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2020,6 +2099,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2036,6 +2116,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Dotted line offset attribute. The default value is 0.0.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2052,6 +2133,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Line segment connection point attribute. For details, see {@link CanvasLineJoin}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2068,6 +2150,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Line thickness attribute. The value cannot be 0 or a negative number.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2084,6 +2167,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * The value of this parameter cannot be 0 or a negative number.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2100,6 +2184,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Gets the current segment style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2122,6 +2207,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Sets the dashed line mode for line drawing.
    * @param segments A set of numbers that describe the length of alternating drawn lines segments and
    *    spacing (coordinate space units).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2150,6 +2236,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y The y-axis coordinate of the start point of the rectangle.
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2178,6 +2265,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y The y-axis coordinate of the start point of the rectangle.
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2206,6 +2294,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y The y-axis coordinate of the start point of the rectangle.
    * @param w Width of the rectangle.
    * @param h Height of the rectangle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2222,6 +2311,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Shadow blur radius. The default value is 0. The value cannot be a negative number.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2238,6 +2328,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Shadow color. The default value is transparent black.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2254,6 +2345,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Horizontal offset distance of the shadow. The default value is 0.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2270,6 +2362,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Vertical offset distance of the shadow. The default value is 0.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2286,6 +2379,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Top of the stack pop-up state in the drawing state stack
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2302,6 +2396,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Saves the current drawing state to the drawing state stack
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2330,6 +2425,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param x The x-axis coordinate of the start point of the text.
    * @param y The y-axis coordinate of the start point of the text.
    * @param maxWidth Maximum width of the drawing.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2349,6 +2445,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Measure the size of a specified text. For details about the return value, see {@link TextMetrics}.
    * @param text Text string to be measured.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2377,6 +2474,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param x The x-axis coordinate of the start point of the text.
    * @param y The y-axis-axis coordinate of the start point of the text.
    * @param maxWidth Maximum width of the stroke.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2393,6 +2491,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Text drawing direction. For details, see {@link CanvasDirection}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2409,6 +2508,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Font style. The default value is 10px sans-serif.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2425,6 +2525,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Text alignment mode. For details, see {@link CanvasTextAlign}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2441,6 +2542,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Text baseline. For details, see {@link CanvasTextBaseline}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2457,6 +2559,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Obtains the currently applied transformation matrix.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2473,6 +2576,7 @@ declare class CanvasRenderer extends CanvasPath {
    */
   /**
    * Resets the current transformation matrix using the identity matrix
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2495,6 +2599,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Adds the effect of a rotation
    * @param angle The radian of clockwise rotation, which can be converted to an angle value using the formula:
    *    degree * Math.PI / 180
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2517,6 +2622,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Increases the scaling effect of the X and Y axes.
    * @param x Horizontal scaling factor
    * @param y Vertical scaling factor
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2554,6 +2660,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param d Vertical Zoom
    * @param e Horizontal movement
    * @param f Vertical movement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2576,6 +2683,7 @@ declare class CanvasRenderer extends CanvasPath {
    * The 2D transformation effect is added. The current transformation matrix is not overwritten and
    *    the transformations are superimposed for multiple times.
    * @param transform 2D transformation matrix. For details, see {@link Matrix2D}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2613,6 +2721,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param d Vertical Zoom
    * @param e Horizontal movement
    * @param f Vertical movement
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2635,6 +2744,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Increases the translation effect of the X and Y axes
    * @param x Horizontal movement distance
    * @param y Vertical travel distance
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2667,6 +2777,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * transfer ImageBitmap to content.
    * @param ImageBitmap
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2684,6 +2795,7 @@ declare class CanvasRenderer extends CanvasPath {
  */
 /**
  * Draw context object for the Canvas component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2699,6 +2811,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    */
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2715,6 +2828,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    */
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2740,6 +2854,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @param type Image format. The default value is image/png.
    * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2759,6 +2874,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2776,6 +2892,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  */
 /**
  * Draw context object for the OffscreenCanvas component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2800,6 +2917,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param type Image format. The default value is image/png.
    * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2816,6 +2934,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    */
   /**
    * transfer the content to ImageBitmap
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2841,6 +2960,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param width the width of the OffscreenCanvas
    * @param height the height of the OffscreenCanvas
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2858,6 +2978,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  */
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2873,6 +2994,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    */
   /**
    * Height of the off-screen canvas.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2889,6 +3011,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    */
   /**
    * Width of the off-screen canvas.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2905,6 +3028,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    */
   /**
    * Exports rendered content as an ImageBitmap object
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2927,6 +3051,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
    * @param width Width of the off-screen canvas.
    * @param height Height of the off-screen canvas.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2944,6 +3069,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
  */
 /**
  *TextTimer component, which provides the text timer capability.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -2962,6 +3088,7 @@ interface CanvasInterface {
   /**
    * Construct a canvas component.
    * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2980,6 +3107,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    */
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -2997,6 +3125,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
  */
 /**
  * Defines Canvas Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -3013,6 +3142,7 @@ declare const Canvas: CanvasInterface;
  */
 /**
  * Defines Canvas Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

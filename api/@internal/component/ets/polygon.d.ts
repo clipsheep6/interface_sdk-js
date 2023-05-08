@@ -24,6 +24,7 @@
  */
 /**
  * Provides the polygon drawing interface.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface PolygonInterface{
    */
   /**
    * Uses new to create Polygon.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ interface PolygonInterface{
    */
   /**
    * Called when drawing a polygon.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -73,6 +76,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    */
   /**
    * Called when the vertex coordinate list of a polygon is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -90,6 +94,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  */
 /**
  * Defines CheckboxGroup Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -106,6 +111,7 @@ declare const Polygon: PolygonInterface;
  */
 /**
  * Defines Polygon Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

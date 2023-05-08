@@ -24,6 +24,7 @@
  */
 /**
  * Defines the option of Progress.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@
    */
   /**
    * Sets the value of Progress.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@
    */
   /**
    * Sets the total of Progress.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -79,6 +82,7 @@
    */
   /**
    * Sets the type of Progress.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -96,6 +100,7 @@
  */
 /**
  * Type of progress bar
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -111,6 +116,7 @@ declare enum ProgressType {
    */
   /**
    * Linear progress bar style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -127,6 +133,7 @@ declare enum ProgressType {
    */
   /**
    * Ring progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -143,6 +150,7 @@ declare enum ProgressType {
    */
   /**
    * Eclipse progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -159,6 +167,7 @@ declare enum ProgressType {
    */
   /**
    * ScaleRing progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -175,6 +184,7 @@ declare enum ProgressType {
    */
   /**
    * Capsule progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -192,6 +202,7 @@ declare enum ProgressType {
  */
 /**
  * Defines style options for progress component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -207,6 +218,7 @@ declare interface ProgressStyleOptions {
    */
   /**
    * Defines the strokeWidth property.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -223,6 +235,7 @@ declare interface ProgressStyleOptions {
    */
   /**
    * Defines the scaleCount property.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -239,6 +252,7 @@ declare interface ProgressStyleOptions {
    */
   /**
    * Defines the scaleWidth property.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -256,6 +270,7 @@ declare interface ProgressStyleOptions {
  */
 /**
  * Type of progress bar
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -271,6 +286,7 @@ declare enum ProgressStyle {
    */
   /**
    * Linear progress bar style.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -287,6 +303,7 @@ declare enum ProgressStyle {
    */
   /**
    * Ring progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -303,6 +320,7 @@ declare enum ProgressStyle {
    */
   /**
    * Eclipse progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -319,6 +337,7 @@ declare enum ProgressStyle {
    */
   /**
    * ScaleRing progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -335,6 +354,7 @@ declare enum ProgressStyle {
    */
   /**
    * Capsule progress bar.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -352,6 +372,7 @@ declare enum ProgressStyle {
  */
 /**
  * Provides the progress bar interface.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -367,6 +388,7 @@ interface ProgressInterface {
    */
   /**
    * Called when the progress bar is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -384,6 +406,7 @@ interface ProgressInterface {
  */
 /**
  * Defines the progress attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -399,6 +422,7 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    */
   /**
    * Called when the current progress value is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -415,6 +439,7 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    */
   /**
    * Called when the progress bar foreground is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -431,6 +456,7 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    */
   /**
    * Called when the style of progress bar is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -448,6 +474,7 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
  */
 /**
  * Defines Progress Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -464,6 +491,7 @@ declare const Progress: ProgressInterface;
  */
 /**
  * Defines Progress Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

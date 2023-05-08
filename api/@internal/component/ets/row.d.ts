@@ -24,6 +24,7 @@
  */
 /**
  * The components are laid out horizontally
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface RowInterface {
    */
   /**
    * Called when the layout is set in the horizontal direction.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ interface RowInterface {
  */
 /**
  * Defines the row attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -71,6 +74,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    */
   /**
    * Called when the vertical alignment is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -87,6 +91,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    */
   /**
    * Called when the horizontal alignment is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -104,6 +109,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  */
 /**
  * Defines Row Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -120,6 +126,7 @@ declare const Row: RowInterface;
  */
 /**
  * Defines Row Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

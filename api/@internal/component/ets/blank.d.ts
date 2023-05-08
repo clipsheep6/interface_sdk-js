@@ -24,6 +24,7 @@
  */
 /**
  * Create Blank.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface BlankInterface {
    */
   /**
    * The minimum size of the blank fill assembly on the container spindle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ interface BlankInterface {
  */
 /**
  * Inheritance CommonMethod Set Styles
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -71,6 +74,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    */
   /**
    * color: set color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -88,6 +92,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
  */
 /**
  * Defines Blank Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -105,6 +110,7 @@ declare const Blank: BlankInterface;
 
 /**
  * Defines Blank Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

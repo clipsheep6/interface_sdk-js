@@ -24,6 +24,7 @@
  */
 /**
  * Line drawing component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -45,6 +46,7 @@ interface LineInterface {
    * Uses new to create the line.
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -67,6 +69,7 @@ interface LineInterface {
    * The return value of the parameter is Line.
    * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -84,6 +87,7 @@ interface LineInterface {
  */
 /**
  * inheritance CommonShapeMethod.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -99,6 +103,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    */
   /**
    * Coordinate of the start point of the line (relative coordinate).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -115,6 +120,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    */
   /**
    * Line end coordinates (relative coordinates).
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -132,6 +138,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  */
 /**
  * Defines Line Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -148,6 +155,7 @@ declare const Line: LineInterface;
  */
 /**
  * Defines Line Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

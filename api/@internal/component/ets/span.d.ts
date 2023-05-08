@@ -24,6 +24,7 @@
  */
 /**
  * Provide text decoration.
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -39,6 +40,7 @@ interface SpanInterface {
    */
   /**
    * Called when text is entered in span.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -53,6 +55,7 @@ interface SpanInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -68,6 +71,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the font color is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -84,6 +88,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the font size is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -100,6 +105,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the font style of a font is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -116,6 +122,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the font weight is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -132,6 +139,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the font list of text is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -148,6 +156,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the text decoration of the text is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -164,6 +173,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the distance between text fonts is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -179,6 +189,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
    */
   /**
    * Called when the type of letter in the text font is set.
+   * @form
    * @crossplatform
    * @since 10 
    */
@@ -196,6 +207,7 @@ declare class SpanAttribute extends CommonMethod<SpanAttribute> {
  */
 /**
  * Defines Span Component.
+ * @form
  * @crossplatform
  * @since 10 
  */
@@ -212,6 +224,7 @@ declare const Span: SpanInterface;
  */
 /**
  * Defines Span Component instance.
+ * @form
  * @crossplatform
  * @since 10 
  */

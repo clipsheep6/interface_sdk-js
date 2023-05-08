@@ -24,6 +24,7 @@
  */
 /**
  * Provides an interface for writing texts.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface TextInterface {
    */
   /**
    * Called when writing text.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -53,6 +55,7 @@ interface TextInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -68,6 +71,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the font color is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -84,6 +88,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the font size is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -100,6 +105,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
  /**
    * Called when the minimum font size of the font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -116,6 +122,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the maximum font size of the font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -132,6 +139,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the font style of a font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -148,6 +156,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the font weight is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -164,6 +173,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the horizontal center mode of the font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -180,6 +190,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the vertical center mode of the font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -196,6 +207,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the overflow mode of the font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -212,6 +224,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the font list of text is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -228,6 +241,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the maximum number of lines of text is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -244,6 +258,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the text decoration of the text is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -260,6 +275,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the distance between text fonts is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -276,6 +292,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the type of letter in the text font is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -292,6 +309,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the baseline offset is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -304,6 +322,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Allow replication.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -366,6 +385,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
  */
 /**
  * Defines Text Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -382,6 +402,7 @@ declare const TextInstance: TextAttribute;
  */
 /**
  * Defines Text Component.
+ * @form
  * @crossplatform
  * @since 10
  */

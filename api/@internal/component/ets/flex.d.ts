@@ -24,6 +24,7 @@
  */
 /**
  * Defines the options of Flex.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare interface FlexOptions {
    */
   /**
    * Sets the horizontal layout of elements.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare interface FlexOptions {
    */
   /**
    * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare interface FlexOptions {
    */
   /**
    * The alignment format of the subassembly on the Flex container spindle.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -87,6 +91,7 @@ declare interface FlexOptions {
    */
   /**
    * Alignment Format for Subassembly on Flex Container Cross Axis.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -103,6 +108,7 @@ declare interface FlexOptions {
    */
   /**
    * The alignment of multiple lines of content when there is extra space in the cross axis.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -120,6 +126,7 @@ declare interface FlexOptions {
  */
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -135,6 +142,7 @@ interface FlexInterface {
    */
   /**
    * Defines the constructor of Flex.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -152,6 +160,7 @@ interface FlexInterface {
  */
 /**
  * Defines the Flex attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -168,6 +177,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
  */
 /**
  * Defines Flex Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -184,6 +194,7 @@ declare const Flex: FlexInterface;
  */
 /**
  * Defines Flex Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

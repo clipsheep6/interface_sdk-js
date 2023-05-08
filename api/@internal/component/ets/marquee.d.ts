@@ -24,6 +24,7 @@
  */
 /**
  * Provides the interface for the marquee attributes.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface MarqueeInterface {
    */
   /**
    * Create marquee.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ interface MarqueeInterface {
  */
 /**
  * Declares marquee properties.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -71,6 +74,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Set marquee font Color.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -87,6 +91,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Set marquee font size.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -103,6 +108,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Set marquee allow scale.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -119,6 +125,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Set marquee font weight.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -135,6 +142,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Set marquee font family.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -151,6 +159,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Called when scrolling starts.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -167,6 +176,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Called when scrolling to the bottom.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -183,6 +193,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    */
   /**
    * Called when scrolling is complete.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -200,6 +211,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  */
 /**
  * Defines Marquee Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -216,6 +228,7 @@ declare const Marquee: MarqueeInterface;
  */
 /**
  * Defines Marquee Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

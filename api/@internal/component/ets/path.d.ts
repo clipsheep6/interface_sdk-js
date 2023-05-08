@@ -24,6 +24,7 @@
  */
 /**
  * Provides the path drawing interface.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface PathInterface {
    */
   /**
    * Use new to create Path.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ interface PathInterface {
    */
   /**
    * Called when drawing path.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -69,6 +72,7 @@ interface PathInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -84,6 +88,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    */
   /**
    * Called when the command string drawn by the path is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -101,6 +106,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  */
 /**
  * Defines Path Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -117,6 +123,7 @@ declare const Path: PathInterface;
  */
 /**
  * Defines Path Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

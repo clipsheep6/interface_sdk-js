@@ -24,6 +24,7 @@
  */
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ interface CounterInterface {
    */
   /**
    * Return Counter.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -56,6 +58,7 @@ interface CounterInterface {
  */
 /**
  * Defines the Counter attribute functions.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -71,6 +74,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    */
   /**
    * Listen to the event that the value increases.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -87,6 +91,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    */
   /**
    * Listens to the number decrease event.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -124,6 +129,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  */
 /**
  * Defines Counter Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -140,6 +146,7 @@ declare const CounterInstance: CounterAttribute;
  */
 /**
  * Defines Counter Component.
+ * @form
  * @crossplatform
  * @since 10
  */

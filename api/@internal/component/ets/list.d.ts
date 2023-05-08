@@ -24,6 +24,7 @@
  */
 /**
  * Declare scroll status
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -39,6 +40,7 @@ declare enum ScrollState {
    */
   /**
    * Not activated.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -55,6 +57,7 @@ declare enum ScrollState {
    */
   /**
    * Scrolling status.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +74,7 @@ declare enum ScrollState {
    */
   /**
    * Drag status.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -82,11 +86,23 @@ declare enum ScrollState {
  * @form
  * @since 9
  */
+/**
+ * Declare list item alignment status
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum ListItemAlign {
   /**
    * Start position in the direction of cross axis.
    * @form
    * @since 9
+   */
+  /**
+   * Start position in the direction of cross axis.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Start,
 
@@ -95,12 +111,24 @@ declare enum ListItemAlign {
    * @form
    * @since 9
    */
+  /**
+   * Center position in the direction of cross axis.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Center,
 
   /**
    * End position in the direction of cross axis
    * @form
    * @since 9
+   */
+  /**
+   * End position in the direction of cross axis
+   * @form
+   * @crossplatform
+   * @since 10
    */
   End,
 }
@@ -110,11 +138,23 @@ declare enum ListItemAlign {
  * @form
  * @since 9
  */
+/**
+ * Declare item group sticky style.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum StickyStyle {
   /**
    * The header and footer of each item group will not be pinned.
    * @form
    * @since 9
+   */
+  /**
+   * The header and footer of each item group will not be pinned.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   None = 0,
 
@@ -123,12 +163,24 @@ declare enum StickyStyle {
    * @form
    * @since 9
    */
+  /**
+   * The header of each item group will be pinned.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Header = 1,
 
   /**
    * The footer of each item group will be pinned.
    * @form
    * @since 9
+   */
+  /**
+   * The footer of each item group will be pinned.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Footer = 2,
 }
@@ -227,6 +279,7 @@ declare interface ChainAnimationOptions {
  */
 /**
  * The list interface is extended.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -242,6 +295,7 @@ interface ListInterface {
    */
   /**
    * Called when interface data is called.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -256,6 +310,7 @@ interface ListInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -265,12 +320,24 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when need to decide how much lanes the list will show.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   lanes(value: number | LengthConstrain): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    * @form
    * @since 9
+   */
+  /**
+   * Called when need to decide how to align lanes in the direction of the cross axis.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   alignListItem(value: ListItemAlign): ListAttribute;
 
@@ -285,6 +352,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
     * Called when the arrangement direction of the list component is set.
+    * @form
     * @crossplatform
     * @since 10
     */
@@ -301,6 +369,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the display mode of the side slider is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -317,6 +386,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the sliding effect is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -363,6 +433,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when judging whether it is multiSelectable.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -379,6 +450,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -395,6 +467,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -415,6 +488,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when header or footer of item group will be pinned.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   sticky(value: StickyStyle): ListAttribute;
 
   /**
@@ -428,6 +507,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the offset and status callback of the slide are set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -444,6 +524,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the start and end positions of the display change.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -460,6 +541,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the list begins to arrive.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -476,6 +558,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the list reaches the end.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -485,6 +568,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the slider start.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the slider start.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   onScrollStart(event: () => void): ListAttribute;
 
@@ -499,6 +588,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   /**
    * Called when the slider stops.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -586,6 +676,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when scrolling begin each frame.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
 }
 
@@ -600,6 +696,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
  */
 /**
  * Defines List Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -616,6 +713,7 @@ declare const List: ListInterface;
  */
 /**
  * Defines List Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */

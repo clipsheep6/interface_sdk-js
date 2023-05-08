@@ -24,6 +24,7 @@
  */
 /**
  * Provides interfaces for drawing components.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -34,6 +35,7 @@ interface ShapeInterface {
    */
   /**
    * Use the new function to create Shape.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -45,6 +47,7 @@ interface ShapeInterface {
    */
   /**
    * Called when a component is drawn.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -57,6 +60,7 @@ interface ShapeInterface {
    */
   /**
    * Called when a component is drawn.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -71,6 +75,7 @@ interface ShapeInterface {
  * @since 9
  */
 /**
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -86,6 +91,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Viewport of shape
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -102,6 +108,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
    /**
    * Called when the border color is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -118,6 +125,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the fill color is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -134,6 +142,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the offset of the starting point of border drawing is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -150,6 +159,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the gap of the border is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -166,6 +176,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the path endpoint drawing style is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -182,6 +193,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the border corner drawing style is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -198,6 +210,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the limit value for drawing acute angles as oblique angles is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -214,6 +227,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the opacity of the border is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -230,6 +244,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the transparency of the border is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -246,6 +261,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when the width of the border is set.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -262,6 +278,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when setting whether anti aliasing is on.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -278,6 +295,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    */
   /**
    * Called when shape mesh.
+   * @form
    * @crossplatform
    * @since 10
    */
@@ -295,6 +313,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  */
 /**
  * Defines Shape Component.
+ * @form
  * @crossplatform
  * @since 10
  */
@@ -311,6 +330,7 @@ declare const Shape: ShapeInterface;
  */
 /**
  * Defines Shape Component instance.
+ * @form
  * @crossplatform
  * @since 10
  */
