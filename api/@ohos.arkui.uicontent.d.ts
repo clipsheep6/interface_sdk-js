@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1047,14 +1047,6 @@ export class Router{
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    * @param { RouterOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  push(options: router.RouterOptions): void;
-
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param { RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
    * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
    * @throws { BusinessError } 100001 - if UI execution context not found.
@@ -1105,14 +1097,6 @@ export class Router{
    * @since 10
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
-
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   * @param { RouterOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  replace(options: router.RouterOptions): void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
@@ -1196,14 +1180,6 @@ export class Router{
   getState(): router.RouterState;
 
   /**
-   * Pop up dialog to ask whether to back
-   * @param { EnableAlertOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  enableAlertBeforeBackPage(options: router.EnableAlertOptions): void;
-
-  /**
    * Pop up alert dialog to ask whether to back
    * @param { EnableAlertOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
@@ -1212,13 +1188,6 @@ export class Router{
    * @since 10
    */
   showAlertBeforeBackPage(options: router.EnableAlertOptions): void;
-
-  /**
-   * Cancel enableAlertBeforeBackPage
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  disableAlertBeforeBackPage(): void;
 
   /**
    * Hide alert before back page
@@ -1250,14 +1219,6 @@ export class Animator{
    * @since 10
    */
   create(options: AnimatorOptions): AnimatorResult;
-
-  /**
-   * Create an animator object for custom animation.
-   * @param { AnimatorOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  createAnimator(options: AnimatorOptions): AnimatorResult;
 }
 
 /**
@@ -1311,6 +1272,7 @@ export class UIContent {
   /**
    * get object font
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @return object Font
    * @since 10
    */
   getFont(): Font;
@@ -1318,6 +1280,7 @@ export class UIContent {
   /**
    * get object mediaquery
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @return object Mediaquery
    * @since 10
    */
   getMediaquery(): Mediaquery;
@@ -1325,6 +1288,7 @@ export class UIContent {
   /**
    * get object router
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @return object Router
    * @since 10
    */
   getRouter(): Router;
@@ -1332,6 +1296,7 @@ export class UIContent {
   /**
    * get object animator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @return object Animator
    * @since 10
    */
   getAnimator(): Animator;
@@ -1339,6 +1304,7 @@ export class UIContent {
   /**
    * get object prompt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @return object Prompt
    * @since 10
    */
   getPrompt(): Prompt;
@@ -1387,14 +1353,14 @@ export class UIContent {
   showTextPickerDialog(options: TextPickerDialogOptions): void;
 
   /**
-   * sync instanceceId
+   * before use uiContent needed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   enterScope(): void;
 
   /**
-   * restore instanceceId
+   * after use uiContent needed
    * @syscap SystemCapability.ArkUI.ArkUI.Ful
    * @since 10
    */
