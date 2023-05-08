@@ -348,7 +348,7 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
-    value: number
+    value?: number | boolean,
   }
 
   /**
