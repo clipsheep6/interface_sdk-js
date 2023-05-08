@@ -226,17 +226,17 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;
   /**
-   * Sets the length of minContentWidth.
-   * default value is 360vp.
-   * @since 10
-   */
-  minContentWidth(value: Length): SideBarContainerAttribute;
-  /**
-   * Sets the length of minContentWidth.
+   * Sets the min length of content.
    * default value is 360vp.
    * @since 10
    */
   minContentWidth(value: number): SideBarContainerAttribute;
+  /**
+   * Sets the min length of content.
+   * default value is 360vp.
+   * @since 10
+   */
+  minContentWidth(value: Length): SideBarContainerAttribute;
 }
 
 /**
