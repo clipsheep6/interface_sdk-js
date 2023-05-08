@@ -25,214 +25,221 @@
  * @since 9
  */
 declare class Matrix2D {
-    /**
-     * Horizontal Zoom
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Horizontal Zoom
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    scaleX?: number;
+  /**
+   * Horizontal Zoom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Horizontal Zoom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  scaleX?: number;
 
-    /**
-     * Vertical Tilt
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Vertical Tilt
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    rotateY?: number;
+  /**
+   * Vertical Tilt
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Vertical Tilt
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  rotateY?: number;
 
-    /**
-     * Horizontal Tilt
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Horizontal Tilt
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    rotateX?: number;
+  /**
+   * Horizontal Tilt
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Horizontal Tilt
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  rotateX?: number;
 
-    /**
-     * Vertical Zoom
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Vertical Zoom
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    scaleY?: number;
+  /**
+   * Vertical Zoom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Vertical Zoom
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  scaleY?: number;
 
-    /**
-     * Horizontal movement
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Horizontal movement
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    translateX?: number;
+  /**
+   * Horizontal movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Horizontal movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  translateX?: number;
 
-    /**
-     * Vertical movement
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Vertical movement
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    translateY?: number;
+  /**
+   * Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Vertical movement
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  translateY?: number;
 
-    /**
-     * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
-     * translation scaling effect)
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
-     * translation scaling effect)
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    identity(): Matrix2D;
+  /**
+   * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
+   * translation scaling effect)
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
+   * translation scaling effect)
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  identity(): Matrix2D;
 
-    /**
-     * Transform the current 2D matrix into an inverse matrix (that is, the transformation effect
-     * is the opposite effect of the original)
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Transform the current 2D matrix into an inverse matrix (that is, the transformation effect
-     * is the opposite effect of the original)
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    invert(): Matrix2D;
+  /**
+   * Transform the current 2D matrix into an inverse matrix (that is, the transformation effect
+   * is the opposite effect of the original)
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Transform the current 2D matrix into an inverse matrix (that is, the transformation effect
+   * is the opposite effect of the original)
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  invert(): Matrix2D;
 
-    /**
-     * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
-     * the matrix is superimposed.
-     * @param { Matrix2D } other - Matrix to be superimposed
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
-     * the matrix is superimposed.
-     * @param { Matrix2D } other - Matrix to be superimposed
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     * @deprecated since 10
-     */
-    multiply(other?: Matrix2D): Matrix2D;
+  /**
+   * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
+   * the matrix is superimposed.
+   * @param { Matrix2D } other - Matrix to be superimposed
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
+   * the matrix is superimposed.
+   * @param { Matrix2D } other - Matrix to be superimposed
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   * @deprecated since 10
+   */
+  multiply(other?: Matrix2D): Matrix2D;
 
-    /**
-     * Adds the rotation effect of the X and Y axes to the current matrix.
-     * @param { number } rx - Rotation effect of the X-axis
-     * @param { number } ry - Rotation effect of the Y-axis
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Adds the rotation effect of the X and Y axes to the current matrix.
-     * @param { number } rx - Rotation effect of the X-axis
-     * @param { number } ry - Rotation effect of the Y-axis
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     * @deprecated since 10
-     * @useinstead rotate(degree: number, rx?: number, ry?: number)
-     */
-    rotate(rx?: number, ry?: number): Matrix2D;
+  /**
+   * Adds the rotation effect of the X and Y axes to the current matrix.
+   * @param { number } rx - Rotation effect of the X-axis
+   * @param { number } ry - Rotation effect of the Y-axis
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Adds the rotation effect of the X and Y axes to the current matrix.
+   * @param { number } rx - Rotation effect of the X-axis
+   * @param { number } ry - Rotation effect of the Y-axis
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   * @deprecated since 10
+   * @useinstead rotate(degree: number, rx?: number, ry?: number)
+   */
+  rotate(rx?: number, ry?: number): Matrix2D;
 
-    /**
-     * Adds the rotation effect of the X and Y axes to the current matrix.
-     * @param { number } degree - The rotation angle, clockwise in radians.
-     * @param { number } rx - Rotation effect of the X-axis
-     * @param { number } ry - Rotation effect of the Y-axis
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 10
-     */
-    rotate(degree: number, rx?: number, ry?: number): Matrix2D;
+  /**
+   * Adds the rotation effect of the X and Y axes to the current matrix.
+   * @param { number } degree - The rotation angle, clockwise in radians.
+   * @param { number } rx - Rotation effect of the X-axis
+   * @param { number } ry - Rotation effect of the Y-axis
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  rotate(degree: number, rx?: number, ry?: number): Matrix2D;
 
-    /**
-     * Adds the translation effect of the X and Y axes to the current matrix.
-     * @param { number } tx - X-axis translation effect
-     * @param { number } ty - Y-axis translation effect
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Adds the translation effect of the X and Y axes to the current matrix.
-     * @param { number } tx - X-axis translation effect
-     * @param { number } ty - Y-axis translation effect
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    translate(tx?: number, ty?: number): Matrix2D;
+  /**
+   * Adds the translation effect of the X and Y axes to the current matrix.
+   * @param { number } tx - X-axis translation effect
+   * @param { number } ty - Y-axis translation effect
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Adds the translation effect of the X and Y axes to the current matrix.
+   * @param { number } tx - X-axis translation effect
+   * @param { number } ty - Y-axis translation effect
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  translate(tx?: number, ty?: number): Matrix2D;
 
-    /**
-     * Adds the scaling effect of the X and Y axes to the current matrix.
-     * @param { number } sx - X-axis scaling effect
-     * @param { number } sy - Y-axis scaling effect
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Adds the scaling effect of the X and Y axes to the current matrix.
-     * @param { number } sx - X-axis scaling effect
-     * @param { number } sy - Y-axis scaling effect
-     * @returns { Matrix2D }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    scale(sx?: number, sy?: number): Matrix2D;
+  /**
+   * Adds the scaling effect of the X and Y axes to the current matrix.
+   * @param { number } sx - X-axis scaling effect
+   * @param { number } sy - Y-axis scaling effect
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Adds the scaling effect of the X and Y axes to the current matrix.
+   * @param { number } sx - X-axis scaling effect
+   * @param { number } sy - Y-axis scaling effect
+   * @returns { Matrix2D }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 9
+   */
+  scale(sx?: number, sy?: number): Matrix2D;
 
-    /**
-     * Constructs a 2D change matrix object. The default value is the unit matrix.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 10
-     */
-    constructor();
+  /**
+   * Constructs a 2D change matrix object. The default value is the unit matrix.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  constructor();
+}
+
+declare module 'CanvasMatrix2D' {
+  module 'CanvasMatrix2D' {
+    // @ts-ignore
+    export { Matrix2D };
+  }
 }

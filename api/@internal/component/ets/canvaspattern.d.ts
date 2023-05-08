@@ -13,11 +13,9 @@
  * limitations under the License.
  */
 
-/**
- * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
- * @since 8
- */
-declare type Matrix2D = import('./matrix2d').Matrix2D
+/// <reference path="../component/matrix2d.d.ts"/>
+
+import { Matrix2D } from 'CanvasMatrix2D';
 
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
