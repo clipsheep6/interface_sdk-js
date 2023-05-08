@@ -459,7 +459,7 @@ declare class Path2D extends CanvasPath {
  * @form
  * @since 9
  */
-declare type CanvasPattern = import('../api/@internal/full/canvaspattern').CanvasPattern;
+declare type CanvasPattern = import('./canvaspattern').CanvasPattern;
 
 /**
  * Size information of the text
