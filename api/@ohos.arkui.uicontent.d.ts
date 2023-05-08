@@ -1183,7 +1183,7 @@ export class Router{
    * Pop up alert dialog to ask whether to back
    * @param { EnableAlertOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
-   * @throws { BusinessError } 100001 - if UI execution context not found.sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+   * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
