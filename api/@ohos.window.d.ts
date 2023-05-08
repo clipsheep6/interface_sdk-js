@@ -1592,7 +1592,7 @@ declare namespace window {
      * get Content.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
-	 * @StageModelOnly
+     * @StageModelOnly
      */
     getContent() : uicontent.UIContent;
 
