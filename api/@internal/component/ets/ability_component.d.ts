@@ -45,7 +45,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * @since 9
    * @systemapi
    */
-   onDisconnect(callback: () => void): AbilityComponentAttribute;
+  onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
 
 /**

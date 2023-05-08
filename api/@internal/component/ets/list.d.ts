@@ -197,7 +197,6 @@ declare enum ChainEdgeEffect {
    * Default edge effect. Compress the space in the drag direction
    * and stretch the space in the opposite drag direction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   DEFAULT,
@@ -205,7 +204,6 @@ declare enum ChainEdgeEffect {
   /**
    * Stretch all space.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   STRETCH,
@@ -223,7 +221,6 @@ declare interface ChainAnimationOptions {
    * Minimum space for chain animation.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   minSpace: Length;
@@ -232,7 +229,6 @@ declare interface ChainAnimationOptions {
    * Maximum space for chain animation.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   maxSpace: Length;
@@ -242,7 +238,6 @@ declare interface ChainAnimationOptions {
    * @type { number }
    * @default 0.7
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   conductivity?: number;
@@ -252,7 +247,6 @@ declare interface ChainAnimationOptions {
    * @type { number }
    * @default 0.3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   intensity?: number;
@@ -262,7 +256,6 @@ declare interface ChainAnimationOptions {
    * @type { ChainEdgeEffect }
    * @default ChainEdgeEffect.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   edgeEffect?: ChainEdgeEffect;

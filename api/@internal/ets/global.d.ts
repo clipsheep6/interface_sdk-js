@@ -31,7 +31,7 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
 /**
  * Defines the console info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare class console {
@@ -49,7 +49,7 @@ export declare class console {
   /**
    * Prints "debug" logs.
    * @param message Text to print.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static debug(message: string, ...arguments: any[]): void;
@@ -68,7 +68,7 @@ export declare class console {
   /**
    * Prints "log" logs.
    * @param message Text to print.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static log(message: string, ...arguments: any[]): void;
@@ -87,7 +87,7 @@ export declare class console {
   /**
    * Prints "info" logs.
    * @param message Text to print.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static info(message: string, ...arguments: any[]): void;
@@ -106,7 +106,7 @@ export declare class console {
   /**
    * Prints "warn" logs.
    * @param message Text to print.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static warn(message: string, ...arguments: any[]): void;
@@ -125,7 +125,7 @@ export declare class console {
   /**
    * Prints "error" logs.
    * @param message Text to print.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static error(message: string, ...arguments: any[]): void;
@@ -137,7 +137,7 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static assert(value?: Object, ...arguments: Object[]): void;
@@ -149,7 +149,7 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static count(label?: string): void;
@@ -160,7 +160,7 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static countReset(label?: string): void;
@@ -170,7 +170,7 @@ export declare class console {
    * @param { Object } dir A JavaScript object whose properties should be output.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static dir(dir?: Object): void;
@@ -181,7 +181,7 @@ export declare class console {
    * @param { Object[] } arguments Text to print.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static dirxml(...arguments: Object[]): void;
@@ -191,7 +191,7 @@ export declare class console {
    * @param { Object[] } arguments messages to print first.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static group(...arguments: Object[]): void;
@@ -201,7 +201,7 @@ export declare class console {
    * @param { Object[] } arguments messages to print first.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
   */
   static groupCollapsed(...arguments: Object[]): void;
@@ -210,7 +210,7 @@ export declare class console {
    * Exit current inline group.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static groupEnd(): void;
@@ -220,7 +220,7 @@ export declare class console {
    * @param { Object } tableData tabular data.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static table(tableData?: Object): void;
@@ -231,7 +231,7 @@ export declare class console {
   * @static
   * @throws { BusinessError } 401 - The parameter check failed.
   * @syscap SystemCapability.Utils.Lang
-  * @crosspltform
+  * @crossplatform
   * @since 10
   */
   static time(label?: string): void;
@@ -242,7 +242,7 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static timeEnd(label?: string): void;
@@ -254,7 +254,7 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static timeLog(label?: string, ...arguments: Object[]): void;
@@ -264,7 +264,7 @@ export declare class console {
    * @param { Object[] } arguments message to print.
    * @static
    * @syscap SystemCapability.Utils.Lang
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   static trace(...arguments: Object[]): void; 
@@ -286,7 +286,7 @@ export declare class console {
  * @param delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
@@ -307,7 +307,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns Returns the timer ID.
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
@@ -322,7 +322,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * Cancel the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param intervalID Indicates the timer ID returned by "setInterval()".
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -337,7 +337,7 @@ export declare function clearInterval(intervalID?: number): void;
  * Cancel the timer set by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare function clearTimeout(timeoutID?: number): void;
@@ -350,7 +350,7 @@ export declare function clearTimeout(timeoutID?: number): void;
 /**
  * Defining syscap function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare function canIUse(syscap: string): boolean;
@@ -364,7 +364,7 @@ export declare function canIUse(syscap: string): boolean;
 /**
  * Obtains all attributes of the component with the specified ID.
  * @param id ID of the component whose attributes are to be obtained.
- * @crosspltform
+ * @crossplatform
  * @since 10
  * @test
  */
@@ -377,7 +377,7 @@ export declare function getInspectorByKey(id: string): string;
   */
  /**
   * Get components tree.
-  * @crosspltform
+  * @crossplatform
   * @since 10
   * @test
   */
@@ -396,7 +396,7 @@ export declare function getInspectorTree(): Object;
   * @param id ID of the component for which the event is to be sent.
   * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
   * @param params Event parameters. If there is no parameter, pass an empty string "".
-  * @crosspltform
+  * @crossplatform
   * @since 10
   * @test
   */
@@ -411,7 +411,7 @@ export declare function sendEventByKey(id: string, action: number, params: strin
  /**
   * Send touch event.
   * @param event TouchObject to be sent.
-  * @crosspltform
+  * @crossplatform
   * @since 10
   * @test
   */
@@ -426,7 +426,7 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  /**
   * Send key event.
   * @param event KeyEvent to be sent.
-  * @crosspltform
+  * @crossplatform
   * @since 10
   * @test
   */
@@ -441,7 +441,7 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  /**
   * Send mouse event.
   * @param event MouseEvent to be sent.
-  * @crosspltform
+  * @crossplatform
   * @since 10
   * @test
   */

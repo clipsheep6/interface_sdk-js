@@ -320,7 +320,7 @@ export declare class OffscreenCanvas {
    * @param contextId creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
    * @param options object representing a three-dimensional rendering context.
    * @returns  a render canvas for the offScreen Canvas object.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   getContext(contextId: "2d", options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D;
@@ -337,7 +337,7 @@ export declare class OffscreenCanvas {
    * @param type indicating the image format.
    * @param quality between 0 and 1 indicating image quality if the type option is image/jpeg or image/webp.
    * @returns A Promise returning a Blob object representing the image contained in the canvas.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   toDataURL(type?: string, quality?: number): string;
@@ -350,7 +350,7 @@ export declare class OffscreenCanvas {
   /**
    * Converts the draw content in the current off-screen draw object to a Bitmap object.
    * @returns Returns An ImageBitmap object.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   transferToImageBitmap(): ImageBitmap;
@@ -364,7 +364,7 @@ export declare class OffscreenCanvas {
 /**
  * Defines the ImageBitmap.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crosspltform
+ * @crossplatform
  * @since 10
  */
 export declare class ImageBitmap {
@@ -374,7 +374,7 @@ export declare class ImageBitmap {
    */
   /**
    * The height of the Image Bitmap object.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   readonly height: number;
@@ -385,7 +385,7 @@ export declare class ImageBitmap {
    */
   /**
    * The width of the Image Bitmap object.
-   * @crosspltform
+   * @crossplatform
    * @since 10
    */
   readonly width: number;
