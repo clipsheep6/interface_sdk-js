@@ -300,7 +300,7 @@ declare namespace relationalStore {
   /**
    * Records information of the asset.
    *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
   interface Asset {
@@ -308,7 +308,7 @@ declare namespace relationalStore {
     /**
      * The name of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     name: string;
@@ -316,7 +316,7 @@ declare namespace relationalStore {
     /**
      * The uri of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     uri: string;
@@ -324,7 +324,7 @@ declare namespace relationalStore {
     /**
      * The create time of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     createTime: string;
@@ -332,7 +332,7 @@ declare namespace relationalStore {
     /**
      * The modify time of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     modifyTime: string;
@@ -340,7 +340,7 @@ declare namespace relationalStore {
     /**
      * The size of asset.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     size: string;
@@ -389,26 +389,26 @@ declare namespace relationalStore {
     /**
      * Indicates the data is pulled from remote device to local device.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_TIME_FIRST = 2,
+    SYNC_MODE_TIME_FIRST,
 
     /**
      * Indicates force push the native data to the cloud.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_NATIVE_FIRST = 3,
+    SYNC_MODE_NATIVE_FIRST,
 
     /**
      * Indicates the data is pulled from cloud to local device.
      *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_CLOUD_FIRST = 4,
+    SYNC_MODE_CLOUD_FIRST,
   }
 
   /**
@@ -436,7 +436,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD = 1,
+    SUBSCRIBE_TYPE_CLOUD,
   }
 
   /**
@@ -461,10 +461,10 @@ declare namespace relationalStore {
      * Indicates the table is distributed between the cloud and the devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    DISTRIBUTED_CLOUD = 1,
+    DISTRIBUTED_CLOUD,
   }
 
   /**
@@ -1140,14 +1140,13 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } mode - indicates the distribution type of the tables. {@link DistributedType}.
-     * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 9
      */
-    setDistributedTables(tables: Array<string>, type?: number, callback: AsyncCallback<void>): void;
+    setDistributedTables(tables: Array<string>): Promise<void>;
 
     /**
      * Set table to be distributed table.
@@ -1159,7 +1158,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 10
      */
     setDistributedTables(tables: Array<string>, type?: number): Promise<void>;
 
