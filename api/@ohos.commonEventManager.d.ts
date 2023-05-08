@@ -172,7 +172,7 @@ declare namespace commonEventManager {
   /**
    * Set static subscribe event state.
    * @param { boolean } enable - static subscribe event enable/disable state.
-   * @param { AsyncCallback<void } callback - Specified callback method.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
