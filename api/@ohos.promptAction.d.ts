@@ -21,7 +21,6 @@ import { Resource } from 'GlobalResource';
 /**
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 9
  */
 /**
@@ -35,7 +34,6 @@ declare namespace promptAction {
   /**
    * @typedef ShowToastOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -49,7 +47,6 @@ declare namespace promptAction {
     /**
      * Text to display.
      * @type { string | Resource }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -65,7 +62,6 @@ declare namespace promptAction {
      * The recommended value ranges from 1500ms to 10000ms.
      * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
      * @type { number }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -81,7 +77,6 @@ declare namespace promptAction {
     /**
      * The distance between toast dialog box and the bottom of screen.
      * @type { string | number }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -96,7 +91,6 @@ declare namespace promptAction {
   /**
    * @typedef Button
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -109,7 +103,6 @@ declare namespace promptAction {
 
     /**
      * @type { string | Resource }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -121,7 +114,6 @@ declare namespace promptAction {
 
     /**
      * @type { string | Resource }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -135,7 +127,6 @@ declare namespace promptAction {
   /**
    * @typedef ShowDialogSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -149,7 +140,6 @@ declare namespace promptAction {
     /**
      * Index of the selected button, starting from 0.
      * @type { number }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -164,7 +154,6 @@ declare namespace promptAction {
   /**
    * @typedef ShowDialogOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -178,7 +167,6 @@ declare namespace promptAction {
     /**
      * Title of the text to display.
      * @type { string | Resource }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -192,7 +180,6 @@ declare namespace promptAction {
     /**
      * Text body.
      * @type { string | Resource }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -207,7 +194,6 @@ declare namespace promptAction {
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
-     * @crossplatform
      * @since 9
      */
     /**
@@ -223,7 +209,6 @@ declare namespace promptAction {
   /**
    * @typedef ActionMenuSuccessResponse
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -237,7 +222,6 @@ declare namespace promptAction {
     /**
      * Index of the selected button, starting from 0.
      * @type { number }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -252,7 +236,6 @@ declare namespace promptAction {
   /**
    * @typedef ActionMenuOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -266,7 +249,6 @@ declare namespace promptAction {
     /**
      * Title of the text to display.
      * @type { string | Resource }
-     * @crossplatform
      * @since 9
      */
     /**
@@ -281,7 +263,6 @@ declare namespace promptAction {
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
-     * @crossplatform
      * @since 9
      */
     /**
@@ -301,7 +282,6 @@ declare namespace promptAction {
    * @throws { BusinessError } 401 - if the type of message is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -323,7 +303,6 @@ declare namespace promptAction {
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -345,7 +324,6 @@ declare namespace promptAction {
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -367,7 +345,6 @@ declare namespace promptAction {
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -389,7 +366,6 @@ declare namespace promptAction {
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
