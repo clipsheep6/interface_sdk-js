@@ -267,6 +267,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   colorFilter(value: ColorFilter): ImageAttribute;
 
   /**
+   * Sets the private mode for image.
+   * @form
+   * @param { boolean } value - The private mode of image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  privateMode(value: boolean): ImageAttribute;
+
+  /**
    * Allow replication.
    * @form
    * @since 9
