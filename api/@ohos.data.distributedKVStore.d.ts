@@ -515,7 +515,15 @@ declare namespace distributedKVStore {
      * Indicates the database schema
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @type { ?(Schema) }
      * @since 9
+     */
+    /**
+     * Indicates the database schema
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @type { ?(Schema | string) }
+     * @since 10
      */
     schema?: Schema | string;
 
