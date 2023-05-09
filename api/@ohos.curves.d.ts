@@ -17,7 +17,6 @@
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
  * @namespace curves
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 7
  */
 /**
@@ -32,7 +31,6 @@ declare namespace curves {
    * enum Curve.
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 7
    */
   /**
@@ -62,7 +60,6 @@ declare namespace curves {
    * Interface for curve object.
    * @typedef ICurve
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -78,7 +75,6 @@ declare namespace curves {
     * @param { number } fraction
     * @returns { number }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
     * @since 9
     */
     /**
@@ -97,7 +93,6 @@ declare namespace curves {
    * @param { Curve } [curve]
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -127,7 +122,6 @@ declare namespace curves {
    * @param { boolean } end
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -161,7 +155,6 @@ declare namespace curves {
    * @param { number } y2
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -199,7 +192,6 @@ declare namespace curves {
    * @param { number } damping
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -236,7 +228,6 @@ declare namespace curves {
    * @param { number } [overlapDuration]
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**
@@ -258,7 +249,6 @@ declare namespace curves {
    * @param { number } [overlapDuration]
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 9
    */
   /**

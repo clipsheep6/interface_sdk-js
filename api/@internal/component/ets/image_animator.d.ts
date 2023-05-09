@@ -154,7 +154,6 @@ interface ImageFrameInfo {
 declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
    * list images
-   * @crossplatform
    * @since 7
    */
   /**
