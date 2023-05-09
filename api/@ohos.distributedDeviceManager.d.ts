@@ -260,25 +260,6 @@ declare namespace deviceManager {
     getLocalDeviceNetworkIdSync(): string;
 
     /**
-     * Get the network id of the local device.
-     *
-     * @since 10
-     * @param callback Indicates the callback to be invoked upon getLocalDeviceNetworkId.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device network id.
-     */
-    getLocalDeviceNetworkId(callback: AsyncCallback<{networkId: string}>): void;
-
-    /**
-     * Get the network id of the local device.
-     *
-     * @since 10
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device network id.
-     */
-    getLocalDeviceNetworkId(): Promise<{networkId: string}>;
-
-    /**
      * Get the device name of the local device.
      *
      * @since 10
@@ -286,25 +267,6 @@ declare namespace deviceManager {
      * @returns Returns local device name.
      */
     getLocalDeviceNameSync(): string;
-
-    /**
-     * Get the device name of the local device.
-     *
-     * @since 10
-     * @param callback Indicates the callback to be invoked upon getLocalDeviceName
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device name.
-     */
-    getLocalDeviceName(callback: AsyncCallback<{deviceName: string}>): void;
-
-    /**
-     * Get the device name of the local device.
-     *
-     * @since 10
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device name.
-     */
-    getLocalDeviceName(): Promise<{deviceName: string}>;
 
     /**
      * Get the device type of the local device.
@@ -316,55 +278,23 @@ declare namespace deviceManager {
     getLocalDeviceTypeSync(): number;
 
     /**
-     * Get the device type of the local device.
-     *
-     * @since 10
-     * @param callback Indicates the callback to be invoked upon getLocalDeviceType
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @returns Returns local device type.
-     */
-    getLocalDeviceType(callback: AsyncCallback<{deviceType: number}>): void;
-
-    /**
-     * Get the device type of the local device.
+     * Get the device id of the local device.
      *
      * @since 10
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @returns Returns local device type.
      */
-    getLocalDeviceType(): Promise<{deviceType: number}>;
+    getLocalDeviceIdSync(): string;
 
     /**
-     * Get the device name by networkId.
-     *
-     * @since 10
-     * @param { string } networkId - Device network id.
-     * @param { AsyncCallback<{deviceName: string}> } callback - Indicates the callback to be invoked upon getDeviceName.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @returns Returns device name.
-     */
-    getDeviceName(networkId: string, callback: AsyncCallback<{deviceName: string}>): void;
-
-    /**
-     * Get the device name by networkId.
+     * Get the device name by network id.
      *
      * @since 10
      * @param { string } networkId - Device network id.
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns device name.
      */
-    getDeviceName(networkId: string): Promise<{deviceName: string}>;
-
-    /**
-     * Get the device type by networkId.
-     *
-     * @since 10
-     * @param { string } networkId - Device network id.
-     * @param { AsyncCallback<{deviceType: number}> } callback - Indicates the callback to be invoked upon getDeviceType.
-     * @throws { BusinessError } 401 - Input parameter error.
-     * @returns Returns device type.
-     */
-    getDeviceType(networkId: string, callback: AsyncCallback<{deviceType: number}>): void;
+    getDeviceNameSync(networkId: string): string;
 
     /**
      * Get the device type by network id.
@@ -374,7 +304,7 @@ declare namespace deviceManager {
      * @throws { BusinessError } 401 - Input parameter error.
      * @returns Returns device type.
      */
-    getDeviceType(networkId: string): Promise<{deviceType: number}>;
+    getDeviceTypeSync(networkId: string): number;
 
     /**
      * Start to discover device.
