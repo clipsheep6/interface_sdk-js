@@ -352,13 +352,19 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
+  /**
+   * Indicates possible value types
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
   type ValueType = number | string | boolean | Uint8Array | Asset | Asset[];
 
   /**
    * Values in buckets are stored in key-value pairs
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
+   * @since 10
    */
   type ValuesBucket = { [key:string]: ValueType | null; };
 
