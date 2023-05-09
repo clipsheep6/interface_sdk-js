@@ -3615,36 +3615,36 @@ declare class CommonMethod<T> {
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
   
   /**
-   * Sets accessibilitygroup
+   * Sets accessibilityGroup
    * @param { boolean } value , set group with accessibility
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  accessibilitygroup(value: boolean);
+  accessibilityGroup(value: boolean);
 
   /**
-   * Sets accessibilitytext
+   * Sets accessibilityText
    * @param { string } value , set accessibility text
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  accessibilitytext(value: string);
+  accessibilityText(value: string);
 
   /**
-   * Sets accessibilitydescription
+   * Sets accessibilityDescription
    * @param { string } value , set description of accessibility
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  accessibilitydescription(value: string);
+  accessibilityDescription(value: string);
 
   /**
-   * Sets accessibilityimportance
+   * Sets accessibilityImportance
    * @param { string } value , set accessibility level
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  accessibilityimportance(value: string);
+  accessibilityImportance(value: string);
 }
 
 /**
