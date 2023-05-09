@@ -17,7 +17,7 @@
 
 import font from "./@ohos.font"
 import mediaquery from './@ohos.mediaquery'
-import prompt from './@ohos.prompt'
+import promptAction from './@ohos.promptAction'
 import router from './@ohos.router'
 import { AnimatorOptions, AnimatorResult} from './@ohos.animator'
 import { AsyncCallback } from './@ohos.base'
@@ -1222,45 +1222,45 @@ export class Animator{
 }
 
 /**
- * class Prompt
+ * class PromptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export class Prompt{
+export class PromptAction{
   /**
    * Displays the notification text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  showToast(options: prompt.ShowToastOptions): void;
+  showToast(options: promptAction.ShowToastOptions): void;
 
   /**
    * Displays the dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  showDialog(options: prompt.ShowDialogOptions, callback: AsyncCallback<prompt.ShowDialogSuccessResponse>): void;
+  showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
 
   /**
    * Displays the dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  showDialog(options: prompt.ShowDialogOptions): Promise<prompt.ShowDialogSuccessResponse>;
+  showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
    * Displays the menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  showActionMenu(options: prompt.ActionMenuOptions, callback: prompt.ActionMenuSuccessResponse): void;
+  showActionMenu(options: promptAction.ActionMenuOptions, callback: promptAction.ActionMenuSuccessResponse): void;
 
   /**
    * Displays the menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  showActionMenu(options: prompt.ActionMenuOptions): Promise<prompt.ActionMenuSuccessResponse>;
+  showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
 }
 
 /**
@@ -1302,12 +1302,12 @@ export class UIContent {
   getAnimator(): Animator;
 
   /**
-   * get object prompt
+   * get object PromptAction
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @return object Prompt
+   * @return object PromptAction
    * @since 10
    */
-  getPrompt(): Prompt;
+  getPromptAction(): PromptAction;
 
   /**
    * Defining animation function.
