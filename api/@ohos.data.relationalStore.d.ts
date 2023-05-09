@@ -356,6 +356,7 @@ declare namespace relationalStore {
    * Indicates possible value types
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @type { (number | string | boolean | Uint8Array | Asset | Asset[]) }
    * @since 10
    */
   type ValueType = number | string | boolean | Uint8Array | Asset | Asset[];
