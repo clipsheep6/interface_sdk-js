@@ -348,7 +348,7 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 10
      */
-    value?: number | boolean;
+    value?: number;
   }
 
   /**
@@ -517,7 +517,7 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
-    schema?: Schema;
+    schema?: Schema | string;
 
     /**
      * The database would sync according to these policies, which autoSync param is true.
