@@ -25,17 +25,17 @@
      */
     enum Action {
         /**
-         * Indicates upload task.
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        UPLOAD = 1,
-        /**
          * Indicates download task.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         DOWNLOAD = 0,
+        /**
+         * Indicates upload task.
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        UPLOAD = 1,
     }
     /**
      * The mode options.
@@ -45,17 +45,17 @@
      */
     enum Mode {
         /**
-         * Indicates frontend task.
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        FRONTEND = 1,
-        /**
          * Indicates background task.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
         BACKGROUND = 0,
+        /**
+         * Indicates frontend task.
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 10
+         */
+        FRONTEND = 1,
     }
     /**
      * The network options.
@@ -138,19 +138,12 @@
          */
         name: string;
         /**
-         * The item's type.
-         * @type { string }
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 10
-         */
-        type: string;
-        /**
          * The item's value.
-         * @type { string | number | FileSpec | Array<FileSpec> }
+         * @type { string | FileSpec | Array<FileSpec> }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        value: string | number | FileSpec | Array<FileSpec>;
+        value: string | FileSpec | Array<FileSpec>;
     }
     /**
      * The configurations for a task.
@@ -237,13 +230,13 @@
         headers?: object;
         /**
          * The arguments, it can be any text, uses json usually.
-         * For download, it can be raw string or object which will be converted to json text, the default is "{}".
+         * For download, it can be raw string, the default is empty strng.
          * For upload, it can be form items, the default is a empty form.
-         * @type { object | string | Array<FormItem> }
+         * @type { string | Array<FormItem> }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        data?: object | string | Array<FormItem>;
+        data?: string | Array<FormItem>;
         /**
          * The path to save the downloaded file, the default is "./".
          * Currently support:
@@ -457,7 +450,7 @@
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        readonly astate: State;
+        readonly state: State;
         /**
          * The current processing file index in a task.
          * @type { number }
