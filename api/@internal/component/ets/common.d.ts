@@ -362,7 +362,7 @@ declare type Context = import('../api/application/Context').default;
 /**
  * Post Card Action.
  * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
+ * @param { Object } action - indicate the router, message or call event.
  * @form
  * @StageModelOnly
  * @since 9
@@ -2121,6 +2121,18 @@ declare interface BackgroundBlurStyleOptions {
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
+
+  /**
+   * Define the scale of background blur effect. 
+   * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
+   * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
+   * @type { number }
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @systemapi
+   */
+  scale?: number;
 }
 
 /**
@@ -2148,6 +2160,27 @@ declare interface PickerTextStyle {
    * @since 10
    */
   font?: Font;
+}
+
+/**
+ * Define the type of shadow
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ShadowType {
+  /**
+   * Define a color type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COLOR,
+
+  /**
+   * Define a blur type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BLUR,
 }
 
 /**
@@ -2182,6 +2215,15 @@ declare interface ShadowOptions {
    * @since 10
    */
   radius: number | Resource;
+
+  /**
+   * Define the type of shadow
+   * @type { ShadowType }
+   * @default ShadowType.COLOR
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type?: ShadowType;
 
   /**
    * Define the color of shadow
