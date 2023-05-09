@@ -446,7 +446,7 @@ declare namespace relationalStore {
     SUBSCRIBE_TYPE_CLOUD,
 
     /**
-     * Subscription to cloud data changes
+     * Subscription to cloud data changes detail
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
