@@ -182,12 +182,12 @@ declare namespace relationalStore {
     failed: number;
     
     /**
-     * Describes the number of data untreated to sync.
+     * Describes the number of data remained to sync.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */ 
-    untreated: number;
+    remained: number;
   }
 
   /**
@@ -1404,7 +1404,8 @@ declare namespace relationalStore {
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1415,8 +1416,9 @@ declare namespace relationalStore {
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> |  Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
