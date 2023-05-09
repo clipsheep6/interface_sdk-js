@@ -170,7 +170,7 @@ declare namespace commonEventManager {
   function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
-   * Set static subscribe event state.
+   * Set static subscriber state.
    * @param { boolean } enable - static subscribe event enable/disable state.
    * @param { AsyncCallback<void> } callback - Specified callback method.
    * @throws { BusinessError } 202 - not system app
@@ -182,10 +182,10 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 10
    */
-  function setStaticSubscribeEventState(enable: boolean, callback: AsyncCallback<void>): void;
+  function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set static subscribe event state.
+   * Set static subscriber state.
    * @param { boolean } enable - static subscribe event enable/disable state.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
@@ -196,7 +196,7 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 10
    */
-  function setStaticSubscribeEventState(enable: boolean): Promise<void>;
+  function setStaticSubscriberState(enable: boolean): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
