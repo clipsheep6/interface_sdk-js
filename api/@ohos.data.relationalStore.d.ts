@@ -444,7 +444,60 @@ declare namespace relationalStore {
      * @since 10
      */
     SUBSCRIBE_TYPE_CLOUD,
+
+    /**
+     * Subscription to cloud data changes
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_CLOUD_DETAIL,
   }
+
+  /**
+   * Indicates the notify info
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface ChangeInfo {
+    /**
+     * Indicates the changed table
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    table: string;
+
+    /**
+     * Indicates if there is a string primary key, the inserted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    inserted: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the updated will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    updated: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the deleted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    deleted: Array<string> | Array<number>;
+  }
+
 
   /**
    * Describes the distribution type of the tables.
@@ -1333,7 +1386,19 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+    /**
+     * Registers an observer for the database. When data in the distributed database changes,
+     * the callback will be invoked.
+     *
+     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the observer of data change events in the distributed database.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -1346,7 +1411,18 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> |  Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
   }
 
   /**
