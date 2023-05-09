@@ -29,6 +29,7 @@ const ts = requireTypescriptModule();
 
 function checkSpelling(node, sourcefile, fileName) {
   if (ts.isIdentifier(node) && node.escapedText) {
+    console.log("node.escapedText: ", node.escapedText);
     checkWordSpelling(node.escapedText.toString(), node, sourcefile, fileName, FileType.API);
   } else if (hasAPINote(node)) {
     const apiNote = getAPINote(node);
