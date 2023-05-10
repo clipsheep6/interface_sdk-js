@@ -30,8 +30,8 @@ declare enum SideBarContainerType {
   Overlay,
   /**
    * The sidebar AUTO 
-   * @since 10
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
    */
   AUTO,
 }
