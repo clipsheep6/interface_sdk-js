@@ -248,6 +248,24 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+
+  /**
+   * Enable the text to be editable.
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  editable(value: boolean): TextAttribute;
+
+  /**
+   * Called when judging whether the text editing change finished.
+   * @param callback The triggered function when the text input status changes.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onEditChange(callback: (isEditing: boolean) => void): TextAttribute;
 }
 
 /**
