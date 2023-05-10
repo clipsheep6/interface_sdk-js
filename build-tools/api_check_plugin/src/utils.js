@@ -313,7 +313,7 @@ const ErrorValueInfo = {
 exports.ErrorValueInfo = ErrorValueInfo;
 
 /**
-   * ��װ������Ϣ
+   * 组装错误信息
    */
 function createErrorInfo(errorInfo, params) {
   params.forEach((param) => {
@@ -324,7 +324,7 @@ function createErrorInfo(errorInfo, params) {
 exports.createErrorInfo = createErrorInfo;
 
 /**
- * �ж��Ƿ�Ϊarkui��api�ļ�
+ * 判断是否为arkui的api文件
  */
 function isArkUIApiFile(fileName) {
   if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {

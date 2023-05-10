@@ -30,9 +30,9 @@ export interface VibrateOptions {
 
   /**
    * Called when success to trigger vibration.
-   * @since 9
+   * @since 3
    */
-  ability: () => void;
+  success: () => void;
 
   /**
    * Called when fail to trigger vibration.
@@ -63,5 +63,5 @@ export default class Vibrator {
    * @deprecated since 8
    * @useinstead ohos.vibrator/vibrator#startVibration
    */
-  static put(options?: VibrateOptions): void;
+  static vibrate(options?: VibrateOptions): void;
 }
