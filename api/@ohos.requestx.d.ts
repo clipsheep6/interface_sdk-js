@@ -725,23 +725,23 @@
         /**
          * Enable the specified callback for a frontend task.
          * @param { "progress"|"completed"|"failed" } evt event types.
-         * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
+         * @param { (progress: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
          * @throws {BusinessError} 21900005 - task mode error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        on(evt: "progress" | "completed" | "failed", callback: (pg: Progress) => void): void;
+        on(evt: "progress" | "completed" | "failed", callback: (progress: Progress) => void): void;
         /**
          * Disable the specified callback for a frontend task.
          * @param { "progress"|"completed"|"failed" } evt event types.
-         * @param { (pg: Progress) => void } callback callback function with a `Progress` argument.
+         * @param { (progress: Progress) => void } callback callback function with a `Progress` argument.
          * @throws {BusinessError} 401 - Parameter error.
          * @throws {BusinessError} 21900005 - task mode error.
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 10
          */
-        off(evt: "progress" | "completed" | "failed", callback?: (pg: Progress) => void): void;
+        off(evt: "progress" | "completed" | "failed", callback?: (progress: Progress) => void): void;
         /**
          * Starts the task.
          * @permission ohos.permission.INTERNET
