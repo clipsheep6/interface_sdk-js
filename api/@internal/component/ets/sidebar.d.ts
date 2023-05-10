@@ -31,6 +31,7 @@ declare enum SideBarContainerType {
   /**
    * The sidebar AUTO 
    * @since 10
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    */
   AUTO,
 }
@@ -228,7 +229,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   
   /**
    * Sets the min length of content.
-   * default value is 360vp.
+   * @default value is 360vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   minContentWidth(value: Length): SideBarContainerAttribute;
