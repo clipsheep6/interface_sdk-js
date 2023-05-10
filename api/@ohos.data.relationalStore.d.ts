@@ -1391,8 +1391,11 @@ declare namespace relationalStore {
      * the callback will be invoked.
      *
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the observer of data change events in the distributed database.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
+     * - {Array<string>}: the observer of data change events in the distributed database.
+     * - {Array<ChangeInfo>}: the change info of data change events in the distributed database.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1418,7 +1421,9 @@ declare namespace relationalStore {
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
+     * - {Array<string>}: the data change observer already registered.
+     * - {Array<ChangeInfo>}: the change info already registered.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
