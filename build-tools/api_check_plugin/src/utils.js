@@ -254,32 +254,32 @@ const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'Sta
 exports.inheritArr = inheritArr;
 
 const ErrorValueInfoCh = {
-  ERROR_INFO_VALUE_EXTENDS: 'µÚ[$$]¶ÎJSDocÖÐ, extends±êÇ©Öµ´íÎó, Çë¼ì²é±êÇ©ÖµÊÇ·ñÓë¼Ì³ÐÀàÃû±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_ENUM: 'µÚ[$$]¶ÎJSDocÖÐ,enum±êÇ©ÀàÐÍ´íÎó, Çë¼ì²é±êÇ©ÀàÐÍÊÇ·ñÎªstring»ònumber.',
-  ERROR_INFO_VALUE_SINCE: 'µÚ[$$]¶ÎJSDocÖÐ,since±êÇ©Öµ´íÎó, Çë¼ì²é±êÇ©ÖµÊÇ·ñÎªÊýÖµ.',
-  ERROR_INFO_RETURNS: 'µÚ[$$]¶ÎJSDocÖÐ,returns±êÇ©Ê¹ÓÃ´íÎó, ·µ»ØÀàÐÍÎªvoidÊ±²»Ó¦¸ÃÊ¹ÓÃreturns±êÇ©.',
-  ERROR_INFO_VALUE_RETURNS: 'µÚ[$$]¶ÎJSDocÖÐ,returns±êÇ©ÀàÐÍ´íÎó, Çë¼ì²é±êÇ©ÀàÐÍÊÇ·ñÓë·µ»ØÀàÐÍÒ»ÖÂ.',
-  ERROR_INFO_VALUE_USEINSTEAD: 'µÚ[$$]¶ÎJSDocÖÐ,useinstead±êÇ©Öµ´íÎó, Çë¼ì²éÊ¹ÓÃ·½·¨.',
-  ERROR_INFO_VALUE_TYPE: 'µÚ[$$]¶ÎJSDocÖÐ,type±êÇ©ÀàÐÍ´íÎó, Çë¼ì²éÀàÐÍÊÇ·ñÓëÊôÐÔÀàÐÍÒ»ÖÂ.',
-  ERROR_INFO_VALUE_DEFAULT: 'µÚ[$$]¶ÎJSDocÖÐ,default±êÇ©Öµ´íÎó, Çë²¹³äÄ¬ÈÏÖµ.',
-  ERROR_INFO_VALUE_PERMISSION: 'µÚ[$$]¶ÎJSDocÖÐ,permission±êÇ©ÖµÊéÐ´´íÎó, Çë¼ì²éÈ¨ÏÞ×Ö¶ÎÊÇ·ñÒÑÅäÖÃ»òÕß¸üÐÂÅäÖÃÎÄ¼þ.',
-  ERROR_INFO_VALUE_DEPRECATED: 'µÚ[$$]¶ÎJSDocÖÐ,deprecated±êÇ©Öµ´íÎó, Çë¼ì²éÊ¹ÓÃ·½·¨.',
-  ERROR_INFO_VALUE_SYSCAP: 'µÚ[$$]¶ÎJSDocÖÐ,syscap±êÇ©Öµ´íÎó, Çë¼ì²ésyscap×Ö¶ÎÊÇ·ñÒÑÅäÖÃ.',
-  ERROR_INFO_VALUE_NAMESPACE: 'µÚ[$$]¶ÎJSDocÖÐ,namespace±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓënamespaceÃû³Æ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_INTERFACE: 'µÚ[$$]¶ÎJSDocÖÐ,interface±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓëinterfaceÃû³Æ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_TYPEDEF: 'µÚ[$$]¶ÎJSDocÖÐ,typedef±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓëinterfaceÃû³Æ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_TYPE_PARAM: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$]¸öparam±êÇ©ÀàÐÍ´íÎó, Çë¼ì²éÊÇ·ñÓëµÚ[$$]¸ö²ÎÊýÀàÐÍ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_PARAM: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$}]¸öparam±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓëµÚ[$$]¸ö²ÎÊýÃû±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE1_THROWS: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$}]¸öthrows±êÇ©ÀàÐÍ´íÎó, ÇëÌîÐ´BusinessError.',
-  ERROR_INFO_VALUE2_THROWS: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$}]¸öthrows±êÇ©ÀàÐÍ´íÎó, Çë¼ì²é±êÇ©ÖµÊÇ·ñÎªÊýÖµ.',
-  ERROR_INFO_INHERIT: 'µÚ[$$]¶ÎJSDocÖÐ,¼ì²âµ½µ±Ç°ÎÄ¼þÖÐ´æÔÚ¿É¼Ì³Ð±êÇ©[$$]£¬µ«´æÔÚ×Ó½ÚµãÃ»ÓÐ´Ë±êÇ©.',
-  ERROR_ORDER: 'JSDoc±êÇ©Ë³Ðò´íÎó,Çë½øÐÐµ÷Õû',
-  ERROR_LABELNAME: 'µÚ[$$]¶ÎJSDocÖÐ,[$$]±êÇ©²»´æÔÚ, ÇëÊ¹ÓÃºÏ·¨µÄJSDoc±êÇ©.',
-  ERROR_LOST_LABEL: 'JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,ÇëÈ·ÈÏÊÇ·ñÒÅÊ§$$±êÇ©.',
-  ERROR_USE: 'JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,²»ÔÊÐíÊ¹ÓÃ[$$]±êÇ©, Çë¼ì²é±êÇ©Ê¹ÓÃ·½·¨.',
-  ERROR_MORELABEL: 'JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,µÚ[$$]¸ö[$$]±êÇ©¶àÓà, Çë¼ì²éÊÇ·ñÓ¦¸ÃÉ¾³ý±êÇ©',
-  ERROR_REPEATLABEL: 'µÚ[$$]¶ÎJSDocÖÐ,JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,[$$]±êÇ©²»ÔÊÐíÖØ¸´Ê¹ÓÃ, ÇëÉ¾³ý¶àÓà±êÇ©.',
-  ERROR_USE_INTERFACE: 'µÚ[$$]¶ÎJSDocÖÐ,JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,interface±êÇ©Óëtypedef±êÇ©²»ÔÊÐíÍ¬Ê±Ê¹ÓÃ, ÇëÈ·ÈÏ½Ó¿ÚÀàÐÍ.',
+  ERROR_INFO_VALUE_EXTENDS: 'ç¬¬[$$]æ®µJSDocä¸­, extendsæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥æ ‡ç­¾å€¼æ˜¯å¦ä¸Žç»§æ‰¿ç±»åä¿æŒä¸€è‡´.',
+  ERROR_INFO_VALUE_ENUM: 'ç¬¬[$$]æ®µJSDocä¸­,enumæ ‡ç­¾ç±»åž‹é”™è¯¯, è¯·æ£€æŸ¥æ ‡ç­¾ç±»åž‹æ˜¯å¦ä¸ºstringæˆ–number.',
+  ERROR_INFO_VALUE_SINCE: 'ç¬¬[$$]æ®µJSDocä¸­,sinceæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥æ ‡ç­¾å€¼æ˜¯å¦ä¸ºæ•°å€¼.',
+  ERROR_INFO_RETURNS: 'ç¬¬[$$]æ®µJSDocä¸­,returnsæ ‡ç­¾ä½¿ç”¨é”™è¯¯, è¿”å›žç±»åž‹ä¸ºvoidæ—¶ä¸åº”è¯¥ä½¿ç”¨returnsæ ‡ç­¾.',
+  ERROR_INFO_VALUE_RETURNS: 'ç¬¬[$$]æ®µJSDocä¸­,returnsæ ‡ç­¾ç±»åž‹é”™è¯¯, è¯·æ£€æŸ¥æ ‡ç­¾ç±»åž‹æ˜¯å¦ä¸Žè¿”å›žç±»åž‹ä¸€è‡´.',
+  ERROR_INFO_VALUE_USEINSTEAD: 'ç¬¬[$$]æ®µJSDocä¸­,useinsteadæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥ä½¿ç”¨æ–¹æ³•.',
+  ERROR_INFO_VALUE_TYPE: 'ç¬¬[$$]æ®µJSDocä¸­,typeæ ‡ç­¾ç±»åž‹é”™è¯¯, è¯·æ£€æŸ¥ç±»åž‹æ˜¯å¦ä¸Žå±žæ€§ç±»åž‹ä¸€è‡´.',
+  ERROR_INFO_VALUE_DEFAULT: 'ç¬¬[$$]æ®µJSDocä¸­,defaultæ ‡ç­¾å€¼é”™è¯¯, è¯·è¡¥å……é»˜è®¤å€¼.',
+  ERROR_INFO_VALUE_PERMISSION: 'ç¬¬[$$]æ®µJSDocä¸­,permissionæ ‡ç­¾å€¼ä¹¦å†™é”™è¯¯, è¯·æ£€æŸ¥æƒé™å­—æ®µæ˜¯å¦å·²é…ç½®æˆ–è€…æ›´æ–°é…ç½®æ–‡ä»¶.',
+  ERROR_INFO_VALUE_DEPRECATED: 'ç¬¬[$$]æ®µJSDocä¸­,deprecatedæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥ä½¿ç”¨æ–¹æ³•.',
+  ERROR_INFO_VALUE_SYSCAP: 'ç¬¬[$$]æ®µJSDocä¸­,syscapæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥syscapå­—æ®µæ˜¯å¦å·²é…ç½®.',
+  ERROR_INFO_VALUE_NAMESPACE: 'ç¬¬[$$]æ®µJSDocä¸­,namespaceæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥æ˜¯å¦ä¸Žnamespaceåç§°ä¿æŒä¸€è‡´.',
+  ERROR_INFO_VALUE_INTERFACE: 'ç¬¬[$$]æ®µJSDocä¸­,interfaceæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥æ˜¯å¦ä¸Žinterfaceåç§°ä¿æŒä¸€è‡´.',
+  ERROR_INFO_VALUE_TYPEDEF: 'ç¬¬[$$]æ®µJSDocä¸­,typedefæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥æ˜¯å¦ä¸Žinterfaceåç§°ä¿æŒä¸€è‡´.',
+  ERROR_INFO_TYPE_PARAM: 'ç¬¬[$$]æ®µJSDocä¸­,ç¬¬[$$]ä¸ªparamæ ‡ç­¾ç±»åž‹é”™è¯¯, è¯·æ£€æŸ¥æ˜¯å¦ä¸Žç¬¬[$$]ä¸ªå‚æ•°ç±»åž‹ä¿æŒä¸€è‡´.',
+  ERROR_INFO_VALUE_PARAM: 'ç¬¬[$$]æ®µJSDocä¸­,ç¬¬[$$}]ä¸ªparamæ ‡ç­¾å€¼é”™è¯¯, è¯·æ£€æŸ¥æ˜¯å¦ä¸Žç¬¬[$$]ä¸ªå‚æ•°åä¿æŒä¸€è‡´.',
+  ERROR_INFO_VALUE1_THROWS: 'ç¬¬[$$]æ®µJSDocä¸­,ç¬¬[$$}]ä¸ªthrowsæ ‡ç­¾ç±»åž‹é”™è¯¯, è¯·å¡«å†™BusinessError.',
+  ERROR_INFO_VALUE2_THROWS: 'ç¬¬[$$]æ®µJSDocä¸­,ç¬¬[$$}]ä¸ªthrowsæ ‡ç­¾ç±»åž‹é”™è¯¯, è¯·æ£€æŸ¥æ ‡ç­¾å€¼æ˜¯å¦ä¸ºæ•°å€¼.',
+  ERROR_INFO_INHERIT: 'ç¬¬[$$]æ®µJSDocä¸­,æ£€æµ‹åˆ°å½“å‰æ–‡ä»¶ä¸­å­˜åœ¨å¯ç»§æ‰¿æ ‡ç­¾[$$]ï¼Œä½†å­˜åœ¨å­èŠ‚ç‚¹æ²¡æœ‰æ­¤æ ‡ç­¾.',
+  ERROR_ORDER: 'JSDocæ ‡ç­¾é¡ºåºé”™è¯¯,è¯·è¿›è¡Œè°ƒæ•´',
+  ERROR_LABELNAME: 'ç¬¬[$$]æ®µJSDocä¸­,[$$]æ ‡ç­¾ä¸å­˜åœ¨, è¯·ä½¿ç”¨åˆæ³•çš„JSDocæ ‡ç­¾.',
+  ERROR_LOST_LABEL: 'JSDocæ ‡ç­¾åˆæ³•æ€§æ ¡éªŒå¤±è´¥,è¯·ç¡®è®¤æ˜¯å¦é—å¤±$$æ ‡ç­¾.',
+  ERROR_USE: 'JSDocæ ‡ç­¾åˆæ³•æ€§æ ¡éªŒå¤±è´¥,ä¸å…è®¸ä½¿ç”¨[$$]æ ‡ç­¾, è¯·æ£€æŸ¥æ ‡ç­¾ä½¿ç”¨æ–¹æ³•.',
+  ERROR_MORELABEL: 'JSDocæ ‡ç­¾åˆæ³•æ€§æ ¡éªŒå¤±è´¥,ç¬¬[$$]ä¸ª[$$]æ ‡ç­¾å¤šä½™, è¯·æ£€æŸ¥æ˜¯å¦åº”è¯¥åˆ é™¤æ ‡ç­¾',
+  ERROR_REPEATLABEL: 'ç¬¬[$$]æ®µJSDocä¸­,JSDocæ ‡ç­¾åˆæ³•æ€§æ ¡éªŒå¤±è´¥,[$$]æ ‡ç­¾ä¸å…è®¸é‡å¤ä½¿ç”¨, è¯·åˆ é™¤å¤šä½™æ ‡ç­¾.',
+  ERROR_USE_INTERFACE: 'ç¬¬[$$]æ®µJSDocä¸­,JSDocæ ‡ç­¾åˆæ³•æ€§æ ¡éªŒå¤±è´¥,interfaceæ ‡ç­¾ä¸Žtypedefæ ‡ç­¾ä¸å…è®¸åŒæ—¶ä½¿ç”¨, è¯·ç¡®è®¤æŽ¥å£ç±»åž‹.',
 };
 
 const ErrorValueInfo = {
@@ -313,7 +313,7 @@ const ErrorValueInfo = {
 exports.ErrorValueInfo = ErrorValueInfo;
 
 /**
-   * ×é×°´íÎóÐÅÏ¢
+   * ç»„è£…é”™è¯¯ä¿¡æ¯
    */
 function createErrorInfo(errorInfo, params) {
   params.forEach((param) => {
@@ -324,7 +324,7 @@ function createErrorInfo(errorInfo, params) {
 exports.createErrorInfo = createErrorInfo;
 
 /**
- * ÅÐ¶ÏÊÇ·ñÎªarkuiµÄapiÎÄ¼þ
+ * åˆ¤æ–­æ˜¯å¦ä¸ºarkuiçš„apiæ–‡ä»¶
  */
 function isArkUIApiFile(fileName) {
   if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
@@ -343,3 +343,21 @@ function isWhiteListFile(fileName, whiteList) {
   return false
 }
 exports.isWhiteListFile = isWhiteListFile;
+
+function getcheckApiVersion() {
+  const packageJsonPath = path.join(__dirname, "../package.json");
+  let packageJson;
+  let checkApiVersion;
+  try {
+    const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
+    packageJson = JSON.parse(packageJsonContent);
+    checkApiVersion = packageJson.checkApiVersion;
+  } catch(error) {
+    console.error("Failed to read package.json or parse JSON content:", error);
+  }
+  if (!checkApiVersion) {
+    console.error("Invalid checkApiVersion:", checkApiVersion);
+  }
+  return checkApiVersion;
+}
+exports.getcheckApiVersion = getcheckApiVersion;

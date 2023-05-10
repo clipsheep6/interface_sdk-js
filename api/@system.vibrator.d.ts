@@ -59,7 +59,7 @@ export default class Vibrator {
    * Triggers vibration.
    * @param options Options.
    * @permission ohos.permission.VIBRATE
-   * @since 3
+   * @since 9
    * @deprecated since 8
    * @useinstead ohos.vibrator/vibrator#startVibration
    */
