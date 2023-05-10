@@ -31,7 +31,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 10
    */
   function on(type: "error", observer: ErrorObserver): number;
 
@@ -43,7 +43,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 10
    */
   function off(type: "error", observerId: number, callback: AsyncCallback<void>): void;
 
@@ -55,9 +55,9 @@ declare namespace errorManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000003 - Id does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
+   * @since 10
    */
-  function off(type: "error", observerId: number): Promise<void>;
+  // function off(type: "error", observerId: number): Promise<void>;
 
   /**
    * The observer will be called by system when an error occurs.

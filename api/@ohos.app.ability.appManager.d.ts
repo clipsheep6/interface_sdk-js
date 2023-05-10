@@ -86,7 +86,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
   function on(type: "applicationState", observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
@@ -118,9 +118,9 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
-  function off(type: "applicationState", observerId: number): Promise<void>;
+  // function off(type: "applicationState", observerId: number): Promise<void>;
 
   /**
    * getForegroundApplications.

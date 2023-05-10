@@ -22,6 +22,7 @@ const { checkSyscap } = require('./check_syscap');
 const { checkDeprecated } = require('./check_deprecated');
 const { checkAPINameOfHump, checkAPIFileName } = require('./check_hump');
 const { checkJSDoc } = require('./check_legality');
+const { checkEventSubscription } = require('./check_eventSubscription');
 const { hasAPINote, ApiCheckResult, requireTypescriptModule } = require('./utils');
 const ts = requireTypescriptModule();
 let result = require('../check_result.json');
@@ -85,6 +86,8 @@ function checkAllNode(node, sourcefile, fileName) {
 
     const permissionConfigPath = require('../config/config.json');
     checkJSDoc(node, sourcefile, permissionConfigPath, fileName);
+    // check event subscription API 
+    checkEventSubscription(node, sourcefile, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
