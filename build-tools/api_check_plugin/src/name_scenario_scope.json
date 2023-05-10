@@ -1,0 +1,6 @@
+[
+  {
+    "word": "ability",
+    "files": ["@ohos.ability.*", "@ohos.app.ability.*"]
+  }
+]
