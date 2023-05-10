@@ -117,6 +117,142 @@ declare namespace relationalStore {
   }
 
   /**
+   * The cloud sync progress
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  enum Progress {
+    /**
+     * SYNC_BEGIN: means the sync process begin.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_BEGIN,
+    
+    /**
+     * SYNC_BEGIN: means the sync process is in progress
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_IN_PROGRESS,
+    
+    /**
+     * SYNC_BEGIN: means the sync process is finished
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */    
+    SYNC_FINISH,
+  }
+
+  /**
+   * Describes the statistic of the cloud sync process.
+   *
+   * @interface Statistic
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface Statistic {
+    /**
+     * Describes the total number of data to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */      
+    total: number;
+
+    /**
+     * Describes the number of successfully synced data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */  
+    success: number;
+    
+    /**
+     * Describes the number of data failed to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */ 
+    failed: number;
+    
+    /**
+     * Describes the number of data remained to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */ 
+    remained: number;
+  }
+
+  /**
+   * Describes the {@code Statistic} details of the table.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface TableDetail {
+    /**
+     * Describes the {@code Statistic} details of the upload process.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    upload: Statistic;
+
+    /**
+     * Describes the {@code Statistic} details of the download process.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    download: Statistic;
+  }
+
+  /**
+   * Describes detail of the cloud sync {@code Process}.
+   *
+   * @interface ProgressDetail
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface ProgressDetail {
+    /**
+     * Describes the status of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */   
+    schedule : Progress;
+    
+    /**
+     * Describes the code of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */     
+    code: number;
+
+    /**
+     * The statistic details of the tables.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */         
+    details: {
+      [table: string]:TableDetail
+    };
+  }
+
+  /**
    * Describes the {@code RdbStore} type.
    *
    * @enum { number }
@@ -162,20 +298,76 @@ declare namespace relationalStore {
   }
 
   /**
+   * Records information of the asset.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface Asset {
+  
+    /**
+     * The name of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    name: string;
+    
+    /**
+     * The uri of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    uri: string;
+    
+    /**
+     * The create time of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    createTime: string;
+    
+    /**
+     * The modify time of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    modifyTime: string;
+    
+    /**
+     * The size of asset.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    size: string;
+  }
+
+  /**
    * Indicates possible value types
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
-  type ValueType = number | string | boolean | Uint8Array;
+  /**
+   * Indicates possible value types
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @type { (number | string | boolean | Uint8Array | Asset | Asset[]) }
+   * @since 10
+   */
+  type ValueType = number | string | boolean | Uint8Array | Asset | Asset[];
 
   /**
    * Values in buckets are stored in key-value pairs
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 9
+   * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType | Uint8Array | null; }
+  type ValuesBucket = { [key:string]: ValueType | null; };
 
   /**
    * Indicates the database synchronization mode.
@@ -199,7 +391,31 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    SYNC_MODE_PULL = 1
+    SYNC_MODE_PULL = 1,
+
+    /**
+     * Indicates the data is pulled from remote device to local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_MODE_TIME_FIRST,
+
+    /**
+     * Indicates force push the native data to the cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_MODE_NATIVE_FIRST,
+
+    /**
+     * Indicates the data is pulled from cloud to local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_MODE_CLOUD_FIRST,
   }
 
   /**
@@ -218,7 +434,97 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    SUBSCRIBE_TYPE_REMOTE = 0
+    SUBSCRIBE_TYPE_REMOTE = 0,
+    
+    /**
+     * Subscription to cloud data changes
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_CLOUD,
+
+    /**
+     * Subscription to cloud data changes detail
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_CLOUD_DETAIL,
+  }
+
+  /**
+   * Indicates the notify info
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface ChangeInfo {
+    /**
+     * Indicates the changed table
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    table: string;
+
+    /**
+     * Indicates if there is a string primary key, the inserted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    inserted: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the updated will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    updated: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the deleted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    deleted: Array<string> | Array<number>;
+  }
+
+
+  /**
+   * Describes the distribution type of the tables.
+   *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum DistributedType {
+    /**
+     * Indicates the table is distributed among the devices
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    DISTRIBUTED_DEVICE = 0,
+
+    /**
+     * Indicates the table is distributed between the cloud and the devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    DISTRIBUTED_CLOUD,
   }
 
   /**
@@ -903,6 +1209,20 @@ declare namespace relationalStore {
     setDistributedTables(tables: Array<string>): Promise<void>;
 
     /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - indicates the tables name you want to set.
+     * @param { number } mode - indicates the distribution type of the tables. {@link DistributedType}.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    setDistributedTables(tables: Array<string>, type?: number): Promise<void>;
+
+    /**
      * Obtain distributed table name of specified remote device according to local table name.
      * When query remote device database, distributed table name is needed.
      *
@@ -961,6 +1281,64 @@ declare namespace relationalStore {
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
     /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { number } mode - indicates the database synchronization mode.
+     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, progress: Callback<ProgressDetail>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { number } mode - indicates the database synchronization mode.
+     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, progress: Callback<ProgressDetail>): Promise<void>;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { number } mode - indicates the database synchronization mode.
+     * @param { string[] } tables - indicates the name of tables to sync.
+     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetail>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { number } mode - indicates the database synchronization mode.
+     * @param { string[] } tables - indicates the name of tables to sync.
+     * @param { Callback<ProgressDetail> } progress - the specified sync condition by the instance object of {@link ProgressDetail}.
+     * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetail>): Promise<void>;
+
+    /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
      *
      * @param { string } device - indicates specified remote device.
@@ -1008,20 +1386,50 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+    /**
+     * Registers an observer for the database. When data in the distributed database changes,
+     * the callback will be invoked.
+     *
+     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
+     * - {Array<string>}: the observer of data change events in the distributed database.
+     * - {Array<ChangeInfo>}: the change info of data change events in the distributed database.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
     /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
+     * - {Array<string>}: the data change observer already registered.
+     * - {Array<ChangeInfo>}: the change info already registered.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
   }
 
   /**
