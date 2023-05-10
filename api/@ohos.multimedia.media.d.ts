@@ -680,7 +680,7 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the track info update event.
      */
-     on(type: 'trackInfoUpdate', callback: Callback<void>): void;
+     on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
      off(type: 'trackInfoUpdate'): void;
     /**
      * Register or unregister to receive subtitle data.
