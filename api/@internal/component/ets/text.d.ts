@@ -251,7 +251,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Enable the text to be editable.
-   * @type boolean
+   * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -260,7 +260,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Called when judging whether the text editing change finished.
-   * @param {boolean} isEditing - Triggered when the text status changes. If the value of isEditing is true, text is in progress.
+   * @param callback The triggered function when the text input status changes.
+   * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
