@@ -2,7 +2,7 @@
     "name": "@ohos/bundle_framework_lite",
     "description": "ohos init process",
     "homePage": "https://gitee.com/openharmony",
-    "version": "3.1",
+    "version": "1.1.0",
     "license": "Apache License 2.0",
     "repository": "https://gitee.com/openharmony/startup_init_lite",
     "publishAs": "code-segment",
