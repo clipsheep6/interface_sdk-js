@@ -87,6 +87,41 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
   } 
 }
 
+// 根据事件订阅API的类型进行处理
+function handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventNames, offEventNames, offEventNodes) {
+  // 判断是哪一种事件订阅函数
+  if (childNodeName === 'on') {
+    checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
+    // 存储on订阅的事件列表
+    if (childNode.parameters[0].type.kind === ts.SyntaxKind.LiteralType) {
+      onEventNames.add(childNode.parameters[0].type.literal.text);
+    } else if (childNode.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
+      onEventNames.add("string");
+    }
+  } else if (childNodeName === 'off') {
+    checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
+    let eventName = '';
+    // 存储off取消订阅的事件列表
+    if (childNode.parameters[0].type.kind === ts.SyntaxKind.LiteralType) {
+      eventName = childNode.parameters[0].type.literal.text;
+      offEventNames.add(eventName);
+    } else if (childNode.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
+      eventName = 'string';
+      offEventNames.add("string");
+    }
+    // 存储不同事件的off函数列表
+    if (!offEventNodes.get(eventName)) {
+      offEventNodes.set(eventName, [childNode]);
+    } else {
+      let curNodes = offEventNodes.get(eventName);
+      curNodes.push(childNode);
+      offEventNodes.set(eventName, curNodes);
+    }
+  } else if (childNodeName === 'once' || childNodeName === 'emit') {
+    checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
+  }
+}
+
 function checkEventSubscription(node, sourcefile, fileName) { 
   //判断是否为接口或者命名空间, 或者是否为根节点
   if ((ts.isInterfaceDeclaration(node)) || ts.isModuleBlock(node) || ts.isModuleDeclaration(node) ||
@@ -112,37 +147,7 @@ function checkEventSubscription(node, sourcefile, fileName) {
         if (childNode.name && ts.isIdentifier(childNode.name)) {
           childNodeName = childNode.name.getText();
         }
-        // 判断是哪一种事件订阅函数
-        if (childNodeName === 'on') {
-          checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
-          // 存储on订阅的事件列表
-          if (childNode.parameters[0].type.kind === ts.SyntaxKind.LiteralType) {
-            onEventNames.add(childNode.parameters[0].type.literal.text);
-          } else if (childNode.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
-            onEventNames.add("string");
-          }
-        } else if (childNodeName === 'off') {
-          checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
-          let eventName = '';
-          // 存储off取消订阅的事件列表
-          if (childNode.parameters[0].type.kind === ts.SyntaxKind.LiteralType) {
-            eventName = childNode.parameters[0].type.literal.text;
-            offEventNames.add(eventName);
-          } else if (childNode.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
-            eventName = 'string';
-            offEventNames.add("string");
-          }
-          // 存储不同事件的off函数列表
-          if (!offEventNodes.get(eventName)) {
-            offEventNodes.set(eventName, [childNode]);
-          } else {
-            let curNodes = offEventNodes.get(eventName);
-            curNodes.push(childNode);
-            offEventNodes.set(eventName, curNodes);
-          }
-        } else if (childNodeName === 'once' || childNodeName === 'emit') {
-          checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
-        }
+        handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventNames, offEventNames, offEventNodes);
       }
     });
     // 判断off函数的callback参数是否为可选类型
