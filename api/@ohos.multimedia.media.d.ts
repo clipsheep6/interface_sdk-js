@@ -377,8 +377,26 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
-     * Set audio or subtitle track. By default, the first audio stream with data is played, and the
-     * subtitle track is not played. Please read or set it in the prepared/playing/paused/completed state.
+     * Add external subtitles.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param url External subtitle URI, Network:http://xxx.
+     */
+    addSubUrl(url: string): void;
+
+    /**
+     * Add external subtitles.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param subFdSrc Subtitle file descriptorTrack.
+     */
+    addSubFdSrc(subFdSrc: AVFileDescriptor): void;
+
+    /**
+     * Set audio or subtitle track.
+     * By default, the first audio stream with data is played, and the subtitle track is not played.
+     * After the settings take effect, the original track will become invalid and users will be notified
+     * of the {@link #trackChange} event.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Track index, reference {@link #getTrackDescription}.
@@ -386,7 +404,9 @@ declare namespace media {
     selectTrack(index: number): void;
 
     /**
-     * Deselect the current subtitle track.
+     * Deselect the current audio or subtitle track.
+     * After audio is deselected, the default track will be played, and after subtitles are deselected,
+     * they will not be played.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Subtitle index that needs to be cancelled.
@@ -394,7 +414,7 @@ declare namespace media {
     deselectTrack(index: number): void;
 
     /**
-     * Obtain the current audio track or subtitle track.
+     * Obtain the current audio or subtitle track.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
@@ -404,7 +424,7 @@ declare namespace media {
     getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
 
     /**
-     * Obtain the current audio track or subtitle track.
+     * Obtain the current audio or subtitle track.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
@@ -412,21 +432,6 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      */
     getCurrentTrack(trackType: MediaType): Promise<number>;
-
-    /**
-     * External subtitle URI.
-     * Network:http://xxx
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     */
-    addSubUrl(url: string): void;
-
-    /**
-     * External subtitle file descriptor.
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     */
-    addSubFdSrc(subFdSrc: AVFileDescriptor): void;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -600,7 +605,7 @@ declare namespace media {
     on(type: 'bitrateDone', callback: Callback<number>): void;
     off(type: 'bitrateDone'): void;
     /**
-     * LRegister or unregister listens for media playback events.
+     * Register or unregister listens for media playback events.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
@@ -664,33 +669,51 @@ declare namespace media {
     on(type: 'availableBitrates', callback: (bitrates: Array<number>) => void): void;
     off(type: 'availableBitrates'): void;
     /**
-     * Register or unregister listens for audio or subtitle track change event.
-     * This event will be reported after the {@link #selectTrack} called.
+     * Register listens for audio or subtitle track change event.
+     * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} called.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the playback event return audio or subtitle track.
      */
     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
+    /**
+     * Unregister listens for audio or subtitle track change event.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     */
     off(type: 'trackChange'): void;
     /**
-     * Register or unregister to listen for trackinfo update events.
-     * This event will be reported after setting {@link #addSubUrl}.
+     * Register to listen for trackinfo update events.
+     * This event will be triggered after a successful call to {@link #addSubUrl} or {@link #addSubFdSrc}.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the track info update event.
      */
-     on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
+    on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
+    /**
+     * Unregister to listen for trackinfo update events.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     */
      off(type: 'trackInfoUpdate'): void;
     /**
-     * Register or unregister to receive subtitle data.
+     * Register to receive subtitle data.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to receive subtitle data.
      */
     on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
+    /**
+     * Unregister to receive subtitle data.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     */
     off(type: 'subtitleTextUpdate'): void;
     /**
      * Register or unregister listens for playback error events.
