@@ -312,7 +312,8 @@
       "SystemCapability.Base",
       "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
       "SystemCapability.MultimodalInput.Input.ShortKey",
-      "SystemCapability.Msdp.DeviceStatus.Cooperate"
+      "SystemCapability.Msdp.DeviceStatus.Cooperate",
+      "SystemCapability.Request.FileTransferAgent"
     ]
   },
   "administrators": [
