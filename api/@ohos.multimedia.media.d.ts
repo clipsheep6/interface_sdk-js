@@ -393,7 +393,7 @@ declare namespace media {
     addSubtitleFdSrc(fdSrc: AVFileDescriptor): void;
 
     /**
-     * Set audio or subtitle track.
+     * Select audio or subtitle track.
      * By default, the first audio stream with data is played, and the subtitle track is not played.
      * After the settings take effect, the original track will become invalid and users will be notified
      * of the {@link #trackChange} event.
@@ -670,7 +670,7 @@ declare namespace media {
     off(type: 'availableBitrates'): void;
     /**
      * Register listens for audio or subtitle track change event.
-     * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} called.
+     * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} finished.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
