@@ -378,7 +378,7 @@ declare namespace media {
 
     /**
      * Add external subtitles.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param url External subtitle URI, Network:http://xxx.
      */
@@ -386,7 +386,7 @@ declare namespace media {
 
     /**
      * Add external subtitles.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param fdSrc Subtitle file descriptorTrack.
      */
@@ -397,7 +397,7 @@ declare namespace media {
      * By default, the first audio stream with data is played, and the subtitle track is not played.
      * After the settings take effect, the original track will become invalid and users will be notified
      * of the {@link #trackChange} event.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Track index, reference {@link #getTrackDescription}.
      */
@@ -407,7 +407,7 @@ declare namespace media {
      * Deselect the current audio or subtitle track.
      * After audio is deselected, the default track will be played, and after subtitles are deselected,
      * they will not be played.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Subtitle index that needs to be cancelled.
      */
@@ -415,7 +415,7 @@ declare namespace media {
 
     /**
      * Obtain the current audio or subtitle track.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
      * @param callback Async callback return the current track.
@@ -425,7 +425,7 @@ declare namespace media {
 
     /**
      * Obtain the current audio or subtitle track.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
      * @returns A Promise instance used to return the current track.
@@ -671,7 +671,7 @@ declare namespace media {
     /**
      * Register listens for audio or subtitle track change event.
      * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} called.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the playback event return audio or subtitle track.
@@ -679,7 +679,7 @@ declare namespace media {
     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
     /**
      * Unregister listens for audio or subtitle track change event.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      */
@@ -687,7 +687,7 @@ declare namespace media {
     /**
      * Register to listen for trackinfo update events.
      * This event will be triggered after a successful call to {@link #addSubUrl} or {@link #addSubFdSrc}.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the track info update event.
@@ -695,14 +695,14 @@ declare namespace media {
     on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
     /**
      * Unregister to listen for trackinfo update events.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      */
      off(type: 'trackInfoUpdate'): void;
     /**
      * Register to receive subtitle data.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to receive subtitle data.
@@ -710,7 +710,7 @@ declare namespace media {
     on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
     /**
      * Unregister to receive subtitle data.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      */
@@ -2397,7 +2397,7 @@ declare namespace media {
     MEDIA_TYPE_VID = 1,
     /**
      * Track is subtitle.
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     MEDIA_TYPE_SUBTITLE = 2,
@@ -2481,7 +2481,7 @@ declare namespace media {
 
     /**
      * key for language, value type is string
-     * @since 11
+     * @since 10
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     MD_KEY_LANGUAGE = "language",
@@ -2888,13 +2888,13 @@ declare namespace media {
 
 /**
  * Subtitle text information descriptor.
- * @since 11
+ * @since 10
  * @syscap SystemCapability.Multimedia.Media.Core
  */
 interface TextInfoDescriptor {
   /**
    * Subtitle text. If null, stop rendering current text.
-   * @since 11
+   * @since 10
    * @syscap SystemCapability.Multimedia.Media.Core
    */
   text: string;
