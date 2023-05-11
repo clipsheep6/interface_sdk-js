@@ -401,7 +401,7 @@ declare namespace media {
      * @param callback Async callback return the current track.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      */
-    getSelectedTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
+    getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
 
     /**
      * Obtain the current audio track or subtitle track.
@@ -411,7 +411,22 @@ declare namespace media {
      * @returns A Promise instance used to return the current track.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      */
-    getSelectedTrack(trackType: MediaType): Promise<number>;
+    getCurrentTrack(trackType: MediaType): Promise<number>;
+
+    /**
+     * External subtitle URI.
+     * Network:http://xxx
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    addSubUrl(url: string): void;
+
+    /**
+     * External subtitle file descriptor.
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    addSubFdSrc(subFdSrc: AVFileDescriptor): void;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -420,20 +435,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
     url ?: string;
-
-    /**
-     * External subtitle URI.
-     * Network:http://xxx
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     */
-    addSubtitleUrl ?: string;
-    /**
-     * External subtitle file descriptor.
-     * @since 11
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     */
-    addSubtitleFdSrc ?: AVFileDescriptor;
 
     /**
      * Media file descriptor. Mainstream media formats are supported.
@@ -2454,6 +2455,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
+
+    /**
+     * key for language, value type is string
+     * @since 11
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    MD_KEY_LANGUAGE = "language",
   }
 
   /**
@@ -2867,102 +2875,6 @@ interface TextInfoDescriptor {
    * @syscap SystemCapability.Multimedia.Media.Core
    */
   text: string;
-  /**
-   * Color of subtitle text, rgb or argb, default is "0xffffff"(white).
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  color?: string;
-  /**
-   * Font size of subtitle text, default is 16 fp.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  size?: number;
-  /**
-   * Font style of subtitle text, default is normal.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  style?: FontStyle;
-  /**
-   * Font weight of subtitle text, default is normal.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  weight?: FontWeight;
-  /**
-   * Decoration of subtitle text, default is none, without any decoration.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  decorationType?: TextDecorationType;
-}
-
-/**
- * Enumerates font style of subtitle text.
- * @since 11
- * @syscap SystemCapability.Multimedia.Media.Core
- */
-enum FontStyle {
-  /**
-   * Normal font style.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  NORMAL = 0,
-  /**
-   * Italic font style.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  ITALIC = 1,
-}
-
-/**
- * Enumerates font weight of subtitle text.
- * @since 11
- * @syscap SystemCapability.Multimedia.Media.Core
- */
-enum FontWeight {
-  /**
-   * Normal font weight.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  NORMAL = 0,
-  /**
-   * Bold font weight.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  BOLD = 1
-}
-
-/**
- * Enumerates decoration type of subtitle text.
- * @since 11
- * @syscap SystemCapability.Multimedia.Media.Core
- */
-enum TextDecorationType {
-  /**
-   * No decoration.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  NONE = 0,
-  /**
-   * Underline.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  UNDERLINE = 1,
-  /**
-   * LineThrough.
-   * @since 11
-   * @syscap SystemCapability.Multimedia.Media.Core
-   */
-  LINETHROUGH = 2,
 }
 }
 export default media;
