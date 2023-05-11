@@ -253,6 +253,7 @@
       "SystemCapability.UserIAM.UserAuth.Core",
       "SystemCapability.UserIAM.UserAuth.PinAuth",
       "SystemCapability.UserIAM.UserAuth.FaceAuth",
+      "SystemCapability.UserIAM.UserAuth.FingerprintAuth",
       "SystemCapability.MiscServices.InputMethodFramework",
       "SystemCapability.MiscServices.Pasteboard",
       "SystemCapability.MiscServices.Time",

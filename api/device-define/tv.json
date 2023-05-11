@@ -109,6 +109,7 @@
     "SystemCapability.UserIAM.UserAuth.Core",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
     "SystemCapability.UserIAM.UserAuth.FaceAuth",
+    "SystemCapability.UserIAM.UserAuth.FingerprintAuth",
     "SystemCapability.MiscServices.Time",
     "SystemCapability.FileManagement.StorageService.Backup",
     "SystemCapability.FileManagement.StorageService.SpatialStatistics",
