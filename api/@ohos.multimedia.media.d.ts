@@ -382,15 +382,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param url External subtitle URI, Network:http://xxx.
      */
-    addSubUrl(url: string): void;
+    addSubtitleUrl(url: string): void;
 
     /**
      * Add external subtitles.
      * @since 11
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param subFdSrc Subtitle file descriptorTrack.
+     * @param fdSrc Subtitle file descriptorTrack.
      */
-    addSubFdSrc(subFdSrc: AVFileDescriptor): void;
+    addSubtitleFdSrc(fdSrc: AVFileDescriptor): void;
 
     /**
      * Set audio or subtitle track.
