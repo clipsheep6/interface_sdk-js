@@ -17,6 +17,7 @@
  * Define the contents of each selector item.
  * @interface TextPickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface TextPickerRangeContent {
@@ -24,6 +25,7 @@ declare interface TextPickerRangeContent {
    * Specifies the icon content.
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   icon: string | Resource;
@@ -32,6 +34,8 @@ declare interface TextPickerRangeContent {
    * Specifies the text content.
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @crossplatform
    * @since 10
    */
   text?: string | Resource;
@@ -40,6 +44,11 @@ declare interface TextPickerRangeContent {
 /**
  * Defines the options of TextPicker.
  * @since 8
+ */
+/**
+ * Defines the options of TextPicker.
+ * @crossplatform
+ * @since 10
  */
 declare interface TextPickerOptions {
   /**
@@ -53,6 +62,7 @@ declare interface TextPickerOptions {
    * Support the display of pictures, text and pictures plus text
    * @type { string[] | Resource | TextPickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   range: string[] | Resource | TextPickerRangeContent[];
@@ -67,11 +77,17 @@ declare interface TextPickerOptions {
    * Only valid when only text is displayed.
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   value?: string;
   /**
    * Current selected subscript.
+   */
+  /**
+   * Current selected subscript.
+   * @crossplatform
+   * @since 10
    */
   selected?: number;
 }
@@ -79,10 +95,19 @@ declare interface TextPickerOptions {
 /**
  * @since 8
  */
+/**
+ * @crossplatform
+ * @since 10
+ */
 interface TextPickerInterface {
   /**
    * Defines the TextPicker constructor.
    * @since 8
+   */
+  /**
+   * Defines the TextPicker constructor.
+   * @crossplatform
+   * @since 10
    */
   (options?: TextPickerOptions): TextPickerAttribute;
 }
@@ -91,10 +116,20 @@ interface TextPickerInterface {
  * Style the text selector.
  * @since 8
  */
+/**
+ * Style the text selector.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
+   */
+  /**
+   * Called when the default height of the selected element is set.
+   * @crossplatform
+   * @since 10
    */
   defaultPickerItemHeight(value: number | string): TextPickerAttribute;
 
@@ -102,6 +137,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * Sets the text style of disappearing items
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   disappearTextStyle(value: PickerTextStyle): TextPickerAttribute;
@@ -110,14 +146,16 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * Sets the text style of normal items
    * @param { PickerTextStyle } value - indicates the text style of normal items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textStyle(value: PickerTextStyle): TextPickerAttribute;
-
+ 
   /**
    * Sets the text style of selected items
    * @param { PickerTextStyle } value - indicates the text style of selected items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedTextStyle(value: PickerTextStyle): TextPickerAttribute;
@@ -145,6 +183,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
    * @param { (value: string, index: number) => void } callback - the callback of onChange.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
@@ -153,6 +192,11 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
 /**
  * Defines the struct of TextPickerResult.
  * @since 8
+ */
+/**
+ * Defines the struct of TextPickerResult.
+ * @crossplatform
+ * @since 10
  */
 declare interface TextPickerResult {
   /**
@@ -166,12 +210,18 @@ declare interface TextPickerResult {
    * Only valid when only text is displayed.When picture or picture plus text is displayed, the value of value is "".
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   value: string;
   /**
    * The subscript of the current selection.
    * @since 8
+   */
+  /**
+   * The subscript of the current selection.
+   * @crossplatform
+   * @since 10
    */
   index: number;
 }
@@ -180,10 +230,20 @@ declare interface TextPickerResult {
  * Defines the TextPickerDialogOptions for Text Picker Dialog.
  * @since 8
  */
+/**
+ * Defines the TextPickerDialogOptions for Text Picker Dialog.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
+   */
+  /**
+   * Called when the default height of the selected element is set.
+   * @crossplatform
+   * @since 10
    */
   defaultPickerItemHeight?: number | string;
   /**
@@ -198,6 +258,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * Text style of normal items
    * @type { PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textStyle?: PickerTextStyle;
@@ -206,6 +267,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * Text style of selected items
    * @type { PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   selectedTextStyle?: PickerTextStyle;
@@ -213,15 +275,30 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * Called when the OK button in the dialog is clicked.
    * @since 8
    */
+  /**
+   * Called when the OK button in the dialog is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onAccept?: (value: TextPickerResult) => void;
   /**
    * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   * @crossplatform
+   * @since 10
+   */
   onCancel?: () => void;
   /**
    * This event is triggered when a TextPicker text is selected in dialog.
    * @since 8
+   */
+  /**
+   * This event is triggered when a TextPicker text is selected in dialog.
+   * @crossplatform
+   * @since 10
    */
   onChange?: (value: TextPickerResult) => void;
 }
@@ -230,10 +307,20 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  * @since 8
  */
+/**
+ * Defines TextPickerDialog which uses show method to show TextPicker dialog.
+ * @crossplatform
+ * @since 10
+ */
 declare class TextPickerDialog {
   /**
    * Invoking method display.
    * @since 8
+   */
+  /**
+   * Invoking method display.
+   * @crossplatform
+   * @since 10
    */
   static show(options?: TextPickerDialogOptions);
 }
@@ -242,10 +329,20 @@ declare class TextPickerDialog {
  * Defines TextPicker Component.
  * @since 8
  */
+/**
+ * Defines TextPicker Component.
+ * @crossplatform
+ * @since 10
+ */
 declare const TextPicker: TextPickerInterface;
 
 /**
  * Defines TextPicker Component instance.
  * @since 8
+ */
+/**
+ * Defines TextPicker Component instance.
+ * @crossplatform
+ * @since 10
  */
 declare const TextPickerInstance: TextPickerAttribute;

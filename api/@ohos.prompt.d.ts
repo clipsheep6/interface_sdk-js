@@ -29,12 +29,22 @@ declare namespace prompt {
   /**
    * @since 8
    */
+  /**
+   * @crossplatform
+   * @since 10
+   */
   interface ShowToastOptions {
 
     /**
      * Text to display.
      * @type { string }
      * @since 8
+     */
+    /**
+     * Text to display.
+     * @type { string }
+     * @crossplatform
+     * @since 10
      */
     message: string;
 
@@ -44,11 +54,23 @@ declare namespace prompt {
      * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
      * @since 8
      */
+    /**
+     * Duration of toast dialog box. The default value is 1500.
+     * The recommended value ranges from 1500 ms to 10000ms.
+     * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
+     * @crossplatform
+     * @since 10
+     */
     duration?: number;
 
     /**
      * The distance between toast dialog box and the bottom of screen.
      * @since 8
+     */
+    /**
+     * The distance between toast dialog box and the bottom of screen.
+     * @crossplatform
+     * @since 10
      */
     bottom?: string | number;
   }
@@ -56,11 +78,20 @@ declare namespace prompt {
   /**
    * @since 8
    */
+  /**
+   * @crossplatform
+   * @since 10
+   */
   interface Button {
 
     /**
      * @type { string }
      * @since 8
+     */
+    /**
+     * @type { string }
+     * @crossplatform
+     * @since 10
      */
     text: string;
 
@@ -68,22 +99,39 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
+    /**
+     * @type { string }
+     * @crossplatform
+     * @since 10
+     */
     color: string;
   }
 
   /**
    * @since 8
    */
+  /**
+   * @crossplatform
+   * @since 10
+   */
   interface ShowDialogSuccessResponse {
 
     /**
     * @since 8
+    */
+    /**
+     * @crossplatform
+     * @since 10
     */
     index: number;
   }
 
   /**
    * @since 8
+   */
+  /**
+   * @crossplatform
+   * @since 10
    */
   interface ShowDialogOptions {
 
@@ -92,12 +140,24 @@ declare namespace prompt {
      * @type { string }
      * @since 8
      */
+    /**
+     * Title of the text to display.
+     * @type { string }
+     * @crossplatform
+     * @since 10
+     */
     title?: string;
 
     /**
      * Text body.
      * @type { string }
      * @since 8
+     */
+    /**
+     * Text body.
+     * @type { string }
+     * @crossplatform
+     * @since 10
      */
     message?: string;
 
@@ -107,16 +167,31 @@ declare namespace prompt {
      * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
      * @since 8
      */
+    /**
+     * Array of buttons in the dialog box.
+     * The array structure is {text:'button', color: '#666666'}.
+     * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+     * @crossplatform
+     * @since 10
+     */
     buttons?: [Button, Button?, Button?];
   }
 
   /**
    * @since 8
    */
+  /**
+   * @crossplatform
+   * @since 10
+   */
   interface ActionMenuSuccessResponse {
 
     /**
      * @since 8
+     */
+    /**
+     * @crossplatform
+     * @since 10
      */
     index: number;
   }
@@ -124,12 +199,22 @@ declare namespace prompt {
   /**
    * @since 8
    */
+  /**
+   * @crossplatform
+   * @since 10
+   */
   interface ActionMenuOptions {
 
     /**
      * Title of the text to display.
      * @type { string }
      * @since 8
+     */
+    /**
+     * Title of the text to display.
+     * @type { string }
+     * @crossplatform
+     * @since 10
      */
     title?: string;
 
@@ -139,6 +224,13 @@ declare namespace prompt {
      * One to six buttons are supported.
      * @since 8
      */
+    /**
+     * Array of buttons in the dialog box.
+     * The array structure is {text:'button', color: '#666666'}.
+     * One to six buttons are supported.
+     * @crossplatform
+     * @since 10
+     */
     buttons: [Button, Button?, Button?, Button?, Button?, Button?];
   }
 
@@ -147,12 +239,24 @@ declare namespace prompt {
    * @param options Options.
    * @since 8
    */
+  /**
+   * Displays the notification text.
+   * @param options Options.
+   * @crossplatform
+   * @since 10
+   */
   function showToast(options: ShowToastOptions): void;
 
   /**
    * Displays the dialog box.
    * @param options Options.
    * @since 8
+   */
+  /**
+   * Displays the dialog box.
+   * @param options Options.
+   * @crossplatform
+   * @since 10
    */
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
@@ -161,6 +265,12 @@ declare namespace prompt {
    * Displays the menu.
    * @param options Options.
    * @since 8
+   */
+  /**
+   * Displays the menu.
+   * @param options Options.
+   * @crossplatform
+   * @since 10
    */
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
