@@ -4043,15 +4043,12 @@ declare enum Placement {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * LeftTop placement
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   LeftTop,
 
   /**
@@ -4059,15 +4056,12 @@ declare enum Placement {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * LeftBottom placement
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   LeftBottom,
 
   /**
@@ -4075,15 +4069,12 @@ declare enum Placement {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * RightTop placement
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   RightTop,
 
   /**
@@ -4091,15 +4082,12 @@ declare enum Placement {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * RightBottom placement
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   RightBottom,
 }
 
@@ -4108,30 +4096,24 @@ declare enum Placement {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Indicates the share option.
  * @form
  * @crossplatform
  * @since 10
  */
-=======
->>>>>>> updated test
 declare enum CopyOptions {
   /**
    * Not allow share.
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Not allow share.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   None = 0,
 
   /**
@@ -4139,15 +4121,12 @@ declare enum CopyOptions {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Share in app.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   InApp = 1,
 
   /**
@@ -4155,15 +4134,12 @@ declare enum CopyOptions {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Share in local device.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   LocalDevice = 2,
 }
 
@@ -4172,15 +4148,12 @@ declare enum CopyOptions {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Defines the hit test mode.
  * @form
  * @crossplatform
  * @since 10
  */
-=======
->>>>>>> updated test
 declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
@@ -4188,27 +4161,20 @@ declare enum HitTestMode {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
    * @form
    * @since 9
    */
-=======
->>>>>>> updated test
   Default,
 
   /**
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
    * @form
-<<<<<<< HEAD
    * @crossplatform
    * @since 10
-=======
-   * @since 9
->>>>>>> updated test
    */
   Block,
 
@@ -4218,7 +4184,6 @@ declare enum HitTestMode {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
@@ -4226,8 +4191,6 @@ declare enum HitTestMode {
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   Transparent,
 
   /**
@@ -4236,7 +4199,6 @@ declare enum HitTestMode {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
@@ -4244,8 +4206,6 @@ declare enum HitTestMode {
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   None,
 }
 
@@ -4254,31 +4214,24 @@ declare enum HitTestMode {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Title height.
  * @form
  * @crossplatform
  * @since 10
  */
-=======
->>>>>>> updated test
 declare enum TitleHeight {
   /**
    * Title height when only main title is available.
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Title height when only main title is available.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
-    /**
->>>>>>> updated test
   MainOnly,
 
   /**
@@ -4286,15 +4239,12 @@ declare enum TitleHeight {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Title height when main title and subtitle are both available.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   MainWithSub,
 }
 
