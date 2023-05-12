@@ -426,10 +426,69 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   onComplete(
     callback: (event?: {
+      /**
+       * The type of width for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of width for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */
       width: number;
+
+      /**
+       * The type of height for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of height for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */     
       height: number;
+
+      /**
+       * The type of componentWidth for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of componentWidth for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
       componentWidth: number;
+
+      /**
+       * The type of componentHeight for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of componentHeight for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
       componentHeight: number;
+
+      /**
+       * The type of loadingStatus for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of loadingStatus for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
       loadingStatus: number;
     }) => void,
   ): ImageAttribute;
@@ -449,7 +508,35 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @since 10
    */
-  onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
+  onError(
+    callback: (event?: {
+      /**
+       * The type of componentWidth for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of componentWidth for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
+      componentWidth: number; 
+
+      /**
+       * The type of componentHeight for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of componentHeight for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
+      componentHeight: number 
+    }) => void
+  ): ImageAttribute;
 
   /**
    * This callback is triggered when an exception occurs during image loading.
@@ -464,8 +551,50 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @since 10
    */
-  onError(callback: (event?: { componentWidth: number; componentHeight: number; message: string }) => void): ImageAttribute;
+  onError(
+    callback: (event?: {
 
+      /**
+       * The type of componentWidth for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of componentWidth for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
+      componentWidth: number; 
+
+      /**
+       * The type of componentHeight for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of componentHeight for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
+      componentHeight: number; 
+    
+      /**
+       * The type of message for event
+       * @form
+       * @since 9
+       */
+      /**
+       * The type of message for event
+       * @form
+       * @crossplatform
+       * @since 10
+       */ 
+      message: string;
+    }) => void
+  ): ImageAttribute;
+  
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
