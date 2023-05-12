@@ -25,17 +25,32 @@ declare enum Sticky {
    * No sticky.
    * @since 7
    */
+  /**
+   * No sticky.
+   * @crossplatform
+   * @since 10 
+   */
   None,
 
   /**
    * Normal mode
    * @since 7
    */
+  /**
+   * Normal mode
+   * @crossplatform
+   * @since 10 
+   */
   Normal,
 
   /**
    * Set opacity.
    * @since 7
+   */
+  /**
+   * Set opacity.
+   * @crossplatform
+   * @since 10 
    */
   Opacity,
 }
@@ -50,17 +65,32 @@ declare enum EditMode {
    * Unrestricted operations.
    * @since 7
    */
+  /**
+   * Unrestricted operations.
+   * @crossplatform
+   * @since 10 
+   */
   None,
 
   /**
    * Deletable.
    * @since 7
    */
+  /**
+   * Deletable.
+   * @crossplatform
+   * @since 10 
+   */
   Deletable,
 
   /**
    * Movable.
    * @since 7
+   */
+  /**
+   * Movable.
+   * @crossplatform
+   * @since 10 
    */
   Movable,
 }
@@ -69,16 +99,31 @@ declare enum EditMode {
  * Sliding effect
  * @since 9
  */
+/**
+ * Sliding effect
+ * @crossplatform
+ * @since 10 
+ */
 declare enum SwipeEdgeEffect {
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    * @since 9
+   */
+  /**
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * @crossplatform
+   * @since 10 
    */
   Spring,
 
   /**
    * Sliding to the edge has no effect.
    * @since 9
+   */
+  /**
+   * Sliding to the edge has no effect.
+   * @crossplatform
+   * @since 10 
    */
   None,
 }
@@ -87,11 +132,22 @@ declare enum SwipeEdgeEffect {
  * Defines the SwipeActionOption of swipeAction attribute method.
  * @since 9
  */
+/**
+ * Defines the SwipeActionOption of swipeAction attribute method.
+ * @crossplatform
+ * @since 10 
+ */
 declare interface SwipeActionOptions {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
    * @since 9
+   */
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @crossplatform
+   * @since 10 
    */
   start?: CustomBuilder;
   /**
@@ -99,11 +155,22 @@ declare interface SwipeActionOptions {
    * slides up (when list direction Horizontal).
    * @since 9
    */
+  /**
+   * An action item that appears when a list item slides left (when list direction is Vertical) or
+   * slides up (when list direction Horizontal).
+   * @crossplatform
+   * @since 10 
+   */
   end?: CustomBuilder;
 
   /**
    * Sets whether sliding to a boundary has a spring effect.
    * @since 9
+   */
+  /**
+   * Sets whether sliding to a boundary has a spring effect.
+   * @crossplatform
+   * @since 10 
    */
   edgeEffect?: SwipeEdgeEffect;
 }
@@ -124,6 +191,12 @@ declare interface SwipeActionOptions {
  * @form
  * @since 9
  */
+/**
+ * Values in the list
+ * @form
+ * @crossplatform
+ * @since 10 
+ */
 interface ListItemInterface {
   /**
    * Called when an interface is used.
@@ -134,6 +207,12 @@ interface ListItemInterface {
    * @form
    * @since 9
    */
+  /**
+   * Called when an interface is used.
+   * @form
+   * @crossplatform
+   * @since 10 
+   */
   (value?: string): ListItemAttribute;
 }
 
@@ -143,6 +222,11 @@ interface ListItemInterface {
 /**
  * @form
  * @since 9
+ */
+/**
+ * @form
+ * @crossplatform
+ * @since 10 
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -169,6 +253,12 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when judging whether it is selectable.
+   * @form
+   * @crossplatform
+   * @since 10 
+   */
   selectable(value: boolean): ListItemAttribute;
 
   /**
@@ -187,6 +277,12 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @form
    * @since 9
    */
+  /**
+   * Called when the listItem is selected.
+   * @form
+   * @crossplatform
+   * @since 10 
+   */
   onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
@@ -199,6 +295,12 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines ListItem Component instance.
+ * @form
+ * @crossplatform
+ * @since 10 
+ */
 declare const ListItemInstance: ListItemAttribute;
 
 /**
@@ -209,5 +311,11 @@ declare const ListItemInstance: ListItemAttribute;
  * Defines ListItem Component.
  * @form
  * @since 9
+ */
+/**
+ * Defines ListItem Component.
+ * @form
+ * @crossplatform
+ * @since 10 
  */
 declare const ListItem: ListItemInterface;

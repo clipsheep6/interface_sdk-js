@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Defining Component ClassDecorator
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Component: ClassDecorator;
 
 /**
@@ -36,6 +42,14 @@ declare const Component: ClassDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defines Entry ClassDecorator.
+ * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
+ * Entry is a ClassDecorator and it supports LocalStorage as parameters.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
 
 /**
@@ -46,6 +60,12 @@ declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorato
  * Defining Observed ClassDecorator.
  * @form
  * @since 9
+ */
+/**
+ * Defining Observed ClassDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const Observed: ClassDecorator;
 
@@ -58,6 +78,12 @@ declare const Observed: ClassDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining Preview ClassDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
@@ -68,6 +94,12 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  * Defining BuilderParam PropertyDecorator
  * @form
  * @since 9
+ */
+/**
+ * Defining BuilderParam PropertyDecorator
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const BuilderParam: PropertyDecorator;
 
@@ -80,6 +112,12 @@ declare const BuilderParam: PropertyDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining State PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const State: PropertyDecorator;
 
 /**
@@ -90,6 +128,12 @@ declare const State: PropertyDecorator;
  * Defining Prop PropertyDecorator.
  * @form
  * @since 9
+ */
+/**
+ * Defining Prop PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const Prop: PropertyDecorator;
 
@@ -102,6 +146,12 @@ declare const Prop: PropertyDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining Link PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Link: PropertyDecorator;
 
 /**
@@ -112,6 +162,12 @@ declare const Link: PropertyDecorator;
  * Defining ObjectLink PropertyDecorator.
  * @form
  * @since 9
+ */
+/**
+ * Defining ObjectLink PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const ObjectLink: PropertyDecorator;
 
@@ -124,6 +180,12 @@ declare const ObjectLink: PropertyDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining Provide PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
@@ -135,17 +197,33 @@ declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator
  * @form
  * @since 9
  */
+/**
+ * Defining Consume PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
  * Defining StorageProp PropertyDecorator.
  * @since 7
  */
+/**
+ * Defining StorageProp PropertyDecorator.
+ * @crossplatform
+ * @since 10
+ */
 declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
  * Defining StorageLink PropertyDecorator.
  * @since 7
+ */
+/**
+ * Defining StorageLink PropertyDecorator.
+ * @crossplatform
+ * @since 10
  */
 declare const StorageLink: (value: string) => PropertyDecorator;
 
@@ -158,6 +236,12 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining Watch PropertyDecorator.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Watch: (value: string) => PropertyDecorator;
 
 /**
@@ -169,12 +253,14 @@ declare const Watch: (value: string) => PropertyDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining Builder MethodDecorator
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Builder: MethodDecorator;
 
-/**
- * Defining Styles MethodDecorator
- * @since 8
- */
 /**
  * Defining Styles MethodDecorator
  * @form
@@ -191,11 +277,22 @@ declare const Styles: MethodDecorator;
  * @form
  * @since 9
  */
+/**
+ * Defining Extend MethodDecorator
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
  * Defining Concurrent MethodDecorator
  * @since 9
+ */
+/**
+ * Defining Concurrent MethodDecorator
+ * @crossplatform
+ * @since 10
  */
 declare const Concurrent: MethodDecorator;
 
@@ -203,11 +300,21 @@ declare const Concurrent: MethodDecorator;
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
+/**
+ * Defining  CustomDialog ClassDecorator
+ * @crossplatform
+ * @since 10
+ */
 declare const CustomDialog: ClassDecorator;
 
 /**
  * Defining LocalStorageLink PropertyDecorator.
  * @since 9
+ */
+/**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @crossplatform
+ * @since 10
  */
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
@@ -215,6 +322,12 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * Defining LocalStorageProp PropertyDecorator
  * @form
  * @since 9
+ */
+/**
+ * Defining LocalStorageProp PropertyDecorator
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
@@ -224,12 +337,25 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @StageModelOnly
  * @since 9
  */
+/**
+ * Obtains the Context object associated with a component on the page.
+ * @param { Object } component - indicate the component on the page.
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
+ */
 declare function getContext(component?: Object): Context;
 
 /**
  * Get context.
  * @StageModelOnly
  * @since 9
+ */
+/**
+ * Get context.
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 declare type Context = import('../api/application/Context').default;
 
@@ -240,6 +366,15 @@ declare type Context = import('../api/application/Context').default;
  * @form
  * @StageModelOnly
  * @since 9
+ */
+/**
+ * Post Card Action.
+ * @param { Object } component - indicate the card entry component.
+ * @param { Object } action - indicate the router or message event.
+ * @form
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
  */
 declare function postCardAction(component: Object, action: Object): void;
 
@@ -252,6 +387,11 @@ declare function postCardAction(component: Object, action: Object): void;
  * @form
  * @since 9
  */
+/**
+ * Defines the data type of the interface restriction.
+ * @crossplatform
+ * @since 10
+ */
 declare interface Configuration {
   /**
    * Set colorMode.
@@ -261,6 +401,12 @@ declare interface Configuration {
    * Set colorMode.
    * @form
    * @since 9
+   */
+  /**
+   * Set colorMode.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   readonly colorMode: string;
 
@@ -272,6 +418,12 @@ declare interface Configuration {
    * Set fontScale.
    * @form
    * @since 9
+   */
+  /**
+   * Set fontScale.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   readonly fontScale: number;
 }
@@ -285,6 +437,12 @@ declare interface Configuration {
  * @form
  * @since 9
  */
+/**
+ * Defines the data type of the interface restriction.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface Rectangle {
   /**
    * x:Horizontal coordinate
@@ -294,6 +452,12 @@ declare interface Rectangle {
    * x:Horizontal coordinate
    * @form
    * @since 9
+   */
+  /**
+   * x:Horizontal coordinate
+   * @form
+   * @crossplatform
+   * @since 10
    */
   x?: Length;
 
@@ -306,6 +470,12 @@ declare interface Rectangle {
    * @form
    * @since 9
    */
+  /**
+   * y:Vertical axis coordinate.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   y?: Length;
 
   /**
@@ -317,6 +487,12 @@ declare interface Rectangle {
    * @form
    * @since 9
    */
+  /**
+   * Sets the width of the current touchRect.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width?: Length;
 
   /**
@@ -327,6 +503,12 @@ declare interface Rectangle {
    * Sets the height of the current touchRect.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the height of the current touchRect.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   height?: Length;
 }
@@ -340,6 +522,12 @@ declare interface Rectangle {
  * @form
  * @since 9
  */
+/**
+ * global $r function
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare function $r(value: string, ...params: any[]): Resource;
 
 /**
@@ -350,6 +538,12 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $rawfile function
  * @form
  * @since 9
+ */
+/**
+ * global $rawfile function
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare function $rawfile(value: string): Resource;
 
@@ -362,6 +556,12 @@ declare function $rawfile(value: string): Resource;
  * @form
  * @since 9
  */
+/**
+ * Defines the animate function params.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface AnimateParam {
   /**
    * Animation duration, in ms.
@@ -372,11 +572,23 @@ declare interface AnimateParam {
    * @form
    * @since 9
    */
+  /**
+   * Animation duration, in ms.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   duration?: number;
   /**
    * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
    * animation playback. The value 0 means that there is no animation.
    * @since 7
+   */
+  /**
+   * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
+   * animation playback. The value 0 means that there is no animation.
+   * @crossplatform
+   * @since 10
    */
   tempo?: number;
   /**
@@ -390,15 +602,32 @@ declare interface AnimateParam {
    * @form
    * @since 9
    */
+  /**
+   * Animation curve.
+   * @type { string | Curve}
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   curve?: Curve | string | ICurve;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
    */
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @crossplatform
+   * @since 10
+   */
   delay?: number;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
+   */
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @crossplatform
+   * @since 10
    */
   iterations?: number;
   /**
@@ -410,6 +639,12 @@ declare interface AnimateParam {
    * @form
    * @since 9
    */
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   playMode?: PlayMode;
   /**
    * Callback invoked when the animation playback is complete.
@@ -419,6 +654,12 @@ declare interface AnimateParam {
    * Callback invoked when the animation playback is complete.
    * @form
    * @since 9
+   */
+  /**
+   * Callback invoked when the animation playback is complete.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   onFinish?: () => void;
 }
@@ -441,25 +682,50 @@ interface ICurve {
  * Defines the motion path options.
  * @since 7
  */
+/**
+ * Defines the motion path options.
+ * @crossplatform
+ * @since 10
+ */
 declare interface MotionPathOptions {
   /**
    * The path info.
    * @since 7
+   */
+  /**
+   * The path info.
+   * @crossplatform
+   * @since 10
    */
   path: string;
   /**
    * The origin point info.
    * @since 7
    */
+  /**
+   * The origin point info.
+   * @crossplatform
+   * @since 10
+   */
   from?: number;
   /**
    * The distance point info.
    * @since 7
    */
+  /**
+   * The distance point info.
+   * @crossplatform
+   * @since 10
+   */
   to?: number;
   /**
    * The rotate info.
    * @since 7
+   */
+  /**
+   * The rotate info.
+   * @crossplatform
+   * @since 10
    */
   rotatable?: boolean;
 }
@@ -468,35 +734,70 @@ declare interface MotionPathOptions {
  * Defines the shard transition function params.
  * @since 7
  */
+/**
+ * Defines the shard transition function params.
+ * @crossplatform
+ * @since 10
+ */
 declare interface sharedTransitionOptions {
   /**
    * Animation duration, in ms.
    * @since 7
+   */
+  /**
+   * Animation duration, in ms.
+   * @crossplatform
+   * @since 10
    */
   duration?: number;
   /**
    * Animation duration, in ms.
    * @since 7
    */
+  /**
+   * Animation duration, in ms.
+   * @crossplatform
+   * @since 10
+   */
   curve?: Curve | string;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
+   */
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @crossplatform
+   * @since 10
    */
   delay?: number;
   /**
    * The motion path info.
    * @since 7
    */
+  /**
+   * The motion path info.
+   * @crossplatform
+   * @since 10
+   */
   motionPath?: MotionPathOptions;
   /**
    * Z index info.
    * @since 7
    */
+  /**
+   * Z index info.
+   * @crossplatform
+   * @since 10
+   */
   zIndex?: number;
   /**
    * the animate type.
    * @since 7
+   */
+  /**
+   * the animate type.
+   * @crossplatform
+   * @since 10
    */
   type?: SharedTransitionEffectType;
 }
@@ -510,6 +811,12 @@ declare interface sharedTransitionOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of translate.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface TranslateOptions {
   /**
    * The param of x direction.
@@ -519,6 +826,12 @@ declare interface TranslateOptions {
    * The param of x direction.
    * @form
    * @since 9
+   */
+  /**
+   * The param of x direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   x?: number | string;
   /**
@@ -530,6 +843,12 @@ declare interface TranslateOptions {
    * @form
    * @since 9
    */
+  /**
+   * The param of y direction.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   y?: number | string;
   /**
    * The param of z direction.
@@ -539,6 +858,12 @@ declare interface TranslateOptions {
    * The param of z direction.
    * @form
    * @since 9
+   */
+  /**
+   * The param of z direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   z?: number | string;
 }
@@ -552,6 +877,12 @@ declare interface TranslateOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the options of scale.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface ScaleOptions {
   /**
    * The param of x direction.
@@ -561,6 +892,12 @@ declare interface ScaleOptions {
    * The param of x direction.
    * @form
    * @since 9
+   */
+  /**
+   * The param of x direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   x?: number;
   /**
@@ -572,6 +909,12 @@ declare interface ScaleOptions {
    * @form
    * @since 9
    */
+  /**
+   * The param of y direction.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   y?: number;
   /**
    * The param of z direction.
@@ -581,6 +924,12 @@ declare interface ScaleOptions {
    * The param of z direction.
    * @form
    * @since 9
+   */
+  /**
+   * The param of z direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   z?: number;
   /**
@@ -592,6 +941,12 @@ declare interface ScaleOptions {
    * @form
    * @since 9
    */
+  /**
+   * The param of center point of x.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   centerX?: number | string;
   /**
    * The param of center point of y.
@@ -601,6 +956,12 @@ declare interface ScaleOptions {
    * The param of center point of y.
    * @form
    * @since 9
+   */
+  /**
+   * The param of center point of y.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   centerY?: number | string;
 }
@@ -649,15 +1010,6 @@ declare interface AlignRuleOption {
   center?: { anchor: string, align: VerticalAlign };
 }
 
-/**
- * The param of rotate.
- * @since 7
- */
-/**
- * The param of rotate.
- * @form
- * @since 9
- */
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -667,6 +1019,12 @@ declare interface RotateOptions {
    * The param of x direction.
    * @form
    * @since 9
+   */
+  /**
+   * The param of x direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   x?: number;
   /**
@@ -678,6 +1036,12 @@ declare interface RotateOptions {
    * @form
    * @since 9
    */
+  /**
+   * The param of y direction.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   y?: number;
   /**
    * The param of z direction.
@@ -687,6 +1051,12 @@ declare interface RotateOptions {
    * The param of z direction.
    * @form
    * @since 9
+   */
+  /**
+   * The param of z direction.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   z?: number;
   /**
@@ -698,6 +1068,12 @@ declare interface RotateOptions {
    * @form
    * @since 9
    */
+  /**
+   * The param of center point of x.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   centerX?: number | string;
   /**
    * The param of center point of y.
@@ -708,6 +1084,12 @@ declare interface RotateOptions {
    * @form
    * @since 9
    */
+  /**
+   * The param of center point of y.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   centerY?: number | string;
   /**
    * The param of angle.
@@ -717,6 +1099,12 @@ declare interface RotateOptions {
    * The param of angle.
    * @form
    * @since 9
+   */
+  /**
+   * The param of angle.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   angle: number | string;
 }
@@ -732,25 +1120,50 @@ declare interface TransitionOptions {
    * Defines the param of type.
    * @since 7
    */
+  /**
+   * Defines the param of type.
+   * @crossplatform
+   * @since 10
+   */
   type?: TransitionType;
   /**
    * Defines the param of opacity.
    * @since 7
+   */
+  /**
+   * Defines the param of opacity.
+   * @crossplatform
+   * @since 10
    */
   opacity?: number;
   /**
    * Defines the param of translate.
    * @since 7
    */
+  /**
+   * Defines the param of translate.
+   * @crossplatform
+   * @since 10
+   */
   translate?: TranslateOptions;
   /**
    * Defines the param of scale.
    * @since 7
    */
+  /**
+   * Defines the param of scale.
+   * @crossplatform
+   * @since 10
+   */
   scale?: ScaleOptions;
   /**
    * Defines the param of rotate.
    * @since 7
+   */
+  /**
+   * Defines the param of rotate.
+   * @crossplatform
+   * @since 10
    */
   rotate?: RotateOptions;
 }
@@ -758,12 +1171,14 @@ declare interface TransitionOptions {
 /**
  * Defines the Edge object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum TransitionEdge {
   /**
    * Top edge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   TOP,
@@ -771,6 +1186,7 @@ declare enum TransitionEdge {
   /**
    * Bottom edge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   BOTTOM,
@@ -778,6 +1194,7 @@ declare enum TransitionEdge {
   /**
    * Start edge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   START,
@@ -785,6 +1202,7 @@ declare enum TransitionEdge {
   /**
    * End edge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   END
@@ -793,6 +1211,7 @@ declare enum TransitionEdge {
 /**
  * Defines all transition effects.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare type TransitionEffects = {
@@ -812,6 +1231,7 @@ declare type TransitionEffects = {
 /**
  * Defines the transition effect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class TransitionEffect<
@@ -820,27 +1240,27 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
-   * @constant
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static readonly IDENTITY: TransitionEffect<"identity">;
 
   /**
    * Defines an opacity transition effect
-   * @constant
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static readonly OPACITY: TransitionEffect<"opacity">;
 
   /**
    * Defines a slide transition effect
-   * @constant
    * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static readonly SLIDE: TransitionEffect<
@@ -853,9 +1273,9 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
-   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static readonly SLIDE_SWITCH: TransitionEffect<"slideSwitch">;
@@ -864,6 +1284,7 @@ declare class TransitionEffect<
    * Creates a translate transition effect
    * @param { TranslateOptions } options translate options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static translate(options: TranslateOptions): TransitionEffect<"translate">;
@@ -872,6 +1293,7 @@ declare class TransitionEffect<
    * Creates a rotation transition effect
    * @param { RotateOptions } options rotate options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static rotate(options: RotateOptions): TransitionEffect<"rotate">;
@@ -880,6 +1302,7 @@ declare class TransitionEffect<
    * Creates a scale transition effect
    * @param { ScaleOptions } options scale options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static scale(options: ScaleOptions): TransitionEffect<"scale">;
@@ -888,6 +1311,7 @@ declare class TransitionEffect<
    * Creates an opacity transition effect with alpha value
    * @param { number } alpha opacity alpha value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static opacity(alpha: number): TransitionEffect<"opacity">;
@@ -896,6 +1320,7 @@ declare class TransitionEffect<
    * Creates a move transition effect
    * @param { TransitionEdge } edge the edge that component will move to
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static move(edge: TransitionEdge): TransitionEffect<"move">;
@@ -905,6 +1330,7 @@ declare class TransitionEffect<
    * @param { TransitionEffect } appear the transition which will be attached when the component is appear
    * @param { TransitionEffect } disappear the transition which will be attached when the component is disappear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static asymmetric(
@@ -917,6 +1343,7 @@ declare class TransitionEffect<
    * @param { Type extends keyof TransitionEffects } type transition type
    * @param { Effect extends TransitionEffects[Type] } effect transition options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor(type: Type, effect: Effect);
@@ -925,6 +1352,7 @@ declare class TransitionEffect<
    * Set the animation of current transition effect
    * @param { AnimateParam } value animation parameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   animation(value: AnimateParam): TransitionEffect;
@@ -934,6 +1362,7 @@ declare class TransitionEffect<
    * @param { TransitionEffect } transitionEffect transition effect which is be combined
    * @returns { TransitionEffect } combined transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   combine(transitionEffect: TransitionEffect): TransitionEffect;
@@ -949,6 +1378,12 @@ interface PreviewParams {
    * Define Preview title
    * @form
    * @since 9
+   */
+  /**
+   * Define Preview title
+   * @form
+   * @crossplatform
+   * @since 10
    */
   title?: string;
   /**
@@ -1005,16 +1440,31 @@ interface PreviewParams {
  * ItemDragInfo object description
  * @since 8
  */
+/**
+ * ItemDragInfo object description
+ * @crossplatform
+ * @since 10
+ */
 declare interface ItemDragInfo {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 8
+   */
+  /**
+   * Obtains the X coordinate of the drag window, in vp.
+   * @crossplatform
+   * @since 10
    */
   x: number;
 
   /**
    * Obtains the Y coordinate of the drag window, in vp.
    * @since 8
+   */
+  /**
+   * Obtains the Y coordinate of the drag window, in vp.
+   * @crossplatform
+   * @since 10
    */
   y: number;
 }
@@ -1023,10 +1473,20 @@ declare interface ItemDragInfo {
  * DragItemInfo object description
  * @since 8
  */
+/**
+ * DragItemInfo object description
+ * @crossplatform
+ * @since 10
+ */
 declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
    * @since 8
+   */
+  /**
+   * Uses the pixelMap object for drawing.
+   * @crossplatform
+   * @since 10
    */
   pixelMap?: PixelMap;
 
@@ -1034,11 +1494,21 @@ declare interface DragItemInfo {
    * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
    * @since 8
    */
+  /**
+   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   * @crossplatform
+   * @since 10
+   */
   builder?: CustomBuilder;
 
   /**
    * Sets the extra info for drag event.
    * @since 8
+   */
+  /**
+   * Sets the extra info for drag event.
+   * @crossplatform
+   * @since 10
    */
   extraInfo?: string;
 }
@@ -1052,6 +1522,12 @@ declare interface DragItemInfo {
  * @form
  * @since 9
  */
+/**
+ * Defining animation function.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
@@ -1062,6 +1538,12 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * Converts a value in vp units to a value in px.
  * @form
  * @since 9
+ */
+/**
+ * Converts a value in vp units to a value in px.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare function vp2px(value: number): number;
 
@@ -1074,6 +1556,12 @@ declare function vp2px(value: number): number;
  * @form
  * @since 9
  */
+/**
+ * Converts a number in units of px to a number in units of vp.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare function px2vp(value: number): number;
 
 /**
@@ -1084,6 +1572,12 @@ declare function px2vp(value: number): number;
  * Converts a number in fp units to a number in px.
  * @form
  * @since 9
+ */
+/**
+ * Converts a number in fp units to a number in px.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare function fp2px(value: number): number;
 
@@ -1096,6 +1590,12 @@ declare function fp2px(value: number): number;
  * @form
  * @since 9
  */
+/**
+ * Converts a number in units of px to a number in units of fp.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare function px2fp(value: number): number;
 
 /**
@@ -1106,6 +1606,12 @@ declare function px2fp(value: number): number;
  * Converts a number in units of lpx to a number in units of px.
  * @form
  * @since 9
+ */
+/**
+ * Converts a number in units of lpx to a number in units of px.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare function lpx2px(value: number): number;
 
@@ -1118,12 +1624,23 @@ declare function lpx2px(value: number): number;
  * @form
  * @since 9
  */
+/**
+ * Converts a number in units of px to a number in units of lpx.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare function px2lpx(value: number): number;
 
 declare namespace focusControl {
   /**
    * Request focus to the specific component by param: 'id/key'.
    * @since 9
+   */
+  /**
+   * Request focus to the specific component by param: 'id/key'.
+   * @crossplatform
+   * @since 10
    */
   function requestFocus(value: string): boolean;
 }
@@ -1137,6 +1654,12 @@ declare namespace focusControl {
  * @form
  * @since 9
  */
+/**
+ * Defines the event target.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface EventTarget {
   /**
    * Area of current target.
@@ -1147,6 +1670,12 @@ declare interface EventTarget {
    * @form
    * @since 9
    */
+  /**
+   * Area of current target.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   area: Area;
 }
 
@@ -1154,10 +1683,20 @@ declare interface EventTarget {
  * Defines the event source type.
  * @since 8
  */
+/**
+ * Defines the event source type.
+ * @crossplatform
+ * @since 10
+ */
 declare enum SourceType {
   /**
    * Unknown type.
    * @since 8
+   */
+  /**
+   * Unknown type.
+   * @crossplatform
+   * @since 10
    */
   Unknown,
 
@@ -1165,11 +1704,22 @@ declare enum SourceType {
    * The mouse type.
    * @since 8
    */
+  /**
+   * The mouse type.
+   * @crossplatform
+   * @since 10
+   */
   Mouse,
 
   /**
+   * 
    * The touch screen type.
    * @since 8
+   */
+  /**
+   * The touch screen type.
+   * @crossplatform
+   * @since 10
    */
   TouchScreen,
 }
@@ -1178,10 +1728,20 @@ declare enum SourceType {
  * Defines the event tool type.
  * @since 9
  */
+/**
+ * Defines the event tool type.
+ * @crossplatform
+ * @since 10
+ */
 declare enum SourceTool {
   /**
    * Unknown type.
    * @since 9
+   */
+  /**
+   * Unknown type.
+   * @crossplatform
+   * @since 10
    */
   Unknown,
 
@@ -1189,11 +1749,21 @@ declare enum SourceTool {
    * The finger type.
    * @since 9
    */
+  /**
+   * The finger type.
+   * @crossplatform
+   * @since 10
+   */
   Finger,
 
   /**
    * The pen type.
    * @since 9
+   */
+  /**
+   * The pen type.
+   * @crossplatform
+   * @since 10
    */
   Pen,
 }
@@ -1203,11 +1773,23 @@ declare enum SourceTool {
  * @form
  * @since 9
  */
+/**
+ * Defines the Border Image Repeat Mode.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum RepeatMode {
   /**
    * Repeat mode.
    * @form
    * @since 9
+   */
+  /**
+   * Repeat mode.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Repeat,
 
@@ -1216,12 +1798,24 @@ declare enum RepeatMode {
    * @form
    * @since 9
    */
+  /**
+   * Stretch mode.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Stretch,
 
   /**
    * Round mode.
    * @form
    * @since 9
+   */
+  /**
+   * Round mode.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Round,
 
@@ -1230,6 +1824,12 @@ declare enum RepeatMode {
    * @form
    * @since 9
    */
+  /**
+   * Space mode.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Space,
 }
 /**
@@ -1237,11 +1837,23 @@ declare enum RepeatMode {
  * @form
  * @since 9
  */
+/**
+ * enum Blur style
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare enum BlurStyle {
   /**
    * Defines the thin card material.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the thin card material.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   Thin,
 
@@ -1250,6 +1862,12 @@ declare enum BlurStyle {
    * @form
    * @since 9
    */
+  /**
+   * Defines the regular card material.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Regular,
 
   /**
@@ -1257,218 +1875,133 @@ declare enum BlurStyle {
    * @form
    * @since 9
    */
+  /**
+   * Defines the thick card material.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   Thick,
 
   /**
    * Defines the thin background material.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THIN
    */
   BackgroundThin,
 
   /**
    * Defines the thin regular material.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_REGULAR
    */
   BackgroundRegular,
 
   /**
    * Defines the thin thick material.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THICK
    */
   BackgroundThick,
 
   /**
    * Defines the thin ultra thick material.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
    */
   BackgroundUltraThick,
-
-  /**
-   * Defines the thin background material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_THIN,
-
-  /**
-   * Defines the thin regular material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_REGULAR,
-
-  /**
-   * Defines the thin thick material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_THICK,
-
-  /**
-   * Defines the thin ultra thick material.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  BACKGROUND_ULTRA_THICK,
 }
 
 /**
  * enum color mode
+ * @crossplatform
  * @since 10
  */
 declare enum ThemeColorMode {
   /**
    * Defines the mode which is follow up with system.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#SYSTEM
    */
   System,
 
   /**
    * Defines the light mode.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#LIGHT
    */
   Light,
 
   /**
-   * Defines the dark mode.
+   * Defines the dark m                                                        ode.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#DARK
    */
   Dark,
-
-  /**
-   * Defines the mode which is follow up with system.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  SYSTEM,
-
-  /**
-   * Defines the light mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  LIGHT,
-
-  /**
-   * Defines the dark mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  DARK,
 }
 
 /**
  * Defines adaptive color
+ * @crossplatform
  * @since 10
  */
 declare enum AdaptiveColor {
   /**
    * Defines the fixed value color adaptive mode.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#DEFAULT
    */
   Default,
 
   /**
    * Defines the background average color adaptive mode.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#AVERAGE
    */
   Average,
-
-  /**
-   * Defines the fixed value color adaptive mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  DEFAULT,
-
-  /**
-   * Defines the background average color adaptive mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  AVERAGE,
 }
 
 /**
  * Defines modal transition type.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum ModalTransition {
   /**
    * Use default animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#DEFAULT
    */
   Default,
 
   /**
    * Use none animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#NONE
    */
   None,
 
   /**
    * Use alpha animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#ALPHA
-   */
-  Alpha,
-
-  /**
-   * Use default animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
-  DEFAULT,
-
-  /**
-   * Use none animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  NONE,
-
-  /**
-   * Use alpha animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  ALPHA,
+  Alpha,  
 }
 
 /**
  * Defines the options of backgroundBlurStyle
+ * @crossplatform
  * @since 10
  */
 declare interface BackgroundBlurStyleOptions {
   /**
    * color mode
+   * @crossplatform
    * @since 10
    */
   colorMode?: ThemeColorMode;
@@ -1476,6 +2009,7 @@ declare interface BackgroundBlurStyleOptions {
 
   /**
    * adaptive color
+   * @crossplatform
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
@@ -1497,6 +2031,7 @@ declare interface BackgroundBlurStyleOptions {
  * Provide an interface for the text style of picker
  * @interface PickerTextStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface PickerTextStyle {
@@ -1504,6 +2039,7 @@ declare interface PickerTextStyle {
    * Define the text color of picker.
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   color?: ResourceColor;
@@ -1512,6 +2048,7 @@ declare interface PickerTextStyle {
    * Only support size and weight.
    * @type { Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   font?: Font;
@@ -1547,6 +2084,12 @@ declare enum ShadowType {
  * @form
  * @since 9
  */
+/**
+ * Define the options of shadow
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface ShadowOptions {
   /**
    * Define the radius size of shadow
@@ -1556,6 +2099,12 @@ declare interface ShadowOptions {
    * Define the radius size of shadow
    * @form
    * @since 9
+   */
+  /**
+   * Define the radius size of shadow
+   * @form
+   * @crossplatform
+   * @since 10
    */
   radius: number | Resource;
 
@@ -1577,6 +2126,12 @@ declare interface ShadowOptions {
    * @form
    * @since 9
    */
+  /**
+   * Define the color of shadow
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   color?: Color | string | Resource;
 
   /**
@@ -1587,6 +2142,12 @@ declare interface ShadowOptions {
    * Define the horizontal offset size of shadow
    * @form
    * @since 9
+   */
+  /**
+   * Define the horizontal offset size of shadow
+   * @form
+   * @crossplatform
+   * @since 10
    */
   offsetX?: number | Resource;
 
@@ -1599,103 +2160,62 @@ declare interface ShadowOptions {
    * @form
    * @since 9
    */
+  /**
+   * Define the vertical offset size of shadow
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   offsetY?: number | Resource;
 }
 
 /**
  * enum Shadow style
+ * @crossplatform
  * @since 10
  */
 declare enum ShadowStyle {
   /**
    * Defines the super small default shadow style.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_XS
    */
   OuterDefaultXS,
 
   /**
    * Defines the small default shadow style.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_SM
    */
   OuterDefaultSM,
 
   /**
    * Defines the medium default shadow style.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_MD
    */
   OuterDefaultMD,
 
   /**
    * Defines the large default shadow style.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_LG
    */
   OuterDefaultLG,
 
   /**
    * Defines the small floating shadow style.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_SM
    */
   OuterFloatingSM,
 
   /**
    * Defines the medium floating shadow style.
+   * @crossplatform
    * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_MD
    */
   OuterFloatingMD,
-
-  /**
-   * Defines the super small default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_XS,
-
-  /**
-   * Defines the small default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_SM,
-
-  /**
-   * Defines the medium default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_MD,
-
-  /**
-   * Defines the large default shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_DEFAULT_LG,
-
-  /**
-   * Defines the small floating shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_FLOATING_SM,
-
-  /**
-   * Defines the medium floating shadow style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  OUTER_FLOATING_MD,
 }
 
 /**
@@ -1707,6 +2227,12 @@ declare enum ShadowStyle {
  * @form
  * @since 9
  */
+/**
+ * Defines the base event.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BaseEvent {
   /**
    * Defines the current target which fires this event.
@@ -1716,6 +2242,12 @@ declare interface BaseEvent {
    * Defines the current target which fires this event.
    * @form
    * @since 9
+   */
+  /**
+   * Defines the current target which fires this event.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   target: EventTarget;
 
@@ -1728,6 +2260,12 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * Event timestamp.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   timestamp: number;
 
   /**
@@ -1739,12 +2277,24 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * the event source info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   source: SourceType;
 
   /**
    * Touch pressure.
    * @form
    * @since 9
+   */
+  /**
+   * Touch pressure.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   pressure: number;
 
@@ -1753,6 +2303,12 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   tiltX: number;
 
   /**
@@ -1760,12 +2316,24 @@ declare interface BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   tiltY: number;
 
   /**
    * The event tool type info.
    * @form
    * @since 9
+   */
+  /**
+   * The event tool type info.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   sourceTool: SourceTool;
 }
@@ -1775,11 +2343,23 @@ declare interface BaseEvent {
  * @form
  * @since 9
  */
+/**
+ * Border image option
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface BorderImageOption {
   /**
    * Border image slice
    * @form
    * @since 9
+   */
+  /**
+   * Border image slice
+   * @form
+   * @crossplatform
+   * @since 10
    */
   slice?: Length | EdgeWidths,
 
@@ -1788,12 +2368,24 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
+  /**
+   * Border image repeat
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   repeat?: RepeatMode,
 
   /**
    * Border image source
    * @form
    * @since 9
+   */
+  /**
+   * Border image source
+   * @form
+   * @crossplatform
+   * @since 10
    */
   source?: string | Resource | LinearGradient,
 
@@ -1802,6 +2394,12 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
+  /**
+   * Border image width
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width?: Length | EdgeWidths,
 
   /**
@@ -1809,12 +2407,24 @@ declare interface BorderImageOption {
    * @form
    * @since 9
    */
+  /**
+   * Border image outset
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   outset?: Length | EdgeWidths,
 
   /**
    * Border image center fill
    * @form
    * @since 9
+   */
+  /**
+   * Border image center fill
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fill?: boolean
 }
@@ -1828,6 +2438,12 @@ declare interface BorderImageOption {
  * @form
  * @since 9
  */
+/**
+ * The tap action triggers this method invocation.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
@@ -1837,6 +2453,12 @@ declare interface ClickEvent extends BaseEvent {
    * X coordinate of the click point relative to the left edge of the device screen.
    * @form
    * @since 9
+   */
+    /**
+   * X coordinate of the click point relative to the left edge of the device screen.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   screenX: number;
 
@@ -1849,6 +2471,12 @@ declare interface ClickEvent extends BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   screenY: number;
 
   /**
@@ -1859,6 +2487,12 @@ declare interface ClickEvent extends BaseEvent {
    * X coordinate of the click point relative to the left edge of the clicked element.
    * @form
    * @since 9
+   */
+  /**
+   * X coordinate of the click point relative to the left edge of the clicked element.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   x: number;
 
@@ -1871,6 +2505,12 @@ declare interface ClickEvent extends BaseEvent {
    * @form
    * @since 9
    */
+  /**
+   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   y: number;
 }
 
@@ -1878,10 +2518,20 @@ declare interface ClickEvent extends BaseEvent {
  * The mouse click action triggers this method invocation.
  * @since 8
  */
+/**
+ * The mouse click action triggers this method invocation.
+ * @crossplatform
+ * @since 10
+ */
 declare interface MouseEvent extends BaseEvent {
   /**
    * Mouse button of the click event.
    * @since 8
+   */
+  /**
+   * Mouse button of the click event.
+   * @crossplatform
+   * @since 10
    */
   button: MouseButton;
 
@@ -1889,17 +2539,32 @@ declare interface MouseEvent extends BaseEvent {
    * Mouse action of the click event.
    * @since 8
    */
+  /**
+   * Mouse action of the click event.
+   * @crossplatform
+   * @since 10
+   */
   action: MouseAction;
 
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
    * @since 8
    */
+  /**
+   * X coordinate of the click point relative to the left edge of the device screen.
+   * @crossplatform
+   * @since 10
+   */
   screenX: number;
 
   /**
    * The Y coordinate of the click point relative to the upper edge of the device screen.
-   * @since 8
+   * @since 8***
+   */
+  /**
+   * The Y coordinate of the click point relative to the upper edge of the device screen.
+   * @crossplatform
+   * @since 10
    */
   screenY: number;
 
@@ -1907,17 +2572,32 @@ declare interface MouseEvent extends BaseEvent {
    * X coordinate of the click point relative to the left edge of the clicked element.
    * @since 8
    */
+  /**
+   * X coordinate of the click point relative to the left edge of the clicked element.
+   * @crossplatform
+   * @since 10
+   */
   x: number;
 
   /**
    * Y coordinate of the click point relative to the upper edge of the clicked element.
    * @since 8
    */
+  /**
+   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * @crossplatform
+   * @since 10
+   */
   y: number;
 
   /**
    * The blocking event pops up.
    * @since 8
+   */
+  /**
+   * The blocking event pops up.
+   * @crossplatform
+   * @since 10
    */
   stopPropagation?: () => void;
 }
@@ -1926,10 +2606,20 @@ declare interface MouseEvent extends BaseEvent {
  * Type of the touch event.
  * @since 7
  */
+/**
+ * Type of the touch event.
+ * @crossplatform
+ * @since 10
+ */
 declare interface TouchObject {
   /**
    * Type of the touch event.
    * @since 7
+   */
+  /**
+   * Type of the touch event.
+   * @crossplatform
+   * @since 10
    */
   type: TouchType;
 
@@ -1937,11 +2627,21 @@ declare interface TouchObject {
    * Finger unique identifier.
    * @since 7
    */
+  /**
+   * Finger unique identifier.
+   * @crossplatform
+   * @since 10
+   */
   id: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
    * @since 7
+   */
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @crossplatform
+   * @since 10
    */
   screenX: number;
 
@@ -1949,17 +2649,32 @@ declare interface TouchObject {
    * The Y coordinate of the touch point relative to the upper edge of the device screen.
    * @since 7
    */
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @crossplatform
+   * @since 10
+   */
   screenY: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the touched element.
    * @since 7
    */
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   * @crossplatform
+   * @since 10
+   */
   x: number;
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the touched element.
    * @since 7
+   */
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @crossplatform
+   * @since 10
    */
   y: number;
 }
@@ -1968,10 +2683,20 @@ declare interface TouchObject {
  * Touch Action Function Parameters
  * @since 7
  */
+/**
+ * Touch Action Function Parameters
+ * @crossplatform
+ * @since 10
+ */
 declare interface TouchEvent extends BaseEvent {
   /**
    * Type of the touch event.
    * @since 7
+   */
+  /**
+   * Type of the touch event.
+   * @crossplatform
+   * @since 10
    */
   type: TouchType;
 
@@ -1979,11 +2704,21 @@ declare interface TouchEvent extends BaseEvent {
    * All finger information.
    * @since 7
    */
+  /**
+   * All finger information.
+   * @crossplatform
+   * @since 10
+   */
   touches: TouchObject[];
 
   /**
    * Indicates the current changed finger information.
    * @since 7
+   */
+  /**
+   * Indicates the current changed finger information.
+   * @crossplatform
+   * @since 10
    */
   changedTouches: TouchObject[];
 
@@ -1991,12 +2726,22 @@ declare interface TouchEvent extends BaseEvent {
    * The blocking event pops up.
    * @since 7
    */
+  /**
+   * The blocking event pops up.
+   * @crossplatform
+   * @since 10
+   */
   stopPropagation?: () => void;
 }
 
 /**
  * Defines the PixelMap type object for ui component.
  * @since 7
+ */
+/**
+ * Defines the PixelMap type object for ui component.
+ * @crossplatform
+ * @since 10
  */
 declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap;
 
@@ -2018,16 +2763,31 @@ declare interface PixelMapMock {
  * DragEvent object description
  * @since 7
  */
+/**
+ * DragEvent object description
+ * @crossplatform
+ * @since 10
+ */
 declare interface DragEvent {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
+   */
+  /**
+   * Obtains the X coordinate of the drag window, in vp.
+   * @crossplatform
+   * @since 10
    */
   getX(): number;
 
   /**
    * Obtains the Y coordinate of the drag window, in vp.
    * @since 7
+   */
+  /**
+   * Obtains the Y coordinate of the drag window, in vp.
+   * @crossplatform
+   * @since 10
    */
   getY(): number;
 }
@@ -2036,10 +2796,20 @@ declare interface DragEvent {
  * KeyEvent object description:
  * @since 7
  */
+/**
+ * KeyEvent object description:
+ * @crossplatform
+ * @since 10
+ */
 declare interface KeyEvent {
   /**
    * Type of a key.
    * @since 7
+   */
+  /**
+   * Type of a key.
+   * @crossplatform
+   * @since 10
    */
   type: KeyType;
 
@@ -2047,11 +2817,21 @@ declare interface KeyEvent {
    * Key code of a key
    * @since 7
    */
+  /**
+   * Key code of a key
+   * @crossplatform
+   * @since 10
+   */
   keyCode: number;
 
   /**
    * Key value of a key.
    * @since 7
+   */
+  /**
+   * Key value of a key.
+   * @crossplatform
+   * @since 10
    */
   keyText: string;
 
@@ -2059,11 +2839,21 @@ declare interface KeyEvent {
    * Type of the input device that triggers the current key, such as the keyboard or handle.
    * @since 7
    */
+  /**
+   * Type of the input device that triggers the current key, such as the keyboard or handle.
+   * @crossplatform
+   * @since 10
+   */
   keySource: KeySource;
 
   /**
    * Indicates the ID of the input device that triggers the current key.
    * @since 7
+   */
+  /**
+   * Indicates the ID of the input device that triggers the current key.
+   * @crossplatform
+   * @since 10
    */
   deviceId: number;
 
@@ -2072,17 +2862,33 @@ declare interface KeyEvent {
    * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
    * @since 7
    */
+  /**
+   * Indicates the status of the key when the key is pressed.
+   * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
+   * @crossplatform
+   * @since 10
+   */
   metaKey: number;
 
   /**
    * Timestamp when the key was pressed.
    * @since 7
    */
+  /**
+   * Timestamp when the key was pressed.
+   * @crossplatform
+   * @since 10
+   */
   timestamp: number;
 
   /**
    * Block event bubbling.
    * @since 7
+   */
+  /**
+   * Block event bubbling.
+   * @crossplatform
+   * @since 10
    */
   stopPropagation?: () => void;
 }
@@ -2096,6 +2902,12 @@ declare interface KeyEvent {
  * @form
  * @since 9
  */
+/**
+ * Component State Styles.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface StateStyles {
   /**
    * Defines normal state styles.
@@ -2105,6 +2917,12 @@ declare interface StateStyles {
    * Defines normal state styles.
    * @form
    * @since 9
+   */
+  /**
+   * Defines normal state styles.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   normal?: any;
 
@@ -2117,6 +2935,12 @@ declare interface StateStyles {
    * @form
    * @since 9
    */
+  /**
+   * Defines pressed state styles.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   pressed?: any;
 
   /**
@@ -2127,6 +2951,12 @@ declare interface StateStyles {
    * Defines disabled state styles.
    * @form
    * @since 9
+   */
+  /**
+   * Defines disabled state styles.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   disabled?: any;
 
@@ -2139,6 +2969,12 @@ declare interface StateStyles {
    * @form
    * @since 9
    */
+  /**
+   * Defines focused state styles.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   focused?: any;
 
   /**
@@ -2150,12 +2986,23 @@ declare interface StateStyles {
    * @form
    * @since 9
    */
+  /**
+   * Defines clicked state styles.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   clicked?: any;
+
+
+
+
 }
 
 /**
  * Defines the options of popup message.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface PopupMessageOptions {
@@ -2163,6 +3010,7 @@ declare interface PopupMessageOptions {
    * Sets the color of popup text.
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textColor?: ResourceColor;
@@ -2171,6 +3019,7 @@ declare interface PopupMessageOptions {
    * Sets the font of popup text.
    * @type { Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   font?: Font;
@@ -2180,10 +3029,20 @@ declare interface PopupMessageOptions {
  * Defines the popup options.
  * @since 7
  */
+/**
+ * Defines the popup options.
+ * @crossplatform
+ * @since 10
+ */
 declare interface PopupOptions {
   /**
    * Information in the pop-up window.
    * @since 7
+   */
+  /**
+   * Information in the pop-up window.
+   * @crossplatform
+   * @since 10
    */
   message: string;
 
@@ -2201,6 +3060,7 @@ declare interface PopupOptions {
    * @type { Placement }
    * @default bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   placement?: Placement;
@@ -2209,16 +3069,31 @@ declare interface PopupOptions {
    * The first button.
    * @since 7
    */
+  /**
+   * The first button.
+   * @crossplatform
+   * @since 10
+   */
   primaryButton?: {
     /**
      * Button text value
      * @since 7
+     */
+    /**
+     * Button text value
+     * @crossplatform
+     * @since 10
      */
     value: string;
 
     /**
      * action
      * @since 7
+     */
+    /**
+     * action
+     * @crossplatform
+     * @since 10
      */
     action: () => void;
   };
@@ -2227,16 +3102,31 @@ declare interface PopupOptions {
    * The second button.
    * @since 7
    */
+  /**
+   * The second button.
+   * @crossplatform
+   * @since 10
+   */
   secondaryButton?: {
     /**
      * Button text value
      * @since 7
+     */
+    /**
+     * Button text value
+     * @crossplatform
+     * @since 10
      */
     value: string;
 
     /**
      * action
      * @since 7
+     */
+    /**
+     * action
+     * @crossplatform
+     * @since 10
      */
     action: () => void;
   };
@@ -2245,11 +3135,21 @@ declare interface PopupOptions {
    * on State Change
    * @since 7
    */
+  /**
+   * on State Change
+   * @crossplatform
+   * @since 10
+   */
   onStateChange?: (event: { isVisible: boolean }) => void;
 
   /**
    * The offset of the sharp corner of popup.
    * @since 9
+   */
+  /**
+   * The offset of the sharp corner of popup.
+   * @crossplatform
+   * @since 10
    */
   arrowOffset?: Length;
 
@@ -2257,12 +3157,18 @@ declare interface PopupOptions {
    * Whether to display in the sub window.
    * @since 9
    */
+  /**
+   * Whether to display in the sub window.
+   * @crossplatform
+   * @since 10
+   */
   showInSubWindow?: boolean;
 
   /**
    * The mask to block gesture events of popup.
    * When mask is set false, gesture events are not blocked.
    * When mask is set true, gesture events are blocked and mask color is transparent.
+   * @crossplatform
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
@@ -2271,6 +3177,7 @@ declare interface PopupOptions {
    * Sets the options of popup message.
    * @type { PopupMessageOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   messageOptions?: PopupMessageOptions
@@ -2279,6 +3186,7 @@ declare interface PopupOptions {
    * Sets the space of between the popup and target.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   targetSpace?: Length
@@ -2288,16 +3196,31 @@ declare interface PopupOptions {
  * Defines the custom popup options.
  * @since 8
  */
+/**
+ * Defines the custom popup options.
+ * @crossplatform
+ * @since 10
+ */
 declare interface CustomPopupOptions {
   /**
    * builder of popup
    * @since 8
+   */
+  /**
+   * builder of popup
+   * @crossplatform
+   * @since 10
    */
   builder: CustomBuilder;
 
   /**
    * placement of popup
    * @since 8
+   */
+  /**
+   * placement of popup
+   * @crossplatform
+   * @since 10
    */
   placement?: Placement;
 
@@ -2313,11 +3236,21 @@ declare interface CustomPopupOptions {
    * background color of popup
    * @since 8
    */
+  /**
+   * background color of popup
+   * @crossplatform
+   * @since 10
+   */
   popupColor?: Color | string | Resource | number;
 
   /**
    * whether show arrow
    * @since 8
+   */
+  /**
+   * whether show arrow
+   * @crossplatform
+   * @since 10
    */
   enableArrow?: boolean;
 
@@ -2325,17 +3258,34 @@ declare interface CustomPopupOptions {
    * whether hide popup when click mask
    * @since 8
    */
+  /**
+   * whether hide popup when click mask
+   * @crossplatform
+   * @since 10
+   */
   autoCancel?: boolean;
 
   /**
    * on State Change
    * @since 8
    */
+  /**
+   * on State Change
+   * @crossplatform
+   * @since 10
+   */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+
 
   /**
    * The offset of the sharp corner of popup.
    * @since 9
+   */
+  /**
+   * The offset of the sharp corner of popup.
+   * @crossplatform
+   * @since 10
    */
   arrowOffset?: Length;
 
@@ -2343,12 +3293,18 @@ declare interface CustomPopupOptions {
    * Whether to display in the sub window.
    * @since 9
    */
+  /**
+   * Whether to display in the sub window.
+   * @crossplatform
+   * @since 10
+   */
   showInSubWindow?: boolean;
 
   /**
    * The mask to block gesture events of popup.
    * When mask is set false, gesture events are not blocked.
    * When mask is set true, gesture events are blocked and mask color is transparent.
+   * @crossplatform
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
@@ -2357,6 +3313,7 @@ declare interface CustomPopupOptions {
    * Sets the space of between the popup and target.
    * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   targetSpace?: Length
@@ -2365,6 +3322,7 @@ declare interface CustomPopupOptions {
 /**
  * Defines the context menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface ContextMenuOptions {
@@ -2373,6 +3331,7 @@ declare interface ContextMenuOptions {
    * @type { ?Position }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   offset?: Position;
@@ -2382,6 +3341,7 @@ declare interface ContextMenuOptions {
    * @type { ?Placement }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   placement?: Placement;
@@ -2390,6 +3350,7 @@ declare interface ContextMenuOptions {
    * Callback function when the context menu appears.
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onAppear?: () => void;
@@ -2398,6 +3359,7 @@ declare interface ContextMenuOptions {
    * Callback function when the context menu disappear.
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onDisappear?: () => void;
@@ -2406,6 +3368,7 @@ declare interface ContextMenuOptions {
 /**
  * Defines the menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface MenuOptions extends ContextMenuOptions {
@@ -2414,6 +3377,7 @@ declare interface MenuOptions extends ContextMenuOptions {
    * @type { ?ResourceStr }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   title?: ResourceStr;
@@ -2422,6 +3386,7 @@ declare interface MenuOptions extends ContextMenuOptions {
 /**
  * Defines the ProgressMask class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class ProgressMask {
@@ -2431,6 +3396,7 @@ declare class ProgressMask {
    * @param { number } total - indicates the total value of the progress.
    * @param { ResourceColor } color - indicates the color of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constructor(value: number, total: number, color: ResourceColor);
@@ -2439,6 +3405,7 @@ declare class ProgressMask {
    * Update the current value of the progress.
    * @param { number } value - indicates the current value of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   updateProgress(value: number): void;
@@ -2447,6 +3414,7 @@ declare class ProgressMask {
    * Update the color of the mask.
    * @param { ResourceColor } value - indicates the color of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   updateColor(value: ResourceColor): void;
@@ -2456,6 +3424,7 @@ declare class ProgressMask {
  * Set the edge blur effect distance of the corresponding defense line of the component
  * When the component expand out, no re-layout is triggered
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface PixelStretchEffectOptions {
@@ -2465,6 +3434,7 @@ declare interface PixelStretchEffectOptions {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   top?: Length;
@@ -2475,6 +3445,7 @@ declare interface PixelStretchEffectOptions {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   bottom?: Length;
@@ -2485,6 +3456,7 @@ declare interface PixelStretchEffectOptions {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   left?: Length;
@@ -2494,6 +3466,7 @@ declare interface PixelStretchEffectOptions {
    * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   right?: Length;
@@ -2507,6 +3480,12 @@ declare interface PixelStretchEffectOptions {
  * CommonMethod.
  * @form
  * @since 9
+ */
+/**
+ * CommonMethod.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare class CommonMethod<T> {
   /**
@@ -2533,6 +3512,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the width of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   width(value: Length): T;
 
   /**
@@ -2543,6 +3528,12 @@ declare class CommonMethod<T> {
    * Sets the width of the current component.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the height of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   height(value: Length): T;
 
@@ -2555,6 +3546,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the response region of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
@@ -2565,6 +3562,12 @@ declare class CommonMethod<T> {
    * The size of the current component.
    * @form
    * @since 9
+   */
+  /**
+   * The size of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   size(value: SizeOptions): T;
 
@@ -2578,6 +3581,13 @@ declare class CommonMethod<T> {
    * minWidth：minimum Width，maxWidth：maximum Width，minHeight：minimum Height ，maxHeight：maximum Height，
    * @form
    * @since 9
+   */
+  /**
+   * constraint Size：
+   * minWidth：minimum Width，maxWidth：maximum Width，minHeight：minimum Height ，maxHeight：maximum Height，
+   * @form
+   * @crossplatform
+   * @since 10
    */
   constraintSize(value: ConstraintSizeOptions): T;
 
@@ -2594,6 +3604,12 @@ declare class CommonMethod<T> {
    * @param value the hit test mode.
    * @since 9
    */
+  /**
+   * Defines the component's hit test behavior in touch events.
+   * @param value the hit test mode.
+   * @crossplatform
+   * @since 10
+   */
   hitTestBehavior(value: HitTestMode): T;
 
   /**
@@ -2604,6 +3620,12 @@ declare class CommonMethod<T> {
    * layout Weight
    * @form
    * @since 9
+   */
+  /**
+   * layout Weight
+   * @form
+   * @crossplatform
+   * @since 10
    */
   layoutWeight(value: number | string): T;
 
@@ -2616,16 +3638,25 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Inner margin.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   padding(value: Padding | Length): T;
 
-  /**
-   * Outer Margin.
-   * @since 7
-   */
+
   /**
    * Outer Margin.
    * @form
    * @since 9
+   */
+  /**
+   * Outer Margin.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   margin(value: Margin | Length): T;
 
@@ -2637,6 +3668,12 @@ declare class CommonMethod<T> {
    * Background color
    * @form
    * @since 9
+   */
+  /**
+   * Background color
+   * @form
+   * @crossplatform
+   * @since 10
    */
   backgroundColor(value: ResourceColor): T;
 
@@ -2651,6 +3688,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Background color
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   backgroundImage(src: ResourceStr, repeat?: ImageRepeat): T;
 
   /**
@@ -2661,6 +3704,12 @@ declare class CommonMethod<T> {
    * Background image size
    * @form
    * @since 9
+   */
+  /**
+   * Background image size
+   * @form
+   * @crossplatform
+   * @since 10
    */
   backgroundImageSize(value: SizeOptions | ImageSize): T;
 
@@ -2675,6 +3724,13 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Background image position
+   * x:Horizontal coordinate;y:Vertical axis coordinate.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   backgroundImagePosition(value: Position | Alignment): T;
 
   /**
@@ -2683,14 +3739,6 @@ declare class CommonMethod<T> {
    * @param { BlurStyle } value
    * @form
    * @since 9
-   */
-  /**
-   * Background blur style.
-   * blurStyle:Blur style type.
-   * @param { BlurStyle } value
-   * @param { BackgroundBlurStyleOptions } options
-   * @form
-   * @since 10
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
 
@@ -2702,6 +3750,12 @@ declare class CommonMethod<T> {
    * Opacity
    * @form
    * @since 9
+   */
+  /**
+   * Opacity
+   * @form
+   * @crossplatform
+   * @since 10
    */
   opacity(value: number | Resource): T;
 
@@ -2716,6 +3770,13 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Opacity
+   * width:Border width;color:Border color;radius:Border radius;
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   border(value: BorderOptions): T;
 
   /**
@@ -2726,6 +3787,12 @@ declare class CommonMethod<T> {
    * Border style
    * @form
    * @since 9
+   */
+  /**
+   * Border style
+   * @form
+   * @crossplatform
+   * @since 10
    */
   borderStyle(value: BorderStyle): T;
 
@@ -2745,6 +3812,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Border width
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   borderWidth(value: Length): T;
 
   /**
@@ -2756,6 +3829,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Border width
+   * @form
+   * @crossplatform
+   * @since 10
+   */  
   borderWidth(value: EdgeWidths): T;
 
   /**
@@ -2766,6 +3845,12 @@ declare class CommonMethod<T> {
    * Border color
    * @form
    * @since 9
+   */
+  /**
+   * Border color
+   * @form
+   * @crossplatform
+   * @since 10
    */
   borderColor(value: ResourceColor): T;
 
@@ -2784,6 +3869,12 @@ declare class CommonMethod<T> {
    * Border radius
    * @form
    * @since 9
+   */
+  /**
+   * Border radius
+   * @form
+   * @crossplatform
+   * @since 10
    */
   borderRadius(value: Length): T;
 
@@ -2806,6 +3897,7 @@ declare class CommonMethod<T> {
    * according to the characteristics of components.
    * @param {ResourceColor | ColoringStrategy} value indicates the color or color selection strategy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   foregroundColor(value: ResourceColor | ColoringStrategy): T;
@@ -2819,11 +3911,22 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Trigger a click event when a click is clicked.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onClick(event: (event?: ClickEvent) => void): T;
 
   /**
    * Trigger a mouse hover event.
    * @since 8
+   */
+  /**
+   * Trigger a mouse hover event.
+   * @crossplatform
+   * @since 10
    */
   onHover(event: (isHover?: boolean) => void): T;
 
@@ -2831,11 +3934,21 @@ declare class CommonMethod<T> {
    * Set hover effect.
    * @since 8
    */
+  /**
+   * Set hover effect.
+   * @crossplatform
+   * @since 10
+   */
   hoverEffect(value: HoverEffect): T;
 
   /**
    * Trigger a mouse event.
    * @since 8
+   */
+  /**
+   * Trigger a mouse event.
+   * @crossplatform
+   * @since 10
    */
   onMouse(event: (event?: MouseEvent) => void): T;
 
@@ -2843,11 +3956,21 @@ declare class CommonMethod<T> {
    * Trigger a touch event when touched.
    * @since 7
    */
+  /**
+   * Trigger a touch event when touched.
+   * @crossplatform
+   * @since 10
+   */
   onTouch(event: (event?: TouchEvent) => void): T;
 
   /**
    * Keyboard input
    * @since 7
+   */
+  /**
+   * Keyboard input
+   * @crossplatform
+   * @since 10
    */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
 
@@ -2855,11 +3978,21 @@ declare class CommonMethod<T> {
    * Set focusable.
    * @since 8
    */
+  /**
+   * Set focusable.
+   * @crossplatform
+   * @since 10
+   */
   focusable(value: boolean): T;
 
   /**
    * Trigger a event when got focus.
    * @since 8
+   */
+  /**
+   * Trigger a event when got focus.
+   * @crossplatform
+   * @since 10
    */
   onFocus(event: () => void): T;
 
@@ -2867,11 +4000,21 @@ declare class CommonMethod<T> {
    * Trigger a event when lose focus.
    * @since 8
    */
+  /**
+   * Trigger a event when lose focus.
+   * @crossplatform
+   * @since 10
+   */
   onBlur(event: () => void): T;
 
   /**
    * Set focus index by key tab.
    * @since 9
+   */
+  /**
+   * Set focus index by key tab.
+   * @crossplatform
+   * @since 10
    */
   tabIndex(index: number): T;
 
@@ -2879,17 +4022,32 @@ declare class CommonMethod<T> {
    * Set default focused component when a page create.
    * @since 9
    */
+  /**
+   * Set default focused component when a page create.
+   * @crossplatform
+   * @since 10
+   */
   defaultFocus(value: boolean): T;
 
   /**
    * Set default focused component when focus on a focus group.
    * @since 9
    */
+  /**
+   * Set default focused component when focus on a focus group.
+   * @crossplatform
+   * @since 10
+   */
   groupDefaultFocus(value: boolean): T;
 
   /**
    * Set a component focused when the component be touched.
    * @since 9
+   */
+  /**
+   * Set a component focused when the component be touched.
+   * @crossplatform
+   * @since 10
    */
   focusOnTouch(value: boolean): T;
 
@@ -2901,6 +4059,12 @@ declare class CommonMethod<T> {
    * animation
    * @form
    * @since 9
+   */
+  /**
+   * animation
+   * @form
+   * @crossplatform
+   * @since 10
    */
   animation(value: AnimateParam): T;
 
@@ -2919,6 +4083,7 @@ declare class CommonMethod<T> {
    * @param { TransitionOptions | TransitionEffect } value transition options or transition effect
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @crossplatform
    * @since 10
    */
   transition(value: TransitionOptions | TransitionEffect): T;
@@ -2928,6 +4093,11 @@ declare class CommonMethod<T> {
    * gesture:Bound Gesture Type,mask:GestureMask;
    * @since 7
    */
+  /**
+   * Bind gesture recognition.
+   * @crossplatform
+   * @since 10
+   */
   gesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
@@ -2935,12 +4105,24 @@ declare class CommonMethod<T> {
    * gesture:Bound Gesture Type,mask:GestureMask;
    * @since 7
    */
+  /**
+   * Binding Preferential Recognition Gestures
+   * gesture:Bound Gesture Type,mask:GestureMask;
+   * @crossplatform
+   * @since 10
+   */
   priorityGesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
    * Binding gestures that can be triggered simultaneously with internal component gestures
    * gesture:Bound Gesture Type,mask:GestureMask;
    * @since 7
+   */
+  /**
+   * Binding gestures that can be triggered simultaneously with internal component gestures
+   * gesture:Bound Gesture Type,mask:GestureMask;
+   * @crossplatform
+   * @since 10
    */
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
@@ -2957,6 +4139,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
+   * The larger the blurring radius, the more blurring the content.
+   * If the value is 0, the content blurring effect is not blurring.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   blur(value: number): T;
 
   /**
@@ -2972,6 +4162,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Adds a highlight effect to the current component.
+   * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
+   * The component is displayed as all white (percentage).
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   brightness(value: number): T;
 
   /**
@@ -2984,6 +4182,13 @@ declare class CommonMethod<T> {
    * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
    * @form
    * @since 9
+   */
+  /**
+   * Adds a contrast effect to the current component. The input parameter is the contrast value.
+   * A larger contrast value indicates a sharper image. When the contrast value is 0, the image becomes gray. (%)
+   * @form
+   * @crossplatform
+   * @since 10
    */
   contrast(value: number): T;
 
@@ -3000,6 +4205,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Adds a grayscale effect to the current component.
+   * The value is the gray scale conversion ratio. If the input parameter is 1.0, the gray scale image is completely converted to the gray scale image. If the input parameter is 0.0, the image does not change.
+   * If the input parameter is between 0.0 and 1.0, the effect changes. (Percentage)
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   grayscale(value: number): T;
 
   /**
@@ -3010,6 +4223,12 @@ declare class CommonMethod<T> {
    * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
    * @form
    * @since 9
+   */
+  /**
+   * Adds a color overlay effect for the current component. The input parameter is the superimposed color.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   colorBlend(value: Color | string | Resource): T;
 
@@ -3028,6 +4247,15 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Adds a saturation effect to the current component.
+   * The saturation is the ratio of the color-containing component to the achromatic component (gray).
+   * The larger the color-containing component, the greater the saturation.
+   * The larger the achromatic component, the smaller the saturation. (Percentage)
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   saturate(value: number): T;
 
   /**
@@ -3041,6 +4269,13 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Converts the image to sepia. Value defines the scale of the conversion.
+   * A value of 1 is completely sepia, and a value of 0 does not change the image. (Percentage)
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   sepia(value: number): T;
 
   /**
@@ -3053,6 +4288,13 @@ declare class CommonMethod<T> {
    * A value of 0% does not change the image. (Percentage)
    * @form
    * @since 9
+   */
+  /**
+   * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
+   * A value of 0% does not change the image. (Percentage)
+   * @form
+   * @crossplatform
+   * @since 10
    */
   invert(value: number): T;
 
@@ -3069,6 +4311,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Adds the hue rotation effect to the current component.
+   * The input parameter is the rotation angle. When the input parameter is 0deg, the image does not change (the default value is 0deg), and the input parameter does not have a maximum value.
+   * If the value exceeds 360deg, the image is circled again.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   hueRotate(value: number | string): T;
 
   /**
@@ -3081,6 +4331,13 @@ declare class CommonMethod<T> {
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    * @form
    * @since 9
+   */
+  /**
+   * Adds the background blur effect for the current component. The input parameter is the blur radius.
+   * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   backdropBlur(value: number): T;
 
@@ -3097,6 +4354,14 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the translation effect during page transition.
+   * The value is the start point of entry and end point of exit.
+   * When this parameter is set together with slide, slide takes effect by default.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   translate(value: TranslateOptions): T;
 
   /**
@@ -3108,11 +4373,22 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   scale(value: ScaleOptions): T;
 
   /**
    * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
    * @since 7
+   */
+  /**
+   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
+   * @crossplatform
+   * @since 10
    */
   gridSpan(value: number): T;
 
@@ -3120,6 +4396,12 @@ declare class CommonMethod<T> {
    * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
    * the current component is located in the nth column.
    * @since 7
+   */
+  /**
+   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
+   * the current component is located in the nth column.
+   * @crossplatform
+   * @since 10
    */
   gridOffset(value: number): T;
 
@@ -3134,11 +4416,23 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the rotation effect during assembly transition.
+   * The values are the start point during insertion and the end point during deletion.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   rotate(value: RotateOptions): T;
 
   /**
    * Sets the transformation matrix for the current component.
    * @since 7
+   */
+  /**
+   * Sets the transformation matrix for the current component.
+   * @crossplatform
+   * @since 10
    */
   transform(value: object): T;
 
@@ -3151,6 +4445,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * This callback is triggered when a component mounts a display.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onAppear(event: () => void): T;
 
   /**
@@ -3162,12 +4462,24 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * This callback is triggered when component uninstallation disappears.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   onDisAppear(event: () => void): T;
 
   /**
    * This callback is triggered when the size or position of this component change finished.
    * @param event event callback.
    * @since 8
+   */
+  /**
+   * This callback is triggered when the size or position of this component change finished.
+   * @param event event callback.
+   * @crossplatform
+   * @since 10
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
@@ -3180,6 +4492,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Controls the display or hide of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   visibility(value: Visibility): T;
 
   /**
@@ -3190,6 +4508,12 @@ declare class CommonMethod<T> {
    * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
    * @form
    * @since 9
+   */
+  /**
+   * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   flexGrow(value: number): T;
 
@@ -3202,6 +4526,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   flexShrink(value: number): T;
 
   /**
@@ -3212,6 +4542,12 @@ declare class CommonMethod<T> {
    * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
    * @form
    * @since 9
+   */
+  /**
+   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   flexBasis(value: number | string): T;
 
@@ -3224,6 +4560,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Overrides the default configuration of alignItems in the Flex Layout container.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   alignSelf(value: ItemAlign): T;
 
   /**
@@ -3234,6 +4576,12 @@ declare class CommonMethod<T> {
    * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   displayPriority(value: number): T;
 
@@ -3246,11 +4594,22 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   zIndex(value: number): T;
 
   /**
    * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
    * @since 7
+   */
+  /**
+   * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
+   * @crossplatform
+   * @since 10
    */
   sharedTransition(id: string, options?: sharedTransitionOptions): T;
 
@@ -3263,6 +4622,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   direction(value: Direction): T;
 
   /**
@@ -3273,6 +4638,12 @@ declare class CommonMethod<T> {
    * align
    * @form
    * @since 9
+   */
+  /**
+   * align
+   * @form
+   * @crossplatform
+   * @since 10
    */
   align(value: Alignment): T;
 
@@ -3285,6 +4656,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * position
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   position(value: Position): T;
 
   /**
@@ -3295,6 +4672,12 @@ declare class CommonMethod<T> {
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
    * @form
    * @since 9
+   */
+  /**
+   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   markAnchor(value: Position): T;
 
@@ -3309,6 +4692,13 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Coordinate offset relative to the layout completion position.
+   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   offset(value: Position): T;
 
   /**
@@ -3321,6 +4711,13 @@ declare class CommonMethod<T> {
    *  If it is set to false, click operations are not responded.
    * @form
    * @since 9
+   */
+  /**
+   * If the value is true, the component is available and can respond to operations such as clicking.
+   *  If it is set to false, click operations are not responded.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   enabled(value: boolean): T;
 
@@ -3353,6 +4750,12 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Specifies the aspect ratio of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   aspectRatio(value: number): T;
 
   /**
@@ -3360,11 +4763,22 @@ declare class CommonMethod<T> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * @crossplatform
+   * @since 10
+   */
   onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * @crossplatform
+   * @since 10
    */
   onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -3372,11 +4786,21 @@ declare class CommonMethod<T> {
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 8
    */
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * @crossplatform
+   * @since 10
+   */
   onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 8
+   */
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * @crossplatform
+   * @since 10
    */
   onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -3384,6 +4808,12 @@ declare class CommonMethod<T> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
+   */
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * @crossplatform
+   * @since 10
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -3395,6 +4825,12 @@ declare class CommonMethod<T> {
    * Add mask text to the current component. The layout is the same as that of the current component.
    * @form
    * @since 9
+   */
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   overlay(value: string, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
 
@@ -3408,6 +4844,13 @@ declare class CommonMethod<T> {
    * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
    * @form
    * @since 9
+   */
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   linearGradient(value: {
     angle?: number | string;
@@ -3439,6 +4882,19 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
+   * number:number
+   * rotating:rotating
+   * colors:Color description for gradients
+   * repeating:repeating
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   sweepGradient(value: {
     center: Array<any>;
     start?: number | string;
@@ -3465,6 +4921,16 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient
+   * colors:Color description for gradients
+   * repeating: Refill
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
 
   /**
@@ -3474,6 +4940,15 @@ declare class CommonMethod<T> {
    * to:End point of the motion path. The default value is 1.0.
    * rotatable:Whether to follow the path for rotation.
    * @since 7
+   */
+  /**
+   * Set the motion path of the component
+   * path:Motion path for displacement animation, using the svg path string.
+   * from:Start point of the motion path. The default value is 0.0.
+   * to:End point of the motion path. The default value is 1.0.
+   * rotatable:Whether to follow the path for rotation.
+   * @crossplatform
+   * @since 10
    */
   motionPath(value: MotionPathOptions): T;
 
@@ -3492,6 +4967,7 @@ declare class CommonMethod<T> {
    * Add a shadow effect to the current component
    * @param { ShadowOptions | ShadowStyle } value
    * @form
+   * @crossplatform
    * @since 10
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
@@ -3506,6 +4982,13 @@ declare class CommonMethod<T> {
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    * @form
    * @since 9
+   */
+  /**
+   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
+   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
@@ -3524,8 +5007,9 @@ declare class CommonMethod<T> {
    * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @crossplatform
    * @since 10
-   */
+   */  
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
@@ -3545,17 +5029,33 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Id. User can set an id to the component to identify it.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   id(value: string): T;
 
   /**
    * geometryTransition
    * @since 7
    */
+  /**
+   * geometryTransition
+   * @crossplatform
+   * @since 10
+   */
   geometryTransition(id: string): T;
 
   /**
    * Popup control
    * @since 7
+   */
+  /**
+   * Popup control
+   * @crossplatform
+   * @since 10
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
@@ -3569,6 +5069,7 @@ declare class CommonMethod<T> {
    * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { MenuOptions } options - Indicates the options of menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   bindMenu(content: { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder, options?: MenuOptions): T;
@@ -3583,6 +5084,7 @@ declare class CommonMethod<T> {
    * @param { responseType } responseType - Indicates response type of context menu.
    * @param { ContextMenuOptions } options - Indicates the options of context menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
@@ -3593,9 +5095,10 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder } builder - the content to be displayed.
    * @param { ModalTransition } type - transition type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
 
   /**
    * Sets styles for component state.
@@ -3606,17 +5109,33 @@ declare class CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets styles for component state.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   stateStyles(value: StateStyles): T;
 
   /**
    * id for distribute identification.
    * @since 8
    */
+  /**
+   * id for distribute identification.
+   * @crossplatform
+   * @since 10
+   */
   restoreId(value: number): T;
 
   /**
    * Trigger a visible area change event.
    * @since 9
+   */
+  /**
+   * Trigger a visible area change event.
+   * @crossplatform
+   * @since 10
    */
   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 
@@ -3625,6 +5144,7 @@ declare class CommonMethod<T> {
    * @param {number} value - set the degree of spherical effect, value range [0, 1].
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   sphericalEffect(value: number): T;
@@ -3634,6 +5154,7 @@ declare class CommonMethod<T> {
    * @param {number} value - set the degree to which the component lights up, value range [0, 1].
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   lightUpEffect(value: number): T;
@@ -3642,19 +5163,20 @@ declare class CommonMethod<T> {
    * Set the edge pixel stretch effect of the Component.
    * @param {PixelStretchEffectOptions} options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
   /**
    * Sets hot keys
-   * @param { string | FunctionKey } value - Character of the combination key.
-   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { () => void } action - Callback function, triggered when the shortcut keyboard is pressed.
+   * @param { string } value , single character of the Combination key
+   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
-  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
+  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
 }
 
 /**
@@ -3666,7 +5188,13 @@ declare class CommonMethod<T> {
  * @form
  * @since 9
  */
-declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+/**
+ * CommonAttribute for ide.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
+declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
 
 /**
  * CommonInterface for ide.
@@ -3676,6 +5204,12 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * CommonInterface for ide.
  * @form
  * @since 9
+ */
+/**
+ * CommonInterface for ide.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 interface CommonInterface {
   (): CommonAttribute;
@@ -3690,6 +5224,12 @@ interface CommonInterface {
  * @form
  * @since 9
  */
+/**
+ * CommonInstance for ide.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const CommonInstance: CommonAttribute;
 
 /**
@@ -3700,6 +5240,12 @@ declare const CommonInstance: CommonAttribute;
  * Common for ide.
  * @form
  * @since 9
+ */
+/**
+ * Common for ide.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const Common: CommonInterface;
 
@@ -3712,6 +5258,12 @@ declare const Common: CommonInterface;
  * @form
  * @since 9
  */
+/**
+ * Defines the CustomBuilder Type.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare type CustomBuilder = (() => any) | void;
 
 /**
@@ -3722,6 +5274,12 @@ declare type CustomBuilder = (() => any) | void;
  * CommonShapeMethod
  * @form
  * @since 9
+ */
+/**
+ * CommonShapeMethod
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
@@ -3746,6 +5304,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * border Color
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   stroke(value: ResourceColor): T;
 
   /**
@@ -3756,6 +5320,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * Fill color.
    * @form
    * @since 9
+   */
+  /**
+   * Fill color.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fill(value: ResourceColor): T;
 
@@ -3768,6 +5338,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Offset from the start point of the border drawing.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeDashOffset(value: number | string): T;
 
   /**
@@ -3778,6 +5354,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * Path endpoint drawing style.
    * @form
    * @since 9
+   */
+  /**
+   * Path endpoint drawing style.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeLineCap(value: LineCapStyle): T;
 
@@ -3790,6 +5372,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Border corner drawing style.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeLineJoin(value: LineJoinStyle): T;
 
   /**
@@ -3800,6 +5388,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * Limits for drawing acute angles as bevels
    * @form
    * @since 9
+   */
+  /**
+   * Limits for drawing acute angles as bevels
+   * @form
+   * @crossplatform
+   * @since 10
    */
   strokeMiterLimit(value: number | string): T;
 
@@ -3812,6 +5406,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the opacity of the border.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeOpacity(value: number | string | Resource): T;
 
   /**
@@ -3822,6 +5422,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * fill Opacity
    * @form
    * @since 9
+   */
+  /**
+   * fill Opacity
+   * @form
+   * @crossplatform
+   * @since 10
    */
   fillOpacity(value: number | string | Resource): T;
 
@@ -3834,6 +5440,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the width of the dividing line.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeWidth(value: Length): T;
 
   /**
@@ -3844,6 +5456,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * Indicates whether to enable anti-aliasing
    * @form
    * @since 9
+   */
+  /**
+   * Indicates whether to enable anti-aliasing
+   * @form
+   * @crossplatform
+   * @since 10
    */
   antiAlias(value: boolean): T;
 
@@ -3856,6 +5474,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    * @since 9
    */
+  /**
+   * Sets the gap for the border.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   strokeDashArray(value: Array<any>): T;
 }
 
@@ -3867,6 +5491,16 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @param { boolean } repeating: Image slice repeating.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ */
+/**
+ * Linear Gradient Interface
+ * @param { number | string } angle - Angle of Linear Gradient.
+ * @param { GradientDirection } direction - Direction of Linear Gradient.
+ * @param { Array<any> } colors - Array of colors
+ * @param { boolean } repeating: Image slice repeating.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 declare interface LinearGradient {
   angle?: number | string;
@@ -3881,25 +5515,8 @@ declare interface LinearGradient {
  * @since 9
  */
 declare interface LayoutBorderInfo {
-  /**
-   * Sub component borderWidth info.
-   * @form
-   * @since 9
-   */
   borderWidth: EdgeWidths,
-
-  /**
-   * Sub component margin info.
-   * @form
-   * @since 9
-   */
   margin: Margin,
-
-  /**
-   * Sub component padding info.
-   * @form
-   * @since 9
-   */
   padding: Padding,
 }
 
@@ -3909,18 +5526,7 @@ declare interface LayoutBorderInfo {
  * @since 9
  */
 declare interface LayoutInfo {
-  /**
-   * Sub component position info.
-   * @form
-   * @since 9
-   */
   position: Position,
-
-  /**
-   * Sub component constraint info.
-   * @form
-   * @since 9
-   */
   constraint: ConstraintSizeOptions,
 }
 
@@ -4000,6 +5606,12 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    */
+  /**
+   * Customize the pop-up content constructor.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   build(): void;
 
   /**
@@ -4011,6 +5623,12 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    * @since 9
    */
+  /**
+   * aboutToAppear Method
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   aboutToAppear?(): void;
 
   /**
@@ -4021,6 +5639,12 @@ declare class CustomComponent extends CommonAttribute {
    * aboutToDisappear Method
    * @form
    * @since 9
+   */
+  /**
+   * aboutToDisappear Method
+   * @form
+   * @crossplatform
+   * @since 10
    */
   aboutToDisappear?(): void;
 
@@ -4042,11 +5666,21 @@ declare class CustomComponent extends CommonAttribute {
    * onPageShow Method
    * @since 7
    */
+  /**
+   * onPageShow Method
+   * @crossplatform
+   * @since 10
+   */
   onPageShow?(): void;
 
   /**
    * onPageHide Method
    * @since 7
+   */
+  /**
+   * onPageHide Method
+   * @crossplatform
+   * @since 10
    */
   onPageHide?(): void;
 
@@ -4054,12 +5688,23 @@ declare class CustomComponent extends CommonAttribute {
    * onBackPress Method
    * @since 7
    */
+  /**
+   * onBackPress Method
+   * @crossplatform
+   * @since 10
+   */
   onBackPress?(): void;
 
   /**
    * PageTransition Method.
    * Implement Animation when enter this page or move to other pages.
    * @since 9
+   */
+  /**
+   * PageTransition Method.
+   * Implement Animation when enter this page or move to other pages.
+   * @crossplatform
+   * @since 10
    */
   pageTransition?(): void;
 }
@@ -4083,13 +5728,6 @@ declare class View {
    * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
-   */
-  /**
-   * Just use for generate tsbundle
-   * @ignore ide should ignore this attribute
-   * @systemapi
-   * @form
-   * @since 9
    */
   create(value: any): any;
 }
