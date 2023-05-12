@@ -52,7 +52,7 @@ declare namespace Profiler {
    * @since 8
    * @systemapi
    * @test
-   */
+   */ 
   function unregisterVsyncCallback(): void;
 }
 
