@@ -22,6 +22,12 @@ import { Resource } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
+/**
+ * Defines the options of MeasureText.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 export interface MeasureOptions {
 
   /**
@@ -34,6 +40,7 @@ export interface MeasureOptions {
    * Text to display.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @type { ( string | Resource ) }
+   * @crossplatform
    * @since 10
    */
   textContent: string | Resource;
@@ -41,6 +48,7 @@ export interface MeasureOptions {
   /**
    * Text display area of width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   constraintWidth?: number | string | Resource;
@@ -50,12 +58,24 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Font Size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   fontSize?: number | string | Resource;
 
   /**
    * Font style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * Font style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   fontStyle?: number | FontStyle;
 
@@ -64,12 +84,24 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Font weight.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   fontWeight?: number | string | FontWeight;
 
   /**
    * Font list of text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   */
+  /**
+   * Font list of text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   fontFamily?: string | Resource;
 
@@ -78,11 +110,18 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
+  /**
+   * Distance between text fonts.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   letterSpacing?: number | string;
 
   /**
    * Alignment of text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textAlign?: number | TextAlign;
@@ -90,6 +129,7 @@ export interface MeasureOptions {
   /**
    * Overflow mode of the font.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   overflow?: number | TextOverflow;
@@ -97,6 +137,7 @@ export interface MeasureOptions {
   /**
    * Maximum number of lines of text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   maxLines?: number;
@@ -104,6 +145,7 @@ export interface MeasureOptions {
   /**
    * Vertical center mode of the font.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   lineHeight?: number | string | Resource;
@@ -111,6 +153,7 @@ export interface MeasureOptions {
   /**
    * Baseline offset.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   baselineOffset?: number | string;
@@ -118,6 +161,7 @@ export interface MeasureOptions {
   /**
    * Type of letter in the text font
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   textCase?: number | TextCase;
@@ -127,6 +171,11 @@ export interface MeasureOptions {
  * Defines the Measure interface.
  * since 9
  */
+/**
+ * Defines the Measure interface.
+ * @crossplatform
+ * @since 10
+ */
 export default class MeasureText {
 
   /**
@@ -135,6 +184,13 @@ export default class MeasureText {
    * @param options Options.
    * @since 9
    */
+  /**
+   * Displays the textWidth.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param options Options.
+   * @crossplatform
+   * @since 10
+   */
   static measureText(options: MeasureOptions): number;
 
   /**
@@ -142,6 +198,7 @@ export default class MeasureText {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
