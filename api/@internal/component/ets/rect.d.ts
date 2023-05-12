@@ -166,9 +166,12 @@ declare const RectInStance: RectAttribute;
  * @form
  * @since 9
  */
+<<<<<<< HEAD
 /**
  * @form
  * @crossplatform
  * @since 10
  */
+=======
+>>>>>>> updated test
 declare const RectInstance: RectAttribute;

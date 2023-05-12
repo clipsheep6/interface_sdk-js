@@ -21,7 +21,6 @@
  * @since 9
  */
 /**
- * @form
  * @crossplatform
  * @since 10
  */
@@ -544,6 +543,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
@@ -553,6 +553,9 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   onError(
     callback: (event?: {
+=======
+  onError(callback: (event?: { componentWidth: number; componentHeight: number; message: string }) => void): ImageAttribute;
+>>>>>>> updated test
 
       /**
        * The type of componentWidth for event

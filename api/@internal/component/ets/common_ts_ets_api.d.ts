@@ -846,6 +846,7 @@ declare const appStorage: AppStorage;
  * @form
  * @since 9
  */
+<<<<<<< HEAD
 /**
  *
  * LocalStorage
@@ -860,6 +861,8 @@ declare const appStorage: AppStorage;
  * @crossplatform
  * @since 10
  */
+=======
+>>>>>>> updated test
 declare class LocalStorage {
   /**
    * Construct new instance of LocalStorage
@@ -870,6 +873,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Construct new instance of LocalStorage
    * initialize with all properties and their values that Object.keys(params) returns
@@ -880,6 +884,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   constructor(initializingProperties?: Object);
 
   /**
@@ -888,6 +894,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Get current LocalStorage shared from stage.
    * @StageModelOnly
@@ -895,6 +902,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   static GetShared(): LocalStorage;
 
   /**
@@ -907,6 +916,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Check if LocalStorage has a property with given name
    * return true if property with given name exists
@@ -918,6 +928,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   has(propName: string): boolean;
 
   /**
@@ -928,6 +940,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Provide names of all properties in LocalStorage
    * same as ES6 Map.prototype.keys()
@@ -937,6 +950,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   keys(): IterableIterator<string>;
 
   /**
@@ -947,6 +962,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Returns number of properties in LocalStorage
    * same as Map.prototype.size()
@@ -956,6 +972,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   size(): number;
 
   /**
@@ -967,6 +985,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Returns value of given property
    * return undefined if no property with this name
@@ -977,6 +996,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   get<T>(propName: string): T | undefined;
 
   /**
@@ -990,6 +1011,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Set value of given property in LocalStorage
    * Method sets nothing and returns false if property with this name does not exist
@@ -1002,6 +1024,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   set<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -1016,6 +1040,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Set value of given property, if it exists, see set() .
    * Add property if no property with given name and initialize with given value.
@@ -1029,6 +1054,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   setOrCreate<T>(propName: string, newValue: T): boolean;
 
   /**
@@ -1041,6 +1068,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Create and return a two-way sync "(link") to named property
    * @param propName name of source property in LocalStorage
@@ -1052,6 +1080,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   link<T>(propName: string): SubscribedAbstractProperty<T>;
 
   /**
@@ -1065,6 +1095,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Like see link(), but will create and initialize a new source property in LocalStorage if missing
    * @param propName name of source property in LocalStorage
@@ -1077,6 +1108,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
@@ -1089,6 +1122,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Create and return a one-way sync ('prop') to named property
    * @param { string } propName name of source property in LocalStorage
@@ -1100,6 +1134,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   prop<S>(propName: string): SubscribedAbstractProperty<S>;
 
   /**
@@ -1113,6 +1149,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
    * @param { string } propName name of source property in LocalStorage
@@ -1125,6 +1162,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
@@ -1148,6 +1187,7 @@ declare class LocalStorage {
    * @form
    * @since 9
   */
+<<<<<<< HEAD
   /**
    * Delete property from StorageBase
    * Use with caution:
@@ -1170,6 +1210,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
   */
+=======
+>>>>>>> updated test
   delete(propName: string): boolean;
 
   /**
@@ -1181,6 +1223,7 @@ declare class LocalStorage {
    * @form
    * @since 9
    */
+<<<<<<< HEAD
   /**
    * Delete all properties from the LocalStorage instance
    * Precondition is that there are no subscribers.
@@ -1191,6 +1234,8 @@ declare class LocalStorage {
    * @crossplatform
    * @since 10
    */
+=======
+>>>>>>> updated test
   clear(): boolean;
 }
 

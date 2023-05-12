@@ -1780,7 +1780,11 @@ declare class CanvasRenderer extends CanvasPath {
    * @param y The y-axis coordinate of the center of the gradient.
    * @returns CanvasGradient A CanvasGradient object that draws a conic gradient around the given coordinates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   createConicGradient(

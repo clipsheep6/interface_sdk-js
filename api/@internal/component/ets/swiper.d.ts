@@ -101,7 +101,11 @@ declare class Indicator<T> {
    * @param { Length } value - the indicator to the top.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+<<<<<<< HEAD
    * @crossplatform
+=======
+
+>>>>>>> updated test
    * @since 10
    */
   top(value: Length): T;

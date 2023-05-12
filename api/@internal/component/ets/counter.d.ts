@@ -102,7 +102,11 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   enableDec(value: boolean): CounterAttribute;
@@ -112,7 +116,11 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
    * @returns { CounterAttribute } The attribute of the counter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   enableInc(value: boolean): CounterAttribute;

@@ -137,7 +137,11 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static assert(value?: Object, ...arguments: Object[]): void;
@@ -149,7 +153,11 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static count(label?: string): void;
@@ -160,7 +168,11 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static countReset(label?: string): void;
@@ -170,7 +182,11 @@ export declare class console {
    * @param { Object } dir A JavaScript object whose properties should be output.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static dir(dir?: Object): void;
@@ -181,7 +197,11 @@ export declare class console {
    * @param { Object[] } arguments Text to print.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static dirxml(...arguments: Object[]): void;
@@ -191,7 +211,11 @@ export declare class console {
    * @param { Object[] } arguments messages to print first.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static group(...arguments: Object[]): void;
@@ -201,7 +225,11 @@ export declare class console {
    * @param { Object[] } arguments messages to print first.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
   */
   static groupCollapsed(...arguments: Object[]): void;
@@ -210,7 +238,11 @@ export declare class console {
    * Exit current inline group.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static groupEnd(): void;
@@ -220,7 +252,11 @@ export declare class console {
    * @param { Object } tableData tabular data.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static table(tableData?: Object): void;
@@ -231,7 +267,11 @@ export declare class console {
   * @static
   * @throws { BusinessError } 401 - The parameter check failed.
   * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
   * @crossplatform
+=======
+  * @crosspltform
+>>>>>>> updated test
   * @since 10
   */
   static time(label?: string): void;
@@ -242,7 +282,11 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static timeEnd(label?: string): void;
@@ -254,7 +298,11 @@ export declare class console {
    * @static
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static timeLog(label?: string, ...arguments: Object[]): void;
@@ -264,7 +312,11 @@ export declare class console {
    * @param { Object[] } arguments message to print.
    * @static
    * @syscap SystemCapability.Utils.Lang
+<<<<<<< HEAD
    * @crossplatform
+=======
+   * @crosspltform
+>>>>>>> updated test
    * @since 10
    */
   static trace(...arguments: Object[]): void; 
@@ -350,7 +402,11 @@ export declare function clearTimeout(timeoutID?: number): void;
 /**
  * Defining syscap function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+<<<<<<< HEAD
  * @crossplatform
+=======
+ * @crosspltform
+>>>>>>> updated test
  * @since 10
  */
 export declare function canIUse(syscap: string): boolean;
