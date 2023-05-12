@@ -2886,18 +2886,18 @@ declare namespace media {
     AUDIO_FLAC = 'audio/flac',
   }
 
-/**
- * Subtitle text information descriptor.
- * @since 10
- * @syscap SystemCapability.Multimedia.Media.Core
- */
-interface TextInfoDescriptor {
   /**
-   * Subtitle text. If null, stop rendering current text.
+   * Subtitle text information descriptor.
    * @since 10
    * @syscap SystemCapability.Multimedia.Media.Core
    */
-  text: string;
-}
+  interface TextInfoDescriptor {
+    /**
+     * Subtitle text. If null, stop rendering current text.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    text: string;
+  }
 }
 export default media;
