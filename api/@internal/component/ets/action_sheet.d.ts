@@ -18,10 +18,20 @@
  * The information of sheet.
  * @since 8
  */
+/**
+ * The information of sheet.
+ * @crossplatform
+ * @since 10
+ */
 interface SheetInfo {
   /**
    * Title Properties
    * @since 8
+   */
+  /**
+   * Title Properties
+   * @crossplatform
+   * @since 10
    */
   title: string | Resource;
 
@@ -29,11 +39,21 @@ interface SheetInfo {
    * Icon Properties.
    * @since 8
    */
+  /**
+   * Icon Properties.
+   * @crossplatform
+   * @since 10
+   */
   icon?: string | Resource;
 
   /**
    * Callback method after the operation.
    * @since 8
+   */
+  /**
+   * Callback method after the operation.
+   * @crossplatform
+   * @since 10
    */
   action: () => void;
 }
@@ -42,10 +62,20 @@ interface SheetInfo {
  * Declare the ActionSheet
  * @since 8
  */
+/**
+ * Declare the ActionSheet
+ * @crossplatform
+ * @since 10
+ */
 declare class ActionSheet {
   /**
    * Invoking method display.
    * @since 8
+   */
+  /**
+   * Invoking method display.
+   * @crossplatform
+   * @since 10
    */
   static show(value: {
     /**

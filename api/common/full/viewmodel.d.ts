@@ -1088,6 +1088,12 @@ export interface OffscreenCanvasRenderingContext2D {
    * Returns the current line segment style array containing an even number of non-negative numbers.
    * @since 7
    */
+  /**
+   * Gets the dotted spacing of a line.
+   * Returns the current line segment style array containing an even number of non-negative numbers.
+   * @crossplatform
+   * @since 10
+   */
   getLineDash: Array<number>;
 
   /**
@@ -1096,6 +1102,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
    * @since 7
+   */
+  /**
+   * Fill style attribute.
+   * Paint color used to fill the area.
+   * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
+   * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
+   * @crossplatform
+   * @since 10
    */
   fillStyle?: string | CanvasGradient | CanvasPattern;
 
@@ -1106,12 +1120,26 @@ export interface OffscreenCanvasRenderingContext2D {
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
    * @since 7
    */
+  /**
+   * Sets the stroke paint style.
+   * Color of the stroke paint.
+   * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
+   * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
+   * @crossplatform
+   * @since 10
+   */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
    * Sets the dotted spacing of a line.
    * @param segments A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
    * @since 7
+   */
+  /**
+   * Sets the dotted spacing of a line.
+   * @param segments A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
+   * @crossplatform
+   * @since 10
    */
   setLineDash(segments: Array<number>): void;
 
@@ -1123,6 +1151,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dw Image The width drawn on the target canvas.
    * @param dh Image The height drawn on the target canvas.
    * @since 7
+   */
+  /**
+   * Draw an Image object.
+   * @param image An element drawn to the context.
+   * @param dx The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param dw Image The width drawn on the target canvas.
+   * @param dh Image The height drawn on the target canvas.
+   * @crossplatform
+   * @since 10
    */
   drawImage(image: Image, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -1138,6 +1176,20 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
    * @param sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
    * @since 7
+   */
+  /**
+   * Draw an Image object.
+   * @param image An element drawn to the context.
+   * @param dx The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param dw Image The width drawn on the target canvas.
+   * @param dh Image The height drawn on the target canvas.
+   * @param sx The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param sy The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @param sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @crossplatform
+   * @since 10
    */
   drawImage(
     image: Image,
@@ -1160,6 +1212,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dh Image The height drawn on the target canvas.
    * @since 9
    */
+  /**
+   * Draw an Image object.
+   * @param image An element drawn to the context.
+   * @param dx The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param dw Image The width drawn on the target canvas.
+   * @param dh Image The height drawn on the target canvas.
+   * @crossplatform
+   * @since 10
+   */
   drawImage(image: image.PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
@@ -1174,6 +1236,20 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
    * @param sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
    * @since 9
+   */
+  /**
+   * Draw an Image object.
+   * @param image An element drawn to the context.
+   * @param dx The top left corner of the image is the X-axis coordinates on the target canvas.
+   * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
+   * @param dw Image The width drawn on the target canvas.
+   * @param dh Image The height drawn on the target canvas.
+   * @param sx The upper-left X-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param sy The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
+   * @param sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @param sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @crossplatform
+   * @since 10
    */
   drawImage(
     image: image.PixelMap,
@@ -1191,17 +1267,32 @@ export interface OffscreenCanvasRenderingContext2D {
    * Creates a drawing path.
    * @since 7
    */
+  /**
+   * Creates a drawing path.
+   * @crossplatform
+   * @since 10
+   */
   beginPath(): void;
 
   /**
    * Crop the current canvas.
    * @since 7
    */
+  /**
+   * Crop the current canvas.
+   * @crossplatform
+   * @since 10
+   */
   clip(): void;
 
   /**
    * Fills the current canvas with color.
    * @since 7
+   */
+  /**
+   * Fills the current canvas with color.
+   * @crossplatform
+   * @since 10
    */
   fill(): void;
 
@@ -1211,6 +1302,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y coordinate of the detection point.
    * @returns boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @since 7
+   */
+  /**
+   * Check whether the specified coordinate point is on the Path.
+   * @param x The X coordinate of the detection point.
+   * @param y The Y coordinate of the detection point.
+   * @returns boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
+   * @crossplatform
+   * @since 10
    */
   isPointInPath(x: number, y: number): boolean;
 
@@ -1223,6 +1322,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
    * @since 7
    */
+  /**
+   * Check whether the specified coordinate point is on the Path.
+   * @param path The Path2D path that needs to be populated.
+   * @param x The X coordinate of the detection point.
+   * @param y The Y coordinate of the detection point.
+   * @param fillRule This algorithm determines whether a point is in or out of the path.
+   * @returns boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
+   * @crossplatform
+   * @since 10
+   */
   isPointInPath(path: Path2D, x: number, y: number): boolean;
 
   /**
@@ -1231,6 +1340,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y coordinate of the detection point.
    * @returns boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @since 7
+   */
+  /**
+   * Checks whether the specified coordinate point is on the stroke edge.
+   * @param x The X coordinate of the detection point.
+   * @param y The Y coordinate of the detection point.
+   * @returns boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
+   * @crossplatform
+   * @since 10
    */
   isPointInStroke(x: number, y: number): boolean;
 
@@ -1242,11 +1359,25 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
    * @since 7
    */
+  /**
+   * Checks whether the specified coordinate point is on the stroke edge.
+   * @param path Path2D path.
+   * @param x The X coordinate of the detection point.
+   * @param y The Y coordinate of the detection point.
+   * @returns boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
+   * @crossplatform
+   * @since 10
+   */
   isPointInStroke(path: Path2D, x: number, y: number): boolean;
 
   /**
    * Stroke draws the current path.
    * @since 7
+   */
+  /**
+   * Stroke draws the current path.
+   * @crossplatform
+   * @since 10
    */
   stroke(): void;
 
@@ -1254,6 +1385,12 @@ export interface OffscreenCanvasRenderingContext2D {
    * Stroke draws the current path.
    * @param path The object of Path2D.
    * @since 7
+   */
+  /**
+   * Stroke draws the current path.
+   * @param path The object of Path2D.
+   * @crossplatform
+   * @since 10
    */
   stroke(path: Path2D): void;
 
@@ -1268,6 +1405,18 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns RadialGradient object.
    * @since 7
    */
+  /**
+   * Create a radial tween object.
+   * @param x0 The x coordinate of the circle at the beginning.
+   * @param y0 The y coordinate of the circle at the beginning.
+   * @param r0 The radius of the starting circle.
+   * @param x1 X-coordinate of the end point.
+   * @param y1 Y-coordinate of the end point.
+   * @param r1 The radius of End Circle.
+   * @returns RadialGradient object.
+   * @crossplatform
+   * @since 10
+   */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
@@ -1276,6 +1425,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param repetition Specify how to repeat images.
    * @returns CanvasPattern An opaque object that describes a schema.
    * @since 7
+   */
+  /**
+   * Create a drawing style template.
+   * @param image The CanvasImageSource object that is the source of the duplicate image.
+   * @param repetition Specify how to repeat images.
+   * @returns CanvasPattern An opaque object that describes a schema.
+   * @crossplatform
+   * @since 10
    */
   createPattern(image: Image, repetition: string): CanvasPattern;
 
@@ -1288,6 +1445,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns LinearGradient object.
    * @since 7
    */
+  /**
+   * Creates a linear gradient color.
+   * @param x0 X-coordinate of the start point.
+   * @param y0 Y-coordinate of the start point.
+   * @param x1 X-coordinate of the end point.
+   * @param y1 Y-coordinate of the end point.
+   * @returns LinearGradient object.
+   * @crossplatform
+   * @since 10
+   */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
   /**
@@ -1297,6 +1464,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns ImageData New ImageData object with width and height specified.
    * @since 7
    */
+  /**
+   * Create an ImageData object.
+   * @param sw The width of the new object.
+   * @param sh The height of the new object.
+   * @returns ImageData New ImageData object with width and height specified.
+   * @crossplatform
+   * @since 10
+   */
   createImageData(sw: number, sh: number): ImageData;
 
   /**
@@ -1304,6 +1479,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param imagedata Copy an object of the same width and height from an existing ImageData object The image itself is not allowed to be copied.
    * @returns ImageData New ImageData object with width and height specified.
    * @since 7
+   */
+  /**
+   * Create an ImageData object.
+   * @param imagedata Copy an object of the same width and height from an existing ImageData object The image itself is not allowed to be copied.
+   * @returns ImageData New ImageData object with width and height specified.
+   * @crossplatform
+   * @since 10
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -1313,6 +1495,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns the object of Path2D.
    * @since 7
    */
+  /**
+   * Creates a path that is later used by the CanvasRenderingContext2D object.
+   * @param path another created Path2D object.
+   * @returns the object of Path2D.
+   * @crossplatform
+   * @since 10
+   */
   createPath2D(path?: Path2D): Path2D;
 
   /**
@@ -1320,6 +1509,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param cmds a string defined using the SVG path command.
    * @returns the object of Path2D.
    * @since 7
+   */
+  /**
+   * Creates a path that is later used by the CanvasRenderingContext2D object.
+   * @param cmds a string defined using the SVG path command.
+   * @returns the object of Path2D.
+   * @crossplatform
+   * @since 10
    */
   createPath2D(cmds?: string): Path2D;
 
@@ -1332,6 +1528,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns ImageData An ImageData object that contains the rectangular ImageData given by the canvas.
    * @since 7
    */
+  /**
+   * Get an ImageData object.
+   * @param sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param sw The width of the rectangular area of the image data to be extracted.
+   * @param sh The height of the rectangular area of the image data to be extracted.
+   * @returns ImageData An ImageData object that contains the rectangular ImageData given by the canvas.
+   * @crossplatform
+   * @since 10
+   */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
@@ -1343,6 +1549,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @returns PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @since 9
    */
+  /**
+   * Get an PixelMap object.
+   * @param sx The upper-left x-coordinate of the rectangular area of the image data to be extracted.
+   * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
+   * @param sw The width of the rectangular area of the image data to be extracted.
+   * @param sh The height of the rectangular area of the image data to be extracted.
+   * @returns PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
+   * @crossplatform
+   * @since 10
+   */
   getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
 
   /**
@@ -1351,6 +1567,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dx The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
    * @param dy The offset of the position of the source image data in the target canvas (the Y-axis offset).
    * @since 7
+   */
+  /**
+   * Draws the specified ImageData object to the canvas.
+   * @param imagedata An array object containing pixel values.
+   * @param dx The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
+   * @param dy The offset of the position of the source image data in the target canvas (the Y-axis offset).
+   * @crossplatform
+   * @since 10
    */
   putImageData(imagedata: ImageData, dx: number, dy: number): void;
 
@@ -1364,6 +1588,18 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dirtyWidth In the source image data, the width of a rectangular region. Default is the width of the image data.
    * @param dirtyHeight In the source image data, the height of a rectangular region. Default is the height of the image data.
    * @since 7
+   */
+  /**
+   * Draws the specified ImageData object to the canvas.
+   * @param imagedata An array object containing pixel values.
+   * @param dx The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
+   * @param dy The offset of the position of the source image data in the target canvas (the Y-axis offset).
+   * @param dirtyX In the source image data, the position of the upper left corner of the rectangular region Default is the upper left corner of the entire image data (x coordinate).
+   * @param dirtyY In the source image data, the position of the upper left corner of the rectangular region Default is the top left corner (y coordinate) of the entire image data.
+   * @param dirtyWidth In the source image data, the width of a rectangular region. Default is the width of the image data.
+   * @param dirtyHeight In the source image data, the height of a rectangular region. Default is the height of the image data.
+   * @crossplatform
+   * @since 10
    */
   putImageData(
     imagedata: ImageData,
@@ -1385,6 +1621,17 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param anticlockwise An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
    * @since 7
    */
+  /**
+   * Draw an arc.
+   * @param radius Radius of an arc.
+   * @param x The X-axis coordinates of the center of the circle.
+   * @param y The Y-axis coordinates of the center of an arc (center of a circle).
+   * @param startAngle The starting point of the arc, in the X-axis direction, is calculated in radians.
+   * @param endAngle The end point of an arc, expressed in radians.
+   * @param anticlockwise An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
+   * @crossplatform
+   * @since 10
+   */
   arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
 
   /**
@@ -1395,6 +1642,16 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x2 The X-axis coordinates of the second control point.
    * @param y2 The Y-axis coordinates of the second control point.
    * @since 7
+   */
+  /**
+   * Draws an arc from the beginning to the end.
+   * @param radius Radius of an arc.
+   * @param x1 The X-axis coordinates of the first control point.
+   * @param y1 The y-coordinate of the first control point.
+   * @param x2 The X-axis coordinates of the second control point.
+   * @param y2 The Y-axis coordinates of the second control point.
+   * @crossplatform
+   * @since 10
    */
   arcTo(x1: number, x2: number, y1: number, y2: number, radius: number): void;
 
@@ -1408,11 +1665,27 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The y-coordinate of the end point
    * @since 7
    */
+  /**
+   * Draw a third order Bezier curve.
+   * @param cp1x The X-axis coordinates of the first control point.
+   * @param cp1y The y-coordinate of the first control point.
+   * @param cp2x The X-axis coordinates of the second control point.
+   * @param cp2y The Y-axis coordinates of the second control point.
+   * @param x The x-coordinate of the end point.
+   * @param y The y-coordinate of the end point
+   * @crossplatform
+   * @since 10
+   */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
    * Closing the current path.
    * @since 7
+   */
+  /**
+   * Closing the current path.
+   * @crossplatform
+   * @since 10
    */
   closePath(): void;
 
@@ -1421,6 +1694,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x The X-axis coordinates at the end of the line.
    * @param y The Y-axis coordinates at the end of the line.
    * @since 7
+   */
+  /**
+   * Draw a straight line.
+   * @param x The X-axis coordinates at the end of the line.
+   * @param y The Y-axis coordinates at the end of the line.
+   * @crossplatform
+   * @since 10
    */
   lineTo(x: number, y: number): void;
 
@@ -1435,6 +1715,19 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param endAngle The Angle, expressed in radians, at which the ellipse will be drawn.
    * @param anticlockwise If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
    * @since 7
+   */
+  /**
+   * Draw an ellipse.
+   * @param x The X-axis coordinates of the center of the ellipse.
+   * @param y The Y-axis coordinates of the center of the ellipse.
+   * @param radiusX The radius of the major axis of an ellipse.
+   * @param radiusY The radius of the short axis of an ellipse.
+   * @param rotation The Angle of rotation of an ellipse, expressed in radians.
+   * @param startAngle The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
+   * @param endAngle The Angle, expressed in radians, at which the ellipse will be drawn.
+   * @param anticlockwise If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
+   * @crossplatform
+   * @since 10
    */
   ellipse(
     x: number,
@@ -1453,6 +1746,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The y axis.
    * @since 7
    */
+  /**
+   * Moves the current canvas to the specified coordinate point.
+   * @param x The x axis.
+   * @param y The y axis.
+   * @crossplatform
+   * @since 10
+   */
   moveTo(x: number, y: number): void;
 
   /**
@@ -1462,6 +1762,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param cpx The X-axis coordinates of the control points.
    * @param cpy The y-coordinate of the control point.
    * @since 7
+   */
+  /**
+   * Draw a second order Bezier curve.
+   * @param x The X-axis of the end point.
+   * @param y The Y-axis of the end point.
+   * @param cpx The X-axis coordinates of the control points.
+   * @param cpy The y-coordinate of the control point.
+   * @crossplatform
+   * @since 10
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -1473,6 +1782,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param h The height of a rectangle.
    * @since 7
    */
+  /**
+   * Draw a rectangle.
+   * @param x The X-axis coordinates at the beginning of the rectangle.
+   * @param y The Y-axis coordinates at the beginning of the rectangle.
+   * @param w The width of a rectangle.
+   * @param h The height of a rectangle.
+   * @crossplatform
+   * @since 10
+   */
   rect(x: number, y: number, w: number, h: number): void;
 
   /**
@@ -1482,6 +1800,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param w The width of a rectangle.
    * @param h The height of a rectangle.
    * @since 7
+   */
+  /**
+   * Clears the contents of the specified rectangular area.
+   * @param x The X-axis coordinates at the beginning of the rectangle.
+   * @param y The Y-axis coordinates at the beginning of the rectangle.
+   * @param w The width of a rectangle.
+   * @param h The height of a rectangle.
+   * @crossplatform
+   * @since 10
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -1493,6 +1820,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param h The height of a rectangle.
    * @since 7
    */
+  /**
+   * Fills a rectangular area.
+   * @param x The X-axis coordinates at the beginning of the rectangle.
+   * @param y The Y-axis coordinates at the beginning of the rectangle.
+   * @param w The width of a rectangle.
+   * @param h The height of a rectangle.
+   * @crossplatform
+   * @since 10
+   */
   fillRect(x: number, y: number, w: number, h: number): void;
 
   /**
@@ -1502,6 +1838,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param w The width of the rectangle. Positive values on the right, negative values on the left.
    * @param h The height of the rectangle. Positive values are down, negative values are up.
    * @since 7
+   */
+  /**
+   * Stroke a rectangular area.
+   * @param x The X-axis coordinates at the beginning of the rectangle.
+   * @param y The Y-axis coordinates at the beginning of the rectangle.
+   * @param w The width of the rectangle. Positive values on the right, negative values on the left.
+   * @param h The height of the rectangle. Positive values are down, negative values are up.
+   * @crossplatform
+   * @since 10
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
@@ -1513,6 +1858,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param maxWidth Maximum width to draw.
    * @since 7
    */
+  /**
+   * Stroke a rectangular area.
+   * @param text Render text using the current values of font, textAlign, textBaseline, and direction.
+   * @param y The Y-axis coordinates of the starting point of the text.
+   * @param x The X-axis coordinates of the starting point of the text.
+   * @param maxWidth Maximum width to draw.
+   * @crossplatform
+   * @since 10
+   */
   fillText(text: string, y: number, x: number /*, maxWidth?: number*/): void;
 
   /**
@@ -1520,6 +1874,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param text Text to be measured.
    * @returns Object that contains the text width. You can obtain the width by TextMetrics.width.
    * @since 7
+   */
+  /**
+   * Returns a TextMetrics object used to obtain the width of specified text.
+   * @param text Text to be measured.
+   * @returns Object that contains the text width. You can obtain the width by TextMetrics.width.
+   * @crossplatform
+   * @since 10
    */
   measureText(text: string): TextMetrics;
 
@@ -1531,11 +1892,25 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param maxWidth Maximum width to draw.
    * @since 7
    */
+  /**
+   * Draws the stroke of a text string.
+   * @param text Text stroke to draw.
+   * @param x X-coordinate of the lower left corner of the text stroke.
+   * @param y Y-coordinate of the lower left corner of the text stroke.
+   * @param maxWidth Maximum width to draw.
+   * @crossplatform
+   * @since 10
+   */
   strokeText(text: string, x: number, y: number /*, maxWidth?: number*/): void;
 
   /**
    * Resets the current matrix transformation effect.
    * @since 7
+   */
+  /**
+   * Resets the current matrix transformation effect.
+   * @crossplatform
+   * @since 10
    */
   resetTransform(): void;
 
@@ -1544,6 +1919,12 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param angle The radian of clockwise rotation.
    * @since 7
    */
+  /**
+   * Adds a rotation effect to the current canvas.
+   * @param angle The radian of clockwise rotation.
+   * @crossplatform
+   * @since 10
+   */
   rotate(angle: number): void;
 
   /**
@@ -1551,6 +1932,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x The horizontal scaling factor.
    * @param y The scaling factor in the vertical direction.
    * @since 7
+   */
+  /**
+   * Adds a zoom effect to the current canvas.
+   * @param x The horizontal scaling factor.
+   * @param y The scaling factor in the vertical direction.
+   * @crossplatform
+   * @since 10
    */
   scale(x: number, y: number): void;
 
@@ -1564,6 +1952,17 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param f Vertical movement.
    * @since 7
    */
+  /**
+   * Set the rotation, pan, and zoom effects.
+   * @param a The level of zoom.
+   * @param b Vertical tilt.
+   * @param c Horizontal tilt.
+   * @param d Vertical scaling.
+   * @param e The level of mobile.
+   * @param f Vertical movement.
+   * @crossplatform
+   * @since 10
+   */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
@@ -1576,6 +1975,17 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param f Vertical movement.
    * @since 7
    */
+  /**
+   * Set the rotation, pan, and zoom effects.
+   * @param a The level of zoom.
+   * @param b Vertical tilt.
+   * @param c Horizontal tilt.
+   * @param d Vertical scaling.
+   * @param e The level of mobile.
+   * @param f Vertical movement.
+   * @crossplatform
+   * @since 10
+   */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
@@ -1584,17 +1994,34 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y Vertical movement.
    * @since 7
    */
+  /**
+   * Adds a pan effect to the current canvas.
+   * @param x Horizontal movement distance.
+   * @param y Vertical movement.
+   * @crossplatform
+   * @since 10
+   */
   translate(x: number, y: number): void;
 
   /**
    * Restores the configuration information of the last saved canvas context.
    * @since 7
    */
+  /**
+   * Restores the configuration information of the last saved canvas context.
+   * @crossplatform
+   * @since 10
+   */
   restore(): void;
 
   /**
    * Saves configuration information for the current canvas context.
    * @since 7
+   */
+  /**
+   * Saves configuration information for the current canvas context.
+   * @crossplatform
+   * @since 10
    */
   save(): void;
 }

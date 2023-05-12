@@ -22,6 +22,12 @@
  * @form
  * @since 9
  */
+/**
+ * Provides ports for stacking containers.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 interface StackInterface {
   /**
    * Set the value.
@@ -32,6 +38,12 @@ interface StackInterface {
    * @form
    * @since 9
    */
+  /**
+   * Set the value.
+   * @form
+   * @crossplatform
+   * @since 10
+  */
   (value?: { alignContent?: Alignment }): StackAttribute;
 }
 
@@ -39,8 +51,14 @@ interface StackInterface {
  * @since 7
  */
 /**
+/**
  * @form
  * @since 9
+ */
+/**
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
@@ -51,6 +69,12 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * Called when the occupancy of items in the container is set.
    * @form
    * @since 9
+   */
+  /**
+   * Called when the occupancy of items in the container is set.
+   * @form
+   * @crossplatform
+   * @since 10
    */
   alignContent(value: Alignment): StackAttribute;
 }
@@ -64,6 +88,12 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
  * @form
  * @since 9
  */
+/**
+ * Defines Stack Component.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare const Stack: StackInterface;
 
 /**
@@ -74,5 +104,11 @@ declare const Stack: StackInterface;
  * Defines Stack Component instance.
  * @form
  * @since 9
+ */
+/**
+ * Defines Stack Component instance.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const StackInstance: StackAttribute;
