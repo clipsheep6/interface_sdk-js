@@ -48,7 +48,7 @@ declare namespace UDMF {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    HYPERLINK = 'Text.HyperLink',
+    HYPERLINK = 'Text.Hyperlink',
     /**
      * indicate the data type is html
      *
@@ -229,7 +229,7 @@ declare namespace UDMF {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class HyperLink extends Text {
+  class Hyperlink extends Text {
     /**
      * indicates the url of a link
      *
