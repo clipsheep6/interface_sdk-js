@@ -6221,6 +6221,51 @@
       ]
     },
     {
+      "name": "text-decoration-style",
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
+      "values": [
+        {
+          "name": "solid",
+          "description": "The style of text decoration line is solid."
+        },
+        {
+          "name": "double",
+          "description": "The style of text decoration line is double."
+        },
+        {
+          "name": "dotted",
+          "description": "The style of text decoration line is dotted."
+        },
+        {
+          "name": "dashed",
+          "description": "The style of text decoration line is dashed."
+        },
+        {
+          "name": "wavy",
+          "description": "The style of text decoration line is wavy."
+        }
+      ],
+      "version": [
+        {
+          "name": "v3.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Text decoration style."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
       "name": "text-align",
       "syscap": [
         "SystemCapability.ArkUI.ArkUI.Full",
