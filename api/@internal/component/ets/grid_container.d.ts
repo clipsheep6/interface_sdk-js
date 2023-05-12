@@ -108,7 +108,7 @@ interface GridContainerInterface {
  * @deprecated since 9
  * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
  */
-declare class GridContainerAttribute extends ColumnAttribute {}
+declare class GridContainerAttribute extends ColumnAttribute { }
 
 /**
  * Defines GridContainer Component.
