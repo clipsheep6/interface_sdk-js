@@ -51,6 +51,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Called when the font color is set.
    * @form
    * @since 9
+ 
+   * Called when the font color is set.
+   * @crossplatform
+   * @since 10
    */
   fontColor(value: ResourceColor): TextAttribute;
 
