@@ -18,30 +18,24 @@
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Defines the option in number unit of grid-container child component.
  * @form 
  * @crossplatform
  * @since 10
  */
-=======
->>>>>>> updated test
 declare interface GridColColumnOption {
     /**
      * Grid Col Column Option xs
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Grid Col Column Option xs
      * @form
      * @crossplatform
      * @since 10   
      */
-=======
->>>>>>> updated test
     xs?: number,
 
     /**
@@ -49,15 +43,12 @@ declare interface GridColColumnOption {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Grid Col Column Option sm
      * @form
      * @crossplatform
      * @since 10   
      */
-=======
->>>>>>> updated test
     sm?: number,
 
     /**
@@ -65,15 +56,12 @@ declare interface GridColColumnOption {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Grid Col Column Option md
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     md?: number,
 
     /**
@@ -81,15 +69,12 @@ declare interface GridColColumnOption {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Grid Col Column Option lg
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     lg?: number,
 
     /**
@@ -97,15 +82,12 @@ declare interface GridColColumnOption {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Grid Col Column Option xl
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     xl?: number,
 
     /**
@@ -113,15 +95,12 @@ declare interface GridColColumnOption {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Grid Col Column Option xxl
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     xxl?: number,
 }
 
@@ -130,30 +109,24 @@ declare interface GridColColumnOption {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Defines the options of grid-container child component.
  * @form
  * @crossplatform
  * @since 10 
  */
-=======
->>>>>>> updated test
 declare interface GridColOptions {
     /**
      * Sets the span of current gird-container item.
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Sets the span of current gird-container item.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     span?: number | GridColColumnOption;
 
     /**
@@ -161,15 +134,12 @@ declare interface GridColOptions {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Sets the offset of current gird-container item.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     offset?: number | GridColColumnOption;
 
     /**
@@ -177,15 +147,12 @@ declare interface GridColOptions {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Sets the order of current gird-container item.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     order?: number | GridColColumnOption;
 }
 
@@ -194,30 +161,24 @@ declare interface GridColOptions {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Defines the the new version of grid-container child component.
  * @form
  * @crossplatform
  * @since 10 
  */
-=======
->>>>>>> updated test
 interface GridColInterface {
     /**
      * Defines the constructor of GridContainer.
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Defines the constructor of GridContainer.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     (option?: GridColOptions): GridColAttribute;
 }
 
@@ -227,15 +188,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Sets the span of current gird-container item.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     span(value: number | GridColColumnOption): GridColAttribute;
 
     /**
@@ -243,15 +201,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Sets the offset of current gird-container item.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
     /**
@@ -259,15 +214,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
      * @form
      * @since 9
      */
-<<<<<<< HEAD
     /**
      * Sets the order of current gird-container item.
      * @form
      * @crossplatform
      * @since 10 
      */
-=======
->>>>>>> updated test
     order(value: number | GridColColumnOption): GridColAttribute;
 }
 
@@ -276,15 +228,12 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Defines GridCol Component.
  * @form
  * @crossplatform
  * @since 10 
  */
-=======
->>>>>>> updated test
 declare const GridCol: GridColInterface
 
 /**
@@ -292,13 +241,10 @@ declare const GridCol: GridColInterface
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Defines GridCol Component instance.
  * @form
  * @crossplatform
  * @since 10 
  */
-=======
->>>>>>> updated test
 declare const GridColInstance: GridColAttribute;

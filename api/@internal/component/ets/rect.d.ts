@@ -155,11 +155,6 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   radius(value: number | string | Array<any>): RectAttribute;
 }
 
-/**
- * Defines Rect Component.
- * @form
- * @since 9
- */
 declare const Rect: RectInterface;
 
 /**

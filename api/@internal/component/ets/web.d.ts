@@ -1026,22 +1026,11 @@ declare class WebResourceRequest {
 
   /**
    * Sets the response data.
-   * @param { string | number} data - the response data.
+   * @param data the response data.
    *
    * @since 9
    */
-  /**
-    * Sets the response data.
-    *
-    * Number represents file handle
-    * @param { string | number | Resource } data - the response data.
-    *                                              string type indicate strings in HTML format.
-    *                                              number type indicate file handle.
-    *                                              Resource type indicate $rawfile resource.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 10
-    */
-  setResponseData(data: string | number | Resource);
+  setResponseData(data: string | number);
 
   /**
    * Sets the response encoding.

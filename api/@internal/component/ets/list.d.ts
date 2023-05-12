@@ -86,30 +86,24 @@ declare enum ScrollState {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Declare list item alignment status
  * @form
  * @crossplatform
  * @since 10
  */
-=======
->>>>>>> updated test
 declare enum ListItemAlign {
   /**
    * Start position in the direction of cross axis.
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Start position in the direction of cross axis.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   Start,
 
   /**
@@ -117,15 +111,12 @@ declare enum ListItemAlign {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Center position in the direction of cross axis.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   Center,
 
   /**
@@ -133,15 +124,12 @@ declare enum ListItemAlign {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * End position in the direction of cross axis
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   End,
 }
 
@@ -150,30 +138,24 @@ declare enum ListItemAlign {
  * @form
  * @since 9
  */
-<<<<<<< HEAD
 /**
  * Declare item group sticky style.
  * @form
  * @crossplatform
  * @since 10
  */
-=======
->>>>>>> updated test
 declare enum StickyStyle {
   /**
    * The header and footer of each item group will not be pinned.
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * The header and footer of each item group will not be pinned.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   None = 0,
 
   /**
@@ -181,15 +163,12 @@ declare enum StickyStyle {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * The header of each item group will be pinned.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   Header = 1,
 
   /**
@@ -197,15 +176,12 @@ declare enum StickyStyle {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * The footer of each item group will be pinned.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   Footer = 2,
 }
 
@@ -344,15 +320,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Called when need to decide how much lanes the list will show.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   lanes(value: number | LengthConstrain): ListAttribute;
 
   /**
@@ -360,15 +333,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   alignListItem(value: ListItemAlign): ListAttribute;
 
   /**
@@ -518,15 +488,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Called when header or footer of item group will be pinned.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   sticky(value: StickyStyle): ListAttribute;
 
   /**
@@ -602,15 +569,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @form
    * @since 9
    */
-<<<<<<< HEAD
   /**
    * Called when the slider start.
    * @form
    * @crossplatform
    * @since 10
    */
-=======
->>>>>>> updated test
   onScrollStart(event: () => void): ListAttribute;
 
   /**
