@@ -795,6 +795,13 @@ declare namespace commonEventManager {
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = "usual.event.DEVICE_IDLE_MODE_CHANGED",
 
     /**
+     * Sent when the list of exempt applications in idle mode is updated.
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = "usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED",
+
+    /**
      * Sent when device's power save mode changed
      */
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = "usual.event.POWER_SAVE_MODE_CHANGED",
@@ -1233,6 +1240,14 @@ declare namespace commonEventManager {
      * @since 10
      */
     COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE",
+
+    /**
+     * Indicate the action of a common event that domain account status has been changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = "usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED",
 
     /**
      * This commonEvent means when the screen is unlocked.
