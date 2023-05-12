@@ -21,9 +21,9 @@ function checkEntry(prId) {
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
-  const execSync = require('child_process').execSync;
-  execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
   try {
+    const execSync = require('child_process').execSync;
+    execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install');
     const rules = require(path.resolve(__dirname, './code_style_rule.json'));
     const administrators = new Set();
     rules.administrators.forEach((administrator) => {
@@ -51,7 +51,7 @@ function checkEntry(prId) {
             if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
               comment.body && /^approve api check$/.test(comment.body)) {
               ApiCheckResult.format_check_result = true;
-              result = "['api_check: true']";
+              result = ['api_check: true'];
               break;
             }
           }
