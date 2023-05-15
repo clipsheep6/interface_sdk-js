@@ -22,6 +22,7 @@
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.NetManager.Core",
+    "SystemCapability.Communication.NetManager.Ethernet",
     "SystemCapability.Communication.NetManager.NetSharing",
     "SystemCapability.Communication.NetManager.MDNS",
     "SystemCapability.Communication.NetManager.Vpn",
@@ -188,6 +189,7 @@
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
-    "SystemCapability.XTS.DeviceAttest"
+    "SystemCapability.XTS.DeviceAttest",
+    "SystemCapability.Request.FileTransferAgent"
   ]
 }
