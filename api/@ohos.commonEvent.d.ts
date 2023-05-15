@@ -944,6 +944,13 @@ declare namespace commonEvent {
      * @since 8
      */
     COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN",
+
+    /**
+     * Indicates the action of a common event that the call audio quality information has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = "usual.event.AUDIO_QUALITY_CHANGE",
   }
 }
 
