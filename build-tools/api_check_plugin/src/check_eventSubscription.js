@@ -18,7 +18,7 @@ const { addAPICheckErrorLogs } = require('./compile_info');
 const { checkSmallHump } = require('./check_hump');
 const ts = requireTypescriptModule();
 
-// 判断两个set是否完全相同
+// check if two sets are equal
 function areSetsEqual(set1, set2) {
   if (set1.size !== set2.size) {
     return false;
@@ -31,7 +31,7 @@ function areSetsEqual(set1, set2) {
   return true;
 }  
 
-// 判断API的版本是否在设定的检查范围内
+// check the api version
 function checkVersionNeedCheck(node) {
   const apiInfo = getApiInfo(node);
   const apiCheckVersion = getcheckApiVersion();
@@ -42,10 +42,10 @@ function checkVersionNeedCheck(node) {
 }
 
 function checkTheFirstParameter(node, sourcefile, fileName) {
-  // 判断是否第一个参数是否为字符串类型或者字符串字面量
+  // check the type of first parameter
   if ((node.parameters[0].type.kind === ts.SyntaxKind.LiteralType && node.parameters[0].type.literal.kind === 
     ts.SyntaxKind.StringLiteral)) {
-    // 判断第一个参数是否为字符串类型
+    // if the first parameter is string
     const parameterName = node.parameters[0].type.literal.text;
     if (!checkSmallHump(parameterName)) {
     const checkErrorResult = 'The event name [${parameterName}] should be named by small hump.';
@@ -54,7 +54,7 @@ function checkTheFirstParameter(node, sourcefile, fileName) {
       return;
     }
   } else if (node.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
-    // 事件名为“string”也是合规的，而且一定符合小驼峰命名规则
+    // if the first parameter is 'string'
     return;
   } else {
     const checkErrorResult = 'The event name should be string.';
@@ -63,7 +63,7 @@ function checkTheFirstParameter(node, sourcefile, fileName) {
   }
 }
 
-// 检查off函数的callback参数是否为可选类型
+// check if the callback parameter of off function is optional
 function checkOffFunctions(nodes, sourcefile, fileName) {
   let hasOffWithoutCallbackParameter = false;
   let hasOffCallbackParameterNotOptional = false;
@@ -79,7 +79,7 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
       hasOffWithoutCallbackParameter = true;
     }
   }
-  // callback参数不为可选类型的off函数并且没有缺失callback参数的off函数，这种情况会编译错误
+  // has off fucntion with callback parameter which is not optional, and doesn't have off function without callback parameter
   if (hasOffCallbackParameterNotOptional && !hasOffWithoutCallbackParameter) {
     const checkErrorResult = 'The callback parameter of off function should be optional.';
     addAPICheckErrorLogs(nodes[0], sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API, 
@@ -87,12 +87,12 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
   } 
 }
 
-// 根据事件订阅API的类型进行处理
+// handle event subscription node
 function handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventNames, offEventNames, offEventNodes) {
-  // 判断是哪一种事件订阅函数
+  // judge the event subscription api type
   if (childNodeName === 'on') {
     checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
-    // 存储on订阅的事件列表
+    // if the function is 'on'
     if (childNode.parameters[0].type.kind === ts.SyntaxKind.LiteralType) {
       onEventNames.add(childNode.parameters[0].type.literal.text);
     } else if (childNode.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
@@ -101,7 +101,7 @@ function handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile,
   } else if (childNodeName === 'off') {
     checkTheFirstParameter(childNode, sourcefile, fileName, childNodeName);
     let eventName = '';
-    // 存储off取消订阅的事件列表
+    // the function is 'off'
     if (childNode.parameters[0].type.kind === ts.SyntaxKind.LiteralType) {
       eventName = childNode.parameters[0].type.literal.text;
       offEventNames.add(eventName);
@@ -109,7 +109,7 @@ function handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile,
       eventName = 'string';
       offEventNames.add("string");
     }
-    // 存储不同事件的off函数列表
+    // store the off function node based on their names
     if (!offEventNodes.get(eventName)) {
       offEventNodes.set(eventName, [childNode]);
     } else {
@@ -123,7 +123,7 @@ function handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile,
 }
 
 function checkEventSubscription(node, sourcefile, fileName) { 
-  //判断是否为接口或者命名空间, 或者是否为根节点
+  // if the node is namespace or interface
   if ((ts.isInterfaceDeclaration(node)) || ts.isModuleBlock(node) || ts.isModuleDeclaration(node) ||
    ts.isClassDeclaration(node) || node === sourcefile) {
     const onEventNames = new Set();
@@ -137,9 +137,9 @@ function checkEventSubscription(node, sourcefile, fileName) {
         return;
     }
     childNodes.forEach((childNode) => {
-      // 判断是否是函数或者方法
+      // if the node is method or function
       if (ts.isFunctionDeclaration(childNode) || ts.isMethodDeclaration(childNode) || ts.isMethodSignature(childNode)) {
-        // 判断版本是否需要检查
+        // if the version needed to be check
         if (!checkVersionNeedCheck(childNode)) {
           return;
         }
@@ -150,12 +150,12 @@ function checkEventSubscription(node, sourcefile, fileName) {
         handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventNames, offEventNames, offEventNodes);
       }
     });
-    // 判断off函数的callback参数是否为可选类型
+    // check the callback parameter of off function is optional
     for (let event of offEventNames) {
       checkOffFunctions(offEventNodes.get(event), sourcefile, fileName);
     }
 
-    // 判断同一件事件的on和off是否成对出现
+    // check if the on and off functions of one event shows in pair
     if (!areSetsEqual(onEventNames, offEventNames)) {
       const checkErrorResult = 'The on and off event subscription methods do not appear in pair.';
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.API_PAIR_ERRORS, checkErrorResult, LogType.LOG_API,
