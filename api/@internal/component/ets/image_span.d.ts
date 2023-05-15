@@ -16,22 +16,25 @@
 /**
  * Provide image decoration in the text component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 interface ImageSpanInterface {
-  /**
-   * Called when image is entered in span.
-   * @param { ResourceStr | PixelMap } - The image resource.
-   * @returns { ImageSpanAttribute } The attribute of the image span.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  (value: ResourceStr | PixelMap): ImageSpanAttribute;
+    /**
+     * Called when image is entered in span.
+     * @param { ResourceStr | PixelMap } - The image resource.
+     * @returns { ImageSpanAttribute } The attribute of the image span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    (value: ResourceStr | PixelMap): ImageSpanAttribute;
 }
 
 /**
  * Define the ImageSpan attribute functions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
@@ -41,6 +44,7 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
    * @default ImageSpanAlignment.BOTTOM
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
@@ -51,6 +55,7 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
    * @default ImageFit.Cover
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   objectFit(value: ImageFit): ImageSpanAttribute;
@@ -59,6 +64,7 @@ declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
 /**
  * Defines ImageSpan Component instance.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const ImageSpan: ImageSpanInterface;
@@ -66,6 +72,7 @@ declare const ImageSpan: ImageSpanInterface;
 /**
  * Defines ImageSpan Component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare const ImageSpanInstance: ImageSpanAttribute;
