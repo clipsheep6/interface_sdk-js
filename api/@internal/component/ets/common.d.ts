@@ -3621,7 +3621,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  accessibilityGroup(value: boolean): void;
+  accessibilityGroup(value: boolean): T;
 
   /**
    * Sets accessibilityText
@@ -3630,7 +3630,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  accessibilityText(value: string): void;
+  accessibilityText(value: string): T;
 
   /**
    * Sets accessibilityDescription
@@ -3639,7 +3639,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  accessibilityDescription(value: string): void;
+  accessibilityDescription(value: string): T;
 
   /**
    * Sets accessibilityImportance
@@ -3648,7 +3648,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  accessibilityImportance(value: string): void;
+  accessibilityImportance(value: string): T;
 }
 
 /**
