@@ -1295,7 +1295,30 @@ declare namespace commonEventManager {
      * This commonEvent means when the screen is locked.
      * @since 10
      */
-    COMMON_EVENT_SCREEN_LOCKED = "usual.event.SCREEN_LOCKED"
+    COMMON_EVENT_SCREEN_LOCKED = "usual.event.SCREEN_LOCKED",
+
+    /**
+     * Indicates the action of a common event that the network connectivity changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+    COMMON_EVENT_CONNECTIVITY_CHANGE = "usual.event.CONNECTIVITY_CHANGE",
+
+    /**
+     * Indicates the action of a common event that special number has been enter by dialer.
+     * This is a protected common event that can only be sent by system.
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DIALER_SPECIAL_CODE = "usual.event.DIALER_SPECIAL_CODE",
+
+    /**
+     * Indicates the action of a common event that audio quality change.
+     * This is a protected common event that can only be sent by system.
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = "usual.event.AUDIO_QUALITY_CHANGE",
   }
 }
 
