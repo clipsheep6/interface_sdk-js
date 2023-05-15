@@ -236,10 +236,3 @@ declare class Matrix2D {
    */
   constructor();
 }
-
-declare module 'CanvasMatrix2D' {
-  module 'CanvasMatrix2D' {
-    // @ts-ignore
-    export { Matrix2D };
-  }
-}
