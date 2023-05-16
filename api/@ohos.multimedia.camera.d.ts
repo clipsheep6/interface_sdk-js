@@ -200,6 +200,11 @@ declare namespace camera {
      */
     DEVICE_DISABLED = 7400108,
     /**
+     * Can not use camera cause of preempted.
+     * @since 10
+     */
+    DEVICE_PREEMPTED = 7400109,
+    /**
      * Camera service fatal error.
      * @since 9
      */
@@ -467,6 +472,36 @@ declare namespace camera {
   }
 
   /**
+   * Enum for remote camera device type.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   */
+  enum HostDeviceType {
+    /**
+     * Indicates an unknown device camera.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    UNKNOWN_TYPE = 0,
+    /**
+     * Indicates a smartphone camera.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    PHONE = 0x0E,
+    /**
+     * Indicates a tablet camera.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    TABLET = 0x11
+  }
+
+  /**
    * Camera device object.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -496,6 +531,20 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     readonly connectionType: ConnectionType;
+    /**
+     * Camera remote camera device name attribute.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    readonly hostDeviceName: string;
+    /**
+     * Camera remote camera device type attribute.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    readonly hostDeviceType: HostDeviceType;
   }
 
   /**
