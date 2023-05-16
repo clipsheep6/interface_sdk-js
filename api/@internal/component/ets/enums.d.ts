@@ -712,6 +712,7 @@ declare enum AnimationStatus {
    */
   /**
    * The animation is playing.
+   * @form
    * @crossplatform
    * @since 10
    */
