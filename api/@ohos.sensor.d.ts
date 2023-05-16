@@ -37,6 +37,22 @@ declare namespace sensor {
     HALL = 10,                  /**< Hall effect sensor */
     PROXIMITY = 12,             /**< Proximity sensor */
     HUMIDITY = 13,              /**< Humidity sensor */
+    /**
+     * The type of color sensor.
+     *
+     * @syscap SystemCapability.Sensors.Sensor
+     * @systemapi
+     * @since 10
+     */
+    COLOR = 14,             /**< Color sensor */
+    /**
+     * The type of sar sensor.
+     *
+     * @syscap SystemCapability.Sensors.Sensor
+     * @systemapi
+     * @since 10
+     */
+    SAR = 15,              /**< Sar sensor */
     ORIENTATION = 256,          /**< Orientation sensor */
     GRAVITY = 257,              /**< Gravity sensor */
     LINEAR_ACCELEROMETER = 258,  /**< Linear acceleration sensor */
@@ -51,6 +67,32 @@ declare namespace sensor {
     WEAR_DETECTION = 280,        /**< Wear detection sensor */
     ACCELEROMETER_UNCALIBRATED = 281   /**< Uncalibrated acceleration sensor */
   }
+
+  /**
+   * Subscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { Callback<ColorResponse> } callback - callback color data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function on(type: SensorId.COLOR, callback: Callback<ColorResponse>, options?: Options): void;
+
+  /**
+   * Subscribe to SAR sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { Callback<SarResponse> } callback - callback sar data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function on(type: SensorId.SAR, callback: Callback<SarResponse>, options?: Options): void;
 
   /**
    * Subscribe to accelerometer sensor data.
@@ -587,6 +629,29 @@ declare namespace sensor {
    * @since 9
    */
   function once(type: SensorId.WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
+
+  /**
+   * Unsubscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { Callback<ColorResponse> } callback - callback color data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function off(type: SensorId.COLOR, callback?: Callback<ColorResponse>): void;
+
+  /**
+   * Unsubscribe to sar sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { Callback<SarResponse> } callback - callback sar data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  function off(type: SensorId.SAR, callback?: Callback<SarResponse>): void;
+
   /**
    * Unsubscribe to accelerometer sensor data.
    * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
@@ -2231,6 +2296,27 @@ declare namespace sensor {
    */
   interface WearDetectionResponse extends Response {
     value: number; /**< Indicates the status of wear detection, 1 for wearing, 0 for wearing not */
+  }
+
+  /**
+   * Color sensor event data.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  interface ColorResponse extends Response {
+    lightIntensity: number; /**< Indicates the intensity of light, in lux */
+    colorTemperature: number; /**< Indicates the color temperature, in kelvin */
+  }
+
+  /**
+   * Sar sensor event data.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 10
+   */
+  interface SarResponse extends Response {
+    value: number; /**< Indicates the specific absorption rate */
   }
 }
 
