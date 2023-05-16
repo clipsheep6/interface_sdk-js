@@ -5448,6 +5448,19 @@ declare class CommonMethod<T> {
    */
   bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
 
+
+  /**
+   * Bind sheet
+   * @param { boolean } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { style } style - sheet style type.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
+
   /**
    * Sets styles for component state.
    * @since 8
