@@ -3645,14 +3645,14 @@ declare class CommonMethod<T> {
   accessibilityDescription(value: string): T;
 
   /**
-   * Sets accessibilityImportance
+   * Sets accessibilityLevel
    * @param { string } value , set accessibility level
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @returns { T }
    * @crossplatform
    * @since 10
    */
-  accessibilityImportance(value: string): T;
+  accessibilityLevel(value: string): T;
 }
 
 /**
