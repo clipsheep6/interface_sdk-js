@@ -256,6 +256,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function copy(): Matrix4Transit;
 
@@ -265,6 +266,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function invert(): Matrix4Transit;
 
@@ -274,6 +276,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function combine(options: Matrix4Transit): Matrix4Transit;
 
@@ -283,6 +286,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function translate(options: TranslateOption): Matrix4Transit;
 
@@ -292,6 +296,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function scale(options: ScaleOption): Matrix4Transit;
 
@@ -301,6 +306,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function rotate(options: RotateOption): Matrix4Transit;
 
@@ -310,6 +316,7 @@ declare namespace matrix4 {
    * @crossplatform
    * @since 7
    * @returns Return to Matrix4Transit
+   * @deprecated since 10
    */
   function transformPoint(options: [number, number]): [number, number];
 }
