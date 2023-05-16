@@ -463,8 +463,14 @@ class SystemApiRecognizer {
         return;
       }
       const extendNodeSymbol = extendNodeType.getSymbol();
+      if (!extendNodeSymbol) {
+        return;
+      }
       const valueDeclaration = extendNodeSymbol.declarations[0];
       if (valueDeclaration && !this.isSdkApi(valueDeclaration.getSourceFile().fileName)) {
+        if (!extendNodeSymbol.valueDeclaration.heritageClauses) {
+          return;
+        }
         const parentNodes = extendNodeSymbol.valueDeclaration.heritageClauses[0].types;
         this.getExtendClassPropertyMap(parentNodes, extendClassPropertyMap);
       } else {
@@ -706,6 +712,20 @@ class SystemApiRecognizer {
       function reachParent(parent) {
         thiz.forEachJsDocTags(parent, reachJsDocTag);
         return apiInfo.deprecated;
+      }
+      this.forEachNodeParent(node, reachParent);
+    }
+
+    if (!apiInfo.useInstead) {
+      const thiz = this;
+      function reachJsDocTag(tag) {
+        thiz.fillUseInsteadInfo(tag, apiInfo);
+        return apiInfo.useInstead;
+      }
+
+      function reachParent(parent) {
+        thiz.forEachJsDocTags(parent, reachJsDocTag);
+        return apiInfo.useInstead;
       }
       this.forEachNodeParent(node, reachParent);
     }
