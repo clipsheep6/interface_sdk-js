@@ -382,7 +382,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param url External subtitle URI, Network:http://xxx.
      */
-    addSubtitleUrl(url: string): void;
+     addSubtitleUrl(url: string): void;
 
     /**
      * Add external subtitles.
@@ -390,7 +390,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param fdSrc Subtitle file descriptorTrack.
      */
-    addSubtitleFdSrc(fdSrc: AVFileDescriptor): void;
+     addSubtitleFdSrc(fdSrc: AVFileDescriptor): void;
 
     /**
      * Select audio or subtitle track.
@@ -401,7 +401,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Track index, reference {@link #getTrackDescription}.
      */
-    selectTrack(index: number): void;
+     selectTrack(index: number): void;
 
     /**
      * Deselect the current audio or subtitle track.
@@ -411,7 +411,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param index Subtitle index that needs to be cancelled.
      */
-    deselectTrack(index: number): void;
+     deselectTrack(index: number): void;
 
     /**
      * Obtain the current audio or subtitle track.
@@ -421,7 +421,7 @@ declare namespace media {
      * @param callback Async callback return the current track.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      */
-    getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
+     getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
 
     /**
      * Obtain the current audio or subtitle track.
@@ -431,7 +431,7 @@ declare namespace media {
      * @returns A Promise instance used to return the current track.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      */
-    getCurrentTrack(trackType: MediaType): Promise<number>;
+     getCurrentTrack(trackType: MediaType): Promise<number>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -676,14 +676,14 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the playback event return audio or subtitle track.
      */
-    on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
+     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
     /**
      * Unregister listens for audio or subtitle track change event.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      */
-    off(type: 'trackChange'): void;
+     off(type: 'trackChange'): void;
     /**
      * Register to listen for trackinfo update events.
      * This event will be triggered after a successful call to {@link #addSubUrl} or {@link #addSubFdSrc}.
@@ -692,7 +692,7 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to listen for the track info update event.
      */
-    on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
+     on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
     /**
      * Unregister to listen for trackinfo update events.
      * @since 10
@@ -707,14 +707,14 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      * @param callback Callback used to receive subtitle data.
      */
-    on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
+     on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
     /**
      * Unregister to receive subtitle data.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
      */
-    off(type: 'subtitleTextUpdate'): void;
+     off(type: 'subtitleTextUpdate'): void;
     /**
      * Register or unregister listens for playback error events.
      * @since 9
