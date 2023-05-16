@@ -17,10 +17,20 @@
  * Defines Close contextMenu.
  * @since 8
  */
+/**
+ * Defines Close contextMenu.
+ * @crossplatform
+ * @since 10
+ */
 declare class ContextMenu {
   /**
    * Invoking method close.
    * @since 8
+   */
+  /**
+   * Invoking method close.
+   * @crossplatform
+   * @since 10
    */
   static close();
 }
