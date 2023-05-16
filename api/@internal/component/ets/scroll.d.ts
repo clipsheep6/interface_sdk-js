@@ -100,6 +100,20 @@ declare class Scroller {
    * @since 9
    */
   scrollBy(dx: Length, dy: Length);
+
+  /**
+   * Called when the setting scrollbar to the specified position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full.
+   * @param { string } id - id of the scrollbar.
+   * @param { number } height - options scrollbar height.
+   * @param { number } offset - options scrollbar offset.
+   * @since 10
+   */
+  scrollBarPositionByKey(value: {
+    id: string;
+    height: number;
+    offset: number;
+  });
 }
 
 /**
