@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -685,69 +685,65 @@ declare namespace formHost {
      * Listens to the event of visible type change.
      * <p>You can use this method to listen to the event of visible type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
-     * @param { string } type - Indicates event type.
-     * @param { Array<formInfo.RunningFormInfo> } callback - The callback is used to return the running form info.
-     * @returns { Promise<number> } Returns the key to off Listens.
+     * @param { 'visibility' } type - Indicates event type.
+     * @param { Array<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+     * @returns { number } Returns the key to off Listens.
      * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16500050 - An IPC connection error happened.
-     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 9
+     * @since 10
      */
-    function on(type : "visibility", callback : Array<formInfo.RunningFormInfo>): Promise<number>;
+    function on(type : 'visibility', observerCallback : Array<formInfo.RunningFormInfo>): number;
 
     /**
-     * Listens to the event of visible type change.
-     * <p>You can use this method to listen to the event of visible type change.</p>
+     * Listens to the event of invisible type change.
+     * <p>You can use this method to listen to the event of invisible type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
-     * @param { string } type - Indicates event type.
-     * @param { Array<formInfo.RunningFormInfo> } callback - The callback is used to return the running form info.
-     * @returns { Promise<number> } Returns the key to off Listens.
+     * @param { 'invisibility' } type - Indicates event type.
+     * @param { Array<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+     * @returns { number } Returns the key to off Listens.
      * @throws { BusinessError } 201 - Permissions denied.
+     * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16500050 - An IPC connection error happened.
-     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since 9
+     * @since 10
      */
-    function on(type : "invisibility", callback : Array<formInfo.RunningFormInfo>): Promise<number>;
+    function on(type : 'invisibility', observerCallback : Array<formInfo.RunningFormInfo>): number;
 
     /**
      * Cancels listening to the event of visible type change.
      * <p>You can use this method to cancel listening to the event of visible type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
-     * @param { string } type - Indicates event type.
+     * @param { 'visibility' } type - Indicates event type.
+     * @param { number } observerId - Indicates the number code of the observer.
      * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
-     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16500050 - An IPC connection error happened.
-     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10
      */
-    function off(type: "visibility", observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+    function off(type: 'visibility', observerId: number, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
     /**
-     * Cancels listening to the event of visible type change.
+     * Cancels listening to the event of invisible type change.
      * <p>You can use this method to cancel listening to the event of visible type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
-     * @param { string } type - Indicates event type.
+     * @param { 'invisibility' } type - Indicates event type.
+     * @param { number } observerId - Indicates the number code of the observer.
      * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
-     * @param { string } bundleName - Indicates the bundle name of the form host application.
+     * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @throws { BusinessError } 16500050 - An IPC connection error happened.
-     * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 10
      */
-    function off(type: "invisibility", observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+    function off(type: 'invisibility', observerId: number, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
 
     /**
      * Notify form is Visible
