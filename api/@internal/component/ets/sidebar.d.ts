@@ -202,7 +202,9 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * /
   /**
    * Sets the min length of sidebar.
-   * default value is 240vp.
+   * @param { value: Length } value - min length of sidebar.
+   * @default value is 240vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   minSideBarWidth(value: Length): SideBarContainerAttribute;
@@ -234,6 +236,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   
   /**
    * Sets the min length of content.
+   * @param { value: Length } value - min length of content.
    * @default value is 360vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
