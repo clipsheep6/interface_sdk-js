@@ -3052,6 +3052,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    * @param { RenderingContextSettings } option - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   getContext(contextType: "2d", option?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
