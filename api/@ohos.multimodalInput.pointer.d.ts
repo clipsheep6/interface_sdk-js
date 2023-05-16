@@ -14,6 +14,7 @@
  */
 
 import type { AsyncCallback } from './basic';
+import image from './@ohos.multimedia.image';
 
 /**
  * Declares interfaces related to mouse pointer attributes.
@@ -598,6 +599,75 @@ declare namespace pointer {
    * @since 10
    */
   function getHoverScrollState(): Promise<boolean>;
+
+  /**
+   * Sets the pointer icon.
+   *
+   * @param { image.PixelMap } icon - Image source to image.PixelMap
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerIcon(icon: image.PixelMap, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets the pointer icon.
+   *
+   * @param { image.PixelMap } icon - Image source to image.PixelMap
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerIcon(icon: image.PixelMap): Promise<void>;
+
+  /**
+   * Sets the pointer size.
+   *
+   * @param { number } size - Pointer size.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets the pointer size.
+   *
+   * @param { number } size - Pointer size.
+   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number): Promise<boolean>;
+
+  /**
+   * Gets the pointer size.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+   function getPointerSize(callback: AsyncCallback<number>): void;
+
+   /**
+    * Gets the pointer size.
+    *
+    * @returns { Promise<number> } Returns the result through a promise.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @systemapi hide for inner use.
+    * @since 10
+    */
+   function getPointerSize(): Promise<number>;
 }
 
 export default pointer;
