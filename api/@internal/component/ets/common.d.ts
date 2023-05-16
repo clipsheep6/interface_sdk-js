@@ -2305,6 +2305,16 @@ declare interface ShadowOptions {
   radius: number | Resource;
 
   /**
+   * Define the type of shadow
+   * @type { ShadowType }
+   * @default ShadowType.COLOR
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type?: ShadowType;
+
+  /**
    * Define the color of shadow
    * @since 7
    */
@@ -2320,16 +2330,6 @@ declare interface ShadowOptions {
    * @since 10
    */
   color?: Color | string | Resource;
-
-  /**
-   * Define the type of shadow
-   * @type { ShadowType }
-   * @default ShadowType.COLOR
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  type?: ShadowType;
 
   /**
    * Define the horizontal offset size of shadow
@@ -5435,19 +5435,6 @@ declare class CommonMethod<T> {
    * @since 10
    */
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
-
-  /**
-   * Bind sheet
-   * @param { boolean } isShow - true means display sheet, false means hide sheet.
-   * @param { CustomBuilder } builder - the sheet to be displayed.
-   * @param { style } style - sheet style type.
-   * @returns { T } - template type
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
-
 
   /**
    * Bind sheet
