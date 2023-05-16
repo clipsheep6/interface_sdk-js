@@ -690,11 +690,6 @@ declare enum MouseAction {
 /**
  * Animation status.
  * @form
- * @since 9
- */
-/**
- * Animation status.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -702,11 +697,6 @@ declare enum AnimationStatus {
   /**
    * Initial state of the animation.
    * @since 7
-   */
-  /**
-   * Initial state of the animation.
-   * @form
-   * @since 9
    */
   /**
    * Initial state of the animation.
@@ -722,12 +712,6 @@ declare enum AnimationStatus {
    */
   /**
    * The animation is playing.
-   * @form
-   * @since 9
-   */
-  /**
-   * The animation is playing.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -740,11 +724,6 @@ declare enum AnimationStatus {
   /**
    * The animation is paused.
    * @form
-   * @since 9
-   */
-  /**
-   * The animation is paused.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -753,11 +732,6 @@ declare enum AnimationStatus {
   /**
    * The animation is stopped.
    * @since 7
-   */
-  /**
-   * The animation is stopped.
-   * @form
-   * @since 9
    */
   /**
    * The animation is stopped.
@@ -1013,11 +987,6 @@ declare enum Curve {
 /**
  * Sets the state before and after the animation starts.
  * @form
- * @since 9
- */
-/**
- * Sets the state before and after the animation starts.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -1046,11 +1015,6 @@ declare enum FillMode {
   /**
    * Retains the state at the end of the animation when the playback is complete.
    * @form
-   * @since 9
-   */
-  /**
-   * Retains the state at the end of the animation when the playback is complete.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1063,11 +1027,6 @@ declare enum FillMode {
   /**
    * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
    * @form
-   * @since 9
-   */
-  /**
-   * Applies the start attribute value for the period specified by animation-delay before the animation is displayed.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1076,11 +1035,6 @@ declare enum FillMode {
   /**
    * Both forward and backward fill modes are applied.
    * @since 7
-   */
-  /**
-   * Both forward and backward fill modes are applied.
-   * @form
-   * @since 9
    */
   /**
    * Both forward and backward fill modes are applied.
@@ -1182,12 +1136,6 @@ declare enum PlayMode {
  */
 /**
  * Type of a key.
- * @form
- * @since 9
- */
-/**
- * Type of a key.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -1198,12 +1146,6 @@ declare enum KeyType {
    */
   /**
    * Press the key.
-   * @form
-   * @since 9
-   */
-  /**
-   * Press the key.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1215,12 +1157,6 @@ declare enum KeyType {
    */
   /**
    * The key is released.
-   * @form
-   * @since 9
-   */
-  /**
-   * The key is released.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1230,11 +1166,6 @@ declare enum KeyType {
 /**
  * Type of the input device that triggers the current key.
  * @since 7
- */
-/**
- * Type of the input device that triggers the current key.
- * @form
- * @since 9
  */
 /**
  * Type of the input device that triggers the current key.
@@ -1249,12 +1180,6 @@ declare enum KeySource {
    */
   /**
    * The input device type is unknown.
-   * @form
-   * @since 9
-   */
-  /**
-   * The input device type is unknown.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1266,12 +1191,6 @@ declare enum KeySource {
    */
   /**
    * Set Device Type to Keyboard.
-   * @form
-   * @since 9
-   */
-  /**
-   * Set Device Type to Keyboard.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1284,12 +1203,6 @@ declare enum KeySource {
  */
 /**
  * Edge.
- * @form
- * @since 9
- */
-/**
- * Edge.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -1300,12 +1213,6 @@ declare enum Edge {
    */
   /**
    * The top is centered horizontally.
-   * @form
-   * @since 9
-   */
-  /**
-   * The top is centered horizontally.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1316,7 +1223,6 @@ declare enum Edge {
    * @since 7
    * @deprecated since 9
    */
-
   Center,
 
   /**
@@ -1325,12 +1231,6 @@ declare enum Edge {
    */
   /**
    * The bottom is centered horizontally.
-   * @form
-   * @since 9
-   */
-  /**
-   * The bottom is centered horizontally.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1341,7 +1241,6 @@ declare enum Edge {
    * @since 7
    * @deprecated since 9
    */
- 
   Baseline,
 
   /**
@@ -1350,12 +1249,6 @@ declare enum Edge {
    */
   /**
    * Align the head of the cross axis direction.
-   * @form
-   * @since 9
-   */
-  /**
-   * Align the head of the cross axis direction.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1374,12 +1267,6 @@ declare enum Edge {
    */
   /**
    * Align the head of the cross axis direction.
-   * @form
-   * @since 9
-   */
-  /**
-   * Align the head of the cross axis direction.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1392,12 +1279,6 @@ declare enum Edge {
  */
 /**
  * Set Weekend
- * @form
- * @since 9
- */
-/**
- * Set Weekend
- * @form
  * @crossplatform
  * @since 10
  */
@@ -1408,12 +1289,6 @@ declare enum Week {
    */
   /**
    * Monday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Monday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1425,12 +1300,6 @@ declare enum Week {
    */
   /**
    * Tuesday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Tuesday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1442,12 +1311,6 @@ declare enum Week {
    */
   /**
    * Wednesday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Wednesday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1459,12 +1322,6 @@ declare enum Week {
    */
   /**
    * Thursday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Thursday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1476,12 +1333,6 @@ declare enum Week {
    */
   /**
    * Friday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Friday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1493,12 +1344,6 @@ declare enum Week {
    */
   /**
    * Saturday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Saturday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1510,12 +1355,6 @@ declare enum Week {
    */
   /**
    * Sunday.
-   * @form
-   * @since 9
-   */
-  /**
-   * Sunday.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -1970,12 +1809,6 @@ declare enum TransitionType {
  */
 /**
  * RelateType enumeration description
- * @form
- * @since 9
- */
-/**
- * RelateType enumeration description
- * @form
  * @crossplatform
  * @since 10
  */
@@ -1986,12 +1819,6 @@ declare enum RelateType {
    */
   /**
    * Scales the current component to fill the parent component.
-   * @form
-   * @since 9
-   */
-  /**
-   * Scales the current component to fill the parent component.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -2003,12 +1830,6 @@ declare enum RelateType {
    */
   /**
    * Scales the current component to fit the parent component.
-   * @form
-   * @since 9
-   */
-  /**
-   * Scales the current component to fit the parent component.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3085,12 +2906,6 @@ declare enum GradientDirection {
  */
 /**
  * SharedTransitionEffectType enumeration description
- * @form
- * @since 9
- */
-/**
- * SharedTransitionEffectType enumeration description
- * @form
  * @crossplatform
  * @since 10
  */
@@ -3103,13 +2918,6 @@ declare enum SharedTransitionEffectType {
   /**
    * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
    * only the static effect configured for redirecting to the target page takes effect.
-   * @form
-   * @since 9
-   */
-  /**
-   * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
-   * only the static effect configured for redirecting to the target page takes effect.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3121,12 +2929,6 @@ declare enum SharedTransitionEffectType {
    */
   /**
    * Move the source page element to the destination page element location and scale it appropriately.
-   * @form
-   * @since 9
-   */
-  /**
-   * Move the source page element to the destination page element location and scale it appropriately.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3289,12 +3091,12 @@ declare enum FontWeight {
    * Defines a value that is heavier than [Inherited Value].
    * @since 7
    */
-   /**
+  /**
    * Defines a value that is heavier than [Inherited Value].
    * @form
    * @since 9
    */
-   /**
+  /**
    * Defines a value that is heavier than [Inherited Value].
    * @form
    * @crossplatform
@@ -3458,10 +3260,19 @@ declare enum TextOverflow {
   /**
    * When the text overflows its dimensions, the text will scroll for displaying.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead TextOverflow#MARQUEE
+   */
+  Marquee,
+
+  /**
+   * When the text overflows its dimensions, the text will scroll for displaying.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  Marquee,
+  MARQUEE,
 }
 
 /**
@@ -3660,12 +3471,6 @@ declare enum TextHeightAdaptivePolicy {
  */
 /**
  * ResponseType for contextMenu
- * @form
- * @since 9
- */
-/**
- * ResponseType for contextMenu
- * @form
  * @crossplatform
  * @since 10
  */
@@ -3676,12 +3481,6 @@ declare enum ResponseType {
    */
   /**
    * Right click.
-   * @form
-   * @since 9
-   */
-  /**
-   * Right click.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3693,12 +3492,6 @@ declare enum ResponseType {
    */
   /**
    * Long press.
-   * @form
-   * @since 9
-   */
-  /**
-   * Long press.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3711,12 +3504,6 @@ declare enum ResponseType {
  */
 /**
  * HoverEffect enumeration description
- * @form
- * @since 9
- */
-/**
- * HoverEffect enumeration description
- * @form
  * @crossplatform
  * @since 10
  */
@@ -3727,12 +3514,6 @@ declare enum HoverEffect {
    */
   /**
    * Default effect
-   * @form
-   * @since 9
-   */
-  /**
-   * Default effect
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3744,12 +3525,6 @@ declare enum HoverEffect {
    */
   /**
    * Zoom in and out effect
-   * @form
-   * @since 9
-   */
-  /**
-   * Zoom in and out effect
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3761,12 +3536,6 @@ declare enum HoverEffect {
    */
   /**
    * Highlight effect
-   * @form
-   * @since 9
-   */
-  /**
-   * Highlight effect
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3778,12 +3547,6 @@ declare enum HoverEffect {
    */
   /**
    * None effect
-   * @form
-   * @since 9
-   */
-  /**
-   * None effect
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3796,12 +3559,6 @@ declare enum HoverEffect {
  */
 /**
  * Placement enumeration description
- * @form
- * @since 9
- */
-/**
- * Placement enumeration description
- * @form
  * @crossplatform
  * @since 10
  */
@@ -3812,12 +3569,6 @@ declare enum Placement {
    */
   /**
    * Left placement
-   * @form
-   * @since 9
-   */
-  /**
-   * Left placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3829,12 +3580,6 @@ declare enum Placement {
    */
   /**
    * Right placement
-   * @form
-   * @since 9
-   */
-  /**
-   * Right placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3846,12 +3591,6 @@ declare enum Placement {
    */
   /**
    * Top placement
-   * @form
-   * @since 9
-   */
-  /**
-   * Top placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3863,12 +3602,6 @@ declare enum Placement {
    */
   /**
    * Bottom placement
-   * @form
-   * @since 9
-   */
-  /**
-   * Bottom placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3880,12 +3613,6 @@ declare enum Placement {
    */
   /**
    * TopLeft placement
-   * @form
-   * @since 9
-   */
-  /**
-   * TopLeft placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3897,12 +3624,6 @@ declare enum Placement {
    */
   /**
    * TopRight placement
-   * @form
-   * @since 9
-   */
-  /**
-   * TopRight placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3914,12 +3635,6 @@ declare enum Placement {
    */
   /**
    * BottomLeft placement
-   * @form
-   * @since 9
-   */
-  /**
-   * BottomLeft placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3931,12 +3646,6 @@ declare enum Placement {
    */
   /**
    * BottomRight placement
-   * @form
-   * @since 9
-   */
-  /**
-   * BottomRight placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3944,12 +3653,10 @@ declare enum Placement {
 
   /**
    * LeftTop placement
-   * @form
    * @since 9
    */
   /**
    * LeftTop placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3957,12 +3664,10 @@ declare enum Placement {
 
   /**
    * LeftBottom placement
-   * @form
    * @since 9
    */
   /**
    * LeftBottom placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3970,12 +3675,10 @@ declare enum Placement {
 
   /**
    * RightTop placement
-   * @form
    * @since 9
    */
   /**
    * RightTop placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3983,12 +3686,10 @@ declare enum Placement {
 
   /**
    * RightBottom placement
-   * @form
    * @since 9
    */
   /**
    * RightBottom placement
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -3997,11 +3698,13 @@ declare enum Placement {
 
 /**
  * Indicates the share option.
+ * 
  * @form
  * @since 9
  */
 /**
  * Indicates the share option.
+ * 
  * @form
  * @crossplatform
  * @since 10
@@ -4049,12 +3752,10 @@ declare enum CopyOptions {
 
 /**
  * Defines the hit test mode.
- * @form
  * @since 9
  */
 /**
  * Defines the hit test mode.
- * @form
  * @crossplatform
  * @since 10
  */
@@ -4062,13 +3763,11 @@ declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -4077,6 +3776,7 @@ declare enum HitTestMode {
   /**
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
+   * @since 9
    * @form
    * @crossplatform
    * @since 10
@@ -4086,13 +3786,11 @@ declare enum HitTestMode {
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
-   * @form
    * @since 9
    */
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -4101,13 +3799,11 @@ declare enum HitTestMode {
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
-   * @form
    * @since 9
    */
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -4116,24 +3812,20 @@ declare enum HitTestMode {
 
 /**
  * Title height.
- * @form
  * @since 9
  */
 /**
  * Title height.
- * @form
  * @crossplatform
  * @since 10
  */
 declare enum TitleHeight {
   /**
    * Title height when only main title is available.
-   * @form
    * @since 9
    */
   /**
    * Title height when only main title is available.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -4141,12 +3833,10 @@ declare enum TitleHeight {
 
   /**
    * Title height when main title and subtitle are both available.
-   * @form
    * @since 9
    */
   /**
    * Title height when main title and subtitle are both available.
-   * @form
    * @crossplatform
    * @since 10
    */
@@ -4154,31 +3844,134 @@ declare enum TitleHeight {
 }
 
 /**
- * Command key for hot key.
+ * Modifier key for hot key.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare enum CtrlKey {
+declare enum ModifierKey {
   /**
    * ctrl.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  CTRL = 0,
+  CTRL,
 
   /**
    * shift.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  SHIFT = 1,
+  SHIFT,
   /**
    * alt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  ALT = 2,
+  ALT,
+}
+
+/**
+ * Function key for hot key.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full 
+ * @crossplatform
+ * @since 10
+ */
+declare enum FunctionKey {
+  /**
+   * Escape key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  ESC,
+  /**
+   * F1 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F1,
+  /**
+   * F2 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F2,
+  /**
+   * F3 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F3,
+  /**
+   * F4 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F4,
+  /**
+   * F5 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F5,
+  /**
+   * F6 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F6,
+  /**
+   * F7 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F7,
+  /**
+   * F8 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F8,
+  /**
+   * F9 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F9,
+  /**
+   * F10 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F10,
+  /**
+   * F11 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F11,
+  /**
+   * F12 key.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  F12,
 }
 
 /**
