@@ -82,39 +82,39 @@ declare class SwiperController {
 declare class Indicator<T> {
   /**
    * Set the indicator to the left.
-   * @param { Length } value - the indicator to the left.
+   * @param { Length | ILength } value - the indicator to the left.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  left(value: Length): T;
+  left(value: Length | ILength): T;
 
   /**
    * Set the indicator to the top.
-   * @param { Length } value - the indicator to the top.
+   * @param { Length | ILength } value - the indicator to the top.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  top(value: Length): T;
+  top(value: Length | ILength): T;
 
   /**
    * Set the indicator to the right.
-   * @param { Length } value - the indicator to the right.
+   * @param { Length | ILength } value - the indicator to the right.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  right(value: Length): T;
+  right(value: Length | ILength): T;
 
   /**
    * Set the indicator to the bottom.
-   * @param { Length } value - the indicator to the bottom.
+   * @param { Length | ILength } value - the indicator to the bottom.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  bottom(value: Length): T;
+  bottom(value: Length | ILength): T;
 
   /**
    * DotIndicator class object.
@@ -153,42 +153,42 @@ declare class DotIndicator extends Indicator<DotIndicator> {
   /**
    * Set the indicator item width.
    * @default 6vp
-   * @param { Length } value - the indicator item width.
+   * @param { Length | ILength } value - the indicator item width.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  itemWidth(value: Length): DotIndicator;
+  itemWidth(value: Length | ILength): DotIndicator;
 
   /**
    * Set the indicator item height.
    * @default 6vp
-   * @param { Length } value - the indicator item height.
+   * @param { Length | ILength } value - the indicator item height.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  itemHeight(value: Length): DotIndicator;
+  itemHeight(value: Length | ILength): DotIndicator;
 
   /**
    * Set the indicator item width when selected.
    * @default 12vp
-   * @param { Length } value - the indicator item width when selected.
+   * @param { Length | ILength } value - the indicator item width when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  selectedItemWidth(value: Length): DotIndicator;
+  selectedItemWidth(value: Length | ILength): DotIndicator;
 
   /**
    * Set the indicator item height when selected.
    * @default 6vp
-   * @param { Length } value - the indicator item height when selected.
+   * @param { Length | ILength } value - the indicator item height when selected.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  selectedItemHeight(value: Length): DotIndicator;
+  selectedItemHeight(value: Length | ILength): DotIndicator;
 
   /**
    * Setting indicator style mask.
@@ -369,31 +369,61 @@ declare interface IndicatorStyle {
    * Set the indicator to the left.
    * @since 8
    */
-  left?: Length;
+  /**
+   * Set the indicator to the left.
+   * @type { Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  left?: Length | ILength;
 
   /**
    * Set the indicator to the top.
    * @since 8
    */
-  top?: Length;
+  /**
+   * Set the indicator to the top.
+   * @type { Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  top?: Length | ILength;
 
   /**
    * Set the indicator to the right.
    * @since 8
    */
-  right?: Length;
+  /**
+   * Set the indicator to the right.
+   * @type { Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  right?: Length | ILength;
 
   /**
    * Set the indicator to the bottom.
    * @since 8
    */
-  bottom?: Length;
+  /**
+   * Set the indicator to the bottom.
+   * @type { Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  bottom?: Length | ILength;
 
   /**
    * Set the indicator size.
    * @since 8
    */
-  size?: Length;
+  /**
+   * Set the indicator size.
+   * @type { Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  size?: Length | ILength;
 
   /**
    * Setting indicator style mask.
@@ -511,11 +541,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when the size of the rotation chart is set.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the size of the rotation chart
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  itemSpace(value: number | string): SwiperAttribute;
+  itemSpace(value: number | StringType | Vp | Px | Fp | Lpx): SwiperAttribute;
 
   /**
    * Called when setting the size of the swiper container on the spindle.
@@ -583,11 +614,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Called when sliding is curve
+   * @param { Curve | StringType } value - indecates curve slide
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  curve(value: Curve | string): SwiperAttribute;
+  curve(value: Curve | StringType ): SwiperAttribute;
   /**
    * Called when the index value changes.
    * @since 7
@@ -609,21 +641,21 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
 
   /**
    * The previous margin which can be used to expose a small portion of the previous item.
-   * @param { Length } value - The length of previous margin.
+   * @param { Length | ILength } value - The length of previous margin.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  prevMargin(value: Length): SwiperAttribute;
+  prevMargin(value: Length | ILength): SwiperAttribute;
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
-   * @param { Length } value - The length of next margin.
+   * @param { Length | ILength } value - The length of next margin.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nextMargin(value: Length): SwiperAttribute;
+  nextMargin(value: Length | ILength): SwiperAttribute;
 
   /**
    * Called when the swiper animation start.

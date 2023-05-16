@@ -88,12 +88,12 @@ interface TabsInterface {
 interface DividerStyle {
   /**
    * Define the stroke width of the divider
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  strokeWidth: Length;
+  strokeWidth: Length | ILength;
 
   /**
    * Define the color of the divider
@@ -105,21 +105,21 @@ interface DividerStyle {
 
   /**
    * Define the start margin of the divider
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  startMargin?: Length;
+  startMargin?: Length | ILength;
 
   /**
    * Define the end margin of the divider
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  endMargin?: Length;
+  endMargin?: Length | ILength;
 }
 
 /**
@@ -156,14 +156,28 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Notice: barWidth only supports Number type on 7, supports Length type since 8.
    * @since 8
    */
-  barWidth(value: Length): TabsAttribute;
+  /**
+   * Called when the width of the bar graph is set.
+   * Notice: barWidth only supports Number type on 7, supports Length type since 8, use ILength type instead of Length type since 10.
+   * @param { Length | ILength } value - indecates the width of the bar graph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  barWidth(value: Length | ILength): TabsAttribute;
 
   /**
    * Called when the height of the bar graph is set.
    * Notice: barHeight only supports Number type on 7, supports Length type since 8.
    * @since 8
    */
-  barHeight(value: Length): TabsAttribute;
+  /**
+   * Called when the height of the bar graph is set.
+   * Notice: barHeight only supports Number type on 7, supports Length type since 8, use ILength type instead of Length type since 10.
+   * @param { Length | ILength } value - indecates the width of the bar graph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  barHeight(value: Length | ILength): TabsAttribute;
 
   /**
    * Called when the animation duration of the bar graph is set.

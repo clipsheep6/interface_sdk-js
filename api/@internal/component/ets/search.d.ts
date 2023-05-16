@@ -103,11 +103,11 @@ interface SearchInterface {
 interface IconOptions {
   /**
    * Set the icon size
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  size?: Length;
+  size?: Length | ILength;
 
   /**
    * Set the icon color
@@ -134,11 +134,11 @@ interface IconOptions {
 interface CaretStyle {
   /**
    * Set the cursor width
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  width?: Length,
+  width?: Length | ILength,
 
   /**
    * Set the cursor color
@@ -157,11 +157,11 @@ interface CaretStyle {
 interface SearchButtonOption {
   /**
    * Set the SearchButton fontSize
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  fontSize?: Length;
+  fontSize?: Length | ILength;
 
   /**
    * Set the SearchButton fontColor

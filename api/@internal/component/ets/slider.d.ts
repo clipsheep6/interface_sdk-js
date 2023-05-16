@@ -360,7 +360,14 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @form
    * @since 9
    */
-  trackThickness(value: Length): SliderAttribute;
+  /**
+   * Called when the thickness of track is set.
+   * @param { Length | ILength } value - indecates the thickness of track.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since10
+   */  
+  trackThickness(value: Length | ILength): SliderAttribute;
 
   /**
    * Called when the selection value changes.
@@ -383,11 +390,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
 
   /**
    * Called when the border width of block is set.
-   * @param { Length } value - the border width of block. 
+   * @param { Length | ILength } value - the border width of block. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  blockBorderWidth(value: Length): SliderAttribute;
+  blockBorderWidth(value: Length | ILength): SliderAttribute;
 
   /**
    * Called when the color of step is set.
@@ -399,11 +406,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
 
   /**
    * Called when the radius of track border is set.
-   * @param { Length } value - the radius of track border.
+   * @param { Length | ILength } value - the radius of track border.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  trackBorderRadius(value: Length): SliderAttribute;
+  trackBorderRadius(value: Length | ILength): SliderAttribute;
 
   /**
    * Called when the size of block is set.
@@ -423,11 +430,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
 
   /**
    * Called when the diameter of step is set.
-   * @param { Length } value - the diameter of step.
+   * @param { Length | ILength } value - the diameter of step.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  stepSize(value: Length): SliderAttribute;
+  stepSize(value: Length | ILength): SliderAttribute;
 }
 
 /**

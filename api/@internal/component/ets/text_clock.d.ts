@@ -79,7 +79,12 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * Called when the value of TextClock fontSize is set
    * @since 8
    */
-  fontSize(value: Length): TextClockAttribute;
+  /**
+   * Called when the value of TextClock fontSize is set
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  fontSize(value: Length | ILength): TextClockAttribute;
   /**
    * Called when the value of TextClock fontStyle is set
    * @since 8

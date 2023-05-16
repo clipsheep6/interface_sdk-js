@@ -50,39 +50,39 @@ interface IndicatorStyle {
 
   /**
    * Define the height of the indicator
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  height?: Length;
+  height?: Length | ILength;
 
   /**
    * Define the width of the indicator.
    * If it is 0, the width will be equal to the width of the content
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  width?: Length;
+  width?: Length | ILength;
 
   /**
    * Define the border radius of the indicator
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  borderRadius?: Length;
+  borderRadius?: Length | ILength;
 
   /**
    * Define the margin top of the indicator
-   * @type { Length }
+   * @type { Length | ILength }
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  marginTop?: Length;
+  marginTop?: Length | ILength;
 }
 
 /**
@@ -94,11 +94,11 @@ interface IndicatorStyle {
 interface BoardStyle {
   /**
    * Define the border radius of the board
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  borderRadius?: Length;
+  borderRadius?: Length | ILength;
 }
 
 /**

@@ -73,12 +73,12 @@ interface ImageFrameInfo {
    */
   /**
    * Image width
-   * @type: { number | string }
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  width?: number | string;
+  width?: number | StringType | Vp | Px| Fp | Lpx | Percentage;
   /**
    * Image height
    * @type: { number | string }
@@ -86,12 +86,12 @@ interface ImageFrameInfo {
    */
   /**
    * Image height
-   * @type: { number | string }
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  height?: number | string;
+  height?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * Vertical coordinate of the image relative to the upper left corner of the component
    * @type: { number | string }
@@ -99,12 +99,12 @@ interface ImageFrameInfo {
    */
   /**
    * Vertical coordinate of the image relative to the upper left corner of the component
-   * @type: { number | string }
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  top?: number | string;
+  top?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * Horizontal coordinate of the image relative to the upper left corner of the component
    * @type: { number | string }
@@ -112,12 +112,12 @@ interface ImageFrameInfo {
    */
   /**
    * Horizontal coordinate of the image relative to the upper left corner of the component
-   * @type: { number | string }
+   * @type { number | StringType | Vp | Px | Fp | Lpx | Percentage}
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  left?: number | string;
+  left?: number | StringType | Vp | Px | Fp | Lpx | Percentage;
   /**
    * Playback duration of this image frame, in milliseconds.
    * @type: { number }

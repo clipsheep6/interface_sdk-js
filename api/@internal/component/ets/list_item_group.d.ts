@@ -60,10 +60,10 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    */
   divider(
     value: {
-      strokeWidth: Length;
+      strokeWidth: Length | ILength;
       color?: ResourceColor;
-      startMargin?: Length;
-      endMargin?: Length;
+      startMargin?: Length | ILength;
+      endMargin?: Length | ILength;
     } | null,
   ): ListItemGroupAttribute;
 }

@@ -78,7 +78,14 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @form
    * @since 9
    */
-  strokeWidth(value: number | string): DividerAttribute;
+  /**
+   * Sets the width of the dividing line.
+   * @param { number | StringType | Vp | Px | Fp | Lpx } value - indecates the width of the dividing line.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  strokeWidth(value: number | StringType | Vp | Px | Fp | Lpx): DividerAttribute;
 
   /**
    * Sets the end style of the split line. The default value is Butt.

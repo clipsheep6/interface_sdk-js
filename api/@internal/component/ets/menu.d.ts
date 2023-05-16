@@ -32,13 +32,13 @@ interface MenuInterface {
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
    * Sets the Menu text size.
-   * @param { Length } value - Indicates the font size of menu item.
+   * @param { Length | ILength } value - Indicates the font size of menu item.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @deprecated since 10
    * @useinstead font
    */
-  fontSize(value: Length): MenuAttribute;
+  fontSize(value: Length | ILength): MenuAttribute;
 
   /**
    * Sets the font style.

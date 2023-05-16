@@ -161,11 +161,11 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * Alphabet index bar alignment style. The left and right alignment styles are supported,
    * which affects the pop-up position of the pop-up window.
    * @param { IndexerAlign } value - indicates the alignment style of Alphabet index.
-   * @param { Length } offset - indicates the horizontal space between pop-up window and indexer bar.
+   * @param { Length | ILength } offset - indicates the horizontal space between pop-up window and indexer bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  alignStyle(value: IndexerAlign, offset?: Length): AlphabetIndexerAttribute;
+  alignStyle(value: IndexerAlign, offset?: Length | ILength): AlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback.

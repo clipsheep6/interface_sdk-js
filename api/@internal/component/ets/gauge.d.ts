@@ -100,7 +100,14 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @form
    * @since 9
    */
-  strokeWidth(length: Length): GaugeAttribute;
+  /**
+   * Sets the thickness of the ring chart.
+   * @param { Length | ILength } value - indecates the thickness of the ring chart.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  strokeWidth(length: Length | ILength): GaugeAttribute;
 }
 
 /**

@@ -79,8 +79,67 @@ declare interface Resource {
  * Defines the length property with string, number and resource unit.
  * @form
  * @since 9
+ * @deprecated since 10
+ * @useinstead ILength
  */
 declare type Length = string | number | Resource;
+
+/**
+ * Defines the length property with number in units of px.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Px = `${number}px`;
+
+/**
+ * Defines the length property with number in units of vx.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Vp = `${number}vp`;
+
+/**
+ * Defines the length property with number in units of fp.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Fp = `${number}fp`;
+
+/**
+ * Defines the length property with number in units of Lpx.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Lpx = `${number}lpx`;
+
+/**
+ * Defines the length property with number in units of Percentage.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Percentage = `${number}%`
+
+/**
+ * Defines the angle property with number in units of deg.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Deg = `${number}deg`
+
+/**
+ * Defines the length property with number with units(vp|px|fp|lxp|%), number and resource unit.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type ILength = Px | Vp | Fp | Lpx | Percentage | number | Resource;
+
+/**
+ * Defines the string type.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ * @deprecated since 10
+ */
+declare type StringType = string;
 
 /**
  * Defines the string which can use resource.
@@ -112,7 +171,12 @@ declare type Padding = {
    * @form
    * @since 9
    */
-  top?: Length;
+  /**
+   * top property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  top?: Length | ILength;
 
   /**
    * right property.
@@ -123,7 +187,12 @@ declare type Padding = {
    * @form
    * @since 9
    */
-  right?: Length;
+  /**
+   * right property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  right?: Length | ILength;
 
   /**
    * bottom property.
@@ -134,7 +203,12 @@ declare type Padding = {
    * @form
    * @since 9
    */
-  bottom?: Length;
+  /**
+   * bottom property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  bottom?: Length | ILength;
 
   /**
    * left property.
@@ -145,7 +219,12 @@ declare type Padding = {
    * @form
    * @since 9
    */
-  left?: Length;
+  /**
+   * left property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  left?: Length | ILength;
 };
 
 /**
@@ -170,28 +249,48 @@ declare type EdgeWidths = {
    * @form
    * @since 9
    */
-  top?: Length;
+  /**
+   * top property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  top?: Length | ILength;
 
   /**
    * right property.
    * @form
    * @since 9
    */
-  right?: Length;
+  /**
+   * right property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  right?: Length | ILength;
 
   /**
    * bottom property.
    * @form
    * @since 9
    */
-  bottom?: Length;
+  /**
+   * bottom property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  bottom?: Length | ILength;
 
   /**
    * left property.
    * @form
    * @since 9
    */
-  left?: Length;
+  /**
+   * left property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  left?: Length | ILength;
 };
 
 /**
@@ -205,28 +304,48 @@ declare type BorderRadiuses = {
    * @form
    * @since 9
    */
-  topLeft?: Length;
+  /**
+   * top-left property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  topLeft?: Length | ILength;
 
   /**
    * top-right property.
    * @form
    * @since 9
    */
-  topRight?: Length;
+  /**
+   * top-right property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  topRight?: Length | ILength;
 
   /**
    * bottom-left property.
    * @form
    * @since 9
    */
-  bottomLeft?: Length;
+  /**
+   * bottom-left property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  bottomLeft?: Length | ILength;
 
   /**
    * bottom-right property.
    * @form
    * @since 9
    */
-  bottomRight?: Length;
+  /**
+   * bottom-right property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  bottomRight?: Length | ILength;
 };
 
 /**
@@ -303,16 +422,21 @@ declare type EdgeStyles = {
  * Defines the offset property.
  * @since 7
  */
+/**
+ * Defines the offset property.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
 declare type Offset = {
   /**
    * dx property.
    */
-  dx: Length;
+  dx: Length | ILength;
 
   /**
    * dy property.
    */
-  dy: Length;
+  dy: Length | ILength;
 };
 
 /**
@@ -337,14 +461,24 @@ declare type LengthConstrain = {
    * @form
    * @since 9
    */
-  minLength: Length;
+  /**
+   * minimum length.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  minLength: Length | ILength;
 
   /**
    * maximum length.
    * @form
    * @since 9
    */
-  maxLength: Length;
+  /**
+   * maximum length.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  maxLength: Length | ILength;
 };
 
 /**
@@ -355,7 +489,12 @@ declare interface Font {
   /**
    * font size.
    */
-  size?: Length;
+  /**
+   * font size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  size?: Length | ILength;
 
   /**
    * font weight.
@@ -392,7 +531,12 @@ declare interface Area {
    * @form
    * @since 9
    */
-  width: Length;
+  /**
+   * Defines the width property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width: Length | ILength;
 
   /**
    * Defines the height property.
@@ -403,7 +547,12 @@ declare interface Area {
    * @form
    * @since 9
    */
-  height: Length;
+  /**
+   * Defines the height property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  height: Length | ILength;
 
   /**
    * Defines the local position.
@@ -437,6 +586,11 @@ declare interface Area {
  * @form
  * @since 9
  */
+/**
+ * Defines the position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
 declare interface Position {
   /**
    * Coordinate x of the Position.
@@ -447,7 +601,12 @@ declare interface Position {
    * @form
    * @since 9
    */
-  x?: Length;
+  /**
+   * Coordinate x of the Position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  x?: Length | ILength;
   /**
    * Coordinate y of the Position.
    * @since 7
@@ -457,7 +616,12 @@ declare interface Position {
    * @form
    * @since 9
    */
-  y?: Length;
+  /**
+   * Coordinate y of the Position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  y?: Length | ILength;
 }
 
 /**
@@ -468,6 +632,11 @@ declare interface Position {
  * Defines the constrain size options.
  * @form
  * @since 9
+ */
+/**
+ * Defines the constrain size options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
  */
 declare interface ConstraintSizeOptions {
   /**
@@ -479,7 +648,12 @@ declare interface ConstraintSizeOptions {
    * @form
    * @since 9
    */
-  minWidth?: Length;
+  /**
+   * Defines the min width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  minWidth?: Length | ILength;
   /**
    * Defines the max width.
    * @since 7
@@ -489,7 +663,12 @@ declare interface ConstraintSizeOptions {
    * @form
    * @since 9
    */
-  maxWidth?: Length;
+  /**
+   * Defines the max width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  maxWidth?: Length | ILength;
   /**
    * Defines the min height.
    * @since 7
@@ -499,7 +678,12 @@ declare interface ConstraintSizeOptions {
    * @form
    * @since 9
    */
-  minHeight?: Length;
+  /**
+   * Defines the min height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  minHeight?: Length | ILength;
   /**
    * Defines the max height.
    * @since 7
@@ -509,7 +693,12 @@ declare interface ConstraintSizeOptions {
    * @form
    * @since 9
    */
-  maxHeight?: Length;
+  /**
+   * Defines the max height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  maxHeight?: Length | ILength;
 }
 
 /**
@@ -521,6 +710,11 @@ declare interface ConstraintSizeOptions {
  * @form
  * @since 9
  */
+/**
+ * Defines the size options.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
 declare interface SizeOptions {
   /**
    * Defines the width.
@@ -531,7 +725,12 @@ declare interface SizeOptions {
    * @form
    * @since 9
    */
-  width?: Length;
+  /**
+   * Defines the width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width?: Length | ILength;
   /**
    * Defines the height.
    * @since 7
@@ -541,7 +740,12 @@ declare interface SizeOptions {
    * @form
    * @since 9
    */
-  height?: Length;
+  /**
+   * Defines the width.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */    
+  height?: Length | ILength;
 }
 
 /**
@@ -565,7 +769,13 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
-  width?: EdgeWidths | Length;
+  /**
+   * Defines the border width.
+   * @type { EdgeWidths | Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  width?: EdgeWidths | Length | ILength;
   /**
    * Defines the border color.
    * @type { ResourceColor }
@@ -589,7 +799,13 @@ declare interface BorderOptions {
    * @form
    * @since 9
    */
-  radius?: BorderRadiuses | Length;
+  /**
+   * Defines the border radius.
+   * @type { BorderRadiuses | Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  radius?: BorderRadiuses | Length | ILength;
   /**
    * Defines the border style.
    * @type { BorderStyle }
@@ -620,19 +836,19 @@ declare interface MarkStyle {
 
   /**
    * Define the size of checkbox mark.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  size?: Length;
+  size?: Length | ILength;
 
   /**
    * Define the stroke width of checkbox mark.
-   * @type { Length }
+   * @type { Length | ILength }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  strokeWidth?: Length;
+  strokeWidth?: Length | ILength;
 }
 
 /**

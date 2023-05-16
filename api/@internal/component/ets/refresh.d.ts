@@ -70,7 +70,14 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
-  offset?: number | string;
+  /**
+   * Distance to the top of the parent component from the component that
+   * comes to rest after a successful pull-down gesture. Default value: 16, in vp
+   * @type {number | StringType | Vp | Px | Fp | Lpx }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  offset?: number | StringType | Vp | Px | Fp | Lpx;
   /**
    * Coefficient of friction, which indicates the component's sensitivity to the pull-down gesture.
    * The value ranges from 0 to 100. Default value: 62

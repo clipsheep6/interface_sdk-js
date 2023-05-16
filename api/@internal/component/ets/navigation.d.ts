@@ -46,7 +46,13 @@ declare interface NavigationCustomTitle {
    * Sets the custom title height.
    * @since 9
    */
-  height: TitleHeight | Length;
+  /**
+   * Sets the custom title height.
+   * @type { TitleHeight | Length | ILength }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  height: TitleHeight | Length | ILength;
 }
 
 /**
@@ -312,7 +318,13 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * Sets the width of navigation bar.
    * @since 9
    */
-  navBarWidth(value: Length): NavigationAttribute;
+  /**
+   * Sets the width of navigation bar.
+   * @param { Length | ILength } value - indecates the width of navigation bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */  
+  navBarWidth(value: Length | ILength): NavigationAttribute;
 
   /**
    * Sets the position of navigation bar.
