@@ -730,7 +730,7 @@ declare namespace formHost {
 
     /**
      * Cancels listening to the event of invisible type change.
-     * <p>You can use this method to cancel listening to the event of visible type change.</p>
+     * <p>You can use this method to cancel listening to the event of invisibility type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { 'invisibility' } type - Indicates event type.
      * @param { number } observerId - Indicates the number code of the observer.
