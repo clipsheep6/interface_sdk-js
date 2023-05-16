@@ -719,7 +719,6 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { 'visibility' } type - Indicates event type.
      * @param { number } observerId - Indicates the number code of the observer.
-     * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -727,7 +726,7 @@ declare namespace formHost {
      * @systemapi
      * @since 10
      */
-    function off(type: 'visibility', observerId: number, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+    function off(type: 'visibility', observerId: number): void;
 
     /**
      * Cancels listening to the event of invisible type change.
@@ -735,7 +734,6 @@ declare namespace formHost {
      * @permission ohos.permission.REQUIRE_FORM
      * @param { 'invisibility' } type - Indicates event type.
      * @param { number } observerId - Indicates the number code of the observer.
-     * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -743,7 +741,7 @@ declare namespace formHost {
      * @systemapi
      * @since 10
      */
-    function off(type: 'invisibility', observerId: number, observerCallback?: Callback<formInfo.RunningFormInfo>): void;
+    function off(type: 'invisibility', observerId: number): void;
 
     /**
      * Notify form is Visible
