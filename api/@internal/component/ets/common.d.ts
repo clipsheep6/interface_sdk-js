@@ -263,8 +263,18 @@ declare const Builder: MethodDecorator;
 
 /**
  * Defining Styles MethodDecorator
+ * @since 8
+ */
+/**
+ * Defining Styles MethodDecorator
  * @form
  * @since 9
+ */
+/**
+ * Defining Styles MethodDecorator
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const Styles: MethodDecorator;
 
@@ -347,6 +357,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
+ * Defining Recycle ClassDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare const Recycle: ClassDecorator;
+
+/**
  * Get context.
  * @StageModelOnly
  * @since 9
@@ -362,7 +380,7 @@ declare type Context = import('../api/application/Context').default;
 /**
  * Post Card Action.
  * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
+ * @param { Object } action - indicate the router, message or call event.
  * @form
  * @StageModelOnly
  * @since 9
@@ -370,7 +388,7 @@ declare type Context = import('../api/application/Context').default;
 /**
  * Post Card Action.
  * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
+ * @param { Object } action - indicate the router, message or call event.
  * @form
  * @StageModelOnly
  * @crossplatform
@@ -1064,6 +1082,21 @@ declare interface AlignRuleOption {
   center?: { anchor: string, align: VerticalAlign };
 }
 
+/**
+ * The param of rotate.
+ * @since 7
+ */
+/**
+ * The param of rotate.
+ * @form
+ * @since 9
+ */
+/**
+ * The param of rotate.
+ * @form
+ * @crossplatform
+ * @since 10
+ */
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -1294,6 +1327,7 @@ declare class TransitionEffect<
 > {
   /**
    * Defines an identity transition effect
+   * @constant
    * @type { TransitionEffect<"identity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1303,6 +1337,7 @@ declare class TransitionEffect<
 
   /**
    * Defines an opacity transition effect
+   * @constant
    * @type { TransitionEffect<"opacity"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1312,6 +1347,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide transition effect
+   * @constant
    * @type { TransitionEffect<"asymmetric"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1327,6 +1363,7 @@ declare class TransitionEffect<
 
   /**
    * Defines a slide & switch transition effect
+   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1933,31 +1970,67 @@ declare enum BlurStyle {
 
   /**
    * Defines the thin background material.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_THIN
    */
   BackgroundThin,
 
   /**
    * Defines the thin regular material.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_REGULAR
    */
   BackgroundRegular,
 
   /**
    * Defines the thin thick material.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_THICK
    */
   BackgroundThick,
 
   /**
    * Defines the thin ultra thick material.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
+   */
+  BackgroundUltraThick,
+
+  /**
+   * Defines the thin background material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  BackgroundUltraThick,
+  BACKGROUND_THIN,
+
+  /**
+   * Defines the thin regular material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  BACKGROUND_REGULAR,
+
+  /**
+   * Defines the thin thick material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  BACKGROUND_THICK,
+
+  /**
+   * Defines the thin ultra thick material.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  BACKGROUND_ULTRA_THICK,
 }
 
 /**
@@ -1968,24 +2041,51 @@ declare enum BlurStyle {
 declare enum ThemeColorMode {
   /**
    * Defines the mode which is follow up with system.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ThemeColorMode#SYSTEM
    */
   System,
 
   /**
    * Defines the light mode.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ThemeColorMode#LIGHT
    */
   Light,
 
   /**
    * Defines the dark mode.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ThemeColorMode#DARK
+   */
+  Dark,
+
+  /**
+   * Defines the mode which is follow up with system.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  Dark,
+  SYSTEM,
+
+  /**
+   * Defines the light mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  LIGHT,
+
+  /**
+   * Defines the dark mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  DARK,
 }
 
 /**
@@ -1996,17 +2096,35 @@ declare enum ThemeColorMode {
 declare enum AdaptiveColor {
   /**
    * Defines the fixed value color adaptive mode.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead AdaptiveColor#DEFAULT
    */
   Default,
 
   /**
    * Defines the background average color adaptive mode.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead AdaptiveColor#AVERAGE
+   */
+  Average,
+
+  /**
+   * Defines the fixed value color adaptive mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  Average,
+  DEFAULT,
+
+  /**
+   * Defines the background average color adaptive mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  AVERAGE,
 }
 
 /**
@@ -2019,10 +2137,37 @@ declare enum ModalTransition {
   /**
    * Use default animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ModalTransition#DEFAULT
+   */
+  Default,
+
+  /**
+   * Use none animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ModalTransition#NONE
+   */
+  None,
+
+  /**
+   * Use alpha animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ModalTransition#ALPHA
+   */
+  Alpha,
+
+  /**
+   * Use default animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  Default,
+  DEFAULT,
 
   /**
    * Use none animation.
@@ -2030,7 +2175,7 @@ declare enum ModalTransition {
    * @crossplatform
    * @since 10
    */
-  None,
+  NONE,
 
   /**
    * Use alpha animation.
@@ -2038,7 +2183,7 @@ declare enum ModalTransition {
    * @crossplatform
    * @since 10
    */
-  Alpha,  
+  ALPHA,
 }
 
 /**
@@ -2061,6 +2206,18 @@ declare interface BackgroundBlurStyleOptions {
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
+
+  /**
+   * Define the scale of background blur effect. 
+   * The range of value is [0, 1]. The larger the value, the more obvious the blurring effect.
+   * A value of 0 indicates no blur effect and a value of 1 indicates a complete blur effect.
+   * @type { number }
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   * @systemapi
+   */
+  scale?: number;
 }
 
 /**
@@ -2088,6 +2245,30 @@ declare interface PickerTextStyle {
    * @since 10
    */
   font?: Font;
+}
+
+/**
+ * Define the type of shadow
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum ShadowType {
+  /**
+   * Define a color type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  COLOR,
+
+  /**
+   * Define a blur type of shadow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  BLUR,
 }
 
 /**
@@ -2141,6 +2322,16 @@ declare interface ShadowOptions {
   color?: Color | string | Resource;
 
   /**
+   * Define the type of shadow
+   * @type { ShadowType }
+   * @default ShadowType.COLOR
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type?: ShadowType;
+
+  /**
    * Define the horizontal offset size of shadow
    * @since 7
    */
@@ -2183,45 +2374,124 @@ declare interface ShadowOptions {
 declare enum ShadowStyle {
   /**
    * Defines the super small default shadow style.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_XS
    */
   OuterDefaultXS,
 
   /**
    * Defines the small default shadow style.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_SM
    */
   OuterDefaultSM,
 
   /**
    * Defines the medium default shadow style.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_MD
    */
   OuterDefaultMD,
 
   /**
    * Defines the large default shadow style.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_DEFAULT_LG
    */
   OuterDefaultLG,
 
   /**
    * Defines the small floating shadow style.
-   * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_FLOATING_SM
    */
   OuterFloatingSM,
 
   /**
    * Defines the medium floating shadow style.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ShadowStyle#OUTER_FLOATING_MD
+   */
+  OuterFloatingMD,
+
+  /**
+   * Defines the super small default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  OuterFloatingMD,
+  OUTER_DEFAULT_XS,
+
+  /**
+   * Defines the small default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  OUTER_DEFAULT_SM,
+
+  /**
+   * Defines the medium default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  OUTER_DEFAULT_MD,
+
+  /**
+   * Defines the large default shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  OUTER_DEFAULT_LG,
+
+  /**
+   * Defines the small floating shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  OUTER_FLOATING_SM,
+
+  /**
+   * Defines the medium floating shadow style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  OUTER_FLOATING_MD,
+}
+
+/**
+ * Defines sheet size type.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum SheetSize {
+  /**
+   * Defines the sheet size medium height type. The height is half the screen height
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  MEDIUM,
+
+  /**
+   * Defines the sheet size large height type. The height is almost screen height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  LARGE,
 }
 
 /**
@@ -2897,6 +3167,34 @@ declare interface KeyEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+}
+
+/**
+ * Component Sheet Styles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SheetStyle {
+  /**
+   * Defines sheet height
+   * @type { SheetSize | Length }
+   * @default Sheet.LARGE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  height?: SheetSize | Length;
+
+  /**
+   * Defines whether the control bar is displayed.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  dragBar?: boolean;
 }
 
 /**
@@ -3648,7 +3946,10 @@ declare class CommonMethod<T> {
    */
   padding(value: Padding | Length): T;
 
-
+  /**
+   * Outer Margin.
+   * @since 7
+   */
   /**
    * Outer Margin.
    * @form
@@ -3746,6 +4047,7 @@ declare class CommonMethod<T> {
    * Background blur style.
    * blurStyle:Blur style type.
    * @param { BlurStyle } value
+   * @param { BackgroundBlurStyleOptions } options
    * @form
    * @crossplatform
    * @since 10
@@ -5135,6 +5437,18 @@ declare class CommonMethod<T> {
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;  
 
   /**
+   * Bind sheet
+   * @param { boolean } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { style } style - sheet style type.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  bindSheet(isShow: boolean, builder: CustomBuilder, style?: SheetStyle): T;
+
+  /**
    * Sets styles for component state.
    * @since 8
    */
@@ -5154,11 +5468,6 @@ declare class CommonMethod<T> {
   /**
    * id for distribute identification.
    * @since 8
-   */
-  /**
-   * id for distribute identification.
-   * @crossplatform
-   * @since 10
    */
   restoreId(value: number): T;
 
@@ -5204,13 +5513,14 @@ declare class CommonMethod<T> {
 
   /**
    * Sets hot keys
-   * @param { string } value , single character of the Combination key
-   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
+   * @param { string | FunctionKey } value - Character of the combination key.
+   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
+   * @param { () => void } action - Callback function, triggered when the shortcut keyboard is pressed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
+  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 }
 
 /**
@@ -5228,7 +5538,7 @@ declare class CommonMethod<T> {
  * @crossplatform
  * @since 10
  */
-declare class CommonAttribute extends CommonMethod<CommonAttribute> { }
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
  * CommonInterface for ide.
@@ -5555,8 +5865,43 @@ declare interface LinearGradient {
  * @since 10
  */
 declare interface LayoutBorderInfo {
+  /**
+   * Sub component borderWidth info.
+   * @form
+   * @since 9
+   */
+  /**
+   * Sub component borderWidth info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   borderWidth: EdgeWidths,
+
+  /**
+   * Sub component margin info.
+   * @form
+   * @since 9
+   */
+  /**
+   * Sub component margin info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   margin: Margin,
+
+  /**
+   * Sub component padding info.
+   * @form
+   * @since 9
+   */
+  /**
+   * Sub component padding info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   padding: Padding,
 }
 
@@ -5572,7 +5917,30 @@ declare interface LayoutBorderInfo {
  * @since 10
  */
 declare interface LayoutInfo {
+  /**
+   * Sub component position info.
+   * @form
+   * @since 9
+   */
+  /**
+   * Sub component position info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   position: Position,
+
+  /**
+   * Sub component constraint info.
+   * @form
+   * @since 9
+   */
+  /**
+   * Sub component constraint info.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
   constraint: ConstraintSizeOptions,
 }
 
@@ -5750,6 +6118,15 @@ declare class CustomComponent extends CommonAttribute {
   aboutToDisappear?(): void;
 
   /**
+   * onRecycle Method
+   * @param {{ [key: string]: unknown }} params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onRecycle?(params: { [key: string]: unknown }): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    * @form
    * @since 9
@@ -5841,6 +6218,13 @@ declare class View {
    * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
+   */
+  /**
+   * Just use for generate tsbundle
+   * @ignore ide should ignore this attribute
+   * @systemapi
+   * @form
+   * @since 9
    */
   create(value: any): any;
 }
