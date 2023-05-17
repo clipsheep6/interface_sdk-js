@@ -3055,7 +3055,7 @@ declare class OffscreenCanvas extends CanvasRenderer {
    * @crossplatform
    * @since 10
    */
-  getContext(contextType: "2d", option?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
+  getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.
