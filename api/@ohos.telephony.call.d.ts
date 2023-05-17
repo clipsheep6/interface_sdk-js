@@ -1081,6 +1081,26 @@ declare namespace call {
   /**
    * Set switch state for voice over NR.
    * 
+   * @param { number } slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { VoNRState } state Indicates the VoNR state.
+   * @param { AsyncCallback<void> } callback - The callback of setVoNRState.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - Non-system applications use system APIs.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Set switch state for voice over NR.
+   * 
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param state Indicates the VoNR state.
@@ -1096,7 +1116,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
 
   /**
    * Set switch state for voice over NR.
@@ -1254,7 +1274,14 @@ declare namespace call {
   export enum VoNRState {
     /** Indicates the VoNR switch is on */
     VONR_STATE_ON = 0,
-    /** Indicates the VoNR switch is off */
+    /**
+     * Indicates the VONR switch is off.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    VONR_STATE_OFF,
   }
 
   /**
