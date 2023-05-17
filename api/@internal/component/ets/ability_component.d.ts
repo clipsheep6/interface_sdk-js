@@ -16,7 +16,7 @@
 /**
  * Provide an interface for the ability component.
  * @since 9
- * @systemapi
+ * @systemApi
  */
 interface AbilityComponentInterface {
   /**

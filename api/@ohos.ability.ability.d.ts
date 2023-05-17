@@ -25,7 +25,7 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
  * The class of an ability.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @syscap SystemCapability.Ability
  * @FAModelOnly
  */
 declare namespace ability {
@@ -35,7 +35,7 @@ declare namespace ability {
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      *
      * @since 9
-     * @FAModelOnly
+     * @FAModelOn
      */
     export type DataAbilityHelper = _DataAbilityHelper
 
