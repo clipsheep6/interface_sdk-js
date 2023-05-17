@@ -1081,11 +1081,11 @@ declare namespace call {
   /**
    * Set switch state for voice over NR.
    * 
-   * @param { number } slotId Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { VoNRState } state Indicates the VoNR state.
-   * @param { AsyncCallback<void> } callback - The callback of setVoNRState.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { VoNRState } state - Indicates the VoNR state.
+   * @param { AsyncCallback<void> } callback - The callback of setVoNRState.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Non-system applications use system APIs.
    * @throws {BusinessError} 401 - Parameter error.
@@ -1093,6 +1093,7 @@ declare namespace call {
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 10
    */
