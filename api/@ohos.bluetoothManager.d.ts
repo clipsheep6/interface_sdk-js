@@ -1673,6 +1673,13 @@ declare namespace bluetoothManager {
     manufactureData: Array<ManufactureData>;
     /** The specified service data list to this advertisement */
     serviceData: Array<ServiceData>;
+    /**
+     * Indicates whether the device name will be included in the advertisement packet.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     */
+    includeDeviceName?: boolean;
   }
 
   /**
