@@ -154,6 +154,7 @@ denormalized
 densitys
 deregistered
 deregisters
+deselected
 designative
 desynchronized
 developtools
@@ -633,6 +634,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+subtitles
 subtypes
 superimposed
 suscriber
@@ -671,6 +673,7 @@ tlsv13
 tnf
 totalsize
 touchpad
+trackinfo
 tranlisterated
 transcode
 transferable
