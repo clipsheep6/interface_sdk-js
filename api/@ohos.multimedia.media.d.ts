@@ -377,6 +377,63 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Add external subtitles.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param url External subtitle URI, Network:http://xxx.
+     */
+     addSubtitleUrl(url: string): void;
+
+    /**
+     * Add external subtitles.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param fdSrc Subtitle file descriptorTrack.
+     */
+     addSubtitleFdSrc(fdSrc: AVFileDescriptor): void;
+
+    /**
+     * Select audio or subtitle track.
+     * By default, the first audio stream with data is played, and the subtitle track is not played.
+     * After the settings take effect, the original track will become invalid and users will be notified
+     * of the {@link #trackChange} event.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param index Track index, reference {@link #getTrackDescription}.
+     */
+     selectTrack(index: number): void;
+
+    /**
+     * Deselect the current audio or subtitle track.
+     * After audio is deselected, the default track will be played, and after subtitles are deselected,
+     * they will not be played.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param index Subtitle index that needs to be cancelled.
+     */
+     deselectTrack(index: number): void;
+
+    /**
+     * Obtain the current audio or subtitle track.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
+     * @param callback Async callback return the current track.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     */
+     getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtain the current audio or subtitle track.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
+     * @returns A Promise instance used to return the current track.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     */
+     getCurrentTrack(trackType: MediaType): Promise<number>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @since 9
@@ -548,7 +605,7 @@ declare namespace media {
     on(type: 'bitrateDone', callback: Callback<number>): void;
     off(type: 'bitrateDone'): void;
     /**
-     * LRegister or unregister listens for media playback events.
+     * Register or unregister listens for media playback events.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param type Type of the playback event to listen for.
@@ -611,6 +668,53 @@ declare namespace media {
      */
     on(type: 'availableBitrates', callback: (bitrates: Array<number>) => void): void;
     off(type: 'availableBitrates'): void;
+    /**
+     * Register listens for audio or subtitle track change event.
+     * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} finished.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the playback event return audio or subtitle track.
+     */
+     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
+    /**
+     * Unregister listens for audio or subtitle track change event.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     */
+     off(type: 'trackChange'): void;
+    /**
+     * Register to listen for trackinfo update events.
+     * This event will be triggered after a successful call to {@link #addSubUrl} or {@link #addSubFdSrc}.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the track info update event.
+     */
+     on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
+    /**
+     * Unregister to listen for trackinfo update events.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     */
+     off(type: 'trackInfoUpdate'): void;
+    /**
+     * Register to receive subtitle data.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to receive subtitle data.
+     */
+     on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
+    /**
+     * Unregister to receive subtitle data.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback event to listen for.
+     */
+     off(type: 'subtitleTextUpdate'): void;
     /**
      * Register or unregister listens for playback error events.
      * @since 9
@@ -751,7 +855,7 @@ declare namespace media {
    */
   interface AVFileDescriptor {
     /**
-     * The file descriptor of audio or video source from file system. The caller
+     * The file descriptor of media source from file system. The caller
      * is responsible to close the file descriptor.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -2291,6 +2395,12 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     MEDIA_TYPE_VID = 1,
+    /**
+     * Track is subtitle.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    MEDIA_TYPE_SUBTITLE = 2,
   }
 
   /**
@@ -2368,6 +2478,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
+
+    /**
+     * key for language, value type is string
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    MD_KEY_LANGUAGE = "language",
   }
 
   /**
@@ -2767,6 +2884,20 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     AUDIO_FLAC = 'audio/flac',
+  }
+
+  /**
+   * Subtitle text information descriptor.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.Media.Core
+   */
+  interface TextInfoDescriptor {
+    /**
+     * Subtitle text. If null, stop rendering current text.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    text: string;
   }
 }
 export default media;
