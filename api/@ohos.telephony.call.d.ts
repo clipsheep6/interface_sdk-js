@@ -1096,7 +1096,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
 
   /**
    * Set switch state for voice over NR.
@@ -1116,7 +1116,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
+  function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<boolean>): void;
 
   /**
    * Set switch state for voice over NR.
