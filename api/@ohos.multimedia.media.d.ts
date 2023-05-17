@@ -669,6 +669,24 @@ declare namespace media {
     on(type: 'availableBitrates', callback: (bitrates: Array<number>) => void): void;
     off(type: 'availableBitrates'): void;
     /**
+     * Register or unregister listens for playback error events.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param type Type of the playback error event to listen for.
+     * @param callback Callback used to listen for the playback error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupport format.
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+    off(type: 'error'): void;
+    /**
      * Register listens for audio or subtitle track change event.
      * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} finished.
      * @since 10
@@ -715,24 +733,6 @@ declare namespace media {
      * @param type Type of the playback event to listen for.
      */
      off(type: 'subtitleTextUpdate'): void;
-    /**
-     * Register or unregister listens for playback error events.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param type Type of the playback error event to listen for.
-     * @param callback Callback used to listen for the playback error event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 5400101 - No memory.
-     * @throws { BusinessError } 5400102 - Operation not allowed.
-     * @throws { BusinessError } 5400103 - I/O error.
-     * @throws { BusinessError } 5400104 - Time out.
-     * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
-     */
-    on(type: 'error', callback: ErrorCallback): void;
-    off(type: 'error'): void;
   }
 
   /**
