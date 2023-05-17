@@ -103,16 +103,15 @@ declare class Scroller {
 
   /**
    * Called when the setting scrollbar to the specified position.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full.
+   * @param { value } value of the ration option.
    * @param { string } id - id of the scrollbar.
-   * @param { number } height - options scrollbar height.
-   * @param { number } offset - options scrollbar offset.
+   * @param { number } ratio - ratio of the scrollbar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  scrollBarPositionByKey(value: {
+  scrollBarRatio(value: {
     id: string;
-    height: number;
-    offset: number;
+    ratio: number;
   });
 }
 
