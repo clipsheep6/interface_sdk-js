@@ -165,6 +165,16 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @since 10
    */
   onReachEnd(event: () => void): WaterFlowAttribute;
+
+  /**
+   * Called when scrolling begin each frame.
+   * @param { (offset: number, state: ScrollState) => { offsetRemain: number } } event
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): WaterFlowAttribute;
 }
 
 /**

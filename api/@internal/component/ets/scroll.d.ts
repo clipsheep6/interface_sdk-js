@@ -179,6 +179,15 @@ declare class Scroller {
    * @since 10
    */
   scrollBy(dx: Length, dy: Length);
+
+  /**
+   * Indicates whether the component scrolls to the end position.
+   * @returns {boolean} Returns whether the component scrolls to the end position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  isAtEnd(): boolean;
 }
 
 /**
