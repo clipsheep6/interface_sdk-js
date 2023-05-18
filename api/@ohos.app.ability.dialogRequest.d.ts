@@ -23,12 +23,71 @@ import Want from "./@ohos.app.ability.Want";
  */
 declare namespace dialogRequest {
   /**
+   * Window Rectangle
+   *
+   * @typedef WindowRect
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+   export interface WindowRect {
+    /**
+     * The lef position of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    left: number;
+
+    /**
+     * The top position of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    top: number;
+
+    /**
+     * The width of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    width: number;
+
+    /**
+     * The height of WindowRect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    height: number;
+  }
+
+  /**
    * Request info of a request.
    * @typedef RequestInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   export interface RequestInfo {
+    /**
+     * The Window of caller.
+     *
+     * @type { ?WindowRect }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    windowRect?: WindowRect
   }
 
   export enum ResultCode {
@@ -53,6 +112,16 @@ declare namespace dialogRequest {
      * @StageModelOnly
      */
     result: ResultCode;
+
+    /**
+     * The request additional want data passed in by the user.
+     *
+     * @type { ?Want }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+     want?: Want;
   }
 
   /**
