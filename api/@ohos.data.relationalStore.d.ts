@@ -2474,6 +2474,7 @@ declare namespace relationalStore {
    * @param { StoreConfig } config - indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - the RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } 14800000 - if inner error is occurred.
    * @throws { BusinessError } 14800010 - if failed open database by invalid database name.
    * @throws { BusinessError } 14800011 - if failed open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
