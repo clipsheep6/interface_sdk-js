@@ -26,6 +26,18 @@ interface GridInterface {
 }
 
 /**
+ * Defines the grid Adaptive constraints.
+ * @since 10
+ */
+declare type AutoFill = {
+  /**
+   * Set adaptive minimum width.
+   * @since 10
+   */
+  gridWidth: Length;
+};
+
+/**
  * The enum of property layoutDirection
  * @since 8
  */
@@ -61,13 +73,13 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * This parameter specifies the number of columns in the current grid layout.
    * @since 7
    */
-  columnsTemplate(value: string): GridAttribute;
+  columnsTemplate(value: string | AutoFill): GridAttribute;
 
   /**
    * Lets you set the number of rows in the current grid layout,
    * @since 7
    */
-  rowsTemplate(value: string): GridAttribute;
+  rowsTemplate(value: string | AutoFill): GridAttribute;
 
   /**
    * Allows you to set the spacing between columns.
