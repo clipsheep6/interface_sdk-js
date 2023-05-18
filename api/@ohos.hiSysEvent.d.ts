@@ -353,6 +353,54 @@ declare namespace hiSysEvent {
    * @since 9
    */
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
+
+  /**
+   * Export system event
+   *
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @permission ohos.permission.READ_DFX_SYSEVENT
+   * @param {QueryArg} queryArg common arguments of query system event
+   * @param {QueryRule[]} rules rule of query system event
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200302 - Invalid query rule.
+   * @throws {BusinessError} 11200304 – Export frequency is over limit.
+   * @returns {number} return hiview receive task time.
+   * @since 9
+   */
+  function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): number;
+
+  /**
+   * Subscribe system event
+   *
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @permission ohos.permission.READ_DFX_SYSEVENT
+   * @param {QueryRule[]} rules rule of subscribe system event
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200302 - Invalid query rule.
+   * @throws {BusinessError} 11200304 – Subscribe frequency is over limit.
+   * @returns {number} return hiview receive task time.
+   * @since 10
+   */
+  function subscribe(rules: QueryRule[]): number
+
+  /**
+   * Unsubscribe system event
+   *
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200305 – unsubscribe failed.
+   * @returns {void} return void.
+   * @since 10
+   */
+  function unsubscribe(): void;
+
 }
 
 export default hiSysEvent;
