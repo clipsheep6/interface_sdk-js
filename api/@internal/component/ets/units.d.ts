@@ -345,6 +345,13 @@ declare type LengthConstrain = {
    * @since 9
    */
   maxLength: Length;
+  
+  /**
+   * column spacing
+   * @form
+   * @since 10
+   */
+  gutter?: Length;
 };
 
 /**
