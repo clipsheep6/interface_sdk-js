@@ -387,7 +387,7 @@ declare namespace hiSysEvent {
    * @returns {number} return hiview receive task time.
    * @since 10
    */
-  function subscribe(rules: QueryRule[]): number
+  function subscribe(rules: QueryRule[]): number;
 
   /**
    * Unsubscribe system event
