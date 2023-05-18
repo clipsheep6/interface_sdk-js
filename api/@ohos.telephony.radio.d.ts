@@ -1221,7 +1221,7 @@ declare namespace radio {
   }
 
   /**
-   * Enum for network ability state.
+   * Enum for network capability state.
    *
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
