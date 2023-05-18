@@ -16,50 +16,56 @@
 declare class Queue<T> {
   /**
    * A constructor used to create a Queue object.
+   *
    * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
    * Gets the element number of the Queue.This is a number one higher than the highest index in the queue.
+   *
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   length: number;
   /**
    * Inserting specified element at the end of a queue if it is possible to do
    * so immediately without violating capacity restrictions.
+   *
    * @param element to be appended to this queue
    * @returns the boolean type
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   add(element: T): boolean;
   /**
    * Obtains the header element of a queue.
+   *
    * @returns the T type
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   getFirst(): T;
   /**
    * Retrieves and removes the head of this queue
+   *
    * @returns the T type
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   pop(): T;
   /**
    * Executes a provided function once for each value in the queue object.
+   *
    * @param callbackFn (required) A function that accepts up to four arguments.The function to
    * be called for each element in the queue
    * @param Value (required) current element
@@ -69,18 +75,19 @@ declare class Queue<T> {
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void,
-    thisArg?: Object): void;
+  forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void, thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 8
-   * @syscap SystemCapability.Utils.Lang
    */
   [Symbol.iterator](): IterableIterator<T>;
 }
