@@ -1253,20 +1253,9 @@ declare namespace call {
    */
   export enum VoNRState {
     /** Indicates the VoNR switch is on */
-    VONR_STATE_ON = 0,
+    VONR_STATE_ON = 1,
     /** Indicates the VoNR switch is off */
-  }
-
-  /**
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  export enum AudioDevice {
-    DEVICE_EARPIECE,
-    DEVICE_SPEAKER,
-    DEVICE_WIRED_HEADSET,
-    DEVICE_BLUETOOTH_SCO,
-    DEVICE_MIC,
+    VONR_STATE_OFF = 0,
   }
 
   /**
