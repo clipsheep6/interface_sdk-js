@@ -317,7 +317,7 @@ declare namespace intellVoice {
    * @since 10
    * @syscap SystemCapability.Multimedia.IntellVoice.Core
    */
-  interface EnrollIntellVoiceEnginepCallbackInfo {
+  interface EnrollIntellVoiceEngineCallbackInfo {
     /**
      * Enroll event id.
      * @since 10
@@ -343,7 +343,7 @@ declare namespace intellVoice {
    * @since 10
    * @syscap SystemCapability.Multimedia.IntellVoice.Core
    */
-  interface WakeupIntellVoiceEnginepCallbackInfo {
+  interface WakeupIntellVoiceEngineCallbackInfo {
     /**
      * Wakeup event id.
      * @since 10
@@ -394,7 +394,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    init(config: EnrollEngineConfig, callback: AsyncCallback<EnrollIntellVoiceEnginepCallbackInfo>): void;
+    init(config: EnrollEngineConfig, callback: AsyncCallback<EnrollIntellVoiceEngineCallbackInfo>): void;
     /**
      * Initials the engine, This method uses a promise to return the result.
      * @param config enroll engine configuration.
@@ -403,7 +403,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    init(config: EnrollEngineConfig): Promise<EnrollIntellVoiceEnginepCallbackInfo>;
+    init(config: EnrollEngineConfig): Promise<EnrollIntellVoiceEngineCallbackInfo>;
     /**
      * Starts the engine, This method uses an asynchronous callback to return the result.
      * @param isLast indicates if it is the last time to start.
@@ -412,7 +412,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    start(isLast: boolean, callback: AsyncCallback<EnrollIntellVoiceEnginepCallbackInfo>): void;
+    start(isLast: boolean, callback: AsyncCallback<EnrollIntellVoiceEngineCallbackInfo>): void;
     /**
      * Starts the engine, This method uses a promise to return the result.
      * @param isLast indicates if it is the last time to start.
@@ -421,7 +421,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    start(isLast: boolean): Promise<EnrollIntellVoiceEnginepCallbackInfo>;
+    start(isLast: boolean): Promise<EnrollIntellVoiceEngineCallbackInfo>;
     /**
      * Stops the engine, This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
@@ -445,7 +445,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    commit(callback: AsyncCallback<EnrollIntellVoiceEnginepCallbackInfo>): void;
+    commit(callback: AsyncCallback<EnrollIntellVoiceEngineCallbackInfo>): void;
     /**
      * commit enroll, This method uses a promise to return the result.
      * @returns Promise used to return the result.
@@ -453,7 +453,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    commit(): Promise<EnrollIntellVoiceEnginepCallbackInfo>;
+    commit(): Promise<EnrollIntellVoiceEngineCallbackInfo>;
     /**
      * Sets wakeup hap information, This method uses an asynchronous callback to return the result.
      * @param info wakeup hap information.
@@ -666,7 +666,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    on(type: 'wakeupIntellVoiceEvent', callback: Callback<WakeupIntellVoiceEnginepCallbackInfo>): void;
+    on(type: 'wakeupIntellVoiceEvent', callback: Callback<WakeupIntellVoiceEngineCallbackInfo>): void;
     /**
      * Unsubscribes wakeup intell voice events.
      * @since 10
