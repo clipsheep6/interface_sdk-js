@@ -1255,6 +1255,7 @@ declare namespace call {
     /** Indicates the VoNR switch is on */
     VONR_STATE_ON = 0,
     /** Indicates the VoNR switch is off */
+    VONR_STATE_OFF,
   }
 
   /**
