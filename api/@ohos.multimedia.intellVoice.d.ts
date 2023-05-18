@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {ErrorCallback, AsyncCallback, Callback} from './basic';
+import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * @namespace intellVoice
@@ -51,7 +51,7 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    on(type: 'serviceChange', callback: CallBack<ServiceChangeType>): void;
+    on(type: 'serviceChange', callback: Callback<ServiceChangeType>): void;
   }
 
   /**
@@ -666,14 +666,14 @@ declare namespace intellVoice {
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    on(type: 'wakeupIntellVoiceEvent', callback: CallBack<WakeupIntellVoiceEnginepCallBackInfo>): void;
+    on(type: 'wakeupIntellVoiceEvent', callback: Callback<WakeupIntellVoiceEnginepCallBackInfo>): void;
     /**
      * Unsubscribes wakeup intell voice events.
      * @since 10
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    off(type: 'WakeupIntellVoiceEvent');
+    off(type: 'wakeupIntellVoiceEvent');
   }
 }
 
