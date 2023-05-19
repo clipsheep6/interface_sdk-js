@@ -363,6 +363,7 @@ declare namespace hiSysEvent {
    * @param {QueryArg} queryArg common arguments of query system event
    * @param {QueryRule[]} rules rule of query system event
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200301 - Count of query rules is over limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
@@ -380,6 +381,7 @@ declare namespace hiSysEvent {
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {QueryRule[]} rules rule of subscribe system event
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200301 - Count of query rules is over limit.
    * @throws {BusinessError} 11200302 - Invalid query rule.
@@ -394,6 +396,8 @@ declare namespace hiSysEvent {
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200305 – unsubscribe failed.
    * @returns {void} return void.
