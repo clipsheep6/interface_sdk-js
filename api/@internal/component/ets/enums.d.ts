@@ -2615,3 +2615,31 @@ declare enum ImageSpanAlignment {
    */
   TOP,
 }
+
+/**
+ * Define the selected span type.
+ * @form
+* @since 10
+ */
+declare enum SpanType {
+    /**
+     * none.
+     * @since 10
+     */
+    NONE,
+    /**
+     * text.
+     * @since 10
+     */
+    TEXT,
+    /**
+     * span.
+     * @since 10
+     */
+    SPAN,
+    /**
+     * imagespan.
+     * @since 10
+     */
+    IMAGESPAN,
+}
