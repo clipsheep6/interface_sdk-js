@@ -240,11 +240,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
   /**
-   * Called when the select.
-   * @param { string } value - Select the Span subscript and text range.
-   * @since 10
-   */
-  onSelect(callback: (value: string) => void): TextAttribute;
+	* Called when the select.
+	* @param { SelectInfo } value - Defines the selected content information.
+	* @since 10
+	*/
+  onSelect(callback: (value: SelectInfo) => void): TextAttribute;
 }
 
 /**
