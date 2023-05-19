@@ -686,7 +686,7 @@ declare namespace formHost {
      * <p>You can use this method to listen to the event of visible type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { 'visibility' } type - Indicates event type.
-     * @param { Array<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+     * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return the running form info.
      * @returns { number } Returns the key to off Listens.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
@@ -695,14 +695,14 @@ declare namespace formHost {
      * @systemapi
      * @since 10
      */
-    function on(type : 'visibility', observerCallback : Array<formInfo.RunningFormInfo>): number;
+    function on(type : 'visibility', observerCallback : Callback<Array<formInfo.RunningFormInfo>>): number;
 
     /**
      * Listens to the event of invisible type change.
      * <p>You can use this method to listen to the event of invisible type change.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { 'invisibility' } type - Indicates event type.
-     * @param { Array<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+     * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return the running form info.
      * @returns { number } Returns the key to off Listens.
      * @throws { BusinessError } 201 - Permissions denied.
      * @throws { BusinessError } 202 - The application is not a system application.
@@ -711,7 +711,7 @@ declare namespace formHost {
      * @systemapi
      * @since 10
      */
-    function on(type : 'invisibility', observerCallback : Array<formInfo.RunningFormInfo>): number;
+    function on(type : 'invisibility', observerCallback : Callback<Array<formInfo.RunningFormInfo>>): number;
 
     /**
      * Cancels listening to the event of visible type change.
