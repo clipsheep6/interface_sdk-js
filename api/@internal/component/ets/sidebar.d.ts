@@ -201,12 +201,6 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * default value is 200vp.
    * @since 9
    */
-  minSideBarWidth(value: Length): SideBarContainerAttribute;
-  /**
-   * Sets the max length of sidebar.
-   * default value is 280vp.
-   * @since 9
-   */
   /**
    * Sets the min length of sidebar.
    * @param { value: Length } value - min length of sidebar.
@@ -215,6 +209,12 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @returns { SideBarContainerAttribute }
    * @since 10
    * @crossplatform
+   */
+  minSideBarWidth(value: Length): SideBarContainerAttribute;
+  /**
+   * Sets the max length of sidebar.
+   * default value is 280vp.
+   * @since 9
    */
   maxSideBarWidth(value: Length): SideBarContainerAttribute;
   /**
