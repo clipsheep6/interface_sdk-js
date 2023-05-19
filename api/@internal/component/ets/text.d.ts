@@ -249,6 +249,50 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+  /**
+   * Called when the select.
+   * @param { TextEditInfo } value -Defines the text information for editing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onSelect(callback: (value: TextEditInfo) => void): TextAttribute;
+
+  /**
+   * Called when the copy.
+   * @param { TextEditInfo } value -Defines the text information for editing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onCopy(callback: (value: TextEditInfo) => void): TextAttribute;
+
+  /**
+   * Called when the cut.
+   * @param { TextEditInfo } value -Defines the text information for editing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onCut(callback: (value: TextEditInfo) => void): TextAttribute;
+
+  /**
+   * Called when the select all.
+   * @param { TextEditInfo } value -Defines the text information for editing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onSelectAll(callback: (value: TextEditInfo) => void): TextAttribute;
+
+  /**
+   * Called when the paste.
+   * @param { TextEditInfo } value -Defines the text information for editing.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  onPaste(callback: (value: TextEditInfo) => void): TextAttribute;
 }
 
 /**

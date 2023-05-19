@@ -656,3 +656,75 @@ declare module "GlobalResource" {
     export { Resource };
   }
 }
+
+/**
+ * Defines the text information for editing.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextEditInfo {
+
+  /**
+   * Select the start location of the content.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indexStart: number;
+  /**
+   * Select the end location of the content.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indexEnd: number;
+  /**
+   * The selected text content.
+   * @type { TextEditValue[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  values:TextEditValue[];
+}
+/**
+ * Defines selected text content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextEditValue {
+  /**
+   * Text type.
+   * @type { TextType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type: TextType;
+  /**
+   * The specific content of the selected information.
+   * @type { string | PixelMap }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  value: string | PixelMap;
+  /**
+   * Select the span subscript.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  spanIndex: number;
+  /**
+   * Currently span selects the content start subscript.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  spanIndexStart: number;
+  /**
+   * Currently span selects the end of content subscript.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  spanIndexEnd: number;
+
+}
