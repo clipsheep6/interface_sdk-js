@@ -656,3 +656,64 @@ declare module "GlobalResource" {
     export { Resource };
   }
 }
+
+/**
+ * Defines the selected content information.
+ * @since 10
+ */
+declare interface SelectInfo {
+
+  /**
+   * Select the start location of the content.
+   * @since 10
+   */
+  indexStart: number;
+  /**
+   * Select the end location of the content.
+   * @since 10
+   */
+  indexEnd: number;
+  /**
+   * The selected span content.
+   * @since 10
+   */
+  values:SelectValues[];
+}
+/**
+ * Define selected span content.
+ * @since 10
+ */
+declare interface SelectValues {
+  /**
+   * Span type.
+   * @since 10
+   */
+  type: SpanType;
+  /**
+   * The content of the selected text.
+   * @type { string }
+   * @since 10
+   */
+  /**
+   * The content of the selected image.
+   * @type { PixelMap }
+   * @since 10
+   */
+  value: string|PixelMap;
+  /**
+   * Select the span subscript.
+   * @since 10
+   */
+  spanIndex: number;
+  /**
+   * Currently span selects the content start subscript.
+   * @since 10
+   */
+  spanIndexStart: number;
+  /**
+   * Currently span selects the end of content subscript.
+   * @since 10
+   */
+  spanIndexEnd: number;
+
+}

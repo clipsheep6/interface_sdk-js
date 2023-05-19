@@ -249,6 +249,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 10
    */
   textIndent(value: Length): TextAttribute;
+  /**
+   * Called when the select.
+   * @param { SelectInfo } value - Defines the selected content information.
+   * @since 10
+   */
+  onSelect(callback: (value: SelectInfo) => void): TextAttribute;
 }
 
 /**
