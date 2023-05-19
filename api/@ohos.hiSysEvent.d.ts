@@ -368,7 +368,7 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @throws {BusinessError} 11200304 – Export frequency is over limit.
    * @returns {number} return hiview receive task time.
-   * @since 9
+   * @since 10
    */
   function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): number;
 
