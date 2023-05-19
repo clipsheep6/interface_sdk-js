@@ -108,18 +108,18 @@ function overwriteIndexOf(item, array) {
 exports.overwriteIndexOf = overwriteIndexOf;
 
 const ErrorType = {
-  UNKNOW_DECORATOR: 'unknow decorator',
-  MISSPELL_WORDS: 'misspell words',
-  NAMING_ERRORS: 'naming errors',
-  UNKNOW_PERMISSION: 'unknow permission',
-  UNKNOW_SYSCAP: 'unknow syscap',
-  UNKNOW_DEPRECATED: 'unknow deprecated',
-  INVALID_IMPORT: 'invalid import',
-  WRONG_ORDER: 'wrong order',
-  WRONG_VALUE: 'wrong value',
-  WRONG_SCENE: 'wrong scene',
-  PARAMETER_ERRORS: 'wrong parameter',
-  API_PAIR_ERRORS: 'limited api pair errors',
+  UNKNOW_DECORATOR: '1 unknow decorator',
+  MISSPELL_WORDS: '2 misspell words',
+  NAMING_ERRORS: '0 naming errors',
+  UNKNOW_PERMISSION: '5 unknow permission',
+  UNKNOW_SYSCAP: '5 unknow syscap',
+  UNKNOW_DEPRECATED: '5 unknow deprecated',
+  INVALID_IMPORT: '4 invalid import',
+  WRONG_ORDER: '3 wrong order',
+  WRONG_VALUE: '5 wrong value',
+  WRONG_SCENE: '4 wrong scene',
+  PARAMETER_ERRORS: '5 wrong parameter',
+  API_PAIR_ERRORS: '4 limited api pair errors',
 };
 exports.ErrorType = ErrorType;
 
@@ -145,6 +145,9 @@ exports.FileType = FileType;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
+
+let apiCheckInfoArr = [];
+exports.apiCheckInfoArr = apiCheckInfoArr;
 
 class ApiCheckResultClass {
   format_check_result = true;
@@ -174,7 +177,7 @@ exports.excelApiCheckResult = excelApiCheckResult;
 function getApiInfo(node) {
   const notesStr = getAPINote(node);
   let apiInfo = {};
-  let versionArr=[];
+  let versionArr = [];
   if (notesStr !== '') {
     if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
@@ -187,7 +190,7 @@ function getApiInfo(node) {
         versionArr.push(versionInfo)
         apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
-      apiInfo.humpVersion=versionArr[0].replace(/\@since/g, '').trim();
+      apiInfo.humpVersion = versionArr[0].replace(/\@since/g, '').trim();
     }
     if (/\@deprecated.*since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@deprecated.*since\s*(\d+)/g,
@@ -256,32 +259,32 @@ const inheritArr = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'Sta
 exports.inheritArr = inheritArr;
 
 const ErrorValueInfoCh = {
-  ERROR_INFO_VALUE_EXTENDS: 'µÚ[$$]¶ÎJSDocÖÐ, extends±êÇ©Öµ´íÎó, Çë¼ì²é±êÇ©ÖµÊÇ·ñÓë¼Ì³ÐÀàÃû±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_ENUM: 'µÚ[$$]¶ÎJSDocÖÐ,enum±êÇ©ÀàÐÍ´íÎó, Çë¼ì²é±êÇ©ÀàÐÍÊÇ·ñÎªstring»ònumber.',
-  ERROR_INFO_VALUE_SINCE: 'µÚ[$$]¶ÎJSDocÖÐ,since±êÇ©Öµ´íÎó, Çë¼ì²é±êÇ©ÖµÊÇ·ñÎªÊýÖµ.',
-  ERROR_INFO_RETURNS: 'µÚ[$$]¶ÎJSDocÖÐ,returns±êÇ©Ê¹ÓÃ´íÎó, ·µ»ØÀàÐÍÎªvoidÊ±²»Ó¦¸ÃÊ¹ÓÃreturns±êÇ©.',
-  ERROR_INFO_VALUE_RETURNS: 'µÚ[$$]¶ÎJSDocÖÐ,returns±êÇ©ÀàÐÍ´íÎó, Çë¼ì²é±êÇ©ÀàÐÍÊÇ·ñÓë·µ»ØÀàÐÍÒ»ÖÂ.',
-  ERROR_INFO_VALUE_USEINSTEAD: 'µÚ[$$]¶ÎJSDocÖÐ,useinstead±êÇ©Öµ´íÎó, Çë¼ì²éÊ¹ÓÃ·½·¨.',
-  ERROR_INFO_VALUE_TYPE: 'µÚ[$$]¶ÎJSDocÖÐ,type±êÇ©ÀàÐÍ´íÎó, Çë¼ì²éÀàÐÍÊÇ·ñÓëÊôÐÔÀàÐÍÒ»ÖÂ.',
-  ERROR_INFO_VALUE_DEFAULT: 'µÚ[$$]¶ÎJSDocÖÐ,default±êÇ©Öµ´íÎó, Çë²¹³äÄ¬ÈÏÖµ.',
-  ERROR_INFO_VALUE_PERMISSION: 'µÚ[$$]¶ÎJSDocÖÐ,permission±êÇ©ÖµÊéÐ´´íÎó, Çë¼ì²éÈ¨ÏÞ×Ö¶ÎÊÇ·ñÒÑÅäÖÃ»òÕß¸üÐÂÅäÖÃÎÄ¼þ.',
-  ERROR_INFO_VALUE_DEPRECATED: 'µÚ[$$]¶ÎJSDocÖÐ,deprecated±êÇ©Öµ´íÎó, Çë¼ì²éÊ¹ÓÃ·½·¨.',
-  ERROR_INFO_VALUE_SYSCAP: 'µÚ[$$]¶ÎJSDocÖÐ,syscap±êÇ©Öµ´íÎó, Çë¼ì²ésyscap×Ö¶ÎÊÇ·ñÒÑÅäÖÃ.',
-  ERROR_INFO_VALUE_NAMESPACE: 'µÚ[$$]¶ÎJSDocÖÐ,namespace±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓënamespaceÃû³Æ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_INTERFACE: 'µÚ[$$]¶ÎJSDocÖÐ,interface±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓëinterfaceÃû³Æ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_TYPEDEF: 'µÚ[$$]¶ÎJSDocÖÐ,typedef±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓëinterfaceÃû³Æ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_TYPE_PARAM: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$]¸öparam±êÇ©ÀàÐÍ´íÎó, Çë¼ì²éÊÇ·ñÓëµÚ[$$]¸ö²ÎÊýÀàÐÍ±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE_PARAM: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$}]¸öparam±êÇ©Öµ´íÎó, Çë¼ì²éÊÇ·ñÓëµÚ[$$]¸ö²ÎÊýÃû±£³ÖÒ»ÖÂ.',
-  ERROR_INFO_VALUE1_THROWS: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$}]¸öthrows±êÇ©ÀàÐÍ´íÎó, ÇëÌîÐ´BusinessError.',
-  ERROR_INFO_VALUE2_THROWS: 'µÚ[$$]¶ÎJSDocÖÐ,µÚ[$$}]¸öthrows±êÇ©ÀàÐÍ´íÎó, Çë¼ì²é±êÇ©ÖµÊÇ·ñÎªÊýÖµ.',
-  ERROR_INFO_INHERIT: 'µÚ[$$]¶ÎJSDocÖÐ,¼ì²âµ½µ±Ç°ÎÄ¼þÖÐ´æÔÚ¿É¼Ì³Ð±êÇ©[$$]£¬µ«´æÔÚ×Ó½ÚµãÃ»ÓÐ´Ë±êÇ©.',
-  ERROR_ORDER: 'JSDoc±êÇ©Ë³Ðò´íÎó,Çë½øÐÐµ÷Õû',
-  ERROR_LABELNAME: 'µÚ[$$]¶ÎJSDocÖÐ,[$$]±êÇ©²»´æÔÚ, ÇëÊ¹ÓÃºÏ·¨µÄJSDoc±êÇ©.',
-  ERROR_LOST_LABEL: 'JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,ÇëÈ·ÈÏÊÇ·ñÒÅÊ§$$±êÇ©.',
-  ERROR_USE: 'JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,²»ÔÊÐíÊ¹ÓÃ[$$]±êÇ©, Çë¼ì²é±êÇ©Ê¹ÓÃ·½·¨.',
-  ERROR_MORELABEL: 'JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,µÚ[$$]¸ö[$$]±êÇ©¶àÓà, Çë¼ì²éÊÇ·ñÓ¦¸ÃÉ¾³ý±êÇ©',
-  ERROR_REPEATLABEL: 'µÚ[$$]¶ÎJSDocÖÐ,JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,[$$]±êÇ©²»ÔÊÐíÖØ¸´Ê¹ÓÃ, ÇëÉ¾³ý¶àÓà±êÇ©.',
-  ERROR_USE_INTERFACE: 'µÚ[$$]¶ÎJSDocÖÐ,JSDoc±êÇ©ºÏ·¨ÐÔÐ£ÑéÊ§°Ü,interface±êÇ©Óëtypedef±êÇ©²»ÔÊÐíÍ¬Ê±Ê¹ÓÃ, ÇëÈ·ÈÏ½Ó¿ÚÀàÐÍ.',
+  ERROR_INFO_VALUE_EXTENDS: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½, extendsï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç©Öµï¿½Ç·ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE_ENUM: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,enumï¿½ï¿½Ç©ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªstringï¿½ï¿½number.',
+  ERROR_INFO_VALUE_SINCE: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,sinceï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç©Öµï¿½Ç·ï¿½Îªï¿½ï¿½Öµ.',
+  ERROR_INFO_RETURNS: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,returnsï¿½ï¿½Ç©Ê¹ï¿½Ã´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªvoidÊ±ï¿½ï¿½Ó¦ï¿½ï¿½Ê¹ï¿½ï¿½returnsï¿½ï¿½Ç©.',
+  ERROR_INFO_VALUE_RETURNS: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,returnsï¿½ï¿½Ç©ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ë·µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE_USEINSTEAD: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,useinsteadï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã·ï¿½ï¿½ï¿½.',
+  ERROR_INFO_VALUE_TYPE: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,typeï¿½ï¿½Ç©ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE_DEFAULT: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,defaultï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ë²¹ï¿½ï¿½Ä¬ï¿½ï¿½Öµ.',
+  ERROR_INFO_VALUE_PERMISSION: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,permissionï¿½ï¿½Ç©Öµï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½.',
+  ERROR_INFO_VALUE_DEPRECATED: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,deprecatedï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã·ï¿½ï¿½ï¿½.',
+  ERROR_INFO_VALUE_SYSCAP: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,syscapï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½syscapï¿½Ö¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.',
+  ERROR_INFO_VALUE_NAMESPACE: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,namespaceï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½namespaceï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE_INTERFACE: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,interfaceï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½interfaceï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE_TYPEDEF: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,typedefï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½interfaceï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_TYPE_PARAM: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,ï¿½ï¿½[$$]ï¿½ï¿½paramï¿½ï¿½Ç©ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½[$$]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE_PARAM: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,ï¿½ï¿½[$$}]ï¿½ï¿½paramï¿½ï¿½Ç©Öµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½[$$]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½.',
+  ERROR_INFO_VALUE1_THROWS: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,ï¿½ï¿½[$$}]ï¿½ï¿½throwsï¿½ï¿½Ç©ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ð´BusinessError.',
+  ERROR_INFO_VALUE2_THROWS: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,ï¿½ï¿½[$$}]ï¿½ï¿½throwsï¿½ï¿½Ç©ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç©Öµï¿½Ç·ï¿½Îªï¿½ï¿½Öµ.',
+  ERROR_INFO_INHERIT: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,ï¿½ï¿½âµ½ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½Ð´ï¿½ï¿½Ú¿É¼Ì³Ð±ï¿½Ç©[$$]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½Úµï¿½Ã»ï¿½Ð´Ë±ï¿½Ç©.',
+  ERROR_ORDER: 'JSDocï¿½ï¿½Ç©Ë³ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½',
+  ERROR_LABELNAME: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,[$$]ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ê¹ï¿½ÃºÏ·ï¿½ï¿½ï¿½JSDocï¿½ï¿½Ç©.',
+  ERROR_LOST_LABEL: 'JSDocï¿½ï¿½Ç©ï¿½Ï·ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½È·ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê§$$ï¿½ï¿½Ç©.',
+  ERROR_USE: 'JSDocï¿½ï¿½Ç©ï¿½Ï·ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½[$$]ï¿½ï¿½Ç©, ï¿½ï¿½ï¿½ï¿½ï¿½Ç©Ê¹ï¿½Ã·ï¿½ï¿½ï¿½.',
+  ERROR_MORELABEL: 'JSDocï¿½ï¿½Ç©ï¿½Ï·ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½[$$]ï¿½ï¿½[$$]ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ó¦ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Ç©',
+  ERROR_REPEATLABEL: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,JSDocï¿½ï¿½Ç©ï¿½Ï·ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Ê§ï¿½ï¿½,[$$]ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Ê¹ï¿½ï¿½, ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©.',
+  ERROR_USE_INTERFACE: 'ï¿½ï¿½[$$]ï¿½ï¿½JSDocï¿½ï¿½,JSDocï¿½ï¿½Ç©ï¿½Ï·ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Ê§ï¿½ï¿½,interfaceï¿½ï¿½Ç©ï¿½ï¿½typedefï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±Ê¹ï¿½ï¿½, ï¿½ï¿½È·ï¿½Ï½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½.',
 };
 
 const ErrorValueInfo = {
@@ -315,7 +318,7 @@ const ErrorValueInfo = {
 exports.ErrorValueInfo = ErrorValueInfo;
 
 /**
-   * ×é×°´íÎóÐÅÏ¢
+   * ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
    */
 function createErrorInfo(errorInfo, params) {
   params.forEach((param) => {
@@ -326,7 +329,7 @@ function createErrorInfo(errorInfo, params) {
 exports.createErrorInfo = createErrorInfo;
 
 /**
- * ÅÐ¶ÏÊÇ·ñÎªarkuiµÄapiÎÄ¼þ
+ * ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªarkuiï¿½ï¿½apiï¿½Ä¼ï¿½
  */
 function isArkUIApiFile(fileName) {
   if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
@@ -354,7 +357,7 @@ function getcheckApiVersion() {
     const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
     packageJson = JSON.parse(packageJsonContent);
     checkApiVersion = packageJson.checkApiVersion;
-  } catch(error) {
+  } catch (error) {
     console.error("Failed to read package.json or parse JSON content:", error);
   }
   if (!checkApiVersion) {
@@ -363,3 +366,17 @@ function getcheckApiVersion() {
   return checkApiVersion;
 }
 exports.getcheckApiVersion = getcheckApiVersion;
+
+function removeDuplicateObj(array) {
+  let newArr = [];
+  for (const errorInfo of array) {
+    if (newArr.find((newErrorInfo) => newErrorInfo.location === errorInfo.location &&
+      newErrorInfo.errorInfo === errorInfo.errorInfo)) {
+      continue;
+    }
+    newArr.push(errorInfo);
+  }
+  return newArr;
+};
+exports.removeDuplicateObj = removeDuplicateObj;
+

@@ -64,7 +64,11 @@ function checkEntry(prId) {
     // catch error
     result = `API_CHECK_ERROR : ${error}`;
   } finally {
-    const { writeResultFile } = require('./src/utils');
+    const { writeResultFile, apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
+    const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
+    apiCheckResultArr.forEach(errorInfo => {
+      result.unshift(errorInfo);
+    });
     writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
 }
