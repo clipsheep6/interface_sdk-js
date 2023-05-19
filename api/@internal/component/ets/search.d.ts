@@ -283,6 +283,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 9
    */
   textAlign(value: TextAlign): SearchAttribute;
+
+  /**
+   * Sets whether request keyboard or not when on focus.
+   * @param { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  requestKeyboardOnFocus(value: boolean): TextInputAttribute;
 }
 
 /**
