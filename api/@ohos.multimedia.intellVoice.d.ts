@@ -371,21 +371,21 @@ declare namespace intellVoice {
    */
   interface EnrollIntellVoiceEngine {
     /**
-     * Obtains the supported region, This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the supported region.
+     * Obtains the supported regions, This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the supported regions.
      * @since 10
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    getSupportedRegion(callback: AsyncCallback<Array<string>>): void;
+    getSupportedRegions(callback: AsyncCallback<Array<string>>): void;
     /**
-     * Obtains the supported region, This method uses a promise to return the query result.
-     * @returns Promise used to return the supported region.
+     * Obtains the supported regions, This method uses a promise to return the query result.
+     * @returns Promise used to return the supported regions.
      * @since 10
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    getSupportedRegion(): Promise<Array<string>>;
+    getSupportedRegions(): Promise<Array<string>>;
     /**
      * Initials the engine, This method uses an asynchronous callback to return the result.
      * @param config enroll engine configuration.
@@ -553,21 +553,21 @@ declare namespace intellVoice {
    */
   interface WakeupIntellVoiceEngine {
     /**
-     * Obtains the supported region, This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the supported region.
+     * Obtains the supported regions, This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the supported regions.
      * @since 10
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    getSupportedRegion(callback: AsyncCallback<Array<string>>): void;
+    getSupportedRegions(callback: AsyncCallback<Array<string>>): void;
     /**
-     * Obtains the supported region, This method uses a promise to return the query result.
-     * @returns Promise used to return the supported region.
+     * Obtains the supported regions, This method uses a promise to return the query result.
+     * @returns Promise used to return the supported regions.
      * @since 10
      * @syscap SystemCapability.Multimedia.IntellVoice.Core
      * @permission ohos.permission.MANAGER_INTELL_VOICE
      */
-    getSupportedRegion(): Promise<Array<string>>;
+    getSupportedRegions(): Promise<Array<string>>;
     /**
      * Sets wakeup hap information, This method uses an asynchronous callback to return the result.
      * @param info wakeup hap information.
