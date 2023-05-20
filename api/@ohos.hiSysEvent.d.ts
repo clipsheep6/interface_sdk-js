@@ -146,8 +146,7 @@ declare namespace hiSysEvent {
    * Write system event.
    *
    * @param {SysEventInfo} info - system event information to be written.
-   * @param {AsyncCallback} callback - callback function.
-   * @returns {void} return void.
+   * @param {AsyncCallback<void>} callback - callback function.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
@@ -271,7 +270,6 @@ declare namespace hiSysEvent {
     /**
     * Receive system event.
     *
-    * @param {SysEventInfo} info system event information of receive.
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
     * @since 9
@@ -370,7 +368,6 @@ declare namespace hiSysEvent {
     /**
      * Handle query result, the query result will be send in several times.
      *
-     * @param {SysEventInfo[]} infos system event information of query result.
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -380,8 +377,6 @@ declare namespace hiSysEvent {
     /**
      * Notify querier execute query has finished.
      *
-     * @param {number} reason 0 success, 1 fail.
-     * @param {number} total the total number of query result.
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
