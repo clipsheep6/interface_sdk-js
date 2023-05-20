@@ -75,7 +75,7 @@ declare namespace hiSysEvent {
   /**
    * Definition of written system event information.
    *
-   * @typedef SysEventInfo
+   * @interface SysEventInfo
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -125,9 +125,8 @@ declare namespace hiSysEvent {
   /**
    * Write system event.
    *
-   * @param {SysEventInfo} info system event information to be written.
-   * @param {AsyncCallback} [callback] callback function.
-   * @returns {void | Promise<void>} no callback return Promise otherwise return void.
+   * @param {SysEventInfo} info - system event information to be written.
+   * @returns {Promise<void>} - Return Promise
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200001 - Invalid event domain.
    * @throws {BusinessError} 11200002 - Invalid event name.
@@ -142,6 +141,26 @@ declare namespace hiSysEvent {
    * @since 9
    */
   function write(info: SysEventInfo): Promise<void>;
+
+    /**
+   * Write system event.
+   *
+   * @param {SysEventInfo} info - system event information to be written.
+   * @param {AsyncCallback} callback - callback function.
+   * @returns {void} return void.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200001 - Invalid event domain.
+   * @throws {BusinessError} 11200002 - Invalid event name.
+   * @throws {BusinessError} 11200003 - Abnormal environment.
+   * @throws {BusinessError} 11200004 - Length of the event is over limit.
+   * @throws {BusinessError} 11200051 - Invalid event parameter.
+   * @throws {BusinessError} 11200052 - Size of the event parameter of the string type is over limit.
+   * @throws {BusinessError} 11200053 - Count of event parameters is over limit.
+   * @throws {BusinessError} 11200054 - Count of event parameter of the array type is over limit.
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
+   * @systemapi hide for inner use
+   * @since 9
+   */
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
 
   /**
@@ -184,7 +203,7 @@ declare namespace hiSysEvent {
   /**
    * Definition listener rule for system event information.
    *
-   * @typedef WatchRule
+   * @interface WatchRule
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -234,7 +253,7 @@ declare namespace hiSysEvent {
   /**
    * Definition watcher for system event information.
    *
-   * @typedef Watcher
+   * @interface Watcher
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -243,7 +262,6 @@ declare namespace hiSysEvent {
     /**
      * Rule of filter system event
      *
-     * @type { WatchRule[] }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -254,7 +272,6 @@ declare namespace hiSysEvent {
     * Receive system event.
     *
     * @param {SysEventInfo} info system event information of receive.
-    * @returns {void} return void.
     * @syscap SystemCapability.HiviewDFX.HiSysEvent
     * @systemapi hide for inner use
     * @since 9
@@ -264,7 +281,6 @@ declare namespace hiSysEvent {
     /**
      * Hisysevent service shutdown.
      *
-     * @returns {void} return void.
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -275,7 +291,7 @@ declare namespace hiSysEvent {
   /**
    * Definition arguments for query system event information.
    *
-   * @typedef QueryArg
+   * @interface QueryArg
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -315,7 +331,7 @@ declare namespace hiSysEvent {
   /**
    * Definition event for query system event information
    *
-   * @typedef QueryRule
+   * @interface QueryRule
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -345,7 +361,7 @@ declare namespace hiSysEvent {
   /**
    * Definition query result handler
    *
-   * @typedef Querier
+   * @interface Querier
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
@@ -355,7 +371,6 @@ declare namespace hiSysEvent {
      * Handle query result, the query result will be send in several times.
      *
      * @param {SysEventInfo[]} infos system event information of query result.
-     * @returns {void} return void.
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
@@ -367,7 +382,6 @@ declare namespace hiSysEvent {
      *
      * @param {number} reason 0 success, 1 fail.
      * @param {number} total the total number of query result.
-     * @returns {void} return void.
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
