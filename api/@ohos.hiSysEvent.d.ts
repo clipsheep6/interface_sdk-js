@@ -142,7 +142,7 @@ declare namespace hiSysEvent {
    */
   function write(info: SysEventInfo): Promise<void>;
 
-    /**
+  /**
    * Write system event.
    *
    * @param {SysEventInfo} info - system event information to be written.
