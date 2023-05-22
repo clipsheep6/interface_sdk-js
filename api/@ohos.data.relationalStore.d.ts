@@ -304,7 +304,7 @@ declare namespace relationalStore {
      * A parameterized constructor used to create a RdbPredicates instance.
      *
      * @param { string } name - indicates the table name of the database.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -312,7 +312,7 @@ declare namespace relationalStore {
      * A parameterized constructor used to create a RdbPredicates instance.
      *
      * @param { string } name - indicates the table name of the database.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -325,7 +325,7 @@ declare namespace relationalStore {
      *
      * @param { Array<string> } devices - indicates specified remote devices.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -349,7 +349,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -361,7 +361,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -376,7 +376,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -388,7 +388,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -479,7 +479,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -491,7 +491,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -506,7 +506,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -518,7 +518,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -533,7 +533,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -545,7 +545,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -558,7 +558,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name in the database table.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -568,7 +568,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name in the database table.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -581,7 +581,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name in the database table.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -591,7 +591,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name in the database table.
      * @returns { RdbPredicates } - the {@link RdbPredicates} self.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -606,7 +606,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} that match the specified field.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -618,7 +618,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the {@link RdbPredicates} that match the specified field.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -633,7 +633,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -645,7 +645,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { string } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -659,7 +659,7 @@ declare namespace relationalStore {
      * @param { ValueType } low - indicates the minimum value.
      * @param { ValueType } high - indicates the maximum value.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -670,7 +670,7 @@ declare namespace relationalStore {
      * @param { ValueType } low - indicates the minimum value.
      * @param { ValueType } high - indicates the maximum value.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -684,7 +684,7 @@ declare namespace relationalStore {
      * @param { ValueType } low - indicates the minimum value.
      * @param { ValueType } high - indicates the maximum value.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -695,7 +695,7 @@ declare namespace relationalStore {
      * @param { ValueType } low - indicates the minimum value.
      * @param { ValueType } high - indicates the maximum value.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -708,7 +708,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -718,7 +718,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -731,7 +731,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -741,7 +741,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -754,7 +754,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -764,7 +764,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -777,7 +777,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -787,7 +787,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { ValueType } value - indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -800,7 +800,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -810,7 +810,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -823,7 +823,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -833,7 +833,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -862,7 +862,7 @@ declare namespace relationalStore {
      *
      * @param { number } value - indicates the max length of the return list.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -871,7 +871,7 @@ declare namespace relationalStore {
      *
      * @param { number } value - indicates the max length of the return list.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -884,7 +884,7 @@ declare namespace relationalStore {
      *
      * @param { number } rowOffset - indicates the start position of the returned result. The value is a positive integer.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -894,7 +894,7 @@ declare namespace relationalStore {
      *
      * @param { number } rowOffset - indicates the start position of the returned result. The value is a positive integer.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -906,7 +906,7 @@ declare namespace relationalStore {
      *
      * @param { Array<string> } fields - indicates the specified columns by which query results are grouped.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -915,7 +915,7 @@ declare namespace relationalStore {
      *
      * @param { Array<string> } fields - indicates the specified columns by which query results are grouped.
      * @returns { RdbPredicates } - the SQL query statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -928,7 +928,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the name of the index column.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -938,7 +938,7 @@ declare namespace relationalStore {
      *
      * @param { string } field - indicates the name of the index column.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -952,7 +952,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { Array<ValueType> } value - indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -963,7 +963,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { Array<ValueType> } value - indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -977,7 +977,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { Array<ValueType> } value - indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -988,7 +988,7 @@ declare namespace relationalStore {
      * @param { string } field - indicates the column name in the database table.
      * @param { Array<ValueType> } value - indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - the SQL statement with the specified {@link RdbPredicates}.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1166,7 +1166,7 @@ declare namespace relationalStore {
      * @param { string } columnName - indicates the name of the specified column in the result set.
      * @returns { number } the index of the specified column.
      * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1177,7 +1177,7 @@ declare namespace relationalStore {
      * @param { string } columnName - indicates the name of the specified column in the result set.
      * @returns { number } the index of the specified column.
      * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1191,7 +1191,7 @@ declare namespace relationalStore {
      * @param { number } columnIndex - indicates the index of the specified column in the result set.
      * @returns { string } the name of the specified column.
      * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1201,8 +1201,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the index of the specified column in the result set.
      * @returns { string } the name of the specified column.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1216,8 +1216,8 @@ declare namespace relationalStore {
      * @param { number } offset - indicates the offset relative to the current position.
      * @returns { boolean } true if the result set is moved successfully and does not go beyond the range;
      *                   returns false otherwise.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1228,8 +1228,8 @@ declare namespace relationalStore {
      * @param { number } offset - indicates the offset relative to the current position.
      * @returns { boolean } true if the result set is moved successfully and does not go beyond the range;
      *                   returns false otherwise.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1241,8 +1241,8 @@ declare namespace relationalStore {
      *
      * @param { number } position - indicates the index of the specified row, which starts from 0.
      * @returns { boolean } true if the result set is moved successfully; returns false otherwise.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1251,8 +1251,8 @@ declare namespace relationalStore {
      *
      * @param { number } position - indicates the index of the specified row, which starts from 0.
      * @returns { boolean } true if the result set is moved successfully; returns false otherwise.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1264,7 +1264,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1273,7 +1273,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1285,7 +1285,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1294,7 +1294,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1306,7 +1306,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is already in the last row.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1315,7 +1315,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is already in the last row.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1327,7 +1327,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is already in the first row.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1336,7 +1336,7 @@ declare namespace relationalStore {
      *
      * @returns { boolean } true if the result set is moved successfully;
      *                    returns false otherwise, for example, if the result set is already in the first row.
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1350,8 +1350,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { Uint8Array } the value of the specified column as a byte array.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1362,8 +1362,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { Uint8Array } the value of the specified column as a byte array.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1377,8 +1377,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { string } the value of the specified column as a string.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1389,8 +1389,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { string } the value of the specified column as a string.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1404,8 +1404,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { number } the value of the specified column as a long.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1416,8 +1416,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { number } the value of the specified column as a long.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1431,8 +1431,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { number } the value of the specified column as a double.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1443,8 +1443,8 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { number } the value of the specified column as a double.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1457,8 +1457,8 @@ declare namespace relationalStore {
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { boolean } true if the value of the specified column in the current row is null;
      *                    returns false otherwise.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1468,8 +1468,8 @@ declare namespace relationalStore {
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { boolean } true if the value of the specified column in the current row is null;
      *                    returns false otherwise.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1480,7 +1480,7 @@ declare namespace relationalStore {
      * Closes the result set.
      * Calling this method on the result set will release all of its resources and makes it ineffective.
      *
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1488,7 +1488,7 @@ declare namespace relationalStore {
      * Closes the result set.
      * Calling this method on the result set will release all of its resources and makes it ineffective.
      *
-     * @throws { BusinessError } 14800012 - the result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1517,14 +1517,14 @@ declare namespace relationalStore {
     /**
      * Obtains the RdbStore version. The version number must be an integer greater than 0.
      *
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     /**
      * Obtains the RdbStore version. The version number must be an integer greater than 0.
      *
-     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1537,8 +1537,8 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { ValuesBucket } values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - the row ID if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1549,8 +1549,8 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - the row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1564,9 +1564,9 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - indicates the {@link ConflictResolution} to insert data into the table.
      * @param { AsyncCallback<number> } callback - the row ID if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1579,8 +1579,8 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { ValuesBucket } values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } the row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1590,9 +1590,9 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { ValuesBucket } values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } the row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1606,9 +1606,9 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<number> } the row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1621,8 +1621,8 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { Array<ValuesBucket> } values - indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - the number of values that were inserted if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1632,9 +1632,9 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { Array<ValuesBucket> } values - indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - the number of values that were inserted if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1647,8 +1647,8 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { Array<ValuesBucket> } values - indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } the number of values that were inserted if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1658,9 +1658,9 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { Array<ValuesBucket> } values - indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } the number of values that were inserted if the operation is successful. returns -1 otherwise.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1673,8 +1673,8 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1684,9 +1684,9 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1700,9 +1700,9 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - indicates the {@link ConflictResolution} to insert data into the table.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1715,8 +1715,8 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1726,9 +1726,9 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { RdbPredicates } predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1742,9 +1742,9 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { ConflictResolution } conflict - indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1758,9 +1758,9 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1773,10 +1773,10 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1791,9 +1791,9 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1806,10 +1806,10 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1822,8 +1822,8 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1832,9 +1832,9 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1846,8 +1846,8 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1856,9 +1856,9 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - the specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<number> } return the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1871,9 +1871,9 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1885,10 +1885,10 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1902,9 +1902,9 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1916,10 +1916,10 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } the number of affected rows.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -1932,8 +1932,8 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - the specified query condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1946,8 +1946,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - the specified query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - the columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1957,8 +1957,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - the specified query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - the columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1971,8 +1971,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - the specified query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - the columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1982,8 +1982,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - the specified query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - the columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1996,9 +1996,9 @@ declare namespace relationalStore {
      * @param { string } table - indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2013,9 +2013,9 @@ declare namespace relationalStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { Array<string> } columns - the columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2030,9 +2030,9 @@ declare namespace relationalStore {
      * @param { dataSharePredicates.DataSharePredicates } predicates - the specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { Array<string> } columns - the columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2045,8 +2045,8 @@ declare namespace relationalStore {
      *
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2059,8 +2059,8 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2070,8 +2070,8 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2084,8 +2084,8 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2095,8 +2095,8 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2108,9 +2108,9 @@ declare namespace relationalStore {
      *
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { AsyncCallback<void> } callback - the callback of executeSql.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2123,8 +2123,8 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<void> } callback - the callback of executeSql.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2134,9 +2134,9 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<void> } callback - the callback of executeSql.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2149,8 +2149,8 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2160,9 +2160,9 @@ declare namespace relationalStore {
      * @param { string } sql - indicates the SQL statement to execute.
      * @param { Array<ValueType> } bindArgs - indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.+
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2172,17 +2172,17 @@ declare namespace relationalStore {
     /**
      * BeginTransaction before execute your sql.
      *
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
     /**
      * BeginTransaction before execute your sql.
      *
-     * @throws { BusinessError } 14800047 - if the WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2192,14 +2192,14 @@ declare namespace relationalStore {
     /**
      * Commit the the sql you have executed.
      *
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
     /**
      * Commit the the sql you have executed.
      *
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2209,14 +2209,14 @@ declare namespace relationalStore {
     /**
      * Roll back the sql you have already executed.
      *
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
     /**
      * Roll back the sql you have already executed.
      *
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2228,8 +2228,8 @@ declare namespace relationalStore {
      *
      * @param { string } destName - indicates the name that saves the database backup.
      * @param { AsyncCallback<void> } callback - the callback of backup.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2238,8 +2238,8 @@ declare namespace relationalStore {
      *
      * @param { string } destName - indicates the name that saves the database backup.
      * @param { AsyncCallback<void> } callback - the callback of backup.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2251,8 +2251,8 @@ declare namespace relationalStore {
      *
      * @param { string } destName - indicates the name that saves the database backup.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2261,8 +2261,8 @@ declare namespace relationalStore {
      *
      * @param { string } destName - indicates the name that saves the database backup.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2274,8 +2274,8 @@ declare namespace relationalStore {
      *
      * @param { string } srcName - indicates the name that saves the database file.
      * @param { AsyncCallback<void> } callback - the callback of restore.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2284,8 +2284,8 @@ declare namespace relationalStore {
      *
      * @param { string } srcName - indicates the name that saves the database file.
      * @param { AsyncCallback<void> } callback - the callback of restore.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2297,8 +2297,8 @@ declare namespace relationalStore {
      *
      * @param { string } srcName - indicates the name that saves the database file.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2307,8 +2307,8 @@ declare namespace relationalStore {
      *
      * @param { string } srcName - indicates the name that saves the database file.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2321,8 +2321,8 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
      * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2335,8 +2335,8 @@ declare namespace relationalStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2351,8 +2351,8 @@ declare namespace relationalStore {
      * @param { string } device - indicates the remote device.
      * @param { string } table - {string}: the distributed table name.
      * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2367,8 +2367,8 @@ declare namespace relationalStore {
      * @param { string } device - indicates the remote device.
      * @param { string } table
      * @returns { Promise<string> } {string}: the distributed table name.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2382,8 +2382,8 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - the specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<Array<[string, number]>> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2397,8 +2397,8 @@ declare namespace relationalStore {
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - the specified sync condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<Array<[string, number]>> } {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2413,8 +2413,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - the specified remote remote query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2429,8 +2429,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - the specified remote remote query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
      * @returns { Promise<ResultSet> } the {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 14800000 - if inner error is occurred.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 14800000 - The inner error is occurred.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2444,7 +2444,7 @@ declare namespace relationalStore {
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2457,7 +2457,7 @@ declare namespace relationalStore {
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -2473,10 +2473,10 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { StoreConfig } config - indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - the RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed open database by invalid database name.
-   * @throws { BusinessError } 14800011 - if failed open database by database corrupted.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -2488,10 +2488,10 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { StoreConfig } config - indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - the RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed open database by invalid database name.
-   * @throws { BusinessError } 14800011 - if failed open database by database corrupted.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -2506,10 +2506,10 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { StoreConfig } config - indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } the RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed open database by invalid database name.
-   * @throws { BusinessError } 14800011 - if failed open database by database corrupted.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -2521,10 +2521,10 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { StoreConfig } config - indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } the RDB store {@link RdbStore}.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed open database by invalid database name.
-   * @throws { BusinessError } 14800011 - if failed open database by database corrupted.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -2537,9 +2537,9 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { string } name - indicates the database name.
    * @param { AsyncCallback<void> } callback - the callback of deleteRdbStore.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed delete database by invalid database name.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -2549,9 +2549,9 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { string } name - indicates the database name.
    * @param { AsyncCallback<void> } callback - the callback of deleteRdbStore.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed delete database by invalid database name.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -2564,9 +2564,9 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { string } name - indicates the database name.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed delete database by invalid database name.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -2576,9 +2576,9 @@ declare namespace relationalStore {
    * @param { Context } context - indicates the context of application or capability.
    * @param { string } name - indicates the database name.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
-   * @throws { BusinessError } 14800000 - if inner error is occurred.
-   * @throws { BusinessError } 14800010 - if failed delete database by invalid database name.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 14800000 - The inner error is occurred.
+   * @throws { BusinessError } 14800010 - Failed to open database by invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
