@@ -388,13 +388,13 @@ declare namespace installer {
      */
     sharedBundleDirPaths?: Array<String>;
     /**
-     * Indicates the signature file dir paths.
+     * Indicates the signature file paths.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
      */
-    signatureFileDirPaths?: Array<String>;
+    signatureFilePaths?: Array<String>;
   }
 
   /**
