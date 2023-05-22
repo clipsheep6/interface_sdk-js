@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import { ShellCmdResult } from './shellCmdResult';
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
- * @interface
+ * @interface AbilityDelegator
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
@@ -317,7 +317,7 @@ export interface AbilityDelegator {
   /**
    * Prints log information to the unit testing console.
    * The total length of the log information to be printed cannot exceed 1000 characters.
-   * @param msg Log information
+   * @param { string } msg Log information
    * @param { AsyncCallback<void> } callback - The callback of print.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
@@ -327,8 +327,8 @@ export interface AbilityDelegator {
   /**
    * Prints log information to the unit testing console.
    * The total length of the log information to be printed cannot exceed 1000 characters.
-   * @param msg Log information
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } msg Log information
+   * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -346,8 +346,8 @@ export interface AbilityDelegator {
 
   /**
    * Execute the given command in the aa tools side.
-   * @param cmd Shell command
-   * @param { AsyncCallback<void> } callback - The callback of executeShellCommand.
+   * @param { string } cmd Shell command
+   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -355,9 +355,9 @@ export interface AbilityDelegator {
 
   /**
    * Execute the given command in the aa tools side.
-   * @param cmd Shell command
-   * @param timeoutSecs Timeout, in seconds
-   * @param { AsyncCallback<void> } callback - The callback of executeShellCommand.
+   * @param { string } cmd Shell command
+   * @param { number } timeoutSecs Timeout, in seconds
+   * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
@@ -365,9 +365,9 @@ export interface AbilityDelegator {
 
   /**
    * Execute the given command in the aa tools side.
-   * @param cmd Shell command
-   * @param timeoutSecs Timeout, in seconds
-   * @returns ShellCmdResult object
+   * @param { string } cmd Shell command
+   * @param { number } timeoutSecs Timeout, in seconds
+   * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */

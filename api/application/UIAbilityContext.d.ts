@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -31,6 +31,7 @@ import dialogRequest from "../@ohos.app.ability.dialogRequest";
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
+ * @extends Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -68,7 +69,7 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Starts a new ability.
-   * @param want { Want } - Indicates the ability to start.
+   * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -394,7 +395,7 @@ export default class UIAbilityContext extends Context {
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
    * @param { StartOptions } options - Indicates the start options.
-   * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
+   * @param { AsyncCallback<void> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -831,8 +832,8 @@ export default class UIAbilityContext extends Context {
   /**
    * Check to see ability is in terminating state.
    * @returns { boolean } Returns true when ability is in terminating state, else returns false.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
    */
@@ -920,8 +921,8 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Requests certain permissions from the system.
-   * @param want { Want } - Indicates the dialog service to start.
-   * @param { AsyncCallback<RequestResult> } result - The callback is used to return the request result.
+   * @param { Want } want { Want } - Indicates the dialog service to start.
+   * @param { AsyncCallback<dialogRequest.RequestResult> } result - The callback is used to return the request result.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -944,8 +945,8 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Requests certain permissions from the system.
-   * @param want { Want } - Indicates the dialog service to start.
-   * @returns { Promise<request.RequestResult> } Returns the request result.
+   * @param { Want } want { Want } - Indicates the dialog service to start.
+   * @returns { Promise<dialogRequest.RequestResult> } Returns the request result.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
