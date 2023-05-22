@@ -89,7 +89,13 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @form
    * @since 9
    */
-  colors(colors: Array<any>): GaugeAttribute;
+  /**
+   * Set the color of the chart. You can set the solid color and segmented gradient color.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  colors(colors: Array<[ResourceColor, number]>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
