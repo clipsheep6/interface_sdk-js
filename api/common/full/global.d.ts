@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2020-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,6 +24,16 @@ import { OffscreenCanvasRenderingContext2D } from './viewmodel'
  * @returns Returns the timer ID.
  * @since 3
  */
+/**
+ * Sets the interval for repeatedly calling a function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
+ * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns Returns the timer ID.
+ * @crossplatform
+ * @since 10
+ */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
 
 /**
@@ -35,6 +45,16 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @returns Returns the timer ID.
  * @since 3
  */
+/**
+ * Sets a timer after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns Returns the timer ID.
+ * @crossplatform
+ * @since 10
+ */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
@@ -42,6 +62,13 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param handler Indicates the function to be called when the vsync trigger.
  * @since 3
+ */
+/**
+ * Sets a vsync after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called when the vsync trigger.
+ * @crossplatform
+ * @since 10
  */
 export declare function requestAnimationFrame(handler: Function): number;
 
@@ -51,6 +78,13 @@ export declare function requestAnimationFrame(handler: Function): number;
  * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
  * @since 3
  */
+/**
+ * Cancels the vsync callback set by "requestAnimationFrame()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
+ * @crossplatform
+ * @since 10
+ */
 export declare function cancelAnimationFrame(requestId: number): void;
 
 /**
@@ -59,6 +93,13 @@ export declare function cancelAnimationFrame(requestId: number): void;
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @since 3
  */
+/**
+ * Cancels the interval set by " setInterval()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param intervalID Indicates the timer ID returned by "setInterval()".
+ * @crossplatform
+ * @since 10
+ */
 export declare function clearInterval(intervalID?: number): void;
 
 /**
@@ -66,6 +107,13 @@ export declare function clearInterval(intervalID?: number): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @since 3
+ */
+/**
+ * Cancels the timer set by "setTimeout()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @crossplatform
+ * @since 10
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
@@ -83,12 +131,23 @@ export declare function createLocalParticleAbility(name?: string): any;
  * Defining syscap function.
  * @since 8
  */
+/**
+ * Defining syscap function.
+ * @crossplatform
+ * @since 10
+ */
 export declare function canIUse(syscap: string): boolean;
 
 /**
  * Obtain the objects exposed in app.js
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
+ */
+/**
+ * Obtain the objects exposed in app.js
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
  */
 export declare function getApp(): object;
 
@@ -97,30 +156,65 @@ export declare function getApp(): object;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
+/**
+ * You can create an Image object by calling new Image().
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 export declare class Image {
   /**
    * Network address or local resource. The internal URI is supported.
    * @since 4
    */
+  /**
+   * Network address or local resource. The internal URI is supported.
+   * @crossplatform
+   * @since 10
+   */
   src: string;
+
   /**
    * Image width.
    * @since 4
    */
+  /**
+   * Image width.
+   * @crossplatform
+   * @since 10
+   */
   width?: number;
+
   /**
    * Image height.
    * @since 4
    */
+  /**
+   * Image height.
+   * @crossplatform
+   * @since 10
+   */
   height?: number;
+
   /**
    * Called when an image is successfully loaded. This function has no parameter.
    * @since 4
    */
+  /**
+   * Called when an image is successfully loaded. This function has no parameter.
+   * @crossplatform
+   * @since 10
+   */
   onload?: () => void;
+
   /**
    * Called when an image fails to be loaded. This function has no parameter.
    * @since 4
+   */
+  /**
+   * Called when an image fails to be loaded. This function has no parameter.
+   * @crossplatform
+   * @since 10
    */
   onerror?: () => void;
 }
@@ -130,20 +224,43 @@ export declare class Image {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 4
  */
+/**
+ * An ImageData object is a common object that stores the actual pixel data of a Canvas object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 export declare class ImageData {
   /**
    * Actual width of the ImageData object, in pixels.
    * @since 4
    */
+  /**
+   * Actual width of the ImageData object, in pixels.
+   * @crossplatform
+   * @since 10
+   */
   width: number;
+
   /**
    * Actual height of the ImageData object, in pixels.
    * @since 4
    */
+  /**
+   * Actual height of the ImageData object, in pixels.
+   * @crossplatform
+   * @since 10
+   */
   height: number;
+
   /**
    * A one-dimensional array of color values. The color values are sorted in the RGBA order and represented by integers from 0 to 255.
    * @since 4
+   */
+  /**
+   * A one-dimensional array of color values. The color values are sorted in the RGBA order and represented by integers from 0 to 255.
+   * @crossplatform
+   * @since 10
    */
   data: Uint8ClampedArray;
 }
@@ -154,11 +271,24 @@ export declare class ImageData {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * OffscreenCanvas provides a Canvas object that can be rendered off-screen.
+ * It works in both window and Web worker environments.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 export declare class OffscreenCanvas {
   /**
    * The width of the offScreen Canvas object
    * The height of the offScreen Canvas object
    * @since 7
+   */
+  /**
+   * The width of the offScreen Canvas object
+   * The height of the offScreen Canvas object
+   * @crossplatform
+   * @since 10
    */
   constructor(width: number, height: number);
 
@@ -166,11 +296,21 @@ export declare class OffscreenCanvas {
    * The width of the offScreen Canvas object
    * @since 7
    */
+  /**
+   * The width of the offScreen Canvas object
+   * @crossplatform
+   * @since 10
+   */
   width: number;
 
   /**
    * The height of the offScreen Canvas object
    * @since 7
+   */
+  /**
+   * The height of the offScreen Canvas object
+   * @crossplatform
+   * @since 10
    */
   height: number;
 
@@ -181,6 +321,14 @@ export declare class OffscreenCanvas {
    * @returns  a render canvas for the offScreen Canvas object.
    * @since 7
    */
+  /**
+   * Gets the context object for off-screen drawing.
+   * @param contextId creates a CanvasRenderingContext2D object representing a two-dimensional rendering context.
+   * @param options object representing a three-dimensional rendering context.
+   * @returns  a render canvas for the offScreen Canvas object.
+   * @crossplatform
+   * @since 10
+   */
   getContext(contextId: "2d", options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D;
 
   /**
@@ -190,12 +338,26 @@ export declare class OffscreenCanvas {
    * @returns A Promise returning a Blob object representing the image contained in the canvas.
    * @since 7
    */
+    /**
+   * Converts the draw contents of the current off-screen draw object to a string in the form of a Blob.
+   * @param type indicating the image format.
+   * @param quality between 0 and 1 indicating image quality if the type option is image/jpeg or image/webp.
+   * @returns A Promise returning a Blob object representing the image contained in the canvas.
+   * @crossplatform
+   * @since 10
+   */
   toDataURL(type?: string, quality?: number): string;
 
   /**
    * Converts the draw content in the current off-screen draw object to a Bitmap object.
    * @returns Returns An ImageBitmap object.
    * @since 7
+   */
+  /**
+   * Converts the draw content in the current off-screen draw object to a Bitmap object.
+   * @returns Returns An ImageBitmap object.
+   * @crossplatform
+   * @since 10
    */
   transferToImageBitmap(): ImageBitmap;
 }
@@ -205,16 +367,32 @@ export declare class OffscreenCanvas {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
+/**
+ * Defines the ImageBitmap.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 export declare class ImageBitmap {
   /**
    * The height of the Image Bitmap object.
    * @since 7
+   */
+  /**
+   * The height of the Image Bitmap object.
+   * @crossplatform
+   * @since 10
    */
   readonly height: number;
 
   /**
    * The width of the Image Bitmap object.
    * @since 7
+   */
+  /**
+   * The width of the Image Bitmap object.
+   * @crossplatform
+   * @since 10
    */
   readonly width: number;
 }
