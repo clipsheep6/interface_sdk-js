@@ -53,6 +53,7 @@ declare namespace vibrator {
    * @param { AsyncCallback<void> } callback - The callback of startVibration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -67,6 +68,7 @@ declare namespace vibrator {
    * @returns { Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -193,9 +195,16 @@ declare namespace vibrator {
   /**
    * Describes the effect of vibration.
    * @syscap SystemCapability.Sensors.MiscDevice
+   * @type { VibrateTime | VibratePreset }
    * @since 9
    */
-  type VibrateEffect = VibrateTime | VibratePreset;
+  /**
+   * Describes the effect of vibration.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @type { VibrateTime | VibratePreset | VibrateFromFile }
+   * @since 10
+   */
+  type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile;
 
   /**
    * Vibrate continuously for a period of time at the default intensity of the system.
@@ -216,6 +225,48 @@ declare namespace vibrator {
     type: "preset";
     effectId: string; /** Preset type vibration */
     count: number; /** The number of vibration repetitions */
+  }
+
+  /**
+   * Custom vibration, vibrate the effect from a haptic file.
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 10
+   */
+  interface VibrateFromFile {
+    type: 'file';
+    hapticFd: HapticFileDescriptor; /** Haptic file descriptor, some formats are supported. */
+  }
+
+  /**
+   * Haptic file descriptor. The caller needs to ensure that the fd is valid and
+   * the offset and length are correct.
+   * @since 10
+   * @syscap SystemCapability.Sensors.MiscDevice
+   */
+  interface HapticFileDescriptor {
+    /**
+     * The file descriptor of haptic effect source from file system. The caller
+     * is responsible to close the file descriptor.
+     * @since 10
+     * @syscap SystemCapability.Sensors.MiscDevice
+     */
+    fd: number
+
+    /**
+     * The offset into the file where the data to be read, in bytes. By default,
+     * the offset is zero.
+     * @since 10
+     * @syscap SystemCapability.Sensors.MiscDevice
+     */
+    offset?: number
+
+    /**
+     * The length in bytes of the data to be read. By default, the length is the
+     * rest of bytes in the file from the offset.
+     * @since 10
+     * @syscap SystemCapability.Sensors.MiscDevice
+     */
+    length?: number
   }
 }
 
