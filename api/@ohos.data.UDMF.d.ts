@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { AsyncCallback } from './@ohos.base';
+
 /**
  * UDMF - Unified Data Management Framework
  *
@@ -76,6 +78,13 @@ declare namespace UDMF {
      * @since 10
      */
     VIDEO = 'File.Media.Video',
+    /**
+     * indicate the data type is audio
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    AUDIO = 'File.Media.Audio',
     /**
      * indicate the data type is Folder
      *
@@ -348,6 +357,23 @@ declare namespace UDMF {
   }
 
   /**
+   * describe the unified audio data
+   *
+   * @extends File
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  class Audio extends File {
+    /**
+     * indicates the uri of audio
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    audioUri: string;
+  }
+
+  /**
    * describe the unified folder data
    *
    * @extends File
@@ -524,6 +550,92 @@ declare namespace UDMF {
      */
     rawData: Uint8Array;
   }
+
+  /**
+   * describe the sharing channel that UDMF support
+   * 
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  enum Intention {
+    /**
+     * indicates the intention of superhub
+     * 
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    SUPERHUB = "SuperHub"
+  }
+
+  /**
+   * describe the optional arguments of data operation
+   * 
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  type Option = {
+    /**
+     * indicates the target Intention
+     * 
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    intention?: Intention;
+
+    /**
+     * indicates the unique identifier of target UnifiedData
+     * 
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10 
+     */
+    key?: string;
+  }
+
+  /**
+   * Insert data into UDMF by Intention
+   * 
+   * @param { Option } option - fill the intention field to indicate the target {@link Intention}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
+   * @param { AsyncCallback<string> } callback - the unique identifier.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function insertData(option: Option, data: UnifiedData, callback: AsyncCallback<string>): void;
+
+  /**
+   * Update data to UDMF by Unique Identifier
+   * 
+   * @param { Option } option - fill the unique identifier field to indicate the target {@link UnifiedData}.
+   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
+   * @param { AsyncCallback<boolean> } callback - true means success; false otherwise.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function updateData(option: Option, data: UnifiedData, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Query data of UDMF by Intention or Unique Identifier
+   * 
+   * @param { Option } option - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - the target {@link UnifiedData} object array.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+    function queryData(option: Option, callback: AsyncCallback<Array<UnifiedData>>): void;
+
+  /**
+   * Delete data of UDMF by Intention or Unique Identifier
+   * 
+   * @param { Option } option - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
+   * @param { AsyncCallback<Array<UnifiedData>> } callback - the deleted {@link UnifiedData} object array.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 10
+   */
+  function deleteData(option: Option, callback: AsyncCallback<Array<UnifiedData>>): void;
 }
 
 export default UDMF;
