@@ -27,6 +27,7 @@ interface GridInterface {
 
 /**
  * Defines the grid Adaptive constraints.
+ * @crossplatform
  * @since 10
  */
 declare type AutoFill = {
@@ -71,12 +72,14 @@ declare enum GridDirection {
 declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * This parameter specifies the number of columns in the current grid layout.
+   * @crossplatform
    * @since 7
    */
   columnsTemplate(value: string | AutoFill): GridAttribute;
 
   /**
    * Lets you set the number of rows in the current grid layout,
+   * @crossplatform
    * @since 7
    */
   rowsTemplate(value: string | AutoFill): GridAttribute;
