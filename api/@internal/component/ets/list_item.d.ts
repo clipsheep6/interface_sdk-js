@@ -84,6 +84,65 @@ declare enum SwipeEdgeEffect {
 }
 
 /**
+ * Defines the swipe action item for SwipeActionOptions.
+ * @interface SwipeActionItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface SwipeActionItem {
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  builder?: CustomBuilder;
+
+  /**
+   * Defines distance for the delete area.
+   * @type { Length }
+   * @default 56vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  deleteAreaDistance?: Length;
+
+  /**
+   * Set whether to use default delete animation.
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  useDefaultDeleteAnimation?: boolean;
+
+  /**
+   * Called when ListItem need to be deleted.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onDelete?: () => void;
+
+  /**
+   * Called when swipe entry delete area.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onEnterDeleteArea?: () => void;
+
+  /**
+   * Called when swipe exit delete area.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onExitDeleteArea?: () => void;
+}
+
+/**
  * Defines the SwipeActionOption of swipeAction attribute method.
  * @since 9
  */
@@ -91,15 +150,34 @@ declare interface SwipeActionOptions {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
    * slides down (when list direction Horizontal).
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  start?: CustomBuilder;
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @type { CustomBuilder | SwipeActionItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  start?: CustomBuilder | SwipeActionItem;
+
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
    * slides up (when list direction Horizontal).
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  end?: CustomBuilder;
+  /**
+   * An action item that appears when a list item slides left (when list direction is Vertical) or
+   * slides up (when list direction Horizontal).
+   * @type { CustomBuilder | SwipeActionItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  end?: CustomBuilder | SwipeActionItem;
 
   /**
    * Sets whether sliding to a boundary has a spring effect.
