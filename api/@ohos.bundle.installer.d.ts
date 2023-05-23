@@ -81,6 +81,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700046 - Failed to install the HAP because the signature file is invalid.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -141,6 +142,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
      * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700046 - Failed to install the HAP because the signature file is invalid.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -385,6 +387,14 @@ declare namespace installer {
      * @since 10
      */
     sharedBundleDirPaths?: Array<String>;
+    /**
+     * Indicates the signature file paths.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 10
+     */
+    signatureFilePaths?: Array<String>;
   }
 
   /**
