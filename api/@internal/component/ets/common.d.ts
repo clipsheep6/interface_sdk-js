@@ -2918,7 +2918,7 @@ declare class CommonMethod<T> {
    * @since 9
    */
   backgroundImagePosition(value: Position | Alignment): T;
-
+  
   /**
    * Background blur style.
    * blurStyle:Blur style type.
@@ -3196,6 +3196,18 @@ declare class CommonMethod<T> {
    * @since 9
    */
   blur(value: number): T;
+
+  /**
+   * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
+   * @param { number } value - indecates the blurring radius. 
+   * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+   * @param { LinearGradientBlurOptions } options - indecates the linear gradient blur options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @crossplatform
+   * @since 10
+   */
+  linearGradientBlur(value: number, options:LinearGradientBlurOptions): T;
 
   /**
    * Adds a highlight effect to the current component.
@@ -3994,6 +4006,20 @@ declare const Common: CommonInterface;
 declare type CustomBuilder = (() => any) | void;
 
 /**
+ * Defines the segment of blur.
+ * The first element in the tuple indecates fraction. 
+ * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
+ * The second element indecates the stop position.
+ * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
+ * @type { [ number , number ] }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @since 10
+ */
+declare type FractionStop = [ number, number ];
+
+/**
  * CommonShapeMethod
  * @since 7
  */
@@ -4152,6 +4178,34 @@ declare interface LinearGradient {
   direction?: GradientDirection;
   colors: Array<any>;
   repeating?: boolean;
+}
+
+/**
+ * Linear Gradient Blur Interface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @since 10
+ */
+declare interface LinearGradientBlurOptions {
+  /**
+   * Percentage of blurring effect.
+   * @type { FractionStop[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @crossplatform
+   * @since 10
+   */  
+  fractionStops: FractionStop[];
+  /**
+   * Direction of linear gradient blur.
+   * @type { GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @crossplatform
+   * @since 10
+   */  
+  direction: GradientDirection;
 }
 
 /**
