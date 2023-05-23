@@ -452,14 +452,31 @@ declare class Path2D extends CanvasPath {
 
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Describes an opaque object of a template, which is created using the createPattern() method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9
  */
-declare type CanvasPattern = import('../api/@internal/full/canvaspattern').CanvasPattern;
+declare interface CanvasPattern {
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @since 8
+   */
+  /**
+   * Adds the matrix transformation effect to the current template.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param transform transformation matrix
+   * @form
+   * @since 9
+   */
+  setTransform(transform?: Matrix2D): void;
+}
 
 /**
  * Size information of the text
@@ -737,7 +754,7 @@ declare class ImageData {
    * Height of the image.
    * @since 8
    */
-   /**
+  /**
    * Height of the image.
    * @form
    * @since 9
@@ -1078,7 +1095,18 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  fillStyle: string | CanvasGradient | CanvasPattern;
+  /**
+   * Attributes that describe the fill color and style. The default value is # 000 (black). The options are as follows:
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
@@ -1097,7 +1125,18 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  strokeStyle: string | CanvasGradient | CanvasPattern;
+  /**
+   * Attributes of the stroke color and style. The default value is # 000 (black). The options are as follows:
+   * @type { string | number | CanvasGradient | CanvasPattern }
+   * string: Color String.
+   * number: Indicates the color with number.
+   * CanvasGradient: Color gradient object. For details, see {@link CanvasGradient}.
+   * CanvasPattern: Template object. For details, see {@link CanvasPattern}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
+  strokeStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
    * Creates a linear gradient object that is specified along the parameter coordinates
@@ -1139,6 +1178,20 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
+  /**
+   * Creates a template object using the specified image
+   * @param image Objects as duplicate image sources
+   * @param repetition Specifies how to repeat images. The following four modes are supported:
+   * "repeat": Repeated images in both X and Y directions
+   * "repeat-x": Repeated images in the X-axis direction but not in the Y-axis direction
+   * "repeat-y": The image is repeated in the Y axis direction, and the image is not repeated in the X axis direction.
+   * "no-repeat": Non-repeating images in both X and Y directions
+   * "clamp": Replicate the edge color if the shader draws outside of its original bounds.
+   * "mirror": Repeat the shader's image horizontally and vertically, alternating mirror images so that adjacent images always seam.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @since 10
+   */
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
   /**
@@ -1165,6 +1218,22 @@ declare class CanvasRenderer extends CanvasPath {
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
+   * Creates a gradient around a point with given coordinates.
+   * @param startAngle The angle at which to begin the gradient, in radians.
+   *                   Angle measurements start horizontally the right of the center and move around clockwise.
+   * @param x The x-axis coordinate of the center of the gradient.
+   * @param y The y-axis coordinate of the center of the gradient.
+   * @returns CanvasGradient A CanvasGradient object that draws a conic gradient around the given coordinates.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  createConicGradient(
+    startAngle: number,
+    x: number,
+    y: number
+  ): CanvasGradient;
+
+  /**
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
    * blur(<length>): Adds a Gaussian blur effect to the drawing
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
@@ -1217,7 +1286,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  filter(filter: string): void;
+  filter: string;
 
   /**
    * Creates a new, empty ImageData object of the specified size
@@ -1293,7 +1362,16 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  putImageData(imagedata: ImageData, dx: number, dy: number): void;
+  /**
+   * Draws the specified ImageData object onto the canvas
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  putImageData(imagedata: ImageData, dx: number | string, dy: number | string): void;
 
   /**
    * Draws the specified ImageData object onto the canvas
@@ -1326,14 +1404,31 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
+  /**
+   * Draws the specified ImageData object onto the canvas
+   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
+   * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
+   * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (x coordinate) of the entire image data.
+   * @param { number | string } dirtyY - Position of the upper left corner of the rectangular area in the source image data.
+   *    The default is the upper left corner (y coordinate) of the entire image data.
+   * @param { number | string } dirtyWidth - Width of the rectangular area in the source image data.
+   *    The default is the width of the image data.
+   * @param { number | string } dirtyHeight - Height of the rectangular area in the source image data.
+   *    The default is the height of the image data.
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   putImageData(
     imagedata: ImageData,
-    dx: number,
-    dy: number,
-    dirtyX: number,
-    dirtyY: number,
-    dirtyWidth: number,
-    dirtyHeight: number,
+    dx: number | string,
+    dy: number | string,
+    dirtyX: number | string,
+    dirtyY: number | string,
+    dirtyWidth: number | string,
+    dirtyHeight: number | string
   ): void;
 
   /**
@@ -1358,7 +1453,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  imageSmoothingQuality(quality: ImageSmoothingQuality): void;
+  imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
    * Line segment endpoint attribute. For details, see {@link CanvasLineCap}.
@@ -1624,7 +1719,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @form
    * @since 9
    */
-  direction(direction: CanvasDirection): void;
+  direction: CanvasDirection;
 
   /**
    * Font style. The default value is 10px sans-serif.
@@ -1973,6 +2068,17 @@ declare class OffscreenCanvas extends CanvasRenderer {
    * @since 9
    */
   transferToImageBitmap(): ImageBitmap;
+
+  /**
+   * Creates the context from the current OffscreenCanvas.
+   * @param { string } contextType - The context type, only "2d" be supported now.
+   *  "2d": Creates a {@link OffscreenCanvasRenderingContext2D} object representing a two-dimensional rendering context.
+   * @param { RenderingContextSettings } option - Drawing attribute. For details, see {@link RenderingContextSettings}.
+   * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getContext(contextType: "2d", option?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
   /**
    * Constructor of the off-screen canvas, which is used to create an off-screen canvas object.

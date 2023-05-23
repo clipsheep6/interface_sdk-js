@@ -147,6 +147,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onChange(callback: (value: string) => void): TextAreaAttribute;
 
   /**
+   * Called when judging whether the text editing change finished.
+   * @param {boolean} isEditing - Triggered when the text area status changes. If the value of isEditing is true, text area is in progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onEditChange(callback: (isEditing: boolean) => void): TextAreaAttribute;
+
+  /**
    * Called when using the Clipboard menu
    * @since 7
    */
@@ -169,6 +177,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAreaAttribute;
+
+  /**
+   * Sets whether request keyboard or not when on focus.
+   * @param { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { TextAreaInterface } Returns the instance of the TextAreaInterface.
+   * @crossplatform
+   * @since 10
+   */
+  enableKeyboardOnFocus(value: boolean): TextAreaInterface;
 }
 
 /**

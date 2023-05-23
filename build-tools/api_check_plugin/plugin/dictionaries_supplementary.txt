@@ -23,6 +23,7 @@ alterase
 alternating
 altitudes
 amr
+animatable
 annually
 antialias
 apdu
@@ -111,6 +112,7 @@ cone
 conferencing
 confpersist
 connectable
+contentful
 contex
 controlpanel
 controlparam
@@ -137,6 +139,7 @@ datasync
 dbm
 dci
 ddmp
+deactivated
 deactivation
 decodes
 decomposed
@@ -163,7 +166,9 @@ dfx
 dialling
 dimbehind
 dirent
+dirxml
 disables
+disallowed
 discharging
 disconnecting
 disconnection
@@ -224,8 +229,10 @@ fdatasync
 fdn
 fdopen
 fileio
+fileshare
 fillets
 flac
+flg
 foldable
 formatable
 forwardmail
@@ -316,6 +323,8 @@ interchanged
 interleaved
 internalformat
 internationalized
+interpolating
+interpolatingSpring
 interpolator
 interworking
 invalidates
@@ -379,7 +388,7 @@ mah
 mcc
 md5
 mdns
-mdns_err
+mdnserror
 mediaquery
 meid
 messageerror
@@ -393,6 +402,7 @@ missions
 mkdtemp
 mmax
 mmi
+mmicode
 mnc
 moderately
 moitor
@@ -441,6 +451,7 @@ onfinish
 onframe
 onmessageerror
 onrepeat
+oob
 oobinline
 oper
 operated
@@ -448,6 +459,8 @@ operatorconfigs
 opkey
 opl
 opname
+option
+originating
 osd
 ott
 ounted
@@ -531,6 +544,7 @@ recursions
 redirections
 refill
 rejects
+relocation
 remidner
 remotedevice
 removable
@@ -571,6 +585,7 @@ sak
 satellites
 scdma
 sco
+scrambling
 screenlock
 screensaver
 scrolldown
@@ -594,6 +609,7 @@ sigalgs
 silenced
 slidable
 sliderstyle
+statvfs
 stk
 sm3
 smil
@@ -632,6 +648,8 @@ subscrbers
 subscribale
 subscribes
 subtypes
+subwindow
+subwindows
 superimposed
 suscriber
 suscribes
@@ -680,6 +698,7 @@ traversed
 truncates
 tsbundle
 ttls
+tunneled
 txpower
 uarfcn
 ubset
@@ -708,6 +727,8 @@ unicon
 uniform1ui
 uniforms
 uninit
+uninitialize
+uninitializes
 uninstallation
 unlinked
 unlocking
@@ -754,6 +775,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers
@@ -794,3 +816,6 @@ zoomout
 zoomreset
 zooms
 zpass
+commonevent
+unprepare
+unchained

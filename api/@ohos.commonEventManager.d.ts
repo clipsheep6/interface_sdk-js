@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from './@ohos.base';
 import { CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
 import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
@@ -31,10 +31,10 @@ declare namespace commonEventManager {
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - parameter error
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -46,10 +46,10 @@ declare namespace commonEventManager {
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 401 - parameter error
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -60,11 +60,12 @@ declare namespace commonEventManager {
    * @param { string } event - Specified the names of the common events.
    * @param { number } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
-   * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -77,11 +78,12 @@ declare namespace commonEventManager {
    * @param { number } userId - Specified the user to receive the common events.
    * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500004 - not System services or System app
-   * @throws { BusinessError } 1500007 - message send error
-   * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -114,6 +116,8 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -125,10 +129,74 @@ declare namespace commonEventManager {
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
+
+  /**
+   * Remove sticky common event.
+   * @permission ohos.permission.COMMONEVENT_STICKY
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of removeStickyCommonEvent.
+   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not system service
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 10
+   */
+  function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove sticky common event.
+   * @permission ohos.permission.COMMONEVENT_STICKY
+   * @param { string } event - name of the common event.
+   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not system service
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 10
+   */
+  function removeStickyCommonEvent(event: string): Promise<void>;
+
+  /**
+   * Set static subscriber state.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
+   * @since 10
+   */
+  function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set static subscriber state.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @systemapi Hide this for inner system use.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @StageModelOnly
+   * @since 10
+   */
+  function setStaticSubscriberState(enable: boolean): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
@@ -194,6 +262,7 @@ declare namespace commonEventManager {
 
     /**
      * This commonEvent means when the user is present after the device is awakened.
+     * @deprecated since 10
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
@@ -308,7 +377,7 @@ declare namespace commonEventManager {
      * Sent by system package verifier when a package need to be verified.
      */
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION =
-        "usual.event.PACKAGE_NEEDS_VERIFICATION",
+    "usual.event.PACKAGE_NEEDS_VERIFICATION",
 
     /**
      * Sent by system package verifier when a package is verified.
@@ -320,13 +389,13 @@ declare namespace commonEventManager {
      * available since the media on which they exist is available.
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE =
-        "usual.event.EXTERNAL_APPLICATIONS_AVAILABLE",
+    "usual.event.EXTERNAL_APPLICATIONS_AVAILABLE",
 
     /**
      * Resources for a set of packages are currently unavailable since the media on which they exist is unavailable.
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE =
-        "usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE",
+    "usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE",
 
     /**
      * The device configuration such as orientation,locale have been changed.
@@ -472,193 +541,193 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P peers state change.
      */
     COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED =
-        "usual.event.wifi.p2p.DEVICES_CHANGE",
+    "usual.event.wifi.p2p.DEVICES_CHANGE",
 
     /**
      * Indicates that the Wi-Fi P2P discovery state change.
      */
     COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED =
-        "usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE",
+    "usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE",
 
     /**
      * Indicates that the Wi-Fi P2P current device state change.
      */
     COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED =
-        "usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE",
+    "usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE",
 
     /**
      * Indicates that the Wi-Fi P2P group info is changed.
      */
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED =
-        "usual.event.wifi.p2p.GROUP_STATE_CHANGED",
+    "usual.event.wifi.p2p.GROUP_STATE_CHANGED",
 
     /**
      * Bluetooth.handsfree.ag.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfree.ag.current.device.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE",
+    "usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE",
 
     /**
      * Bluetooth.handsfree.ag.audio.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE",
+    "usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.current.device.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.playing.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.avrcp.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.codec.value.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE",
+    "usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.discovered.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED =
-        "usual.event.bluetooth.remotedevice.DISCOVERED",
+    "usual.event.bluetooth.remotedevice.DISCOVERED",
 
     /**
      * Bluetooth.remotedevice.class.value.update.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE =
-        "usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE",
+    "usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.acl.connected.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED =
-        "usual.event.bluetooth.remotedevice.ACL_CONNECTED",
+    "usual.event.bluetooth.remotedevice.ACL_CONNECTED",
 
     /**
      * Bluetooth.remotedevice.acl.disconnected.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED =
-        "usual.event.bluetooth.remotedevice.ACL_DISCONNECTED",
+    "usual.event.bluetooth.remotedevice.ACL_DISCONNECTED",
 
     /**
      * Bluetooth.remotedevice.name.update.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE =
-        "usual.event.bluetooth.remotedevice.NAME_UPDATE",
+    "usual.event.bluetooth.remotedevice.NAME_UPDATE",
 
     /**
      * Bluetooth.remotedevice.pair.state.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE =
-        "usual.event.bluetooth.remotedevice.PAIR_STATE",
+    "usual.event.bluetooth.remotedevice.PAIR_STATE",
 
     /**
      * Bluetooth.remotedevice.battery.value.update.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE =
-        "usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE",
+    "usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.sdp.result.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT =
-        "usual.event.bluetooth.remotedevice.SDP_RESULT",
+    "usual.event.bluetooth.remotedevice.SDP_RESULT",
 
     /**
      * Bluetooth.remotedevice.uuid.value.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE =
-        "usual.event.bluetooth.remotedevice.UUID_VALUE",
+    "usual.event.bluetooth.remotedevice.UUID_VALUE",
 
     /**
      * Bluetooth.remotedevice.pairing.req.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ =
-        "usual.event.bluetooth.remotedevice.PAIRING_REQ",
+    "usual.event.bluetooth.remotedevice.PAIRING_REQ",
 
     /**
      * Bluetooth.remotedevice.pairing.cancel.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL =
-        "usual.event.bluetooth.remotedevice.PAIRING_CANCEL",
+    "usual.event.bluetooth.remotedevice.PAIRING_CANCEL",
 
     /**
      * Bluetooth.remotedevice.connect.req.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ =
-        "usual.event.bluetooth.remotedevice.CONNECT_REQ",
+    "usual.event.bluetooth.remotedevice.CONNECT_REQ",
 
     /**
      * Bluetooth.remotedevice.connect.reply.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY =
-        "usual.event.bluetooth.remotedevice.CONNECT_REPLY",
+    "usual.event.bluetooth.remotedevice.CONNECT_REPLY",
 
     /**
      * Bluetooth.remotedevice.connect.cancel.
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL =
-        "usual.event.bluetooth.remotedevice.CONNECT_CANCEL",
+    "usual.event.bluetooth.remotedevice.CONNECT_CANCEL",
 
     /**
      * Bluetooth.handsfreeunit.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfreeunit.audio.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE",
+    "usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfreeunit.ag.common.event.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT =
-        "usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT",
+    "usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT",
 
     /**
      * Bluetooth.handsfreeunit.ag.call.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE",
+    "usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE",
 
     /**
      * Bluetooth.host.state.update.
      */
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE =
-        "usual.event.bluetooth.host.STATE_UPDATE",
+    "usual.event.bluetooth.host.STATE_UPDATE",
 
     /**
      * Bluetooth.host.req.discoverable.
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE =
-        "usual.event.bluetooth.host.REQ_DISCOVERABLE",
+    "usual.event.bluetooth.host.REQ_DISCOVERABLE",
 
     /**
      * Bluetooth.host.req.enable.
@@ -669,67 +738,67 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.disable.
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE =
-        "usual.event.bluetooth.host.REQ_DISABLE",
+    "usual.event.bluetooth.host.REQ_DISABLE",
 
     /**
      * Bluetooth.host.scan.mode.update.
      */
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE =
-        "usual.event.bluetooth.host.SCAN_MODE_UPDATE",
+    "usual.event.bluetooth.host.SCAN_MODE_UPDATE",
 
     /**
      * Bluetooth.host.discovery.stated.
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED =
-        "usual.event.bluetooth.host.DISCOVERY_STARTED",
+    "usual.event.bluetooth.host.DISCOVERY_STARTED",
 
     /**
      * Bluetooth.host.discovery.finished.
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED =
-        "usual.event.bluetooth.host.DISCOVERY_FINISHED",
+    "usual.event.bluetooth.host.DISCOVERY_FINISHED",
 
     /**
      * Bluetooth.host.name.update.
      */
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE =
-        "usual.event.bluetooth.host.NAME_UPDATE",
+    "usual.event.bluetooth.host.NAME_UPDATE",
 
     /**
      * Bluetooth.a2dp.connect.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dp.playing.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dp.audio.state.update.
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
+    "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
 
     /**
      * Nfc state change.
      */
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED =
-        "usual.event.nfc.action.ADAPTER_STATE_CHANGED",
+    "usual.event.nfc.action.ADAPTER_STATE_CHANGED",
 
     /**
      * Nfc field on detected.
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED =
-        "usual.event.nfc.action.RF_FIELD_ON_DETECTED",
+    "usual.event.nfc.action.RF_FIELD_ON_DETECTED",
 
     /**
      * Nfc field off detected.
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED =
-        "usual.event.nfc.action.RF_FIELD_OFF_DETECTED",
+    "usual.event.nfc.action.RF_FIELD_OFF_DETECTED",
 
     /**
      * Sent when stop charging battery.
@@ -753,6 +822,13 @@ declare namespace commonEventManager {
      * Sent when device's idle mode changed
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = "usual.event.DEVICE_IDLE_MODE_CHANGED",
+
+    /**
+     * Sent when the list of exempt applications in idle mode is updated.
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = "usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED",
 
     /**
      * Sent when device's power save mode changed
@@ -788,7 +864,7 @@ declare namespace commonEventManager {
      * Gps mode state changed.
      */
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED =
-        "usual.event.location.MODE_STATE_CHANGED",
+    "usual.event.location.MODE_STATE_CHANGED",
 
     /**
      * The ivi is about to go into sleep state when the ivi is turned off power.
@@ -875,28 +951,28 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_DEVICE_ATTACHED =
-        "usual.event.hardware.usb.action.USB_DEVICE_ATTACHED",
+    "usual.event.hardware.usb.action.USB_DEVICE_ATTACHED",
 
     /**
      * The usb device detached.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_DEVICE_DETACHED =
-        "usual.event.hardware.usb.action.USB_DEVICE_DETACHED",
+    "usual.event.hardware.usb.action.USB_DEVICE_DETACHED",
 
     /**
      * The usb accessory attached.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_ACCESSORY_ATTACHED =
-        "usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED",
+    "usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED",
 
     /**
      * The usb accessory detached.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_ACCESSORY_DETACHED =
-        "usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED",
+    "usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED",
 
     /**
      * The external storage was removed.
@@ -969,7 +1045,7 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED =
-        "usual.event.data.VISIBLE_ACCOUNTS_UPDATED",
+    "usual.event.data.VISIBLE_ACCOUNTS_UPDATED",
 
     /**
      * Account was deleted.
@@ -1013,6 +1089,13 @@ declare namespace commonEventManager {
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
 
     /**
+     * Indicate the result of quick fix revoke.
+     * This common event can be triggered only by system.
+     * @since 10
+     */
+    COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = "usual.event.QUICK_FIX_REVOKE_RESULT",
+
+    /**
      * Indicate the action of a common event that the user information has been updated.
      * This common event can be triggered only by system.
      */
@@ -1036,13 +1119,15 @@ declare namespace commonEventManager {
      * Indicate the action of a common event that a new sms bas been received by the device.
      * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
-    COMMON_EVENT_SMS_RECEIVED_COMPLETED = "usual.event.SMS_RECEIVED_COMPLETED",
+    COMMON_EVENT_SMS_RECEIVE_COMPLETED = "usual.event.SMS_RECEIVE_COMPLETED",
 
     /**
      * Indicate the action of a common event that a new sms emergency cell broadcast bas been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED = "usual.event.SMS_EMERGENCY_CB_RECEIVE_COMPLETED",
@@ -1050,34 +1135,47 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that a new sms normal cell broadcast bas been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED = "usual.event.SMS_CB_RECEIVE_COMPLETED",
 
     /**
      * Indicate the action of a common event that a STK command has been received by the device.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_COMMAND = "usual.event.STK_COMMAND",
 
     /**
      * Indicate the action of a common event that STK session end.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_SESSION_END = "usual.event.STK_SESSION_END",
 
     /**
      * Indicate the action of a common event that the STK phone card state has changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_CARD_STATE_CHANGED = "usual.event.STK_CARD_STATE_CHANGED",
 
     /**
      * Indicate the action of a common event that an alpha string during call control has been received by the device.
+     * To subscribe to this protected common event, your application must have the ohos.permission.STK_MESSAGES_RECEIVED
+     * permission.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_STK_ALPHA_IDENTIFIER = "usual.event.STK_ALPHA_IDENTIFIER",
@@ -1085,6 +1183,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that a new sms wappush has been received by the device.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED = "usual.event.SMS_WAPPUSH_RECEIVE_COMPLETED",
@@ -1092,6 +1191,7 @@ declare namespace commonEventManager {
     /**
      * Indicate the action of a common event that the operator config has been updated.
      * This common event can be triggered only by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_OPERATOR_CONFIG_CHANGED = "usual.event.OPERATOR_CONFIG_CHANGED",
@@ -1099,6 +1199,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default SMS subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_SMS_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_SMS_SUBSCRIPTION_CHANGED",
@@ -1106,6 +1207,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default data subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_DATA_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_DATA_SUBSCRIPTION_CHANGED",
@@ -1113,6 +1215,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default main subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED",
@@ -1120,6 +1223,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the default voice subscription has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_VOICE_SUBSCRIPTION_CHANGED = "usual.event.SIM.DEFAULT_VOICE_SUBSCRIPTION_CHANGED",
@@ -1136,6 +1240,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the cellular data state has been changed.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_CELLULAR_DATA_STATE_CHANGED = "usual.event.CELLULAR_DATA_STATE_CHANGED",
@@ -1159,6 +1264,7 @@ declare namespace commonEventManager {
      * To subscribe to this protected common event, your application must have the ohos.permission.GET_TELEPHONY_STATE
      * permission.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
     COMMON_EVENT_INCOMING_CALL_MISSED = "usual.event.INCOMING_CALL_MISSED",
@@ -1166,9 +1272,30 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that radio state change.
      * This is a protected common event that can only be sent by system.
+     * @systemapi
      * @since 10
      */
-    COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE"
+    COMMON_EVENT_RADIO_STATE_CHANGE = "usual.event.RADIO_STATE_CHANGE",
+
+    /**
+     * Indicate the action of a common event that domain account status has been changed.
+     * To subscribe to this protected common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS
+     * @systemapi
+     * @since 10
+     */
+    COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = "usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED",
+
+    /**
+     * This commonEvent means when the screen is unlocked.
+     * @since 10
+     */
+    COMMON_EVENT_SCREEN_UNLOCKED = "usual.event.SCREEN_UNLOCKED",
+
+    /**
+     * This commonEvent means when the screen is locked.
+     * @since 10
+     */
+    COMMON_EVENT_SCREEN_LOCKED = "usual.event.SCREEN_LOCKED"
   }
 }
 

@@ -33,8 +33,12 @@ interface ShapeInterface {
    * Called when a component is drawn.
    * @since 7
    */
-  (value?: PixelMap): ShapeAttribute;
+  (value: PixelMap): ShapeAttribute;
 
+  /**
+   * Called when a component is drawn.
+   * @since 7
+   */
   /**
    * Called when a component is drawn.
    * @form
@@ -182,7 +186,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 9
    */
   antiAlias(value: boolean): ShapeAttribute;
-  
+
   /**
    * Called when shape mesh.
    * @since 8

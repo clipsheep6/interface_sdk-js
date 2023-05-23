@@ -15,12 +15,14 @@
 
 /**
 * Provides options that can be set for the worker to create.
+* @crossplatform
 * @since 7
 * @syscap SystemCapability.Utils.Lang
 */
 export interface WorkerOptions {
   /**
    * Mode in which the worker executes the script.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -28,6 +30,7 @@ export interface WorkerOptions {
 
   /**
    * Name of the worker.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -35,6 +38,7 @@ export interface WorkerOptions {
 
   /**
    * Whether the worker is shared.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -43,12 +47,14 @@ export interface WorkerOptions {
 
 /**
  * Defines the event.
+ * @crossplatform
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
 export interface Event {
   /**
    * Type of the Event.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -56,6 +62,7 @@ export interface Event {
 
   /**
    * Timestamp(accurate to millisecond) when the event is created.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -64,12 +71,14 @@ export interface Event {
 
 /**
  * Provides detailed information about the exception occurred during worker execution.
+ * @crossplatform
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
 export interface ErrorEvent extends Event {
   /**
    * Information about the exception.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -77,6 +86,7 @@ export interface ErrorEvent extends Event {
 
   /**
    * File where the exception is located.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -84,6 +94,7 @@ export interface ErrorEvent extends Event {
 
   /**
    * Number of the line where the exception is located.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -91,6 +102,7 @@ export interface ErrorEvent extends Event {
 
   /**
    * Number of the column where the exception is located.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -98,6 +110,7 @@ export interface ErrorEvent extends Event {
 
   /**
    * Type of the exception.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -106,12 +119,14 @@ export interface ErrorEvent extends Event {
 
 /**
  * Holds the data transferred between worker threads.
+ * @crossplatform
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
 export interface MessageEvent<T> extends Event {
   /**
    * Data transferred when an exception occurs.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -120,12 +135,14 @@ export interface MessageEvent<T> extends Event {
 
 /**
  * Saves the data transferred between worker thread and host thread.
+ * @crossplatform
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- export interface MessageEvents extends Event {
+export interface MessageEvents extends Event {
   /**
    * Data transferred when an exception occurs.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -135,12 +152,14 @@ export interface MessageEvent<T> extends Event {
 /**
  * Specifies the object whose ownership need to be transferred during data transfer.
  * The object must be ArrayBuffer.
+ * @crossplatform
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
 export interface PostMessageOptions {
   /**
    * ArrayBuffer array used to transfer the ownership.
+   * @crossplatform
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
@@ -168,17 +187,26 @@ export interface EventListener {
 
 /**
  * Implements event listening.
+ * @crossplatform
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- export interface WorkerEventListener {
+export interface WorkerEventListener {
   /**
    * Specifies the callback function to be invoked.
    * @param event Event class for the callback to invoke.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200004 - Worker instance is not running.
    * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
+   * @crossplatform
    * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  /**
+   * Specifies the callback function to be invoked.
+   * @param event Event class for the callback to invoke.
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   (event: Event): void | Promise<void>;
@@ -186,6 +214,7 @@ export interface EventListener {
 
 /**
  * Type of message, only "message" and "messageerror".
+ * @crossplatform
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
@@ -249,6 +278,7 @@ export interface EventTarget {
 
 /**
  * Specific worker event features.
+ * @crossplatform
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
@@ -263,12 +293,23 @@ export interface WorkerEventTarget {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * Adds an event listener to the worker.
+   * @param type  Type of the event to listen for.
+   * @param listener Callback to invoke when an event of the specified type occurs.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 10200004 - Worker instance is not running.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   addEventListener(type: string, listener: WorkerEventListener): void;
   /**
    * Handle the event defined for the worker.
    * @param event Event to dispatch.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200004 - Worker instance is not running.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -279,6 +320,7 @@ export interface WorkerEventTarget {
    * @param callback Callback of the event listener to remove.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200004 - Worker instance is not running.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -286,6 +328,7 @@ export interface WorkerEventTarget {
   /**
    * Remove all event listeners for the worker.
    * @throws {BusinessError} 10200004 - Worker instance is not running.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -325,12 +368,14 @@ declare interface WorkerGlobalScope extends EventTarget {
 
 /**
  * The environment Specified in which worker threads run, which is isolated from the host thread environment.
+ * @crossplatform
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
- declare interface GlobalScope extends WorkerEventTarget {
+declare interface GlobalScope extends WorkerEventTarget {
   /**
    * Name of Worker specified when there is a new worker.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -341,6 +386,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * the event handler to be called when an exception occurs during worker execution.
    * The event handler is executed in the worker thread.
    * @param ev Error data.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -348,6 +394,7 @@ declare interface WorkerGlobalScope extends EventTarget {
   /**
    * Specify the type attribute for self.
    * @param self type is read-only.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -415,11 +462,12 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
-   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
+  postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 }
 
 /**
  * Specifies the thread-worker running environment, which is isolated from the host-thread environment
+ * @crossplatform
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
@@ -436,17 +484,36 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
+  /**
+   * The onmessage attribute of parentPort specifies the event handler
+   * to be called then the worker thread receives a message sent by
+   * the host thread through worker postMessage.
+   * The event handler is executed in the worker thread.
+   * @param ev Message received.
+   * @crossplatform
+   * @since 10
+   * @syscap SystemCapability.Utils.Lang
+   */
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
-   /**
+  /**
+  * The onmessage attribute of parentPort specifies the event handler
+  * to be called then the worker receives a message that cannot be deserialized.
+  * The event handler is executed in the worker thread.
+  * @param ev Error data.
+  * @throws {BusinessError} 401 - if the input parameters are invalid.
+  * @throws {BusinessError} 10200004 - Worker instance is not running.
+  * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
+  * @since 9
+  * @syscap SystemCapability.Utils.Lang
+  */
+  /**
    * The onmessage attribute of parentPort specifies the event handler
    * to be called then the worker receives a message that cannot be deserialized.
    * The event handler is executed in the worker thread.
    * @param ev Error data.
-   * @throws {BusinessError} 401 - if the input parameters are invalid.
-   * @throws {BusinessError} 10200004 - Worker instance is not running.
-   * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
-   * @since 9
+   * @crossplatform
+   * @since 10
    * @syscap SystemCapability.Utils.Lang
    */
   onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
@@ -454,6 +521,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
   /**
    * Close the worker thread to stop the worker from receiving messages
    * @throws {BusinessError} 10200004 - Worker instance is not running.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -466,6 +534,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200004 - Worker instance is not running.
    * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -478,6 +547,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200004 - Worker instance is not running.
    * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -486,12 +556,14 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
 
 /**
  * JS cross-thread communication tool
+ * @crossplatform
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
 declare namespace worker {
   /**
    * The ThreadWorker class contains all Worker functions.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -503,6 +575,7 @@ declare namespace worker {
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200003 - Worker initialization failure.
      * @throws {BusinessError} 10200007 - The worker file patch is invalid path.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -517,6 +590,14 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * The onexit attribute of the worker specifies the event handler to be called
+     * when the worker exits. The handler is executed in the host thread.
+     * @param code Code indicating the worker exit state
+     * @crossplatform
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     onexit?: (code: number) => void;
     /**
      * The onerror attribute of the worker specifies the event handler to be called
@@ -526,6 +607,14 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * The onerror attribute of the worker specifies the event handler to be called
+     * when an exception occurs during worker execution.
+     * The event handler is executed in the host thread.
+     * @crossplatform
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     onerror?: (err: ErrorEvent) => void;
@@ -541,6 +630,16 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * The onmessage attribute of the worker specifies the event handler
+     * to be called then the host thread receives a message created by itself
+     * and sent by the worker through the parentPort.postMessage.
+     * The event handler is executed in the host thread.
+     * @param event Message received.
+     * @crossplatform
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     onmessage?: (event: MessageEvents) => void;
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -550,6 +649,14 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * The onmessage attribute of the worker specifies the event handler
+     * when the worker receives a message that cannot be serialized.
+     * The event handler is executed in the host thread.
+     * @crossplatform
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     onmessageerror?: (event: MessageEvents) => void;
@@ -562,6 +669,7 @@ declare namespace worker {
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -573,6 +681,7 @@ declare namespace worker {
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -587,6 +696,16 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * Adds an event listener to the worker.
+     * @param type Adds an event listener to the worker.
+     * @param listener Callback to invoke when an event of the specified type occurs.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     on(type: string, listener: WorkerEventListener): void;
     /**
      * Adds an event listener to the worker
@@ -597,6 +716,17 @@ declare namespace worker {
      * @throws {BusinessError} 10200004 - Worker instance is not running.
      * @throws {BusinessError} 10200005 - The invoked API is not supported in workers.
      * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    /**
+     * Adds an event listener to the worker
+     * and removes the event listener automatically after it is invoked once.
+     * @param type Type of the event to listen for
+     * @param listener Callback to invoke when an event of the specified type occurs
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
+     * @since 10
      * @syscap SystemCapability.Utils.Lang
      */
     once(type: string, listener: WorkerEventListener): void;
@@ -610,10 +740,21 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * Removes an event listener to the worker.
+     * @param type Type of the event for which the event listener is removed.
+     * @param listener Callback of the event listener to remove.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     off(type: string, listener?: WorkerEventListener): void;
     /**
      * Terminates the worker thread to stop the worker from receiving messages
      * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -628,12 +769,23 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
+    /**
+     * Adds an event listener to the worker.
+     * @param type  Type of the event to listen for.
+     * @param listener Callback to invoke when an event of the specified type occurs.
+     * @throws {BusinessError} 401 - if the input parameters are invalid.
+     * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
+     * @since 10
+     * @syscap SystemCapability.Utils.Lang
+     */
     addEventListener(type: string, listener: WorkerEventListener): void;
     /**
      * Handle the event defined for the worker.
      * @param event Event to dispatch.
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -644,6 +796,7 @@ declare namespace worker {
      * @param callback Callback of the event listener to remove.
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -651,6 +804,7 @@ declare namespace worker {
     /**
      * Remove all event listeners for the worker.
      * @throws {BusinessError} 10200004 - Worker instance is not running.
+     * @crossplatform
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
@@ -791,6 +945,7 @@ declare namespace worker {
 
   /**
    * The object used by the worker thread to communicate with the host thread.
+   * @crossplatform
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */

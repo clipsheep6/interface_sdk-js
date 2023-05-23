@@ -16,17 +16,31 @@
 /**
  * The base context of 'app.Context' for FA Mode or
  * 'application.Context' for Stage Mode.
- *
- * @since 8
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 8
+ */
+/**
+ * The base context of 'app.Context' for FA Mode or
+ * 'application.Context' for Stage Mode.
+ * @permission N/A
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
  */
 export default abstract class BaseContext {
-    /**
-     * Indicates the context is FA Mode or Stage Mode.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    stageMode: boolean;
+  /**
+   * Indicates the context is FA Mode or Stage Mode.
+   *
+   * @since 8
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * Indicates the context is FA Mode or Stage Mode.
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   */
+  stageMode: boolean;
 }
