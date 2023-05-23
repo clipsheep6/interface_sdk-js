@@ -349,6 +349,7 @@ declare type LengthConstrain = {
   /**
    * column spacing
    * @form
+   * @crossplatform
    * @since 10
    */
   gutter?: Length;
