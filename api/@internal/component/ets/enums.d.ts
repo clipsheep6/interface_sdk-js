@@ -285,6 +285,11 @@ declare enum BorderStyle {
    * @since 9
    */
   Solid,
+  /**
+   * Shows as a 3D line.
+   * @since 10
+   */
+  Board3D,
 }
 
 /**

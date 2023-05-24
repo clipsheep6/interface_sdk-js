@@ -374,6 +374,11 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 
   /**
+   * Called when the icon of block is set.
+   * @since 10
+   */
+  icon(value: string): SliderAttribute;
+   /**
    * Called when the border color of block is set.
    * @param { ResourceColor } value - the border color of block.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

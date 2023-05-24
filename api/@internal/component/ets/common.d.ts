@@ -2741,6 +2741,55 @@ declare interface PixelStretchEffectOptions {
   right?: Length;
 }
 
+  /**
+   * Linear Gradient
+   * angle: Angle of Linear Gradient;
+   * direction:Direction of Linear Gradient;
+   * colors:Color description for gradients,repeating:repeating.
+   * @since 10
+   */
+declare interface LinearGradient {
+  angle?: number | string;
+  direction?: GradientDirection;
+  colors: Array<unknown>;
+  repeating?: boolean;
+};
+
+  /**
+   * Angle Gradient
+   * center:is the center point of the angle gradient
+   * start:Start point of angle gradient
+   * end:End point of angle gradient
+   * number:number
+   * rotating:rotating
+   * colors:Color description for gradients
+   * repeating:repeating
+   * @since 10
+   */
+declare interface SweepGradient {
+  center: Array<unknown>;
+  start?: number | string;
+  end?: number | string;
+  rotation?: number | string;
+  colors: Array<unknown>;
+  repeating?: boolean;
+};
+
+  /**
+   * Radial Gradient
+   * center:Center point of radial gradient
+   * radius:Radius of Radial Gradient
+   * colors:Color description for gradients
+   * repeating: Refill
+   * @since 10
+   */
+declare interface RadialGradient {
+  center: Array<unknown>;
+  radius: number | string;
+  colors: Array<unknown>;
+  repeating?: boolean;
+};
+
 /**
  * CommonMethod.
  * @since 7
@@ -2877,10 +2926,11 @@ declare class CommonMethod<T> {
    */
   /**
    * Background color
+   * value: Add 3 gradient color parameters
    * @form
-   * @since 9
+   * @since 10
    */
-  backgroundColor(value: ResourceColor): T;
+  backgroundColor(value: ResourceColor | LinearGradient | SweepGradient | RadialGradient): T;
 
   /**
    * Background image
