@@ -588,6 +588,14 @@ declare type LengthConstrain = {
    * @since 10
    */
   maxLength: Length;
+
+  /**
+   * column spacing
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  gutter?: Length;
 };
 
 /**
