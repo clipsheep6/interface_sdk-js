@@ -1085,6 +1085,7 @@ declare namespace inputMethodEngine {
      * Subscribe key event
      * @param { 'keyEvent' } type - indicates the type of subscribe event.
      * @param { (event: KeyEvent) => boolean } callback - optional, indicates the callback function of on('keyEvent').
+     *    After the key is processed, it should return true, else return false.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1166,6 +1167,26 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     off(type: 'textChange', callback?: (text: string) => void): void;
+
+    /**
+     * Subscribe input text attribute change
+     *
+     * @param { 'EditorAttributeChanged' } type - indicates the type of subscribe event.
+     * @param { (attr: EditorAttribute) => void } callback - indicates the callback function of on('EditorAttributeChanged').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'EditorAttributeChanged', callback: (attr: EditorAttribute) => void): void;
+
+    /**
+     * Subscribe input text attribute change
+     *
+     * @param { 'EditorAttributeChanged' } type - indicates the type of subscribe event.
+     * @param { (attr: EditorAttribute) => void } [callback] - indicates the callback function of on('EditorAttributeChanged').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'EditorAttributeChanged', callback?: (attr: EditorAttribute) => void): void;
   }
 
   /**

@@ -370,7 +370,6 @@ declare namespace inputMethod {
     /**
      * List all input methods
      * @returns {Promise<Array<InputMethodProperty>>} the promise returned by the function.
-     * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800001 - package manager error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -934,29 +933,29 @@ declare namespace inputMethod {
     off(type: 'handleExtendAction'): void;
 
     /**
-     * Register a callback and when IME gets left or right text, the callback will be invoked.
+     * Register a callback and when input method ability gets left or right text of cursor, the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'getLeft' or 'getRight'.
-     * @param { (length) => string } callback - processes getLeft or getRight command. The callback
+     * @param { string } type - event type, fixed as 'getLeftTextOfCursor' or 'getRightTextOfCursor'.
+     * @param { (length) => string } callback - processes getLeftTextOfCursor or getRightTextOfCursor command. The callback
      *     must be a synchronization method and will block the input method application.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'getLeft | getRight', callback: (length: number) => string): void;
+    on(type: 'getLeftTextOfCursor | getRightTextOfCursor', callback: (length: number) => string): void;
 
     /**
-     * Unregister the callback of getLeft or getRight event.
+     * Unregister the callback of getLeftTextOfCursor or getRightTextOfCursor event.
      *
-     * @param { string } type - event type, fixed as 'getLeft' or 'getRight'.
+     * @param { string } type - event type, fixed as 'getLeftTextOfCursor' or 'getRightTextOfCursor'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'getLeft | getRight'): void;
+    off(type: 'getLeftTextOfCursor | getRightTextOfCursor'): void;
 
     /**
-     * Register a callback and when IME gets the text index at cursor, the callback will be invoked.
+     * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
      *
      * @param { string } type - event type, fixed as 'getTextIndexAtCursor'.
      * @param { (length) => string } callback - processes getTextIndexAtCursor command. The callback
@@ -1428,7 +1427,7 @@ declare namespace inputMethod {
     inputAttribute: InputAttribute;
 
     /**
-     * Cursor information of Input.
+     * Cursor information.
      *
      * @type CursorInfo
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1437,7 +1436,7 @@ declare namespace inputMethod {
     cursorInfo?: CursorInfo;
 
     /**
-     * Selection start of Input.
+     * Selection information.
      *
      * @type Range
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1446,7 +1445,7 @@ declare namespace inputMethod {
     selection?: Range;
 
     /**
-     * Window id of Input.
+     * The window ID of the application currently bound to the input method.
      *
      * @type number
      * @syscap SystemCapability.MiscServices.InputMethodFramework
