@@ -18,12 +18,46 @@
  * UI state of app-wide access and same life cycle as the app.
  * @since 7
  */
+/**
+ * AppStorage singleton is sub-class of see LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ * @crossplatform
+ * @since 10
+ */
 declare class AppStorage {
+
   /**
-   * Called when a link is set.
+   * @see link
+   * 
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#link
    */
   static Link(propName: string): any;
+
+  /**
+    * Create and return a two-way sync "(link") to named property
+    *
+    * Same as @see LocalStorage.link()
+    *
+    * @param { string } propName name of source property in AppStorage
+    * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<S>
+    *           return 'undefined' if named property does not already exist in AppStorage
+    * 
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 10
+    */
+  static link<T>(propName: string): SubscribedAbstractProperty<T>;
+
+  /**
+   * @see setAndLink
+   *
+   * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#setAndLink
+   */
+  static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Like see Link(), but will create and initialize a new source property in AppStorage if missing
@@ -34,16 +68,44 @@ declare class AppStorage {
    * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage
    *        default value must be of type T, must not be 'undefined' or 'null'.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
-   *
-   * @since 7
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
-   * Called when a property is set.
+   * @see prop
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#prop
    */
   static Prop(propName: string): any;
+
+  /**
+     * Create and return a one-way sync ('prop') to named property
+     *
+     * Same as @see LocalStorage.prop()
+     *
+     * @param { string } propName name of source property in AppStorage
+     * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<S>
+     *           return undefined if named property does not already exist in AppStorage.
+     * 
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+  static prop<T>(propName: string): SubscribedAbstractProperty<T>;
+
+  /**
+   * @see setAndProp
+   * 
+   * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#setAndProp
+   */
+  static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
 
   /**
    * Like see prop(), will create and initialize a new source property in AppStorage if missing
@@ -51,14 +113,26 @@ declare class AppStorage {
    * Same as see LocalStorage.setAndProp()
    *
    * @param { string } propName name of source property in AppStorage
-   * @param { S } defaultValue value to be used for initializing if new creating new property in AppStorage.
+   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage.
    *        default value must be of type T, must not be undefined or null.
-   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in AppStorage.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+
+  /**
+   * @see has
    *
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#has
    */
-  static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+  static Has(propName: string): boolean;
+
 
   /**
    * Checks if AppStorage has a property with given name
@@ -69,10 +143,21 @@ declare class AppStorage {
    *
    * @param { string } propName searched property
    * @returns { boolean } true if property with such name exists in AppStorage
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static has(propName: string): boolean;
+
+  /**
+   * @see get
    *
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#get
    */
-  static Has(propName: string): boolean;
+  static Get<T>(propName: string): T | undefined;
 
   /**
    * Same as see LocalStorage.get()
@@ -82,9 +167,20 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { T | undefined } property value of type T if found or undefined
    *
-   * @since 7
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static Get<T>(propName: string): T | undefined;
+  static get<T>(propName: string): T | undefined;
+
+  /**
+   * @see set
+   *
+   * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#set
+   */
+  static Set<T>(propName: string, newValue: T): boolean;
 
   /**
    * Set value of given property in AppStorage
@@ -97,9 +193,20 @@ declare class AppStorage {
    * @param { T } newValue must be of type T and must not be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    *
-   * @since 7
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static Set<T>(propName: string, newValue: T): boolean;
+  static set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * @see setOrCreate
+   *
+   * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#setOrCreate
+   */
+  static SetOrCreate<T>(propName: string, newValue: T): void;
 
   /**
    * Set value of given property, if it exists, see set() .
@@ -111,9 +218,20 @@ declare class AppStorage {
    * @param { string } propName
    * @param { T } newValue must be of type T and must not be undefined or null
    *
-   * @since 7
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static SetOrCreate<T>(propName: string, newValue: T): void;
+  static setOrCreate<T>(propName: string, newValue: T): void;
+
+  /**
+   * @see delete
+   *
+   * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#delete
+   */
+  static Delete(propName: string): boolean;
 
   /**
    * Delete property with given name from AppStorage
@@ -135,9 +253,21 @@ declare class AppStorage {
    * @param { string } propName
    * @returns { boolean } false if method failed
    *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static delete(propName: string): boolean;
+
+  /**
+   * @see keys
+   *
    * @since 7
-  */
-  static Delete(propName: string): boolean;
+   * @deprecated since 10
+   * @useinstead AppStorage#keys
+   */
+  static Keys(): IterableIterator<string>;
+
 
   /**
    * Provide names of all properties in AppStorage
@@ -147,9 +277,11 @@ declare class AppStorage {
    *
    * @returns { IterableIterator<string> } return a Map Iterator
    *
-   * @since 7
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static Keys(): IterableIterator<string>;
+  static keys(): IterableIterator<string>;
 
   /**
    * Called when a cleanup occurs.
@@ -160,29 +292,52 @@ declare class AppStorage {
   static staticClear(): boolean;
 
   /**
+   * @see clear
+   *
+   * @since 9
+   * @deprecated since 10
+   * @useinstead AppStorage#clear
+   */
+  static Clear(): boolean;
+
+  /**
    * Delete all properties from the AppStorage.
    *
    * Precondition is that there are no subscribers, see Delete().
    * @returns { boolean } false and deletes no properties if there is any property
    * that still has subscribers.
    *
-   * @since 9
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static Clear(): boolean;
+  static clear(): boolean;
 
   /**
    * Called when the data can be changed.
    * @since 7
+   * @deprecated since 10
    */
   static IsMutable(propName: string): boolean;
+
+  /**
+   * @see size
+   * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#size
+   */
+  static Size(): number;
 
   /**
    * Method returns the number of properties currently in AppStorage
    *
    * @returns { number } Returns the number of properties currently in AppStorage
-   * @since 7
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
-  static Size(): number;
+  static size(): number;
 }
 
 /**
@@ -582,14 +737,29 @@ declare class Environment {
   constructor();
 
   /**
-   * Called when a property value is checked.
+   * @see envProp
+   *
    * @since 7
+   * @deprecated since 10
+   * @useinstead Environment#envProp
    */
   static EnvProp<S>(key: string, value: S): boolean;
 
   /**
-   * Called when multiple property values are checked.
+   * Called when a property value is checked.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static envProp<S>(key: string, value: S): boolean;
+
+  /**
+   * @see envProps
+   * 
    * @since 7
+   * @deprecated since 10
+   * @useinstead Environment#envProps
    */
   static EnvProps(
     props: {
@@ -599,15 +769,46 @@ declare class Environment {
   ): void;
 
   /**
-   * Set the key value.
+   * Called when multiple property values are checked.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static envProps(
+    props: {
+      key: string;
+      defaultValue: any;
+    }[],
+  ): void;
+
+  /**
+   * @see keys
+   * 
    * @since 7
+   * @deprecated since 10
+   * @useinstead Environment#keys
    */
   static Keys(): Array<string>;
+
+  /**
+   * Set the key value.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static keys(): Array<string>;
 }
 
 /**
  * Defines the PersistentStorage interface.
  * @since 7
+ */
+/**
+ * Defines the PersistentStorage interface.
+ * @crossplatform
+ * @since 10
  */
 declare class PersistentStorage {
   /**
@@ -618,20 +819,55 @@ declare class PersistentStorage {
   constructor(appStorage: AppStorage, storage: Storage);
 
   /**
-   * Called when a persistence property is stored.
+   * @see persistProp
+   * 
    * @since 7
+   * @deprecated since 10
+   * @useinstead PersistentStorage#persistProp
    */
   static PersistProp<T>(key: string, defaultValue: T): void;
 
   /**
-   * Called when a property is deleted.
+   * Add property 'key' to AppStorage properties whose current value will be
+   * persistent.
+   * If AppStorage does not include this property it will be added and initializes
+   * with given value
+   *
+   * @param key property name
+   * @param defaultValue If AppStorage does not include this property it will be initialized with this value
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static persistProp<T>(key: string, defaultValue: T): void;
+
+  /**
+   * @see deleteProp
+   * 
    * @since 7
+   * @deprecated since 10
+   * @useinstead PersistentStorage#deleteProp
    */
   static DeleteProp(key: string): void;
 
   /**
-   * Called when multiple persistence properties are stored.
+   * Reverse of @see persistProp
+   * @param key no longer persist the property named key
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static deleteProp(key: string): void;
+
+  /**
+   * @see persistProps
+   * 
+   * @param properties
    * @since 7
+   * @deprecated since 10
+   * @useinstead PersistentStorage#PersistProps
    */
   static PersistProps(
     properties: {
@@ -641,10 +877,40 @@ declare class PersistentStorage {
   ): void;
 
   /**
-   * Set the key value.
+   * Persist given AppStorage properties with given names.
+   * If a property does not exist in AppStorage, add it and initialize it with given value
+   * works as @see persistProp for multiple properties.
+   * 
+   * @param properties
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static persistProps(
+    properties: {
+      key: string;
+      defaultValue: any;
+    }[],
+  ): void;
+
+  /**
+   * @see keys
+   *
    * @since 7
+   * @deprecated since 10
+   * @useinstead PersistentStorage#keys
    */
   static Keys(): Array<string>;
+
+  /**
+   * Inform persisted AppStorage property names
+   * @returns array of AppStorage keys
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static keys(): Array<string>;
 }
 
 /**
@@ -707,7 +973,19 @@ declare class LocalStorage {
    * Get current LocalStorage shared from stage.
    * @StageModelOnly
    * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  static getShared(): LocalStorage;
+
+  /**
+   * Get current LocalStorage shared from stage.
+   * @StageModelOnly
+   * @form
    * @since 9
+   * @deprecated since 10
+   * @useinstead LocalStorage#getShared
    */
   static GetShared(): LocalStorage;
 
@@ -896,25 +1174,29 @@ declare class LocalStorage {
   /**
    * Create and return a one-way sync ('prop') to named property
    * @param { string } propName name of source property in LocalStorage
-   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   * @returns { SubscribedAbstractProperty<S> } instance of SubscribedAbstractProperty<S>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
    * @form
+   * @deprecated since 10
    * @since 9
    */
+  prop<S>(propName: string): SubscribedAbstractProperty<S>;
+
   /**
    * Create and return a one-way sync ('prop') to named property
    * @param { string } propName name of source property in LocalStorage
-   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
+   * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in LocalStorage
-   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    *
    * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  prop<S>(propName: string): SubscribedAbstractProperty<S>;
+  prop<T>(propName: string): SubscribedAbstractProperty<T>;
 
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
@@ -925,21 +1207,25 @@ declare class LocalStorage {
    *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
    *
    * @form
+   * @deprecated since 10
    * @since 9
    */
+  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+
   /**
    * Like see prop(), will create and initialize a new source property in LocalStorage if missing
    * @param { string } propName name of source property in LocalStorage
-   * @param { S } defaultValue value to be used for initializing if new creating new property in LocalStorage. 
+   * @param { T } defaultValue value to be used for initializing if new creating new property in LocalStorage. 
    *         Default value must be of type T, must not be undefined or null.
-   * @returns { SubscribedAbstractProperty<S> } instance of  SubscribedAbstractProperty<S>
-   *           Apps can use SDK functions of base class SubscribedAbstractProperty<S>
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *           Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    *
    * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+  setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Delete property from StorageBase
