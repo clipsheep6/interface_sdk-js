@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+
+
 /**
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 3

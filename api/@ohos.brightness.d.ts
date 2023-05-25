@@ -15,6 +15,8 @@
 
 import { BusinessError } from './@ohos.base';
 
+
+
 /**
  * Provides interfaces to control the power of display.
  *

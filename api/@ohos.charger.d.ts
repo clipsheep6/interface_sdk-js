@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+
+
 /**
  * Provides charger information includes type and protocol.
  *
