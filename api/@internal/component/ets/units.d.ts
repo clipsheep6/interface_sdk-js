@@ -1128,3 +1128,135 @@ declare module "GlobalResource" {
     export { Resource };
   }
 }
+
+/**
+ * Defines the deleted span object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextDeleteValueObject {
+  /**
+   * Define the type of span.
+   * @type { TextType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type: TextType;
+
+  /**
+   * Define the index of span.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  spanIndex: number;
+
+  /**
+   * Define the start location of span.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  spanIndexStart: number;
+
+  /**
+   * Define the end location of span.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  spanIndexEnd: number;
+}
+
+/**
+ * Defines the caret position info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextCaretPositionInfo {
+  /**
+   * Caret position.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretPosition: number;
+
+  /**
+   * The span index which the caret is at.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretInSpanIndex: number;
+
+  /**
+   * The offset the caret is in a span.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretOffsetInSpan: number;
+}
+
+/**
+ * Defines the inserted text value info.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextInsertValueInfo {
+  /**
+   * The location info where the value will be inserted.
+   * @type { TextCaretPositionInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretPositionInfo: TextCaretPositionInfo;
+
+  /**
+   * The inserted value.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  insertValue: string;
+}
+
+/**
+ * Provides an interface for deleting value from text.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface TextDeleteValueInfo {
+  /**
+   * The caret position.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  caretPosition: number;
+
+  /**
+   * The deleted direction.
+   * @type { TextDeleteDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  direction: TextDeleteDirection;
+
+  /**
+   * The deleted text length.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  length: number
+
+  /**
+   * The deleted span object.
+   * @type { TextDeleteValueObject }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  textDeleteValueObjects: TextDeleteValueObject[];
+}
