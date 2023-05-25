@@ -137,12 +137,12 @@ declare interface IDataSource<T> {
    * Return the data of index.
    * @since 7
    */
-   /**
+  /**
    * Return the data of index.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */ 
+   */
   getData(index: number): T;
 
   /**
@@ -194,8 +194,8 @@ interface LazyForEachInterface {
    */  
   <T> (
     dataSource: IDataSource<T>,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
+    itemGenerator: (item: T, index?: number) => void,
+    keyGenerator?: (item: T, index?: number) => string,
   ): LazyForEachInterface;
 }
 
