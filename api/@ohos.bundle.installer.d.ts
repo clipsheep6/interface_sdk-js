@@ -78,6 +78,10 @@ declare namespace installer {
      * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -104,6 +108,10 @@ declare namespace installer {
      * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -132,6 +140,10 @@ declare namespace installer {
      * @throws { BusinessError } 17700036 - Failed to install the HSP because lacks appropriate permissions.
      * @throws { BusinessError } 17700039 - Failed to install because disallow install a shared bundle by hapFilePaths.
      * @throws { BusinessError } 17700041 - Failed to install because enterprise device management disallow install.
+     * @throws { BusinessError } 17700042 - Failed to install the HAP because of incorrect URI in the data proxy.
+     * @throws { BusinessError } 17700043 - Failed to install the HAP because of low APL in the non-system data proxy (required APL: system_basic or system_core).
+     * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
+     * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -148,9 +160,11 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -166,8 +180,10 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -184,9 +200,11 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
-     * @throws { BusinessError } 17700004 - The specified userId is not existed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
      * @throws { BusinessError } 17700040 - The specified bundle is a shared bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700045 - Failed to uninstall because enterprise device management disallow uninstall.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -203,6 +221,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -219,6 +238,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -235,6 +255,7 @@ declare namespace installer {
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700001 - The specified bundle name is not found.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi

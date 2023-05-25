@@ -23,6 +23,7 @@ alterase
 alternating
 altitudes
 amr
+animatable
 annually
 antialias
 apdu
@@ -100,6 +101,7 @@ chrominance
 circled
 clamped
 clamps
+cloudfile
 coincides
 collaborated
 collapses
@@ -401,6 +403,7 @@ missions
 mkdtemp
 mmax
 mmi
+mmicode
 mnc
 moderately
 moitor
@@ -457,6 +460,8 @@ operatorconfigs
 opkey
 opl
 opname
+option
+originating
 osd
 ott
 ounted
@@ -540,6 +545,7 @@ recursions
 redirections
 refill
 rejects
+relocation
 remidner
 remotedevice
 removable
@@ -580,6 +586,7 @@ sak
 satellites
 scdma
 sco
+scrambling
 screenlock
 screensaver
 scrolldown
@@ -642,6 +649,8 @@ subscrbers
 subscribale
 subscribes
 subtypes
+subwindow
+subwindows
 superimposed
 suscriber
 suscribes
@@ -767,6 +776,7 @@ vsync
 wakes
 waking
 wallpapers
+wantagent
 wapi
 wappush
 watchers
@@ -808,3 +818,6 @@ zoomreset
 zooms
 zpass
 commonevent
+clouddata
+unprepare
+unchained

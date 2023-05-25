@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,7 @@
  */
 
 import { CommonEventData } from "./commonEvent/commonEventData";
+import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
  * class of static subscriber extension ability.
@@ -24,14 +25,25 @@ import { CommonEventData } from "./commonEvent/commonEventData";
  * @StageModelOnly
  */
 export default class StaticSubscriberExtensionAbility {
-    /**
-     * Called back when a specific common event is published.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @returns -
-     * @StageModelOnly
-     */
-    onReceiveEvent(event: CommonEventData): void;
+  /**
+   * Indicates configuration information about an ability context.
+   *
+   * @type { StaticSubscriberExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   * @StageModelOnly
+   * @since 10
+   */
+  context: StaticSubscriberExtensionContext;
+
+  /**
+   * Called back when a specific common event is published.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide for inner use.
+   * @returns -
+   * @StageModelOnly
+   */
+  onReceiveEvent(event: CommonEventData): void;
 }

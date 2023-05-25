@@ -21,6 +21,7 @@ import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
 import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
@@ -396,6 +397,14 @@ declare namespace bundleManager {
     PRINT = 15,
 
     /**
+     * Indicates extension info with type of driver
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    DRIVER = 18,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -465,16 +474,29 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Launch type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 10
    */
   export enum LaunchType {
     /**
      * Indicates that the ability has only one instance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Indicates that the ability has only one instance
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @since 10
      */
     SINGLETON = 0,
 
@@ -482,8 +504,14 @@ declare namespace bundleManager {
      * Indicates that the ability can have multiple instances
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Indicates that the ability can have multiple instances
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @crossplatform
+     * @since 10
      */
     MULTITON = 1,
 
@@ -509,6 +537,7 @@ declare namespace bundleManager {
      * Indicates that the ability has a UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @FAModelOnly
      * @since 9
      */
     PAGE = 1,
@@ -517,6 +546,7 @@ declare namespace bundleManager {
      * Indicates that the ability does not have a UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @FAModelOnly
      * @since 9
      */
     SERVICE = 2,
@@ -525,6 +555,7 @@ declare namespace bundleManager {
      * Indicates that the ability is used to provide data access services
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @FAModelOnly
      * @since 9
      */
     DATA = 3
@@ -773,7 +804,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getBundleInfo(bundleName: string,
-      bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
+    bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -832,7 +863,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getApplicationInfo(bundleName: string,
-      appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
+    appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -934,7 +965,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function getAllApplicationInfo(appFlags: number,
-      userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
@@ -994,7 +1025,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryAbilityInfo(want: Want,
-      abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+    abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1037,7 +1068,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-      extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+    extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1060,7 +1091,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-      extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+    extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -1083,7 +1114,7 @@ declare namespace bundleManager {
    * @since 9
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-      extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+    extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -1640,7 +1671,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 10
    */
-  function getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
+  function getSharedBundleInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
 
   /**
    * Obtains SharedBundleInfo of shared bundle by bundle name and module name.
@@ -1659,6 +1690,58 @@ declare namespace bundleManager {
    * @since 10
    */
   function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
+
+  /**
+   * Obtains the profile file information of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>): void;
+
+  /**
+   * Obtains the profile file information of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAppProvisionInfo(bundleName: string, userId: number, callback: AsyncCallback<AppProvisionInfo>): void;
+
+  /**
+   * Obtains the profile file information of a specified bundle.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<AppProvisionInfo> } Returns the AppProvisionInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
 
   /**
    * Obtains configuration information about an application.
@@ -1781,6 +1864,24 @@ declare namespace bundleManager {
    * @since 10
    */
   export type SharedBundleInfo = _SharedBundleInfo;
+
+  /**
+   * Obtains profile file information about a bundle.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  export type AppProvisionInfo = _AppProvisionInfo.AppProvisionInfo;
+
+  /**
+   * Obtains profile file validity about a bundle.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 10
+   */
+  export type Validity = _AppProvisionInfo.Validity;
 }
 
 export default bundleManager;

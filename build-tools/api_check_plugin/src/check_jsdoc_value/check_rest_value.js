@@ -15,7 +15,7 @@
 const fs = require('fs');
 const rules = require('../../code_style_rule.json');
 const { commentNodeWhiteList, requireTypescriptModule, systemPermissionFile, checkOption, ErrorValueInfo,
-  createErrorInfo } = require('../../src/utils');
+  createErrorInfo, OPTIONAL_SYMBOL } = require('../../src/utils');
 const ts = requireTypescriptModule();
 
 function checkExtendsValue(tag, node, fileName, JSDocIndex) {
@@ -28,8 +28,8 @@ function checkExtendsValue(tag, node, fileName, JSDocIndex) {
   if (ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node)) {
     const apiValue = node.heritageClauses ? node.heritageClauses[0].types[0].expression.escapedText : '';
     if (tagValue !== apiValue) {
-      extendsResult.checkResult = false,
-        extendsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS, [JSDocIndex + 1]);
+      extendsResult.checkResult = false;
+      extendsResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_EXTENDS, [JSDocIndex + 1]);
     }
   }
   return extendsResult;
@@ -179,7 +179,7 @@ function splitUseinsteadValue(useinsteadValue, JSDocIndex) {
   const splitArray = useinsteadValue.split(/\//g);
   if (splitArray.length === 1) {
     // 同一文件
-    splitResult.checkResult = !checkModule(splitArray[0]);
+    splitResult.checkResult = checkModule(splitArray[0]);
 
   } else if (splitArray.length === 2) {
     // 不同文件
@@ -218,9 +218,14 @@ function checkUseinsteadValue(tag, node, fileName, JSDocIndex) {
     checkResult: true,
     errorInfo: '',
   };
-  const result = splitUseinsteadValue(tagNameValue, JSDocIndex, fileName);
-  if (result && !result.checkResult) {
-    useinsteadResult = result;
+  if (tagNameValue === '') {
+    useinsteadResult.checkResult = false;
+    useinsteadResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_USEINSTEAD, [JSDocIndex + 1]);
+  } else {
+    const result = splitUseinsteadValue(tagNameValue, JSDocIndex, fileName);
+    if (result && !result.checkResult) {
+      useinsteadResult = result;
+    }
   }
   return useinsteadResult;
 }
@@ -232,8 +237,18 @@ function checkTypeValue(tag, node, fileName, JSDocIndex) {
     errorInfo: '',
   };
   const tagTypeValue = tag.type;
+  let apiTypeValue = '';
   if (commentNodeWhiteList.includes(node.kind)) {
-    const apiTypeValue = node.type?.getText();
+    if (node.type) {
+      if (ts.isFunctionTypeNode(node.type)) {
+        apiTypeValue = 'function';
+      } else if (ts.isTypeLiteralNode(node.type)) {
+        apiTypeValue = 'object';
+      } else {
+        apiTypeValue = node.type?.getText();
+      }
+    }
+    apiTypeValue = node.questionToken ? OPTIONAL_SYMBOL.concat(apiTypeValue) : apiTypeValue;
     if (apiTypeValue !== tagTypeValue) {
       typeResult.checkResult = false;
       typeResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_INFO_VALUE_TYPE, [JSDocIndex + 1]);
