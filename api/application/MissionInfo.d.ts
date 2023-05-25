@@ -86,4 +86,12 @@ export interface MissionInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    */
   continuable: boolean;
+
+  /**
+   * Indicates whether the mission is unclearable.
+   *
+   * @since 10
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   */
+  unclearable: boolean;
 }
