@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,8 +24,8 @@
  */
 /**
  * looping function.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
+ * @crossplatform
  * @since 10
  */
 interface ForEachInterface {
@@ -40,12 +40,8 @@ interface ForEachInterface {
    */
   /**
    * Set the value, array, and key.
-   * @param { Array<T> } arr - The value that needs to loop.
-   * @param { (item: T, index?: number) => void } itemGenerator - lambda functions that generate child components.
-   * @param { (item: T, index?: number) => string } keyGenerator - Used to generate a unique and stable key value for a given array item.
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
+   * @crossplatform
    * @since 10
    */
   <T> (
@@ -63,5 +59,11 @@ interface ForEachInterface {
  * Defines ForEach Component.
  * @form
  * @since 9
+ */
+/**
+ * Defines ForEach Component.
+ * @form
+ * @crossplatform
+ * @since 10
  */
 declare const ForEach: ForEachInterface;
