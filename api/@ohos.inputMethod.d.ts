@@ -359,7 +359,6 @@ declare namespace inputMethod {
     /**
      * List all input methods
      * @param {AsyncCallback<Array<InputMethodProperty>>} callback - the callback of getInputMethods.
-     * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800001 - package manager error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
