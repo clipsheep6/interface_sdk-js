@@ -13,19 +13,16 @@
  * limitations under the License.
  */
 const path = require("path");
-const fs = require("fs");
 const {
   ErrorType,
   ErrorLevel,
   FileType,
-  requireTypescriptModule,
   getApiVersion,
   getCheckApiVersion,
 } = require("./utils");
 const { addAPICheckErrorLogs } = require("./compile_info");
 const nameDictionary = require("./name_dictionary.json");
 const nameScenarioScope = require("./name_scenario_scope.json");
-const ts = requireTypescriptModule();
 
 function checkNaming(node, sourcefile, fileName) {
   const checkApiVersion = getCheckApiVersion();
@@ -50,7 +47,7 @@ function checkApiNaming(node, sourcefile, fileName) {
     const prohibitedWordIndex = lowIdentifier.indexOf(key)
     const lowercaseIgnoreWordArr = value.ignore.map(word => word.toLowerCase())
     for (let i = 0; i < lowercaseIgnoreWordArr.length; i++) {
-      if (prohibitedWordIndex !== -1 && lowIdentifier.indexOf(lowercaseIgnoreWordArr[i]) === - 1) {
+      if (prohibitedWordIndex !== -1 && lowIdentifier.indexOf(lowercaseIgnoreWordArr[i]) === -1) {
         const internalWord = node.getText().substr(prohibitedWordIndex, key.length)
         const errorInfo = `Prohibited word in [${node.getText()}]:{${internalWord}}.The word allowed is [${value.suggestion}]`;
         addAPICheckErrorLogs(
