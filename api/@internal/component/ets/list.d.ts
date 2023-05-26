@@ -478,6 +478,36 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   chainAnimationOptions(value: ChainAnimationOptions): ListAttribute;
 
   /**
+   * Called when setting whether to enable list item sort dynamic effect.
+   * @param { boolean } value - options of the sort animation.
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  sortAnimation(value: boolean): ListAttribute;
+
+  /**
+   * Called when setting whether to enable list item drag dynamic effect.
+   * @param { boolean } value - options of the drag animation.
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  dragAnimation(value: boolean): ListAttribute;
+
+  /**
+   * Called when setting whether to enable list item delete dynamic effect.
+   * @param { boolean } value - options of the delete animation.
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  deleteAnimation(value: boolean): ListAttribute;
+
+  /**
    * Called when header or footer of item group will be pinned.
    * @form
    * @since 9
