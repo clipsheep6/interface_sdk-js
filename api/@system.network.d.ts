@@ -43,7 +43,9 @@ export interface NetworkResponse {
 export default class Network {
   /**
    * Obtains the network type.
-   * @param options
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
+   * @param {object} options
    */
   static getType(options?: {
     /**
@@ -65,6 +67,8 @@ export default class Network {
 
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
    * @param options
    */
   static subscribe(options?: {
@@ -82,7 +86,9 @@ export default class Network {
 
   /**
    * Cancels listening to the network connection state.
-   * @param options
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
+   * @param {object} options
    */
   static unsubscribe(): void;
 }
