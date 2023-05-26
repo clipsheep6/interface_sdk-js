@@ -1,0 +1,41 @@
+[
+  {
+    "packageName": "api\\@ohos.enterprise.deviceControl.d.ts",
+    "className": "deviceControl",
+    "rawText": "declare deviceControl",
+    "dtsName": "@ohos.enterprise.deviceControl.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 9,
+    "status": "访问级别有变化",
+    "oldMessage": "systemapi",
+    "newMessage": "",
+    "syscap": "Customization"
+  },
+  {
+    "packageName": "api\\@ohos.enterprise.deviceControl.d.ts",
+    "className": "deviceControl",
+    "rawText": "function resetFactory(admin: Want, callback: AsyncCallback<void>): void;",
+    "dtsName": "@ohos.enterprise.deviceControl.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 9,
+    "status": "访问级别有变化",
+    "oldMessage": "systemapi",
+    "newMessage": "",
+    "syscap": "Customization"
+  },
+  {
+    "packageName": "api\\@ohos.enterprise.deviceControl.d.ts",
+    "className": "deviceControl",
+    "rawText": "function resetFactory(admin: Want): Promise<void>;",
+    "dtsName": "@ohos.enterprise.deviceControl.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 9,
+    "status": "访问级别有变化",
+    "oldMessage": "systemapi",
+    "newMessage": "",
+    "syscap": "Customization"
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "packageName": "api\\@ohos.enterprise.networkManager.d.ts",
+    "className": "networkManager",
+    "rawText": "function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;",
+    "dtsName": "@ohos.enterprise.networkManager.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 16,
+    "status": "函数有变化",
+    "oldMessage": "function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;",
+    "newMessage": "function getAllNetworkInterfaces(admin: Want, networkInterface: string, callback: AsyncCallback<Array<string>>): void;",
+    "syscap": "Customization"
+  },
+  {
+    "packageName": "api\\@ohos.enterprise.networkManager.d.ts",
+    "className": "networkManager",
+    "rawText": "function getIpAddress(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;",
+    "dtsName": "@ohos.enterprise.networkManager.d.ts",
+    "changelogs": [],
+    "statusCode": 0,
+    "status": "删除",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": ""
+  },
+  {
+    "packageName": "api\\@ohos.enterprise.networkManager.d.ts",
+    "className": "networkManager",
+    "rawText": "function getIpAddress(admin: Wan, networkInterface: string, callback: AsyncCallback<string>): void;",
+    "dtsName": "@ohos.enterprise.networkManager.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 3,
+    "status": "新增",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": "Customization"
+  }
+]

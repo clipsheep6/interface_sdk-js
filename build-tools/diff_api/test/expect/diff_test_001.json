@@ -1,0 +1,14 @@
+[
+  {
+    "packageName": "api\\@ohos.app.ability.UIAbility.d.ts",
+    "className": "Caller",
+    "rawText": "call(method: string, data: rpc.Parcelable): Promise<void>;",
+    "dtsName": "@ohos.app.ability.UIAbility.d.ts",
+    "changelogs": [],
+    "statusCode": 0,
+    "status": "删除",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": ""
+  }
+]

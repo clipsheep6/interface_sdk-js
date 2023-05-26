@@ -1,0 +1,54 @@
+[
+  {
+    "packageName": "api\\@ohos.app.ability.AbilityConstant.d.ts",
+    "className": "LaunchParam",
+    "rawText": "export interface LaunchParam",
+    "dtsName": "@ohos.app.ability.AbilityConstant.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 2,
+    "status": "类型删除(接口)",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": "Ability"
+  },
+  {
+    "packageName": "api\\@ohos.app.ability.AbilityConstant.d.ts",
+    "className": "LaunchReason",
+    "rawText": "export enum LaunchReason",
+    "dtsName": "@ohos.app.ability.AbilityConstant.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 2,
+    "status": "类型删除(枚举)",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": "Ability"
+  },
+  {
+    "packageName": "api\\@ohos.app.ability.AbilityConstant.d.ts",
+    "className": "DeviceManager",
+    "rawText": "interface DeviceManager",
+    "dtsName": "@ohos.app.ability.AbilityConstant.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 2,
+    "status": "类型删除(接口)",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": "Ability"
+  },
+  {
+    "packageName": "api\\@ohos.app.ability.AbilityConstant.d.ts",
+    "className": "PINAuth",
+    "rawText": "class PINAuth",
+    "dtsName": "@ohos.app.ability.AbilityConstant.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 2,
+    "status": "类型删除(类)",
+    "oldMessage": "",
+    "newMessage": "",
+    "syscap": "Account"
+  }
+]
