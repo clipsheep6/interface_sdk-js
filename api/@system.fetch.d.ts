@@ -96,12 +96,14 @@ export default class Fetch {
 
     /**
      * Called when the network data fails to be obtained.
+     * @syscap SystemCapability.Communication.NetStack
      * @since 3
      */
     fail?: (data: any, code: number) => void;
 
     /**
      * Called when the execution is completed.
+     * @syscap SystemCapability.Communication.NetStack
      * @since 3
      */
     complete?: () => void;
