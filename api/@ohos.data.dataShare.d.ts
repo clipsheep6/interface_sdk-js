@@ -487,7 +487,6 @@ declare namespace dataShare {
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - the parameter check failed.
-     * @throws { BusinessError } 15700012 - the data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -507,7 +506,6 @@ declare namespace dataShare {
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - the parameter check failed.
-     * @throws { BusinessError } 15700012 - the data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -527,7 +525,6 @@ declare namespace dataShare {
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - the parameter check failed.
-     * @throws { BusinessError } 15700012 - the data area is not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
