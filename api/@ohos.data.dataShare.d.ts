@@ -486,7 +486,7 @@ declare namespace dataShare {
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @param { AsyncCallback<Array<OperationResult>> } callback
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -505,7 +505,7 @@ declare namespace dataShare {
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { AsyncCallback<Array<OperationResult>> } callback
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
@@ -524,7 +524,7 @@ declare namespace dataShare {
      * @param { string } bundleName - Indicates the bundleName of data to publish.
      * @param { number } version - Indicates the version of data to publish, larger is newer.
      * @returns { Promise<Array<OperationResult>> }
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
