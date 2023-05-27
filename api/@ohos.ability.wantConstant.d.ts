@@ -18,7 +18,7 @@
  * @name wantConstant
  * @since 6
  * @syscap SystemCapability.Ability.AbilityBase
- * @permission N/A
+ * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
  * @deprecated since 9
  * @useinstead ohos.app.ability.wantConstant
  */

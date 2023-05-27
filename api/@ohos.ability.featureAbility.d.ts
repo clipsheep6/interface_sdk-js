@@ -136,7 +136,7 @@ declare namespace featureAbility {
    * @returns Returns the number code of the ability connected
    * @FAModelOnly
    */
-  function connectAbility(request: Want, options: ConnectOptions): number;
+  function connectAbility(request: Want, options: ConnectOptions, test: string): number;
 
   /**
   * The callback interface was connect successfully.
