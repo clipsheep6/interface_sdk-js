@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,12 +25,27 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
+/**
+ * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
+ * during application startup.
+ * @namespace abilityDelegatorRegistry
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @since 10
+ */
 declare namespace abilityDelegatorRegistry {
   /**
    * Get the AbilityDelegator object of the application.
    * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Get the AbilityDelegator object of the application.
+   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   function getAbilityDelegator(): AbilityDelegator;
 
@@ -39,6 +54,13 @@ declare namespace abilityDelegatorRegistry {
    * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * Get unit test arguments stored in the AbilityDelegatorArgs object.
+   * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   function getArguments(): AbilityDelegatorArgs;
 
