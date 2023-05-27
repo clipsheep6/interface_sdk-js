@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,12 +21,27 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
+/**
+ * Store unit testing-related parameters, including test case names, and test runner name.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
+ * @crossplatform
+ * @since 10
+ */
 export interface AbilityDelegatorArgs {
   /**
    * the bundle name of the application being tested.
    *
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * the bundle name of the application being tested.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   bundleName: string;
 
@@ -36,6 +51,13 @@ export interface AbilityDelegatorArgs {
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
+  /**
+   * the parameters used for unit testing.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   parameters: { [key: string]: string };
 
   /**
@@ -44,6 +66,13 @@ export interface AbilityDelegatorArgs {
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
+  /**
+   * the class names of all test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
+   */
   testCaseNames: string;
 
   /**
@@ -51,6 +80,13 @@ export interface AbilityDelegatorArgs {
    *
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  /**
+   * the class name of the test runner used to execute test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @since 10
    */
   testRunnerClassName: string;
 }
