@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,7 +35,7 @@ export default class EnvironmentCallback {
    * Called when the system has determined to trim the memory, for example, when the ability is running in the
    * background and there is no enough memory for running as many background processes as possible.
    *
-   * @param level: Indicates the memory trim level, which shows the current memory usage status.
+   * @param { AbilityConstant.MemoryLevel } level : Indicates the memory trim level, which shows the current memory usage status.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9

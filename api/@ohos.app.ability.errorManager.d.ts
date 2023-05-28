@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import * as _ErrorObserver from './application/ErrorObserver';
 declare namespace errorManager {
   /**
    * Register error observer.
-   * @param { string } type - error.
+   * @param { "error" } type - error.
    * @param { ErrorObserver } observer - The error observer.
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -37,7 +37,7 @@ declare namespace errorManager {
 
   /**
    * Unregister error observer.
-   * @param { string } type - error.
+   * @param { "error" } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -49,7 +49,7 @@ declare namespace errorManager {
 
   /**
    * Unregister error observer.
-   * @param { string } type - error.
+   * @param { "error" } type - error.
    * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
