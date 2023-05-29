@@ -619,7 +619,7 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { 'change' } event - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -628,19 +628,19 @@ declare namespace preferences {
     /**
      * Registers an observer to listen for the change of a {@link Preferences} object.
      *
-     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { 'change' } event - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
      */
-    on(type: 'change', callback: Callback<{ key: string }>): void;
+    on(event: 'change', callback: Callback<{ key: string }>): void;
 
     /**
      * Unregisters an existing observer.
      *
-     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { 'change' } event - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -649,14 +649,14 @@ declare namespace preferences {
     /**
      * Unregisters an existing observer.
      *
-     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { 'change' } event - Indicates the callback when preferences changes.
      * @param { Callback<{ key: string }> } callback - Indicates the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @crossplatform
      * @since 10
      */
-    off(type: 'change', callback?: Callback<{ key: string }>): void;
+    off(event: 'change', callback?: Callback<{ key: string }>): void;
   }
 }
 
