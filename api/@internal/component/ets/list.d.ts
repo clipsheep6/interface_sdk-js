@@ -309,6 +309,16 @@ interface ListInterface {
  */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
+   * Called when the number of columns is greater than 1 and the column gap needs to be set.
+   * @default value is 0vp.
+   * @param { Length } value,Column gap. 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gutter(value: Length): ListAttribute;
+
+  /**
    * Called when need to decide how much lanes the list will show.
    * @form
    * @since 9
