@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1682,6 +1682,74 @@ declare namespace fileAccess {
      * @since 9
      */
     getRoots(callback: AsyncCallback<RootIterator>): void;
+
+    /**
+     * Set a DefaultSavePath.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { number } uid - User application's uid.
+     * @param { string } uri Indicates the selected directory.
+     * @param { AsyncCallback<void> } callback - The callback is used to return a void.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument   
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    setDefaultSavePath(uid: number, uri: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set a DefaultSavePath.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { number } uid - User application's uid.
+     * @param { string } uri Indicates the selected directory.
+     * @returns { Promise<void> } Returns a void.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument   
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    setDefaultSavePath(uid: number, uri: string): Promise<void>;
+
+    /**
+     * Set a DefaultSavePath.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { number } uid - User application's uid. 
+     * @param { AsyncCallback<string> } callback - The callback is used to return a string.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument   
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getDefaultSavePath(uid: number, callback: AsyncCallback<string>): void;
+
+    /**
+     * Get a DefaultSavePath.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { number } uid - User application's uid.    
+     * @returns { Promise<string> } Returns a string.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument   
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    getDefaultSavePath(uid: number): Promise<string>;
   }
 }
 
