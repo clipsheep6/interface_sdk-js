@@ -20,8 +20,15 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace display
  * @syscap SystemCapability.WindowManager.WindowManager.Core
- * @crossplatform
  * @since 7
+ */
+/**
+ * Interface of display manager.
+ *
+ * @namespace display
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @since 10
  */
 declare namespace display {
   /**
@@ -52,8 +59,16 @@ declare namespace display {
    * @returns { Display } the result of display
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Obtain the default display.
+   *
+   * @returns { Display } the result of display
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 10
    */
   function getDefaultDisplaySync(): Display;
 
@@ -222,10 +237,23 @@ declare namespace display {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 10
+   */
+  /**
+   * Enumerates the display orientation.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
    */
   enum Orientation {
+    /**
+     * Indicate that the display content is in portrait mode.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
     /**
      * Indicate that the display content is in portrait mode.
      *
@@ -239,6 +267,12 @@ declare namespace display {
      * Indicate that the display content is in landscape mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    /**
+     * Indicate that the display content is in landscape mode.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
@@ -248,11 +282,23 @@ declare namespace display {
      * Indicate that the display content is in the opposite direction of the portrait mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    /**
+     * Indicate that the display content is in the opposite direction of the portrait mode.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     PORTRAIT_INVERTED = 2,
 
+    /**
+     * Indicate that the display content is in the opposite direction of the landscape mode.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
     /**
      * Indicate that the display content is in the opposite direction of the landscape mode.
      *
@@ -268,16 +314,29 @@ declare namespace display {
    *
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
    * @since 9
+   */
+  /**
+   * Rectangle
+   *
+   * @interface Rect
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 10
    */
   interface Rect {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     left: number;
 
@@ -285,8 +344,14 @@ declare namespace display {
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     top: number;
 
@@ -294,8 +359,14 @@ declare namespace display {
      * Width of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Width of the rectangle, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     width: number;
 
@@ -303,8 +374,14 @@ declare namespace display {
      * Height of the rectangle, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 9
+     */
+    /**
+     * Height of the rectangle, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     height: number;
   }
@@ -380,16 +457,29 @@ declare namespace display {
    *
    * @interface Display
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
    * @since 7
+   */
+  /**
+   * Define properties of the display. They cannot be updated automatically.
+   *
+   * @interface Display
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 10
    */
   interface Display {
     /**
      * Display ID.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Display ID.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     id: number;
 
@@ -437,8 +527,14 @@ declare namespace display {
      * Display width, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Display width, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     width: number;
 
@@ -446,8 +542,14 @@ declare namespace display {
      * Display height, in pixels.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 7
+     */
+    /**
+     * Display height, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
      */
     height: number;
 
@@ -459,6 +561,12 @@ declare namespace display {
      */
     densityDPI: number;
 
+    /**
+     * Display orientation.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
     /**
      * Display orientation.
      *
