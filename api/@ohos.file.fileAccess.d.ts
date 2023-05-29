@@ -1687,7 +1687,9 @@ declare namespace fileAccess {
      * Set a DefaultSavePath.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @param { AsyncCallback<boolean> } callback - The callback is used to return a boolean.
+     * @param { number } uid - User application's uid.
+     * @param { string } uri Indicates the selected directory.
+     * @param { AsyncCallback<void> } callback - The callback is used to return a void.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument   
      * @throws { BusinessError } 13900042 - Unknown error
@@ -1697,13 +1699,15 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10
      */
-    setDefaultSavePath(uri: string, callback: AsyncCallback<boolean>): void;
+    setDefaultSavePath(uid: number, uri: string, callback: AsyncCallback<void>): void;
 
     /**
      * Set a DefaultSavePath.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @returns { Promise<boolean> } Returns a boolean.
+     * @param { number } uid - User application's uid.
+     * @param { string } uri Indicates the selected directory.
+     * @returns { Promise<void> } Returns a void.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument   
      * @throws { BusinessError } 13900042 - Unknown error
@@ -1713,12 +1717,13 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10
      */
-    setDefaultSavePath(uri: string): Promise<boolean>;
+    setDefaultSavePath(uid: number, uri: string): Promise<void>;
 
     /**
      * Set a DefaultSavePath.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { number } uid - User application's uid. 
      * @param { AsyncCallback<string> } callback - The callback is used to return a string.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument   
@@ -1728,12 +1733,13 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10
      */
-    getDefaultSavePath(callback: AsyncCallback<string>): void;
+    getDefaultSavePath(uid: number, callback: AsyncCallback<string>): void;
 
     /**
      * Get a DefaultSavePath.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { number } uid - User application's uid.    
      * @returns { Promise<string> } Returns a string.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument   
@@ -1743,7 +1749,7 @@ declare namespace fileAccess {
      * @systemapi
      * @since 10
      */
-    getDefaultSavePath(): Promise<string>;
+    getDefaultSavePath(uid: number): Promise<string>;
   }
 }
 
