@@ -451,7 +451,223 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    F_NUMBER = 'FNumber'
+    F_NUMBER = 'FNumber',
+
+    /**
+     * Date time
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    DATE_TIME = 'DateTime',
+
+    /**
+     * GPS time stamp
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    GPS_TIME_STAMP = 'GPSTimeStamp',
+
+    /**
+     * GPS date stamp
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    GPS_DATE_STAMP = 'GPSDateStamp',
+
+    /**
+     * Image description
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    IMAGE_DESCRIPTION = 'ImageDescription',
+
+    /**
+     * Make
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    MAKE = 'Make',
+
+    /**
+     * Model
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    MODEL = 'Model',
+
+    /**
+     * Photo mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    PHOTO_MODE = 'PhotoMode',
+
+    /**
+     * Sensitivity type
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    SENSITIVITY_TYPE = 'SensitivityType',
+
+    /**
+     * Standard output sensitivity
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
+
+    /**
+     * Recommended exposure index
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
+
+    /**
+     * ISO speed
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    ISO_SPEED = 'ISOSpeedRatings',
+
+    /**
+     * Aperture value
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    APERTURE_VALUE = 'ApertureValue',
+
+    /**
+     * Exposure bias value
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
+
+    /**
+     * Metering mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    METERING_MODE = 'MeteringMode',
+
+    /**
+     * Light source
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    LIGHT_SOURCE = 'LightSource',
+
+    /**
+     * Flash
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    FLASH = 'Flash',
+
+    /**
+     * Focal length
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    FOCAL_LENGTH = 'FocalLength',
+
+    /**
+     * User comment
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    USER_COMMENT = 'UserComment',
+
+    /**
+     * Pixel x dimension
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    PIXEL_X_DIMENSION = 'PixelXDimension',
+
+    /**
+     * Pixel y dimension
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    PIXEL_Y_DIMENSION = 'PixelYDimension',
+
+    /**
+     * White balance
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    WHITE_BALANCE = 'WhiteBalance',
+
+    /**
+     * Focal length in 35mm film
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
+
+    /**
+     * Capture mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    CAPTURE_MODE = 'HwMnoteCaptureMode',
+
+    /**
+     * Physical aperture
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    PHYSICAL_APERTURE = 'HwMnotePhysicalAperture'
   }
 
   /**
