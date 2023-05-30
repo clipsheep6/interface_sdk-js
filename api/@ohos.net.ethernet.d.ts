@@ -105,27 +105,6 @@ declare namespace ethernet {
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
 
   /**
-   * Set the specified network interface {@link HttpProxy} proxy settings.
-   *
-   * @param iface Indicates the network interface name of the network parameter.
-   * @param httpProxy Indicates the proxy settings. For details, see {@link HttpProxy}.
-   * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 2200001 - Invalid parameter value.
-   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2200003 - System internal error.
-   * @throws {BusinessError} 2201004 - Invalid Ethernet profile.
-   * @throws {BusinessError} 2201005 - Device information does not exist.
-   * @throws {BusinessError} 2201006 - Ethernet device not connected.
-   * @throws {BusinessError} 2201007 - Ethernet failed to write user configuration information.
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function setIfaceHttpProxy(iface: string, httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
-  function setIfaceHttpProxy(iface: string, httpProxy: HttpProxy): Promise<void>;
-
-  /**
    * Check whether the specified network is active.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { string } iface Indicates the network interface name.
@@ -289,6 +268,14 @@ declare namespace ethernet {
      * @since 9
      */
     dnsServers: string;
+
+    /**
+     * Indicates the HttpProxy settings, Default does not use HttpProxy.
+     * @type {?HttpProxy}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @since 10
+     */
+    httpProxy?: HttpProxy;
   }
 
   /**

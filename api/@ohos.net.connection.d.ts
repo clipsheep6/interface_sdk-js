@@ -484,15 +484,17 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
-   * <p>If a global proxy is set, the global proxy parameters are returned.
+   * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet},
    * the {@link NetHandle} proxy settings are returned.
    * In other cases, the default proxy settings of {@link NetHandle} are returned.
    *
-   * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
-   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2100003 - System internal error.
-   * @systemapi Hide this for inner system use.
+   * @param { AsyncCallback<HttpProxy> } callback Returns the default {@link HttpProxy} settings.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2101010 - No default network.
+   * @throws { BusinessError } 2101012 - No default HttpProxy.
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
   function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
@@ -500,15 +502,17 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
-   * <p>If a global proxy is set, the global proxy parameters are returned.
+   * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet},
    * the {@link NetHandle} proxy settings are returned.
    * In other cases, the default proxy settings of {@link NetHandle} are returned.
    *
    * @returns { Promise<HttpProxy> } the promise returned by the function.
-   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2100003 - System internal error.
-   * @systemapi Hide this for inner system use.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @throws { BusinessError } 2101010 - No default network.
+   * @throws { BusinessError } 2101012 - No default HttpProxy.
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
   function getDefaultHttpProxy(): Promise<HttpProxy>;
@@ -548,7 +552,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use. 
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
