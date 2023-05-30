@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,10 +21,9 @@ import notification from '../@ohos.notification';
  * Provides methods that will be called back when the subscriber receives a new notification or
  * a notification is canceled.
  *
- * @name NotificationSubscriber
+ * @interface NotificationSubscriber
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 7
  */
 export interface NotificationSubscriber {
@@ -38,6 +37,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when the Do Not Disturb setting changed.
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 8
    */
   onDoNotDisturbDateChange?: (mode: notification.DoNotDisturbDate) => void;
@@ -45,6 +45,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when the notification permission is changed.
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 8
    */
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
@@ -52,6 +53,7 @@ export interface NotificationSubscriber {
   /**
    * Callback when badge number changed.
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 10
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
@@ -61,10 +63,9 @@ export interface NotificationSubscriber {
  * Provides methods that will be called back when the subscriber receives a new notification or
  * a notification is canceled.
  *
- * @name SubscribeCallbackData
+ * @interface SubscribeCallbackData
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 7
  */
 export interface SubscribeCallbackData {
@@ -78,9 +79,9 @@ export interface SubscribeCallbackData {
 /**
  * Describes the properties of the application that the permission to send notifications has changed.
  *
- * @name EnabledNotificationCallbackData
+ * @interface EnabledNotificationCallbackData
  * @syscap SystemCapability.Notification.Notification
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 8
  */
 export interface EnabledNotificationCallbackData {
@@ -92,9 +93,9 @@ export interface EnabledNotificationCallbackData {
 /**
  * Describes the badge number of the application has changed.
  *
- * @name BadgeNumberCallbackData
+ * @interface BadgeNumberCallbackData
  * @syscap SystemCapability.Notification.Notification
- * @systemapi Hide this for inner system use.
+ * @systemapi
  * @since 10
  */
 export interface BadgeNumberCallbackData {
