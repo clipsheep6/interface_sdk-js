@@ -22,43 +22,41 @@ import { AsyncCallback } from './basic';
  * @since 10
  */
 declare namespace identifier {
-  export interface Identifier {
-    /**
-     * Get the open advertising identifier id.
-     *
-     * @permission ohos.permission.APP_TRACKING_CONSENT
-     * @param abilityContext The context of an ability.
-     * @param callback The callback to get the open advertising identifier id.
-     * @throws {BusinessError} 17300001 - System internal error.
-     * @syscap SystemCapability.Cloud.OAID
-     * @since 10
-     */
-    getAdsIdentifierInfo(abilityContext: UIAbilityContext, callback: AsyncCallback<string>): void;
+  /**
+   * Get the open advertising identifier id.
+   *
+   * @permission ohos.permission.APP_TRACKING_CONSENT
+   * @param abilityContext The context of an ability.
+   * @param callback The callback to get the open advertising identifier id.
+   * @throws {BusinessError} 17300001 - System internal error.
+   * @syscap SystemCapability.Cloud.OAID
+   * @since 10
+   */
+  function getAdsIdentifierInfo(abilityContext: UIAbilityContext, callback: AsyncCallback<string>): void;
 
-    /**
-     * Get the open advertising identifier id.
-     *
-     * @permission ohos.permission.APP_TRACKING_CONSENT
-     * @param abilityContext The context of an ability.
-     * @return Returns the open advertising identifier id.
-     * @throws {BusinessError} 17300001 - System internal error.
-     * @syscap SystemCapability.Cloud.OAID
-     * @since 10
-     */
-    getAdsIdentifierInfo(abilityContext: UIAbilityContext): Promise<string>;
+  /**
+   * Get the open advertising identifier id.
+   *
+   * @permission ohos.permission.APP_TRACKING_CONSENT
+   * @param abilityContext The context of an ability.
+   * @return Returns the open advertising identifier id.
+   * @throws {BusinessError} 17300001 - System internal error.
+   * @syscap SystemCapability.Cloud.OAID
+   * @since 10
+   */
+  function getAdsIdentifierInfo(abilityContext: UIAbilityContext): Promise<string>;
 
-    /**
-     * Reset the open advertising identifier id.
-     *
-     * @permission ohos.permission.APP_TRACKING_CONSENT
-     * @param abilityContext The context of an ability.
-     * @throws {BusinessError} 17300001 - System internal error.
-     * @syscap SystemCapability.Cloud.OAID
-     * @systemapi
-     * @since 10
-     */
-    resetAdsIdentifier(abilityContext: UIAbilityContext): void
-  }
+  /**
+   * Reset the open advertising identifier id.
+   *
+   * @permission ohos.permission.APP_TRACKING_CONSENT
+   * @param abilityContext The context of an ability.
+   * @throws {BusinessError} 17300001 - System internal error.
+   * @syscap SystemCapability.Cloud.OAID
+   * @systemapi
+   * @since 10
+   */
+  function resetAdsIdentifier(abilityContext: UIAbilityContext): void
 }
 export default identifier;
 
