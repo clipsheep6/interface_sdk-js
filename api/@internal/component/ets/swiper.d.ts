@@ -316,34 +316,6 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
 declare enum SwiperDisplayMode {
   /**
    * Carousel map extension.
-   * @since 7
-   */
-  /**
-   * Carousel map extension.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead SwiperDisplayMode#STRETCH
-   */
-  Stretch,
-
-  /**
-   * The rotation chart is self linear.
-   * @since 7
-   */
-  /**
-   * The rotation chart is self linear.
-   * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead SwiperDisplayMode#AUTO_LINEAR
-   */
-  AutoLinear,
-
-  /**
-   * Carousel map extension.
    * @form
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
