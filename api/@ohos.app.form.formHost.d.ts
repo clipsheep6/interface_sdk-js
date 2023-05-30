@@ -727,7 +727,6 @@ declare namespace formHost {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
    * @param { string } bundleName - Indicates the bundle name of the form host application.
-   * @returns { number } Returns the key to off Listens.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -749,7 +748,6 @@ declare namespace formHost {
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
    * @param { string } bundleName - Indicates the bundle name of the form host application.
-   * @returns { number } Returns the key to off Listens.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -769,7 +767,7 @@ declare namespace formHost {
    * @permission ohos.permission.REQUIRE_FORM
    * @param { 'notifyVisible' } type - Indicates event type.
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
-   *                                                                         the running form info.
+   *                                                                  the running form info.
    * @param { string } bundleName - Indicates the bundle name of the form host application.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -783,7 +781,7 @@ declare namespace formHost {
    * @since 10
    */
   function off(type: 'notifyVisible',
-    observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>, bundleName?: string): void;
 
   /**
    * Cancels listening to the event of invisible type change.
@@ -805,7 +803,7 @@ declare namespace formHost {
    * @since 10
    */
   function off(type: 'notifyInvisible',
-    observerCallback?: Callback<formInfo.RunningFormInfo>, bundleName?: string): void;
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>, bundleName?: string): void;
   /**
    * Notify form is Visible
    * <p>You can use this method to notify form visible state.</p>
