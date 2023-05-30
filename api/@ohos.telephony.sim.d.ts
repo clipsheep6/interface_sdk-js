@@ -680,8 +680,7 @@ declare namespace sim {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
-   * getting a {@code IccAccountInfo} object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * getting a {@code IccAccountInfo} object. The iccid and phone number will be null if has no permission.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -700,8 +699,8 @@ declare namespace sim {
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The iccid and phone number
+   * will be null if has no permission.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -719,8 +718,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
-   * return the array of {@link IccAccountInfo}.
-   * @throws { BusinessError } 201 - Permission denied.
+   * return the array of {@link IccAccountInfo}. The iccid and phone number will be null if has no permission.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -736,8 +734,8 @@ declare namespace sim {
    * Get the list of active SIM card account information.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The iccid
+   * and phone number will be null if has no permission.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300004 - Do not have sim card.
