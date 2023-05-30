@@ -273,6 +273,7 @@ declare namespace ethernet {
      * Indicates the HttpProxy settings, Default does not use HttpProxy.
      * @type {?HttpProxy}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     httpProxy?: HttpProxy;
