@@ -487,7 +487,7 @@ declare namespace connection {
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet},
    * the {@link NetHandle} proxy settings are returned.
-   * In other cases, the default proxy settings of {@link NetHandle} are returned.
+   * In other cases, the proxy settings of default network are returned.
    *
    * @param { AsyncCallback<HttpProxy> } callback Returns the default {@link HttpProxy} settings.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
@@ -505,7 +505,7 @@ declare namespace connection {
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet},
    * the {@link NetHandle} proxy settings are returned.
-   * In other cases, the default proxy settings of {@link NetHandle} are returned.
+   * In other cases, the proxy settings of default network are returned.
    *
    * @returns { Promise<HttpProxy> } the promise returned by the function.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
