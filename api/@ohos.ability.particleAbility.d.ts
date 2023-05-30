@@ -75,7 +75,7 @@ declare namespace particleAbility {
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
    */
-  function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
+  function startBackgroundRunning(request: NotificationRequest, callback: AsyncCallback<void>): void;
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
 
   /**

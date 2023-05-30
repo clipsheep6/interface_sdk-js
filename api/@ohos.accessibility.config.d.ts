@@ -19,6 +19,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Configuration of the accessibility.
  *
+ * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
  * @namespace config
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi

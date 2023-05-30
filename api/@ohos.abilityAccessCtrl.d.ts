@@ -188,7 +188,6 @@ declare namespace abilityAccessCtrl {
     /**
      * Grants a specified user_grant permission to the given application.
      *
-     * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
      * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be granted.
      * @param { number } permissionFlags - Flags of permission state.

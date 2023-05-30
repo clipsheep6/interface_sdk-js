@@ -42,7 +42,7 @@ declare namespace dataUriUtils {
    * @param id Indicates the ID to attach.
    * @returns Returns the uri object with the given ID attached.
    */
-  function attachId(uri: string, id: number): string
+  function attachId(uri: string, id: number, test?: string): string
 
   /**
    * Deletes the ID from the end of the path component of the given uri.

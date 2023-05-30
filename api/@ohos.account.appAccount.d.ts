@@ -95,7 +95,6 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the name of the application account to add.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300004 - Account already exists.
