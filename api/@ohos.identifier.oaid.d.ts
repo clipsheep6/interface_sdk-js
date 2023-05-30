@@ -71,21 +71,21 @@ declare namespace identifier {
 
     /**
      * Invalid argument.
-	 * @syscap SystemCapability.Cloud.OAID
+     * @syscap SystemCapability.Cloud.OAID
      * @since 10
      */
     OAIDERR_INVALID_VAL = 1,
 
     /**
      * Unknown error.
-	 * @syscap SystemCapability.Cloud.OAID
+     * @syscap SystemCapability.Cloud.OAID
      * @since 10
      */
     OAIDERR_UNKNOWN = 2,
 
     /**
      * Operation is not supported in current version.
-	 * @syscap SystemCapability.Cloud.OAID
+     * @syscap SystemCapability.Cloud.OAID
      * @since 10
      */
     OAIDERR_UNSUPPORTED = 3,
