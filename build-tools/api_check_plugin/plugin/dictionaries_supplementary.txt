@@ -23,6 +23,7 @@ alterase
 alternating
 altitudes
 amr
+animatable
 annually
 antialias
 apdu
@@ -100,6 +101,7 @@ chrominance
 circled
 clamped
 clamps
+cloudfile
 coincides
 collaborated
 collapses
@@ -393,6 +395,8 @@ meid
 messageerror
 metered
 metering
+mgf
+mgf1
 mifare
 minibar
 minimizing
@@ -401,6 +405,7 @@ missions
 mkdtemp
 mmax
 mmi
+mmicode
 mnc
 moderately
 moitor
@@ -457,6 +462,8 @@ operatorconfigs
 opkey
 opl
 opname
+option
+originating
 osd
 ott
 ounted
@@ -520,6 +527,7 @@ provisioned
 proxyed
 psc
 psk
+psrc
 pss
 puk
 pvr
@@ -581,6 +589,7 @@ sak
 satellites
 scdma
 sco
+scrambling
 screenlock
 screensaver
 scrolldown
@@ -606,6 +615,7 @@ slidable
 sliderstyle
 statvfs
 stk
+str
 sm3
 smil
 smsc
@@ -643,6 +653,8 @@ subscrbers
 subscribale
 subscribes
 subtypes
+subwindow
+subwindows
 superimposed
 suscriber
 suscribes
@@ -698,6 +710,7 @@ ubset
 ucs
 udid
 uint8
+uint8arr
 uitest
 umalqura
 unapply
@@ -810,5 +823,6 @@ zoomreset
 zooms
 zpass
 commonevent
+clouddata
 unprepare
 unchained
