@@ -95,9 +95,14 @@ export default class UIAbilityContext extends Context {
   config: Configuration;
 
   /**
-   * Starts a new ability.
+   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param want { Want } - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -142,19 +147,22 @@ export default class UIAbilityContext extends Context {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new ability.
+   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -167,10 +175,15 @@ export default class UIAbilityContext extends Context {
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new ability.
+   * Starts a new ability. If the caller application is in foreground, you can use this method to start ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -192,7 +205,13 @@ export default class UIAbilityContext extends Context {
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Get the caller object of the startup capability
+   * Get the caller object of the startup capability.
+   * If the local device starts a new ability, you need to apply for permission:ohos.permission.ABILITY_BACKGROUND_COMMUNICATION to use this method.
+   * If the caller application is in foreground, you can use this method to start ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
    * @param { Want } want - Indicates the ability to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
@@ -201,12 +220,10 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -247,7 +264,12 @@ export default class UIAbilityContext extends Context {
   startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
 
   /**
-   * Starts a new ability with account.
+   * Starts a new ability with account. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -276,7 +298,12 @@ export default class UIAbilityContext extends Context {
   startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new ability with account.
+   * Starts a new ability with account. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -286,13 +313,11 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -306,7 +331,12 @@ export default class UIAbilityContext extends Context {
   startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new ability with account.
+   * Starts a new ability with account. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -336,9 +366,15 @@ export default class UIAbilityContext extends Context {
   startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * Starts an ability and returns the execution result when the ability is destroyed. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -360,19 +396,23 @@ export default class UIAbilityContext extends Context {
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * Starts an ability and returns the execution result when the ability is destroyed. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -385,10 +425,16 @@ export default class UIAbilityContext extends Context {
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * Starts an ability and returns the execution result when the ability is destroyed. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -411,6 +457,11 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed with account.
+   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -440,6 +491,11 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed with account.
+   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -449,13 +505,11 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -470,6 +524,11 @@ export default class UIAbilityContext extends Context {
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed with account.
+   * If the caller application is in foreground, you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -499,8 +558,12 @@ export default class UIAbilityContext extends Context {
   startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
 
   /**
-   * Starts a new service extension ability.
-   * @permission ohos.permission.START_INVISIBLE_ABILITY
+   * Starts a new service extension ability. If the caller application is in foreground, you can use this method to start service extension ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can start the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the want info to start.
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -508,6 +571,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -522,8 +586,12 @@ export default class UIAbilityContext extends Context {
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new service extension ability.
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
+   * Starts a new service extension ability. If the caller application is in foreground, you can use this method to start service extension ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can start the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the want info to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -531,6 +599,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -545,7 +614,13 @@ export default class UIAbilityContext extends Context {
   startServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Starts a new service extension ability with account.
+   * Starts a new service extension ability with account. If the caller application is in foreground,
+   * you can use this method to start service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can start the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -555,6 +630,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -569,7 +645,13 @@ export default class UIAbilityContext extends Context {
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a new service extension ability with account.
+   * Starts a new service extension ability with account. If the caller application is in foreground,
+   * you can use this method to start service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can start the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the account to start.
@@ -579,6 +661,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -593,13 +676,21 @@ export default class UIAbilityContext extends Context {
   startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
 
   /**
-   * Stops a service within the same application.
+   * Stops other service extension ability. If the caller application is in foreground,
+   * you can use this method to stop service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can stop the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the want info to start.
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -613,13 +704,21 @@ export default class UIAbilityContext extends Context {
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops a service within the same application.
+   * Stops other service extension ability. If the caller application is in foreground,
+   * you can use this method to stop service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can stop the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the want info to start.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -633,7 +732,13 @@ export default class UIAbilityContext extends Context {
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * Stops a service within the same application with account.
+   * Stops other service extension ability with account. If the caller application is in foreground,
+   * you can use this method to stop service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can stop the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the accountId to start.
@@ -643,6 +748,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -656,7 +762,13 @@ export default class UIAbilityContext extends Context {
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops a service within the same application with account.
+   * Stops other service extension ability with account. If the caller application is in foreground,
+   * you can use this method to stop service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can stop the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
    * @param { number } accountId - Indicates the accountId to start.
@@ -666,6 +778,7 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -682,9 +795,6 @@ export default class UIAbilityContext extends Context {
    * Destroys this Page ability.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -712,9 +822,6 @@ export default class UIAbilityContext extends Context {
   /**
    * Destroys this Page ability.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -744,9 +851,6 @@ export default class UIAbilityContext extends Context {
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -762,9 +866,6 @@ export default class UIAbilityContext extends Context {
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -775,17 +876,28 @@ export default class UIAbilityContext extends Context {
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
   /**
-   * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
+   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template.
+   * If the caller application is in foreground, you can use this method to connect service extension ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can connect the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } options - The remote object instance
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
@@ -793,7 +905,13 @@ export default class UIAbilityContext extends Context {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
   /**
-   * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
+   * Connects the current ability to an service extension ability using the AbilityInfo.AbilityType.SERVICE template with account.
+   * If the caller application is in foreground, you can use this method to connect service extension ability;
+   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can connect the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
+   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - The element name of the service ability
    * @param { number } accountId - The account to connect
@@ -803,9 +921,15 @@ export default class UIAbilityContext extends Context {
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+   * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -869,6 +993,7 @@ export default class UIAbilityContext extends Context {
    * Set mission icon of current ability.
    * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
    * @param { AsyncCallback<void> } callback - The callback of setMissionIcon.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -883,6 +1008,7 @@ export default class UIAbilityContext extends Context {
    * Set mission icon of current ability.
    * @param { image.PixelMap } icon - The icon of ability that showed in recent missions.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -916,10 +1042,15 @@ export default class UIAbilityContext extends Context {
   isTerminating(): boolean;
 
   /**
-   * Service extension uses this method to start a specific ability,
-   * if ability is multi instance, will start a recent instance.
+   * If ability is multi instance, will start a recent instance. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -942,20 +1073,23 @@ export default class UIAbilityContext extends Context {
   startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability,
-   * if ability is multi instance, will start a recent instance.
+   * If ability is multi instance, will start a recent instance. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
-   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -969,11 +1103,16 @@ export default class UIAbilityContext extends Context {
   startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Service extension uses this method to start a specific ability,
-   * if ability is multi instance, will start a recent instance.
+   * If ability is multi instance, will start a recent instance. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -996,9 +1135,15 @@ export default class UIAbilityContext extends Context {
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Requests certain permissions from the system.
+   * Starts a service extension ability that supports modal dialog. If the caller application is in foreground,
+   * you can use this method to start service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can start the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
    * @param want { Want } - Indicates the dialog service to start.
    * @param { AsyncCallback<RequestResult> } result - The callback is used to return the request result.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -1020,9 +1165,15 @@ export default class UIAbilityContext extends Context {
   requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
 
   /**
-   * Requests certain permissions from the system.
+   * Starts a service extension ability that supports modal dialog. If the caller application is in foreground,
+   * you can use this method to start service extension ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target service extension ability is visible, you can start the target service extension ability;
+   * If the target service extension ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
    * @param want { Want } - Indicates the dialog service to start.
    * @returns { Promise<request.RequestResult> } Returns the request result.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
