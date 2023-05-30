@@ -29,6 +29,7 @@ declare namespace identifier {
      * @permission ohos.permission.APP_TRACKING_CONSENT
      * @param abilityContext The context of an ability.
      * @param callback The callback to get the open advertising identifier id.
+     * @throws {BusinessError} 17300001 - System internal error.
      * @syscap SystemCapability.Cloud.OAID
      * @since 10
      */
@@ -40,6 +41,7 @@ declare namespace identifier {
      * @permission ohos.permission.APP_TRACKING_CONSENT
      * @param abilityContext The context of an ability.
      * @return Returns the open advertising identifier id.
+     * @throws {BusinessError} 17300001 - System internal error.
      * @syscap SystemCapability.Cloud.OAID
      * @since 10
      */
@@ -50,45 +52,12 @@ declare namespace identifier {
      *
      * @permission ohos.permission.APP_TRACKING_CONSENT
      * @param abilityContext The context of an ability.
+     * @throws {BusinessError} 17300001 - System internal error.
      * @syscap SystemCapability.Cloud.OAID
      * @systemapi
      * @since 10
      */
     resetAdsIdentifier(abilityContext: UIAbilityContext): void
-  }
-
-  /**
-   * Enumerates ErrorCode types, return in BusinessError::code
-   * @since 10
-   */
-  export enum IdentifierErrorCode {
-    /**
-     * Operation success.
-	 * @syscap SystemCapability.Cloud.OAID
-     * @since 10
-     */
-    OAIDERR_OK = 0,
-
-    /**
-     * Invalid argument.
-     * @syscap SystemCapability.Cloud.OAID
-     * @since 10
-     */
-    OAIDERR_INVALID_VAL = 1,
-
-    /**
-     * Unknown error.
-     * @syscap SystemCapability.Cloud.OAID
-     * @since 10
-     */
-    OAIDERR_UNKNOWN = 2,
-
-    /**
-     * Operation is not supported in current version.
-     * @syscap SystemCapability.Cloud.OAID
-     * @since 10
-     */
-    OAIDERR_UNSUPPORTED = 3,
   }
 }
 export default identifier;
