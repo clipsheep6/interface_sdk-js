@@ -19,10 +19,10 @@ import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscrib
 /**
  * class of static subscriber extension ability.
  *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
+ * @systemapi
  * @StageModelOnly
+ * @since 9
  */
 export default class StaticSubscriberExtensionAbility {
   /**
@@ -39,11 +39,11 @@ export default class StaticSubscriberExtensionAbility {
   /**
    * Called back when a specific common event is published.
    *
-   * @since 9
+   * @param { CommonEventData } event Static subscriber universal event callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide for inner use.
-   * @returns -
+   * @systemapi
    * @StageModelOnly
+   * @since 9
    */
   onReceiveEvent(event: CommonEventData): void;
 }

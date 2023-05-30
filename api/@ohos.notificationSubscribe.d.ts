@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,11 +21,10 @@ import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
 
 /**
- * @name notificationSubscribe
- * @since 9
- * @systemapi
+ * @namespace notificationSubscribe
  * @syscap SystemCapability.Notification.Notification
- * @permission N/A
+ * @systemapi
+ * @since 9
  */
 declare namespace notificationSubscribe {
   /**
@@ -50,11 +49,17 @@ declare namespace notificationSubscribe {
   export enum RemoveReason {
     /**
      * Notification clicked notification on the status bar
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     CLICK_REASON_REMOVE = 1,
 
     /**
      * User dismissal notification  on the status bar
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     CANCEL_REASON_REMOVE = 2,
   }
@@ -83,7 +88,6 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @param { NotificationSubscribeInfo } info - The notification subscribe info.
    * @param { AsyncCallback<void> } callback - The callback of subscribe.
-   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -321,6 +325,7 @@ declare namespace notificationSubscribe {
   /**
    * Describes a bundleOption in a notification.
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 9
    */
   export type BundleOption = _BundleOption

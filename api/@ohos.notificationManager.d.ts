@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -414,7 +414,8 @@ declare namespace notificationManager {
 
   /**
    * Obtains all NotificationSlot objects created by the current application.
-   * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback is used to return all notification slots of this application.
+   * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback is used to return all notification slots
+   *                                                              of this application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1109,7 +1110,8 @@ declare namespace notificationManager {
   /**
    * Obtains whether to support the Do Not Disturb mode.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether Do Not Disturb mode is supported.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether Do Not Disturb
+   *                                              mode is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1140,7 +1142,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the template is supported by the system.
-   * @param templateName Name of template to be Obtained.
+   * @param { string } templateName Name of template to be Obtained.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the template is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1153,7 +1155,7 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the template is supported by the system.
-   * @param templateName Name of template to be Obtained.
+   * @param { string } templateName Name of template to be Obtained.
    * @returns { Promise<boolean> } Returns whether the template is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1226,7 +1228,8 @@ declare namespace notificationManager {
 
   /**
    * Obtains whether the device supports distributed notification.
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed notification is supported.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed
+   *                                              notification is supported.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1294,7 +1297,8 @@ declare namespace notificationManager {
    * Obtains whether an application supports distributed notification.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed notification is supported.
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed
+   *                                              notification is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1626,26 +1630,36 @@ declare namespace notificationManager {
   export enum SlotType {
     /**
      * NotificationSlot of an unknown type.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     UNKNOWN_TYPE = 0,
 
     /**
      * NotificationSlot for social communication.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     SOCIAL_COMMUNICATION = 1,
 
     /**
      * NotificationSlot for service information.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     SERVICE_INFORMATION = 2,
 
     /**
      * NotificationSlot for content information.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     CONTENT_INFORMATION = 3,
 
     /**
      * NotificationSlot for other purposes.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     OTHER_TYPES = 0xFFFF,
   }
@@ -1659,26 +1673,36 @@ declare namespace notificationManager {
   export enum ContentType {
     /**
      * Normal text notification.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
     /**
      * Long text notification.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
 
     /**
      * Picture-attached notification.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
      * Conversation notification.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
     /**
      * Multi-line text notification.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     NOTIFICATION_CONTENT_MULTILINE,
   }
@@ -1692,30 +1716,40 @@ declare namespace notificationManager {
   export enum SlotLevel {
     /**
      * Indicates that the notification function is disabled.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     LEVEL_NONE = 0,
 
     /**
      * Indicates that the notification function is enabled but notification
      * icons are not displayed in the status bar, with no banner or prompt tone.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     LEVEL_MIN = 1,
 
     /**
      * Indicates that the notification function is enabled and notification
      * icons are displayed in the status bar, with no banner or prompt tone.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     LEVEL_LOW = 2,
 
     /**
      * Indicates that the notification function is enabled and notification
      * icons are displayed in the status bar, with no banner but with a prompt tone.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     LEVEL_DEFAULT = 3,
 
     /**
      * Indicates that the notification function is enabled and notification
      * icons are displayed in the status bar, with a banner and a prompt tone.
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
      */
     LEVEL_HIGH = 4,
   }
@@ -1730,21 +1764,33 @@ declare namespace notificationManager {
   export enum DoNotDisturbType {
     /**
      * Non do not disturb type notification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_NONE = 0,
 
     /**
      * Execute do not disturb once in the set time period (only watch hours and minutes)
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_ONCE = 1,
 
     /**
      * Execute do not disturb every day with a set time period (only watch hours and minutes)
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_DAILY = 2,
 
     /**
      * Execute in the set time period (specify the time, month, day and hour)
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_CLEARLY = 3,
   }
@@ -1760,18 +1806,27 @@ declare namespace notificationManager {
     /**
      * the type of the Do Not Disturb.
      *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     type: DoNotDisturbType;
 
     /**
      * the start time of the Do Not Disturb.
      *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     begin: Date;
 
     /**
      * the end time of the Do Not Disturb.
      *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     end: Date;
   }
@@ -1786,21 +1841,33 @@ declare namespace notificationManager {
   export enum DeviceRemindType {
     /**
      * The device is not in use, no reminder
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     IDLE_DONOT_REMIND = 0,
 
     /**
      * The device is not in use, remind
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     IDLE_REMIND = 1,
 
     /**
      * The device is in use, no reminder
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     ACTIVE_DONOT_REMIND = 2,
 
     /**
      * The device is in use, reminder
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     ACTIVE_REMIND = 3,
   }
@@ -1815,16 +1882,25 @@ declare namespace notificationManager {
   export enum SourceType {
     /**
      * General notification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_NORMAL = 0,
 
     /**
      * Continuous notification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_CONTINUOUS = 1,
 
     /**
      * Scheduled notification
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 9
      */
     TYPE_TIMER = 2,
   }
