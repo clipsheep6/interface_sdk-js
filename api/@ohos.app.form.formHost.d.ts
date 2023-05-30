@@ -958,6 +958,7 @@ declare namespace formHost {
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
      * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -975,6 +976,7 @@ declare namespace formHost {
      * @throws { BusinessError } 202 - The application is not a system application.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @throws { BusinessError } 16500050 - An IPC connection error happened.
+     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
      * @throws { BusinessError } 16501000 - An internal functional error occurred.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -992,6 +994,7 @@ declare namespace formHost {
     * @throws { BusinessError } 202 - The application is not a system application.
     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
     * @throws { BusinessError } 16501000 - An internal functional error occurred.
     * @syscap SystemCapability.Ability.Form
     * @systemapi
@@ -1009,6 +1012,7 @@ declare namespace formHost {
     * @throws { BusinessError } 202 - The application is not a system application.
     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
     * @throws { BusinessError } 16500050 - An IPC connection error happened.
+    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
     * @throws { BusinessError } 16501000 - An internal functional error occurred.
     * @syscap SystemCapability.Ability.Form
     * @systemapi
