@@ -929,6 +929,18 @@ declare namespace webview {
      */
     static initializeWebEngine(): void;
 
+    /**
+     * Preresove or Preconnect the url. This API can be called before loading the url to make loading faster.
+     * @param { string } Which url to preresolve/preconnect.
+     * @param { boolean } Indicates whether to preconnect.
+     * @param { int } If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     *
+     * @since 10
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: int): void;
 
     /**
      * Set web engine to use HttpDns server to resolve dns.
