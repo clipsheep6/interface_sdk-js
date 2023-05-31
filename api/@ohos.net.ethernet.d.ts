@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./@ohos.base";
-import connection from "./@ohos.net.connection";
+import connection from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage ethernet.
