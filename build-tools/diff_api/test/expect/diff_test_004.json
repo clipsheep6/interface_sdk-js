@@ -1,0 +1,14 @@
+[
+  {
+    "packageName": "api\\@ohos.app.ability.abilityDelegatorRegistry.d.ts",
+    "className": "",
+    "rawText": "",
+    "dtsName": "@ohos.app.ability.abilityDelegatorRegistry.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 1,
+    "status": "d.ts删除",
+    "oldMessage": "d.ts声明文件已删除",
+    "newMessage": ""
+  }
+]

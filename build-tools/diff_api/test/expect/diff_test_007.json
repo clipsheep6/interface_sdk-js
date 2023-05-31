@@ -1,0 +1,28 @@
+[
+  {
+    "packageName": "api\\@ohos.commonEvent.d.ts",
+    "className": "commonEvent",
+    "rawText": "declare commonEvent",
+    "dtsName": "@ohos.commonEvent.d.ts",
+    "hint": "useinstead: ohos.commonEventManager",
+    "changelogs": [],
+    "statusCode": 5,
+    "status": "废弃版本有变化",
+    "oldMessage": "",
+    "newMessage": "9",
+    "syscap": "Notification"
+  },
+  {
+    "packageName": "api\\@ohos.commonEvent.d.ts",
+    "className": "commonEvent",
+    "rawText": "function publish(event: string, callback: AsyncCallback<void>): void;",
+    "dtsName": "@ohos.commonEvent.d.ts",
+    "hint": "useinstead: ohos.commonEventManager.publish",
+    "changelogs": [],
+    "statusCode": 5,
+    "status": "废弃版本有变化",
+    "oldMessage": "",
+    "newMessage": "9",
+    "syscap": "Notification"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "packageName": "api\\@ohos.ability.ability.d.ts",
+    "className": "ability",
+    "rawText": "declare ability",
+    "dtsName": "@ohos.ability.ability.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 13,
+    "status": "model有变化",
+    "oldMessage": "",
+    "newMessage": "FAModelOnly",
+    "syscap": "Ability"
+  },
+  {
+    "packageName": "api\\@ohos.app.ability.Ability.d.ts",
+    "className": "Ability",
+    "rawText": "onMemoryLevel(level: AbilityConstant.MemoryLevel): void;",
+    "dtsName": "@ohos.app.ability.Ability.d.ts",
+    "hint": "",
+    "changelogs": [],
+    "statusCode": 13,
+    "status": "model有变化",
+    "oldMessage": "",
+    "newMessage": "StageModelOnly",
+    "syscap": "Ability"
+  }
+]
