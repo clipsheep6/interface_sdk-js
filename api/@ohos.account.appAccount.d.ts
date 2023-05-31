@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -2643,6 +2643,175 @@ declare namespace appAccount {
      * @since 9
      */
     getRemoteObject(): rpc.RemoteObject;
+  }
+
+  /**
+   * Enum for account capability type.
+   *
+   * @enum { number } AccountCapabilityType
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  enum AccountCapabilityType {
+    /**
+     * Indicates the type of account authentication capability.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    AUTHENTICATION = 1
+  }
+
+  /**
+   * The class of the account capability provider.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityProvider {
+    /**
+     * Indicates the type of account capability provided.
+     *
+     * @type { AccountCapabilityType }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly capabilityType: AccountCapabilityType;
+
+    /**
+     * A constructor used to create a AccountCapabilityProvider object.
+     *
+     * @param { AccountCapabilityType } capabilityType - Indicates the type of account capability provided.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(capabilityType: AccountCapabilityType);
+  }
+
+  /**
+   * The class of an account capability request.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityRequest {
+    /**
+     * A constructor used to create a AccountCapabilityRequest object.
+     *
+     * @param { AccountCapabilityProvider } provider - Indicates the account capability provider for handling the request.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(provider: AccountCapabilityProvider);
+  }
+
+  /**
+   * The class of an account capability response.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityResponse {
+    /**
+     * Indicates the request corresponding to the current response.
+     *
+     * @type { AccountCapabilityRequest }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly request: AccountCapabilityRequest;
+
+    /**
+     * A constructor used to create a AccountCapabilityResponse object.
+     *
+     * @param { AccountCapabilityRequest } request - Indicates the request corresponding to the current response.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(request: AccountCapabilityRequest);
+  }
+
+  /**
+   * The definition of the authentication provider identifier.
+   *
+   * @interface AuthenticationProviderInfo
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  interface AuthenticationProviderInfo {
+    /**
+     * Indicates the bundle name of the provider.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly bundleName: string;
+
+    /**
+     * Indicates the ability name of the provider.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    readonly abilityName: string;
+  }
+
+  /**
+   * The class of an authentication provider.
+   *
+   * @extends AccountCapabilityProvider
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AuthenticationProvider extends AccountCapabilityProvider {
+    /**
+     * A constructor used to create a AuthenticationProvider object.
+     *
+     * @param { AuthenticationProviderInfo } info - Indicates the provider information.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    constructor(info: AuthenticationProviderInfo);
+  }
+
+  /**
+   * The class of an account capability scheduler.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @since 10
+   */
+  class AccountCapabilityScheduler {
+    /**
+     * Executes the specified account capability request.
+     *
+     * @param { AccountCapabilityRequest } request - Indicates the account capability request.
+     * @param { AsyncCallback<AccountCapabilityResponse> } callback - Indicates the callback for getting the response.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    executeRequest(request: AccountCapabilityRequest, callback: AsyncCallback<AccountCapabilityResponse>): void;
+
+    /**
+     * Executes the specified account capability request.
+     *
+     * @param { AccountCapabilityRequest } request - Indicates the account capability request.
+     * @returns { Promise<AccountCapabilityResponse> } The promise returned by the function.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid request.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 10
+     */
+    executeRequest(request: AccountCapabilityRequest): Promise<AccountCapabilityResponse>;
   }
 }
 
