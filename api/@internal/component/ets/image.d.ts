@@ -271,7 +271,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Unsupported objectFit attribute animation for pixelMap, svg and texture compressed image sources.
    * @param { ImageFit } value - the type of image fit.
    * @form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
