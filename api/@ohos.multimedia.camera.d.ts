@@ -200,6 +200,11 @@ declare namespace camera {
      */
     DEVICE_DISABLED = 7400108,
     /**
+     * Can not use camera cause of preempted.
+     * @since 9
+     */
+    DEVICE_PREEMPTED = 7400109,
+    /**
      * Camera service fatal error.
      * @since 9
      */
@@ -988,7 +993,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @returns The array of compenstation range.
+     * @returns The array of compensation range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @throws { BusinessError } 7400103 - Session not config.
