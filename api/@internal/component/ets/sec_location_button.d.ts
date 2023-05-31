@@ -257,28 +257,6 @@ interface SecLocationButtonInterface {
  */
 declare interface SecLocationButtonAttribute extends SecCompButtonAttribute {
   /**
-   * Layout direction of the icon and text.
-   *
-   * @param { SecurityComponentLayoutDirection } value - Indicates the layout direction of the icon and text.
-   * @returns { SecLocationButtonAttribute } Returns the attribute of the location button.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  layoutDirection(value: SecurityComponentLayoutDirection): SecLocationButtonAttribute;
-
-  /**
-   * Layout order of the icon and text.
-   *
-   * @param { SecurityComponentLayoutOrder } value - Indicates the layout order of the icon and text.
-   * @returns { SecLocationButtonAttribute } Returns the attribute of the location button.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  layoutOrder(value: SecurityComponentLayoutOrder): SecLocationButtonAttribute;
-
-  /**
    * Called when the location button is clicked.
    *
    * @param { (event: ClickEvent, result: SecLocationButtonOnClickResult) => void } event - Indicates the
