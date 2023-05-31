@@ -1836,6 +1836,48 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Get input device for target audio capturer info.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information
+     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getPreferInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Get input device for target audio capturer info.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getPreferInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Subscribes to prefer input device change events. When prefer device for target audio capturer info changes,
+     * registered clients will receive the callback.
+     * @param { string } type - Type of the event to listen for.
+     *                          Only the preferInputDeviceChangeForCapturerInfo event is supported.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    on(type: 'preferInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes to prefer input device change events.
+     * @param { string } type - Type of the event to listen for.
+     *                          Only the preferInputDeviceChangeForCapturerInfo event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    off(type: 'preferInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**
