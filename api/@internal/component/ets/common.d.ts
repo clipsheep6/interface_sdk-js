@@ -4683,7 +4683,7 @@ declare class CommonMethod<T> {
    * @systemapi
    * @since 10
    */
-  linearGradientBlur(value: number, options:LinearGradientBlurOptions): T;
+  linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
   /**
    * Adds a highlight effect to the current component.
