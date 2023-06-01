@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -32,6 +32,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -48,6 +49,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -63,6 +65,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -94,6 +97,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -110,6 +114,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -126,6 +131,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @param { AsyncCallback<void> } callback used to return.
@@ -144,6 +150,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -160,6 +167,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -176,6 +184,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -208,6 +217,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -225,6 +235,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -242,6 +253,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -259,6 +271,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -276,6 +289,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -292,6 +306,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -308,6 +323,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -323,6 +339,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -338,6 +355,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -356,6 +374,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -374,6 +393,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -392,6 +412,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -410,6 +431,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -426,6 +448,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -442,6 +465,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -460,6 +484,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -478,6 +503,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -494,6 +520,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -526,6 +553,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -542,6 +570,7 @@ declare namespace policy {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
@@ -774,26 +803,26 @@ declare namespace policy {
   }
 
   export interface NetLogotype{
-        /**
+    /**
      * netType see {@link NetBearType}.
      * @type {NetBearType}
      * @since 10
      */
-        netType: NetBearType;
+    netType: NetBearType;
 
-        /**
-         * The ID of the target card, valid when netType is BEARER_CELLULAR..
-         * @type {string}
-         * @since 10
-         */
-        simId: string;
+    /**
+     * The ID of the target card, valid when netType is BEARER_CELLULAR..
+     * @type {string}
+     * @since 10
+     */
+    simId: string;
     
-        /**
-         * To specify the identity of network, such as different WLAN.
-         * @type {string}
-         * @since 10
-         */
-        ident: string;
+    /**
+     * To specify the identity of network, such as different WLAN.
+     * @type {string}
+     * @since 10
+     */
+    ident: string;
   }
 
   /**
