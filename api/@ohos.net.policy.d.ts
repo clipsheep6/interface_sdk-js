@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,15 +27,15 @@ declare namespace policy {
 
   /**
    * Control if applications can use data on background.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { boolean } isAllowed Allow applications to use data on background.
-   * @param { AsyncCallback<void> } callback used to return.
+   * @param { AsyncCallback<void> } callback Returns the setBackgroundAllowed.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -44,15 +44,15 @@ declare namespace policy {
   
   /**
    * Control if applications can use data on background.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { boolean } isAllowed Allow applications to use data on background.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -61,14 +61,14 @@ declare namespace policy {
 
   /**
    * Get the status if applications can use data on background.
-   * @param { AsyncCallback<boolean> } callback used to return that it's allowed or not to use data on background.
+   * @permission ohos.permission.GET_NETWORK_POLICY
+   * @param { AsyncCallback<boolean> } callback Returns that it's allowed or not to use data on background.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -77,13 +77,14 @@ declare namespace policy {
 
   /**
    * Get the status if applications can use data on background.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -92,15 +93,15 @@ declare namespace policy {
 
   /**
    * Get the background network restriction policy for the specified uid.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @param { number } uid The specified UID of application.
-   * @param { AsyncCallback<NetBackgroundPolicy> } callback used to return the background policy.
+   * @param { AsyncCallback<NetBackgroundPolicy> } callback Returns the getBackgroundPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -109,15 +110,15 @@ declare namespace policy {
 
   /**
    * Get the background network restriction policy for the specified uid.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @param { number } uid The specified UID of application.
    * @returns { Promise<NetBackgroundPolicy> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -126,16 +127,16 @@ declare namespace policy {
 
   /**
    * Set the policy for the specified UID.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { number } uid the specified UID of application.
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @param { AsyncCallback<void> } callback used to return.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
+   * @param { AsyncCallback<void> } callback Returns the setPolicyByUid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -144,16 +145,16 @@ declare namespace policy {
 
   /**
    * Set the policy for the specified UID.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { number } uid the specified UID of application.
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -162,15 +163,15 @@ declare namespace policy {
 
   /**
    * Query the policy of the specified UID.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @param { number } uid the specified UID of application.
-   * @param { AsyncCallback<NetUidPolicy> } callback used to return the uid policy.
+   * @param { AsyncCallback<NetUidPolicy> } callback Returns the getPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -179,15 +180,15 @@ declare namespace policy {
 
   /**
    * Query the policy of the specified UID.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @param { number } uid the specified UID of application.
    * @returns { Promise<NetUidPolicy> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -196,14 +197,15 @@ declare namespace policy {
 
   /**
    * Query the application UIDs of the specified policy.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
-   * @param { AsyncCallback<Array<number>> } callback used to return the uids.
+   * @param { AsyncCallback<Array<number>> } callback Returns the getUidsByPolicy.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -212,15 +214,15 @@ declare namespace policy {
 
   /**
    * Query the application UIDs of the specified policy.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -229,16 +231,16 @@ declare namespace policy {
 
   /**
    * Get the status whether the specified uid app can access the metered network or non-metered network.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { number } uid The specified UID of application.
    * @param { boolean } isMetered Indicates meterd network or non-metered network.
-   * @param { AsyncCallback<boolean> } callback used to return the availability.
+   * @param { AsyncCallback<boolean> } callback Returns the isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -247,16 +249,16 @@ declare namespace policy {
 
   /**
    * Get the status whether the specified uid app can access the metered network or non-metered network.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { number } uid The specified UID of application.
    * @param { boolean } isMetered Indicates meterd network or non-metered network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal. 
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -265,16 +267,16 @@ declare namespace policy {
 
   /**
    * Get the status whether the specified uid app can access the specified iface network.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { number } uid The specified UID of application.
    * @param { string } iface Iface name.
-   * @param { AsyncCallback<boolean> } callback used to return the availability.
+   * @param { AsyncCallback<boolean> } callback Returns the isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -283,16 +285,16 @@ declare namespace policy {
 
   /**
    * Get the status whether the specified uid app can access the specified iface network.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { number } uid The specified UID of application.
    * @param { string } iface Iface name.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -301,15 +303,15 @@ declare namespace policy {
 
   /**
    * Set network policies.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { Array<NetQuotaPolicy> } quotaPolicies Indicates {@link NetQuotaPolicy}.
-   * @param { AsyncCallback<void> } callback used to return.
+   * @param { AsyncCallback<void> } callback Returns the setNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -318,15 +320,15 @@ declare namespace policy {
 
   /**
    * Set network policies.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { Array<NetQuotaPolicy> } quotaPolicies Indicates {@link NetQuotaPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -335,14 +337,14 @@ declare namespace policy {
 
   /**
    * Get network policies.
-   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback used to return quota policy.
+   * @permission ohos.permission.GET_NETWORK_POLICY
+   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback Returns the UIDs of the getNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -351,14 +353,13 @@ declare namespace policy {
 
   /**
    * Get network policies.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @returns { Promise<Array<NetQuotaPolicy>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -367,17 +368,17 @@ declare namespace policy {
 
   /**
    * Update the limit or warning remind time of quota policy.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { NetBearType } simId Specify the matched simId of quota policy when netType is cellular.
    * @param { string } netType {@link NetBearType}.
    * @param { RemindType } RemindType {@link RemindType}.
-   * @param { AsyncCallback<void> } callback used to return.
+   * @param { AsyncCallback<void> } callback Returns the updateRemindPolicy.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -386,36 +387,34 @@ declare namespace policy {
 
    /**
    * Update the limit or warning remind time of quota policy.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { NetBearType } simId Specify the matched simId of quota policy when netType is cellular.
    * @param { string } netType {@link NetBearType}.
    * @param { RemindType } RemindType {@link RemindType}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType): Promise<void>;
-
   /**
    * Set the UID into device idle allow list.
-   * Device Idle mode is not available on the Internet except for system applications.
-   * @param { number } uid The specified UID of application.
+   * @permission ohos.permission.SET_NETWORK_POLICY
+   * @param { Array<number> } uids The specified UID of application.
    * @param { boolean } isAllowed The UID is into allow list or not.
-   * @param { AsyncCallback<void> } callback used to return.
+   * @param { AsyncCallback<void> } callback Returns the setDeviceIdleAllowList.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -424,17 +423,16 @@ declare namespace policy {
 
   /**
    * Set the UID into device idle allow list.
-   * Device Idle mode is not available on the Internet except for system applications.
-   * @param { number } uid The specified UID of application.
+   * @permission ohos.permission.SET_NETWORK_POLICY
+   * @param { Array<number> } uids The specified UID of application.
    * @param { boolean } isAllowed The UID is into allow list or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -442,16 +440,15 @@ declare namespace policy {
   function setDeviceIdleAllowList(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Get the UIDs allowed in device idle mode
-   * Device Idle mode is not available on the Internet except for system applications.
-   * @param { AsyncCallback<Array<number>> } callback used to return uids.
+   * Get the allow list of in device idle mode.
+   * @permission ohos.permission.GET_NETWORK_POLICY
+   * @param { AsyncCallback<Array<number>> } callback Returns the list of UIDs.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -459,16 +456,14 @@ declare namespace policy {
   function getDeviceIdleAllowList(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Get the UIDs allowed in device idle mode
-   * Device Idle mode is not available on the Internet except for system applications.
+   * Get the allow list of in device idle mode.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -477,17 +472,16 @@ declare namespace policy {
 
   /**
    * Set the UID into power save allow list.
-   * Power saving mode is not available on the Internet except for system applications.
-   * @param { number } uid The specified UID of application.
+   * @permission ohos.permission.SET_NETWORK_POLICY
+   * @param { Array<number> } uids The specified UID of application.
    * @param { boolean } isAllowed The UID is into allow list or not.
-   * @param { AsyncCallback<void> } callback used to return.
+   * @param { AsyncCallback<void> } callback Returns the setPowerSaveAllowList.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -496,17 +490,16 @@ declare namespace policy {
 
   /**
    * Set the UID into power save allow list.
-   * Power saving mode is not available on the Internet except for system applications.
-   * @param { number } uid The specified UID of application.
-   * @param { boolean } isAllowed The UIDs is into allow list or not.
+   * @permission ohos.permission.SET_NETWORK_POLICY
+   * @param { Array<number> } uids The specified UID of application.
+   * @param { boolean } isAllowed The UID is into allow list or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -514,16 +507,15 @@ declare namespace policy {
   function setPowerSaveAllowList(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Gets the UIDs allowed in power-saving mode
-   * Power saving mode is not available on the Internet except for system applications.
-   * @param { AsyncCallback<Array<number>> } callback used to return the allow uids.
+   * Get the allow list in power save mode.
+   * @permission ohos.permission.GET_NETWORK_POLICY
+   * @param { AsyncCallback<Array<number>> } callback Returns the list of UIDs.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -531,15 +523,14 @@ declare namespace policy {
   function getPowerSaveAllowList(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Gets the UIDs allowed in power-saving mode
-   * Power saving mode is not available on the Internet except for system applications.
+   * Get the allow list in power save mode.
+   * @permission ohos.permission.GET_NETWORK_POLICY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -548,15 +539,15 @@ declare namespace policy {
 
   /**
    * Reset network policies\rules\quota policies\firewall rules.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { string } simId Specify the matched simId of quota policy.
-   * @param { AsyncCallback<void> } callback used to return.
+   * @param { AsyncCallback<void> } callback Returns the resetPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -565,15 +556,15 @@ declare namespace policy {
 
   /**
    * Reset network policies\rules\quota policies\firewall rules.
+   * @permission ohos.permission.SET_NETWORK_POLICY
    * @param { string } simId Specify the matched simId of quota policy.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @throws { BusinessError } 2100003 - System internal.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -581,10 +572,44 @@ declare namespace policy {
   function resetPolicies(simId: string): Promise<void>;
 
   /**
+   * Reset the specified network management policy.
+   * @permission ohos.permission.SET_NETWORK_POLICY
+   * @param { string } simId Indicates the specified sim that is valid when netType is cellular.
+   * @param { AsyncCallback<void> } callback Returns the restoreAllPolicies.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function restoreAllPolicies(simId: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Reset the specified network management policy.
+   * @permission ohos.permission.SET_NETWORK_POLICY
+   * @param { string } simId Indicates the specified sim that is valid when netType is cellular.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Parameter error.
+   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function restoreAllPolicies(simId: string): Promise<void>;
+
+  /**
    * Register uid policy change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback used to return the uid and rule of policy change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netUidPolicyChange" } type Indicates Event name.
+   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -593,9 +618,9 @@ declare namespace policy {
 
   /**
    * Unregister uid policy change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback used to return the uid and rule of policy change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netUidPolicyChange" } type Indicates Event name.
+   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -604,9 +629,9 @@ declare namespace policy {
 
   /**
    * Register uid rule change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback used to return the uid and rule of rule change.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netUidRuleChange" } type Indicates Event name.
+   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -615,9 +640,9 @@ declare namespace policy {
 
   /**
    * Unregister uid rule change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback used to return the uid and rule of rule change .
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netUidRuleChange" } type Indicates Event name.
+   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -625,10 +650,10 @@ declare namespace policy {
   function off(type: "netUidRuleChange", callback?: Callback<{ uid: number, rule: NetUidRule }>): void;
 
   /**
-   * Subscribes to metered iface changes.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<Array<string>> } callback used to return the metered change iface.
+   * Register metered ifaces change listener.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netMeteredIfacesChange" } type Indicates Event name.
+   * @param { Callback<Array<string>> } callback Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -636,10 +661,10 @@ declare namespace policy {
   function on(type: "netMeteredIfacesChange", callback: Callback<Array<string>>): void;
 
   /**
-   * Unsubscribes to metered iface changes.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<Array<string>> } callback used to return the metered change iface.
+   * Unregister metered ifaces change listener.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netMeteredIfacesChange" } type Indicates Event name.
+   * @param { Callback<Array<string>> } callback Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -648,9 +673,9 @@ declare namespace policy {
 
   /**
    * Register quota policies change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback used to return the Quota Policy.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netQuotaPolicyChange" } type Indicates Event name.
+   * @param { Callback<Array<NetQuotaPolicy>> } callback Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -659,9 +684,9 @@ declare namespace policy {
 
   /**
    * Unregister quota policies change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback used to return the Quota Policy..
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netQuotaPolicyChange" } type Indicates Event name.
+   * @param { Callback<Array<NetQuotaPolicy>> } callback Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -670,9 +695,9 @@ declare namespace policy {
 
   /**
    * Register network background policy change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<boolean> } callback used to return the Back ground Policy.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netBackgroundPolicyChange" } type Indicates Event name.
+   * @param { Callback<boolean> } callback Returns the on. 
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -681,9 +706,9 @@ declare namespace policy {
 
   /**
    * Unregister network background policy change listener.
-   * @param { string } type Indicates Event name.
-   * @param { Callback<boolean> } callback used to return the Back ground Policy.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { "netBackgroundPolicyChange" } type Indicates Event name.
+   * @param { Callback<boolean> } callback Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -701,6 +726,7 @@ declare namespace policy {
     /**
      * Default value.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_BACKGROUND_POLICY_NONE = 0,
@@ -708,6 +734,7 @@ declare namespace policy {
     /**
      * Apps can use metered networks on background.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_BACKGROUND_POLICY_ENABLE = 1,
@@ -715,6 +742,7 @@ declare namespace policy {
     /**
      * Apps can't use metered networks on background.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_BACKGROUND_POLICY_DISABLE = 2,
@@ -722,6 +750,7 @@ declare namespace policy {
     /**
      * Only apps in allow list can use metered networks on background.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_BACKGROUND_POLICY_ALLOW_LIST = 3,
@@ -836,6 +865,7 @@ declare namespace policy {
     /**
      * Default action, do nothing.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     LIMIT_ACTION_NONE = -1,
@@ -843,6 +873,7 @@ declare namespace policy {
     /**
      * Access is disabled, when quota policy hit the limit.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     LIMIT_ACTION_DISABLE = 0,
@@ -850,6 +881,7 @@ declare namespace policy {
     /**
      * The user is billed automatically, when quota policy hit the limit.
      * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     LIMIT_ACTION_AUTO_BILL = 1,
@@ -858,6 +890,7 @@ declare namespace policy {
   /**
    * Rules whether an uid can access to a metered or non-metered network.
    * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -908,6 +941,7 @@ declare namespace policy {
   /**
    * Specify the remind type, see {@link updateRemindPolicy}.
    * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -930,6 +964,7 @@ declare namespace policy {
   /**
    * Network policy for uid.
    * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -942,21 +977,18 @@ declare namespace policy {
     NET_POLICY_NONE = 0,
 
     /**
-     * Allow on metered networks when app in background.
+     * Reject on metered networks when app in background.
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_POLICY_ALLOW_METERED_BACKGROUND = 1 << 0,
-
     /**
-     * Reject on metered networks when app in background.
+     * Allow on metered networks when app in background.
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_POLICY_REJECT_METERED_BACKGROUND = 1 << 1,
   }
-
-  
 }
 
 export default policy;
