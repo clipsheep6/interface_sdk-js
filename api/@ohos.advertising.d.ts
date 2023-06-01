@@ -229,14 +229,13 @@ declare namespace advertising {
    * @param { UIAbilityContext } context - Indicates the UIAbility Context of the Media Application.
    * @param { Advertisement } ad - Indicates the Advertisement content information.
    * @param { AdDisplayOptions } option - Indicates Interaction option object use to the show Ad object.
-   * @param { AdInteractionListener } listener - Indicates the Interaction Listener to be registered that use to show Ad.
    * @throws {BusinessError} 401 - Invalid input parameter.
    * @throws {BusinessError} 21800001 - System internal error.
    * @throws {BusinessError} 21800004 - Failed to display the Advertising.
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
-   function showAd(context: UIAbilityContext, ad: Advertisement, option: AdDisplayOptions, listener: AdInteractionListener): void;
+  function showAd(context: UIAbilityContext, ad: Advertisement, option: AdDisplayOptions): void;
 
   /**
    * A class for advertising loader.
