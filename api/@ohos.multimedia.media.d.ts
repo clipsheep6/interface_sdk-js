@@ -425,8 +425,8 @@ declare namespace media {
 
     /**
      * Obtains the current audio effect mode, refer to {@link #audio.AudioEffectMode}.
-     * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 10
      */
     audioEffectMode ?: audio.AudioEffectMode;
 
