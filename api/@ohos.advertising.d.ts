@@ -160,6 +160,15 @@ declare namespace advertising {
     [key:string] : number | boolean | string | undefined;
   }
 
+  export interface AdInteractionListener {
+    /**
+     * ads status callback
+     * @param status The current advertising status
+     * @param data The data of current advertising status
+     */
+    onStatusChanged(status: string, data: string);
+  }
+
   /**
    * the listener of load advertising.
    * @syscap SystemCapability.Cloud.Ads
