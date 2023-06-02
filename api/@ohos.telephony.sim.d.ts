@@ -689,7 +689,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @throws { BusinessError } 8301002 - SIM card operation error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 10
    */
   function getSimAccountInfo(slotId: number, callback: AsyncCallback<IccAccountInfo>): void;
 
@@ -709,7 +709,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @throws { BusinessError } 8301002 - SIM card operation error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 10
    */
   function getSimAccountInfo(slotId: number): Promise<IccAccountInfo>;
 
@@ -726,7 +726,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - Do not have sim card.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 8
+   * @since 10
    */
   function getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
 
@@ -741,7 +741,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - Do not have sim card.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 8
+   * @since 10
    */
   function getActiveSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
 
