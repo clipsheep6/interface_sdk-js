@@ -252,24 +252,6 @@ export class Router {
 }
 
 /**
- * class Animator
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-export class Animator {
-  /**
-   * Create an animator object for custom animation.
-   * @param { AnimatorOptions } options - Options.
-   * @throws { BusinessError } 401 - if parameter error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  create(options: AnimatorOptions): AnimatorResult;
-}
-
-/**
  * class PromptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -368,13 +350,14 @@ export class UIContext {
   getRouter(): Router;
 
   /**
-   * get object animator.
-   * @returns object Animator.
+   * Create an animator object for custom animation.
+   * @param { AnimatorOptions } options - Options.
+   * @throws { BusinessError } 401 - if parameter error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  getAnimator(): Animator;
+  createAnimator(options: AnimatorOptions): AnimatorResult;
 
   /**
    * get object PromptAction.
