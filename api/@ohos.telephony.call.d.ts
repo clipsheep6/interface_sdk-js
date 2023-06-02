@@ -53,7 +53,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
    * Makes a call.
@@ -71,7 +71,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
+  function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Makes a call.
@@ -89,7 +89,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
+  function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
   /**
    * Go to the dial screen and the called number is displayed.
@@ -322,7 +322,7 @@ declare namespace call {
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
 
-    /**
+  /**
    * Reject the incoming call.
    *
    * @param callId Indicates the identifier of the call to reject.
@@ -339,7 +339,7 @@ declare namespace call {
    */
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
-    /**
+  /**
    * Reject the incoming call.
    *
    * @param callId Indicates the identifier of the call to reject.
@@ -1261,7 +1261,7 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   export interface DialCallOptions {
+  export interface DialCallOptions {
     /**
      * @systemapi Hide this for inner system use.
      */
@@ -1732,7 +1732,7 @@ declare namespace call {
      *
      * @since 9
      */
-     ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
+    ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
 
     /**
      * Requested facility not implemented.
