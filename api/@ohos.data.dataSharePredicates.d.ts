@@ -22,7 +22,7 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
  * @StageModelOnly
- * @since 9
+ * @since 10
  */
 declare namespace dataSharePredicates {
   /**
@@ -31,7 +31,7 @@ declare namespace dataSharePredicates {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   class DataSharePredicates {
     /**
@@ -45,7 +45,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -109,7 +109,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     and(): DataSharePredicates;
 
@@ -321,7 +321,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     orderByAsc(field: string): DataSharePredicates;
 
@@ -334,7 +334,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     orderByDesc(field: string): DataSharePredicates;
 
@@ -358,7 +358,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     limit(total: number, offset: number): DataSharePredicates;
 
@@ -397,7 +397,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 10
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
 
