@@ -31,7 +31,7 @@ import image from './@ohos.multimedia.image';
 declare namespace webview {
   /**
    * Defines the Web's request/response header.
-   * 
+   *
    * @interface WebHeader
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -173,7 +173,7 @@ declare namespace webview {
 
   /**
    * Defines the hit test value, related to {@link getHitTestValue} method.
-   * 
+   *
    * @interface HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -182,7 +182,7 @@ declare namespace webview {
 
     /**
      * Get the hit test type.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -190,7 +190,7 @@ declare namespace webview {
 
     /**
      * Get the hit test extra data.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -199,7 +199,7 @@ declare namespace webview {
 
   /**
    * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
-   * 
+   *
    * @interface WebCustomScheme
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -233,7 +233,7 @@ declare namespace webview {
 
   /**
    * Provides basic information of web storage.
-   * 
+   *
    * @interface WebStorageOrigin
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -258,7 +258,7 @@ declare namespace webview {
 
   /**
    * Provides methods for managing web storage.3
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
@@ -421,7 +421,7 @@ declare namespace webview {
 
     /**
      * Delete all geolocation permissions.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
@@ -586,7 +586,7 @@ declare namespace webview {
 
   /**
    * Enum type supplied to {@link onMessageEventExt} for indicating the type of web message.
-   * 
+   *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
@@ -634,7 +634,7 @@ declare namespace webview {
 
     /**
      * The array data type.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
@@ -651,7 +651,7 @@ declare namespace webview {
 
   /**
    * The message received or sent from web message port.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
@@ -848,7 +848,7 @@ declare namespace webview {
      * Post a message to other port.
      * @param { WebMessageExt } message - Message to send.
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100010 - Can not post message using this port. 
+     * @throws { BusinessError } 17100010 - Can not post message using this port.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
