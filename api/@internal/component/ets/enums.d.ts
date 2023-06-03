@@ -4023,3 +4023,49 @@ declare enum ImageSpanAlignment {
    */
   TOP,
 }
+
+/**
+ * Defines editable text type.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextType {
+  /**
+   * text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TEXT,
+  /**
+   * span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SPAN,
+  /**
+   * image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  IMAGE,
+}
+
+/**
+ * Defines delete text direction.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextDeleteDirection {
+  /**
+   * delete backward.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  BACKWARD,
+  /**
+   * delete forward.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  FORWARD,
+}
