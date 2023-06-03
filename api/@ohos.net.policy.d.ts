@@ -31,11 +31,11 @@ declare namespace policy {
    * @param { boolean } isAllowed Allow applications to use data on background.
    * @param { AsyncCallback<void> } callback Returns the setBackgroundAllowed.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -48,11 +48,11 @@ declare namespace policy {
    * @param { boolean } isAllowed Allow applications to use data on background.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -64,11 +64,11 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<boolean> } callback Returns that it's allowed or not to use data on background.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -80,11 +80,11 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -97,11 +97,11 @@ declare namespace policy {
    * @param { number } uid The specified UID of application.
    * @param { AsyncCallback<NetBackgroundPolicy> } callback Returns the getBackgroundPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -114,11 +114,11 @@ declare namespace policy {
    * @param { number } uid The specified UID of application.
    * @returns { Promise<NetBackgroundPolicy> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -131,11 +131,11 @@ declare namespace policy {
    * @param { number } uid the specified UID of application.
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @param { AsyncCallback<void> } callback Returns the setPolicyByUid.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -150,11 +150,11 @@ declare namespace policy {
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -167,11 +167,11 @@ declare namespace policy {
    * @param { number } uid the specified UID of application.
    * @param { AsyncCallback<NetUidPolicy> } callback Returns the getPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -184,11 +184,11 @@ declare namespace policy {
    * @param { number } uid the specified UID of application.
    * @returns { Promise<NetUidPolicy> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -201,11 +201,11 @@ declare namespace policy {
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @param { AsyncCallback<Array<number>> } callback Returns the getUidsByPolicy.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -218,11 +218,11 @@ declare namespace policy {
    * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -236,11 +236,11 @@ declare namespace policy {
    * @param { boolean } isMetered Indicates metered network or non-metered network.
    * @param { AsyncCallback<boolean> } callback Returns the isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -254,11 +254,11 @@ declare namespace policy {
    * @param { boolean } isMetered Indicates metered network or non-metered network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal. 
+   * @throws { BusinessError } 2100003 - System internal error. 
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -272,11 +272,11 @@ declare namespace policy {
    * @param { string } iface Iface name.
    * @param { AsyncCallback<boolean> } callback Returns the isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -290,11 +290,11 @@ declare namespace policy {
    * @param { string } iface Iface name.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -307,11 +307,11 @@ declare namespace policy {
    * @param { Array<NetQuotaPolicy> } quotaPolicies Indicates {@link NetQuotaPolicy}.
    * @param { AsyncCallback<void> } callback Returns the setNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -324,11 +324,11 @@ declare namespace policy {
    * @param { Array<NetQuotaPolicy> } quotaPolicies Indicates {@link NetQuotaPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -340,11 +340,11 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback Returns the UIDs of the getNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -356,10 +356,10 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<NetQuotaPolicy>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -374,11 +374,11 @@ declare namespace policy {
    * @param { RemindType } RemindType {@link RemindType}.
    * @param { AsyncCallback<void> } callback Returns the updateRemindPolicy.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -393,11 +393,11 @@ declare namespace policy {
    * @param { RemindType } RemindType {@link RemindType}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -410,11 +410,11 @@ declare namespace policy {
    * @param { boolean } isAllowed The UID is into allow list or not.
    * @param { AsyncCallback<void> } callback Returns the setDeviceIdleAllowList.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -428,11 +428,11 @@ declare namespace policy {
    * @param { boolean } isAllowed The UID is into allow list or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -444,11 +444,11 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<number>> } callback Returns the list of UIDs.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -460,10 +460,10 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -477,11 +477,11 @@ declare namespace policy {
    * @param { boolean } isAllowed The UID is into allow list or not.
    * @param { AsyncCallback<void> } callback Returns the setPowerSaveAllowList.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -495,11 +495,11 @@ declare namespace policy {
    * @param { boolean } isAllowed The UID is into allow list or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -511,11 +511,11 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<number>> } callback Returns the list of UIDs.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -527,10 +527,10 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -543,11 +543,11 @@ declare namespace policy {
    * @param { string } simId Specify the matched simId of quota policy.
    * @param { AsyncCallback<void> } callback Returns the resetPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -560,11 +560,11 @@ declare namespace policy {
    * @param { string } simId Specify the matched simId of quota policy.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -577,11 +577,11 @@ declare namespace policy {
    * @param { string } simId Indicates the specified sim that is valid when netType is cellular.
    * @param { AsyncCallback<void> } callback Returns the restoreAllPolicies.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -594,11 +594,11 @@ declare namespace policy {
    * @param { string } simId Indicates the specified sim that is valid when netType is cellular.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Parameter error.
-   * @throws { BusinessError } 401 - System permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
