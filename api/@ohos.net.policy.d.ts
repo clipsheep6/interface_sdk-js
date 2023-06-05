@@ -769,7 +769,7 @@ declare namespace policy {
      * @type {NetLogotype}
      * @since 10
      */
-    networkIdentification: NetLogotype;
+    netLogoType: NetLogoType;
 
     /**
      * Net quota policy the content of the policy that needs to be set.
@@ -831,7 +831,7 @@ declare namespace policy {
     limitAction: LimitAction;
   }
 
-  export interface NetLogotype{
+  export interface NetLogoType {
     /**
      * netType see {@link NetBearType}.
      * @type {NetBearType}
