@@ -469,7 +469,8 @@ declare namespace xml {
      * Starts parsing the XML file.
      *
      * @permission N/A
-     * @param { ParseOptions } option - option option parse options for XmlPullParser, the interface including two Boolean variables and three callback functions.
+     * @param { ParseOptions } option - option option parse options for XmlPullParser, the interface including
+	 * two Boolean variables and three callback functions.
      * @throws { BusinessError } 401 - The type of option must be ParseOptions.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

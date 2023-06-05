@@ -873,13 +873,11 @@ declare namespace util {
 
     /**
      * Specifies the default iterator for an object.
-     *
-     * @permission N/A
-     * @returns { IterableIterator<[K, V]> } Returns a two - dimensional array in the form of key - value pairs.
-     * @syscap SystemCapability.Utils.Lang
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.util.LRUCache.Symbol.iterator
+     * @useinstead ohos.util.LRUCache.[Symbol.iterator]
+     * @syscap SystemCapability.Utils.Lang
+     * @returns Returns a two - dimensional array in the form of key - value pairs.
      */
     [Symbol.iterator](): IterableIterator<[K, V]>;
   }

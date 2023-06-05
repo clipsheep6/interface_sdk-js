@@ -181,13 +181,12 @@ declare namespace url {
     /**
      * Returns an iterator allowing to go through all key/value
      * pairs contained in this object.
-     *
-     * @returns { IterableIterator<[string, string]> } Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.
-     * The first item of Array is name, and the second item of Array is value.
-     * @syscap SystemCapability.Utils.Lang
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.url.URLParams.Symbol.iterator
+     * @useinstead ohos.url.URLParams.[Symbol.iterator]
+     * @syscap SystemCapability.Utils.Lang
+     * @returns Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
+     * The first item of Array is name, and the second item of Array is value.
      */
     [Symbol.iterator](): IterableIterator<[string, string]>;
 
@@ -278,7 +277,8 @@ declare namespace url {
     /**
      * Callback functions are used to traverse key-value pairs on the URLParams instance object.
      *
-     * @param { (value: string, key: string, searchParams: this) => void } callbackFn - callbackFn value Current traversal key value, key Indicates the name of the key that is traversed.
+     * @param { (value: string, key: string, searchParams: this) => void } callbackFn - callbackFn value Current traversal key value,
+	 * key Indicates the name of the key that is traversed.
      * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang

@@ -196,13 +196,11 @@ export interface PostMessageOptions {
 export interface EventListener {
   /**
    * Specifies the callback to invoke.
-   *
-   * @param { Event } evt - evt Event class for the callback to invoke.
-   * @returns { void | Promise<void> }
-   * @syscap SystemCapability.Utils.Lang
+   * @param evt Event class for the callback to invoke.
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.worker.WorkerEventListener.event
+   * @useinstead ohos.worker.WorkerEventListener.(event: Event): void | Promise<void>
+   * @syscap SystemCapability.Utils.Lang
    */
   (evt: Event): void | Promise<void>;
 }
