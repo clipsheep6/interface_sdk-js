@@ -29,6 +29,8 @@ export interface BrightnessResponse {
   value: number;
 }
 
+
+
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @since 3

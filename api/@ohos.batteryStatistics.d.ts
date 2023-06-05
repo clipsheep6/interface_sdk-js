@@ -15,6 +15,8 @@
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
+
+
 /**
  * Provides methods to get power consumption information.
  *

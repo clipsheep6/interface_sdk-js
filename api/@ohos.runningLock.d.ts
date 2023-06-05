@@ -15,6 +15,8 @@
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
+
+
 /**
  * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
  * when the screen is off.

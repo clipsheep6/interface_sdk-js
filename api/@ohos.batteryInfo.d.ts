@@ -41,6 +41,8 @@ declare namespace batteryInfo {
    */
   const chargingStatus: BatteryChargeState;
 
+
+  
   /**
    * Battery health state of the current device.
    *
