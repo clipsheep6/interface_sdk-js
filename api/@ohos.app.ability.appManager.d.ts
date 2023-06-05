@@ -150,9 +150,9 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
-  function on(type: 'applicationState', observer: ApplicationStateObserver): number;
+  function on(type: 'ApplicationState', observer: ApplicationStateObserver): number;
 
   /**
    * Register application state observer.

@@ -199,7 +199,7 @@ declare namespace config {
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
   function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
 
@@ -212,7 +212,7 @@ declare namespace config {
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since 10
    */
   function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
 
