@@ -2258,6 +2258,17 @@ declare namespace resourceManager {
   }
 
   /**
+   * Obtains the System ResourceManager object of the current device.
+   *
+   * @returns { ResourceManager } The System ResourceManager object is returned.
+   * @throws { BusinessError } 9001009 - If application can't access system resource
+   *         which is not mapped to application sandbox, This error code will be thrown.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @since 10
+   */
+  export function getSystemResourceManager(): ResourceManager;
+
+  /**
    * Contains rawFile descriptor information.
    *
    * @syscap SystemCapability.Global.ResourceManager
