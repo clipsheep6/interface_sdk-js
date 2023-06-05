@@ -2037,38 +2037,6 @@ declare enum BlurStyle {
 
   /**
    * Defines the thin background material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THIN
-   */
-  BackgroundThin,
-
-  /**
-   * Defines the thin regular material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_REGULAR
-   */
-  BackgroundRegular,
-
-  /**
-   * Defines the thin thick material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_THICK
-   */
-  BackgroundThick,
-
-  /**
-   * Defines the thin ultra thick material.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead BlurStyle#BACKGROUND_ULTRA_THICK
-   */
-  BackgroundUltraThick,
-
-  /**
-   * Defines the thin background material.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2108,30 +2076,6 @@ declare enum BlurStyle {
 declare enum ThemeColorMode {
   /**
    * Defines the mode which is follow up with system.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#SYSTEM
-   */
-  System,
-
-  /**
-   * Defines the light mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#LIGHT
-   */
-  Light,
-
-  /**
-   * Defines the dark mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ThemeColorMode#DARK
-   */
-  Dark,
-
-  /**
-   * Defines the mode which is follow up with system.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2163,22 +2107,6 @@ declare enum ThemeColorMode {
 declare enum AdaptiveColor {
   /**
    * Defines the fixed value color adaptive mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#DEFAULT
-   */
-  Default,
-
-  /**
-   * Defines the background average color adaptive mode.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead AdaptiveColor#AVERAGE
-   */
-  Average,
-
-  /**
-   * Defines the fixed value color adaptive mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2201,33 +2129,6 @@ declare enum AdaptiveColor {
  * @since 10
  */
 declare enum ModalTransition {
-  /**
-   * Use default animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#DEFAULT
-   */
-  Default,
-
-  /**
-   * Use none animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#NONE
-   */
-  None,
-
-  /**
-   * Use alpha animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ModalTransition#ALPHA
-   */
-  Alpha,
-
   /**
    * Use default animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2439,54 +2340,6 @@ declare interface ShadowOptions {
  * @since 10
  */
 declare enum ShadowStyle {
-  /**
-   * Defines the super small default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_XS
-   */
-  OuterDefaultXS,
-
-  /**
-   * Defines the small default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_SM
-   */
-  OuterDefaultSM,
-
-  /**
-   * Defines the medium default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_MD
-   */
-  OuterDefaultMD,
-
-  /**
-   * Defines the large default shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_DEFAULT_LG
-   */
-  OuterDefaultLG,
-
-  /**
-   * Defines the small floating shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_SM
-   */
-  OuterFloatingSM,
-
-  /**
-   * Defines the medium floating shadow style.
-   * @since 10
-   * @deprecated since 10
-   * @useinstead ShadowStyle#OUTER_FLOATING_MD
-   */
-  OuterFloatingMD,
-
   /**
    * Defines the super small default shadow style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2855,6 +2708,23 @@ declare interface ClickEvent extends BaseEvent {
    * @since 10
    */
   y: number;
+}
+
+/**
+ * The hover action triggers this method invocation.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface HoverEvent extends BaseEvent {
+  /**
+   * The blocking hover event pops up.
+   * @type { ?() => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  stopPropagation?: () => void;
 }
 
 /**
@@ -3578,10 +3448,10 @@ declare interface PopupOptions {
   placementOnTop?: boolean;
 
   /**
-   * Placement of popup
-   * supports four positions: top, bottom, left and right
+   * The placement of popup.
+   * Supports all positions defined in Placement.
    * @type { Placement }
-   * @default bottom
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -3720,6 +3590,23 @@ declare interface PopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * whether show arrow
+   * @type { boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
+   /**
+   * Sets the position offset of the popup.
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Position
 }
 
 /**
@@ -3852,6 +3739,15 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   targetSpace?: Length
+
+  /**
+   * Sets the position offset of the popup.
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Position
 }
 
 /**
@@ -4005,6 +3901,31 @@ declare interface PixelStretchEffectOptions {
    * @since 10
    */
   right?: Length;
+}
+
+/**
+ * Defines the click effect.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ClickEffect {
+  /**
+   * Set the click effect level.
+   * @type { ClickEffectLevel }
+   * @default ClickEffectLevel.Light
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  level: ClickEffectLevel;
+
+  /**
+   * Set scale number.
+   * This default scale is same as the scale of click effect level.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scale?: number;
 }
 
 /**
@@ -4444,15 +4365,18 @@ declare class CommonMethod<T> {
   onClick(event: (event?: ClickEvent) => void): T;
 
   /**
-   * Trigger a mouse hover event.
+   * Trigger a hover event.
    * @since 8
    */
   /**
-   * Trigger a mouse hover event.
+   * Trigger a hover event.
+   * @param {(isHover?: boolean, event?: HoverEvent} callback of onHover, isHover described entry or leave component, use HoverEvent to set up stopPropagation.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  onHover(event: (isHover?: boolean) => void): T;
+  onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
 
   /**
    * Set hover effect.
@@ -4673,6 +4597,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   blur(value: number): T;
+
+  /**
+   * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
+   * @param { number } value - the blurring radius. 
+   * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+   * @param { LinearGradientBlurOptions } options - the linear gradient blur options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
   /**
    * Adds a highlight effect to the current component.
@@ -5290,6 +5225,15 @@ declare class CommonMethod<T> {
   aspectRatio(value: number): T;
 
   /**
+   * The click effect level and scale number.
+   * @param { ClickEffect | null } value.
+   * @returns { T } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  clickEffect(value: ClickEffect | null): T;
+
+  /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
@@ -5748,6 +5692,15 @@ declare class CommonMethod<T> {
    * @since 10
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
+
+  /**
+   * Sets obscured
+   * @param { Array<ObscuredReasons> } reasons , reasons of obscuration
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T }
+   * @since 10
+   */
+  obscured(reasons: Array<ObscuredReasons>): T;
 }
 
 /**
@@ -5836,6 +5789,19 @@ declare const Common: CommonInterface;
  * @since 10
  */
 declare type CustomBuilder = (() => any) | void;
+
+/**
+ * Defines the segment of blur.
+ * The first element in the tuple means fraction. 
+ * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
+ * The second element means the stop position.
+ * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
+ * @type { [ number , number ] }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare type FractionStop = [ number, number ];
 
 /**
  * CommonShapeMethod
@@ -6078,6 +6044,31 @@ declare interface LinearGradient {
   direction?: GradientDirection;
   colors: Array<any>;
   repeating?: boolean;
+}
+
+/**
+ * Linear Gradient Blur Interface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 10
+ */
+declare interface LinearGradientBlurOptions {
+  /**
+   * Percentage of blurring effect.
+   * @type { FractionStop[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */  
+  fractionStops: FractionStop[];
+  /**
+   * Direction of linear gradient blur.
+   * @type { GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */  
+  direction: GradientDirection;
 }
 
 /**
@@ -6460,5 +6451,12 @@ declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore
     export { TouchObject, KeyEvent, MouseEvent };
+  }
+}
+
+declare module "AnimateToParam" {
+  module "AnimateToParam" {
+    // @ts-ignore
+    export { AnimateParam };
   }
 }
